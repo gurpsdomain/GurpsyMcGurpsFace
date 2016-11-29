@@ -1,0 +1,15 @@
+# Javascript
+bower_components/
+node_modules/
+
+# IntelliJ
+out/
+.idea/
+.idea/workspace.xml
+.idea/tasks.xml
+
+# Distribution
+/dist
+
+# OSX
+.DS_Store

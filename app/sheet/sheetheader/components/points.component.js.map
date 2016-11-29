@@ -1,0 +1,1 @@
+{"version":3,"file":"points.component.js","sourceRoot":"","sources":["points.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAwB,eAAe,CAAC,CAAA;AACxC,0DAA0D;AAS1D;IAAA;IACA,CAAC;IARD;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,kBAAkB;YAC5B,WAAW,EAAE,wDAAwD;YACrE,SAAS,EAAE,CAAE,+BAA+B;gBACxC,uDAAuD;aAC1D;SACJ,CAAC;;uBAAA;IAEF,sBAAC;AAAD,CAAC,AADD,IACC;AADY,uBAAe,kBAC3B,CAAA"}

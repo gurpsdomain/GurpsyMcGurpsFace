@@ -1,0 +1,38 @@
+.sheet {
+    font-family: 'Abel', sans-serif !important;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+}
+
+
+
+.double {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.nostretch {
+    flex: none;
+}
+
+.stretch {
+    flex: auto;
+}
+
+.sheetComponent{
+    border: black solid 1px;
+    border-radius: 2px;
+    margin: 4px 4px 4px 4px;
+}
+
+.sheetComponentHeader{
+    text-align: center;
+    color: #ffffff;
+    background: #000000;
+    font-size: small;
+}

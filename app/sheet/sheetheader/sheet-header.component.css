@@ -1,0 +1,9 @@
+.sheetHeader{
+    border: black solid 1px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
