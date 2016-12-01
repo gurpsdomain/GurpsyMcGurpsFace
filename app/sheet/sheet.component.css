@@ -1,14 +1,31 @@
 .sheet {
     font-family: 'Abel', sans-serif !important;
     max-width: 768px;
+    min-width: 620px;
     margin-left: auto;
     margin-right: auto;
     font-size: 13px;
 }
 
+.sheetComponent {
+    border: black solid 1px;
+    border-radius: 2px;
+    margin: 3px 3px 3px 3px;
+}
 
+.sheetComponentHeader {
+    text-align: center;
+    color: #ffffff;
+    background: #000000;
+    font-size: small;
+}
 
-.double {
+.sheetComponentBody {
+    margin-bottom: 2px;
+    padding: 0px 4px 0px 4px;
+}
+
+.sheetComponentBodyLine {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -16,23 +33,18 @@
     align-items: stretch;
 }
 
-.nostretch {
+.sheetComponentBodyLine label:first-child {
+    width: 60px;
     flex: none;
 }
 
-.stretch {
+.sheetComponentBodyLine label:nth-child(2) {
+    flex: none;
+}
+
+.sheetComponentBodyLine input {
     flex: auto;
-}
-
-.sheetComponent{
-    border: black solid 1px;
-    border-radius: 2px;
-    margin: 4px 4px 4px 4px;
-}
-
-.sheetComponentHeader{
-    text-align: center;
-    color: #ffffff;
-    background: #000000;
-    font-size: small;
+    border: none;
+    background: none;
+    border-bottom: 1px solid darkgray;
 }

@@ -16,7 +16,8 @@ var DescriptionComponent = (function () {
         core_1.Component({
             selector: 'description-component',
             templateUrl: 'app/sheet/sheetheader/components/description.component.html',
-            styleUrls: ['app/sheet/sheet.component.css']
+            styleUrls: ['app/sheet/sheet.component.css',
+                'app/sheet/sheetheader/components/description.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], DescriptionComponent);
