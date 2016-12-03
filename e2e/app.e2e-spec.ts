@@ -1,15 +1,14 @@
-import { browser, element, by } from 'protractor';
+import { GurpsyMcGurpsFacePage } from './app.po';
 
-describe('QuickStart E2E Tests', function () {
+describe('gurpsy-mc-gurps-face App', function() {
+  let page: GurpsyMcGurpsFacePage;
 
-  let expectedMsg = 'Hello Angular';
-
-  beforeEach(function () {
-    browser.get('');
+  beforeEach(() => {
+    page = new GurpsyMcGurpsFacePage();
   });
 
-  it('should display: ' + expectedMsg, function () {
-    expect(element(by.css('h1')).getText()).toEqual(expectedMsg);
+  it('should display message saying app works', () => {
+    page.navigateTo();
+    expect(page.getParagraphText()).toEqual('app works!');
   });
-
 });
