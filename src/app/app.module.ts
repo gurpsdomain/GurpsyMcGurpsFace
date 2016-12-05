@@ -2,6 +2,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
+import {TranslateModule} from 'ng2-translate';
 import {AppComponent} from "./app.component";
 import {SheetComponent} from "./sheet-component/sheet.component";
 import {SheetHeaderComponent} from "./sheet-component/sheet-header-component/sheet-header.component";
@@ -25,7 +26,8 @@ import {IdentityComponent} from "./sheet-component/sheet-header-component/identi
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
