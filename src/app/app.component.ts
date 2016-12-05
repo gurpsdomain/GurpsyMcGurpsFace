@@ -11,8 +11,8 @@ import { SettingsService } from './services/settings-service/settings.service';
 export class AppComponent {
 
     constructor(translate: TranslateService, private settingsService: SettingsService) {
-        translate.addLangs(["en", "nl"]);
-        translate.setDefaultLang('en');
+        translate.addLangs(this.settingsService.getAvailableLanguage());
+        translate.setDefaultLang(this.settingsService.getDefaultLocale());
         translate.use(this.settingsService.getCurrentLocale());
     }
 
