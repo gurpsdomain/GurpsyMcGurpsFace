@@ -1,3 +1,31 @@
 {
-  "POINTS": "Points"
+  "PORTRAIT": {
+    "PORTRAIT": "Portrait"
+  },
+  "IDENTITY": {
+    "IDENTITY": "Identity",
+    "NAME": "Name",
+    "TITLE": "Title",
+    "RELIGION": "Religion"
+  },
+  "PLAYER_INFORMATION": {
+    "PLAYER_INFORMATION": "Player Information",
+    "PLAYER": "Player",
+    "CAMPAIGN": "Campaign",
+    "CREATED_ON": "Created on"
+  },
+  "DESCRIPTION": {
+    "DESCRIPTION": "Description"
+  },
+  "POINTS": {
+    "POINTS": "Points",
+    "RACE": "Race",
+    "ATTRIBUTES": "Attributes",
+    "ADVANTAGES": "Advantages",
+    "DISADVANTAGES": "Disadvantages",
+    "QUIRKS": "Quirks",
+    "SKILLS": "Skills",
+    "SPELLS": "Spells",
+    "EARNED": "Earned"
+  }
 }

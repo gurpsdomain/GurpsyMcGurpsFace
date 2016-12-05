@@ -1,3 +1,31 @@
 {
-  "POINTS": "Punten"
+  "PORTRAIT": {
+    "PORTRAIT": "Punten"
+  },
+  "IDENTITY": {
+    "IDENTITY": "Identiteit",
+    "NAME": "Naam",
+    "TITLE": "Titel",
+    "RELIGION": "Religie"
+  },
+  "PLAYER_INFORMATION": {
+    "PLAYER_INFORMATION": "Speler Informatie",
+    "PLAYER": "Speler",
+    "CAMPAIGN": "Campaign",
+    "CREATED_ON": "Gecreeerd op"
+  },
+  "DESCRIPTION": {
+    "DESCRIPTION": "Omschrijving"
+  },
+  "POINTS": {
+    "POINTS": "Punten",
+    "RACE": "Ras",
+    "ATTRIBUTES": "Attributes",
+    "ADVANTAGES": "Advantages",
+    "DISADVANTAGES": "Disadvantages",
+    "QUIRKS": "Quirks",
+    "SKILLS": "Skills",
+    "SPELLS": "Spells",
+    "EARNED": "Verdiend"
+  }
 }
