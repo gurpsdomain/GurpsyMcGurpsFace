@@ -10,16 +10,16 @@ export class SettingsService {
     constructor() {
     }
 
-    getCurrentLocale(): string {
-        return "en";
+    getCurrentLocale(): Promise<string> {
+        return Promise.resolve("en");
     }
 
-    getDefaultLocale(): string {
-        return this.DEFAULT_LANGUAGE;
+    getDefaultLocale(): Promise<string> {
+        return Promise.resolve(this.DEFAULT_LANGUAGE);
     }
 
-    getAvailableLanguage(): string[] {
-        return this.AVAILABLE_LANGUAGES;
+    getAvailableLanguages(): Promise<string[]> {
+        return Promise.resolve(this.AVAILABLE_LANGUAGES);
     }
 
 }
