@@ -1,4 +1,4 @@
-# GurpsMcGurpsFace
+# GurpsyMcGurpsFace
 
 This repository contains a visualitation for a Gurps Charactersheet model, as created by gurpsDomain.
 
@@ -11,14 +11,14 @@ To start working with this project, install node, go to the project directory an
     npm install
 ```
 
-This will install all dependecies.  To run the application from node, run
+This will install all dependencies.  To run the application from node, run
 
 
 ```shell
     npm start
 ```
 
-To tun the unittests, run 
+To run the unittests, run 
 
 ```shell
     npm test
