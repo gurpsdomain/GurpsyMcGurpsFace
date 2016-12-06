@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
     private translateService: TranslateService;
     private settingsService: SettingsService;
 
-    constructor(translate: TranslateService, private settings: SettingsService) {
+    constructor(translate: TranslateService, settings: SettingsService) {
         this.translateService = translate;
         this.settingsService = settings;
     }
