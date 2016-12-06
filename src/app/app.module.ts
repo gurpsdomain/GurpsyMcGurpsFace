@@ -12,6 +12,7 @@ import {PlayerInformationComponent} from "./components/sheet-component/sheet-hea
 import {DescriptionComponent} from "./components/sheet-component/sheet-header-component/description-component/description.component";
 import {PointsComponent} from "./components/sheet-component/sheet-header-component/points-component/points.component";
 import {IdentityComponent} from "./components/sheet-component/sheet-header-component/identity-component/identity.component";
+import {HeaderComponent} from "./components/header-component/header/header.component";
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {IdentityComponent} from "./components/sheet-component/sheet-header-compo
         PlayerInformationComponent,
         DescriptionComponent,
         PointsComponent,
-        IdentityComponent
+        IdentityComponent,
+        HeaderComponent
     ],
     imports: [
         BrowserModule,
