@@ -2,7 +2,8 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
-import {TranslateModule} from 'ng2-translate';
+import {MaterialModule} from "@angular/material";
+import {TranslateModule} from "ng2-translate";
 import {AppComponent} from "./app.component";
 import {SheetComponent} from "./components/sheet-component/sheet.component";
 import {SheetHeaderComponent} from "./components/sheet-component/sheet-header-component/sheet-header.component";
@@ -13,24 +14,25 @@ import {PointsComponent} from "./components/sheet-component/sheet-header-compone
 import {IdentityComponent} from "./components/sheet-component/sheet-header-component/identity-component/identity.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SheetComponent,
-    SheetHeaderComponent,
-    PortraitComponent,
-    PlayerInformationComponent,
-    DescriptionComponent,
-    PointsComponent,
-    IdentityComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    TranslateModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        SheetComponent,
+        SheetHeaderComponent,
+        PortraitComponent,
+        PlayerInformationComponent,
+        DescriptionComponent,
+        PointsComponent,
+        IdentityComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        MaterialModule.forRoot(),
+        TranslateModule.forRoot()
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

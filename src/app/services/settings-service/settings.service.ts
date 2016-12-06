@@ -11,7 +11,7 @@ export class SettingsService {
     }
 
     getCurrentLocale(): Promise<string> {
-        return Promise.resolve("en");
+        return Promise.resolve("nl");
     }
 
     getDefaultLocale(): Promise<string> {
