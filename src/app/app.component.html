@@ -1,13 +1,13 @@
 <md-sidenav-layout>
     <md-sidenav #start (open)="closeStartButton.focus()">
-        Start Sidenav.
+        Sidenav.
         <br>
         <button md-button #closeStartButton (click)="start.close()">Close</button>
     </md-sidenav>
 
-    <sheet></sheet>
-    <button md-button (click)="start.open()">Open start sidenav</button>
 
+    <sheet></sheet>
+    <button md-button (click)="start.open()">Sidenav</button>
 </md-sidenav-layout>
 
 
