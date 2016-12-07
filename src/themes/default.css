@@ -1,4 +1,19 @@
+/*Stormy : #494E6B*/
+/*Cloud  : #98878F*/
+/*Sunset : #985E6D*/
+/*Evening: #192231*/
+
 .header{
-    background: cornflowerblue;
-    color: white;
+    background: #494E68 !important;
+    color: white !important;
+}
+
+.sheetComponentBody{
+    background: white !important;
+    color: black !important;
+}
+
+.sheetComponentHeader{
+    background: #192231 !important;
+    color: white !important;
 }
