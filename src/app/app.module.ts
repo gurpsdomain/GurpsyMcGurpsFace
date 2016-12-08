@@ -12,7 +12,8 @@ import {PlayerInformationComponent} from "./components/sheet-component/sheet-hea
 import {DescriptionComponent} from "./components/sheet-component/sheet-header-component/description-component/description.component";
 import {PointsComponent} from "./components/sheet-component/sheet-header-component/points-component/points.component";
 import {IdentityComponent} from "./components/sheet-component/sheet-header-component/identity-component/identity.component";
-import {HeaderComponent} from "./components/header-component/header/header.component";
+import {HeaderComponent} from "./components/header-component/header.component";
+import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import {HeaderComponent} from "./components/header-component/header/header.compo
         DescriptionComponent,
         PointsComponent,
         IdentityComponent,
-        HeaderComponent
+        HeaderComponent,
+        SideNavigationComponent
     ],
     imports: [
         BrowserModule,

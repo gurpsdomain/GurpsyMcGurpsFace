@@ -1,0 +1,17 @@
+.sideNavigation .sideNavigationHeader{
+    height: 80px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sideNavigation .sideNavigationHeader .portrait{
+    flex:auto;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.sideNavigation .sideNavigationHeader .closeButton{
+    flex:none;
+}

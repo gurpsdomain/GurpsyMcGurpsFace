@@ -1,7 +1,6 @@
 <md-sidenav-layout>
     <md-sidenav #start (open)="closeStartButton.focus()">
-        Sidenav.
-        <br>
+        <app-side-navigation></app-side-navigation>
         <button md-button #closeStartButton (click)="start.close()">Close</button>
     </md-sidenav>
 

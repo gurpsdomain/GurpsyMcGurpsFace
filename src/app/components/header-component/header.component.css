@@ -8,19 +8,15 @@
 
 .header .headerMenuButton{
     flex:none;
-    padding-top: 4px;
-    padding-left: 4px;
 }
 
 .header .headerApplicationName{
     flex:auto;
-    padding-top: 6px;
+    padding-top: 11px;
     padding-left: 8px;
     font-family: 'Abel', sans-serif !important;
 }
 
 .header .headerSettings{
     flex:none;
-    padding-top: 4px;
-    padding-right: 4px;
 }
