@@ -1,5 +1,12 @@
 {
   "APPLICATION": "GurpsyMcGurpsFace",
+  "MENU": {
+    "OPEN": "Open..."
+  },
+  "SETTINGS": {
+    "LANGUAGE": "Taal",
+    "THEME": "Thema"
+  },
   "SHEET": {
     "PORTRAIT": {
       "PORTRAIT": "Punten"
