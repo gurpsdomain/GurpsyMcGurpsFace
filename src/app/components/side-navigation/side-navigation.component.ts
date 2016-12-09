@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-side-navigation',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavigationComponent implements OnInit {
 
+  @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onCloseSideNav(){
+    this.onCloseSideNavigation.next();
   }
 
 }

@@ -1,12 +1,10 @@
 <md-sidenav-layout>
-    <md-sidenav #start (open)="closeStartButton.focus()">
-        <app-side-navigation></app-side-navigation>
-        <button md-button #closeStartButton (click)="start.close()">Close</button>
+    <md-sidenav #start>
+        <app-side-navigation (onCloseSideNavigation)="start.close()" ></app-side-navigation>
     </md-sidenav>
 
-    <app-header class="appHeader"></app-header>
+    <app-header class="appHeader" (onOpenSideNavigation)="start.open()"></app-header>
     <sheet></sheet>
-    <button md-button (click)="start.open()">Sidenav</button>
 </md-sidenav-layout>
 
 

@@ -23,6 +23,4 @@ export class AppComponent implements OnInit {
         this.settingsService.getDefaultLocale().then(defaultLocale => this.translateService.setDefaultLang(defaultLocale));
         this.settingsService.getCurrentLocale().then(currentlocale => this.translateService.use(currentlocale));
     }
-
-
 }
