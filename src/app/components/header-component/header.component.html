@@ -8,8 +8,14 @@
         {{'APPLICATION'| translate}}
     </div>
     <div class="headerSettings">
-        <button md-icon-button>
+        <button md-icon-button [md-menu-trigger-for]="settings">
             <md-icon>settings</md-icon>
         </button>
+        <md-menu x-position="before" y-position="below" #settings="mdMenu">
+            <button md-menu-item> Refresh </button>
+            <button md-menu-item> Settings </button>
+            <button md-menu-item> Help </button>
+            <button md-menu-item disabled> Sign Out </button>
+        </md-menu>
     </div>
 </div>
