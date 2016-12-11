@@ -27,6 +27,20 @@ export class SideNavigationComponent implements OnInit {
         }
     ];
 
+    selectedTheme = 'default';
+    themeOptions = [
+        {
+            label: 'Default',
+            name: 'default',
+            id: 0
+        },
+        {
+            label: 'Darcula',
+            name: 'darcula',
+            id: 1
+        }
+    ];
+
     constructor(settings: SettingsService) {
         this.settingsService = settings;
     }

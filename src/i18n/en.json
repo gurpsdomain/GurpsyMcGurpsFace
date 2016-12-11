@@ -5,7 +5,9 @@
   },
   "SETTINGS":{
     "LANGUAGE": "Language",
-    "THEME": "Theme"
+    "LANGUAGE_SELECT": "Select...",
+    "THEME": "Theme",
+    "THEME_SELECT": "Select..."
   },
   "SHEET": {
     "PORTRAIT": {

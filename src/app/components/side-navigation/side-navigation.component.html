@@ -1,29 +1,37 @@
 <div class="sideNavigation">
-  <div class="sideNavigationHeader">
-    <div class="portrait">
-      <img src="../../../assets/images/empty-portrait.png" alt="portrait"/>
+    <div class="sideNavigationHeader">
+        <div class="portrait">
+            <img src="../../../assets/images/empty-portrait.png" alt="portrait"/>
+        </div>
+        <div class="closeButton">
+            <button md-icon-button (click)="onCloseSideNav()">
+                <md-icon>keyboard_backspace</md-icon>
+            </button>
+        </div>
     </div>
-    <div class="closeButton">
-      <button md-icon-button (click)="onCloseSideNav()">
-        <md-icon>keyboard_backspace</md-icon>
-      </button>
+    <div class="sideNavigationMenu">
+        <div class="sheetComponentMenu">
+            Item 1<br>
+            Item 2<br>
+            Item 3<br>
+        </div>
+        <div class="sheetSettingsMenu">
+            <div class="settingsMenuLine">
+                <label>{{'SETTINGS.LANGUAGE'| translate}}</label>
+                <ng2-select [placeholder]="'Select...'"
+                            [displayBy]="'label'"
+                            [options]="languageOptions"
+                            [(ngModel)]="selectedLanguage">
+                </ng2-select>
+            </div>
+            <div class="settingsMenuLine">
+                <label>{{'SETTINGS.THEME'| translate}}</label>
+                <ng2-select [placeholder]="'Select...'"
+                            [displayBy]="'label'"
+                            [options]="themeOptions"
+                            [(ngModel)]="selectedTheme">
+                </ng2-select>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="sideNavigationMenu">
-    <div class="sheetComponentMenu">
-      Item 1<br>
-      Item 2<br>
-      Item 3<br>
-    </div>
-    <div class="sheetSettingsMenu">
-      <label>{{'SETTINGS.LANGUAGE'| translate}}</label>
-      <ng2-select [placeholder]="'Select language'"
-                  [displayBy]="label"
-                  [options]="languageOptions"
-                  [(ngModel)]="selectedLanguage">
-      </ng2-select>
-
-      Theme
-    </div>
-  </div>
 </div>
