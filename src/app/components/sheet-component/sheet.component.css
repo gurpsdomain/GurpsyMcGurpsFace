@@ -15,14 +15,16 @@
 
 .sheetComponentHeader {
   text-align: center;
-  color: #ffffff;
-  background: #000000;
   font-size: small;
+  background: var(--sheet-component-header-background-color);
+  color: var(--sheet-component-header-font-color);
 }
 
 .sheetComponentBody {
   margin-bottom: 2px;
   padding: 0px 4px 0px 4px;
+  background: var(--sheet-component-body-background-color);
+  color: var(--sheet-component-body-font-color);
 }
 
 .sheetComponentBodyLine {

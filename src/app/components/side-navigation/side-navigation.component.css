@@ -4,6 +4,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background: var(--side-navigation-header-background-color);
+    color: var(--side-navigation-header-font-color);
 }
 
 .sideNavigation .sideNavigationHeader .portrait {
@@ -19,5 +21,12 @@
 
 .sideNavigation .sideNavigationHeader .closeButton {
     flex: none;
-    color: white;
+}
+
+.sideNavigation .sideNavigationMenu .sheetComponentMenu{
+    margin: 20px 16px 16px 16px;
+}
+
+.sideNavigation .sideNavigationMenu .sheetSettingsMenu{
+    margin: 20px 16px 16px 16px;
 }

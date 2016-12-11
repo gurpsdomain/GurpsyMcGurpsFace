@@ -9,9 +9,21 @@
       </button>
     </div>
   </div>
-  <div class="navigationMenu">
-    Item 1<br>
-    Item 2<br>
-    Item 3<br>
+  <div class="sideNavigationMenu">
+    <div class="sheetComponentMenu">
+      Item 1<br>
+      Item 2<br>
+      Item 3<br>
+    </div>
+    <div class="sheetSettingsMenu">
+      <label>{{'SETTINGS.LANGUAGE'| translate}}</label>
+      <ng2-select [placeholder]="'Select language'"
+                  [displayBy]="label"
+                  [options]="languageOptions"
+                  [(ngModel)]="selectedLanguage">
+      </ng2-select>
+
+      Theme
+    </div>
   </div>
 </div>
