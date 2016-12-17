@@ -1,0 +1,18 @@
+/*Stormy : #494E6B*/
+/*Cloud  : #98878F*/
+/*Sunset : #985E6D*/
+/*Evening: #192231*/
+
+:root {
+    /*PAGE HEADER*/
+    --header-background-color: #494E68 ;
+    --header-font-color: #FFFFFF ;
+    /*PAGE SIDE NAVIGATION*/
+    --side-navigation-header-background-color: #985E6D;
+    --side-navigation-header-font-color: #FFFFFF;
+    /*SHEET*/
+    --sheet-component-body-background-color: #FFFFFF;
+    --sheet-component-body-font-color: #000000;
+    --sheet-component-header-background-color: #192231;
+    --sheet-component-header-font-color: #FFFFFF;
+}

@@ -1,17 +1,17 @@
 import {Component, OnInit, Output, EventEmitter} from "@angular/core";
-import {SettingsService} from "../../services/settings-service/settings.service";
+import {LanguagesService} from "../../services/languages-service/languages.service";
 
 @Component({
     selector: 'app-side-navigation',
     templateUrl: 'side-navigation.component.html',
     styleUrls: ['side-navigation.component.css'],
-    providers: [SettingsService]
+    providers: [LanguagesService]
 })
 export class SideNavigationComponent implements OnInit {
 
     @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
 
-    private settingsService: SettingsService;
+    private settingsService: LanguagesService;
 
     selectedLanguage = 'nl';
     languageOptions = [
@@ -41,11 +41,11 @@ export class SideNavigationComponent implements OnInit {
         }
     ];
 
-    constructor(settings: SettingsService) {
+    constructor(settings: LanguagesService) {
         this.settingsService = settings;
     }
 
-    ngOnInit() {
+    ngOnInit() : void{
     }
 
     onCloseSideNav() {

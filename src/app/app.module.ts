@@ -4,7 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {MaterialModule} from "@angular/material";
 import {TranslateModule} from "ng2-translate";
-import { Ng2SelectModule } from 'ng2-material-select';
+import {Ng2SelectModule} from "ng2-material-select";
 import {AppComponent} from "./app.component";
 import {SheetComponent} from "./components/sheet-component/sheet.component";
 import {SheetHeaderComponent} from "./components/sheet-component/sheet-header-component/sheet-header.component";
@@ -14,7 +14,7 @@ import {DescriptionComponent} from "./components/sheet-component/sheet-header-co
 import {PointsComponent} from "./components/sheet-component/sheet-header-component/points-component/points.component";
 import {IdentityComponent} from "./components/sheet-component/sheet-header-component/identity-component/identity.component";
 import {HeaderComponent} from "./components/header-component/header.component";
-import { SideNavigationComponent } from './components/side-navigation/side-navigation.component';
+import {SideNavigationComponent} from "./components/side-navigation/side-navigation.component";
 
 @NgModule({
     declarations: [
@@ -28,6 +28,7 @@ import { SideNavigationComponent } from './components/side-navigation/side-navig
         IdentityComponent,
         HeaderComponent,
         SideNavigationComponent
+
     ],
     imports: [
         BrowserModule,

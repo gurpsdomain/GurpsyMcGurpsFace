@@ -1,4 +1,6 @@
 {
+  "en": "English",
+  "nl": "Dutch",
   "APPLICATION": "GurpsyMcGurpsFace",
   "MENU": {
     "OPEN": "Open..."
