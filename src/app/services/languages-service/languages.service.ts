@@ -11,9 +11,9 @@ export class LanguagesService{
     private static DEFAULT: Language = LanguagesService.ENGLISH;
 
     constructor(translate: TranslateService) {
-        translate.get('nl').subscribe((res: string) => {
-            console.log(res);
-        })
+        // translate.get('nl').subscribe((res: string) => {
+        //     console.log(res);
+        // })
     }
 
     getDefault(): Promise<Language> {
