@@ -1,5 +1,6 @@
 import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {LanguagesService} from "../../services/languages-service/languages.service";
+import {ThemesService} from "../../services/themes-service/themes.service";
 
 @Component({
     selector: 'app-side-navigation',
@@ -11,44 +12,35 @@ export class SideNavigationComponent implements OnInit {
 
     @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
 
-    private settingsService: LanguagesService;
+    private languageService: LanguagesService;
+    private themesService: ThemesService;
 
-    selectedLanguage = 'nl';
-    languageOptions = [
-        {
-            label: 'Nederlands',
-            name: 'nl',
-            id: 0
-        },
-        {
-            label: 'English',
-            name: 'en',
-            id: 1
-        }
-    ];
+    selectedLanguage;
+    languageOptions;
+    selectedTheme;
+    themeOptions;
 
-    selectedTheme = 'default';
-    themeOptions = [
-        {
-            label: 'Default',
-            name: 'default',
-            id: 0
-        },
-        {
-            label: 'Darcula',
-            name: 'darcula',
-            id: 1
-        }
-    ];
-
-    constructor(settings: LanguagesService) {
-        this.settingsService = settings;
+    constructor(languages: LanguagesService, themes: ThemesService) {
+        this.languageService = languages;
+        this.themesService = themes;
     }
 
-    ngOnInit() : void{
+    ngOnInit(): void {
+        this.themesService.getAvailableThemes().then(themes => this.themeOptions = themes);
+        this.themesService.getCurrent().then(theme => this.selectedTheme = theme);
+        this.languageService.getAvailableLanguages().then(languages => this.languageOptions = languages);
+        this.languageService.getCurrent().then(language => this.selectedLanguage = language);
     }
 
-    onCloseSideNav() {
+    onCloseSideNav(): void {
         this.onCloseSideNavigation.next();
+    }
+
+    onLanguageChange(): void {
+        this.languageService.setCurrent(this.selectedLanguage);
+    }
+
+    onThemeChange(): void {
+        this.themesService.setCurrent(this.selectedTheme);
     }
 }

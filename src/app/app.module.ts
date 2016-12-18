@@ -4,7 +4,6 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 import {MaterialModule} from "@angular/material";
 import {TranslateModule} from "ng2-translate";
-import {Ng2SelectModule} from "ng2-material-select";
 import {AppComponent} from "./app.component";
 import {SheetComponent} from "./components/sheet-component/sheet.component";
 import {SheetHeaderComponent} from "./components/sheet-component/sheet-header-component/sheet-header.component";
@@ -35,8 +34,7 @@ import {SideNavigationComponent} from "./components/side-navigation/side-navigat
         FormsModule,
         HttpModule,
         MaterialModule.forRoot(),
-        TranslateModule.forRoot(),
-        Ng2SelectModule
+        TranslateModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]

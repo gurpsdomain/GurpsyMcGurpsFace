@@ -18,19 +18,19 @@
         <div class="sheetSettingsMenu">
             <div class="settingsMenuLine">
                 <label>{{'SETTINGS.LANGUAGE'| translate}}</label>
-                <ng2-select [placeholder]="'Select...'"
-                            [displayBy]="'label'"
-                            [options]="languageOptions"
-                            [(ngModel)]="selectedLanguage">
-                </ng2-select>
+                <md-radio-group [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
+                    <md-radio-button *ngFor="let language of languageOptions" [value]="language">
+                        {{language.label}}
+                    </md-radio-button>
+                </md-radio-group>
             </div>
             <div class="settingsMenuLine">
                 <label>{{'SETTINGS.THEME'| translate}}</label>
-                <ng2-select [placeholder]="'Select...'"
-                            [displayBy]="'label'"
-                            [options]="themeOptions"
-                            [(ngModel)]="selectedTheme">
-                </ng2-select>
+                <md-radio-group [(ngModel)]="selectedTheme" (change)="onThemeChange()">
+                    <md-radio-button *ngFor="let theme of themeOptions" [value]="theme">
+                        {{theme.label}}
+                    </md-radio-button>
+                </md-radio-group>
             </div>
         </div>
     </div>

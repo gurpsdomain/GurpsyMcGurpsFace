@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Theme} from "../../models/theme";
 
 @Injectable()
-export class ThemesService  {
+export class ThemesService {
 
     private static DEFAULT: Theme = new Theme(0, "default", "Default", "default.css");
     private static DARCULA: Theme = new Theme(1, "darcula", "Darcula", "darcula.css");
@@ -14,12 +14,20 @@ export class ThemesService  {
         console.log("Init called from the themesService")
     }
 
-    getDefault(): Theme {
-        return ThemesService.DEFAULT;
+    getDefault(): Promise<Theme> {
+        return Promise.resolve(ThemesService.DEFAULT);
     }
 
-    getAvailableThemes(): Theme[] {
-        return ThemesService.AVAILABLE_THEMES;
+    getCurrent(): Promise<Theme> {
+        return Promise.resolve(this.getDefault());
+    }
+
+    setCurrent(theme: Theme): void {
+        this.changeTheme(theme);
+    }
+
+    getAvailableThemes(): Promise<Theme[]> {
+        return Promise.resolve(ThemesService.AVAILABLE_THEMES);
     }
 
     initializeThemes(): void {
@@ -32,29 +40,50 @@ export class ThemesService  {
             link.setAttribute("type", "text/css");
             link.setAttribute("href", "themes/" + theme.stylesheet);
 
-            if (theme === this.current){
-                link.disabled = false
+            if (theme === this.current) {
+                link.removeAttribute("disabled");
             } else {
-                link.disabled = true
+                link.setAttribute("disabled", "true");
             }
 
             head.appendChild(link);
         }
     }
 
-    // changeStyle(theme: Theme): void {
-    //     this.current = theme;
-    //
-    //     //Change value of the meta tag
-    //     var links = document.getElementsByTagName("link");
-    //     for (var i = 0; i < links.lenght; i++) {
-    //         var link = links[i];
-    //         if (link.getAttribute("rel").indexOf("style") != -1 && link.getAttribute("title")) {
-    //             link.disabled = true;
-    //             if (a.getAttribute("title") === this.style)
-    //                 link.disabled = false;
-    //         }
-    //     }
-    // }
+
+
+    private changeTheme(theme: Theme): void {
+        this.current = theme;
+
+        //Change value of the meta tag
+        var links = document.getElementsByTagName("link");
+
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+
+            if (this.isLinkAThemeLink(link)) {
+                if (link.getAttribute("title") === theme.name) {
+                    link.removeAttribute("disabled");
+                } else {
+                    link.setAttribute("disabled", "true");
+                }
+            }
+        }
+    }
+
+    private isLinkAThemeLink(link: HTMLLinkElement): boolean {
+        return link.getAttribute("rel") === "stylesheet" &&
+            link.getAttribute("type") === "text/css" &&
+            link.getAttribute("href").includes("themes/") &&
+            this.getThemeTitles().indexOf(link.getAttribute("title")) != -1;
+    }
+
+    private getThemeTitles(): string[] {
+        var titles: string[] = [];
+        for (let theme of ThemesService.AVAILABLE_THEMES) {
+            titles.push(theme.name);
+        }
+        return titles;
+    }
 
 }
