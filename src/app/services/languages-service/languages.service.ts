@@ -5,13 +5,17 @@ import {Language} from "../../models/language";
 @Injectable()
 export class LanguagesService {
 
-    private static ENGLISH: Language = new Language(0, "en", "English");
-    private static DUTCH: Language = new Language(1, "nl", "Nederlands");
+    private translateService: TranslateService;
+
+    private static ENGLISH: Language = new Language(0, "English", "en");
+    private static DUTCH: Language = new Language(1, "Nederlands", "nl");
     private static AVAILABLE_LANGUAGES: Language[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
     private static DEFAULT: Language = LanguagesService.ENGLISH;
     private current: Language;
 
     constructor(translate: TranslateService) {
+
+        this.translateService = translate;
         // translate.get('nl').subscribe((res: string) => {
         //     console.log(res);
         // })
@@ -53,6 +57,7 @@ export class LanguagesService {
 
     private changeLanguage(language: Language): void {
         this.current = language;
-        console.log("Changing language: ", language);
+        console.log("Switching to locale: ", language.name);
+        this.translateService.use(language.name);
     }
 }
