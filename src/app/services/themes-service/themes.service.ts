@@ -4,6 +4,8 @@ import {Theme} from "../../models/theme";
 @Injectable()
 export class ThemesService {
 
+    private static STORAGE_KEY: string = "theme";
+
     private static REL: string = "rel";
     private static STYLESHEET: string = "stylesheet";
     private static TITLE: string = "title";
@@ -19,15 +21,23 @@ export class ThemesService {
     private current: Theme;
 
     constructor() {
-        this.current = ThemesService.DEFAULT;
-    }
+        var storedThemeName = localStorage.getItem(ThemesService.STORAGE_KEY);
 
-    getDefault(): Promise<Theme> {
-        return Promise.resolve(ThemesService.DEFAULT);
+        if (storedThemeName) {
+            for (let theme of ThemesService.AVAILABLE_THEMES) {
+                if (theme.name === storedThemeName) {
+                    this.current = theme;
+                    break;
+                }
+            }
+        } else {
+            this.current = ThemesService.DEFAULT;
+            console.log();
+        }
     }
 
     getCurrent(): Promise<Theme> {
-        return Promise.resolve(this.getDefault());
+        return Promise.resolve(this.current);
     }
 
     setCurrent(theme: Theme): void {
@@ -58,12 +68,9 @@ export class ThemesService {
         }
     }
 
-
-
     private changeTheme(theme: Theme): void {
-        this.current = theme;
+        this.persistTheme(theme);
 
-        //Change value of the meta tag
         var links = document.getElementsByTagName(ThemesService.LINK);
 
         for (var i = 0; i < links.length; i++) {
@@ -94,4 +101,8 @@ export class ThemesService {
         return titles;
     }
 
+    private persistTheme(theme: Theme): void {
+        this.current = theme;
+        localStorage.setItem(ThemesService.STORAGE_KEY, theme.name);
+    }
 }
