@@ -4,6 +4,15 @@ import {Theme} from "../../models/theme";
 @Injectable()
 export class ThemesService {
 
+    private static REL: string = "rel";
+    private static STYLESHEET: string = "stylesheet";
+    private static TITLE: string = "title";
+    private static TYPE: string = "type";
+    private static MIME_TYPE: string = "text/css";
+    private static HREF: string = "href";
+    private static THEMES_ROOT: string = "themes/";
+    private static LINK: string = "link";
+
     private static DEFAULT: Theme = new Theme(0, "default", "Default", "default.css");
     private static DARCULA: Theme = new Theme(1, "darcula", "Darcula", "darcula.css");
     private static AVAILABLE_THEMES: Theme[] = [ThemesService.DEFAULT, ThemesService.DARCULA];
@@ -11,7 +20,6 @@ export class ThemesService {
 
     constructor() {
         this.current = ThemesService.DEFAULT;
-        console.log("Init called from the themesService")
     }
 
     getDefault(): Promise<Theme> {
@@ -34,11 +42,11 @@ export class ThemesService {
         var head = document.head;
 
         for (let theme of ThemesService.AVAILABLE_THEMES) {
-            var link: Element = document.createElement("link");
-            link.setAttribute("rel", "stylesheet");
-            link.setAttribute("title", theme.name);
-            link.setAttribute("type", "text/css");
-            link.setAttribute("href", "themes/" + theme.stylesheet);
+            var link: Element = document.createElement(ThemesService.LINK);
+            link.setAttribute(ThemesService.REL, ThemesService.STYLESHEET);
+            link.setAttribute(ThemesService.TITLE, theme.name);
+            link.setAttribute(ThemesService.TYPE, ThemesService.MIME_TYPE);
+            link.setAttribute(ThemesService.HREF, ThemesService.THEMES_ROOT + theme.stylesheet);
 
             if (theme === this.current) {
                 link.removeAttribute("disabled");
@@ -56,13 +64,13 @@ export class ThemesService {
         this.current = theme;
 
         //Change value of the meta tag
-        var links = document.getElementsByTagName("link");
+        var links = document.getElementsByTagName(ThemesService.LINK);
 
         for (var i = 0; i < links.length; i++) {
             var link = links[i];
 
             if (this.isLinkAThemeLink(link)) {
-                if (link.getAttribute("title") === theme.name) {
+                if (link.getAttribute(ThemesService.TITLE) === theme.name) {
                     link.removeAttribute("disabled");
                 } else {
                     link.setAttribute("disabled", "true");
@@ -71,11 +79,11 @@ export class ThemesService {
         }
     }
 
-    private isLinkAThemeLink(link: HTMLLinkElement): boolean {
-        return link.getAttribute("rel") === "stylesheet" &&
-            link.getAttribute("type") === "text/css" &&
-            link.getAttribute("href").includes("themes/") &&
-            this.getThemeTitles().indexOf(link.getAttribute("title")) != -1;
+    private isLinkAThemeLink(link: Element): boolean {
+        return link.getAttribute(ThemesService.REL) === ThemesService.STYLESHEET &&
+            link.getAttribute(ThemesService.TYPE) === ThemesService.MIME_TYPE &&
+            link.getAttribute(ThemesService.HREF).includes(ThemesService.THEMES_ROOT) &&
+            this.getThemeTitles().indexOf(link.getAttribute(ThemesService.TITLE)) != -1;
     }
 
     private getThemeTitles(): string[] {
