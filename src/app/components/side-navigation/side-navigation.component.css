@@ -19,9 +19,7 @@
     width: 50px;
 }
 
-.sideNavigation .sideNavigationHeader .closeButton {
-    flex: none;
-}
+
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu{
     margin: 20px 16px 16px 16px;
@@ -34,3 +32,4 @@
 .sideNavigation .sideNavigationMenu .sheetSettingsMenu .md-radio-button{
     display: block;
 }
+

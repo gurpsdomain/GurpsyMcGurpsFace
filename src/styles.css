@@ -13,3 +13,7 @@ body {
 .md-sidenav-content {
     background: var(--page-background-color);
 }
+
+.sideNavigation .sideNavigationHeader .closeButton .md-button-wrapper{
+    color: var(--side-navigation-back-button);
+}
