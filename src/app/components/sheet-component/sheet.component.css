@@ -5,6 +5,7 @@
   margin-left: auto;
   margin-right: auto;
   font-size: 13px;
+  background: var(--sheet-background-color);
 }
 
 .sheetComponent {
@@ -24,7 +25,6 @@
   margin-bottom: 2px;
   padding: 0px 4px 0px 4px;
   background: var(--sheet-component-body-background-color);
-  color: var(--sheet-component-body-font-color);
 }
 
 .sheetComponentBodyLine {
@@ -38,10 +38,12 @@
 .sheetComponentBodyLine label:first-child {
   width: 70px;
   flex: none;
+  color: var(--sheet-label-font-color);
 }
 
 .sheetComponentBodyLine label:nth-child(2) {
   flex: none;
+  color: var(--sheet-data-font-color);
 }
 
 .sheetComponentBodyLine input {
@@ -49,4 +51,5 @@
   border: none;
   background: none;
   border-bottom: 1px solid darkgray;
+  color: var(--sheet-data-font-color);
 }

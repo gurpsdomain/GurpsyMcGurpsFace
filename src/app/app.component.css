@@ -5,3 +5,8 @@ md-sidenav{
 md-sidenav-layout {
     height: 100%;
 }
+
+.md-sidenav{
+    background: var(--side-navigation-background-color);
+    color: var(--side-navigation-font-color);
+}

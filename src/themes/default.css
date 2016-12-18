@@ -4,15 +4,21 @@
 /*Evening: #192231*/
 
 :root {
+    /*PAGE*/
+    --page-background-color: #FFFFFF;
     /*PAGE HEADER*/
     --header-background-color: #494E68 ;
     --header-font-color: #FFFFFF ;
     /*PAGE SIDE NAVIGATION*/
     --side-navigation-header-background-color: #985E6D;
     --side-navigation-header-font-color: #FFFFFF;
+    --side-navigation-background-color: #FFFFFF;
+    --side-navigation-font-color: #000000;
     /*SHEET*/
-    --sheet-component-body-background-color: #FFFFFF;
-    --sheet-component-body-font-color: #000000;
+    --sheet-background-color: #FFFFFF;
     --sheet-component-header-background-color: #192231;
     --sheet-component-header-font-color: #FFFFFF;
+    --sheet-component-body-background-color: #FFFFFF;
+    --sheet-label-font-color: #000000;
+    --sheet-data-font-color: #000000
 }

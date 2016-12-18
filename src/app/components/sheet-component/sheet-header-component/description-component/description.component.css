@@ -1,3 +1,5 @@
 .description {
+  background: var(--sheet-component-body-background-color);
+  color: var(--sheet-data-font-color);
   height: calc(100%);
 }
