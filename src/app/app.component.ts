@@ -34,6 +34,5 @@ export class AppComponent implements OnInit {
 
     initThemes(): void{
         this.themesService.initializeThemes();
-        console.log();
     }
 }

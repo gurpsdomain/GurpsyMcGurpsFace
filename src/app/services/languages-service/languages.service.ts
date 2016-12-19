@@ -5,20 +5,34 @@ import {Language} from "../../models/language";
 @Injectable()
 export class LanguagesService {
 
-    private translateService: TranslateService;
+    private static STORAGE_KEY: string = "gurpsy-mc-gurps-face.language";
 
     private static ENGLISH: Language = new Language(0, "English", "en");
     private static DUTCH: Language = new Language(1, "Nederlands", "nl");
     private static AVAILABLE_LANGUAGES: Language[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
     private static DEFAULT: Language = LanguagesService.ENGLISH;
+
+    private translateService: TranslateService;
     private current: Language;
 
     constructor(translate: TranslateService) {
 
         this.translateService = translate;
-        // translate.get('nl').subscribe((res: string) => {
-        //     console.log(res);
-        // })
+
+        var storedLanguageName = localStorage.getItem(LanguagesService.STORAGE_KEY);
+
+        if (storedLanguageName) {
+            for (let language of LanguagesService.AVAILABLE_LANGUAGES) {
+                if (language.locale === storedLanguageName) {
+                    this.current = language;
+                    break;
+                }
+            }
+        }
+
+        if (!this.current) {
+            this.current = LanguagesService.DEFAULT;
+        }
     }
 
     getDefault(): Promise<Language> {
@@ -34,11 +48,11 @@ export class LanguagesService {
     }
 
     getCurrentLocale(): Promise<string> {
-        return Promise.resolve("en");
+        return Promise.resolve(this.current.locale);
     }
 
     getDefaultLocale(): Promise<string> {
-        var locale: string = LanguagesService.DEFAULT.name;
+        var locale: string = LanguagesService.DEFAULT.locale;
         return Promise.resolve(locale);
     }
 
@@ -50,14 +64,18 @@ export class LanguagesService {
 
         var languagesLocales: string[] = [];
         for (let language of LanguagesService.AVAILABLE_LANGUAGES) {
-            languagesLocales.push(language.name);
+            languagesLocales.push(language.locale);
         }
         return Promise.resolve(languagesLocales);
     }
 
     private changeLanguage(language: Language): void {
+        this.persistLanguage(language);
+        this.translateService.use(language.locale);
+    }
+
+    private persistLanguage(language: Language): void {
         this.current = language;
-        console.log("Switching to locale: ", language.name);
-        this.translateService.use(language.name);
+        localStorage.setItem(LanguagesService.STORAGE_KEY, language.locale);
     }
 }

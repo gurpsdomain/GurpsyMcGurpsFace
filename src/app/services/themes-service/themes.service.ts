@@ -4,7 +4,7 @@ import {Theme} from "../../models/theme";
 @Injectable()
 export class ThemesService {
 
-    private static STORAGE_KEY: string = "theme";
+    private static STORAGE_KEY: string = "gurpsy-mc-gurps-face.theme";
 
     private static REL: string = "rel";
     private static STYLESHEET: string = "stylesheet";
@@ -15,8 +15,8 @@ export class ThemesService {
     private static THEMES_ROOT: string = "themes/";
     private static LINK: string = "link";
 
-    private static DEFAULT: Theme = new Theme(0, "default", "Default", "default.css");
-    private static DARCULA: Theme = new Theme(1, "darcula", "Darcula", "darcula.css");
+    private static DEFAULT: Theme = new Theme(0, "Default", "default", "default.css");
+    private static DARCULA: Theme = new Theme(1, "Darcula", "darcula", "darcula.css");
     private static AVAILABLE_THEMES: Theme[] = [ThemesService.DEFAULT, ThemesService.DARCULA];
     private current: Theme;
 
@@ -30,9 +30,10 @@ export class ThemesService {
                     break;
                 }
             }
-        } else {
+        }
+
+        if (!this.current) {
             this.current = ThemesService.DEFAULT;
-            console.log();
         }
     }
 
