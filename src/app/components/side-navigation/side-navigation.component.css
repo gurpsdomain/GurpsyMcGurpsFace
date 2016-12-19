@@ -20,6 +20,9 @@
 }
 
 
+.sideNavigation .sideNavigationMenu {
+    color: var(--side-navigation-font-color);
+}
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu{
     margin: 20px 16px 16px 16px;
@@ -29,7 +32,9 @@
     margin: 20px 16px 16px 16px;
 }
 
-.sideNavigation .sideNavigationMenu .sheetSettingsMenu .md-radio-button{
+.sideNavigation .sideNavigationMenu .sheetSettingsMenu md-radio-button{
     display: block;
 }
+
+
 

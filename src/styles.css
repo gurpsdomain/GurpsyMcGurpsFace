@@ -10,8 +10,20 @@ body {
     height: 100%;
 }
 
+md-sidenav{
+    width: 180px;
+}
+
+md-sidenav-layout {
+    height: 100%;
+}
+
 .md-sidenav-content {
     background: var(--page-background-color);
+}
+
+.md-sidenav-over {
+    background: var(--side-navigation-background-color);
 }
 
 .sideNavigation .sideNavigationHeader .closeButton .md-button-wrapper{
