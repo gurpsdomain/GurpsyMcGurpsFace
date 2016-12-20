@@ -1,22 +1,31 @@
 :root {
+    --gray-very-light: #BEBDBC;
+    --gray-light: #5f5f5f;
+    --gray-dark: #4d4f4f;
+    --gray-very-dark: #393939;
+    --gray-very-very-dark: #1A1A1A;
+    --yellow: #E9C587;
+    --white: #FFFFFF;
+    --gradient-verical-gray: linear-gradient(to top, #5f5f5f , #808080);
+
     /*PAGE*/
-    --page-background-color: #1a1a1a;
+    --page-background-color: var(--gray-very-very-dark);
     /*PAGE HEADER*/
-    --header-background-color: linear-gradient(to top, #5f5f5f , #808080);
-    --header-font-color: #FFFFFF ;
+    --header-background-color: var(--gradient-verical-gray);
+    --header-font-color: var(--white);
     /*PAGE SIDE NAVIGATION*/
-    --side-navigation-header-background-color: linear-gradient(to top, #5f5f5f , #808080);
-    --side-navigation-header-font-color: #FFFFFF;
-    --side-navigation-background-color: #393939;
-    --side-navigation-font-color: #FFFFFF;
-    --side-navigation-back-button: #E9C587;
-    --side-navigation-menu-separator-color: #5f5f5f;
-    --side-navigation-menu-header-color: #E9C587;
+    --side-navigation-header-background-color: var(--gradient-verical-gray);
+    --side-navigation-header-font-color: var(--white);
+    --side-navigation-background-color: var(--gray-very-dark);
+    --side-navigation-font-color: var(--white);
+    --side-navigation-back-button: var(--yellow);
+    --side-navigation-menu-separator-color: var(--gray-light);
+    --side-navigation-menu-header-color: var(--yellow);
     /*SHEET*/
-    --sheet-background-color: #4d4f50;
-    --sheet-label-font-color: #E9C587;
-    --sheet-data-font-color: #BEBDBC;
-    --sheet-component-header-background-color: linear-gradient(to top, #5f5f5f , #808080);
-    --sheet-component-header-font-color: #BEBDBC;
-    --sheet-component-body-background-color: #393939;
+    --sheet-background-color: var(--gray-dark);
+    --sheet-label-font-color: var(--yellow);
+    --sheet-data-font-color: var(--gray-very-light);
+    --sheet-component-header-background-color: var(--gradient-verical-gray);
+    --sheet-component-header-font-color: var(--gray-very-light);
+    --sheet-component-body-background-color: var(--gray-very-dark);
 }
