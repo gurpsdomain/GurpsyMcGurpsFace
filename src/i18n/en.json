@@ -6,10 +6,10 @@
     "OPEN": "Open..."
   },
   "SETTINGS": {
+    "SHEETVIEW": "Sheetview",
+    "SETTINGS": "Settings",
     "LANGUAGE": "Language",
-    "LANGUAGE_SELECT": "Select...",
-    "THEME": "Theme",
-    "THEME_SELECT": "Select..."
+    "THEME": "Theme"
   },
   "SHEET": {
     "SUBJECT": {

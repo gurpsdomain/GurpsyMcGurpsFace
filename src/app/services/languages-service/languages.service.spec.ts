@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { SettingsRepositoryService } from './languages.service';
+import { LanguagesService } from './languages.service';
 
-describe('SettingsRepositoryService', () => {
+describe('LanguagesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SettingsRepositoryService]
+      providers: [LanguagesService]
     });
   });
 
-  it('should ...', inject([SettingsRepositoryService], (service: SettingsRepositoryService) => {
+  it('should ...', inject([LanguagesService], (service: LanguagesService) => {
     expect(service).toBeTruthy();
   }));
 });

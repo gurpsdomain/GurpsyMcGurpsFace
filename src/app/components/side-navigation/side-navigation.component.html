@@ -10,6 +10,7 @@
         </div>
     </div>
     <div class="sideNavigationMenu">
+        <div class="sideNavigationMenuSubheader">{{'SETTINGS.SHEETVIEW'| translate}}</div>
         <div class="sheetComponentMenu">
             <button md-button><md-icon>accessibility</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.ATTRIBUTES'| translate}}</span></button>
             <button md-button><md-icon>hearing</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.DIS_ADVANTAGES'| translate}}</span></button>
@@ -19,6 +20,7 @@
             <button md-button><md-icon>mode_edit</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.NOTES'| translate}}</span></button>
         </div>
         <div class="sheetSettingsMenu">
+            <div class="sideNavigationMenuSubheader">{{'SETTINGS.SETTINGS'| translate}}</div>
             <div class="settingsMenuLine">
                 <label>{{'SETTINGS.LANGUAGE'| translate}}</label>
                 <md-radio-group [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">

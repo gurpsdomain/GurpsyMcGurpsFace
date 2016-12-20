@@ -21,14 +21,18 @@
 
 .sideNavigation .sideNavigationMenu {
     color: var(--side-navigation-font-color);
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu {
     width: 100%;
-    margin: 20px 0px 4px 0px;
+    margin: 8px 0px 4px 0px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--side-navigation-menu-separator-color);
 }
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu button {
@@ -42,13 +46,16 @@
     padding-right: 16px;
 }
 
-.sideNavigation .sideNavigationMenu .sheetSettingsMenu .sheetComponentMenuItemText{
-
-}
-
 .sideNavigation .sideNavigationMenu .sheetSettingsMenu md-radio-button {
     display: block;
 }
 
+.sideNavigation .sideNavigationMenu .sideNavigationMenuSubheader {
+    display: block;
+    font-size: small;
+    font-weight: bold;
+    margin: 8px 0px 0px 8px;
+    color: var(--side-navigation-menu-header-color);
+}
 
 
