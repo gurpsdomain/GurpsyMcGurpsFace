@@ -22,6 +22,11 @@
 .sideNavigation .sideNavigationMenu {
     color: var(--side-navigation-font-color);
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: small;
+}
+
+.sideNavigation .sideNavigationMenu .sheetComponentMenu .sheetComponentMenuItemText{
+    font-size: small;   
 }
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu {
@@ -33,6 +38,7 @@
     border-bottom-style: solid;
     border-bottom-width: 1px;
     border-bottom-color: var(--side-navigation-menu-separator-color);
+
 }
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu button {
@@ -44,6 +50,7 @@
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu button md-icon {
     padding-right: 16px;
+    vertical-align: text-bottom;
 }
 
 .sideNavigation .sideNavigationMenu .sheetSettingsMenu md-radio-button {
