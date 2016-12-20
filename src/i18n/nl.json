@@ -10,6 +10,14 @@
     "THEME": "Thema"
   },
   "SHEET": {
+    "SUBJECT":{
+      "ATTRIBUTES": "Attributes",
+      "SKILLS": "Skills",
+      "DIS_ADVANTAGES": "(Dis)Advantages",
+      "EQUIPMENT": "Equipment",
+      "NOTES": "Notities",
+      "MAGIC": "Magie"
+    },
     "PORTRAIT": {
       "PORTRAIT": "Punten"
     },

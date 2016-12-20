@@ -5,13 +5,21 @@
   "MENU": {
     "OPEN": "Open..."
   },
-  "SETTINGS":{
+  "SETTINGS": {
     "LANGUAGE": "Language",
     "LANGUAGE_SELECT": "Select...",
     "THEME": "Theme",
     "THEME_SELECT": "Select..."
   },
   "SHEET": {
+    "SUBJECT": {
+      "ATTRIBUTES": "Attributes",
+      "SKILLS": "Skills",
+      "DIS_ADVANTAGES": "(Dis)Advantages",
+      "EQUIPMENT": "Equipment",
+      "NOTES": "Notes",
+      "MAGIC": "Magic"
+    },
     "PORTRAIT": {
       "PORTRAIT": "Portrait"
     },

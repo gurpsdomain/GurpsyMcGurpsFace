@@ -19,20 +19,34 @@
     width: 50px;
 }
 
-
 .sideNavigation .sideNavigationMenu {
     color: var(--side-navigation-font-color);
 }
 
-.sideNavigation .sideNavigationMenu .sheetComponentMenu{
-    margin: 20px 16px 16px 16px;
+.sideNavigation .sideNavigationMenu .sheetComponentMenu {
+    width: 100%;
+    margin: 20px 0px 4px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.sideNavigation .sideNavigationMenu .sheetSettingsMenu{
-    margin: 20px 16px 16px 16px;
+.sideNavigation .sideNavigationMenu .sheetComponentMenu button {
+    width: 100%;
+    display: flex;
+    align-content: flex-start;
+    padding: 0px 8px 0px 8px;
 }
 
-.sideNavigation .sideNavigationMenu .sheetSettingsMenu md-radio-button{
+.sideNavigation .sideNavigationMenu .sheetComponentMenu button md-icon {
+    padding-right: 16px;
+}
+
+.sideNavigation .sideNavigationMenu .sheetSettingsMenu .sheetComponentMenuItemText{
+
+}
+
+.sideNavigation .sideNavigationMenu .sheetSettingsMenu md-radio-button {
     display: block;
 }
 
