@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 
+:root {
+    --max-width-sheet-large: 768px;
+    --min-width-sheet-large: 620px;
+    --max-width-sheet-medium: 619px;
+}
+
 html {
     height: 100%;
 }

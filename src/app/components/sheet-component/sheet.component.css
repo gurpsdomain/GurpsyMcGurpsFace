@@ -1,11 +1,15 @@
 .sheet {
   font-family: 'Abel', sans-serif !important;
-  max-width: 768px;
-  min-width: 620px;
   margin-left: auto;
   margin-right: auto;
   font-size: 13px;
   background: var(--sheet-background-color);
+}
+
+@media screen and (min-width: 619px) {
+  .sheet {
+    max-width: var(--max-width-sheet-large);
+  }
 }
 
 .sheetComponent {

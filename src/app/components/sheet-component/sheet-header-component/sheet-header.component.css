@@ -8,8 +8,16 @@
   align-items: stretch;
 }
 
-.portraitWrapper {
-  flex: none;
+@media screen and (min-width: 619px) {
+  .portraitWrapper {
+    flex: none;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .portraitWrapper {
+    display: none;
+  }
 }
 
 .descriptionWrapper {
