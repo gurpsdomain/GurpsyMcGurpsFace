@@ -20,12 +20,14 @@ This will install all dependencies.  To run the application from node, run
     npm start
 ```
 
-To run the unit tests, run 
+Open a browser and point it to `http://localhost:4200`. This will serve up the
+application.
+
+To run the tests, run 
 
 ```shell
     npm test
 ```
-
 
 [gurpsdomain]: https://github.com/gurpsdomain/gurpsdomain
 [quickstart]: https://angular.io/docs/ts/latest/quickstart.html
