@@ -5,6 +5,8 @@
     --max-width-sheet-large: 768px;
     --min-width-sheet-large: 620px;
     --max-width-sheet-medium: 619px;
+    --min-width-device-medium: 320px;
+    --max-width-device-small: 319px
 }
 
 html {
@@ -16,7 +18,7 @@ body {
     height: 100%;
 }
 
-md-sidenav{
+md-sidenav {
     width: 180px;
 }
 
@@ -32,6 +34,6 @@ md-sidenav-layout {
     background: var(--side-navigation-background-color);
 }
 
-.sideNavigation .sideNavigationHeader .closeButton .md-button-wrapper{
+.sideNavigation .sideNavigationHeader .closeButton .md-button-wrapper {
     color: var(--side-navigation-back-button);
 }

@@ -27,6 +27,7 @@
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu .sheetComponentMenuItemText{
     font-size: small;
+    font-weight: normal;
 }
 
 .sideNavigation .sideNavigationMenu .sheetComponentMenu {
