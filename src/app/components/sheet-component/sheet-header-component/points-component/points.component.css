@@ -1,9 +1,6 @@
-.points {
-  height: calc(100% - 10px);
-}
-
 .points .sheetComponentBody {
   width: 100px;
+  margin-bottom: 0px;
 }
 
 .earned {

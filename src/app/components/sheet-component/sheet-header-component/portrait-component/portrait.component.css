@@ -2,7 +2,13 @@
     height: calc(100% - 10px);
 }
 
+.portrait .sheetComponentBody {
+    padding: 2px 2px 2px 2px;
+}
+
 .portrait .sheetComponentBody img {
     width: 100px;
     padding: 0px 0px 0px 0px;
+    vertical-align: middle;
+    -webkit-clip-path: inset(1% 1% 1% 1%);
 }

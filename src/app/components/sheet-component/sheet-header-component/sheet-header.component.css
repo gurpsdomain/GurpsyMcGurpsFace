@@ -21,12 +21,16 @@
 }
 
 .descriptionWrapper {
-  flex: 1;
-  margin-bottom: 10px;
+  flex: 1 1 auto;
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
 }
 
 .pointsWrapper {
-  flex: none;
+  flex: 0 0 auto;
+  margin-bottom: 3px;
 }
 
 .centerComponentsWrapper {
