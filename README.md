@@ -10,14 +10,14 @@ To start working with this project, install node, go to the project directory
 and run 
 
 ```shell
-    npm install
+npm install
 ```
 
 This will install all dependencies.  To run the application from node, run
 
 
 ```shell
-    npm start
+npm start
 ```
 
 Open a browser and point it to `http://localhost:4200`. This will serve up the
@@ -26,8 +26,17 @@ application.
 To run the tests, run 
 
 ```shell
-    npm test
+npm test
 ```
+
+If you want to create a distribution run the command
+
+```shell
+npm run-script build
+```
+
+This will create a `dist` directory. This needs to be served by a web server. To
+run it locally execute `python -m SimpleHTTPServer` from this directory.
 
 [gurpsdomain]: https://github.com/gurpsdomain/gurpsdomain
 [quickstart]: https://angular.io/docs/ts/latest/quickstart.html
