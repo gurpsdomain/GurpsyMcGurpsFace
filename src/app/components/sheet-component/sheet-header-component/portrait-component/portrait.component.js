@@ -14,7 +14,7 @@ var PortraitComponent = (function () {
     }
     PortraitComponent = __decorate([
         core_1.Component({
-            selector: 'portrait-component',
+            selector: 'app-portrait-component',
             templateUrl: 'app/sheet/sheetheader/components/portrait.component.html',
             styleUrls: ['app/sheet/sheet.component.css',
                 'app/sheet/sheetheader/components/portrait.component.css'

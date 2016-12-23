@@ -19,7 +19,7 @@ export class LanguagesService {
 
         this.translateService = translate;
 
-        let storedLanguageName : string = localStorage.getItem(LanguagesService.STORAGE_KEY);
+        let storedLanguageName: string = localStorage.getItem(LanguagesService.STORAGE_KEY);
 
         if (storedLanguageName) {
             for (let language of LanguagesService.AVAILABLE_LANGUAGES) {

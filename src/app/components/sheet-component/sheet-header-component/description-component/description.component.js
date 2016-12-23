@@ -14,7 +14,7 @@ var DescriptionComponent = (function () {
     }
     DescriptionComponent = __decorate([
         core_1.Component({
-            selector: 'description-component',
+            selector: 'app-description-component',
             templateUrl: 'app/sheet/sheetheader/components/description.component.html',
             styleUrls: ['app/sheet/sheet.component.css',
                 'app/sheet/sheetheader/components/description.component.css']

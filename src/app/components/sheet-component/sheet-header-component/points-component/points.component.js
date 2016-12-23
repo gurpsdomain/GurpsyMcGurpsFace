@@ -15,7 +15,7 @@ var PointsComponent = (function () {
     }
     PointsComponent = __decorate([
         core_1.Component({
-            selector: 'points-component',
+            selector: 'app-points-component',
             templateUrl: 'app/sheet/sheetheader/components/points.component.html',
             styleUrls: ['app/sheet/sheet.component.css',
                 'app/sheet/sheetheader/components/points.component.css'

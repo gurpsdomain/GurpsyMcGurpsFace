@@ -14,7 +14,7 @@ var PlayerInformationComponent = (function () {
     }
     PlayerInformationComponent = __decorate([
         core_1.Component({
-            selector: 'player-information-component',
+            selector: 'app-player-information-component',
             templateUrl: 'app/sheet/sheetheader/components/player-information.component.html',
             styleUrls: ['app/sheet/sheet.component.css']
         }), 

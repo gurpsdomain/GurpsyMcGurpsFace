@@ -50,10 +50,10 @@ export class ThemesService {
     }
 
     initializeThemes(): void {
-        let head : HTMLHeadElement = document.head;
+        let head: HTMLHeadElement = document.head;
 
         for (let theme of ThemesService.AVAILABLE_THEMES) {
-            var link: Element = document.createElement(ThemesService.LINK);
+            let link: Element = document.createElement(ThemesService.LINK);
             link.setAttribute(ThemesService.REL, ThemesService.STYLESHEET);
             link.setAttribute(ThemesService.TITLE, theme.name);
             link.setAttribute(ThemesService.TYPE, ThemesService.MIME_TYPE);
@@ -72,10 +72,10 @@ export class ThemesService {
     private changeTheme(theme: Theme): void {
         this.persistTheme(theme);
 
-        let links : NodeListOf<Element> = document.getElementsByTagName(ThemesService.LINK);
+        let links: NodeListOf<Element> = document.getElementsByTagName(ThemesService.LINK);
 
-        for (var i = 0; i < links.length; i++) {
-            let link : Element = links[i];
+        for (let i = 0; i < links.length; i++) {
+            let link: Element = links[i];
 
             if (this.isLinkAThemeLink(link)) {
                 if (link.getAttribute(ThemesService.TITLE) === theme.name) {

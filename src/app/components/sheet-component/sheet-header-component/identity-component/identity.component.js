@@ -14,7 +14,7 @@ var IdentityComponent = (function () {
     }
     IdentityComponent = __decorate([
         core_1.Component({
-            selector: 'identity-component',
+            selector: 'app-identity-component',
             templateUrl: 'app/sheet/sheetheader/components/identity.component.html',
             styleUrls: ['app/sheet/sheet.component.css']
         }), 

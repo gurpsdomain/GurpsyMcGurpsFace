@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-    selector: 'identity-component',
+    selector: 'app-identity-component',
     templateUrl: 'identity.component.html',
     styleUrls: ['../../sheet.component.css']
 })
