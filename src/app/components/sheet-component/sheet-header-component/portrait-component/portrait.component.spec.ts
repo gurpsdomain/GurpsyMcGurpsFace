@@ -3,6 +3,7 @@ import {PortraitComponent} from './portrait.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
+import {TranslateModule} from 'ng2-translate';
 
 ////////  SPECS  /////////////
 describe('PortraitComponent', function () {
@@ -12,7 +13,8 @@ describe('PortraitComponent', function () {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [PortraitComponent]
+            declarations: [PortraitComponent],
+            imports: [TranslateModule.forRoot()]
         })
             .compileComponents();
     }));

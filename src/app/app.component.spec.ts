@@ -9,26 +9,33 @@ import {IdentityComponent} from './components/sheet-component/sheet-header-compo
 import {PlayerInformationComponent} from './components/sheet-component/sheet-header-component/player-information-component/player-information.component';
 import {DescriptionComponent} from './components/sheet-component/sheet-header-component/description-component/description.component';
 import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
+import {HeaderComponent} from './components/header-component/header.component';
+import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
+import {MdSidenav, MdSidenavLayout} from '@angular/material';
 
 describe('AppComponent', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
-        SheetComponent,
-        SheetHeaderComponent,
-        PortraitComponent,
-        IdentityComponent,
-        PlayerInformationComponent,
-        DescriptionComponent,
-        PointsComponent
-      ],
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            declarations: [
+                AppComponent,
+                SheetComponent,
+                SheetHeaderComponent,
+                PortraitComponent,
+                IdentityComponent,
+                PlayerInformationComponent,
+                DescriptionComponent,
+                PointsComponent,
+                HeaderComponent,
+                SideNavigationComponent,
+                MdSidenav,
+                MdSidenavLayout
+            ],
+        });
     });
-  });
 
-  it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+    it('should create the app', async(() => {
+        let fixture = TestBed.createComponent(AppComponent);
+        let app = fixture.debugElement.componentInstance;
+        expect(app).toBeTruthy();
+    }));
 });

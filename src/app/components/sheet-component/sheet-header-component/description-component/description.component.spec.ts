@@ -3,6 +3,7 @@ import {DescriptionComponent} from './description.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
+import {TranslateModule} from 'ng2-translate';
 
 describe('DescriptionComponent', function () {
     let de: DebugElement;
@@ -11,7 +12,8 @@ describe('DescriptionComponent', function () {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [DescriptionComponent]
+            declarations: [DescriptionComponent],
+            imports: [TranslateModule.forRoot()]
         })
             .compileComponents();
     }));

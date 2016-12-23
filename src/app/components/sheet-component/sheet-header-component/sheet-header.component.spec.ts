@@ -8,6 +8,7 @@ import {PointsComponent} from './points-component/points.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
+import {TranslateModule} from 'ng2-translate';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
@@ -22,7 +23,8 @@ describe('SheetHeaderComponent', function () {
                 IdentityComponent,
                 PlayerInformationComponent,
                 DescriptionComponent,
-                PointsComponent]
+                PointsComponent],
+            imports: [TranslateModule.forRoot()]
         })
             .compileComponents();
     }));
