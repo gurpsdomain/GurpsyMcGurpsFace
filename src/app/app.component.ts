@@ -1,7 +1,7 @@
-import {Component, OnInit} from "@angular/core";
-import {TranslateService} from "ng2-translate";
-import {LanguagesService} from "./services/languages-service/languages.service";
-import {ThemesService} from "./services/themes-service/themes.service";
+import {Component, OnInit} from '@angular/core';
+import {TranslateService} from 'ng2-translate';
+import {LanguagesService} from './services/languages-service/languages.service';
+import {ThemesService} from './services/themes-service/themes.service';
 
 @Component({
     selector: 'app-root',
@@ -26,13 +26,16 @@ export class AppComponent implements OnInit {
         this.initThemes();
     }
 
-    initLanguages(): void{
-        this.languagesService.getAvailableLanguagesLocales().then(availableLanguages => this.translateService.addLangs(availableLanguages));
-        this.languagesService.getDefaultLocale().then(defaultLocale => this.translateService.setDefaultLang(defaultLocale));
-        this.languagesService.getCurrentLocale().then(currentlocale => this.translateService.use(currentlocale));
+    initLanguages(): void {
+        this.languagesService.getAvailableLanguagesLocales().then(
+            availableLanguages => this.translateService.addLangs(availableLanguages));
+        this.languagesService.getDefaultLocale().then(
+            defaultLocale => this.translateService.setDefaultLang(defaultLocale));
+        this.languagesService.getCurrentLocale().then(
+            currentlocale => this.translateService.use(currentlocale));
     }
 
-    initThemes(): void{
+    initThemes(): void {
         this.themesService.initializeThemes();
     }
 }

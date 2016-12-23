@@ -1,27 +1,27 @@
-import {Injectable} from "@angular/core";
-import {Theme} from "../../models/theme";
+import {Injectable} from '@angular/core';
+import {Theme} from '../../models/theme';
 
 @Injectable()
 export class ThemesService {
 
-    private static STORAGE_KEY: string = "gurpsy-mc-gurps-face.theme";
+    private static STORAGE_KEY: string = 'gurpsy-mc-gurps-face.theme';
 
-    private static REL: string = "rel";
-    private static STYLESHEET: string = "stylesheet";
-    private static TITLE: string = "title";
-    private static TYPE: string = "type";
-    private static MIME_TYPE: string = "text/css";
-    private static HREF: string = "href";
-    private static THEMES_ROOT: string = "themes/";
-    private static LINK: string = "link";
+    private static REL: string = 'rel';
+    private static STYLESHEET: string = 'stylesheet';
+    private static TITLE: string = 'title';
+    private static TYPE: string = 'type';
+    private static MIME_TYPE: string = 'text/css';
+    private static HREF: string = 'href';
+    private static THEMES_ROOT: string = 'themes/';
+    private static LINK: string = 'link';
 
-    private static DEFAULT: Theme = new Theme(0, "Default", "default", "default.css");
-    private static DARCULA: Theme = new Theme(1, "Darcula", "darcula", "darcula.css");
+    private static DEFAULT: Theme = new Theme(0, 'Default', 'default', 'default.css');
+    private static DARCULA: Theme = new Theme(1, 'Darcula', 'darcula', 'darcula.css');
     private static AVAILABLE_THEMES: Theme[] = [ThemesService.DEFAULT, ThemesService.DARCULA];
     private current: Theme;
 
     constructor() {
-        var storedThemeName = localStorage.getItem(ThemesService.STORAGE_KEY);
+        let storedThemeName: string = localStorage.getItem(ThemesService.STORAGE_KEY);
 
         if (storedThemeName) {
             for (let theme of ThemesService.AVAILABLE_THEMES) {
@@ -50,7 +50,7 @@ export class ThemesService {
     }
 
     initializeThemes(): void {
-        var head = document.head;
+        let head : HTMLHeadElement = document.head;
 
         for (let theme of ThemesService.AVAILABLE_THEMES) {
             var link: Element = document.createElement(ThemesService.LINK);
@@ -60,9 +60,9 @@ export class ThemesService {
             link.setAttribute(ThemesService.HREF, ThemesService.THEMES_ROOT + theme.stylesheet);
 
             if (theme === this.current) {
-                link.removeAttribute("disabled");
+                link.removeAttribute('disabled');
             } else {
-                link.setAttribute("disabled", "true");
+                link.setAttribute('disabled', 'true');
             }
 
             head.appendChild(link);
@@ -72,16 +72,16 @@ export class ThemesService {
     private changeTheme(theme: Theme): void {
         this.persistTheme(theme);
 
-        var links = document.getElementsByTagName(ThemesService.LINK);
+        let links : NodeListOf<Element> = document.getElementsByTagName(ThemesService.LINK);
 
         for (var i = 0; i < links.length; i++) {
-            var link = links[i];
+            let link : Element = links[i];
 
             if (this.isLinkAThemeLink(link)) {
                 if (link.getAttribute(ThemesService.TITLE) === theme.name) {
-                    link.removeAttribute("disabled");
+                    link.removeAttribute('disabled');
                 } else {
-                    link.setAttribute("disabled", "true");
+                    link.setAttribute('disabled', 'true');
                 }
             }
         }
@@ -91,11 +91,11 @@ export class ThemesService {
         return link.getAttribute(ThemesService.REL) === ThemesService.STYLESHEET &&
             link.getAttribute(ThemesService.TYPE) === ThemesService.MIME_TYPE &&
             link.getAttribute(ThemesService.HREF).includes(ThemesService.THEMES_ROOT) &&
-            this.getThemeTitles().indexOf(link.getAttribute(ThemesService.TITLE)) != -1;
+            this.getThemeTitles().indexOf(link.getAttribute(ThemesService.TITLE)) !== -1;
     }
 
     private getThemeTitles(): string[] {
-        var titles: string[] = [];
+        let titles: string[] = [];
         for (let theme of ThemesService.AVAILABLE_THEMES) {
             titles.push(theme.name);
         }

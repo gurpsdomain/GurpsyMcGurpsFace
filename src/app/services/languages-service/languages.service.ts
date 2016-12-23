@@ -1,14 +1,14 @@
-import {Injectable} from "@angular/core";
-import {TranslateService} from "ng2-translate";
-import {Language} from "../../models/language";
+import {Injectable} from '@angular/core';
+import {TranslateService} from 'ng2-translate';
+import {Language} from '../../models/language';
 
 @Injectable()
 export class LanguagesService {
 
-    private static STORAGE_KEY: string = "gurpsy-mc-gurps-face.language";
+    private static STORAGE_KEY: string = 'gurpsy-mc-gurps-face.language';
 
-    private static ENGLISH: Language = new Language(0, "English", "en");
-    private static DUTCH: Language = new Language(1, "Nederlands", "nl");
+    private static ENGLISH: Language = new Language(0, 'English', 'en');
+    private static DUTCH: Language = new Language(1, 'Nederlands', 'nl');
     private static AVAILABLE_LANGUAGES: Language[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
     private static DEFAULT: Language = LanguagesService.ENGLISH;
 
@@ -19,7 +19,7 @@ export class LanguagesService {
 
         this.translateService = translate;
 
-        var storedLanguageName = localStorage.getItem(LanguagesService.STORAGE_KEY);
+        let storedLanguageName : string = localStorage.getItem(LanguagesService.STORAGE_KEY);
 
         if (storedLanguageName) {
             for (let language of LanguagesService.AVAILABLE_LANGUAGES) {
@@ -52,7 +52,7 @@ export class LanguagesService {
     }
 
     getDefaultLocale(): Promise<string> {
-        var locale: string = LanguagesService.DEFAULT.locale;
+        let locale: string = LanguagesService.DEFAULT.locale;
         return Promise.resolve(locale);
     }
 
@@ -62,7 +62,7 @@ export class LanguagesService {
 
     getAvailableLanguagesLocales(): Promise<string[]> {
 
-        var languagesLocales: string[] = [];
+        let languagesLocales: string[] = [];
         for (let language of LanguagesService.AVAILABLE_LANGUAGES) {
             languagesLocales.push(language.locale);
         }

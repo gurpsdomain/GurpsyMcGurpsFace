@@ -1,6 +1,6 @@
-import {Component, OnInit, Output, EventEmitter} from "@angular/core";
-import {LanguagesService} from "../../services/languages-service/languages.service";
-import {ThemesService} from "../../services/themes-service/themes.service";
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {LanguagesService} from '../../services/languages-service/languages.service';
+import {ThemesService} from '../../services/themes-service/themes.service';
 
 @Component({
     selector: 'app-side-navigation',

@@ -1,11 +1,11 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'portrait-component',
-  templateUrl: 'portrait.component.html',
-  styleUrls: ['../../sheet.component.css',
-    './portrait.component.css'
-  ]
+    selector: 'portrait-component',
+    templateUrl: 'portrait.component.html',
+    styleUrls: ['../../sheet.component.css',
+        './portrait.component.css'
+    ]
 })
 export class PortraitComponent {
 }
