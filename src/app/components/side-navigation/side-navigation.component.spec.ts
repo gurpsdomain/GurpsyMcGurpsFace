@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MdRadioButton, MdRadioGroup,  MdIcon, MdIconRegistry} from '@angular/material';
+import {MaterialModule} from '@angular/material';
 import {TranslateModule} from 'ng2-translate';
 import {SideNavigationComponent} from './side-navigation.component';
 
@@ -10,12 +10,10 @@ describe('SideNavigationComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [SideNavigationComponent,
-                MdRadioButton,
-                MdRadioGroup,
-                MdIcon,
-                MdIconRegistry],
-            imports: [TranslateModule.forRoot()]
+            declarations: [SideNavigationComponent
+            ],
+            imports: [TranslateModule.forRoot(),
+                MaterialModule.forRoot()]
         })
             .compileComponents();
     }));

@@ -11,7 +11,8 @@ import {DescriptionComponent} from './components/sheet-component/sheet-header-co
 import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
 import {HeaderComponent} from './components/header-component/header.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
-import {MdSidenav, MdSidenavLayout} from '@angular/material';
+import {MaterialModule} from '@angular/material';
+import {TranslateModule} from 'ng2-translate';
 
 describe('AppComponent', () => {
     beforeEach(() => {
@@ -26,10 +27,13 @@ describe('AppComponent', () => {
                 DescriptionComponent,
                 PointsComponent,
                 HeaderComponent,
-                SideNavigationComponent,
-                MdSidenav,
-                MdSidenavLayout
+                SideNavigationComponent
             ],
+            imports: [
+                MaterialModule.forRoot(),
+                TranslateModule.forRoot()
+            ]
+
         });
     });
 

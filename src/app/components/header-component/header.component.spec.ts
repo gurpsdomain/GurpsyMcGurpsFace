@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MdIcon, MdIconRegistry, MdMenu, MdMenuTrigger} from '@angular/material';
+import {MaterialModule} from '@angular/material';
 import {HeaderComponent} from './header.component';
 import {TranslateModule} from 'ng2-translate';
 
@@ -10,12 +10,9 @@ describe('HeaderComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HeaderComponent,
-                MdIcon,
-                MdIconRegistry,
-                MdMenu,
-                MdMenuTrigger],
-            imports: [TranslateModule.forRoot()]
+            declarations: [HeaderComponent],
+            imports: [TranslateModule.forRoot(),
+                MaterialModule.forRoot()]
         })
             .compileComponents();
     }));
