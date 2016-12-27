@@ -4,8 +4,8 @@ import {ThemesService} from '../../services/themes-service/themes.service';
 
 @Component({
     selector: 'app-side-navigation',
-    templateUrl: 'side-navigation.component.html',
-    styleUrls: ['side-navigation.component.css'],
+    templateUrl: './side-navigation.component.html',
+    styleUrls: ['./side-navigation.component.css'],
     providers: [LanguagesService]
 })
 export class SideNavigationComponent implements OnInit {

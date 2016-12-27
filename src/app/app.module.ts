@@ -37,7 +37,7 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
         MaterialModule.forRoot(),
         TranslateModule.forRoot()
     ],
-    providers: [],
+  providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {
