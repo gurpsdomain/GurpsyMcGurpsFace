@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.21",
-    "name": "GurpsyMcGurpsFace"
+    "version": "1.0.0-beta.24",
+    "name": "gurpsy-mc-gurps-face"
   },
   "apps": [
     {
@@ -9,9 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
-        "themes",
-        "i18n"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
