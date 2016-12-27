@@ -1,0 +1,11 @@
+<md-sidenav-layout>
+    <md-sidenav #start>
+        <gurpsy-side-navigation (onCloseSideNavigation)="start.close()" ></gurpsy-side-navigation>
+    </md-sidenav>
+
+    <gurpsy-header class="appHeader" (onOpenSideNavigation)="start.open()"></gurpsy-header>
+    <gurpsy-sheet></gurpsy-sheet>
+</md-sidenav-layout>
+
+
+
