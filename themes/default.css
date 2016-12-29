@@ -1,0 +1,29 @@
+:root {
+    --stormy: #494E6B;
+    --cloud: #98878F;
+    --sunset: #985E6D;
+    --evening: #192231;
+    --white: #FFFFFF;
+    --black: #000000;
+
+    /*PAGE*/
+    --page-background-color: var(--white);
+    /*PAGE HEADER*/
+    --header-background-color: var(--stormy);
+    --header-font-color: var(--white);
+    /*PAGE SIDE NAVIGATION*/
+    --side-navigation-header-background-color: var(--sunset);
+    --side-navigation-header-font-color: var(--white);
+    --side-navigation-background-color: var(--white);
+    --side-navigation-font-color: var(--black);
+    --side-navigation-back-button: var(--white);
+    --side-navigation-menu-separator-color: var(--stormy);
+    --side-navigation-menu-header-color: var(--stormy);
+    /*SHEET*/
+    --sheet-background-color: var(--white);
+    --sheet-component-header-background-color: var(--evening);
+    --sheet-component-header-font-color: var(--white);
+    --sheet-component-body-background-color: var(--white);
+    --sheet-label-font-color: var(--black);
+    --sheet-data-font-color: var(--black);
+}
