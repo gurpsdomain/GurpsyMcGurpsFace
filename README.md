@@ -24,7 +24,7 @@ Before running the tests make sure you are serving the app via `ng serve`.
 
 ## Deploying to GitHub Page
 
-Pushing your commits to the masters will publish the app the GitHub pages.
+Pushing your commits to the master will publish the app to GitHub pages.
 
 ## Further help
 
