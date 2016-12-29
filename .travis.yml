@@ -19,9 +19,9 @@ before_install:
  - sudo dpkg -i google-chrome*.deb
 
 script:
-  - npm lint
-  - npm test
-  - npm build
+  - ng lint
+  - ng test --watch false
+  - ng build --target production
 
 after_success: |
   [ $TRAVIS_BRANCH = master ] &&
