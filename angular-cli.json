@@ -9,6 +9,8 @@
       "outDir": "dist",
       "assets": [
         "assets",
+        "assets/images",
+        "assets/sheets",
         "favicon.ico",
         "themes",
         "i18n"
