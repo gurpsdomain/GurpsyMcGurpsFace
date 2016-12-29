@@ -21,7 +21,7 @@ before_install:
 script:
   - ng lint
   - ng test --watch false
-  - ng build --target production
+  - ng build --target production --base-href "/GurpsyMcGurpsFace/"
 
 after_success: |
   [ $TRAVIS_BRANCH = master ] &&
