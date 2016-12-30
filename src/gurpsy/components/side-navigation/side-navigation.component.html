@@ -1,42 +1,57 @@
 <div class="sideNavigation">
-    <div class="sideNavigationHeader">
-        <div class="portrait">
-            <img src="assets/images/empty-portrait.png" alt="portrait"/>
-        </div>
-        <div class="closeButton">
-            <button md-icon-button (click)="onCloseSideNav()">
-                <md-icon>keyboard_backspace</md-icon>
-            </button>
-        </div>
+  <div class="sideNavigationHeader">
+    <div class="portrait">
+      <img src="assets/images/empty-portrait.png" alt="portrait"/>
     </div>
-    <div class="sideNavigationMenu">
-        <div class="sideNavigationMenuSubheader">{{'SETTINGS.SHEETVIEW'| translate}}</div>
-        <div class="sheetComponentMenu">
-            <button md-button><md-icon>accessibility</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.ATTRIBUTES'| translate}}</span></button>
-            <button md-button><md-icon>hearing</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.DIS_ADVANTAGES'| translate}}</span></button>
-            <button md-button><md-icon>school</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.SKILLS'| translate}}</span></button>
-            <button md-button><md-icon>flash_on</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.MAGIC'| translate}}</span></button>
-            <button md-button><md-icon>card_travel</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.EQUIPMENT'| translate}}</span></button>
-            <button md-button><md-icon>mode_edit</md-icon><span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.NOTES'| translate}}</span></button>
-        </div>
-        <div class="sheetSettingsMenu">
-            <div class="sideNavigationMenuSubheader">{{'SETTINGS.SETTINGS'| translate}}</div>
-            <div class="settingsMenuLine">
-                <label>{{'SETTINGS.LANGUAGE'| translate}}</label>
-                <md-radio-group [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
-                    <md-radio-button *ngFor="let language of languageOptions" [value]="language">
-                        {{language.label}}
-                    </md-radio-button>
-                </md-radio-group>
-            </div>
-            <div class="settingsMenuLine">
-                <label>{{'SETTINGS.THEME'| translate}}</label>
-                <md-radio-group [(ngModel)]="selectedTheme" (change)="onThemeChange()">
-                    <md-radio-button *ngFor="let theme of themeOptions" [value]="theme">
-                        {{theme.label}}
-                    </md-radio-button>
-                </md-radio-group>
-            </div>
-        </div>
+    <div class="closeButton">
+      <button md-icon-button (click)="onCloseSideNav()">
+        <md-icon>keyboard_backspace</md-icon>
+      </button>
     </div>
+  </div>
+  <div class="sideNavigationMenu">
+    <div class="sideNavigationMenuSubheader">{{'SETTINGS.SHEETVIEW'| translate}}</div>
+    <div class="sheetComponentMenu">
+      <button md-button>
+        <md-icon>accessibility</md-icon>
+        <span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.ATTRIBUTES'| translate}}</span></button>
+      <button md-button>
+        <md-icon>hearing</md-icon>
+        <span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.DIS_ADVANTAGES'| translate}}</span></button>
+      <button md-button>
+        <md-icon>school</md-icon>
+        <span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.SKILLS'| translate}}</span></button>
+      <button md-button>
+        <md-icon>flash_on</md-icon>
+        <span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.MAGIC'| translate}}</span></button>
+      <button md-button>
+        <md-icon>card_travel</md-icon>
+        <span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.EQUIPMENT'| translate}}</span></button>
+      <button md-button>
+        <md-icon>mode_edit</md-icon>
+        <span class="sheetComponentMenuItemText">{{'SHEET.SUBJECT.NOTES'| translate}}</span></button>
+    </div>
+    <div class="sheetSettingsMenu">
+      <div class="sideNavigationMenuSubheader">{{'SETTINGS.SETTINGS'| translate}}</div>
+
+      <div class="settingsMenuLine">
+        <label>{{'SETTINGS.LANGUAGE'| translate}}</label>
+        <md-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange()">
+          <md-option *ngFor="let language of languageOptions" [value]="language">
+            {{language.label}}
+          </md-option>
+        </md-select>
+      </div>
+
+      <div class="settingsMenuLine">
+        <label>{{'SETTINGS.THEME'| translate}}</label>
+        <md-select [(ngModel)]="selectedTheme" (ngModelChange)="onThemeChange()">
+          <md-option *ngFor="let theme of themeOptions" [value]="theme">
+            {{theme.label}}
+          </md-option>
+        </md-select>
+      </div>
+
+    </div>
+  </div>
 </div>
