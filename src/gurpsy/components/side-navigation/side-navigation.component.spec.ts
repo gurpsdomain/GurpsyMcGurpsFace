@@ -7,32 +7,32 @@ import {SideNavigationComponent} from './side-navigation.component';
 import {ThemesService} from '../../services/themes-service/themes.service';
 
 describe('SideNavigationComponent', () => {
-    let component: SideNavigationComponent;
-    let fixture: ComponentFixture<SideNavigationComponent>;
+  let component: SideNavigationComponent;
+  let fixture: ComponentFixture<SideNavigationComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [
-                SideNavigationComponent
-            ],
-            imports: [
-                FormsModule,
-                TranslateModule.forRoot(),
-                MaterialModule.forRoot()],
-            providers: [
-                ThemesService
-            ]
-        })
-            .compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        SideNavigationComponent
+      ],
+      imports: [
+        FormsModule,
+        TranslateModule.forRoot(),
+        MaterialModule.forRoot()],
+      providers: [
+        ThemesService
+      ]
+    })
+      .compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SideNavigationComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SideNavigationComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
