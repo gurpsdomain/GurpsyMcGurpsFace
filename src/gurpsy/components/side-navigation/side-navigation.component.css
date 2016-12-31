@@ -1,69 +1,65 @@
 .sideNavigation .sideNavigationHeader {
-    height: 80px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: var(--side-navigation-header-background-color);
-    color: var(--side-navigation-header-font-color);
+  height: 80px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: var(--side-navigation-header-background-color);
+  color: var(--side-navigation-header-font-color);
 }
 
 .sideNavigation .sideNavigationHeader .portrait {
-    flex: auto;
-    padding-left: 8px;
+  flex: auto;
+  padding-left: 8px;
 }
 
 .sideNavigation .sideNavigationHeader .portrait img {
-    padding-top: 8px;
-    -webkit-clip-path: circle(25px at center);
-    width: 50px;
+  padding-top: 8px;
+  -webkit-clip-path: circle(25px at center);
+  width: 50px;
 }
 
-.sideNavigation .sideNavigationMenu {
-    color: var(--side-navigation-font-color);
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    font-size: small;
+.sideNavigation .sideNavigationBlock .sideNavigationBlockheader {
+  display: block;
+  font-size: small;
+  font-weight: bold;
+  margin: 8px 0px 0px 8px;
+  color: var(--side-navigation-menu-header-color);
 }
 
-.sideNavigation .sideNavigationMenu .sheetComponentMenu .sheetComponentMenuItemText{
-    font-size: small;
-    font-weight: normal;
+.sideNavigation .sideNavigationBlock .sideNavigationBlockContent {
+  width: 100%;
+  margin: 8px 0px 4px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--side-navigation-menu-separator-color);
 }
 
-.sideNavigation .sideNavigationMenu .sheetComponentMenu {
-    width: 100%;
-    margin: 8px 0px 4px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: var(--side-navigation-menu-separator-color);
-
+.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine {
+  width: 100%;
+  display: flex;
+  align-content: flex-start;
+  padding: 0px 8px 0px 8px;
 }
 
-.sideNavigation .sideNavigationMenu .sheetComponentMenu button {
-    width: 100%;
-    display: flex;
-    align-content: flex-start;
-    padding: 0px 8px 0px 8px;
+.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-icon {
+  padding-right: 16px;
+  vertical-align: text-bottom;
 }
 
-.sideNavigation .sideNavigationMenu .sheetComponentMenu button md-icon {
-    padding-right: 16px;
-    vertical-align: text-bottom;
+.sideNavigation .sideNavigationBlock {
+  font-weight: normal;
+  color: var(--side-navigation-font-color);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: small;
 }
 
-.sideNavigation .sideNavigationMenu .sheetSettingsMenu md-radio-button {
-    display: block;
-}
 
-.sideNavigation .sideNavigationMenu .sideNavigationMenuSubheader {
-    display: block;
-    font-size: small;
-    font-weight: bold;
-    margin: 8px 0px 0px 8px;
-    color: var(--side-navigation-menu-header-color);
-}
+
+
+
 
 
