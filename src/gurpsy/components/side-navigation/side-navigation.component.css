@@ -22,7 +22,7 @@
 .sideNavigation .sideNavigationBlock .sideNavigationBlockheader {
   display: block;
   font-size: small;
-  font-weight: bold;
+  font-weight: normal;
   margin: 8px 0px 0px 8px;
   color: var(--side-navigation-menu-header-color);
 }
@@ -43,6 +43,13 @@
   display: flex;
   align-content: flex-start;
   padding: 0px 8px 0px 8px;
+}
+
+.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select {
+  width: 100%;
+  margin-right: 10px;
+  margin-left: 3px;
+  font-weight: normal;
 }
 
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-icon {
