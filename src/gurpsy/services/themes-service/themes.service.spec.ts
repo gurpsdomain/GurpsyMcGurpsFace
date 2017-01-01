@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
-
-import { TestBed, async, inject } from '@angular/core/testing';
-import { ThemesService } from './themes.service';
+import {TestBed} from '@angular/core/testing';
+import {ThemesService} from './themes.service';
 
 describe('ThemesService', () => {
   beforeEach(() => {
@@ -9,8 +8,4 @@ describe('ThemesService', () => {
       providers: [ThemesService]
     });
   });
-
-  it('should ...', inject([ThemesService], (service: ThemesService) => {
-    expect(service).toBeTruthy();
-  }));
 });

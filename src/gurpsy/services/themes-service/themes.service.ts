@@ -65,6 +65,7 @@ export class ThemesService {
                 link.setAttribute('disabled', 'true');
             }
 
+
             head.appendChild(link);
         }
     }
