@@ -17,6 +17,4 @@ export class HeaderComponent implements OnInit {
   onOpenSideNav() {
     this.onOpenSideNavigation.next();
   }
-
-
 }
