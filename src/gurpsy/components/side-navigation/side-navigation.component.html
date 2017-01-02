@@ -53,7 +53,7 @@
           <md-icon>important_devices</md-icon>
           <md-select [(ngModel)]="selectedTheme" (ngModelChange)="onThemeChange()">
             <md-option *ngFor="let theme of themeOptions" [value]="theme">
-              {{theme.label}}
+              {{theme.name| translate}}
             </md-option>
           </md-select>
         </div>

@@ -15,8 +15,8 @@ export class ThemesService {
     private static THEMES_ROOT: string = 'themes/';
     private static LINK: string = 'link';
 
-    private static DEFAULT: Theme = new Theme(0, 'Default', 'default', 'default.css');
-    private static DARCULA: Theme = new Theme(1, 'Darcula', 'darcula', 'darcula.css');
+    private static DEFAULT: Theme = new Theme('default', 'default.css');
+    private static DARCULA: Theme = new Theme('darcula', 'darcula.css');
     private static AVAILABLE_THEMES: Theme[] = [ThemesService.DEFAULT, ThemesService.DARCULA];
     private current: Theme;
 
