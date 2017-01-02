@@ -37,26 +37,26 @@
         <span>{{'SHEET.SUBJECT.NOTES'| translate}}</span>
       </button>
     </div>
+  </div>
 
-    <div class="sideNavigationBlock">
-      <div class="sideNavigationBlockheader">{{'SETTINGS.SETTINGS'| translate}}</div>
-      <div class="sideNavigationBlockContent">
-        <div class="sideNavigationBlockContentLine">
-          <md-icon>g_translate</md-icon>
-          <md-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange()">
-            <md-option *ngFor="let language of languageOptions" [value]="language">
-              {{language.locale| translate}}
-            </md-option>
-          </md-select>
-        </div>
-        <div class="sideNavigationBlockContentLine">
-          <md-icon>important_devices</md-icon>
-          <md-select [(ngModel)]="selectedTheme" (ngModelChange)="onThemeChange()">
-            <md-option *ngFor="let theme of themeOptions" [value]="theme">
-              {{theme.name| translate}}
-            </md-option>
-          </md-select>
-        </div>
+  <div class="sideNavigationBlock">
+    <div class="sideNavigationBlockheader">{{'SETTINGS.SETTINGS'| translate}}</div>
+    <div class="sideNavigationBlockContent">
+      <div class="sideNavigationBlockContentLine">
+        <md-icon>g_translate</md-icon>
+        <md-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange()">
+          <md-option *ngFor="let language of languageOptions" [value]="language">
+            {{language.locale| translate}}
+          </md-option>
+        </md-select>
+      </div>
+      <div class="sideNavigationBlockContentLine">
+        <md-icon>important_devices</md-icon>
+        <md-select [(ngModel)]="selectedTheme" (ngModelChange)="onThemeChange()">
+          <md-option *ngFor="let theme of themeOptions" [value]="theme">
+            {{theme.name| translate}}
+          </md-option>
+        </md-select>
       </div>
     </div>
   </div>

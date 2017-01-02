@@ -39,7 +39,6 @@
 }
 
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine {
-  width: 100%;
   display: flex;
   align-content: flex-start;
   padding: 0px 8px 0px 8px;
@@ -51,6 +50,8 @@
   margin-left: 3px;
   font-weight: normal;
 }
+
+
 
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-icon {
   padding-right: 16px;
