@@ -7,8 +7,8 @@ export class LanguagesService {
 
     private static STORAGE_KEY: string = 'gurpsy-mc-gurps-face.language';
 
-    private static ENGLISH: Language = new Language(0, 'English', 'en');
-    private static DUTCH: Language = new Language(1, 'Nederlands', 'nl');
+    private static ENGLISH: Language = new Language('en');
+    private static DUTCH: Language = new Language('nl');
     private static AVAILABLE_LANGUAGES: Language[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
     private static DEFAULT: Language = LanguagesService.ENGLISH;
 

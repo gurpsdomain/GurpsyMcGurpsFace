@@ -45,7 +45,7 @@
           <md-icon>g_translate</md-icon>
           <md-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange()">
             <md-option *ngFor="let language of languageOptions" [value]="language">
-              {{language.label}}
+              {{language.locale| translate}}
             </md-option>
           </md-select>
         </div>
