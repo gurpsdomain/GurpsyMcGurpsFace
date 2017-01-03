@@ -1,42 +1,34 @@
 .header {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
-    margin-bottom: 8px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: var(--header-background-color);
-    color: var(--header-font-color);
-    height: 40px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: var(--header-background-color);
+  color: var(--header-font-color);
+  height: 40px;
 }
 
 .header .headerMenuButton {
-    flex: none;
+  flex: none;
 }
 
 .header .headerApplicationName {
-    flex: auto;
-    padding-top: 11px;
-    padding-left: 8px;
-    font-family: 'Abel', sans-serif !important;
+  flex: auto;
+  padding-top: 11px;
+  padding-left: 8px;
+  font-family: 'Abel', sans-serif !important;
 }
 
 .header .headerSettings {
-    flex: none;
+  flex: none;
 }
 
-@media screen and (min-width: 619px) {
-    .header .portrait {
-        display: none;
-    }
+.header .portrait {
+  padding-left: 8px;
 }
 
-@media screen and (max-width: 620px) {
-    .header .portrait {
-        padding-left: 8px;
-    }
-
-    .header .portrait img {
-        -webkit-clip-path: circle(15px at center);
-        height: 40px;
-    }
+.header .portrait img {
+  -webkit-clip-path: circle(15px at center);
+  height: 40px;
 }

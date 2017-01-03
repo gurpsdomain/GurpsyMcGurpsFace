@@ -8,16 +8,8 @@
   align-items: stretch;
 }
 
-@media screen and (min-width: 619px) {
-  .portraitWrapper {
-    flex: none;
-  }
-}
-
-@media screen and (max-width: 620px) {
-  .portraitWrapper {
-    display: none;
-  }
+.portraitWrapper {
+  flex: none;
 }
 
 .descriptionWrapper {
@@ -40,7 +32,6 @@
     margin-bottom: 3px;
   }
 }
-
 
 .centerComponentsWrapper {
   flex: auto;

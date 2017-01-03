@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 import {TranslateModule} from 'ng2-translate';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet-component/sheet.component';
 import {SheetHeaderComponent} from './components/sheet-component/sheet-header-component/sheet-header.component';
@@ -17,28 +18,29 @@ import {HeaderComponent} from './components/header-component/header.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 
 @NgModule({
-    declarations: [
-        GurpsyComponent,
-        SheetComponent,
-        SheetHeaderComponent,
-        PortraitComponent,
-        PlayerInformationComponent,
-        DescriptionComponent,
-        PointsComponent,
-        IdentityComponent,
-        HeaderComponent,
-        SideNavigationComponent
+  declarations: [
+    GurpsyComponent,
+    SheetComponent,
+    SheetHeaderComponent,
+    PortraitComponent,
+    PlayerInformationComponent,
+    DescriptionComponent,
+    PointsComponent,
+    IdentityComponent,
+    HeaderComponent,
+    SideNavigationComponent
 
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpModule,
-        MaterialModule.forRoot(),
-        TranslateModule.forRoot()
-    ],
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    FlexLayoutModule.forRoot(),
+    MaterialModule.forRoot(),
+    TranslateModule.forRoot()
+  ],
   providers: [],
-    bootstrap: [GurpsyComponent]
+  bootstrap: [GurpsyComponent]
 })
 export class AppModule {
 }
