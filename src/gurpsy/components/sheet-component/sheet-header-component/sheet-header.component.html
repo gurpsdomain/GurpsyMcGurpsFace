@@ -1,11 +1,13 @@
-<div class="sheetHeader">
-  <gurpsy-portrait-component class="portraitWrapper" fxHide="false"  fxHide.xs></gurpsy-portrait-component>
-  <div class="centerComponentsWrapper">
+<div class="sheetHeader flex-container"
+     fxLayout="row"
+     fxLayoutAlign="start">
+  <gurpsy-portrait-component class="portraitWrapper flex-item" fxFlex="112px" fxHide="false" fxHide.xs></gurpsy-portrait-component>
+  <div class="centerComponentsWrapper flex-item" fxFlex fxFlex.xs>
     <div class="centerComponentsFirstLineWrapper">
       <gurpsy-identity-component class="identityWrapper"></gurpsy-identity-component>
       <gurpsy-player-information-component class="playerInformationWrapper"></gurpsy-player-information-component>
     </div>
     <gurpsy-description-component class="descriptionWrapper"></gurpsy-description-component>
   </div>
-  <gurpsy-points-component class="pointsWrapper"></gurpsy-points-component>
+  <gurpsy-points-component class="pointsWrapper flex-item" fxFlex="120px" fxHide="false" fxHide.xs></gurpsy-points-component>
 </div>
