@@ -1,15 +1,6 @@
 .sheetHeader {
   border: black solid 1px;
   border-radius: 2px;
-  /*display: flex;*/
-  /*flex-direction: row;*/
-  /*flex-wrap: nowrap;*/
-  /*justify-content: space-between;*/
-  /*align-items: stretch;*/
-}
-
-.portraitWrapper {
-  /*flex: none;*/
 }
 
 .descriptionWrapper {
@@ -20,21 +11,11 @@
   align-content: stretch;
 }
 
-/*@media screen and (max-width: 420px) {*/
-  /*.pointsWrapper {*/
-    /*display: none;*/
-  /*}*/
-/*}*/
-
-/*@media screen and (min-width: 419px) {*/
-  .pointsWrapper {
-    flex: 0 0 auto;
-    margin-bottom: 3px;
-  }
-/*}*/
+.pointsWrapper {
+  margin-bottom: 3px;
+}
 
 .centerComponentsWrapper {
-  /*flex: auto;*/
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -46,10 +27,5 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: stretch;
-}
-
-.identityWrapper,
-.playerInformationWrapper {
-  /*flex: auto;*/
 }
 

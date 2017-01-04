@@ -10,3 +10,7 @@
   width: 30px;
   text-align: right;
 }
+
+.points .sheetComponentBody .sheetComponentBodyLine label:first-child {
+  width: 57px;
+}
