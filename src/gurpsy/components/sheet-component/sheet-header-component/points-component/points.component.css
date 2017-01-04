@@ -6,11 +6,3 @@
   border-top: solid darkgray 1px;
 }
 
-.earned input {
-  width: 30px;
-  text-align: right;
-}
-
-.points .sheetComponentBody .sheetComponentBodyLine label:first-child {
-  width: 57px;
-}

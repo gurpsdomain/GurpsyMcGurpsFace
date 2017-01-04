@@ -6,10 +6,8 @@
   background: var(--sheet-background-color);
 }
 
-@media screen and (min-width: 619px) {
-  .sheet {
-    max-width: var(--max-width-sheet-large);
-  }
+.sheet {
+  max-width: var(--max-width-sheet-large);
 }
 
 .sheetComponent {
@@ -31,29 +29,10 @@
   background: var(--sheet-component-body-background-color);
 }
 
-.sheetComponentBodyLine {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: stretch;
-}
-
-.sheetComponentBodyLine label:first-child {
-  width: 70px;
-  flex: none;
+.sheetComponentBody label {
   color: var(--sheet-label-font-color);
 }
 
-.sheetComponentBodyLine label:nth-child(2) {
-  flex: none;
-  color: var(--sheet-data-font-color);
-}
-
-.sheetComponentBodyLine input {
-  flex: auto;
-  border: none;
-  background: none;
-  border-bottom: 1px solid darkgray;
+.sheetComponentBody span {
   color: var(--sheet-data-font-color);
 }

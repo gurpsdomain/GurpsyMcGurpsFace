@@ -1,19 +1,31 @@
 <div class="sheetComponent">
-    <div class="sheetComponentHeader">
-        {{ 'SHEET.PLAYER_INFORMATION.PLAYER_INFORMATION' | translate }}
+  <div class="sheetComponentHeader">
+    {{ 'SHEET.PLAYER_INFORMATION.PLAYER_INFORMATION' | translate }}
+  </div>
+  <div class="sheetComponentBody">
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutGap="1px"
+         fxLayoutWrap="nowrap">
+      <label class="flex-item" fxFlex="100px"> {{ 'SHEET.PLAYER_INFORMATION.PLAYER' | translate }}</label>
+      <span class="flex-item" fxFlex="100%">Steve Jackson</span>
     </div>
-    <div class="sheetComponentBody">
-        <div class="sheetComponentBodyLine">
-            <label> {{ 'SHEET.PLAYER_INFORMATION.PLAYER' | translate }}</label>
-            <input type="text" placeholder="Steve Jackson" size="18">
-        </div>
-        <div class="sheetComponentBodyLine">
-            <label> {{ 'SHEET.PLAYER_INFORMATION.CAMPAIGN' | translate }}</label>
-            <input type="text" placeholder="Masters of Mayhem" size="18">
-        </div>
-        <div class="sheetComponentBodyLine">
-            <label> {{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}</label>
-            <input type="text" placeholder="Januari 1, 2000" size="18">
-        </div>
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutGap="1px"
+         fxLayoutWrap="nowrap">
+      <label class="flex-item" fxFlex="100px">  {{ 'SHEET.PLAYER_INFORMATION.CAMPAIGN' | translate }}</label>
+      <span class="flex-item" fxFlex="100%">Masters of Mayhem</span>
     </div>
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutGap="1px"
+         fxLayoutWrap="nowrap">
+      <label class="flex-item" fxFlex="100px">  {{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}</label>
+      <span class="flex-item" fxFlex="100%">Januari 1, 2000</span>
+    </div>
+  </div>
 </div>

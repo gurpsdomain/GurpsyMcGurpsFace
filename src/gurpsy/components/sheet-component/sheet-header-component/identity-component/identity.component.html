@@ -1,19 +1,31 @@
 <div class="sheetComponent identity">
-    <div class="sheetComponentHeader">
-        {{ 'SHEET.IDENTITY.IDENTITY' | translate }}
+  <div class="sheetComponentHeader">
+    {{ 'SHEET.IDENTITY.IDENTITY' | translate }}
+  </div>
+  <div class="sheetComponentBody">
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutGap="1px"
+         fxLayoutWrap="nowrap">
+      <label class="flex-item" fxFlex="70px"> {{ 'SHEET.IDENTITY.NAME' | translate }}</label>
+      <span class="flex-item" fxFlex="100%">Dai Blackthorn</span>
     </div>
-    <div class="sheetComponentBody">
-        <div class="sheetComponentBodyLine">
-            <label> {{ 'SHEET.IDENTITY.NAME' | translate }}</label>
-            <input type="text" placeholder="Dai Blackthorn" size="18">
-        </div>
-        <div class="sheetComponentBodyLine">
-            <label> {{ 'SHEET.IDENTITY.TITLE' | translate }}</label>
-            <input type="text" placeholder="Captain" size="18">
-        </div>
-        <div class="sheetComponentBodyLine">
-            <label> {{ 'SHEET.IDENTITY.RELIGION' | translate }}</label>
-            <input type="text" placeholder="Atheist" size="18">
-        </div>
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutGap="1px"
+         fxLayoutWrap="nowrap">
+      <label class="flex-item" fxFlex="70px"> {{ 'SHEET.IDENTITY.TITLE' | translate }}</label>
+      <span class="flex-item" fxFlex="100%">Captain</span>
     </div>
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutGap="1px"
+         fxLayoutWrap="nowrap">
+      <label class="flex-item" fxFlex="70px"> {{ 'SHEET.IDENTITY.RELIGION' | translate }}</label>
+      <span class="flex-item" fxFlex="100%">Atheist</span>
+    </div>
+  </div>
 </div>
