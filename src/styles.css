@@ -2,7 +2,7 @@
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 
 :root {
-  --max-width-sheet-large: 768px;
+  --max-width-sheet: 768px;
   --min-width-sheet-large: 620px;
   --max-width-sheet-medium: 619px;
   --min-width-device-medium: 320px;

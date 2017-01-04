@@ -7,7 +7,7 @@
 }
 
 .sheet {
-  max-width: var(--max-width-sheet-large);
+  max-width: var(--max-width-sheet);
 }
 
 .sheetComponent {
@@ -19,20 +19,26 @@
 .sheetComponentHeader {
   text-align: center;
   font-size: small;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   background: var(--sheet-component-header-background-color);
   color: var(--sheet-component-header-font-color);
 }
 
 .sheetComponentBody {
-  margin-bottom: 2px;
   padding: 0px 4px 0px 4px;
   background: var(--sheet-component-body-background-color);
 }
 
 .sheetComponentBody label {
   color: var(--sheet-label-font-color);
+  white-space: nowrap;
 }
 
 .sheetComponentBody span {
   color: var(--sheet-data-font-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
