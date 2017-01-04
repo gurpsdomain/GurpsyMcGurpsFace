@@ -10,20 +10,21 @@
   </gurpsy-portrait-component>
   <div class="centerComponentsWrapper flex-container flex-item"
        fxLayout="column"
-       fxLayoutAlign="space-between stretch"
+       fxLayoutAlign="start stretch"
        fxFlex="100%">
     <div class="centerComponentsFirstLineWrapper flex-container flex-item"
          fxLayout="row"
          fxLayoutAlign="space-between stretch"
-         fxLayoutWrap="nowrap"
-         fxFill>
+         fxLayoutWrap="nowrap">
       <gurpsy-identity-component class="identityWrapper flex-item"
                                  fxFlex="50%"></gurpsy-identity-component>
       <gurpsy-player-information-component class="playerInformationWrapper flex-item"
                                            fxFlex="50%"></gurpsy-player-information-component>
     </div>
-    <gurpsy-description-component class="descriptionWrapper flex-item"
-                                  fxFill></gurpsy-description-component>
+    <gurpsy-description-component class="descriptionWrapper flex-item flex-container"
+                                  fxLayout="column"
+                                  fxLayoutAlign="start stretch"
+                                  fxFlex></gurpsy-description-component>
   </div>
   <gurpsy-points-component class="pointsWrapper flex-item"
                            fxFlex="120px"
