@@ -1,5 +1,5 @@
 .description {
   background: var(--sheet-component-body-background-color);
   color: var(--sheet-data-font-color);
-  flex: 1 1 auto;
+  /*flex: 1 1 auto;*/
 }

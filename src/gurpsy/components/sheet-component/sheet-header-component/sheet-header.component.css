@@ -4,11 +4,11 @@
 }
 
 .descriptionWrapper {
-  flex: 1 1 auto;
+  /*flex: 1 1 auto;*/
   margin-bottom: 2px;
-  display: flex;
-  flex-direction: column;
-  align-content: stretch;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-content: stretch;*/
 }
 
 .pointsWrapper {
@@ -16,16 +16,16 @@
 }
 
 .centerComponentsWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: stretch;*/
 }
 
 .centerComponentsFirstLineWrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: stretch;
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*flex-wrap: nowrap;*/
+  /*justify-content: space-between;*/
+  /*align-items: stretch;*/
 }
 

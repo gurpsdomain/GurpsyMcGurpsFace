@@ -1,14 +1,32 @@
 <div class="sheetHeader flex-container"
      fxLayout="row"
-     fxLayoutAlign="stretch"
-     fxLayoutGap="1px">
-  <gurpsy-portrait-component class="portraitWrapper flex-item" fxFlex="112px" fxHide="false" fxHide.xs></gurpsy-portrait-component>
-  <div class="centerComponentsWrapper flex-item" fxFlex fxFlex.xs>
-    <div class="centerComponentsFirstLineWrapper">
-      <gurpsy-identity-component class="identityWrapper"></gurpsy-identity-component>
-      <gurpsy-player-information-component class="playerInformationWrapper"></gurpsy-player-information-component>
+     fxLayoutAlign="space-between stretch"
+     fxLayoutGap="1px"
+     fxLayoutWrap="nowrap">
+  <gurpsy-portrait-component class="portraitWrapper flex-item"
+                             fxFlex="112px"
+                             fxHide="false"
+                             fxHide.xs>
+  </gurpsy-portrait-component>
+  <div class="centerComponentsWrapper flex-container flex-item"
+       fxLayout="column"
+       fxLayoutAlign="space-between stretch"
+       fxFlex="100%">
+    <div class="centerComponentsFirstLineWrapper flex-container flex-item"
+         fxLayout="row"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutWrap="nowrap"
+         fxFill>
+      <gurpsy-identity-component class="identityWrapper flex-item"
+                                 fxFlex="50%"></gurpsy-identity-component>
+      <gurpsy-player-information-component class="playerInformationWrapper flex-item"
+                                           fxFlex="50%"></gurpsy-player-information-component>
     </div>
-    <gurpsy-description-component class="descriptionWrapper"></gurpsy-description-component>
+    <gurpsy-description-component class="descriptionWrapper flex-item"
+                                  fxFill></gurpsy-description-component>
   </div>
-  <gurpsy-points-component class="pointsWrapper flex-item" fxFlex="120px" fxHide="false" fxHide.xs></gurpsy-points-component>
+  <gurpsy-points-component class="pointsWrapper flex-item"
+                           fxFlex="120px"
+                           fxHide="false"
+                           fxHide.xs></gurpsy-points-component>
 </div>
