@@ -3,29 +3,3 @@
   border-radius: 2px;
 }
 
-.descriptionWrapper {
-  /*flex: 1 1 auto;*/
-  margin-bottom: 2px;
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*align-content: stretch;*/
-}
-
-.pointsWrapper {
-  margin-bottom: 3px;
-}
-
-.centerComponentsWrapper {
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*align-items: stretch;*/
-}
-
-.centerComponentsFirstLineWrapper {
-  /*display: flex;*/
-  /*flex-direction: row;*/
-  /*flex-wrap: nowrap;*/
-  /*justify-content: space-between;*/
-  /*align-items: stretch;*/
-}
-

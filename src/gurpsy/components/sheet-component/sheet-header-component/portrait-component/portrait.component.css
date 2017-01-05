@@ -1,5 +1,5 @@
 .portrait {
-    height: calc(100% - 10px);
+    height: calc(100% - 8px);
 }
 
 .portrait .sheetComponentBody {
