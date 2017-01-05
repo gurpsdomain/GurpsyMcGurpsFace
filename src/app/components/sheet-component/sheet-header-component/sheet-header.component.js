@@ -15,9 +15,9 @@ var SheetHeaderComponent = (function () {
     SheetHeaderComponent = __decorate([
         core_1.Component({
             selector: 'sheet-header',
-            templateUrl: 'gurpsy/sheet/sheetheader/sheet-header.component.html',
-            styleUrls: ['gurpsy/sheet/sheet.component.css',
-                'gurpsy/sheet/sheetheader/sheet-header.component.css'
+            templateUrl: 'app/sheet/sheetheader/sheet-header.component.html',
+            styleUrls: ['app/sheet/sheet.component.css',
+                'app/sheet/sheetheader/sheet-header.component.css'
             ]
         }),
         __metadata('design:paramtypes', [])

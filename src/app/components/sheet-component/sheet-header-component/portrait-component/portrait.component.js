@@ -9,18 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var IdentityComponent = (function () {
-    function IdentityComponent() {
+var PortraitComponent = (function () {
+    function PortraitComponent() {
     }
-    IdentityComponent = __decorate([
+    PortraitComponent = __decorate([
         core_1.Component({
-            selector: 'gurpsy-identity-component',
-            templateUrl: 'gurpsy/sheet/sheetheader/components/identity.component.html',
-            styleUrls: ['gurpsy/sheet/sheet.component.css']
+            selector: 'gurpsy-portrait-component',
+            templateUrl: 'app/sheet/sheetheader/components/portrait.component.html',
+            styleUrls: ['app/sheet/sheet.component.css',
+                'app/sheet/sheetheader/components/portrait.component.css'
+            ]
         }),
         __metadata('design:paramtypes', [])
-    ], IdentityComponent);
-    return IdentityComponent;
+    ], PortraitComponent);
+    return PortraitComponent;
 }());
-exports.IdentityComponent = IdentityComponent;
-//# sourceMappingURL=identity.component.js.map
+exports.PortraitComponent = PortraitComponent;
+//# sourceMappingURL=portrait.component.js.map

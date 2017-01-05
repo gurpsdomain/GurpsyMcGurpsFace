@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var PlayerInformationComponent = (function () {
-    function PlayerInformationComponent() {
+var IdentityComponent = (function () {
+    function IdentityComponent() {
     }
-    PlayerInformationComponent = __decorate([
+    IdentityComponent = __decorate([
         core_1.Component({
-            selector: 'gurpsy-player-information-component',
-            templateUrl: 'gurpsy/sheet/sheetheader/components/player-information.component.html',
-            styleUrls: ['gurpsy/sheet/sheet.component.css']
+            selector: 'gurpsy-identity-component',
+            templateUrl: 'app/sheet/sheetheader/components/identity.component.html',
+            styleUrls: ['app/sheet/sheet.component.css']
         }),
         __metadata('design:paramtypes', [])
-    ], PlayerInformationComponent);
-    return PlayerInformationComponent;
+    ], IdentityComponent);
+    return IdentityComponent;
 }());
-exports.PlayerInformationComponent = PlayerInformationComponent;
-//# sourceMappingURL=player-information.component.js.map
+exports.IdentityComponent = IdentityComponent;
+//# sourceMappingURL=identity.component.js.map

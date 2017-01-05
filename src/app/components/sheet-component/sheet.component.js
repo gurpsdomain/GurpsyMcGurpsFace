@@ -9,20 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var PortraitComponent = (function () {
-    function PortraitComponent() {
+var SheetComponent = (function () {
+    function SheetComponent() {
     }
-    PortraitComponent = __decorate([
+    SheetComponent = __decorate([
         core_1.Component({
-            selector: 'gurpsy-portrait-component',
-            templateUrl: 'gurpsy/sheet/sheetheader/components/portrait.component.html',
-            styleUrls: ['gurpsy/sheet/sheet.component.css',
-                'gurpsy/sheet/sheetheader/components/portrait.component.css'
-            ]
+            selector: 'sheet',
+            templateUrl: 'app/sheet/sheet.component.html',
+            styleUrls: ['app/sheet/sheet.component.css']
         }),
         __metadata('design:paramtypes', [])
-    ], PortraitComponent);
-    return PortraitComponent;
+    ], SheetComponent);
+    return SheetComponent;
 }());
-exports.PortraitComponent = PortraitComponent;
-//# sourceMappingURL=portrait.component.js.map
+exports.SheetComponent = SheetComponent;
+//# sourceMappingURL=sheet.component.js.map

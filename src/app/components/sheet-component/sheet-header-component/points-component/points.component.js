@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var DescriptionComponent = (function () {
-    function DescriptionComponent() {
+// import { SharedModule }       from 'app/shared.module';
+var PointsComponent = (function () {
+    function PointsComponent() {
     }
-    DescriptionComponent = __decorate([
+    PointsComponent = __decorate([
         core_1.Component({
-            selector: 'gurpsy-description-component',
-            templateUrl: 'gurpsy/sheet/sheetheader/components/description.component.html',
-            styleUrls: ['gurpsy/sheet/sheet.component.css',
-                'gurpsy/sheet/sheetheader/components/description.component.css']
+            selector: 'gurpsy-points-component',
+            templateUrl: 'app/sheet/sheetheader/components/points.component.html',
+            styleUrls: ['app/sheet/sheet.component.css',
+                'app/sheet/sheetheader/components/points.component.css'
+            ]
         }),
         __metadata('design:paramtypes', [])
-    ], DescriptionComponent);
-    return DescriptionComponent;
+    ], PointsComponent);
+    return PointsComponent;
 }());
-exports.DescriptionComponent = DescriptionComponent;
-//# sourceMappingURL=description.component.js.map
+exports.PointsComponent = PointsComponent;
+//# sourceMappingURL=points.component.js.map
