@@ -11,6 +11,9 @@
       "HEADER": "Verwijder lokaal opgeslagen instellingen",
       "BODY": "Dit zal alle lokaal opgeslagen instellingen verwijderen en daarme teruggaan naar de default instellingen. Lokaal opgeslagen Character Sheets zullen niet worden verwijderd?",
       "CONFIRMATION": "Weet u zeker dat u wilt doorgaan?"
+    },
+    "OPEN_SHEET": {
+      "HEADER": "Open Character Sheet"
     }
   },
   "MENU": {
