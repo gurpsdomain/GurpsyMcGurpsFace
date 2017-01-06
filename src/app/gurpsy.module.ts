@@ -16,6 +16,7 @@ import {PointsComponent} from './components/sheet-component/sheet-header-compone
 import {IdentityComponent} from './components/sheet-component/sheet-header-component/identity-component/identity.component';
 import {HeaderComponent} from './components/header-component/header.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
+import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,8 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
     PointsComponent,
     IdentityComponent,
     HeaderComponent,
-    SideNavigationComponent
-
+    SideNavigationComponent,
+    DeleteSettingsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +41,9 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
     TranslateModule.forRoot()
   ],
   providers: [],
+  entryComponents: [
+    DeleteSettingsDialogComponent
+  ],
   bootstrap: [GurpsyComponent]
 })
 export class AppModule {

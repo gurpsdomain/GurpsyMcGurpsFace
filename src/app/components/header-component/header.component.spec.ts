@@ -2,6 +2,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
 import {HeaderComponent} from './header.component';
+import {DeleteSettingsDialogComponent} from '../dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 import {TranslateModule} from 'ng2-translate';
 
 describe('HeaderComponent', () => {
@@ -10,7 +11,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
+      declarations: [
+        HeaderComponent,
+        DeleteSettingsDialogComponent
+      ],
       imports: [
         TranslateModule.forRoot(),
         MaterialModule.forRoot()]
