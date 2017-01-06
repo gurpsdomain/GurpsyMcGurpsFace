@@ -4,15 +4,18 @@
   "default": "Standaard",
   "darcula": "Darcula",
   "APPLICATION": "GurpsyMcGurpsFace",
+  "OK": "Ok",
+  "CANCEL": "Cancel",
   "MENU": {
-    "OPEN": "Open..."
+    "OPEN": "Open...",
+    "CLEAR_SETTINGS": "Verwijder instelling"
   },
   "SETTINGS": {
     "SHEETVIEW": "Sheetview",
     "SETTINGS": "Settings"
   },
   "SHEET": {
-    "SUBJECT":{
+    "SUBJECT": {
       "ATTRIBUTES": "Attributes",
       "SKILLS": "Skills",
       "DIS_ADVANTAGES": "(Dis)Advantages",
