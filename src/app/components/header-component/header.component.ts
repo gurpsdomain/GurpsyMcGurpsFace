@@ -1,6 +1,7 @@
 import {Component, Output, EventEmitter} from '@angular/core';
 import {DeleteSettingsDialogComponent} from '../dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 import {MdDialog, MdDialogRef} from '@angular/material';
+import {OpenSheetDialogComponent} from '../dialog-component/open-sheet-dialog/open-sheet-dialog.component';
 
 @Component({
   selector: 'gurpsy-header',
@@ -9,6 +10,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class HeaderComponent {
 
+  private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
 
   public dialog: MdDialog;
@@ -24,7 +26,13 @@ export class HeaderComponent {
   }
 
   onOpenSheetDialog(): void {
-    console.log('Opening Sheet Dialog');
+    this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
+      disableClose: false
+    });
+
+    this.openSheetDialogRef.afterClosed().subscribe(
+      this.openSheetDialogRef = null
+    );
   }
 
   onOpenDeleteSettingsDialog(): void {

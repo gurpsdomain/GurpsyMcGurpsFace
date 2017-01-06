@@ -17,6 +17,7 @@ import {IdentityComponent} from './components/sheet-component/sheet-header-compo
 import {HeaderComponent} from './components/header-component/header.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
+import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {DeleteSettingsDialogComponent} from './components/dialog-component/delet
     IdentityComponent,
     HeaderComponent,
     SideNavigationComponent,
-    DeleteSettingsDialogComponent
+    DeleteSettingsDialogComponent,
+    OpenSheetDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import {DeleteSettingsDialogComponent} from './components/dialog-component/delet
   ],
   providers: [],
   entryComponents: [
-    DeleteSettingsDialogComponent
+    DeleteSettingsDialogComponent,
+    OpenSheetDialogComponent
   ],
   bootstrap: [GurpsyComponent]
 })
