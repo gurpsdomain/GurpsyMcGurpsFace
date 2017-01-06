@@ -4,8 +4,15 @@
   "default": "Default",
   "darcula": "Darcula",
   "APPLICATION": "GurpsyMcGurpsFace",
-  "OK": "Ok",
-  "CANCEL": "Cancel",
+  "DIALOG": {
+    "OK": "Yes",
+    "CANCEL": "Cancel",
+    "DELETE_SETTINGS": {
+      "HEADER": "Delete locally stored settings",
+      "BODY": "This will delete all locally stored settings and will revert to the default settings. Locally stored Character Sheets will not be deleted.",
+      "CONFIRMATION": "Are you sure you wish to continue?"
+    }
+  },
   "MENU": {
     "OPEN": "Open...",
     "CLEAR_SETTINGS": "Clear settings"

@@ -1,8 +1,8 @@
-<h1 md-dialog-title> Delete locally stored settings</h1>
-<p>This will delete all locally stored settings and will revert Gurpsy
-  to the default settings. Locally stored Character sheets will not be deleted.</p>
-<p>Do you wish to proceed?</p>
+<h1 md-dialog-title> {{'DIALOG.DELETE_SETTINGS.HEADER'| translate}}</h1>
+<p>{{'DIALOG.DELETE_SETTINGS.BODY'| translate}}</p>
+<p>{{'DIALOG.DELETE_SETTINGS.CONFIRMATION'| translate}}</p>
+
 <md-dialog-actions>
-  <button (click)="dialogRef.close('yes')">Yes</button>
-  <button md-dialog-close>No</button>
+  <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>

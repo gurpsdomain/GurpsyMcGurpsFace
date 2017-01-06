@@ -69,6 +69,15 @@ export class LanguagesService {
         return Promise.resolve(languagesLocales);
     }
 
+    clearSettings(): void {
+      this.setDefaultLanguage();
+      localStorage.removeItem(LanguagesService.STORAGE_KEY);
+    }
+
+    private setDefaultLanguage(): void {
+      this.changeLanguage(LanguagesService.DEFAULT);
+    }
+
     private changeLanguage(language: Language): void {
         this.persistLanguage(language);
         this.translateService.use(language.locale);

@@ -32,8 +32,8 @@ export class HeaderComponent {
       disableClose: false
     });
 
-    this.deleteSettingsDialogRef.afterClosed().subscribe(result => {
-      this.deleteSettingsDialogRef = null;
-    });
+    this.deleteSettingsDialogRef.afterClosed().subscribe(
+      this.deleteSettingsDialogRef = null
+    );
   }
 }
