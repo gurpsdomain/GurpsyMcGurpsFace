@@ -4,8 +4,11 @@
   "default": "Default",
   "darcula": "Darcula",
   "APPLICATION": "GurpsyMcGurpsFace",
+  "OK": "Ok",
+  "CANCEL": "Cancel",
   "MENU": {
-    "OPEN": "Open..."
+    "OPEN": "Open...",
+    "CLEAR_SETTINGS": "Clear settings"
   },
   "SETTINGS": {
     "SHEETVIEW": "Sheetview",

@@ -1,21 +1,26 @@
 <div class="header">
-    <div class="headerMenuButton">
-        <button md-icon-button (click)="onOpenSideNav()">
-            <md-icon>menu</md-icon>
-        </button>
-    </div>
-    <div class="headerApplicationName">
-        {{'APPLICATION'| translate}}
-    </div>
-    <div class="portrait" fxShow="false"  fxShow.xs>
-        <img src="assets/images/empty-portrait.png" alt="portrait"/>
-    </div>
-    <div class="headerSettings">
-        <button md-icon-button [md-menu-trigger-for]="settings">
-            <md-icon>more_vert</md-icon>
-        </button>
-        <md-menu x-position="before" y-position="below" #settings="mdMenu">
-            <button md-menu-item> {{ 'MENU.OPEN' | translate }}</button>
-        </md-menu>
-    </div>
+  <div class="headerMenuButton">
+    <button md-icon-button (click)="onOpenSideNav()">
+      <md-icon>menu</md-icon>
+    </button>
+  </div>
+  <div class="headerApplicationName">
+    {{'APPLICATION'| translate}}
+  </div>
+  <div class="portrait" fxShow="false" fxShow.xs>
+    <img src="assets/images/empty-portrait.png" alt="portrait"/>
+  </div>
+  <div class="headerSettings">
+    <button md-icon-button [md-menu-trigger-for]="settings">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu x-position="before" y-position="below" #settings="mdMenu">
+      <button md-menu-item>
+        <md-icon>add</md-icon>
+        <span>{{ 'MENU.OPEN' | translate }}</span></button>
+      <button md-menu-item>
+        <md-icon>delete</md-icon>
+        <span>{{ 'MENU.CLEAR_SETTINGS' | translate }}</span></button>
+    </md-menu>
+  </div>
 </div>
