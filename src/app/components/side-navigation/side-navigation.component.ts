@@ -1,6 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {LanguagesService} from '../../services/languages-service/languages.service';
-import {ThemesService} from '../../services/themes-service/themes.service';
 
 @Component({
     selector: 'gurpsy-side-navigation',
@@ -13,21 +12,15 @@ export class SideNavigationComponent implements OnInit {
     @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
 
     private languageService: LanguagesService;
-    private themesService: ThemesService;
 
     selectedLanguage;
     languageOptions;
-    selectedTheme;
-    themeOptions;
 
-    constructor(languages: LanguagesService, themes: ThemesService) {
+    constructor(languages: LanguagesService) {
         this.languageService = languages;
-        this.themesService = themes;
     }
 
     ngOnInit(): void {
-        this.themesService.getAvailableThemes().then(themes => this.themeOptions = themes);
-        this.themesService.getCurrent().then(theme => this.selectedTheme = theme);
         this.languageService.getAvailableLanguages().then(languages => this.languageOptions = languages);
         this.languageService.getCurrent().then(language => this.selectedLanguage = language);
     }
@@ -38,9 +31,5 @@ export class SideNavigationComponent implements OnInit {
 
     onLanguageChange(): void {
         this.languageService.setCurrent(this.selectedLanguage);
-    }
-
-    onThemeChange(): void {
-        this.themesService.setCurrent(this.selectedTheme);
     }
 }

@@ -3,11 +3,10 @@
   margin-left: auto;
   margin-right: auto;
   font-size: 13px;
-  background: var(--sheet-background-color);
 }
 
 .sheet {
-  max-width: var(--max-width-sheet);
+  max-width: 768px;
 }
 
 .sheetComponent {
@@ -22,22 +21,17 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background: var(--sheet-component-header-background-color);
-  color: var(--sheet-component-header-font-color);
 }
 
 .sheetComponentBody {
   padding: 0px 4px 0px 4px;
-  background: var(--sheet-component-body-background-color);
 }
 
 .sheetComponentBody label {
-  color: var(--sheet-label-font-color);
   white-space: nowrap;
 }
 
 .sheetComponentBody span {
-  color: var(--sheet-data-font-color);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

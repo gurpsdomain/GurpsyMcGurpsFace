@@ -1,12 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
-
 :root {
   --max-width-sheet: 768px;
-  --min-width-sheet-large: 620px;
-  --max-width-sheet-medium: 619px;
-  --min-width-device-medium: 320px;
-  --max-width-device-small: 319px
 }
 
 html {
@@ -26,21 +19,8 @@ md-sidenav-layout {
   height: 100%;
 }
 
-.md-sidenav-content {
-  background: var(--page-background-color);
-}
-
-.md-sidenav-over {
-  background: var(--side-navigation-background-color);
-}
-
-.sideNavigation .sideNavigationHeader .closeButton .md-button-wrapper {
-  color: var(--side-navigation-back-button);
-}
-
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine .md-button-wrapper {
   font-weight: normal;
-  color: var(--side-navigation-font-color);
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: small;
 }
@@ -55,7 +35,6 @@ md-sidenav-layout {
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select
 .md-select-trigger .md-select-arrow {
   font-weight: normal;
-  color: var(--side-navigation-font-color);
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: small;
 }

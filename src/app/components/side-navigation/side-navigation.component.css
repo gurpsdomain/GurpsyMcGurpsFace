@@ -4,8 +4,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: var(--side-navigation-header-background-color);
-  color: var(--side-navigation-header-font-color);
 }
 
 .sideNavigation .sideNavigationHeader .portrait {
@@ -24,7 +22,6 @@
   font-size: small;
   font-weight: normal;
   margin: 8px 0px 0px 8px;
-  color: var(--side-navigation-menu-header-color);
 }
 
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent {
@@ -35,7 +32,6 @@
   align-items: flex-start;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: var(--side-navigation-menu-separator-color);
 }
 
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine {
@@ -51,8 +47,6 @@
   font-weight: normal;
 }
 
-
-
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-icon {
   padding-right: 16px;
   vertical-align: text-bottom;
@@ -60,7 +54,6 @@
 
 .sideNavigation .sideNavigationBlock {
   font-weight: normal;
-  color: var(--side-navigation-font-color);
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: small;
 }

@@ -1,14 +1,15 @@
-<md-sidenav-layout>
+<md-sidenav-layout [class.gurpsy-dark]=true>
   <md-sidenav #sidenav>
     <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"></gurpsy-side-navigation>
   </md-sidenav>
 
-  <md-toolbar class="flex-container">
+  <md-toolbar class="flex-container" color="primary">
     <button class="flex-item" md-icon-button (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button>
 
-    <span class="flex-item" fxFlex>{{'APPLICATION'| translate}}</span>
+    <span class="flex-item" fxFlex>{{'APPLICATION'| translate}}
+    </span>
 
     <div class="portrait flex-item" fxShow="false" fxShow.xs>
       <img src="assets/images/empty-portrait.png" alt="portrait"/>
