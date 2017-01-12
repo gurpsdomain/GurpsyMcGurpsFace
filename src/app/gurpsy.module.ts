@@ -14,7 +14,6 @@ import {PlayerInformationComponent} from './components/sheet-component/sheet-hea
 import {DescriptionComponent} from './components/sheet-component/sheet-header-component/description-component/description.component';
 import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
 import {IdentityComponent} from './components/sheet-component/sheet-header-component/identity-component/identity.component';
-import {HeaderComponent} from './components/header-component/header.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
@@ -29,7 +28,6 @@ import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet
     DescriptionComponent,
     PointsComponent,
     IdentityComponent,
-    HeaderComponent,
     SideNavigationComponent,
     DeleteSettingsDialogComponent,
     OpenSheetDialogComponent

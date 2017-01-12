@@ -1,1 +1,4 @@
-
+md-toolbar .portrait img {
+  -webkit-clip-path: circle(15px at center);
+  height: 40px;
+}

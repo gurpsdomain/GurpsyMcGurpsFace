@@ -13,7 +13,6 @@ import {IdentityComponent} from './components/sheet-component/sheet-header-compo
 import {PlayerInformationComponent} from './components/sheet-component/sheet-header-component/player-information-component/player-information.component';
 import {DescriptionComponent} from './components/sheet-component/sheet-header-component/description-component/description.component';
 import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
-import {HeaderComponent} from './components/header-component/header.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 
 
@@ -29,7 +28,6 @@ describe('GurpsyComponent', () => {
                 PlayerInformationComponent,
                 DescriptionComponent,
                 PointsComponent,
-                HeaderComponent,
                 SideNavigationComponent
             ],
             imports: [

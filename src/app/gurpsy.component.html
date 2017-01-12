@@ -1,10 +1,34 @@
 <md-sidenav-layout>
-    <md-sidenav #start>
-        <gurpsy-side-navigation (onCloseSideNavigation)="start.close()" ></gurpsy-side-navigation>
-    </md-sidenav>
+  <md-sidenav #sidenav>
+    <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"></gurpsy-side-navigation>
+  </md-sidenav>
 
-    <gurpsy-header class="appHeader" (onOpenSideNavigation)="start.open()"></gurpsy-header>
-    <gurpsy-sheet></gurpsy-sheet>
+  <md-toolbar>
+    <button md-icon-button (click)="sidenav.toggle()">
+      <md-icon>menu</md-icon>
+    </button>
+
+    <span>{{'APPLICATION'| translate}}</span>
+
+    <div class="portrait" fxShow="false" fxShow.xs>
+      <img src="assets/images/empty-portrait.png" alt="portrait"/>
+    </div>
+    <div class="headerSettings">
+      <button md-icon-button [md-menu-trigger-for]="settings">
+        <md-icon>more_vert</md-icon>
+      </button>
+      <md-menu x-position="before" y-position="below" #settings="mdMenu">
+        <button md-menu-item (click)="onOpenSheetDialog()">
+          <md-icon>add</md-icon>
+          <span>{{ 'MENU.OPEN' | translate }}</span></button>
+        <button md-menu-item (click)="onOpenDeleteSettingsDialog()">
+          <md-icon>delete</md-icon>
+          <span>{{ 'MENU.CLEAR_SETTINGS' | translate }}</span></button>
+      </md-menu>
+    </div>
+  </md-toolbar>
+
+  <gurpsy-sheet></gurpsy-sheet>
 </md-sidenav-layout>
 
 
