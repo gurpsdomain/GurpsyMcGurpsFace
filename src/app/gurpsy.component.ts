@@ -12,6 +12,7 @@ export class GurpsyComponent implements OnInit {
 
   private translateService: TranslateService;
   private languagesService: LanguagesService;
+  public isDarkTheme: boolean = false;
 
   constructor(translate: TranslateService, languages: LanguagesService) {
     this.translateService = translate;
