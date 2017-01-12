@@ -3,17 +3,17 @@
     <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"></gurpsy-side-navigation>
   </md-sidenav>
 
-  <md-toolbar>
-    <button md-icon-button (click)="sidenav.toggle()">
+  <md-toolbar class="flex-container">
+    <button class="flex-item" md-icon-button (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button>
 
-    <span>{{'APPLICATION'| translate}}</span>
+    <span class="flex-item" fxFlex>{{'APPLICATION'| translate}}</span>
 
-    <div class="portrait" fxShow="false" fxShow.xs>
+    <div class="portrait flex-item" fxShow="false" fxShow.xs>
       <img src="assets/images/empty-portrait.png" alt="portrait"/>
     </div>
-    <div class="headerSettings">
+    <div class="headerSettings flex-item">
       <button md-icon-button [md-menu-trigger-for]="settings">
         <md-icon>more_vert</md-icon>
       </button>
