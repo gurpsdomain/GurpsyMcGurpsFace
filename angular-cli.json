@@ -12,7 +12,6 @@
         "assets/images",
         "assets/sheets",
         "favicon.ico",
-        "themes",
         "i18n"
       ],
       "index": "index.html",
