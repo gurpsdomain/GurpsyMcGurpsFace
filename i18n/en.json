@@ -18,6 +18,8 @@
   },
   "MENU": {
     "OPEN": "Open...",
+    "DARK_THEME" : "Night mode",
+    "LIGHT_THEME" : "Day mode",
     "CLEAR_SETTINGS": "Clear settings"
   },
   "SETTINGS": {

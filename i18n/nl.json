@@ -17,7 +17,10 @@
     }
   },
   "MENU": {
+
     "OPEN": "Open...",
+    "DARK_THEME" : "Nachtmodus",
+    "LIGHT_THEME" : "Dagmodus",
     "CLEAR_SETTINGS": "Verwijder instellingen"
   },
   "SETTINGS": {
