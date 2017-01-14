@@ -17,7 +17,7 @@ var PortraitComponent = (function () {
             selector: 'gurpsy-portrait-component',
             templateUrl: 'app/sheet/sheetheader/components/portrait.component.html',
             styleUrls: ['app/sheet/sheet.component.css',
-                'app/sheet/sheetheader/components/portrait.component.css'
+                'app/sheet/sheetheader/components/portrait.component.scss'
             ]
         }),
         __metadata('design:paramtypes', [])

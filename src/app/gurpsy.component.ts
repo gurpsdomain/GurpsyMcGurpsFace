@@ -8,7 +8,7 @@ import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet
 @Component({
   selector: 'gurpsy-root',
   templateUrl: './gurpsy.component.html',
-  styleUrls: ['./gurpsy.component.css'],
+  styleUrls: ['./gurpsy.component.scss'],
   providers: [LanguagesService]
 })
 export class GurpsyComponent implements OnInit {
@@ -20,7 +20,7 @@ export class GurpsyComponent implements OnInit {
   private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
 
   public dialog: MdDialog;
-  public isDarkTheme: boolean = false;
+  public isDarkTheme: boolean = true;
 
   constructor(translate: TranslateService, languages: LanguagesService, dialog: MdDialog) {
     this.translateService = translate;

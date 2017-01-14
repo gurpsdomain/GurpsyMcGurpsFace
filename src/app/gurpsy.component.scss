@@ -1,3 +1,5 @@
+@import "../gurpsy-material-theme";
+
 md-toolbar {
   margin-bottom: 12px;
 }
@@ -6,5 +8,6 @@ md-toolbar .portrait img {
   -webkit-clip-path: circle(15px at center);
   height: 40px;
 }
+
 
 

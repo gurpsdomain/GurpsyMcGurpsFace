@@ -21,7 +21,7 @@
       "prefix": "gurpsy",
       "mobile": false,
       "styles": [
-        "styles.css",
+        "gurpsy-styles.scss",
         "gurpsy-material-theme.scss"
       ],
       "scripts": [],

@@ -1,21 +1,16 @@
-.sheet {
-  font-family: 'Abel', sans-serif !important;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
-}
-
-.sheet {
-  max-width: 768px;
-}
+@import "../../../gurpsy-material-theme";
 
 .sheetComponent {
   border: black solid 1px;
   border-radius: 2px;
   margin: 3px 3px 3px 3px;
+  font-size: 13px;
+  font-family: 'Abel', sans-serif !important;
 }
 
 .sheetComponentHeader {
+  background: md-color($accent);
+  color: md-color($accent, default-contrast);
   text-align: center;
   font-size: small;
   white-space: nowrap;

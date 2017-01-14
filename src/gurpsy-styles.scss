@@ -1,6 +1,4 @@
-:root {
-  --max-width-sheet: 768px;
-}
+@import "gurpsy-material-theme";
 
 html {
   height: 100%;
@@ -19,10 +17,15 @@ md-sidenav-layout {
   height: 100%;
 }
 
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine .md-button-wrapper {
-  font-weight: normal;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: small;
+md-sidenav-layout.gurpsy-dark {
+  background: black !important;
+}
+
+md-sidenav-layout md-card {
+  padding: 4px;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select
@@ -43,3 +46,4 @@ md-sidenav-layout {
 .md-select-trigger .md-select-arrow {
   margin-right: 0px;
 }
+
