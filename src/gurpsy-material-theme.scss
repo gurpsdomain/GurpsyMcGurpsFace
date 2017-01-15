@@ -10,6 +10,13 @@ $theme: md-light-theme($primary, $accent);
 @include angular-material-theme($theme);
 
 .gurpsy-dark {
+  $dodger-blue: #1CA0F3;
+  $link-water: #CBCED3;
+  $vulcan: #35393F;
+  $selago: #FEFCFE;
+  $grey-chateau: #9EA3AA;
+  $horizon: #678A9A;
+
   $dark-primary: md-palette($md-pink, 700, 500, 900);
   $dark-accent:  md-palette($md-blue-grey, A200, A100, A400);
   $dark-warn:    md-palette($md-deep-orange);

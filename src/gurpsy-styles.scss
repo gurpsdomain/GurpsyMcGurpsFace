@@ -21,6 +21,20 @@ md-sidenav-layout.gurpsy-dark {
   background: black !important;
 }
 
+md-sidenav-layout .sideNavigationHeader {
+  height: 90px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: md-color($accent, default-contrast);
+  background: url(assets/images/day.jpg) md-color($accent);
+}
+
+md-sidenav-layout.gurpsy-dark .sideNavigationHeader {
+  background: url(assets/images/night.jpg) md-color($accent);
+}
+
 md-sidenav-layout md-card {
   padding: 4px;
   max-width: 768px;
