@@ -3,7 +3,6 @@ import {TestBed, async} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
 import {TranslateModule} from 'ng2-translate';
 import {FormsModule} from '@angular/forms';
-
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet-component/sheet.component';
 import {SheetHeaderComponent} from './components/sheet-component/sheet-header-component/sheet-header.component';
@@ -14,34 +13,38 @@ import {PlayerInformationComponent} from './components/sheet-component/sheet-hea
 import {DescriptionComponent} from './components/sheet-component/sheet-header-component/description-component/description.component';
 import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
+import {ConfigurationService} from './services/configuration-service/configuration.service';
 
 
 describe('GurpsyComponent', () => {
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            declarations: [
-                GurpsyComponent,
-                SheetComponent,
-                SheetHeaderComponent,
-                PortraitComponent,
-                IdentityComponent,
-                PlayerInformationComponent,
-                DescriptionComponent,
-                PointsComponent,
-                SideNavigationComponent
-            ],
-            imports: [
-                FormsModule,
-                MaterialModule.forRoot(),
-                TranslateModule.forRoot()
-            ]
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        GurpsyComponent,
+        SheetComponent,
+        SheetHeaderComponent,
+        PortraitComponent,
+        IdentityComponent,
+        PlayerInformationComponent,
+        DescriptionComponent,
+        PointsComponent,
+        SideNavigationComponent
+      ],
+      imports: [
+        FormsModule,
+        MaterialModule.forRoot(),
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        ConfigurationService
+      ]
 
-        });
     });
+  });
 
-    it('should create the app', async(() => {
-        let fixture = TestBed.createComponent(GurpsyComponent);
-        let app = fixture.debugElement.componentInstance;
-        expect(app).toBeTruthy();
-    }));
+  it('should create the app', async(() => {
+    let fixture = TestBed.createComponent(GurpsyComponent);
+    let app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
 });

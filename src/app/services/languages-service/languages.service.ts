@@ -1,25 +1,27 @@
 import {Injectable} from '@angular/core';
 import {TranslateService} from 'ng2-translate';
 import {Language} from '../../models/language';
+import {ConfigurationService} from '../configuration-service/configuration.service';
 
 @Injectable()
 export class LanguagesService {
 
-    private static STORAGE_KEY: string = 'gurpsy-mc-gurps-face.language';
-
+    private static STORAGE_KEY: string = '.language';
     private static ENGLISH: Language = new Language('en');
     private static DUTCH: Language = new Language('nl');
     private static AVAILABLE_LANGUAGES: Language[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
     private static DEFAULT: Language = LanguagesService.ENGLISH;
 
     private translateService: TranslateService;
+    private configurationService: ConfigurationService;
     private current: Language;
 
-    constructor(translate: TranslateService) {
+    constructor(translate: TranslateService, configuration: ConfigurationService) {
 
         this.translateService = translate;
+        this.configurationService = configuration;
 
-        let storedLanguageName: string = localStorage.getItem(LanguagesService.STORAGE_KEY);
+        let storedLanguageName: string = localStorage.getItem(this.getStorageKey());
 
         if (storedLanguageName) {
             for (let language of LanguagesService.AVAILABLE_LANGUAGES) {
@@ -35,32 +37,32 @@ export class LanguagesService {
         }
     }
 
-    getDefault(): Promise<Language> {
+    public getDefault(): Promise<Language> {
         return Promise.resolve(LanguagesService.DEFAULT);
     }
 
-    getCurrent(): Promise<Language> {
+    public getCurrent(): Promise<Language> {
         return Promise.resolve(this.getDefault());
     }
 
-    setCurrent(language: Language): void {
+    public setCurrent(language: Language): void {
         this.changeLanguage(language);
     }
 
-    getCurrentLocale(): Promise<string> {
+    public getCurrentLocale(): Promise<string> {
         return Promise.resolve(this.current.locale);
     }
 
-    getDefaultLocale(): Promise<string> {
+    public getDefaultLocale(): Promise<string> {
         let locale: string = LanguagesService.DEFAULT.locale;
         return Promise.resolve(locale);
     }
 
-    getAvailableLanguages(): Promise<Language[]> {
+    public getAvailableLanguages(): Promise<Language[]> {
         return Promise.resolve(LanguagesService.AVAILABLE_LANGUAGES);
     }
 
-    getAvailableLanguagesLocales(): Promise<string[]> {
+    public getAvailableLanguagesLocales(): Promise<string[]> {
 
         let languagesLocales: string[] = [];
         for (let language of LanguagesService.AVAILABLE_LANGUAGES) {
@@ -69,9 +71,13 @@ export class LanguagesService {
         return Promise.resolve(languagesLocales);
     }
 
-    clearSettings(): void {
+    public getStorageKey(): string {
+      return this.configurationService.getStorageKey() + LanguagesService.STORAGE_KEY;
+    }
+
+    public clearSettings(): void {
       this.setDefaultLanguage();
-      localStorage.removeItem(LanguagesService.STORAGE_KEY);
+      localStorage.removeItem(this.getStorageKey());
     }
 
     private setDefaultLanguage(): void {
@@ -85,6 +91,6 @@ export class LanguagesService {
 
     private persistLanguage(language: Language): void {
         this.current = language;
-        localStorage.setItem(LanguagesService.STORAGE_KEY, language.locale);
+        localStorage.setItem(this.getStorageKey(), language.locale);
     }
 }
