@@ -11,46 +11,52 @@
     </div>
   </div>
   <div class="sideNavigationBlock">
-    <div class="sideNavigationBlockheader">{{'SETTINGS.SHEETVIEW'| translate}}</div>
-    <div class="sideNavigationBlockContent">
-      <button md-button class="sideNavigationBlockContentLine">
-        <md-icon>accessibility</md-icon>
-        <span>{{'SHEET.SUBJECT.ATTRIBUTES'| translate}}</span>
-      </button>
-      <button md-button class="sideNavigationBlockContentLine">
-        <md-icon>hearing</md-icon>
-        <span>{{'SHEET.SUBJECT.DIS_ADVANTAGES'| translate}}</span>
-      </button>
-      <button md-button class="sideNavigationBlockContentLine">
-        <md-icon>school</md-icon>
-        <span>{{'SHEET.SUBJECT.SKILLS'| translate}}</span>
-      </button>
-      <button md-button class="sideNavigationBlockContentLine">
-        <md-icon>flash_on</md-icon>
-        <span>{{'SHEET.SUBJECT.MAGIC'| translate}}</span>
-      </button>
-      <button md-button class="sideNavigationBlockContentLine">
-        <md-icon>card_travel</md-icon>
-        <span>{{'SHEET.SUBJECT.EQUIPMENT'| translate}}</span>
-      </button>
-      <button md-button class="sideNavigationBlockContentLine">
-        <md-icon>mode_edit</md-icon>
-        <span>{{'SHEET.SUBJECT.NOTES'| translate}}</span>
-      </button>
-    </div>
+    <button md-button class="sideNavigationBlockContentLine flex-container"
+            fxLayoutAlign="space-between stretch"
+            fxLayoutWrap="nowrap">
+      <md-icon class="flex-item">accessibility</md-icon>
+      <span class="flex-item" fxFlex="100%">{{'SHEET.SUBJECT.ATTRIBUTES'| translate}}</span>
+    </button>
+    <button md-button class="sideNavigationBlockContentLine flex-container"
+            fxLayoutAlign="space-between stretch"
+            fxLayoutWrap="nowrap">
+      <md-icon class="flex-item">hearing</md-icon>
+      <span class="flex-item" fxFlex="100%">{{'SHEET.SUBJECT.DIS_ADVANTAGES'| translate}}</span>
+    </button>
+    <button md-button class="sideNavigationBlockContentLine flex-container"
+            fxLayoutAlign="space-between stretch"
+            fxLayoutWrap="nowrap">
+      <md-icon class="flex-item">school</md-icon>
+      <span class="flex-item" fxFlex="100%">{{'SHEET.SUBJECT.SKILLS'| translate}}</span>
+    </button>
+    <button md-button class="sideNavigationBlockContentLine flex-container"
+            fxLayoutAlign="space-between stretch"
+            fxLayoutWrap="nowrap">
+      <md-icon class="flex-item">flash_on</md-icon>
+      <span class="flex-item" fxFlex="100%">{{'SHEET.SUBJECT.MAGIC'| translate}}</span>
+    </button>
+    <button md-button class="sideNavigationBlockContentLine flex-container"
+            fxLayoutAlign="space-between stretch"
+            fxLayoutWrap="nowrap">
+      <md-icon class="flex-item">card_travel</md-icon>
+      <span class="flex-item" fxFlex="100%">{{'SHEET.SUBJECT.EQUIPMENT'| translate}}</span>
+    </button>
+    <button md-button class="sideNavigationBlockContentLine flex-container"
+            fxLayoutAlign="space-between stretch"
+            fxLayoutWrap="nowrap">
+      <md-icon class="flex-item">mode_edit</md-icon>
+      <span class="flex-item" fxFlex="100%">{{'SHEET.SUBJECT.NOTES'| translate}}</span>
+    </button>
   </div>
 
   <div class="sideNavigationBlock">
-    <div class="sideNavigationBlockheader">{{'SETTINGS.SETTINGS'| translate}}</div>
-    <div class="sideNavigationBlockContent">
-      <div class="sideNavigationBlockContentLine">
-        <md-icon>g_translate</md-icon>
-        <md-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange()">
-          <md-option *ngFor="let language of languageOptions" [value]="language">
-            {{language.locale| translate}}
-          </md-option>
-        </md-select>
-      </div>
+    <div class="sideNavigationBlockContentLine">
+      <md-icon>g_translate</md-icon>
+      <md-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange()">
+        <md-option *ngFor="let language of languageOptions" [value]="language">
+          {{language.locale| translate}}
+        </md-option>
+      </md-select>
     </div>
   </div>
 </div>

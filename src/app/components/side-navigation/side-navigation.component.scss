@@ -22,45 +22,27 @@
   width: 50px;
 }
 
-.sideNavigation .sideNavigationBlock .sideNavigationBlockheader {
-  display: block;
-  font-size: small;
-  font-weight: normal;
-  margin: 8px 0px 0px 8px;
-}
 
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent {
+.sideNavigation .sideNavigationBlock {
   width: 100%;
-  margin: 8px 0px 4px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
+  margin: 0px 0px 4px 0px;
 }
 
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine {
-  display: flex;
-  align-content: flex-start;
+.sideNavigation .sideNavigationBlock .sideNavigationBlockContentLine {
   padding: 0px 8px 0px 8px;
+  width: 100%;
 }
 
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select {
+.sideNavigation .sideNavigationBlock .sideNavigationBlockContentLine md-select {
   width: 100%;
   margin-right: 10px;
   margin-left: 3px;
   font-weight: normal;
 }
 
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-icon {
+.sideNavigation .sideNavigationBlock .sideNavigationBlockContentLine md-icon {
   padding-right: 16px;
   vertical-align: text-bottom;
-}
-
-.sideNavigation .sideNavigationBlock {
-  font-weight: normal;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: small;
 }
 
 

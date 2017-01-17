@@ -22,10 +22,6 @@
     "LIGHT_THEME" : "Day mode",
     "CLEAR_SETTINGS": "Clear settings"
   },
-  "SETTINGS": {
-    "SHEETVIEW": "Sheetview",
-    "SETTINGS": "Settings"
-  },
   "SHEET": {
     "SUBJECT": {
       "ATTRIBUTES": "Attributes",
