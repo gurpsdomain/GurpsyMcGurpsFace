@@ -18,6 +18,7 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
 import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
 import {ConfigurationService} from './services/configuration-service/configuration.service';
+import {StorageService} from './services/storage-service/storage.service';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -40,7 +41,10 @@ import {ConfigurationService} from './services/configuration-service/configurati
     MaterialModule.forRoot(),
     TranslateModule.forRoot()
   ],
-  providers: [ConfigurationService],
+  providers: [
+    ConfigurationService,
+    StorageService
+  ],
   entryComponents: [
     DeleteSettingsDialogComponent,
     OpenSheetDialogComponent

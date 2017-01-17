@@ -14,6 +14,7 @@ import {DescriptionComponent} from './components/sheet-component/sheet-header-co
 import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {ConfigurationService} from './services/configuration-service/configuration.service';
+import {StorageService} from './services/storage-service/storage.service';
 
 
 describe('GurpsyComponent', () => {
@@ -36,7 +37,8 @@ describe('GurpsyComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        ConfigurationService
+        ConfigurationService,
+        StorageService
       ]
 
     });

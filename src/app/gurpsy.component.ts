@@ -11,8 +11,7 @@ import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet
   templateUrl: './gurpsy.component.html',
   styleUrls: ['./gurpsy.component.scss'],
   providers: [
-    LanguagesService,
-    StorageService]
+    LanguagesService]
 })
 export class GurpsyComponent implements OnInit {
 
@@ -51,11 +50,11 @@ export class GurpsyComponent implements OnInit {
 
   initTheme(): void {
     this.storageService.getTheme().then(
-      theme => this.isDarkTheme = theme === 'night');
+      theme => this.isDarkTheme = theme === StorageService.THEME_NIGHT);
   }
 
   setTheme(theme: string) {
-    this.isDarkTheme = theme === 'night';
+    this.isDarkTheme = theme === StorageService.THEME_NIGHT;
   }
 
   onThemeChange(): void {

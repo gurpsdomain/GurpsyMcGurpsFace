@@ -5,27 +5,24 @@ import {ConfigurationService} from '../configuration-service/configuration.servi
 @Injectable()
 export class StorageService {
 
+  public static THEME_DAY: string = 'day';
+  public static THEME_NIGHT: string = 'night';
+  public static THEME_DEFAULT: string = StorageService.THEME_DAY;
+
   private static THEME_STORAGE_KEY: string = '.theme';
-  private static THEME_DAY: string = 'day';
-  private static THEME_NIGHT: string = 'night';
-  private static THEME_DEFAULT: string = StorageService.THEME_DAY;
 
   private configurationService: ConfigurationService;
 
   private themeChangeSource = new Subject<string>();
   private languageChangeSource = new Subject<string>();
 
-  themeChange$ = this.themeChangeSource.asObservable();
-  languageChange$ = this.languageChangeSource.asObservable();
+  public themeChange$ = this.themeChangeSource.asObservable();
+  public languageChange$ = this.languageChangeSource.asObservable();
 
   constructor(configuration: ConfigurationService) {
     this.configurationService = configuration;
 
     this.initStorageListener();
-  }
-
-  private initStorageListener() {
-    window.addEventListener('storage', (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   public getThemeStorageKey(): string {
@@ -51,13 +48,25 @@ export class StorageService {
     }
   }
 
-  // Service message commands
+  public clearStorage(): void {
+    this.clearStoredTheme();
+  }
+
+  private clearStoredTheme(): void {
+    localStorage.removeItem(this.getThemeStorageKey());
+    this.themeChange(StorageService.THEME_DEFAULT);
+  }
+
   public themeChange(theme: string) {
     this.themeChangeSource.next(theme);
   }
 
   public languageChange(language: string) {
     this.languageChangeSource.next(language);
+  }
+
+  private initStorageListener() {
+    window.addEventListener('storage', (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   private handleStorageChange(event: StorageEvent): void {
