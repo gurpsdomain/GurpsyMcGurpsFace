@@ -1,17 +1,19 @@
 @import "../../../gurpsy-material-theme";
 
-//md-sidenav-layout .sideNavigationHeader {
-//  height: 80px;
-//  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
-//  display: flex;
-//  flex-direction: row;
-//  justify-content: space-between;
-//  color: md-color($accent, default-contrast);
-//}
-
 .sideNavigation .sideNavigationHeader .portrait {
-  flex: auto;
   padding-left: 8px;
+  padding-top: 30px;
+}
+
+.sideNavigation .sideNavigationHeader .transparentOverlay {
+  height: 20px;
+  width:  100%;
+  background: white;
+  opacity: 0.1;
+}
+
+.sideNavigation .sideNavigationHeader .closeButton {
+  float: right;
 }
 
 .sideNavigation .sideNavigationHeader .portrait img {
