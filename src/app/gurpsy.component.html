@@ -23,11 +23,11 @@
           <md-icon>add</md-icon>
           <span>{{ 'MENU.OPEN' | translate }}</span>
         </button>
-        <button *ngIf="!isDarkTheme" md-menu-item (click)="isDarkTheme = !isDarkTheme">
+        <button *ngIf="!isDarkTheme" md-menu-item (click)="onThemeChange()">
           <md-icon>insert_photo</md-icon>
           <span>{{ 'MENU.DARK_THEME' | translate }}</span>
         </button>
-        <button *ngIf="isDarkTheme" md-menu-item (click)="isDarkTheme = !isDarkTheme">
+        <button *ngIf="isDarkTheme" md-menu-item (click)="onThemeChange()">
           <md-icon>insert_photo</md-icon>
           <span>{{ 'MENU.LIGHT_THEME' | translate }}</span>
         </button>
