@@ -15,6 +15,8 @@ import {PointsComponent} from './components/sheet-component/sheet-header-compone
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {ConfigurationService} from './services/configuration-service/configuration.service';
 import {StorageService} from './services/storage-service/storage.service';
+import {ThemeService} from './services/theme-service/theme.service';
+import {LanguagesService} from './services/languages-service/languages.service';
 
 
 describe('GurpsyComponent', () => {
@@ -38,7 +40,9 @@ describe('GurpsyComponent', () => {
       ],
       providers: [
         ConfigurationService,
-        StorageService
+        ThemeService,
+        StorageService,
+        LanguagesService
       ]
     });
   });
