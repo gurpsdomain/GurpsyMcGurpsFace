@@ -6,10 +6,10 @@ import {ConfigurationService} from '../configuration-service/configuration.servi
 export class StorageService {
 
   public static THEME_DAY: string = 'day';
-  public static THEME_NIGHT: string = 'night';
   public static THEME_DEFAULT: string = StorageService.THEME_DAY;
 
-  private static THEME_STORAGE_KEY: string = '.theme';
+  private static STORAGE_KEY_THEME: string = '.theme';
+  private static STORAGE_KEY_LANGUAGE: string = '.language';
 
   private configurationService: ConfigurationService;
 
@@ -25,16 +25,11 @@ export class StorageService {
     this.initStorageListener();
   }
 
-  public getThemeStorageKey(): string {
-    return this.configurationService.getStorageKey() + StorageService.THEME_STORAGE_KEY;
-  }
-
   public getDefaultTheme(): Promise<string> {
     return Promise.resolve(StorageService.THEME_DEFAULT);
   }
 
-  public setTheme(isDark: boolean) {
-    let theme: string = isDark ? StorageService.THEME_NIGHT : StorageService.THEME_DAY;
+  public setTheme(theme: string) {
     localStorage.setItem(this.getThemeStorageKey(), theme);
   }
 
@@ -44,17 +39,30 @@ export class StorageService {
     if (theme) {
       return Promise.resolve(theme);
     } else {
-      return this.getDefaultTheme();
+      return Promise.reject('');
     }
   }
 
   public clearStorage(): void {
     this.clearStoredTheme();
+    this.clearStoredLanguage();
+  }
+
+  private getThemeStorageKey(): string {
+    return this.configurationService.getStorageKey() + StorageService.STORAGE_KEY_THEME;
+  }
+
+  private getLanguageStorageKey(): string {
+    return this.configurationService.getStorageKey() + StorageService.STORAGE_KEY_LANGUAGE;
   }
 
   private clearStoredTheme(): void {
     localStorage.removeItem(this.getThemeStorageKey());
     this.themeChange(StorageService.THEME_DEFAULT);
+  }
+
+  private clearStoredLanguage(): void {
+    localStorage.removeItem(this.getLanguageStorageKey());
   }
 
   public themeChange(theme: string) {
@@ -73,6 +81,9 @@ export class StorageService {
     switch (event.key) {
       case this.getThemeStorageKey():
         this.themeChange(event.newValue);
+        break;
+      case this.getLanguageStorageKey():
+        this.languageChange(event.newValue);
         break;
     }
   }

@@ -19,6 +19,8 @@ import {DeleteSettingsDialogComponent} from './components/dialog-component/delet
 import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
 import {ConfigurationService} from './services/configuration-service/configuration.service';
 import {StorageService} from './services/storage-service/storage.service';
+import {LanguagesService} from './services/languages-service/languages.service';
+import {ThemeService} from './services/theme-service/theme.service';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -43,8 +45,10 @@ import {StorageService} from './services/storage-service/storage.service';
   ],
   providers: [
     ConfigurationService,
+    LanguagesService,
+    ThemeService,
     StorageService
-  ],
+   ],
   entryComponents: [
     DeleteSettingsDialogComponent,
     OpenSheetDialogComponent

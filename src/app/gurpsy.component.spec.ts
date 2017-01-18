@@ -40,7 +40,6 @@ describe('GurpsyComponent', () => {
         ConfigurationService,
         StorageService
       ]
-
     });
   });
 

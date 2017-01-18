@@ -4,8 +4,7 @@ import {LanguagesService} from '../../services/languages-service/languages.servi
 @Component({
     selector: 'gurpsy-side-navigation',
     templateUrl: './side-navigation.component.html',
-    styleUrls: ['./side-navigation.component.scss'],
-    providers: [LanguagesService]
+    styleUrls: ['./side-navigation.component.scss']
 })
 export class SideNavigationComponent implements OnInit {
 

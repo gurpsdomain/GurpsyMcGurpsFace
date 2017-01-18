@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {TranslateService} from 'ng2-translate';
 import {Language} from '../../models/language';
 import {ConfigurationService} from '../configuration-service/configuration.service';
+import {StorageService} from '../storage-service/storage.service';
 
 @Injectable()
 export class LanguagesService {
@@ -14,12 +15,14 @@ export class LanguagesService {
 
     private translateService: TranslateService;
     private configurationService: ConfigurationService;
+    private storageService: StorageService;
     private current: Language;
 
-    constructor(translate: TranslateService, configuration: ConfigurationService) {
+    constructor(translate: TranslateService, configuration: ConfigurationService, storage: StorageService) {
 
         this.translateService = translate;
         this.configurationService = configuration;
+        this.storageService = storage;
 
         let storedLanguageName: string = localStorage.getItem(this.getStorageKey());
 
@@ -75,14 +78,9 @@ export class LanguagesService {
       return this.configurationService.getStorageKey() + LanguagesService.STORAGE_KEY;
     }
 
-    public clearSettings(): void {
-      this.setDefaultLanguage();
-      localStorage.removeItem(this.getStorageKey());
-    }
-
-    private setDefaultLanguage(): void {
-      this.changeLanguage(LanguagesService.DEFAULT);
-    }
+    // private setDefaultLanguage(): void {
+    //   this.changeLanguage(LanguagesService.DEFAULT);
+    // }
 
     private changeLanguage(language: Language): void {
         this.persistLanguage(language);

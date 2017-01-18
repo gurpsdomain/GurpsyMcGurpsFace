@@ -1,23 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from 'ng2-translate';
 import {LanguagesService} from './services/languages-service/languages.service';
-import {StorageService} from './services/storage-service/storage.service';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
+import {ThemeService} from './services/theme-service/theme.service';
 
 @Component({
   selector: 'gurpsy-root',
   templateUrl: './gurpsy.component.html',
-  styleUrls: ['./gurpsy.component.scss'],
-  providers: [
-    LanguagesService]
+  styleUrls: ['./gurpsy.component.scss']
 })
 export class GurpsyComponent implements OnInit {
 
   private translateService: TranslateService;
   private languagesService: LanguagesService;
-  private storageService: StorageService;
+  private themeService: ThemeService;
 
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
@@ -25,13 +23,11 @@ export class GurpsyComponent implements OnInit {
   public dialog: MdDialog;
   public isDarkTheme: boolean = true;
 
-  constructor(translate: TranslateService, storage: StorageService, languages: LanguagesService, dialog: MdDialog) {
+  constructor(translate: TranslateService, theme: ThemeService, languages: LanguagesService, dialog: MdDialog) {
     this.translateService = translate;
-    this.storageService = storage;
+    this.themeService = theme;
     this.languagesService = languages;
     this.dialog = dialog;
-
-    this.storageService.themeChange$.subscribe(theme => this.setTheme(theme));
   }
 
   ngOnInit(): void {
@@ -49,17 +45,18 @@ export class GurpsyComponent implements OnInit {
   }
 
   initTheme(): void {
-    this.storageService.getTheme().then(
-      theme => this.isDarkTheme = theme === StorageService.THEME_NIGHT);
+    this.themeService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ThemeService.THEME_DEFAULT));
+    this.themeService.themeChange$.subscribe(theme => this.setTheme(theme));
   }
 
   setTheme(theme: string) {
-    this.isDarkTheme = theme === StorageService.THEME_NIGHT;
+    this.isDarkTheme = theme === ThemeService.THEME_NIGHT;
   }
 
   onThemeChange(): void {
     this.isDarkTheme = !this.isDarkTheme;
-    this.storageService.setTheme(this.isDarkTheme);
+    let theme: string = this.isDarkTheme ? ThemeService.THEME_NIGHT : ThemeService.THEME_DAY;
+    this.themeService.setTheme(theme);
   }
 
   onOpenSheetDialog(): void {
