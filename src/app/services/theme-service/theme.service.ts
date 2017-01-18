@@ -26,8 +26,4 @@ export class ThemeService {
   public getTheme(): Promise<string> {
     return this.storageService.getTheme();
   }
-
-  public getDefaultTheme(): Promise<string> {
-    return Promise.resolve(ThemeService.THEME_DEFAULT);
-  }
 }

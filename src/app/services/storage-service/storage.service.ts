@@ -5,9 +5,6 @@ import {ConfigurationService} from '../configuration-service/configuration.servi
 @Injectable()
 export class StorageService {
 
-  public static THEME_DAY: string = 'day';
-  public static THEME_DEFAULT: string = StorageService.THEME_DAY;
-
   private static STORAGE_KEY_THEME: string = '.theme';
   private static STORAGE_KEY_LANGUAGE: string = '.language';
 
@@ -23,10 +20,6 @@ export class StorageService {
     this.configurationService = configuration;
 
     this.initStorageListener();
-  }
-
-  public getDefaultTheme(): Promise<string> {
-    return Promise.resolve(StorageService.THEME_DEFAULT);
   }
 
   public setTheme(theme: string) {
@@ -58,7 +51,7 @@ export class StorageService {
 
   private clearStoredTheme(): void {
     localStorage.removeItem(this.getThemeStorageKey());
-    this.themeChange(StorageService.THEME_DEFAULT);
+    this.themeChange(null);
   }
 
   private clearStoredLanguage(): void {
