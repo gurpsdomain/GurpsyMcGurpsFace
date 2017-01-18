@@ -23,10 +23,6 @@
     "LIGHT_THEME" : "Dagmodus",
     "CLEAR_SETTINGS": "Verwijder instellingen"
   },
-  "SETTINGS": {
-    "SHEETVIEW": "Sheetview",
-    "SETTINGS": "Settings"
-  },
   "SHEET": {
     "SUBJECT": {
       "ATTRIBUTES": "Attributes",
