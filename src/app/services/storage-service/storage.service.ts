@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-import {ConfigurationService} from '../configuration-service/configuration.service';
 
 @Injectable()
 export class StorageService {
 
+  private static STORAGE_KEY: string = 'gurpsy-mc-gurps-face';
   private static STORAGE_KEY_THEME: string = '.theme';
   private static STORAGE_KEY_LANGUAGE: string = '.language';
 
-  private configurationService: ConfigurationService;
 
   private themeChangeSource = new Subject<string>();
   private languageChangeSource = new Subject<string>();
@@ -16,9 +15,7 @@ export class StorageService {
   public themeChange$ = this.themeChangeSource.asObservable();
   public languageChange$ = this.languageChangeSource.asObservable();
 
-  constructor(configuration: ConfigurationService) {
-    this.configurationService = configuration;
-
+  constructor() {
     this.initStorageListener();
   }
 
@@ -56,11 +53,11 @@ export class StorageService {
   }
 
   private getThemeStorageKey(): string {
-    return this.configurationService.getStorageKey() + StorageService.STORAGE_KEY_THEME;
+    return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_THEME;
   }
 
   private getLanguageStorageKey(): string {
-    return this.configurationService.getStorageKey() + StorageService.STORAGE_KEY_LANGUAGE;
+    return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_LANGUAGE;
   }
 
   private clearStoredTheme(): void {

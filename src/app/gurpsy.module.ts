@@ -17,7 +17,6 @@ import {IdentityComponent} from './components/sheet-component/sheet-header-compo
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
-import {ConfigurationService} from './services/configuration-service/configuration.service';
 import {StorageService} from './services/storage-service/storage.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ThemeService} from './services/theme-service/theme.service';
@@ -44,7 +43,6 @@ import {ThemeService} from './services/theme-service/theme.service';
     TranslateModule.forRoot()
   ],
   providers: [
-    ConfigurationService,
     LanguagesService,
     ThemeService,
     StorageService

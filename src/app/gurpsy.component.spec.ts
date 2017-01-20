@@ -13,7 +13,6 @@ import {PlayerInformationComponent} from './components/sheet-component/sheet-hea
 import {DescriptionComponent} from './components/sheet-component/sheet-header-component/description-component/description.component';
 import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
-import {ConfigurationService} from './services/configuration-service/configuration.service';
 import {StorageService} from './services/storage-service/storage.service';
 import {ThemeService} from './services/theme-service/theme.service';
 import {LanguagesService} from './services/languages-service/languages.service';
@@ -38,7 +37,6 @@ describe('GurpsyComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        ConfigurationService,
         ThemeService,
         LanguagesService,
         StorageService
