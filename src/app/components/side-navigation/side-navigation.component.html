@@ -48,15 +48,4 @@
       <span class="flex-item" fxFlex="100%">{{'SHEET.SUBJECT.NOTES'| translate}}</span>
     </button>
   </div>
-
-  <div class="sideNavigationBlock">
-    <div class="sideNavigationBlockContentLine">
-      <md-icon>g_translate</md-icon>
-      <md-select [(ngModel)]="selectedLanguage" (ngModelChange)="onLanguageChange()">
-        <md-option *ngFor="let language of languageOptions" [value]="language">
-          {{language.locale| translate}}
-        </md-option>
-      </md-select>
-    </div>
-  </div>
 </div>

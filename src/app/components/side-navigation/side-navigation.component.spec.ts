@@ -5,8 +5,6 @@ import {TranslateModule} from 'ng2-translate';
 import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
 import {ConfigurationService} from '../../services/configuration-service/configuration.service';
-import {LanguagesService} from '../../services/languages-service/languages.service';
-import {StorageService} from '../../services/storage-service/storage.service';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -22,9 +20,7 @@ describe('SideNavigationComponent', () => {
         TranslateModule.forRoot(),
         MaterialModule.forRoot()],
       providers: [
-        ConfigurationService,
-        LanguagesService,
-        StorageService
+        ConfigurationService
       ]
     })
       .compileComponents();

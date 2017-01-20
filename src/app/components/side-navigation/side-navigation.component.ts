@@ -1,34 +1,18 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {LanguagesService} from '../../services/languages-service/languages.service';
+import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
     selector: 'gurpsy-side-navigation',
     templateUrl: './side-navigation.component.html',
     styleUrls: ['./side-navigation.component.scss']
 })
-export class SideNavigationComponent implements OnInit {
+export class SideNavigationComponent {
 
     @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
 
-    private languageService: LanguagesService;
-
-    selectedLanguage;
-    languageOptions;
-
-    constructor(languages: LanguagesService) {
-        this.languageService = languages;
-    }
-
-    ngOnInit(): void {
-        this.languageService.getAvailableLanguages().then(languages => this.languageOptions = languages);
-        this.languageService.getCurrent().then(language => this.selectedLanguage = language);
+    constructor() {
     }
 
     onCloseSideNav(): void {
         this.onCloseSideNavigation.next();
-    }
-
-    onLanguageChange(): void {
-        this.languageService.setCurrent(this.selectedLanguage);
     }
 }

@@ -7,7 +7,7 @@ export class ThemeService {
 
   public static THEME_DAY: string = 'day';
   public static THEME_NIGHT: string = 'night';
-  public static THEME_DEFAULT: string = StorageService.THEME_DAY;
+  public static THEME_DEFAULT: string = ThemeService.THEME_DAY;
 
   private themeChangeSource = new Subject<string>();
   private storageService: StorageService;

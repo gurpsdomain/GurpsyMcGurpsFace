@@ -18,7 +18,6 @@ import {StorageService} from './services/storage-service/storage.service';
 import {ThemeService} from './services/theme-service/theme.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 
-
 describe('GurpsyComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -41,8 +40,8 @@ describe('GurpsyComponent', () => {
       providers: [
         ConfigurationService,
         ThemeService,
-        StorageService,
-        LanguagesService
+        LanguagesService,
+        StorageService
       ]
     });
   });
