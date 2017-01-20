@@ -18,22 +18,15 @@ export class LanguagesService {
     this.translateService = translate;
     this.storageService = storage;
 
-    // this.initLanguage();
     this.initTranslateService();
+    this.initStorageService();
   }
 
-  // private initLanguage(): void {
-  //   // this.storageService.themeChange$.subscribe(theme => this.themeChangeSource.next(theme));
-  //
-  //   this.storageService.getLanguage().then(locale => function () {
-  //     for (let language of LanguagesService.AVAILABLE_LANGUAGES) {
-  //       if (language === locale) {
-  //         this.setLanguage(locale);
-  //         break;
-  //       }
-  //     }
-  //   }).catch(err => this.setLanguage(LanguagesService.DEFAULT));
-  // }
+  public setLanguage(locale: string): void {
+    this.changeLanguage(locale);
+    this.storeLanguage(locale);
+  }
+
 
   private initTranslateService(): void {
     this.translateService.addLangs(LanguagesService.AVAILABLE_LANGUAGES);
@@ -41,16 +34,33 @@ export class LanguagesService {
     this.translateService.use(LanguagesService.DEFAULT);
   }
 
+  private initStorageService(): void {
+    this.storageService.getLanguage().then(storedLocale => function () {
+      this.changeLanguage(storedLocale);
+    });
 
-  public setLanguage(locale: string): void {
-    this.translateService.use(locale);
+    this.storageService.languageChange$.subscribe(locale => this.changeLanguage(locale));
+  }
+
+  private changeLanguage(newLocale: string): void {
+    let validLocale = false;
+    for (let locale of LanguagesService.AVAILABLE_LANGUAGES) {
+      if (locale === newLocale) {
+        this.translateService.use(newLocale);
+        validLocale = true;
+        break;
+      }
+    }
+    if (!validLocale) {
+      this.translateService.use(LanguagesService.DEFAULT);
+    }
   }
 
   // public getLanguage(): Promise<string> {
   //   return this.storageService.getLanguage();
   // }
 
-  // private storeLanguage(locale: string): void {
-  //   this.storageService.setLanguage(locale);
-  // }
+  private storeLanguage(locale: string): void {
+    this.storageService.setLanguage(locale);
+  }
 }

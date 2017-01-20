@@ -40,11 +40,7 @@ export class StorageService {
   public getLanguage(): Promise<string> {
     let locale: string = localStorage.getItem(this.getLanguageStorageKey());
 
-    if (locale) {
-      return Promise.resolve(locale);
-    } else {
-      return Promise.reject('');
-    }
+    return Promise.resolve(locale);
   }
 
   public clearStorage(): void {
