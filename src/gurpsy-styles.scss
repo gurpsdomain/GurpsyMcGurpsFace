@@ -27,7 +27,6 @@ md-sidenav-layout .sideNavigationHeader {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
   color: md-color($primary, default-contrast);
   background: url(assets/images/day.png) md-color($accent);
-
 }
 
 md-sidenav-layout.gurpsy-dark .sideNavigationHeader {
@@ -40,23 +39,3 @@ md-sidenav-layout md-card {
   margin-left: auto;
   margin-right: auto;
 }
-
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select
-.md-select-trigger {
-  border-bottom: none;
-}
-
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select
-.md-select-trigger .md-select-value,
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select
-.md-select-trigger .md-select-arrow {
-  font-weight: normal;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: small;
-}
-
-.sideNavigation .sideNavigationBlock .sideNavigationBlockContent .sideNavigationBlockContentLine md-select
-.md-select-trigger .md-select-arrow {
-  margin-right: 0px;
-}
-
