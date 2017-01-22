@@ -39,3 +39,11 @@ md-sidenav-layout md-card {
   margin-left: auto;
   margin-right: auto;
 }
+
+.md-menu-panel .md-menu-content button span {
+  padding-right: 16px;
+}
+
+.md-menu-panel .md-menu-content button md-slide-toggle {
+  margin: 0px;
+}

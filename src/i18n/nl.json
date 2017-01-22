@@ -17,10 +17,9 @@
     }
   },
   "MENU": {
-
     "OPEN": "Open...",
     "DARK_THEME" : "Nachtmodus",
-    "LIGHT_THEME" : "Dagmodus",
+    "LANGUAGE": "Nederlands",
     "CLEAR_SETTINGS": "Verwijder instellingen"
   },
   "SHEET": {

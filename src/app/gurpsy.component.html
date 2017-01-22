@@ -19,21 +19,29 @@
         <md-icon>more_vert</md-icon>
       </button>
       <md-menu x-position="before" y-position="below" #settings="mdMenu">
-        <button md-menu-item (click)="onOpenSheetDialog()">
-          <md-icon>add</md-icon>
-          <span>{{ 'MENU.OPEN' | translate }}</span>
+        <button md-menu-item (click)="onOpenSheetDialog()" class="flex-container">
+          <md-icon class="flex-item">add</md-icon>
+          <span class="flex-item" fxFlex="100%">{{ 'MENU.OPEN' | translate }}</span>
         </button>
-        <button *ngIf="!isDarkTheme" md-menu-item (click)="onThemeChange()">
-          <md-icon>insert_photo</md-icon>
-          <span>{{ 'MENU.DARK_THEME' | translate }}</span>
+        <button md-menu-item (click)="onThemeChange()" class="flex-container">
+          <md-icon class="flex-item">
+            insert_photo
+          </md-icon>
+          <span class="flex-item" fxFlex="100%">
+            {{ 'MENU.DARK_THEME' | translate }}
+          </span>
+          <md-slide-toggle [checked]="isDarkTheme" class="flex-item">
+          </md-slide-toggle>
         </button>
-        <button *ngIf="isDarkTheme" md-menu-item (click)="onThemeChange()">
-          <md-icon>insert_photo</md-icon>
-          <span>{{ 'MENU.LIGHT_THEME' | translate }}</span>
+        <button md-menu-item (click)="onDutchChange()" class="flex-container">
+          <md-icon class="flex-item">g_translate</md-icon>
+          <span class="flex-item" fxFlex="100%">{{ 'MENU.LANGUAGE' | translate }}</span>
+          <md-slide-toggle [checked]="isDutch" class="flex-item">
+          </md-slide-toggle>
         </button>
-        <button md-menu-item (click)="onOpenDeleteSettingsDialog()">
-          <md-icon>delete</md-icon>
-          <span>{{ 'MENU.CLEAR_SETTINGS' | translate }}</span>
+        <button md-menu-item (click)="onOpenDeleteSettingsDialog()" class="flex-container">
+          <md-icon class="flex-item">delete</md-icon>
+          <span class="flex-item" fxFlex="100%">{{ 'MENU.CLEAR_SETTINGS' | translate }}</span>
         </button>
       </md-menu>
     </div>
