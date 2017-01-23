@@ -4,7 +4,8 @@ import {StorageService} from '../../../services/storage-service/storage.service'
 
 @Component({
   selector: 'gurpsy-delete-settings-dialog',
-  templateUrl: './delete-settings-dialog.component.html'
+  templateUrl: './delete-settings-dialog.component.html',
+  styleUrls: ['./delete-settings-dialog.component.scss']
 })
 export class DeleteSettingsDialogComponent {
 
