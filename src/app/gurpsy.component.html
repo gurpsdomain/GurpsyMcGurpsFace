@@ -30,13 +30,13 @@
           <span class="flex-item" fxFlex="100%">
             {{ 'MENU.DARK_THEME' | translate }}
           </span>
-          <md-slide-toggle [checked]="isDarkTheme" class="flex-item">
+          <md-slide-toggle [(ngModel)]="isDarkTheme" class="flex-item">
           </md-slide-toggle>
         </button>
         <button md-menu-item (click)="onDutchChange()" class="flex-container">
           <md-icon class="flex-item">g_translate</md-icon>
           <span class="flex-item" fxFlex="100%">{{ 'MENU.LANGUAGE' | translate }}</span>
-          <md-slide-toggle [checked]="isDutch" class="flex-item">
+          <md-slide-toggle [(ngModel)]="isDutch" class="flex-item">
           </md-slide-toggle>
         </button>
         <button md-menu-item (click)="onOpenDeleteSettingsDialog()" class="flex-container">
