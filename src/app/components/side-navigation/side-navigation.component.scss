@@ -1,13 +1,8 @@
 @import "../../../gurpsy-material-theme";
 
-.sideNavigation .sideNavigationHeader .portrait {
-  padding-left: 8px;
-  padding-top: 30px;
-}
-
 .sideNavigation .sideNavigationHeader .transparentOverlay {
   height: 20px;
-  width:  100%;
+  width: 100%;
   background: white;
   opacity: 0.1;
 }
@@ -16,12 +11,17 @@
   float: right;
 }
 
-.sideNavigation .sideNavigationHeader .portrait img {
-  padding-top: 8px;
-  -webkit-clip-path: circle(25px at center);
-  width: 50px;
+.sideNavigation .sideNavigationHeader .avatar {
+  position: relative;
+  left: 8px;
+  top: 42px;
 }
 
+.sideNavigation .sideNavigationHeader .avatar img {
+  border: 1px solid md-color($primary);
+  width: 48px;
+  height: 48px;
+}
 
 .sideNavigation .sideNavigationContent {
   width: 100%;
