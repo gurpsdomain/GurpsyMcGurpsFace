@@ -20,14 +20,14 @@
 
 .sheetComponentBody {
   padding: 0px 4px 0px 4px;
-}
 
-.sheetComponentBody label {
-  white-space: nowrap;
-}
+  label {
+    white-space: nowrap;
+  }
 
-.sheetComponentBody span {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

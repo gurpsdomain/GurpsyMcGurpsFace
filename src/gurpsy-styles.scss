@@ -11,43 +11,44 @@ body {
 
 md-sidenav {
   width: 200px;
-}
 
-md-sidenav .sideNavigationContent .sideNavigationContentLine md-icon {
-  margin-right: 16px;
+  .sideNavigationContent .sideNavigationContentLine md-icon {
+    margin-right: 16px;
+  }
 }
 
 md-sidenav-layout {
   height: 100%;
+
+  .sideNavigationHeader {
+    height: 90px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+    color: md-color($primary, default-contrast);
+    background: url(assets/images/day.png) md-color($accent);
+  }
+
+  md-card {
+    padding: 4px;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 md-sidenav-layout.gurpsy-dark {
   background: black !important;
+
+  .sideNavigationHeader {
+    background: url(assets/images/night.png) md-color($accent);
+  }
 }
 
-md-sidenav-layout .sideNavigationHeader {
-  height: 90px;
-  margin-bottom: 40px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
-  color: md-color($primary, default-contrast);
-  background: url(assets/images/day.png) md-color($accent);
-}
-
-md-sidenav-layout.gurpsy-dark .sideNavigationHeader {
-  background: url(assets/images/night.png) md-color($accent);
-}
-
-md-sidenav-layout md-card {
-  padding: 4px;
-  max-width: 768px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.md-menu-panel .md-menu-content button span {
-  padding-right: 16px;
-}
-
-.md-menu-panel .md-menu-content button md-slide-toggle {
-  margin: 0px;
+.md-menu-panel .md-menu-content button {
+  span {
+    padding-right: 16px;
+  }
+  md-slide-toggle {
+    margin: 0px;
+  }
 }

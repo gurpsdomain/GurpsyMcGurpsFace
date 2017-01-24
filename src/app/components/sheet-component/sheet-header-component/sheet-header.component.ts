@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
     selector: 'gurpsy-sheet-header',
     templateUrl: './sheet-header.component.html',
     styleUrls: ['../sheet.component.scss',
-        './sheet-header.component.css'
+        './sheet-header.component.scss'
     ]
 })
 export class SheetHeaderComponent {
