@@ -2,16 +2,17 @@
 
 @include md-core();
 
-$primary: md-palette($md-deep-purple);
-$accent:  md-palette($md-amber, A200, A100, A400);
+$primary: md-palette($md-green, 900);
+$accent:  md-palette($md-green, 400);
+$warn: md-palette($md-red, A700);
 
-$theme: md-light-theme($primary, $accent);
+$theme: md-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($theme);
 
 .gurpsy-dark {
-  $dark-primary: md-palette($md-blue-grey, A700, A500, A900);
-  $dark-accent:  md-palette($md-blue-grey, A200, A100, A400);
+  $dark-primary: md-palette($md-purple, 900);
+  $dark-accent:  md-palette($md-purple, 500);
   $dark-warn:    md-palette($md-deep-orange);
 
   $dark-theme: md-dark-theme($dark-primary, $dark-accent, $dark-warn);
