@@ -5,6 +5,7 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 import {TranslateModule} from 'ng2-translate';
 import {FlexLayoutModule} from '@angular/flex-layout';
+
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet-component/sheet.component';
 import {SheetHeaderComponent} from './components/sheet-component/sheet-header-component/sheet-header.component';
@@ -20,6 +21,7 @@ import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet
 import {StorageService} from './services/storage-service/storage.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ThemeService} from './services/theme-service/theme.service';
+import {ModelReadService} from './services/model-read-service/model-read.service';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -45,7 +47,8 @@ import {ThemeService} from './services/theme-service/theme.service';
   providers: [
     LanguagesService,
     ThemeService,
-    StorageService
+    StorageService,
+    ModelReadService
    ],
   entryComponents: [
     DeleteSettingsDialogComponent,
