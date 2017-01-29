@@ -9,33 +9,40 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {TranslateModule} from 'ng2-translate';
+import {ModelReadService} from '../../../services/model-read-service/model-read.service';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
-    let de: DebugElement;
-    let comp: SheetHeaderComponent;
-    let fixture: ComponentFixture<SheetHeaderComponent>;
+  let de: DebugElement;
+  let comp: SheetHeaderComponent;
+  let fixture: ComponentFixture<SheetHeaderComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [SheetHeaderComponent,
-                PortraitComponent,
-                IdentityComponent,
-                PlayerInformationComponent,
-                DescriptionComponent,
-                PointsComponent],
-            imports: [TranslateModule.forRoot()]
-        })
-            .compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        SheetHeaderComponent,
+        PortraitComponent,
+        IdentityComponent,
+        PlayerInformationComponent,
+        DescriptionComponent,
+        PointsComponent],
+      imports: [
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        ModelReadService
+      ]
+    })
+      .compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SheetHeaderComponent);
-        comp = fixture.componentInstance;
-        de = fixture.debugElement.query(By.css('h1'));
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SheetHeaderComponent);
+    comp = fixture.componentInstance;
+    de = fixture.debugElement.query(By.css('h1'));
+  });
 
-    it('should create Sheet Header Component', () => expect(comp).toBeDefined());
+  it('should create Sheet Header Component', () => expect(comp).toBeDefined());
 });
 
 

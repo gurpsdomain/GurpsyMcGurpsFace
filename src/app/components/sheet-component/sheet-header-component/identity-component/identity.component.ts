@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
+import {Sheet} from '../../../../model/sheet/sheet';
 
 @Component({
     selector: 'gurpsy-identity-component',
@@ -7,4 +9,10 @@ import {Component} from '@angular/core';
         './identity.component.scss']
 })
 export class IdentityComponent {
+
+  public sheet: Sheet;
+
+  constructor(modelReadService: ModelReadService) {
+    this.sheet = modelReadService.getSheet();
+  }
 }

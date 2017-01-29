@@ -9,34 +9,41 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {TranslateModule} from 'ng2-translate';
+import {ModelReadService} from '../../services/model-read-service/model-read.service';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
-    let de: DebugElement;
-    let comp: SheetComponent;
-    let fixture: ComponentFixture<SheetComponent>;
+  let de: DebugElement;
+  let comp: SheetComponent;
+  let fixture: ComponentFixture<SheetComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [SheetComponent,
-                SheetHeaderComponent,
-                PortraitComponent,
-                IdentityComponent,
-                PlayerInformationComponent,
-                DescriptionComponent,
-                PointsComponent],
-            imports: [TranslateModule.forRoot()]
-        })
-            .compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        SheetComponent,
+        SheetHeaderComponent,
+        PortraitComponent,
+        IdentityComponent,
+        PlayerInformationComponent,
+        DescriptionComponent,
+        PointsComponent],
+      imports: [
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        ModelReadService
+      ]
+    })
+      .compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SheetComponent);
-        comp = fixture.componentInstance;
-        de = fixture.debugElement.query(By.css('h1'));
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SheetComponent);
+    comp = fixture.componentInstance;
+    de = fixture.debugElement.query(By.css('h1'));
+  });
 
-    it('should create the Sheet Component', () => expect(comp).toBeDefined());
+  it('should create the Sheet Component', () => expect(comp).toBeDefined());
 });
 
 

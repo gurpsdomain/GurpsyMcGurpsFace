@@ -4,26 +4,34 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {TranslateModule} from 'ng2-translate';
+import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 ////////  SPECS  /////////////
 describe('PlayerInformationComponent', function () {
-    let de: DebugElement;
-    let comp: PlayerInformationComponent;
-    let fixture: ComponentFixture<PlayerInformationComponent>;
+  let de: DebugElement;
+  let comp: PlayerInformationComponent;
+  let fixture: ComponentFixture<PlayerInformationComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [PlayerInformationComponent],
-            imports: [TranslateModule.forRoot()]
-        })
-            .compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        PlayerInformationComponent
+      ],
+      imports: [
+        TranslateModule.forRoot()
+      ],
+      providers: [
+        ModelReadService
+      ]
+    })
+      .compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(PlayerInformationComponent);
-        comp = fixture.componentInstance;
-        de = fixture.debugElement.query(By.css('h1'));
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PlayerInformationComponent);
+    comp = fixture.componentInstance;
+    de = fixture.debugElement.query(By.css('h1'));
+  });
 
-    it('should create Player Information component', () => expect(comp).toBeDefined());
+  it('should create Player Information component', () => expect(comp).toBeDefined());
 });

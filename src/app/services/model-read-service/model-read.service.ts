@@ -20,6 +20,7 @@ export class ModelReadService {
     this.model.playerInformation.campaign = 'Masters of Mayhem';
     this.model.playerInformation.creationDate = '01-01-2017';
     this.model.playerInformation.player = 'Steve Jackson';
+    this.model.points = new Points();
     this.model.points.advantages = 1;
     this.model.points.attributes = 2;
     this.model.points.disadvantages = 3;
@@ -27,22 +28,11 @@ export class ModelReadService {
     this.model.points.quirks = 8;
     this.model.points.race = 13;
     this.model.points.spells = 21;
+    this.model.points.skills = 34;
   }
 
-  public getIdentity(): Identity {
-    return this.model.identity;
-  }
-
-  public  getDescription(): string {
-    return this.model.description;
-  }
-
-  public getPlayerInformation(): PlayerInformation {
-    return this.model.playerInformation;
-  }
-
-  public getPoints(): Points {
-    return this.model.points;
+  public getSheet(): Sheet {
+    return this.model;
   }
 
 }

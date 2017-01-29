@@ -16,6 +16,7 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
 import {StorageService} from './services/storage-service/storage.service';
 import {ThemeService} from './services/theme-service/theme.service';
 import {LanguagesService} from './services/languages-service/languages.service';
+import {ModelReadService} from './services/model-read-service/model-read.service';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -39,7 +40,8 @@ describe('GurpsyComponent', () => {
       providers: [
         ThemeService,
         LanguagesService,
-        StorageService
+        StorageService,
+        ModelReadService
       ]
     });
   });
