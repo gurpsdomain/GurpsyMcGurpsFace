@@ -55,7 +55,8 @@ export class GurpsyComponent implements OnInit {
 
   onDutchChange(): void {
     this.isDutch = !this.isDutch;
-    this.languageService.setLanguage(this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH);
+    let language = this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH;
+    this.languageService.setLanguage(language);
   }
 
   onOpenSheetDialog(): void {
