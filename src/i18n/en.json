@@ -17,7 +17,7 @@
     }
   },
   "MENU": {
-    "OPEN": "Open...",
+    "OPEN": "Open sheet",
     "DARK_THEME" : "Night mode",
     "LANGUAGE": "Dutch",
     "CLEAR_SETTINGS": "Clear settings"

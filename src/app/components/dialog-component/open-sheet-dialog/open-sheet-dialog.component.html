@@ -1,6 +1,6 @@
 <h1 md-dialog-title> {{'DIALOG.OPEN_SHEET.HEADER'| translate}}</h1>
 
 <md-dialog-actions>
-  <button md-button color="primary" md-dialog-close> {{'DIALOG.OK'| translate}}</button>
+  <button md-button color="primary" (click)="onOpenSheet()"> {{'DIALOG.OK'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>

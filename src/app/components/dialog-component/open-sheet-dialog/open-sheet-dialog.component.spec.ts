@@ -1,9 +1,7 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { OpenSheetDialogComponent } from './open-sheet-dialog.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {OpenSheetDialogComponent} from './open-sheet-dialog.component';
+import {ModelReadService} from '../../../services/model-read-service/model-read.service';
 
 describe('OpenSheetDialogComponent', () => {
   let component: OpenSheetDialogComponent;
@@ -11,9 +9,14 @@ describe('OpenSheetDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OpenSheetDialogComponent ]
+      declarations: [
+        OpenSheetDialogComponent
+      ],
+      providers: [
+        ModelReadService
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
