@@ -9,10 +9,10 @@ import {ReadModelCreaterService} from '../read-model-creator-service/read-model-
 export class ModelReadService {
 
   private model: Sheet;
-  private jsonFileService: ReadModelCreaterService;
+  private readModelCreaterService: ReadModelCreaterService;
 
-  constructor(jsonFileService: ReadModelCreaterService) {
-    this.jsonFileService = jsonFileService;
+  constructor(readModelCreaterService: ReadModelCreaterService) {
+    this.readModelCreaterService = readModelCreaterService;
 
     this.model = new Sheet();
     this.model.identity = new Identity();
@@ -21,26 +21,12 @@ export class ModelReadService {
   }
 
   public loadSheet(file: File) {
-    this.getFileContent(file).then(json => console.log('Read the following json: ', json));
+    this.readModelCreaterService.createReadModel(file).then(
+      sheet => console.log('Just created the following sheet: ', sheet
+      ));
   }
 
   public getSheet(): Sheet {
     return this.model;
   }
-
-  private getFileContent(file: File): Promise<string> {
-
-    return new Promise((resolve, reject) => {
-      let fileReader = new FileReader();
-      fileReader.onload = readFile => {
-        if (readFile) {
-          resolve(fileReader.result);
-        } else {
-          reject();
-        }
-      };
-      fileReader.readAsText(file);
-    });
-  }
-
 }
