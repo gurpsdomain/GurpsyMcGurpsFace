@@ -16,8 +16,27 @@ export class ModelReadService {
     this.model.points = new Points();
   }
 
+  public loadSheet(file: File) {
+    this.getFileContent(file).then(json => console.log('Read the following json: ', json));
+  }
+
   public getSheet(): Sheet {
     return this.model;
+  }
+
+  private getFileContent(file: File): Promise<string> {
+
+    return new Promise((resolve, reject) => {
+      let fileReader = new FileReader();
+      fileReader.onload = readFile => {
+        if (readFile) {
+          resolve(fileReader.result);
+        } else {
+          reject();
+        }
+      };
+      fileReader.readAsText(file);
+    });
   }
 
 }
