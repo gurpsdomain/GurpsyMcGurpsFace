@@ -1,13 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Sheet} from '../../model/sheet/sheet';
 
 @Injectable()
 export class ReadModelCreaterService {
 
-  constructor() { }
+  constructor() {
+  }
 
   public createReadModel(file: File): Promise<Sheet> {
-    this.getFileContent(file).then(json => console.log('Read the following json: ', json));
+    this.getFileContent(file).then(
+      json => this.convertStringToJson(json)
+    );
 
     return Promise.resolve(new Sheet());
   }
@@ -25,5 +28,11 @@ export class ReadModelCreaterService {
       };
       fileReader.readAsText(file);
     });
+  }
+
+  private convertStringToJson(stringyfied: string): JSON {
+    let json: JSON = JSON.parse(stringyfied);
+    console.log('Creating the following json object: ', json);
+    return json;
   }
 }

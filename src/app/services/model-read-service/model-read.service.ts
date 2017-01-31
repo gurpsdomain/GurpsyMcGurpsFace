@@ -14,19 +14,26 @@ export class ModelReadService {
   constructor(readModelCreaterService: ReadModelCreaterService) {
     this.readModelCreaterService = readModelCreaterService;
 
-    this.model = new Sheet();
-    this.model.identity = new Identity();
-    this.model.playerInformation = new PlayerInformation();
-    this.model.points = new Points();
+    this.initSheet();
   }
 
   public loadSheet(file: File) {
     this.readModelCreaterService.createReadModel(file).then(
-      sheet => console.log('Just created the following sheet: ', sheet
-      ));
+      sheet => this.model = sheet);
   }
 
   public getSheet(): Sheet {
     return this.model;
+  }
+
+  private initSheet(): void {
+    this.initEmptySheet();
+  }
+
+  private initEmptySheet(): void {
+    this.model = new Sheet();
+    this.model.identity = new Identity();
+    this.model.playerInformation = new PlayerInformation();
+    this.model.points = new Points();
   }
 }
