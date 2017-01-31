@@ -3,13 +3,17 @@ import {Sheet} from '../../model/sheet/sheet';
 import {Identity} from '../../model/sheet/identity';
 import {PlayerInformation} from '../../model/sheet/player-information';
 import {Points} from '../../model/sheet/points';
+import {ReadModelCreaterService} from '../read-model-creator-service/read-model-creator.service';
 
 @Injectable()
 export class ModelReadService {
 
   private model: Sheet;
+  private jsonFileService: ReadModelCreaterService;
 
-  constructor() {
+  constructor(jsonFileService: ReadModelCreaterService) {
+    this.jsonFileService = jsonFileService;
+
     this.model = new Sheet();
     this.model.identity = new Identity();
     this.model.playerInformation = new PlayerInformation();

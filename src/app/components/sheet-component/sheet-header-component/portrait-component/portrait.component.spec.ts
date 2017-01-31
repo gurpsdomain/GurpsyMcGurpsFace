@@ -5,6 +5,7 @@ import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {TranslateModule} from 'ng2-translate';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
+import {ReadModelCreaterService} from '../../../../services/read-model-creator-service/read-model-creator.service';
 
 ////////  SPECS  /////////////
 describe('PortraitComponent', function () {
@@ -21,7 +22,8 @@ describe('PortraitComponent', function () {
         TranslateModule.forRoot()
       ],
       providers: [
-        ModelReadService
+        ModelReadService,
+        ReadModelCreaterService
       ]
     })
       .compileComponents();

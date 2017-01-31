@@ -22,6 +22,7 @@ import {StorageService} from './services/storage-service/storage.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ThemeService} from './services/theme-service/theme.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
+import {ReadModelCreaterService} from './services/read-model-creator-service/read-model-creator.service';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -48,7 +49,8 @@ import {ModelReadService} from './services/model-read-service/model-read.service
     LanguagesService,
     ThemeService,
     StorageService,
-    ModelReadService
+    ModelReadService,
+    ReadModelCreaterService
    ],
   entryComponents: [
     DeleteSettingsDialogComponent,

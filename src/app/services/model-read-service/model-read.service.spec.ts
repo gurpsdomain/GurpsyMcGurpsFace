@@ -1,12 +1,15 @@
 /* tslint:disable:no-unused-variable */
-
-import { TestBed, async, inject } from '@angular/core/testing';
-import { ModelReadService } from './model-read.service';
+import {TestBed} from '@angular/core/testing';
+import {ModelReadService} from './model-read.service';
+import {ReadModelCreaterService} from '../read-model-creator-service/read-model-creator.service';
 
 describe('ModelReadService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ModelReadService]
+      providers: [
+        ModelReadService,
+        ReadModelCreaterService
+      ]
     });
   });
 
