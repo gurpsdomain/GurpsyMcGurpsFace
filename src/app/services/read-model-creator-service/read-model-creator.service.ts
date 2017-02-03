@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {JsonSheet} from '../../model/json/sheet';
+import {TypedJsonSheet} from '../../model/json/sheet';
 import {Sheet} from '../../model/sheet/sheet';
 import {Identity} from '../../model/sheet/identity';
 import {PlayerInformation} from '../../model/sheet/player-information';
@@ -32,18 +32,18 @@ export class ReadModelCreaterService {
   }
 
   private convertToSheet(jsonString: string): Sheet {
-    let jsonSheet: JsonSheet = this.convertToTypedObject(jsonString);
+    let jsonSheet: TypedJsonSheet = this.convertToTypedObject(jsonString);
 
     let sheet: Sheet = this.mapTypedObjectToSheet(jsonSheet);
     return sheet;
   }
 
-  private convertToTypedObject(jsonString: string): JsonSheet {
-    let jsonSheet: JsonSheet = JSON.parse(jsonString);
-    return jsonSheet;
+  private convertToTypedObject(jsonString: string): TypedJsonSheet {
+    let typedJsonSheet: TypedJsonSheet = JSON.parse(jsonString);
+    return typedJsonSheet;
   }
 
-  private mapTypedObjectToSheet(jsonSheet: JsonSheet): Sheet {
+  private mapTypedObjectToSheet(jsonSheet: TypedJsonSheet): Sheet {
     let sheet: Sheet = new Sheet();
     sheet.identity = new Identity();
     sheet.identity.name = jsonSheet.metaData.identity.name;

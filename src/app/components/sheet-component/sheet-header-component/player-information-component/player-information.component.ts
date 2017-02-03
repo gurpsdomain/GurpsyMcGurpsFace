@@ -3,9 +3,9 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 import {Sheet} from '../../../../model/sheet/sheet';
 
 @Component({
-    selector: 'gurpsy-player-information-component',
-    templateUrl: './player-information.component.html',
-    styleUrls: ['../../sheet.component.scss']
+  selector: 'gurpsy-player-information-component',
+  templateUrl: './player-information.component.html',
+  styleUrls: ['../../sheet.component.scss']
 })
 export class PlayerInformationComponent {
 
@@ -13,5 +13,6 @@ export class PlayerInformationComponent {
 
   constructor(modelReadService: ModelReadService) {
     this.sheet = modelReadService.getSheet();
+    modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

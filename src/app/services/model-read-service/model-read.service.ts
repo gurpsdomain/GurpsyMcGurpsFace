@@ -4,12 +4,17 @@ import {Identity} from '../../model/sheet/identity';
 import {PlayerInformation} from '../../model/sheet/player-information';
 import {Points} from '../../model/sheet/points';
 import {ReadModelCreaterService} from '../read-model-creator-service/read-model-creator.service';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class ModelReadService {
 
   private model: Sheet;
   private readModelCreaterService: ReadModelCreaterService;
+
+  private modelChangeSource = new Subject<Sheet>();
+
+  public modelChange$ = this.modelChangeSource.asObservable();
 
   constructor(readModelCreaterService: ReadModelCreaterService) {
     this.readModelCreaterService = readModelCreaterService;
@@ -25,6 +30,7 @@ export class ModelReadService {
   private setSheet(sheet: Sheet): void {
     console.log('Loaded a new sheet: ', sheet);
     this.model = sheet;
+    this.modelChangeSource.next(sheet);
   }
 
   public getSheet(): Sheet {

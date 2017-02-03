@@ -139,7 +139,7 @@ export interface Note {
   note: string;
 }
 
-export interface JsonSheet {
+export interface TypedJsonSheet {
   metaData: MetaData;
   points: Points;
   attributes: Attributes;

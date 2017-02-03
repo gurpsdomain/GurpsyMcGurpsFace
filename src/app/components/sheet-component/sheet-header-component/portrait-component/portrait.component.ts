@@ -15,5 +15,6 @@ export class PortraitComponent {
 
   constructor(modelReadService: ModelReadService) {
     this.sheet = modelReadService.getSheet();
+    modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }
