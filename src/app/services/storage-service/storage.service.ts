@@ -7,16 +7,33 @@ export class StorageService {
   private static STORAGE_KEY: string = 'gurpsy-mc-gurps-face';
   private static STORAGE_KEY_THEME: string = '.theme';
   private static STORAGE_KEY_LANGUAGE: string = '.language';
+  private static STORAGE_KEY_SHEET: string = '.sheet';
 
 
   private themeChangeSource = new Subject<string>();
   private languageChangeSource = new Subject<string>();
+  private sheetChangeSource = new Subject<string>();
 
   public themeChange$ = this.themeChangeSource.asObservable();
   public languageChange$ = this.languageChangeSource.asObservable();
+  public sheetChange$ = this.sheetChangeSource.asObservable();
 
   constructor() {
     this.initStorageListener();
+  }
+
+  public setSheet(sheet: string, characterName: string) {
+    localStorage.setItem(this.getSheetStorageKey(characterName), sheet);
+  }
+
+  public getSheet(characterName: string): Promise<string> {
+    let sheet: string = localStorage.getItem(this.getSheetStorageKey(characterName));
+
+    if (sheet) {
+      return Promise.resolve(sheet);
+    } else {
+      return Promise.reject('');
+    }
   }
 
   public setTheme(theme: string) {
@@ -56,6 +73,10 @@ export class StorageService {
     return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_LANGUAGE;
   }
 
+  private getSheetStorageKey(characterName: string): string {
+    return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_SHEET + '.' + characterName;
+  }
+
   private clearStoredTheme(): void {
     localStorage.removeItem(this.getThemeStorageKey());
     this.themeChange(null);
@@ -63,6 +84,10 @@ export class StorageService {
 
   private clearStoredLanguage(): void {
     localStorage.removeItem(this.getLanguageStorageKey());
+  }
+
+  public sheetChange(sheet: string) {
+    this.sheetChangeSource.next(sheet);
   }
 
   public themeChange(theme: string) {
@@ -78,13 +103,12 @@ export class StorageService {
   }
 
   private handleStorageChange(event: StorageEvent): void {
-    switch (event.key) {
-      case this.getThemeStorageKey():
-        this.themeChange(event.newValue);
-        break;
-      case this.getLanguageStorageKey():
-        this.languageChange(event.newValue);
-        break;
+    if (event.key === this.getThemeStorageKey()) {
+      this.themeChange(event.newValue);
+    } else if (event.key === this.getLanguageStorageKey()) {
+      this.languageChange(event.newValue);
+    } else if (event.key.includes(this.getSheetStorageKey(''))) {
+      this.sheetChange(event.newValue);
     }
   }
 }
