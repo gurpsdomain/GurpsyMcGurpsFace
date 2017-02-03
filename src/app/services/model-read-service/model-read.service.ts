@@ -18,8 +18,13 @@ export class ModelReadService {
   }
 
   public loadSheet(file: File) {
-    this.readModelCreaterService.createReadModel(file).then(
-      sheet => this.model = sheet);
+    this.readModelCreaterService.createReadModelFromFile(file).then(
+      sheet => this.setSheet(sheet));
+  }
+
+  private setSheet(sheet: Sheet): void {
+    console.log('Loaded a new sheet: ', sheet);
+    this.model = sheet;
   }
 
   public getSheet(): Sheet {

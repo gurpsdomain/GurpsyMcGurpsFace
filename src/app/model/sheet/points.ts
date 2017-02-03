@@ -7,6 +7,7 @@ export class Points {
   skills: number;
   spells: number;
   earned: number;
+  total: number;
 
   constructor() {
   }
