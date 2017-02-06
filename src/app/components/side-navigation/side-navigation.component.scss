@@ -2,19 +2,13 @@
 
 .sideNavigation {
   .sideNavigationHeader {
-    .transparentOverlay {
-      height: 20px;
-      width: 100%;
-      background: white;
-      opacity: 0.1;
-    }
     .closeButton {
       float: right;
     }
     .avatar {
       position: relative;
       left: 8px;
-      top: 42px;
+      top: 32px;
 
       img {
         border: 1px solid md-color($primary);
