@@ -22,10 +22,10 @@ md-sidenav-layout {
 
   .sideNavigationHeader {
     height: 90px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
     color: md-color($primary, default-contrast);
-    background: url(assets/images/day.png) md-color($accent);
+    background: url(assets/images/day.png);
   }
 
   md-card {
@@ -40,7 +40,7 @@ md-sidenav-layout.gurpsy-dark {
   background: black !important;
 
   .sideNavigationHeader {
-    background: url(assets/images/night.png) md-color($accent);
+    background: url(assets/images/night.png);
   }
 }
 
