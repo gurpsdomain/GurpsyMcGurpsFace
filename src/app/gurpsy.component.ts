@@ -39,12 +39,18 @@ export class GurpsyComponent implements OnInit {
   }
 
   initLanguage(): void {
-    this.languageService.getLanguage().then(locale => this.isDutch = locale === LanguagesService.DUTCH);
-    this.languageService.languageChange$.subscribe(locale => this.isDutch = locale === LanguagesService.DUTCH);
+    this.languageService.getLanguage().then(locale => this.setLanguage(locale));
+    this.languageService.languageChange$.subscribe(locale => this.setLanguage(locale));
   }
 
   setTheme(theme: string) {
     this.isDarkTheme = theme === ThemeService.THEME_NIGHT;
+    console.log('Onit theme set to isDark? ', this.isDarkTheme);
+  }
+
+  private setLanguage(locale: string) {
+    this.isDutch = locale === LanguagesService.DUTCH;
+    console.log('Onit theme set to isDutch? ', this.isDutch);
   }
 
   onThemeChange(): void {
@@ -53,7 +59,7 @@ export class GurpsyComponent implements OnInit {
     this.themeService.setTheme(theme);
   }
 
-  onDutchChange(): void {
+  onLanguageChange(): void {
     this.isDutch = !this.isDutch;
     let language = this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH;
     this.languageService.setLanguage(language);

@@ -44,11 +44,17 @@ md-sidenav-layout.gurpsy-dark {
   }
 }
 
-.md-menu-panel .md-menu-content button {
-  span {
-    padding-right: 16px;
-  }
-  md-slide-toggle {
-    margin: 0px;
+.md-menu-panel .md-menu-content {
+  button, md-button-toggle {
+    span {
+      padding-right: 16px;
+    }
+    md-icon {
+      margin-right: 16px;
+    }
+    .md-button-toggle-label-content{
+      width: 100%;
+    }
   }
 }
+
