@@ -39,9 +39,10 @@ export class LanguagesService {
   }
 
   private initStorageService(): void {
-    this.getLanguage().then(storedLocale => function () {
-      this.changeLanguage(storedLocale);
-    });
+    this.getLanguage().then(storedLocale =>
+      this.changeLanguage(storedLocale)
+    )
+    ;
 
     this.storageService.languageChange$.subscribe(locale => this.changeLanguage(locale));
     this.storageService.languageChange$.subscribe(locale => this.languageChangeSource.next(locale));

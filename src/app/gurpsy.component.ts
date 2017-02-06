@@ -45,12 +45,10 @@ export class GurpsyComponent implements OnInit {
 
   setTheme(theme: string) {
     this.isDarkTheme = theme === ThemeService.THEME_NIGHT;
-    console.log('Onit theme set to isDark? ', this.isDarkTheme);
   }
 
   private setLanguage(locale: string) {
     this.isDutch = locale === LanguagesService.DUTCH;
-    console.log('Onit theme set to isDutch? ', this.isDutch);
   }
 
   onThemeChange(): void {
