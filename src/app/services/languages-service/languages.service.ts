@@ -67,6 +67,6 @@ export class LanguagesService {
   }
 
   private storeLanguage(locale: string): void {
-    this.storageService.setLanguage(locale);
+    this.storageService.persistLanguage(locale);
   }
 }

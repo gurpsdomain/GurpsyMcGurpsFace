@@ -20,7 +20,7 @@ export class ThemeService {
   }
 
   public setTheme(theme: string) {
-    this.storageService.setTheme(theme);
+    this.storageService.persistTheme(theme);
   }
 
   public getTheme(): Promise<string> {

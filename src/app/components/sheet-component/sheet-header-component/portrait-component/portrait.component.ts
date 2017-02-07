@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 import {Sheet} from '../../../../model/sheet/sheet';
 
@@ -9,12 +9,18 @@ import {Sheet} from '../../../../model/sheet/sheet';
     './portrait.component.scss'
   ]
 })
-export class PortraitComponent {
+export class PortraitComponent implements OnInit {
 
   public sheet: Sheet;
 
+  private modelReadService: ModelReadService;
+
   constructor(modelReadService: ModelReadService) {
-    this.sheet = modelReadService.getSheet();
-    modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
+    this.modelReadService = modelReadService;
+  }
+
+  ngOnInit(): void {
+    this.sheet = this.modelReadService.getSheet();
+    this.modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

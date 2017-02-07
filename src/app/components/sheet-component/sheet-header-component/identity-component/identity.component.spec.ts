@@ -6,6 +6,7 @@ import {DebugElement} from '@angular/core';
 import {TranslateModule} from 'ng2-translate';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 import {JsonService} from '../../../../services/json-service/json.service';
+import {StorageService} from '../../../../services/storage-service/storage.service';
 
 describe('IdentityComponent', function () {
   let de: DebugElement;
@@ -22,7 +23,8 @@ describe('IdentityComponent', function () {
       ],
       providers: [
         ModelReadService,
-        JsonService
+        JsonService,
+        StorageService
       ]
     })
       .compileComponents();

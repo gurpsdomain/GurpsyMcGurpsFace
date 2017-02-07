@@ -27,12 +27,22 @@ export class ModelReadService {
 
   public loadSheet(file: File) {
     this.jsonService.createReadModelFromFile(file).then(
-      sheet => this.setSheet(sheet));
+      sheet => this.useSheet(sheet));
+  }
+
+  private useSheet(sheet: Sheet): void {
+    this.setSheet(sheet);
+    this.persistSheet(sheet);
   }
 
   private setSheet(sheet: Sheet): void {
     this.model = sheet;
     this.modelChangeSource.next(sheet);
+  }
+
+  private persistSheet(sheet: Sheet): void {
+
+    this.storageService.presistSheet(sheet);
   }
 
   public getSheet(): Sheet {
@@ -41,12 +51,16 @@ export class ModelReadService {
 
   private initSheet(): void {
     this.initEmptySheet();
+    this.storageService.getCurrentSheet().then(sheet => this.setSheet(sheet)).catch(any => this.initEmptySheet());
   }
 
   private initEmptySheet(): void {
-    this.model = new Sheet();
-    this.model.identity = new Identity();
-    this.model.playerInformation = new PlayerInformation();
-    this.model.points = new Points();
+    let emptySheet: Sheet = new Sheet();
+
+    emptySheet.identity = new Identity();
+    emptySheet.playerInformation = new PlayerInformation();
+    emptySheet.points = new Points();
+
+    this.setSheet(emptySheet);
   }
 }
