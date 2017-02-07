@@ -3,32 +3,34 @@ import {Sheet} from '../../model/sheet/sheet';
 import {Identity} from '../../model/sheet/identity';
 import {PlayerInformation} from '../../model/sheet/player-information';
 import {Points} from '../../model/sheet/points';
-import {ReadModelCreaterService} from '../read-model-creator-service/read-model-creator.service';
+import {JsonService} from '../json-service/json.service';
 import {Subject} from 'rxjs';
+import {StorageService} from '../storage-service/storage.service';
 
 @Injectable()
 export class ModelReadService {
 
   private model: Sheet;
-  private readModelCreaterService: ReadModelCreaterService;
+  private jsonService: JsonService;
+  private storageService: StorageService;
 
   private modelChangeSource = new Subject<Sheet>();
 
   public modelChange$ = this.modelChangeSource.asObservable();
 
-  constructor(readModelCreaterService: ReadModelCreaterService) {
-    this.readModelCreaterService = readModelCreaterService;
+  constructor(jsonService: JsonService, storageService: StorageService) {
+    this.jsonService = jsonService;
+    this.storageService = storageService;
 
     this.initSheet();
   }
 
   public loadSheet(file: File) {
-    this.readModelCreaterService.createReadModelFromFile(file).then(
+    this.jsonService.createReadModelFromFile(file).then(
       sheet => this.setSheet(sheet));
   }
 
   private setSheet(sheet: Sheet): void {
-    console.log('Loaded a new sheet: ', sheet);
     this.model = sheet;
     this.modelChangeSource.next(sheet);
   }

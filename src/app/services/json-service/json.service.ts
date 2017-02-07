@@ -6,13 +6,20 @@ import {PlayerInformation} from '../../model/sheet/player-information';
 import {Points} from '../../model/sheet/points';
 
 @Injectable()
-export class ReadModelCreaterService {
+export class JsonService {
 
   constructor() {
   }
 
   public createReadModelFromFile(file: File): Promise<Sheet> {
     return this.parseFile(file);
+  }
+
+  public convertToSheet(jsonString: string): Sheet {
+    let jsonSheet: TypedJsonSheet = this.convertToTypedObject(jsonString);
+
+    let sheet: Sheet = this.mapTypedObjectToSheet(jsonSheet);
+    return sheet;
   }
 
   private parseFile(file: File): Promise<Sheet> {
@@ -29,13 +36,6 @@ export class ReadModelCreaterService {
         fileReader.readAsText(file);
       }
     );
-  }
-
-  private convertToSheet(jsonString: string): Sheet {
-    let jsonSheet: TypedJsonSheet = this.convertToTypedObject(jsonString);
-
-    let sheet: Sheet = this.mapTypedObjectToSheet(jsonSheet);
-    return sheet;
   }
 
   private convertToTypedObject(jsonString: string): TypedJsonSheet {

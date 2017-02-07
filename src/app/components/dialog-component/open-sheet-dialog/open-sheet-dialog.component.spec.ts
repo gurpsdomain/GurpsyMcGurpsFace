@@ -2,7 +2,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {OpenSheetDialogComponent} from './open-sheet-dialog.component';
 import {ModelReadService} from '../../../services/model-read-service/model-read.service';
-import {ReadModelCreaterService} from '../../../services/read-model-creator-service/read-model-creator.service';
+import {JsonService} from '../../../services/json-service/json.service';
 
 describe('OpenSheetDialogComponent', () => {
   let component: OpenSheetDialogComponent;
@@ -15,7 +15,7 @@ describe('OpenSheetDialogComponent', () => {
       ],
       providers: [
         ModelReadService,
-        ReadModelCreaterService
+        JsonService
       ]
     })
       .compileComponents();
