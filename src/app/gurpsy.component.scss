@@ -3,3 +3,7 @@
 md-toolbar {
   margin-bottom: 12px;
 }
+
+.buttonSelected md-icon{
+  color: md-color($accent);
+}

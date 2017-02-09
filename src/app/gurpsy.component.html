@@ -22,22 +22,14 @@
           <md-icon class="flex-item">account_box</md-icon>
           <span class="flex-item" fxFlex="100%">{{ 'MENU.OPEN' | translate }}</span>
         </button>
-        <md-button-toggle (change)="onThemeChange()" [checked]="isDarkTheme">
-          <md-icon>
-            insert_photo
-          </md-icon>
-          <span>
-            {{ 'MENU.DARK_THEME' | translate }}
-          </span>
-        </md-button-toggle>
-        <md-button-toggle (change)="onLanguageChange()" [checked]="isDutch">
-          <md-icon>
-            g_translate
-          </md-icon>
-          <span>
-            {{ 'MENU.LANGUAGE' | translate }}
-          </span>
-        </md-button-toggle>
+        <button md-menu-item (click)="onThemeChange()" [class.buttonSelected]="isDarkTheme" class="flex-container">
+          <md-icon class="flex-item">g_translate</md-icon>
+          <span class="flex-item" fxFlex="100%">   {{ 'MENU.DARK_THEME' | translate }}</span>
+        </button>
+        <button md-menu-item (click)="onLanguageChange()" [class.buttonSelected]="isDutch" class="flex-container">
+          <md-icon class="flex-item">g_translate</md-icon>
+          <span class="flex-item" fxFlex="100%">  {{ 'MENU.LANGUAGE' | translate }}</span>
+        </button>
         <button md-menu-item (click)="onOpenDeleteSettingsDialog()" class="flex-container">
           <md-icon class="flex-item">delete</md-icon>
           <span class="flex-item" fxFlex="100%">{{ 'MENU.CLEAR_SETTINGS' | translate }}</span>
