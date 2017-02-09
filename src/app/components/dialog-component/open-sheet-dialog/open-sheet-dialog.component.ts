@@ -10,7 +10,7 @@ import {ModelReadService} from '../../../services/model-read-service/model-read.
 export class OpenSheetDialogComponent {
   private selectedSheet: Array<File>;
 
-  public sheetSelected: boolean = false;
+  public sheetSelected = false;
   public dialogRef: MdDialogRef<OpenSheetDialogComponent>;
   public modelReadService: ModelReadService;
 

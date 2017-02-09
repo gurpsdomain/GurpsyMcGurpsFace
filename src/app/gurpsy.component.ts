@@ -19,8 +19,8 @@ export class GurpsyComponent implements OnInit {
   private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
 
   public dialog: MdDialog;
-  public isDarkTheme: boolean = true;
-  public isDutch: boolean = false;
+  public isDarkTheme = true;
+  public isDutch = false;
 
   constructor(theme: ThemeService, language: LanguagesService, dialog: MdDialog) {
     this.themeService = theme;

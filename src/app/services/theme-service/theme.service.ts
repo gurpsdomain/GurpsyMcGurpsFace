@@ -5,9 +5,9 @@ import {StorageService} from '../storage-service/storage.service';
 @Injectable()
 export class ThemeService {
 
-  public static THEME_DAY: string = 'day';
-  public static THEME_NIGHT: string = 'night';
-  public static THEME_DEFAULT: string = ThemeService.THEME_DAY;
+  public static THEME_DAY = 'day';
+  public static THEME_NIGHT = 'night';
+  public static THEME_DEFAULT = ThemeService.THEME_DAY;
 
   private themeChangeSource = new Subject<string>();
   private storageService: StorageService;

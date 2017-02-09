@@ -6,8 +6,8 @@ import {Subject} from 'rxjs';
 @Injectable()
 export class LanguagesService {
 
-  public static ENGLISH: string = 'en';
-  public static DUTCH: string = 'nl';
+  public static ENGLISH = 'en';
+  public static DUTCH = 'nl';
   private static AVAILABLE_LANGUAGES: string[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
   public static DEFAULT: string = LanguagesService.ENGLISH;
 

@@ -7,10 +7,10 @@ import {Sheet} from '../../model/sheet/sheet';
 @Injectable()
 export class StorageService {
 
-  private static STORAGE_KEY: string = 'gurpsy-mc-gurps-face';
-  private static STORAGE_KEY_THEME: string = '.theme';
-  private static STORAGE_KEY_LANGUAGE: string = '.language';
-  private static STORAGE_KEY_SHEET: string = '.sheet';
+  private static STORAGE_KEY = 'gurpsy-mc-gurps-face';
+  private static STORAGE_KEY_THEME = '.theme';
+  private static STORAGE_KEY_LANGUAGE = '.language';
+  private static STORAGE_KEY_SHEET = '.sheet';
 
 
   private themeChangeSource = new Subject<string>();
