@@ -1,6 +1,6 @@
 <div class="sheetComponent points">
   <div class="sheetComponentHeader">
-    {{ 'SHEET.POINTS.POINTS' | translate }}
+    <span *ngIf="sheet.points.total">{{sheet.points.total + ' '}}</span>{{ 'SHEET.POINTS.POINTS' | translate }}
   </div>
   <div class="sheetComponentBody">
     <div class="flex-container"
