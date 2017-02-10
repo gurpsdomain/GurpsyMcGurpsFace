@@ -2,30 +2,23 @@
   <div class="sheetComponentHeader">
     {{ 'SHEET.PLAYER_INFORMATION.PLAYER_INFORMATION' | translate }}
   </div>
-  <div class="sheetComponentBody">
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="1px"
+  <div class="sheetComponentBody flex-container"
+       fxLayout="row"
+       fxLayoutWrap="nowrap"
+       fxLayoutGap="16px">
+    <div class="key flex-container flex-item"
+         fxLayout="column"
          fxLayoutWrap="nowrap">
-      <label class="flex-item" fxFlex="100px"> {{ 'SHEET.PLAYER_INFORMATION.PLAYER' | translate }}</label>
-      <span class="flex-item" fxFlex="100%">{{sheet.playerInformation.player}}</span>
+      <label class="flex-item"> {{ 'SHEET.PLAYER_INFORMATION.PLAYER' | translate }}</label>
+      <label class="flex-item"> {{ 'SHEET.PLAYER_INFORMATION.CAMPAIGN' | translate }}</label>
+      <label class="flex-item"> {{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}</label>
     </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="1px"
+    <div class="value flex-container flex-item"
+         fxLayout="column"
          fxLayoutWrap="nowrap">
-      <label class="flex-item" fxFlex="100px"> {{ 'SHEET.PLAYER_INFORMATION.CAMPAIGN' | translate }}</label>
-      <span class="flex-item" fxFlex="100%">{{sheet.playerInformation.campaign}}</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="1px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item" fxFlex="100px"> {{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}</label>
-      <span class="flex-item" fxFlex="100%">{{sheet.playerInformation.creationDate}}</span>
+      <span class="flex-item">{{sheet.playerInformation.player}}</span>
+      <span class="flex-item">{{sheet.playerInformation.campaign}}</span>
+      <span class="flex-item">{{sheet.playerInformation.creationDate}}</span>
     </div>
   </div>
 </div>

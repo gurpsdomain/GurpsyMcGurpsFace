@@ -21,13 +21,23 @@
 .sheetComponentBody {
   padding: 0px 4px 0px 4px;
 
-  label {
-    white-space: nowrap;
+  .key {
+    overflow: hidden;
+
+    label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
-  span {
-    white-space: nowrap;
+  .value {
     overflow: hidden;
-    text-overflow: ellipsis;
+
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

@@ -2,30 +2,23 @@
   <div class="sheetComponentHeader">
     {{ 'SHEET.IDENTITY.IDENTITY' | translate }}
   </div>
-  <div class="sheetComponentBody">
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="1px"
+  <div class="sheetComponentBody flex-container"
+       fxLayout="row"
+       fxLayoutWrap="nowrap"
+       fxLayoutGap="16px">
+    <div class="key flex-container flex-item"
+         fxLayout="column"
          fxLayoutWrap="nowrap">
-      <label class="flex-item" fxFlex="70px"> {{ 'SHEET.IDENTITY.NAME' | translate }}</label>
-      <span class="flex-item" fxFlex="100%">{{sheet.identity.name}}</span>
+      <label class="flex-item"> {{ 'SHEET.IDENTITY.NAME' | translate }}</label>
+      <label class="flex-item"> {{ 'SHEET.IDENTITY.TITLE' | translate }}</label>
+      <label class="flex-item"> {{ 'SHEET.IDENTITY.RELIGION' | translate }}</label>
     </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="1px"
+    <div class="value flex-container flex-item"
+         fxLayout="column"
          fxLayoutWrap="nowrap">
-      <label class="flex-item" fxFlex="70px"> {{ 'SHEET.IDENTITY.TITLE' | translate }}</label>
-      <span class="flex-item" fxFlex="100%">{{sheet.identity.title}}</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="1px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item" fxFlex="70px"> {{ 'SHEET.IDENTITY.RELIGION' | translate }}</label>
-      <span class="flex-item" fxFlex="100%">{{sheet.identity.religion}}</span>
+      <span class="flex-item">{{sheet.identity.name}}</span>
+      <span class="flex-item">{{sheet.identity.title}}</span>
+      <span class="flex-item">{{sheet.identity.religion}}</span>
     </div>
   </div>
 </div>

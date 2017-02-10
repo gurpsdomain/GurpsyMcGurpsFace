@@ -5,8 +5,7 @@ import {Sheet} from '../../../../model/sheet/sheet';
 @Component({
   selector: 'gurpsy-identity-component',
   templateUrl: './identity.component.html',
-  styleUrls: ['../../sheet.component.scss',
-    './identity.component.scss']
+  styleUrls: ['../../sheet.component.scss']
 })
 export class IdentityComponent implements OnInit {
 
