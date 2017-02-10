@@ -1,7 +1,14 @@
 <h1 md-dialog-title> {{'DIALOG.OPEN_SHEET.HEADER'| translate}}</h1>
 
 <md-dialog-content>
-  <input type="file" accept="application/json" (change)="onFileSelect($event)" placeholder="Upload file..."/>
+  <md-tab-group>
+    <md-tab label="{{'DIALOG.OPEN_SHEET.FROM_FILE'| translate}}">
+      <input type="file" accept="application/json" (change)="onFileSelect($event)" placeholder="Upload file..."/>
+    </md-tab>
+    <md-tab label="{{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}">
+      Nice list of available sheets
+    </md-tab>
+  </md-tab-group>
 </md-dialog-content>
 
 <md-dialog-actions>
