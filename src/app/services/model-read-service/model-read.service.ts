@@ -42,7 +42,7 @@ export class ModelReadService {
 
   private persistSheet(sheet: Sheet): void {
 
-    this.storageService.presistSheet(sheet);
+    this.storageService.storeSheet(sheet);
   }
 
   public getSheet(): Sheet {

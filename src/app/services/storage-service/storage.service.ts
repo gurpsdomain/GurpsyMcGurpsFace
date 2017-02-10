@@ -3,29 +3,59 @@ import {Subject} from 'rxjs/Subject';
 import {SheetMap, SheetMapEntry} from '../../model/json/sheetmap';
 import {SheetMapImpl, SheetMapEntryImpl} from '../../model/json/sheetmap-impl';
 import {Sheet} from '../../model/sheet/sheet';
+import {ThemeStorageDelegate} from './delegates/theme-storage-delegate/theme-storage-delegate';
+import {LanguageStorageDelegate} from './delegates/language-storage-delegate/language-storage-delegate';
 
 @Injectable()
 export class StorageService {
 
-  private static STORAGE_KEY = 'gurpsy-mc-gurps-face';
-  private static STORAGE_KEY_THEME = '.theme';
-  private static STORAGE_KEY_LANGUAGE = '.language';
+  public static STORAGE_KEY = 'gurpsy-mc-gurps-face';
   private static STORAGE_KEY_SHEET = '.sheet';
 
+  private themeStorageDelegate: ThemeStorageDelegate;
+  private languageStorageDelegate: LanguageStorageDelegate;
 
-  private themeChangeSource = new Subject<string>();
-  private languageChangeSource = new Subject<string>();
   private sheetChangeSource = new Subject<string>();
 
-  public themeChange$ = this.themeChangeSource.asObservable();
-  public languageChange$ = this.languageChangeSource.asObservable();
   public sheetChange$ = this.sheetChangeSource.asObservable();
 
-  constructor() {
+  constructor(themeStorageDelegate: ThemeStorageDelegate, languageStorageDelegate: LanguageStorageDelegate) {
+    this.themeStorageDelegate = themeStorageDelegate;
+    this.languageStorageDelegate = languageStorageDelegate;
+
     this.initStorageListener();
   }
 
-  public presistSheet(sheet: Sheet) {
+  public getLanguageObserver() {
+    return this.languageStorageDelegate.valueChange$;
+  }
+
+  public getThemeObserver() {
+    return this.themeStorageDelegate.valueChange$;
+  }
+
+  public storeLanguage(locale: string): void {
+    this.languageStorageDelegate.storeLanguage(locale);
+  }
+
+  public storeTheme(theme: string) {
+    this.themeStorageDelegate.persistTheme(theme);
+  }
+
+  public getLanguage(): Promise<string> {
+    return this.languageStorageDelegate.getLanguage();
+  }
+
+  public getTheme(): Promise<string> {
+    return this.themeStorageDelegate.getTheme();
+  }
+
+  public clearStorage(): void {
+    this.themeStorageDelegate.clear();
+    this.languageStorageDelegate.clear();
+  }
+
+  public storeSheet(sheet: Sheet): void {
     let jsonSheet = JSON.stringify(sheet);
     let sheetName = this.getSheetNameKey(sheet);
     localStorage.setItem(this.getSheetStorageKey(sheetName), jsonSheet);
@@ -42,7 +72,7 @@ export class StorageService {
   }
 
   public getCurrentSheet(): Promise<Sheet> {
-    let sheetMap: SheetMap = this.getSheetMapper();
+    let sheetMap: SheetMap = this.getSheetMap();
 
     if (!sheetMap) {
       return Promise.reject('Sheet unavailable');
@@ -77,7 +107,7 @@ export class StorageService {
   }
 
   private addToSheetMapper(sheet: Sheet): void {
-    let sheetMap: SheetMap = this.getSheetMapper();
+    let sheetMap: SheetMap = this.getSheetMap();
 
     if (!sheetMap) {
       sheetMap = new SheetMapImpl();
@@ -100,47 +130,11 @@ export class StorageService {
     localStorage.setItem(this.getSheetMapStorageKey(), JSON.stringify(sheetMap));
   }
 
-  private getSheetMapper(): SheetMap {
+  private getSheetMap(): SheetMap {
     let sheetMap: string = localStorage.getItem(this.getSheetMapStorageKey());
     return JSON.parse(sheetMap);
   }
 
-  public persistTheme(theme: string) {
-    localStorage.setItem(this.getThemeStorageKey(), theme);
-  }
-
-  public getTheme(): Promise<string> {
-    let theme: string = localStorage.getItem(this.getThemeStorageKey());
-
-    if (theme) {
-      return Promise.resolve(theme);
-    } else {
-      return Promise.reject('');
-    }
-  }
-
-  public persistLanguage(locale: string): void {
-    localStorage.setItem(this.getLanguageStorageKey(), locale);
-  }
-
-  public getLanguage(): Promise<string> {
-    let locale: string = localStorage.getItem(this.getLanguageStorageKey());
-
-    return Promise.resolve(locale);
-  }
-
-  public clearStorage(): void {
-    this.clearStoredTheme();
-    this.clearStoredLanguage();
-  }
-
-  private getThemeStorageKey(): string {
-    return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_THEME;
-  }
-
-  private getLanguageStorageKey(): string {
-    return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_LANGUAGE;
-  }
 
   private getSheetMapStorageKey(): string {
     return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_SHEET;
@@ -150,25 +144,9 @@ export class StorageService {
     return StorageService.STORAGE_KEY + StorageService.STORAGE_KEY_SHEET + '.' + characterName;
   }
 
-  private clearStoredTheme(): void {
-    localStorage.removeItem(this.getThemeStorageKey());
-    this.themeChange(null);
-  }
-
-  private clearStoredLanguage(): void {
-    localStorage.removeItem(this.getLanguageStorageKey());
-  }
 
   public sheetChange(sheet: string) {
     this.sheetChangeSource.next(sheet);
-  }
-
-  public themeChange(theme: string) {
-    this.themeChangeSource.next(theme);
-  }
-
-  public languageChange(language: string) {
-    this.languageChangeSource.next(language);
   }
 
   private initStorageListener() {
@@ -176,11 +154,7 @@ export class StorageService {
   }
 
   private handleStorageChange(event: StorageEvent): void {
-    if (event.key === this.getThemeStorageKey()) {
-      this.themeChange(event.newValue);
-    } else if (event.key === this.getLanguageStorageKey()) {
-      this.languageChange(event.newValue);
-    } else if (event.key.includes(this.getSheetStorageKey(''))) {
+    if (event.key.includes(this.getSheetStorageKey(''))) {
       this.sheetChange(event.newValue);
     }
   }

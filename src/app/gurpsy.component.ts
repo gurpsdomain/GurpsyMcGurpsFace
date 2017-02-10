@@ -35,7 +35,7 @@ export class GurpsyComponent implements OnInit {
 
   initTheme(): void {
     this.themeService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ThemeService.THEME_DEFAULT));
-    this.themeService.themeChange$.subscribe(theme => this.setTheme(theme));
+    this.themeService.getThemeObserver().subscribe(theme => this.setTheme(theme));
   }
 
   initLanguage(): void {

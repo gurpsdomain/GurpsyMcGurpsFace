@@ -7,6 +7,8 @@ import {TranslateModule} from 'ng2-translate';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 import {JsonService} from '../../../../services/json-service/json.service';
 import {StorageService} from '../../../../services/storage-service/storage.service';
+import {LanguageStorageDelegate} from '../../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
+import {ThemeStorageDelegate} from '../../../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 
 describe('DescriptionComponent', function () {
   let de: DebugElement;
@@ -24,6 +26,8 @@ describe('DescriptionComponent', function () {
       providers: [
         ModelReadService,
         JsonService,
+        ThemeStorageDelegate,
+        LanguageStorageDelegate,
         StorageService
       ]
     })

@@ -18,6 +18,8 @@ import {ThemeService} from './services/theme-service/theme.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {JsonService} from './services/json-service/json.service';
+import {LanguageStorageDelegate} from './services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
+import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -42,6 +44,8 @@ describe('GurpsyComponent', () => {
         ThemeService,
         LanguagesService,
         StorageService,
+        ThemeStorageDelegate,
+        LanguageStorageDelegate,
         ModelReadService,
         JsonService
       ]

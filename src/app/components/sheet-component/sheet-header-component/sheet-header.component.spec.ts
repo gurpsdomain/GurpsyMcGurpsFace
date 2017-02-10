@@ -12,6 +12,8 @@ import {TranslateModule} from 'ng2-translate';
 import {ModelReadService} from '../../../services/model-read-service/model-read.service';
 import {JsonService} from '../../../services/json-service/json.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
+import {ThemeStorageDelegate} from '../../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
+import {LanguageStorageDelegate} from '../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
@@ -34,7 +36,9 @@ describe('SheetHeaderComponent', function () {
       providers: [
         ModelReadService,
         JsonService,
-        StorageService
+        StorageService,
+        ThemeStorageDelegate,
+        LanguageStorageDelegate,
       ]
     })
       .compileComponents();

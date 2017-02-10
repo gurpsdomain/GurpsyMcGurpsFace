@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
 import {StorageService} from '../storage-service/storage.service';
 
 @Injectable()
@@ -9,21 +8,21 @@ export class ThemeService {
   public static THEME_NIGHT = 'night';
   public static THEME_DEFAULT = ThemeService.THEME_DAY;
 
-  private themeChangeSource = new Subject<string>();
   private storageService: StorageService;
-
-  public themeChange$ = this.themeChangeSource.asObservable();
 
   constructor(storage: StorageService) {
     this.storageService = storage;
-    this.storageService.themeChange$.subscribe(theme => this.themeChangeSource.next(theme));
   }
 
   public setTheme(theme: string) {
-    this.storageService.persistTheme(theme);
+    this.storageService.storeTheme(theme);
   }
 
   public getTheme(): Promise<string> {
     return this.storageService.getTheme();
+  }
+
+  public getThemeObserver() {
+    return this.storageService.getThemeObserver();
   }
 }

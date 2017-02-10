@@ -44,8 +44,12 @@ export class LanguagesService {
     )
     ;
 
-    this.storageService.languageChange$.subscribe(locale => this.changeLanguage(locale));
-    this.storageService.languageChange$.subscribe(locale => this.languageChangeSource.next(locale));
+    this.storageService.getLanguageObserver().subscribe(locale => this.handleLanguageChange(locale));
+  }
+
+  private handleLanguageChange(locale: string): void {
+    this.changeLanguage(locale);
+    this.languageChangeSource.next(locale);
   }
 
   private changeLanguage(newLocale: string): void {
@@ -67,6 +71,6 @@ export class LanguagesService {
   }
 
   private storeLanguage(locale: string): void {
-    this.storageService.persistLanguage(locale);
+    this.storageService.storeLanguage(locale);
   }
 }
