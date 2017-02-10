@@ -41,7 +41,7 @@ import {JsonService} from './services/json-service/json.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    FlexLayoutModule.forRoot(),
+    FlexLayoutModule,
     MaterialModule.forRoot(),
     TranslateModule.forRoot()
   ],
