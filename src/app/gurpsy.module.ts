@@ -25,6 +25,7 @@ import {ModelReadService} from './services/model-read-service/model-read.service
 import {JsonService} from './services/json-service/json.service';
 import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {LanguageStorageDelegate} from './services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
+import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -52,6 +53,7 @@ import {LanguageStorageDelegate} from './services/storage-service/delegates/lang
     ThemeService,
     StorageService,
     ThemeStorageDelegate,
+    SheetStorageDelegate,
     LanguageStorageDelegate,
     ModelReadService,
     JsonService

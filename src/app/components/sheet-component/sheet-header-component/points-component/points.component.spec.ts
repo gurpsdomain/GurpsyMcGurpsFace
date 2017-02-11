@@ -9,6 +9,7 @@ import {JsonService} from '../../../../services/json-service/json.service';
 import {StorageService} from '../../../../services/storage-service/storage.service';
 import {LanguageStorageDelegate} from '../../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {ThemeStorageDelegate} from '../../../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
+import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 
 ////////  SPECS  /////////////
 describe('PointsComponent', function () {
@@ -28,6 +29,7 @@ describe('PointsComponent', function () {
         ModelReadService,
         JsonService,
         ThemeStorageDelegate,
+        SheetStorageDelegate,
         LanguageStorageDelegate,
         StorageService
       ]
