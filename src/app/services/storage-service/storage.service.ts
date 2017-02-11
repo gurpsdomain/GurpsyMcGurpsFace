@@ -34,27 +34,27 @@ export class StorageService {
   }
 
   public storeLanguage(locale: string): void {
-    this.languageStorageDelegate.storeLanguage(locale);
+    this.languageStorageDelegate.store(locale);
   }
 
   public storeSheet(sheet: Sheet): void {
-    this.sheetStorageDelegate.storeSheet(sheet);
+    this.sheetStorageDelegate.persist(sheet);
   }
 
   public storeTheme(theme: string) {
-    this.themeStorageDelegate.persistTheme(theme);
+    this.themeStorageDelegate.store(theme);
   }
 
   public getCurrentSheet(): Promise<Sheet> {
-    return this.sheetStorageDelegate.getCurrentSheet();
+    return this.sheetStorageDelegate.retrieveCurrent();
   }
 
   public getLanguage(): Promise<string> {
-    return this.languageStorageDelegate.getLanguage();
+    return this.languageStorageDelegate.retrieve();
   }
 
   public getTheme(): Promise<string> {
-    return this.themeStorageDelegate.getTheme();
+    return this.themeStorageDelegate.retrieve();
   }
 
   public clearStorage(): void {

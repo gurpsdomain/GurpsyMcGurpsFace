@@ -34,12 +34,12 @@ export class GurpsyComponent implements OnInit {
   }
 
   initTheme(): void {
-    this.themeService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ThemeService.THEME_DEFAULT));
+    this.themeService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ThemeService.DEFAULT));
     this.themeService.getThemeObserver().subscribe(theme => this.setTheme(theme));
   }
 
   initLanguage(): void {
-    this.languageService.getLanguage().then(locale => this.setLanguage(locale));
+    this.languageService.getLanguage().then(locale => this.setLanguage(locale)).catch(err => this.setLanguage(LanguagesService.DEFAULT));
     this.languageService.languageChange$.subscribe(locale => this.setLanguage(locale));
   }
 

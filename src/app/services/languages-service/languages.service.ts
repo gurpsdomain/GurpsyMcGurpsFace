@@ -41,8 +41,7 @@ export class LanguagesService {
   private initStorageService(): void {
     this.getLanguage().then(storedLocale =>
       this.changeLanguage(storedLocale)
-    )
-    ;
+    ).catch(err => this.changeLanguage(LanguagesService.DEFAULT));
 
     this.storageService.getLanguageObserver().subscribe(locale => this.handleLanguageChange(locale));
   }

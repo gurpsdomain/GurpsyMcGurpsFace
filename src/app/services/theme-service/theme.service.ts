@@ -6,7 +6,7 @@ export class ThemeService {
 
   public static THEME_DAY = 'day';
   public static THEME_NIGHT = 'night';
-  public static THEME_DEFAULT = ThemeService.THEME_DAY;
+  public static DEFAULT = ThemeService.THEME_DAY;
 
   private storageService: StorageService;
 
