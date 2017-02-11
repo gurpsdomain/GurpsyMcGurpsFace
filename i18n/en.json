@@ -13,6 +13,8 @@
       "CONFIRMATION": "Are you sure you wish to continue?"
     },
     "OPEN_SHEET": {
+      "FROM_FILE":"From file",
+      "PREVIOUSLY": "Previously opened",
       "HEADER": "Open Character Sheet"
     }
   },

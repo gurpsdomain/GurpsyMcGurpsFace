@@ -13,6 +13,8 @@
       "CONFIRMATION": "Weet u zeker dat u wilt doorgaan?"
     },
     "OPEN_SHEET": {
+      "FROM_FILE":"Bestand",
+      "PREVIOUSLY": "Eerder geopend",
       "HEADER": "Open Character Sheet"
     }
   },
