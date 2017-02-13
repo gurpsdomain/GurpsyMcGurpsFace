@@ -65,6 +65,7 @@ export class GurpsyComponent implements OnInit {
 
   onOpenSheetDialog(): void {
     this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
+      width: '400px',
       disableClose: false
     });
 
@@ -75,6 +76,7 @@ export class GurpsyComponent implements OnInit {
 
   onOpenDeleteSettingsDialog(): void {
     this.deleteSettingsDialogRef = this.dialog.open(DeleteSettingsDialogComponent, {
+      width: '400px',
       disableClose: false
     });
 

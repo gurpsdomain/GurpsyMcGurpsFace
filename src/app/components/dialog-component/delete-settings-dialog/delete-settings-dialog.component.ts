@@ -9,7 +9,7 @@ import {StorageService} from '../../../services/storage-service/storage.service'
 })
 export class DeleteSettingsDialogComponent {
 
-  public dialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
+  private dialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
   private storageService: StorageService;
 
   constructor(dialogRef: MdDialogRef<DeleteSettingsDialogComponent>, storage: StorageService) {

@@ -6,7 +6,9 @@
       <input type="file" accept="application/json" (change)="onFileSelect($event)" placeholder="Upload file..."/>
     </md-tab>
     <md-tab label="{{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}">
-      Nice list of available sheets
+      <li *ngFor="let sheet of previouslyOpenedSheets;">
+        {{sheet.name}}
+      </li>
     </md-tab>
   </md-tab-group>
 </md-dialog-content>

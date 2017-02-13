@@ -1,7 +1,8 @@
 <h1 md-dialog-title> {{'DIALOG.DELETE_SETTINGS.HEADER'| translate}}</h1>
-<p>{{'DIALOG.DELETE_SETTINGS.BODY'| translate}}</p>
-<p>{{'DIALOG.DELETE_SETTINGS.CONFIRMATION'| translate}}</p>
-
+<md-dialog-content>
+  <p>{{'DIALOG.DELETE_SETTINGS.BODY'| translate}}</p>
+  <p>{{'DIALOG.DELETE_SETTINGS.CONFIRMATION'| translate}}</p>
+</md-dialog-content>
 <md-dialog-actions>
   <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.OK'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>

@@ -3,6 +3,7 @@ import {ThemeStorageDelegate} from './delegates/theme-storage-delegate/theme-sto
 import {LanguageStorageDelegate} from './delegates/language-storage-delegate/language-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Sheet} from '../../model/sheet/sheet';
+import {SheetMap} from '../../model/json/sheetmap';
 
 @Injectable()
 export class StorageService {
@@ -47,6 +48,10 @@ export class StorageService {
 
   public getCurrentSheet(): Promise<Sheet> {
     return this.sheetStorageDelegate.retrieveCurrent();
+  }
+
+  public getAllStoredSheets(): Promise<SheetMap> {
+    return this.sheetStorageDelegate.retrieveSheets();
   }
 
   public getLanguage(): Promise<string> {
