@@ -7,10 +7,12 @@
   "DIALOG": {
     "OK": "Ja",
     "CANCEL": "Annuleer",
-    "DELETE_SETTINGS": {
+    "DELETE_DATA": {
       "HEADER": "Verwijder lokaal opgeslagen instellingen",
       "BODY": "Dit zal alle lokaal opgeslagen instellingen verwijderen en daarmee teruggaan naar de default instellingen. Lokaal opgeslagen Character Sheets zullen niet worden verwijderd?",
-      "CONFIRMATION": "Weet u zeker dat u wilt doorgaan?"
+      "SHEETS": "Opgeslagen Character Sheets",
+      "CONFIRMATION": "Weet u zeker dat u wilt doorgaan?",
+      "DELETE" : "Verwijder"
     },
     "OPEN_SHEET": {
       "FROM_FILE":"Bestand",

@@ -1,9 +1,21 @@
-<h1 md-dialog-title> {{'DIALOG.DELETE_SETTINGS.HEADER'| translate}}</h1>
+<h1 md-dialog-title> {{'DIALOG.DELETE_DATA.HEADER'| translate}}</h1>
 <md-dialog-content>
-  <p>{{'DIALOG.DELETE_SETTINGS.BODY'| translate}}</p>
-  <p>{{'DIALOG.DELETE_SETTINGS.CONFIRMATION'| translate}}</p>
+  <p>{{'DIALOG.DELETE_DATA.BODY'| translate}}</p>
+
+  <div>
+  {{'DIALOG.DELETE_DATA.SHEETS' | translate}}
+  <md-card *ngFor="let sheet of storedSheets;">
+      <md-card-header>
+        <img md-card-avatar src="assets/images/empty-portrait.png">
+        <md-card-title>{{sheet.name}}</md-card-title>
+        <md-card-subtitle>Points total</md-card-subtitle>
+      </md-card-header>
+  </md-card>
+  </div>
+
+  <p>{{'DIALOG.DELETE_DATA.CONFIRMATION'| translate}}</p>
 </md-dialog-content>
 <md-dialog-actions>
-  <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.DELETE_DATA.DELETE'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>
