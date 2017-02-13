@@ -12,6 +12,7 @@ export class DeleteSettingsDialogComponent {
   private dialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
   private storageService: StorageService;
 
+
   constructor(dialogRef: MdDialogRef<DeleteSettingsDialogComponent>, storage: StorageService) {
     this.dialogRef = dialogRef;
     this.storageService = storage;

@@ -21,7 +21,7 @@ export class SheetStorageDelegate {
     let jsonSheet = JSON.stringify(sheet);
     let sheetName = this.getSheetNameKey(sheet);
     localStorage.setItem(this.getSheetStorageKey(sheetName), jsonSheet);
-    this.addToSheetMapper(sheet);
+    this.updateSheetMap(sheet);
   }
 
   public retrieveCurrent(): Promise<Sheet> {
@@ -77,24 +77,39 @@ export class SheetStorageDelegate {
     return sheetNameKey;
   }
 
-  private addToSheetMapper(sheet: Sheet): void {
+  private updateSheetMap(sheet: Sheet): void {
     let sheetMap: SheetMap = this.getSheetMap();
 
-    if (!sheetMap) {
-      sheetMap = new SheetMapImpl();
-      sheetMap.sheets = [];
+    if (!this.sheetMapContains(sheetMap, sheet)) {
+      this.addToSheetMap(sheetMap, sheet);
     }
 
     sheetMap.current = this.getSheetName(sheet);
-    this.updateSheetMap(sheetMap, sheet);
     this.persistSheetMap(sheetMap);
   }
 
-  private updateSheetMap(sheetMap: SheetMap, sheet: Sheet): void {
+  private addToSheetMap(sheetMap: SheetMap, sheet: Sheet): void {
+    let sheetMapSheetEntry: SheetMapEntry = this.createSheetMapEntry(sheet);
+    sheetMap.sheets.push(sheetMapSheetEntry);
+  }
+
+  private createSheetMapEntry(sheet: Sheet): SheetMapEntry {
     let sheetMapSheetEntry: SheetMapEntry = new SheetMapEntryImpl();
     sheetMapSheetEntry.name = this.getSheetName(sheet);
     sheetMapSheetEntry.sheet = this.getSheetNameKey(sheet);
-    sheetMap.sheets.push(sheetMapSheetEntry);
+    return sheetMapSheetEntry;
+  }
+
+  private sheetMapContains(sheetMap: SheetMap, newSheet: Sheet): boolean {
+    let contains = false;
+    for (let sheet of sheetMap.sheets) {
+      if (this.getSheetName(newSheet) === sheet.name) {
+        contains = true;
+        break;
+      }
+    }
+
+    return contains;
   }
 
   private persistSheetMap(sheetMap: SheetMap): void {
@@ -103,7 +118,12 @@ export class SheetStorageDelegate {
 
   private getSheetMap(): SheetMap {
     let sheetMap: string = localStorage.getItem(this.getSheetMapStorageKey());
-    return JSON.parse(sheetMap);
+
+    if (sheetMap) {
+      return JSON.parse(sheetMap);
+    } else {
+      return new SheetMapImpl();
+    }
   }
 
   private getSheetMapStorageKey(): string {
