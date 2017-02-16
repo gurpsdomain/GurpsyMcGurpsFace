@@ -45,7 +45,7 @@ export class OpenSheetDialogComponent {
   }
 
   private initPreviouslyOpenedSheetList(): void {
-    this.storageService.getAllStoredSheets().then(
+    this.storageService.getSheets().then(
       sheetMap => this.previouslyOpenedSheets = sheetMap.sheets);
   }
 }

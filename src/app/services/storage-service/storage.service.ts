@@ -50,7 +50,7 @@ export class StorageService {
     return this.sheetStorageDelegate.retrieveCurrent();
   }
 
-  public getAllStoredSheets(): Promise<SheetMap> {
+  public getSheets(): Promise<SheetMap> {
     return this.sheetStorageDelegate.retrieveSheets();
   }
 

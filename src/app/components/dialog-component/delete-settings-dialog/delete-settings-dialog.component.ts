@@ -31,7 +31,7 @@ export class DeleteSettingsDialogComponent {
   }
 
   private initPreviouslyOpenedSheetList(): void {
-    this.storageService.getAllStoredSheets().then(
+    this.storageService.getSheets().then(
       sheetMap => this.storedSheets = sheetMap.sheets);
   }
 }
