@@ -1,20 +1,23 @@
 <h1 md-dialog-title> {{'DIALOG.DELETE_DATA.HEADER'| translate}}</h1>
 <md-dialog-content>
-  <p>{{'DIALOG.DELETE_DATA.BODY'| translate}}</p>
 
   <div>
-  {{'DIALOG.DELETE_DATA.SHEETS' | translate}}
-  <md-card *ngFor="let sheet of storedSheets;">
-      <md-card-header>
-        <img md-card-avatar src="assets/images/empty-portrait.png">
-        <md-card-title>{{sheet.name}}</md-card-title>
-        <md-card-subtitle>Points total</md-card-subtitle>
-      </md-card-header>
-  </md-card>
+    <md-checkbox [(ngModel)]="clearTheme">{{'DIALOG.DELETE_DATA.THEME'| translate}}</md-checkbox>
   </div>
 
-  <p>{{'DIALOG.DELETE_DATA.CONFIRMATION'| translate}}</p>
+  <div>
+    <md-checkbox [(ngModel)]="clearLanguage">{{'DIALOG.DELETE_DATA.LANGUAGE'| translate}}</md-checkbox>
+  </div>
+
+  <div class="sheets">
+    {{'DIALOG.DELETE_DATA.SHEETS' | translate}}
+    <md-checkbox *ngFor="let sheet of storedSheets;">
+      <span class="sheetName">{{sheet.name}}</span>
+      <span class="sheetPoints">(137 points)</span>
+    </md-checkbox>
+  </div>
 </md-dialog-content>
+
 <md-dialog-actions>
   <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.DELETE_DATA.DELETE'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>

@@ -62,9 +62,13 @@ export class StorageService {
     return this.themeStorageDelegate.retrieve();
   }
 
-  public clearStorage(): void {
-    this.themeStorageDelegate.clear();
-    this.languageStorageDelegate.clear();
+  public clearStorage(clearLanguage: boolean, clearTheme: boolean): void {
+    if (clearLanguage) {
+      this.languageStorageDelegate.clear();
+    }
+    if (clearTheme) {
+      this.themeStorageDelegate.clear();
+    }
   }
 }
 

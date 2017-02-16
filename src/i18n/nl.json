@@ -8,10 +8,10 @@
     "OK": "Ja",
     "CANCEL": "Annuleer",
     "DELETE_DATA": {
-      "HEADER": "Verwijder lokaal opgeslagen instellingen",
-      "BODY": "Dit zal alle lokaal opgeslagen instellingen verwijderen en daarmee teruggaan naar de default instellingen. Lokaal opgeslagen Character Sheets zullen niet worden verwijderd?",
+      "HEADER": "Verwijder lokaal opgeslagen gegevens",
       "SHEETS": "Opgeslagen Character Sheets",
-      "CONFIRMATION": "Weet u zeker dat u wilt doorgaan?",
+      "LANGUAGE" : "Verwijder Taalinstelling",
+      "THEME" : "Verwijder Themainstelling",
       "DELETE" : "Verwijder"
     },
     "OPEN_SHEET": {

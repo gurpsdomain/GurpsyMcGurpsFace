@@ -1,2 +1,18 @@
 @import "../../../../gurpsy-material-theme";
 
+md-dialog-content button {
+  width: 100%;
+  height: 60px;
+  padding: 0;
+
+  .sheetInfo {
+    .sheetName {
+      font-weight: normal;
+      line-height: normal;
+    }
+    .sheetPoints {
+      font-weight: normal;
+      line-height: normal;
+    }
+  }
+}

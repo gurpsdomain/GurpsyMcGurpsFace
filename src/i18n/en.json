@@ -8,10 +8,10 @@
     "OK": "Yes",
     "CANCEL": "Cancel",
     "DELETE_DATA": {
-      "HEADER": "Delete locally stored settings",
-      "BODY": "This will delete all locally stored settings and will revert to the default settings. Locally stored Character Sheets will not be deleted.",
+      "HEADER": "Delete locally stored data",
       "SHEETS": "Stored Character Sheets",
-      "CONFIRMATION": "Are you sure you wish to continue?",
+      "LANGUAGE" : "Delete Language settings",
+      "THEME" : "Delete Theme settings",
       "DELETE" : "Delete"
     },
     "OPEN_SHEET": {

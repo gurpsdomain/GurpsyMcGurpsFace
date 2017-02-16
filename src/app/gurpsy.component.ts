@@ -78,7 +78,6 @@ export class GurpsyComponent implements OnInit {
   onOpenDeleteSettingsDialog(): void {
     this.deleteSettingsDialogRef = this.dialog.open(DeleteSettingsDialogComponent, {
       width: '400px',
-      height: '400px',
       disableClose: false
     });
 

@@ -11,6 +11,8 @@ import {SheetMapEntry} from '../../../model/json/sheetmap';
 export class DeleteSettingsDialogComponent {
 
   public storedSheets: SheetMapEntry[] = [];
+  public clearTheme = true;
+  public clearLanguage = true;
 
   private dialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
   private storageService: StorageService;
@@ -24,7 +26,7 @@ export class DeleteSettingsDialogComponent {
   }
 
   onDeleteSettings(): void {
-    this.storageService.clearStorage();
+    this.storageService.clearStorage(this.clearLanguage, this.clearTheme);
     this.dialogRef.close();
   }
 
