@@ -29,7 +29,7 @@ md-sidenav-container {
     background: url(assets/images/day.png);
   }
 
-  md-card {
+  .mat-sidenav-content md-card {
     padding: 4px;
     max-width: 768px;
     margin-left: auto;
