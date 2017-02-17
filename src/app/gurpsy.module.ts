@@ -45,7 +45,7 @@ import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-s
     FormsModule,
     HttpModule,
     FlexLayoutModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     TranslateModule.forRoot()
   ],
   providers: [

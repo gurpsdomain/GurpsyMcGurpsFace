@@ -4,6 +4,14 @@ md-toolbar {
   margin-bottom: 12px;
 }
 
-.buttonSelected md-icon{
-  color: md-color($accent);
+.buttonSelected md-icon {
+  color: mat-color($accent);
+}
+
+md-toolbar {
+  .avatar {
+    img {
+      height: 48px;
+    }
+  }
 }

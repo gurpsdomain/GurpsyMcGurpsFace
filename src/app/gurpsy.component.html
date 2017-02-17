@@ -1,4 +1,4 @@
-<md-sidenav-layout [class.gurpsy-dark]="isDarkTheme">
+<md-sidenav-container [class.gurpsy-dark]="isDarkTheme">
   <md-sidenav #sidenav>
     <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"></gurpsy-side-navigation>
   </md-sidenav>
@@ -8,10 +8,13 @@
       <md-icon>menu</md-icon>
     </button>
 
-    <span class="flex-item" fxFlex>{{'APPLICATION'| translate}}
+    <span class="flex-item" fxFlex>
+      {{'APPLICATION'| translate}}
     </span>
 
-    <img class="flex-item" fxShow="false" fxShow.xs md-card-avatar src="assets/images/empty-portrait.png">
+    <div fxShow="false" fxShow.xs class="avatar flex-item">
+      <img src="assets/images/empty-portrait.png">
+    </div>
 
     <div class="headerSettings flex-container flex-item">
       <button md-icon-button [md-menu-trigger-for]="settings">
@@ -42,7 +45,7 @@
     <gurpsy-sheet></gurpsy-sheet>
   </md-card>
 
-</md-sidenav-layout>
+</md-sidenav-container>
 
 
 

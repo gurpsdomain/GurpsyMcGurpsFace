@@ -38,7 +38,7 @@ describe('GurpsyComponent', () => {
       ],
       imports: [
         FormsModule,
-        MaterialModule.forRoot(),
+        MaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [

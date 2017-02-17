@@ -7,10 +7,12 @@
     </md-tab>
     <md-tab label="{{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}">
       <button md-button *ngFor="let sheet of previouslyOpenedSheets;">
-        <div class="flex-container"
+        <div class="sheetRow flex-container"
              fxLayout="row"
              fxLayputGap="6px">
-          <img md-card-avatar class="flex-item" src="assets/images/empty-portrait.png">
+          <div class="avatar">
+            <img class="flex-item" src="assets/images/empty-portrait.png">
+          </div>
           <div class="sheetInfo flex-item flex-container"
                fxLayout="column"
                fxLayoutWrap="nowrap">
