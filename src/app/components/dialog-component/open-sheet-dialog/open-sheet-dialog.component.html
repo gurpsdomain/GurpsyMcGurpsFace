@@ -6,7 +6,7 @@
       <input type="file" accept="application/json" (change)="onFileSelect($event)" placeholder="Upload file..."/>
     </md-tab>
     <md-tab label="{{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}">
-      <button md-button *ngFor="let sheet of previouslyOpenedSheets;">
+      <button md-button  *ngFor="let sheet of previouslyOpenedSheets;">
         <div class="sheetRow flex-container"
              fxLayout="row"
              fxLayputGap="6px">
@@ -25,7 +25,7 @@
   </md-tab-group>
 </md-dialog-content>
 
-<md-dialog-actions>
+<md-dialog-actions align="end">
   <button md-button [disabled]="!sheetSelected" (click)="onLoadSheet()"> {{'DIALOG.OK'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>
