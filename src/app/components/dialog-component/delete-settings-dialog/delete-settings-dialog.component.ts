@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {StorageService} from '../../../services/storage-service/storage.service';
-import {SheetMapEntry} from '../../../model/json/sheetmap';
+import {JsonSheet} from '../../../model/json/sheet';
 
 @Component({
   selector: 'gurpsy-delete-settings-dialog',
@@ -10,7 +10,7 @@ import {SheetMapEntry} from '../../../model/json/sheetmap';
 })
 export class DeleteSettingsDialogComponent {
 
-  public storedSheets: SheetMapEntry[] = [];
+  public storedSheets: JsonSheet[] = [];
   public clearTheme = true;
   public clearLanguage = true;
 
@@ -32,6 +32,10 @@ export class DeleteSettingsDialogComponent {
 
   private initPreviouslyOpenedSheetList(): void {
     this.storageService.getSheets().then(
-      sheetMap => this.storedSheets = sheetMap.sheets);
+      sheets => this.setStoredSheets(sheets));
+  }
+
+  private setStoredSheets(sheets: JsonSheet[]): void {
+    this.storedSheets = sheets;
   }
 }

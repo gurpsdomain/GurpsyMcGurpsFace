@@ -12,8 +12,8 @@
   <div class="sheets">
     {{'DIALOG.DELETE_DATA.SHEETS' | translate}}
     <md-checkbox *ngFor="let sheet of storedSheets;">
-      <span class="sheetName">{{sheet.name}}</span>
-      <span class="sheetPoints">(137 points)</span>
+      <span class="sheetName flex-item">{{sheet.metaData.identity.name}}</span>
+      <span class="sheetPoints flex-item">{{sheet.points.total}}</span>
     </md-checkbox>
   </div>
 </md-dialog-content>

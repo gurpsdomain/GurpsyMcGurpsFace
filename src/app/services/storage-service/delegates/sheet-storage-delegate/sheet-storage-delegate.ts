@@ -1,14 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {Sheet} from '../../../../model/sheet/sheet';
-import {SheetMap, SheetMapEntry} from '../../../../model/json/sheetmap';
-import {SheetMapImpl, SheetMapEntryImpl} from '../../../../model/json/sheetmap-impl';
+import {Sheets, SheetsImpl, JsonSheet} from '../../../../model/json/sheet';
 
 @Injectable()
 export class SheetStorageDelegate {
 
-  private static STORAGE_KEY = '.sheet';
+  private static STORAGE_KEY = '.previous';
 
   private subjectChangeSource = new Subject<string>();
   public valueChange$ = this.subjectChangeSource.asObservable();
@@ -17,121 +15,90 @@ export class SheetStorageDelegate {
     this.initStorageListener();
   }
 
-  public persist(sheet: Sheet): void {
-    let jsonSheet = JSON.stringify(sheet);
-    let sheetName = this.getSheetNameKey(sheet);
-    localStorage.setItem(this.getSheetStorageKey(sheetName), jsonSheet);
-    this.updateSheetMap(sheet);
+  public setCurrent(sheet: JsonSheet): void {
+    let sheets: Sheets = this.getSheets();
+
+    if (!this.isCurrent(sheets, sheet)) {
+      this.addCurrentAsPrevious(sheets);
+    }
+    this.removeFromPrevious(sheets, sheet);
+    sheets.current = sheet;
+    this.persist(sheets);
   }
 
-  public retrieveCurrent(): Promise<Sheet> {
-    let sheetMap: SheetMap = this.getSheetMap();
+  public retrieveCurrent(): Promise<JsonSheet> {
+    let sheets: Sheets = this.getSheets();
+    let current: JsonSheet = sheets.current;
 
-    if (!sheetMap) {
+    if (current) {
+      return Promise.resolve(current);
+    } else {
       return Promise.reject('WARNING - Sheet unavailable');
     }
+  }
 
-    let currentSheetName: string = sheetMap.current;
-    let currentSheetKey: string;
+  public retrievePrevious(): Promise<JsonSheet[]> {
+    let sheets: Sheets = this.getSheets();
+    let previous: JsonSheet[] = sheets.previous;
 
-    for (let sheet of sheetMap.sheets) {
-      if (currentSheetName === sheet.name) {
-        currentSheetKey = sheet.sheet;
-        break;
+    if (previous && previous.length > 0) {
+      return Promise.resolve(previous);
+    } else {
+      return Promise.reject('WARNING - Sheet unavailable');
+    }
+  }
+
+  public retrieveAll(): Promise<JsonSheet[]> {
+    let sheets: Sheets = this.getSheets();
+    let all: JsonSheet[] = sheets.previous;
+    all.push(sheets.current);
+
+    if (all && all.length > 0) {
+      return Promise.resolve(all);
+    } else {
+      return Promise.reject('WARNING - Sheet unavailable');
+    }
+  }
+
+  private persist(sheets: Sheets): void {
+    let jsonSheets = JSON.stringify(sheets);
+
+    localStorage.setItem(this.getStorageKey(), jsonSheets);
+  }
+
+  private removeFromPrevious(sheets: Sheets, sheet: JsonSheet): Sheets {
+    let newSheets: JsonSheet[] = [];
+
+    for (let sheetIterator of sheets.previous) {
+      if (sheetIterator && sheetIterator.metaData.identity.name !== sheet.metaData.identity.name) {
+        newSheets.push(sheetIterator);
       }
     }
 
-    return this.retrieve(currentSheetKey);
+    sheets.previous = newSheets;
+    return sheets;
   }
 
-  public retrieve(characterName: string): Promise<Sheet> {
-    let sheet: string = localStorage.getItem(this.getSheetStorageKey(characterName));
+  private isCurrent(sheets: Sheets, sheet: JsonSheet): boolean {
+    return sheets.current && sheets.current.metaData.identity.name === sheet.metaData.identity.name;
+  }
 
-    if (sheet) {
-      return Promise.resolve(JSON.parse(sheet));
+  private addCurrentAsPrevious(sheets: Sheets): void {
+    sheets.previous.push(sheets.current);
+  }
+
+  private getSheets(): Sheets {
+    let sheets: string = localStorage.getItem(this.getStorageKey());
+
+    if (sheets) {
+      return JSON.parse(sheets);
     } else {
-      return Promise.reject('WARNING - Sheet unavailable');
+      return new SheetsImpl();
     }
   }
 
-  public retrieveSheets(): Promise<SheetMap> {
-    let sheetMap: SheetMap = this.getSheetMap();
-
-    if (sheetMap) {
-      return Promise.resolve(sheetMap);
-    } else {
-      return Promise.reject('WARNING - Sheet unavailable');
-    }
-  }
-
-  private change(theme: string) {
-    this.subjectChangeSource.next(theme);
-  }
-
-  private getSheetName(sheet: Sheet): string {
-    return sheet.identity.name;
-  }
-
-  private getSheetNameKey(sheet: Sheet): string {
-    let sheetNameKey: string = this.getSheetName(sheet).replace(' ', '-').toLowerCase();
-    return sheetNameKey;
-  }
-
-  private updateSheetMap(sheet: Sheet): void {
-    let sheetMap: SheetMap = this.getSheetMap();
-
-    if (!this.sheetMapContains(sheetMap, sheet)) {
-      this.addToSheetMap(sheetMap, sheet);
-    }
-
-    sheetMap.current = this.getSheetName(sheet);
-    this.persistSheetMap(sheetMap);
-  }
-
-  private addToSheetMap(sheetMap: SheetMap, sheet: Sheet): void {
-    let sheetMapSheetEntry: SheetMapEntry = this.createSheetMapEntry(sheet);
-    sheetMap.sheets.push(sheetMapSheetEntry);
-  }
-
-  private createSheetMapEntry(sheet: Sheet): SheetMapEntry {
-    let sheetMapSheetEntry: SheetMapEntry = new SheetMapEntryImpl();
-    sheetMapSheetEntry.name = this.getSheetName(sheet);
-    sheetMapSheetEntry.sheet = this.getSheetNameKey(sheet);
-    return sheetMapSheetEntry;
-  }
-
-  private sheetMapContains(sheetMap: SheetMap, newSheet: Sheet): boolean {
-    let contains = false;
-    for (let sheet of sheetMap.sheets) {
-      if (this.getSheetName(newSheet) === sheet.name) {
-        contains = true;
-        break;
-      }
-    }
-
-    return contains;
-  }
-
-  private persistSheetMap(sheetMap: SheetMap): void {
-    localStorage.setItem(this.getSheetMapStorageKey(), JSON.stringify(sheetMap));
-  }
-
-  private getSheetMap(): SheetMap {
-    let sheetMap: string = localStorage.getItem(this.getSheetMapStorageKey());
-
-    if (sheetMap) {
-      return JSON.parse(sheetMap);
-    } else {
-      return new SheetMapImpl();
-    }
-  }
-
-  private getSheetMapStorageKey(): string {
+  private getStorageKey(): string {
     return StorageService.STORAGE_KEY + SheetStorageDelegate.STORAGE_KEY;
-  }
-
-  private getSheetStorageKey(characterName: string): string {
-    return StorageService.STORAGE_KEY + SheetStorageDelegate.STORAGE_KEY + '.' + characterName;
   }
 
   private initStorageListener() {
@@ -139,8 +106,12 @@ export class SheetStorageDelegate {
   }
 
   private handleStorageChange(event: StorageEvent): void {
-    if (event.key.includes(this.getSheetMapStorageKey())) {
+    if (event.key.includes(this.getStorageKey())) {
       this.change(event.newValue);
     }
+  }
+
+  private change(theme: string) {
+    this.subjectChangeSource.next(theme);
   }
 }

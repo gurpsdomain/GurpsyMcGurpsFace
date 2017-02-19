@@ -139,7 +139,7 @@ export interface Note {
   note: string;
 }
 
-export interface TypedJsonSheet {
+export interface JsonSheet {
   metaData: MetaData;
   points: Points;
   attributes: Attributes;
@@ -152,5 +152,16 @@ export interface TypedJsonSheet {
   equipments: Equipment[];
   notes: Note[];
 }
+
+export interface Sheets {
+  current: JsonSheet;
+  previous: JsonSheet[];
+}
+
+export class SheetsImpl implements Sheets {
+  current: JsonSheet;
+  previous: JsonSheet[] = [];
+}
+
 
 

@@ -6,6 +6,7 @@ import {Points} from '../../model/sheet/points';
 import {JsonService} from '../json-service/json.service';
 import {Subject} from 'rxjs';
 import {StorageService} from '../storage-service/storage.service';
+import {JsonSheet} from '../../model/json/sheet';
 
 @Injectable()
 export class ModelReadService {
@@ -26,22 +27,22 @@ export class ModelReadService {
   }
 
   public loadSheet(file: File) {
-    this.jsonService.createReadModelFromFile(file).then(
+    this.jsonService.loadFile(file).then(
       sheet => this.useSheet(sheet));
   }
 
-  private useSheet(sheet: Sheet): void {
+  private useSheet(sheet: JsonSheet): void {
     this.setSheet(sheet);
     this.persistSheet(sheet);
   }
 
-  private setSheet(sheet: Sheet): void {
-    this.model = sheet;
-    this.modelChangeSource.next(sheet);
+  private setSheet(sheet: JsonSheet): void {
+    let readModel: Sheet = this.createReadModel(sheet);
+    this.model = readModel;
+    this.modelChangeSource.next(readModel);
   }
 
-  private persistSheet(sheet: Sheet): void {
-
+  private persistSheet(sheet: JsonSheet): void {
     this.storageService.storeSheet(sheet);
   }
 
@@ -61,6 +62,28 @@ export class ModelReadService {
     emptySheet.playerInformation = new PlayerInformation();
     emptySheet.points = new Points();
 
-    this.setSheet(emptySheet);
+    this.model = emptySheet;
+  }
+
+  private createReadModel(jsonSheet: JsonSheet): Sheet {
+    let sheet: Sheet = new Sheet();
+    sheet.identity = new Identity();
+    sheet.identity.name = jsonSheet.metaData.identity.name;
+    sheet.identity.religion = jsonSheet.metaData.identity.religion;
+    sheet.identity.title = jsonSheet.metaData.identity.title;
+    sheet.playerInformation = new PlayerInformation();
+    sheet.playerInformation.campaign = jsonSheet.metaData.playerInformation.campaign;
+    sheet.playerInformation.creationDate = jsonSheet.metaData.playerInformation.createdOn;
+    sheet.playerInformation.player = jsonSheet.metaData.playerInformation.player;
+    sheet.points = new Points();
+    sheet.points.earned = jsonSheet.points.unspent;
+    sheet.points.advantages = jsonSheet.points.advantages;
+    sheet.points.disadvantages = jsonSheet.points.disadvantages;
+    sheet.points.skills = jsonSheet.points.skills;
+    sheet.points.spells = jsonSheet.points.spells;
+    sheet.points.total = jsonSheet.points.total;
+    sheet.description = jsonSheet.metaData.description.age;
+
+    return sheet;
   }
 }

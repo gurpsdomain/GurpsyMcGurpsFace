@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {ThemeStorageDelegate} from './delegates/theme-storage-delegate/theme-storage-delegate';
 import {LanguageStorageDelegate} from './delegates/language-storage-delegate/language-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {Sheet} from '../../model/sheet/sheet';
-import {SheetMap} from '../../model/json/sheetmap';
+import {JsonSheet} from '../../model/json/sheet';
 
 @Injectable()
 export class StorageService {
@@ -38,20 +37,20 @@ export class StorageService {
     this.languageStorageDelegate.store(locale);
   }
 
-  public storeSheet(sheet: Sheet): void {
-    this.sheetStorageDelegate.persist(sheet);
+  public storeSheet(sheet: JsonSheet): void {
+    this.sheetStorageDelegate.setCurrent(sheet);
   }
 
   public storeTheme(theme: string) {
     this.themeStorageDelegate.store(theme);
   }
 
-  public getCurrentSheet(): Promise<Sheet> {
+  public getCurrentSheet(): Promise<JsonSheet> {
     return this.sheetStorageDelegate.retrieveCurrent();
   }
 
-  public getSheets(): Promise<SheetMap> {
-    return this.sheetStorageDelegate.retrieveSheets();
+  public getSheets(): Promise<JsonSheet[]> {
+    return this.sheetStorageDelegate.retrieveAll();
   }
 
   public getLanguage(): Promise<string> {
