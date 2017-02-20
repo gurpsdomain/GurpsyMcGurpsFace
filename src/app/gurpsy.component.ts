@@ -66,7 +66,6 @@ export class GurpsyComponent implements OnInit {
   onOpenSheetDialog(): void {
     this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
       width: '400px',
-      height: '400px',
       disableClose: false
     });
 

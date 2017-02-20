@@ -6,18 +6,16 @@
       <input type="file" accept="application/json" (change)="onFileSelect($event)" placeholder="Upload file..."/>
     </md-tab>
     <md-tab label="{{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}">
-      <button md-button  *ngFor="let sheet of previouslyOpenedSheets;">
+      <button md-button *ngFor="let sheet of previouslyOpenedSheets;">
         <div class="sheetRow flex-container"
              fxLayout="row"
-             fxLayputGap="6px">
-          <div class="avatar">
-            <img class="flex-item" src="assets/images/empty-portrait.png">
+             fxLayoutAlign="start stretch">
+          <div class="avatar flex-item">
+            <img src="assets/images/empty-portrait.png">
           </div>
-          <div class="sheetInfo flex-item flex-container"
-               fxLayout="column"
-               fxLayoutWrap="nowrap">
-            <span class="sheetName flex-item">{{sheet.metaData.identity.name}}</span>
-            <span class="sheetPoints flex-item">{{sheet.points.total}}</span>
+          <div class="sheetInfo">
+            <span class="sheetName">{{sheet.metaData.identity.name}}</span>
+            <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
           </div>
         </div>
       </button>
