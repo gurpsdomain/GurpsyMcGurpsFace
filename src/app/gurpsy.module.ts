@@ -5,7 +5,6 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 import {TranslateModule} from 'ng2-translate';
 import {FlexLayoutModule} from '@angular/flex-layout';
-
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet-component/sheet.component';
 import {SheetHeaderComponent} from './components/sheet-component/sheet-header-component/sheet-header.component';

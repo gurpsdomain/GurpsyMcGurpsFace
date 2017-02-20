@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ThemeStorageDelegate} from './delegates/theme-storage-delegate/theme-storage-delegate';
 import {LanguageStorageDelegate} from './delegates/language-storage-delegate/language-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {JsonSheet} from '../../model/json/sheet';
+import {Sheet} from '../../model/sheet';
 
 @Injectable()
 export class StorageService {
@@ -37,7 +37,7 @@ export class StorageService {
     this.languageStorageDelegate.store(locale);
   }
 
-  public storeSheet(sheet: JsonSheet): void {
+  public storeSheet(sheet: Sheet): void {
     this.sheetStorageDelegate.setCurrent(sheet);
   }
 
@@ -45,11 +45,15 @@ export class StorageService {
     this.themeStorageDelegate.store(theme);
   }
 
-  public getCurrentSheet(): Promise<JsonSheet> {
+  public getCurrentSheet(): Promise<Sheet> {
     return this.sheetStorageDelegate.retrieveCurrent();
   }
 
-  public getSheets(): Promise<JsonSheet[]> {
+  public getPreviouslyOpenedSheets(): Promise<Sheet[]> {
+      return this.sheetStorageDelegate.retrievePrevious();
+  }
+
+  public getSheets(): Promise<Sheet[]> {
     return this.sheetStorageDelegate.retrieveAll();
   }
 
@@ -61,12 +65,15 @@ export class StorageService {
     return this.themeStorageDelegate.retrieve();
   }
 
-  public clearStorage(clearLanguage: boolean, clearTheme: boolean): void {
+  public clearStorage(clearLanguage: boolean, clearTheme: boolean, sheetsToDelete: Sheet[]): void {
     if (clearLanguage) {
       this.languageStorageDelegate.clear();
     }
     if (clearTheme) {
       this.themeStorageDelegate.clear();
+    }
+    if (sheetsToDelete.length > 0) {
+      this.sheetStorageDelegate.remove(sheetsToDelete);
     }
   }
 }

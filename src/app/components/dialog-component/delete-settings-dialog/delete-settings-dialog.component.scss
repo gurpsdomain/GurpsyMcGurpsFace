@@ -2,6 +2,17 @@
 
 md-dialog-content .sheets {
   margin-top: 16px;
+
+  md-checkbox {
+    display: block;
+  }
+
+  .sheetPoints {
+    font-size: small;
+    color: grey;
+  }
 }
+
+
 
 

@@ -1,8 +1,6 @@
 {
   "en": "Engels",
   "nl": "Nederlands",
-  "default": "Standaard",
-  "darcula": "Darcula",
   "APPLICATION": "GurpsyMcGurpsFace",
   "DIALOG": {
     "OK": "Ja",

@@ -139,7 +139,7 @@ export interface Note {
   note: string;
 }
 
-export interface JsonSheet {
+export interface Sheet {
   metaData: MetaData;
   points: Points;
   attributes: Attributes;
@@ -154,14 +154,8 @@ export interface JsonSheet {
 }
 
 export interface Sheets {
-  current: JsonSheet;
-  previous: JsonSheet[];
+  current: Sheet;
+  previous: Sheet[];
 }
-
-export class SheetsImpl implements Sheets {
-  current: JsonSheet;
-  previous: JsonSheet[] = [];
-}
-
 
 

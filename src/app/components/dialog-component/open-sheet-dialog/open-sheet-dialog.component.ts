@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {ModelReadService} from '../../../services/model-read-service/model-read.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
-import {JsonSheet} from '../../../model/json/sheet';
+import {Sheet} from '../../../model/sheet';
 
 @Component({
   selector: 'gurpsy-open-sheet-dialog',
@@ -13,7 +13,7 @@ export class OpenSheetDialogComponent {
   private selectedSheet: Array<File>;
 
   public sheetSelected = false;
-  public previouslyOpenedSheets: JsonSheet[] = [];
+  public previouslyOpenedSheets: Sheet[] = [];
 
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private modelReadService: ModelReadService;
@@ -45,11 +45,11 @@ export class OpenSheetDialogComponent {
   }
 
   private initPreviouslyOpenedSheetList(): void {
-    this.storageService.getSheets().then(
+    this.storageService.getPreviouslyOpenedSheets().then(
       sheets => this.setPreviouslyOpenedSheets(sheets));
   }
 
-  private setPreviouslyOpenedSheets(sheets: JsonSheet[]): void {
+  private setPreviouslyOpenedSheets(sheets: Sheet[]): void {
     this.previouslyOpenedSheets = sheets;
   }
 }

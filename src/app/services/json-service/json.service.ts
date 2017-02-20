@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {JsonSheet} from '../../model/json/sheet';
+import {Sheet} from '../../model/sheet';
 
 @Injectable()
 export class JsonService {
@@ -7,22 +7,22 @@ export class JsonService {
   constructor() {
   }
 
-  public loadFile(file: File): Promise<JsonSheet> {
+  public loadFile(file: File): Promise<Sheet> {
     return this.parseFile(file);
   }
 
-  public convertToSheet(jsonString: string): JsonSheet {
-    let jsonSheet: JsonSheet = this.convertToTypedObject(jsonString);
+  public convertToSheet(jsonString: string): Sheet {
+    let jsonSheet: Sheet = this.convertToTypedObject(jsonString);
 
     return jsonSheet;
   }
 
-  private parseFile(file: File): Promise<JsonSheet> {
+  private parseFile(file: File): Promise<Sheet> {
     return new Promise((resolve, reject) => {
         let fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            let sheet: JsonSheet = this.convertToSheet(fileReader.result);
+            let sheet: Sheet = this.convertToSheet(fileReader.result);
             resolve(sheet);
           } else {
             reject();
@@ -33,8 +33,8 @@ export class JsonService {
     );
   }
 
-  private convertToTypedObject(jsonString: string): JsonSheet {
-    let typedJsonSheet: JsonSheet = JSON.parse(jsonString);
+  private convertToTypedObject(jsonString: string): Sheet {
+    let typedJsonSheet: Sheet = JSON.parse(jsonString);
     return typedJsonSheet;
   }
 }

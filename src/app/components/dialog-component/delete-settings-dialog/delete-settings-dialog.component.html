@@ -2,18 +2,21 @@
 <md-dialog-content>
 
   <div>
-    <md-checkbox [(ngModel)]="clearTheme">{{'DIALOG.DELETE_DATA.THEME'| translate}}</md-checkbox>
+    <md-checkbox [(ngModel)]="clearTheme">
+      {{'DIALOG.DELETE_DATA.THEME'| translate}}
+    </md-checkbox>
   </div>
-
   <div>
-    <md-checkbox [(ngModel)]="clearLanguage">{{'DIALOG.DELETE_DATA.LANGUAGE'| translate}}</md-checkbox>
+    <md-checkbox [(ngModel)]="clearLanguage">
+      {{'DIALOG.DELETE_DATA.LANGUAGE'| translate}}
+    </md-checkbox>
   </div>
 
-  <div class="sheets">
+  <div *ngIf="storedSheets.length > 0" class="sheets">
     {{'DIALOG.DELETE_DATA.SHEETS' | translate}}
-    <md-checkbox *ngFor="let sheet of storedSheets;">
-      <span class="sheetName flex-item">{{sheet.metaData.identity.name}}</span>
-      <span class="sheetPoints flex-item">{{sheet.points.total}}</span>
+    <md-checkbox *ngFor="let sheet of storedSheets;" (change)="onSheetSelected(sheet, $event)">
+      <span class="sheetName">{{sheet.metaData.identity.name}}</span>
+      <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
     </md-checkbox>
   </div>
 </md-dialog-content>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
-import {Sheet} from '../../../../model/sheet/sheet';
+import {Sheet} from '../../../../model/sheet';
 
 @Component({
   selector: 'gurpsy-description-component',
