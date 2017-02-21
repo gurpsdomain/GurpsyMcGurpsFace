@@ -8,6 +8,7 @@ import {Sheet} from '../../model/sheet';
 export class StorageService {
 
   public static STORAGE_KEY = 'gurpsy-mc-gurps-face';
+  public static STORAGE_EVENT_LISTENER_KEY = 'storage';
 
   private languageStorageDelegate: LanguageStorageDelegate;
   private sheetStorageDelegate: SheetStorageDelegate;

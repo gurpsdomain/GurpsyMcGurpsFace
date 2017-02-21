@@ -23,13 +23,33 @@ export class ModelReadService {
     this.initSheet();
   }
 
+  /**
+   * Set the current sheet to the one loaded through this file. A json file
+   * is expected and it should abide to the interface as defined in ../../model/sheet.
+   *
+   * @param file
+   */
   public loadSheetFromFile(file: File): void {
     this.jsonService.loadFile(file).then(
       sheet => this.useSheet(sheet));
   }
 
+  /**
+   * Set the current sheet to the given sheet. Likely this is an already saved instance of a Sheet.
+   *
+   * @param sheet
+   */
   public loadSheet(sheet: Sheet): void {
     this.useSheet(sheet);
+  }
+
+  /**
+   * Return the current sheet.
+   *
+   * @returns {Sheet}
+   */
+  public getSheet(): Sheet {
+    return this.model;
   }
 
   private useSheet(sheet: Sheet): void {
@@ -44,10 +64,6 @@ export class ModelReadService {
 
   private persistSheet(sheet: Sheet): void {
     this.storageService.storeSheet(sheet);
-  }
-
-  public getSheet(): Sheet {
-    return this.model;
   }
 
   private initSheet(): void {

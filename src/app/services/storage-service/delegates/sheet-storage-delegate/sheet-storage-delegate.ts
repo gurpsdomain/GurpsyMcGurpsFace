@@ -13,9 +13,14 @@ export class SheetStorageDelegate {
   public valueChange$ = this.subjectChangeSource.asObservable();
 
   constructor() {
-    this.initStorageListener();
+    window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
+  /**
+   * Set the given sheet as the Current sheet in Local Storage.
+   *
+   * @param sheet: Sheet
+   */
   public setCurrent(sheet: Sheet): void {
     let sheets: Sheets = this.getSheets();
 
@@ -27,6 +32,11 @@ export class SheetStorageDelegate {
     this.persist(sheets);
   }
 
+  /**
+   * Retrieve the Current sheet for Local Storage.
+   *
+   * @returns Promise<Sheet> or an empty promise if there is no current sheet.
+   */
   public retrieveCurrent(): Promise<Sheet> {
     let current: Sheet = this.getCurrentSheet();
 
@@ -37,6 +47,11 @@ export class SheetStorageDelegate {
     }
   }
 
+  /**
+   * Retrieve an array of Previously Opened Sheets from Local Storage.
+   *
+   * @returns Promise<Sheet[]> or an empty promise if there are no previously opened sheets.
+   */
   public retrievePrevious(): Promise<Sheet[]> {
     let previous: Sheet[] = this.getPreviouslyOpenedSheets();
 
@@ -47,6 +62,12 @@ export class SheetStorageDelegate {
     }
   }
 
+  /**
+   * Retrieve both the Current sheet and the Previously Opened sheet.
+   *
+   * @returns Promise<Sheet[]> or an empty promise if there are no current and previously
+   *          opened sheets.
+   */
   public retrieveAll(): Promise<Sheet[]> {
     let current: Sheet = this.getCurrentSheet();
     let all: Sheet[] = this.getPreviouslyOpenedSheets();
@@ -59,6 +80,10 @@ export class SheetStorageDelegate {
     }
   }
 
+  /**
+   * Remove the given sheet from the list of Previously Opened sheets in Local Storage.
+   * @param sheetsToRemove : Sheet[]
+   */
   public remove(sheetsToRemove: Sheet[]): void {
     let previouslyOpenedSheets = this.getPreviouslyOpenedSheets();
 
@@ -130,10 +155,6 @@ export class SheetStorageDelegate {
 
   private getStorageKey(): string {
     return StorageService.STORAGE_KEY + SheetStorageDelegate.STORAGE_KEY;
-  }
-
-  private initStorageListener() {
-    window.addEventListener('storage', (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   private handleStorageChange(event: StorageEvent): void {

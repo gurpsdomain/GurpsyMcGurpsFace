@@ -11,7 +11,7 @@ export class ThemeStorageDelegate {
   public valueChange$ = this.subjectChangeSource.asObservable();
 
   constructor() {
-    window.addEventListener('storage', (event: StorageEvent) => this.handleStorageChange(event));
+    window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   public store(theme: string) {
