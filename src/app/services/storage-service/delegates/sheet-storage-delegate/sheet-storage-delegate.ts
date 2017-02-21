@@ -33,7 +33,7 @@ export class SheetStorageDelegate {
     if (current) {
       return Promise.resolve(current);
     } else {
-      return Promise.reject('WARNING - Sheet unavailable');
+      return Promise.resolve();
     }
   }
 
@@ -43,7 +43,7 @@ export class SheetStorageDelegate {
     if (previous && previous.length > 0) {
       return Promise.resolve(previous);
     } else {
-      return Promise.reject('WARNING - Sheet unavailable');
+      return Promise.resolve();
     }
   }
 
@@ -55,7 +55,7 @@ export class SheetStorageDelegate {
     if (all && all.length > 0) {
       return Promise.resolve(all);
     } else {
-      return Promise.reject('WARNING - Sheet unavailable');
+      return Promise.resolve();
     }
   }
 

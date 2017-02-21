@@ -1,12 +1,12 @@
 <h1 md-dialog-title> {{'DIALOG.OPEN_SHEET.HEADER'| translate}}</h1>
 
 <md-dialog-content>
-  <md-tab-group>
+  <md-tab-group (selectChange)="onTabSelectChange($event)">
     <md-tab label="{{'DIALOG.OPEN_SHEET.FROM_FILE'| translate}}">
       <input type="file" accept="application/json" (change)="onFileSelect($event)" placeholder="Upload file..."/>
     </md-tab>
     <md-tab label="{{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}">
-      <button md-button *ngFor="let sheet of previouslyOpenedSheets;">
+      <button md-button *ngFor="let sheet of previouslyOpenedSheets;" (click)="onPreviousSheetSelected(sheet)">
         <div class="sheetRow flex-container"
              fxLayout="row"
              fxLayoutAlign="start stretch">
@@ -24,6 +24,6 @@
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button [disabled]="!sheetSelected" (click)="onLoadSheet()"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button [disabled]="!showOk" (click)="onLoadSheet()"> {{'DIALOG.OK'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>

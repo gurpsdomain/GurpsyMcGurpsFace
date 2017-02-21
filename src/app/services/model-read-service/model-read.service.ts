@@ -23,9 +23,13 @@ export class ModelReadService {
     this.initSheet();
   }
 
-  public loadSheet(file: File) {
+  public loadSheetFromFile(file: File): void {
     this.jsonService.loadFile(file).then(
       sheet => this.useSheet(sheet));
+  }
+
+  public loadSheet(sheet: Sheet): void {
+    this.useSheet(sheet);
   }
 
   private useSheet(sheet: Sheet): void {

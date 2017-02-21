@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MdDialogRef} from '@angular/material';
+import {MdDialogRef, MdTabChangeEvent} from '@angular/material';
 import {ModelReadService} from '../../../services/model-read-service/model-read.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
 import {Sheet} from '../../../model/sheet';
@@ -10,11 +10,13 @@ import {Sheet} from '../../../model/sheet';
   styleUrls: ['./open-sheet-dialog.component.scss']
 })
 export class OpenSheetDialogComponent {
-  private selectedSheet: Array<File>;
 
-  public sheetSelected = false;
+  public showOk = false;
   public previouslyOpenedSheets: Sheet[] = [];
 
+  private selectedTab: SelectedTab = SelectedTab.File;
+  private selectedFile: Array<File> = [];
+  private selectedPreviousSheet: Sheet = null;
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private modelReadService: ModelReadService;
   private storageService: StorageService;
@@ -25,7 +27,6 @@ export class OpenSheetDialogComponent {
     this.dialogRef = dialogRef;
     this.modelReadService = modelReadService;
     this.storageService = storageService;
-    this.selectedSheet = [];
 
     this.initPreviouslyOpenedSheetList();
   }
@@ -33,15 +34,49 @@ export class OpenSheetDialogComponent {
   public onLoadSheet(): void {
 
     this.dialogRef.close();
-    if (this.selectedSheet.length > 0) {
-      let sheet: File = this.selectedSheet[0];
-      this.modelReadService.loadSheet(sheet);
+
+    if (this.selectedTab === SelectedTab.File) {
+      this.handleFileSelected();
+
+    } else if (this.selectedTab === SelectedTab.Previous) {
+      this.handlePreviousSheetSelected();
     }
   }
 
   public onFileSelect(fileInput: any) {
-    this.sheetSelected = true;
-    this.selectedSheet = <Array<File>> fileInput.target.files;
+    this.selectedFile = <Array<File>> fileInput.target.files;
+
+    this.setShowOk();
+  }
+
+  public onTabSelectChange(event: MdTabChangeEvent) {
+    if (SelectedTab.File === event.index) {
+      this.selectedTab = SelectedTab.File;
+    } else {
+      this.selectedTab = SelectedTab.Previous;
+    }
+
+    this.setShowOk();
+  }
+
+  public onPreviousSheetSelected(sheet: Sheet) {
+    this.selectedPreviousSheet = sheet;
+
+    this.setShowOk();
+  }
+
+  private handleFileSelected() {
+    let sheet: File = this.selectedFile[0];
+    this.modelReadService.loadSheetFromFile(sheet);
+  }
+
+  private handlePreviousSheetSelected() {
+    this.modelReadService.loadSheet(this.selectedPreviousSheet);
+  }
+
+  private setShowOk(): void {
+    this.showOk = (this.selectedTab === SelectedTab.File && this.selectedFile.length > 0) ||
+      (this.selectedTab === SelectedTab.Previous && this.selectedPreviousSheet !== null);
   }
 
   private initPreviouslyOpenedSheetList(): void {
@@ -52,4 +87,9 @@ export class OpenSheetDialogComponent {
   private setPreviouslyOpenedSheets(sheets: Sheet[]): void {
     this.previouslyOpenedSheets = sheets;
   }
+}
+
+export enum SelectedTab {
+  File = 0,
+  Previous = 1
 }
