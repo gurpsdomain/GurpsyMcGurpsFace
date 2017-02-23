@@ -8,8 +8,9 @@ export class LanguagesService {
 
   public static ENGLISH = 'en';
   public static DUTCH = 'nl';
-  private static AVAILABLE_LANGUAGES: string[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
   public static DEFAULT: string = LanguagesService.ENGLISH;
+
+  private static AVAILABLE_LANGUAGES: string[] = [LanguagesService.ENGLISH, LanguagesService.DUTCH];
 
   private languageChangeSource = new Subject<string>();
   private translateService: TranslateService;
@@ -26,11 +27,24 @@ export class LanguagesService {
     this.initStorageService();
   }
 
+  /**
+   * Set language.
+   *
+   * @param locale : string
+   */
   public setLanguage(locale: string): void {
     this.changeLanguage(locale);
     this.storeLanguage(locale);
   }
 
+  /**
+   * Get language.
+   *
+   * @return Promise<string>  A promise that resolves to the current locale
+   */
+  public getLanguage(): Promise<string> {
+    return this.storageService.getLanguage();
+  }
 
   private initTranslateService(): void {
     this.translateService.addLangs(LanguagesService.AVAILABLE_LANGUAGES);
@@ -63,10 +77,6 @@ export class LanguagesService {
     if (!validLocale) {
       this.translateService.use(LanguagesService.DEFAULT);
     }
-  }
-
-  public getLanguage(): Promise<string> {
-    return this.storageService.getLanguage();
   }
 
   private storeLanguage(locale: string): void {
