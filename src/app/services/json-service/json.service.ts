@@ -1,28 +1,42 @@
 import {Injectable} from '@angular/core';
-import {Sheet} from '../../model/sheet';
+import {Sheet, Sheets} from '../../model/sheet';
 
 @Injectable()
 export class JsonService {
 
-  constructor() {
+  /**
+   * Parse a json string into a typed Sheet object.
+   *
+   * @param json
+   * @returns sheet: Sheet
+   */
+  public parseJsonSheet(json: string): Sheet {
+    return JSON.parse(json);
   }
 
-  public loadFile(file: File): Promise<Sheet> {
-    return this.parseFile(file);
+  /**
+   * Parse a json string into a typed Sheets object.
+   *
+   * @param json
+   * @returns sheets: Sheets
+   */
+  public parseJsonSheets(json: string): Sheets {
+    return JSON.parse(json);
   }
 
-  public convertToSheet(jsonString: string): Sheet {
-    let jsonSheet: Sheet = this.convertToTypedObject(jsonString);
-
-    return jsonSheet;
-  }
-
-  private parseFile(file: File): Promise<Sheet> {
+  /**
+   * Parse the given File to a typed Sheet object.
+   *
+   * @param file: File
+   *
+   * @returns Promise<Sheet>  A Promise that resolves to the Sheet
+   */
+  public parseFile(file: File): Promise<Sheet> {
     return new Promise((resolve, reject) => {
         let fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            let sheet: Sheet = this.convertToSheet(fileReader.result);
+            let sheet: Sheet = this.parseJsonSheet(fileReader.result);
             resolve(sheet);
           } else {
             reject();
@@ -31,10 +45,5 @@ export class JsonService {
         fileReader.readAsText(file);
       }
     );
-  }
-
-  private convertToTypedObject(jsonString: string): Sheet {
-    let typedJsonSheet: Sheet = JSON.parse(jsonString);
-    return typedJsonSheet;
   }
 }

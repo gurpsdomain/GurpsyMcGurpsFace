@@ -29,7 +29,7 @@ export class ModelReadService {
    * @param file
    */
   public loadSheetFromFile(file: File): void {
-    this.jsonService.loadFile(file).then(
+    this.jsonService.parseFile(file).then(
       sheet => this.useSheet(sheet));
   }
 
