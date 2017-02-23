@@ -8,19 +8,19 @@
     "DELETE_DATA": {
       "HEADER": "Delete locally stored data",
       "SHEETS": "Stored Character Sheets",
-      "LANGUAGE" : "Delete Language settings",
-      "THEME" : "Delete Theme settings",
-      "DELETE" : "Delete"
+      "LANGUAGE": "Delete Language settings",
+      "THEME": "Delete Theme settings",
+      "DELETE": "Delete"
     },
     "OPEN_SHEET": {
-      "FROM_FILE":"From file",
+      "FROM_FILE": "From file",
       "PREVIOUSLY": "Previously opened",
       "HEADER": "Open Character Sheet"
     }
   },
   "MENU": {
     "OPEN": "Open sheet",
-    "DARK_THEME" : "Night mode",
+    "DARK_THEME": "Night mode",
     "LANGUAGE": "Dutch",
     "CLEAR_SETTINGS": "Clear settings"
   },
@@ -62,5 +62,8 @@
       "SPELLS": "Spells",
       "EARNED": "Earned"
     }
+  },
+  "MESSAGE": {
+    "SHEET_LOADED": "Loaded Character Sheet: {{value}}"
   }
 }
