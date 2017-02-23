@@ -50,9 +50,17 @@ md-sidenav-container.gurpsy-dark {
     md-icon {
       margin-right: 16px;
     }
-    .md-button-toggle-label-content{
+    .md-button-toggle-label-content {
       width: 100%;
     }
+  }
+}
+
+.avatar {
+  img {
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 50%;
   }
 }
 
