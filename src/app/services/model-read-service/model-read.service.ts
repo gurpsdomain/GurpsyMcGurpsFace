@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {JsonService} from '../json-service/json.service';
 import {Subject} from 'rxjs';
 import {StorageService} from '../storage-service/storage.service';
-import {Sheet} from '../../model/sheet';
+import {Sheet, Points, Description, Identity, PlayerInformation} from '../../model/sheet';
 import {SheetImpl} from '../../model/sheet-impl';
 
 @Injectable()
@@ -51,6 +51,33 @@ export class ModelReadService {
     return this.model;
   }
 
+  private isValidReadModel(sheet: Sheet): boolean {
+    let validReadModel = true;
+
+    try {
+      let description: Description = sheet.metaData.description;
+      let identity: Identity = sheet.metaData.identity;
+      let playerInformation: PlayerInformation = sheet.metaData.playerInformation;
+      let points: Points = sheet.points;
+
+      if (!description || !identity || !playerInformation || !points) {
+        validReadModel = false;
+      }
+
+    } catch (ex) {
+      validReadModel = false;
+    }
+    return validReadModel;
+  }
+
+  private handleStoredSheet(sheet: Sheet): void {
+    if (this.isValidReadModel(sheet)) {
+      this.setSheet(sheet);
+    } else {
+      this.initEmptySheet();
+    }
+  }
+
   private useSheet(sheet: Sheet): void {
     this.setSheet(sheet);
     this.persistSheet(sheet);
@@ -67,7 +94,7 @@ export class ModelReadService {
 
   private initSheet(): void {
     this.initEmptySheet();
-    this.storageService.getCurrentSheet().then(sheet => this.setSheet(sheet)).catch(any => this.initEmptySheet());
+    this.storageService.getCurrentSheet().then(sheet => this.handleStoredSheet(sheet)).catch(any => this.initEmptySheet());
   }
 
   private initEmptySheet(): void {
