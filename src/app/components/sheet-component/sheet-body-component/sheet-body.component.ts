@@ -1,22 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'gurpsy-sheet-body',
   templateUrl: './sheet-body.component.html',
   styleUrls: ['../sheet.component.scss']
 })
-export class SheetBodyComponent implements OnInit {
+export class SheetBodyComponent {
 
   public bodyContent: SheetBodyComponents = SheetBodyComponents.NOTES;
   public sheetBodyComponents = SheetBodyComponents;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 }
 
 export enum SheetBodyComponents {
-  NOTES,
-  SKILLS
+  ATTRIBUTES,
+  ADVANTAGES,
+  SKILLS,
+  MAGIC,
+  EQUIPMENT,
+  NOTES
 }
