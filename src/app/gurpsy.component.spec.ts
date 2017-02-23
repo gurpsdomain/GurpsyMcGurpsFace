@@ -21,6 +21,8 @@ import {JsonService} from './services/json-service/json.service';
 import {LanguageStorageDelegate} from './services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {SheetBodyComponent} from './components/sheet-component/sheet-body-component/sheet-body.component';
+import {NotesComponent} from './components/sheet-component/sheet-body-component/notes-component/notes.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -29,12 +31,14 @@ describe('GurpsyComponent', () => {
         GurpsyComponent,
         SheetComponent,
         SheetHeaderComponent,
+        SheetBodyComponent,
         PortraitComponent,
         IdentityComponent,
         PlayerInformationComponent,
         DescriptionComponent,
         PointsComponent,
-        SideNavigationComponent
+        SideNavigationComponent,
+        NotesComponent
       ],
       imports: [
         FormsModule,

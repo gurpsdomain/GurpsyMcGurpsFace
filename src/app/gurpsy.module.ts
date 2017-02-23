@@ -25,6 +25,8 @@ import {JsonService} from './services/json-service/json.service';
 import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {LanguageStorageDelegate} from './services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import { NotesComponent } from './components/sheet-component/sheet-body-component/notes-component/notes.component';
+import { SheetBodyComponent } from './components/sheet-component/sheet-body-component/sheet-body.component';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -37,7 +39,9 @@ import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-s
     IdentityComponent,
     SideNavigationComponent,
     DeleteSettingsDialogComponent,
-    OpenSheetDialogComponent
+    OpenSheetDialogComponent,
+    NotesComponent,
+    SheetBodyComponent
   ],
   imports: [
     BrowserModule,

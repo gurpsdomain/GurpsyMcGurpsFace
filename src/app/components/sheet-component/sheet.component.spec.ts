@@ -15,6 +15,8 @@ import {StorageService} from '../../services/storage-service/storage.service';
 import {LanguageStorageDelegate} from '../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {ThemeStorageDelegate} from '../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {SheetStorageDelegate} from '../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {SheetBodyComponent} from './sheet-body-component/sheet-body.component';
+import {NotesComponent} from './sheet-body-component/notes-component/notes.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -27,11 +29,13 @@ describe('SheetComponent', function () {
       declarations: [
         SheetComponent,
         SheetHeaderComponent,
+        SheetBodyComponent,
         PortraitComponent,
         IdentityComponent,
         PlayerInformationComponent,
         DescriptionComponent,
-        PointsComponent],
+        PointsComponent,
+        NotesComponent],
       imports: [
         TranslateModule.forRoot()
       ],
