@@ -3,11 +3,14 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {Sheets, Sheet} from '../../../../model/sheet';
 import {SheetsImpl} from '../../../../model/sheet-impl';
+import {JsonService} from '../../../json-service/json.service';
 
 @Injectable()
 export class SheetStorageDelegate {
 
   private static STORAGE_KEY = '.previous';
+
+  private jsonService: JsonService;
 
   private subjectChangeSource = new Subject<string>();
 
@@ -19,7 +22,10 @@ export class SheetStorageDelegate {
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor() {
+  constructor(jsonService: JsonService) {
+
+    this.jsonService = jsonService;
+
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
@@ -118,6 +124,7 @@ export class SheetStorageDelegate {
   private persist(sheets: Sheets): void {
     let jsonSheets = JSON.stringify(sheets);
 
+
     localStorage.setItem(this.getStorageKey(), jsonSheets);
   }
 
@@ -146,7 +153,7 @@ export class SheetStorageDelegate {
     let sheets: string = localStorage.getItem(this.getStorageKey());
 
     if (sheets) {
-      return JSON.parse(sheets);
+      return this.jsonService.parseJsonSheets(sheets);
     } else {
       return new SheetsImpl();
     }
