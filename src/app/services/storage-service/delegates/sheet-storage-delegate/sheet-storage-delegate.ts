@@ -10,6 +10,13 @@ export class SheetStorageDelegate {
   private static STORAGE_KEY = '.previous';
 
   private subjectChangeSource = new Subject<string>();
+
+  /**
+   * Register to this observable to be notified when the value is changed
+   * in Local Storage.
+   *
+   * @type Observable<string>
+   */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
   constructor() {
@@ -33,7 +40,7 @@ export class SheetStorageDelegate {
   }
 
   /**
-   * Retrieve the Current sheet for Local Storage.
+   * Retrieve the Current Sheet for Local Storage.
    *
    * @returns Promise<Sheet> or an empty promise if there is no current sheet.
    */

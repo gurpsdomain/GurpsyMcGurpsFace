@@ -11,7 +11,6 @@ export class ModelReadService {
   private model: Sheet;
   private jsonService: JsonService;
   private storageService: StorageService;
-
   private modelChangeSource = new Subject<Sheet>();
 
   public modelChange$ = this.modelChangeSource.asObservable();
