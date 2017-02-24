@@ -1,6 +1,7 @@
 {
   "en": "Engels",
   "nl": "Nederlands",
+  "ADVANTAGES": "Advantages",
   "APPLICATION": "GurpsyMcGurpsFace",
   "DIALOG": {
     "OK": "Ja",
@@ -18,23 +19,20 @@
       "HEADER": "Open Character Sheet"
     }
   },
+  "DISADVANTAGES": "Disadvantages",
+  "EQUIPMENT": "Materialen",
   "MENU": {
     "OPEN": "Open sheet",
     "DARK_THEME": "Nachtmodus",
     "LANGUAGE": "Nederlands",
     "CLEAR_SETTINGS": "Verwijder instellingen"
   },
+  "MESSAGE": {
+    "SHEET_LOADED": "Character Sheet geladen: {{value}}"
+  },
   "SHEET": {
-    "SUBJECT": {
-      "ATTRIBUTES": "Attributes",
-      "SKILLS": "Skills",
-      "DIS_ADVANTAGES": "(Dis)Advantages",
-      "EQUIPMENT": "Equipment",
-      "NOTES": "Notities",
-      "MAGIC": "Magie"
-    },
-    "PORTRAIT": {
-      "PORTRAIT": "Portret"
+    "DESCRIPTION": {
+      "DESCRIPTION": "Omschrijving"
     },
     "IDENTITY": {
       "IDENTITY": "Identiteit",
@@ -42,15 +40,12 @@
       "TITLE": "Titel",
       "RELIGION": "Religie"
     },
-    "NOTES" : "Notities",
+    "NOTES": "Notities",
     "PLAYER_INFORMATION": {
       "PLAYER_INFORMATION": "Speler Informatie",
       "PLAYER": "Speler",
       "CAMPAIGN": "Campaign",
       "CREATED_ON": "Gecreeerd op"
-    },
-    "DESCRIPTION": {
-      "DESCRIPTION": "Omschrijving"
     },
     "POINTS": {
       "POINTS": "Punten",
@@ -62,9 +57,19 @@
       "SKILLS": "Skills",
       "SPELLS": "Spells",
       "EARNED": "Verdiend"
+    },
+    "PORTRAIT": {
+      "PORTRAIT": "Portret"
     }
   },
-  "MESSAGE": {
-    "SHEET_LOADED": "Character Sheet geladen: {{value}}"
+  "SKILLS": "Skills",
+  "SPELLS": "Spreuken",
+  "SUBJECT": {
+    "ATTRIBUTES": "Attributes",
+    "SKILLS": "Skills",
+    "DIS_ADVANTAGES": "(Dis)Advantages",
+    "EQUIPMENT": "Equipment",
+    "NOTES": "Notities",
+    "MAGIC": "Magie"
   }
 }
