@@ -23,11 +23,19 @@ import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-s
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SheetBodyComponent} from './components/sheet-component/sheet-body-component/sheet-body.component';
 import {NotesComponent} from './components/sheet-component/sheet-body-component/notes-component/notes.component';
+import {AdvantagesComponent} from './components/sheet-component/sheet-body-component/advantages-component/advantages.component';
+import {EquipmentComponent} from './components/sheet-component/sheet-body-component/equipment-component/equipment.component';
+import {MagicComponent} from './components/sheet-component/sheet-body-component/magic-component/magic.component';
+import {SkillsComponent} from './components/sheet-component/sheet-body-component/skills-component/skills.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
+        AdvantagesComponent,
+        EquipmentComponent,
+        MagicComponent,
+        SkillsComponent,
         GurpsyComponent,
         SheetComponent,
         SheetHeaderComponent,

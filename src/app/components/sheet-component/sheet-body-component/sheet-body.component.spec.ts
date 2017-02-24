@@ -9,6 +9,10 @@ import {StorageService} from '../../../services/storage-service/storage.service'
 import {ThemeStorageDelegate} from '../../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {LanguageStorageDelegate} from '../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {SheetStorageDelegate} from '../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {AdvantagesComponent} from './advantages-component/advantages.component';
+import {EquipmentComponent} from './equipment-component/equipment.component';
+import {MagicComponent} from './magic-component/magic.component';
+import {SkillsComponent} from './skills-component/skills.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -18,7 +22,11 @@ describe('SheetBodyComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         SheetBodyComponent,
-        NotesComponent],
+        AdvantagesComponent,
+        EquipmentComponent,
+        MagicComponent,
+        NotesComponent,
+        SkillsComponent],
       imports: [
         TranslateModule.forRoot()
       ],

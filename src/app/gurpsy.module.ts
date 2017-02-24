@@ -27,6 +27,10 @@ import {LanguageStorageDelegate} from './services/storage-service/delegates/lang
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import { NotesComponent } from './components/sheet-component/sheet-body-component/notes-component/notes.component';
 import { SheetBodyComponent } from './components/sheet-component/sheet-body-component/sheet-body.component';
+import { SkillsComponent } from './components/sheet-component/sheet-body-component/skills-component/skills.component';
+import { MagicComponent } from './components/sheet-component/sheet-body-component/magic-component/magic.component';
+import { EquipmentComponent } from './components/sheet-component/sheet-body-component/equipment-component/equipment.component';
+import { AdvantagesComponent } from './components/sheet-component/sheet-body-component/advantages-component/advantages.component';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -41,7 +45,11 @@ import { SheetBodyComponent } from './components/sheet-component/sheet-body-comp
     DeleteSettingsDialogComponent,
     OpenSheetDialogComponent,
     NotesComponent,
-    SheetBodyComponent
+    SheetBodyComponent,
+    SkillsComponent,
+    MagicComponent,
+    EquipmentComponent,
+    AdvantagesComponent
   ],
   imports: [
     BrowserModule,

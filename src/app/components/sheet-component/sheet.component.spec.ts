@@ -17,6 +17,10 @@ import {ThemeStorageDelegate} from '../../services/storage-service/delegates/the
 import {SheetStorageDelegate} from '../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SheetBodyComponent} from './sheet-body-component/sheet-body.component';
 import {NotesComponent} from './sheet-body-component/notes-component/notes.component';
+import {AdvantagesComponent} from './sheet-body-component/advantages-component/advantages.component';
+import {EquipmentComponent} from './sheet-body-component/equipment-component/equipment.component';
+import {MagicComponent} from './sheet-body-component/magic-component/magic.component';
+import {SkillsComponent} from './sheet-body-component/skills-component/skills.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -27,6 +31,10 @@ describe('SheetComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        AdvantagesComponent,
+        EquipmentComponent,
+        MagicComponent,
+        SkillsComponent,
         SheetComponent,
         SheetHeaderComponent,
         SheetBodyComponent,
