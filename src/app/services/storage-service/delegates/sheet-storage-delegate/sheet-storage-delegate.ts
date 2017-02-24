@@ -68,11 +68,7 @@ export class SheetStorageDelegate {
   public retrievePrevious(): Promise<Sheet[]> {
     let previous: Sheet[] = this.getPreviouslyOpenedSheets();
 
-    if (previous && previous.length > 0) {
-      return Promise.resolve(previous);
-    } else {
-      return Promise.resolve();
-    }
+    return Promise.resolve(previous);
   }
 
   /**
