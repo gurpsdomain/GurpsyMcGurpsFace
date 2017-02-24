@@ -19,7 +19,6 @@ export class DeleteSettingsDialogComponent {
 
   private sheetsToDelete: Sheet[] = [];
 
-
   constructor(dialogRef: MdDialogRef<DeleteSettingsDialogComponent>, storage: StorageService) {
     this.dialogRef = dialogRef;
     this.storageService = storage;
@@ -27,7 +26,7 @@ export class DeleteSettingsDialogComponent {
     this.initPreviouslyOpenedSheetList();
   }
 
-  onSheetSelected(sheet: Sheet, event: MdCheckboxChange): void {
+  public onSheetSelected(sheet: Sheet, event: MdCheckboxChange): void {
     if (event.checked) {
       this.addToStoredSheets(sheet);
     } else {
@@ -35,7 +34,7 @@ export class DeleteSettingsDialogComponent {
     }
   }
 
-  onDeleteSettings(): void {
+  public onDeleteSettings(): void {
     this.storageService.clearStorage(this.clearLanguage, this.clearTheme, this.sheetsToDelete);
     this.dialogRef.close();
   }

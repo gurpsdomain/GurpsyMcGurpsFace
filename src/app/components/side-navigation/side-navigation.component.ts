@@ -9,10 +9,7 @@ export class SideNavigationComponent {
 
     @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
 
-    constructor() {
-    }
-
-    onCloseSideNav(): void {
+    public onCloseSideNav(): void {
         this.onCloseSideNavigation.next();
     }
 }

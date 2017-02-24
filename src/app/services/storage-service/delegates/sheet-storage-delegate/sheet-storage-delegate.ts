@@ -8,7 +8,7 @@ import {JsonService} from '../../../json-service/json.service';
 @Injectable()
 export class SheetStorageDelegate {
 
-  private static STORAGE_KEY = '.previous';
+  private static STORAGE_KEY = '.sheets';
 
   private jsonService: JsonService;
 
@@ -40,8 +40,10 @@ export class SheetStorageDelegate {
     if (!this.isCurrent(sheets, sheet)) {
       this.addCurrentAsPrevious(sheets);
     }
+
     this.removeFromPrevious(sheets, sheet);
     sheets.current = sheet;
+
     this.persist(sheets);
   }
 
@@ -53,11 +55,7 @@ export class SheetStorageDelegate {
   public retrieveCurrent(): Promise<Sheet> {
     let current: Sheet = this.getCurrentSheet();
 
-    if (current) {
-      return Promise.resolve(current);
-    } else {
-      return Promise.resolve();
-    }
+    return Promise.resolve(current);
   }
 
   /**
@@ -82,11 +80,7 @@ export class SheetStorageDelegate {
     let all: Sheet[] = this.getPreviouslyOpenedSheets();
     all.push(current);
 
-    if (all && all.length > 0) {
-      return Promise.resolve(all);
-    } else {
-      return Promise.resolve();
-    }
+    return Promise.resolve(all);
   }
 
   /**

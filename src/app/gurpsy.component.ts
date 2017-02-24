@@ -15,6 +15,9 @@ import {Sheet} from './model/sheet';
 })
 export class GurpsyComponent implements OnInit {
 
+  private static DIALOG_WIDTH: string = '400px';
+  private static SNACKBAR_DURATION_TIME: number = 4000;
+
   private themeService: ThemeService;
   private languageService: LanguagesService;
   private modelReadService: ModelReadService;
@@ -44,21 +47,55 @@ export class GurpsyComponent implements OnInit {
     this.initSheetChangeListener();
   }
 
-  initTheme(): void {
+  public onThemeChange(): void {
+    this.isDarkTheme = !this.isDarkTheme;
+    let theme: string = this.isDarkTheme ? ThemeService.THEME_NIGHT : ThemeService.THEME_DAY;
+    this.themeService.setTheme(theme);
+  }
+
+  public onLanguageChange(): void {
+    this.isDutch = !this.isDutch;
+    let language = this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH;
+    this.languageService.setLanguage(language);
+  }
+
+  public onOpenSheetDialog(): void {
+    this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+
+    this.openSheetDialogRef.afterClosed().subscribe(
+      this.openSheetDialogRef = null
+    );
+  }
+
+  public onOpenDeleteSettingsDialog(): void {
+    this.deleteSettingsDialogRef = this.dialog.open(DeleteSettingsDialogComponent, {
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+
+    this.deleteSettingsDialogRef.afterClosed().subscribe(
+      this.deleteSettingsDialogRef = null
+    );
+  }
+
+  private initTheme(): void {
     this.themeService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ThemeService.DEFAULT));
     this.themeService.getThemeObserver().subscribe(theme => this.setTheme(theme));
   }
 
-  initLanguage(): void {
+  private initLanguage(): void {
     this.languageService.getLanguage().then(locale => this.setLanguage(locale)).catch(err => this.setLanguage(LanguagesService.DEFAULT));
     this.languageService.languageChange$.subscribe(locale => this.setLanguage(locale));
   }
 
-  initSheetChangeListener(): void {
+  private initSheetChangeListener(): void {
     this.modelReadService.modelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
-  setTheme(theme: string) {
+  private setTheme(theme: string) {
     this.isDarkTheme = theme === ThemeService.THEME_NIGHT;
   }
 
@@ -69,42 +106,10 @@ export class GurpsyComponent implements OnInit {
   private showNewSheetLoadedMessage(sheet: Sheet): void {
     this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
       this.snackBar.open(res, '', {
-        duration: 4000,
+        duration: GurpsyComponent.SNACKBAR_DURATION_TIME,
       });
     });
   }
 
-  onThemeChange(): void {
-    this.isDarkTheme = !this.isDarkTheme;
-    let theme: string = this.isDarkTheme ? ThemeService.THEME_NIGHT : ThemeService.THEME_DAY;
-    this.themeService.setTheme(theme);
-  }
 
-  onLanguageChange(): void {
-    this.isDutch = !this.isDutch;
-    let language = this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH;
-    this.languageService.setLanguage(language);
-  }
-
-  onOpenSheetDialog(): void {
-    this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
-      width: '400px',
-      disableClose: false
-    });
-
-    this.openSheetDialogRef.afterClosed().subscribe(
-      this.openSheetDialogRef = null
-    );
-  }
-
-  onOpenDeleteSettingsDialog(): void {
-    this.deleteSettingsDialogRef = this.dialog.open(DeleteSettingsDialogComponent, {
-      width: '400px',
-      disableClose: false
-    });
-
-    this.deleteSettingsDialogRef.afterClosed().subscribe(
-      this.deleteSettingsDialogRef = null
-    );
-  }
 }
