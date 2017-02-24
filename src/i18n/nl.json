@@ -24,17 +24,12 @@
     "LANGUAGE": "Nederlands",
     "CLEAR_SETTINGS": "Verwijder instellingen"
   },
+  "MESSAGE": {
+    "SHEET_LOADED": "Character Sheet geladen: {{value}}"
+  },
   "SHEET": {
-    "SUBJECT": {
-      "ATTRIBUTES": "Attributes",
-      "SKILLS": "Skills",
-      "DIS_ADVANTAGES": "(Dis)Advantages",
-      "EQUIPMENT": "Equipment",
-      "NOTES": "Notities",
-      "MAGIC": "Magie"
-    },
-    "PORTRAIT": {
-      "PORTRAIT": "Portret"
+    "DESCRIPTION": {
+      "DESCRIPTION": "Omschrijving"
     },
     "IDENTITY": {
       "IDENTITY": "Identiteit",
@@ -49,9 +44,6 @@
       "CAMPAIGN": "Campaign",
       "CREATED_ON": "Gecreeerd op"
     },
-    "DESCRIPTION": {
-      "DESCRIPTION": "Omschrijving"
-    },
     "POINTS": {
       "POINTS": "Punten",
       "RACE": "Ras",
@@ -62,9 +54,18 @@
       "SKILLS": "Skills",
       "SPELLS": "Spells",
       "EARNED": "Verdiend"
+    },
+    "PORTRAIT": {
+      "PORTRAIT": "Portret"
     }
   },
-  "MESSAGE": {
-    "SHEET_LOADED": "Character Sheet geladen: {{value}}"
+  "SUBJECT": {
+    "ATTRIBUTES": "Attributes",
+    "SKILLS": "Skills",
+    "DIS_ADVANTAGES": "(Dis)Advantages",
+    "EQUIPMENT": "Equipment",
+    "NOTES": "Notities",
+    "MAGIC": "Magie"
   }
+
 }
