@@ -13,6 +13,7 @@ import {AdvantagesComponent} from './advantages-component/advantages.component';
 import {EquipmentComponent} from './equipment-component/equipment.component';
 import {MagicComponent} from './magic-component/magic.component';
 import {SkillsComponent} from './skills-component/skills.component';
+import {SheetBodyService} from '../../../services/sheet-body-service/sheet-body.service';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -36,7 +37,8 @@ describe('SheetBodyComponent', () => {
         StorageService,
         ThemeStorageDelegate,
         LanguageStorageDelegate,
-        SheetStorageDelegate
+        SheetStorageDelegate,
+        SheetBodyService
       ]
     })
       .compileComponents();

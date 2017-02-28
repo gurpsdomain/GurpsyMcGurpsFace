@@ -10,37 +10,49 @@
     </div>
   </div>
   <div class="sideNavigationContent">
-    <button md-button class="sideNavigationContentLine flex-container"
+    <button md-button
+            (click)="onSheetBodyClick(sheetBodyComponents.ATTRIBUTES)"
+            class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
       <md-icon class="flex-item">accessibility</md-icon>
       <span class="flex-item" fxFlex="100%">{{'SUBJECT.ATTRIBUTES'| translate}}</span>
     </button>
-    <button md-button class="sideNavigationContentLine flex-container"
+    <button md-button
+            (click)="onSheetBodyClick(sheetBodyComponents.ADVANTAGES)"
+            class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
       <md-icon class="flex-item">hearing</md-icon>
       <span class="flex-item" fxFlex="100%">{{'SUBJECT.DIS_ADVANTAGES'| translate}}</span>
     </button>
-    <button md-button class="sideNavigationContentLine flex-container"
+    <button md-button
+            (click)="onSheetBodyClick(sheetBodyComponents.SKILLS)"
+            class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
       <md-icon class="flex-item">school</md-icon>
       <span class="flex-item" fxFlex="100%">{{'SUBJECT.SKILLS'| translate}}</span>
     </button>
-    <button md-button class="sideNavigationContentLine flex-container"
+    <button md-button
+            (click)="onSheetBodyClick(sheetBodyComponents.MAGIC)"
+            class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
       <md-icon class="flex-item">flash_on</md-icon>
       <span class="flex-item" fxFlex="100%">{{'SUBJECT.MAGIC'| translate}}</span>
     </button>
-    <button md-button class="sideNavigationContentLine flex-container"
+    <button md-button
+            (click)="onSheetBodyClick(sheetBodyComponents.EQUIPMENT)"
+            class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
       <md-icon class="flex-item">card_travel</md-icon>
       <span class="flex-item" fxFlex="100%">{{'SUBJECT.EQUIPMENT'| translate}}</span>
     </button>
-    <button md-button class="sideNavigationContentLine flex-container"
+    <button md-button
+            (click)="onSheetBodyClick(sheetBodyComponents.NOTES)"
+            class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
       <md-icon class="flex-item">mode_edit</md-icon>

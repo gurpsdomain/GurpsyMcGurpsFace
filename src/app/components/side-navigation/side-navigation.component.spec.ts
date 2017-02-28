@@ -4,6 +4,7 @@ import {MaterialModule} from '@angular/material';
 import {TranslateModule} from 'ng2-translate';
 import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
+import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -17,7 +18,10 @@ describe('SideNavigationComponent', () => {
       imports: [
         FormsModule,
         TranslateModule.forRoot(),
-        MaterialModule.forRoot()]
+        MaterialModule.forRoot()],
+      providers: [
+        SheetBodyService
+      ]
     })
       .compileComponents();
   }));

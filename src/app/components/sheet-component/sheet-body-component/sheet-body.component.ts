@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {SheetBodyService, SheetBodyContent} from '../../../services/sheet-body-service/sheet-body.service';
 
 @Component({
   selector: 'gurpsy-sheet-body',
@@ -7,15 +8,17 @@ import {Component} from '@angular/core';
 })
 export class SheetBodyComponent {
 
-  public bodyContent: SheetBodyComponents = SheetBodyComponents.NOTES;
-  public sheetBodyComponents = SheetBodyComponents;
+  public bodyContent: SheetBodyContent = SheetBodyContent.NOTES;
+
+  public sheetBodyComponents = SheetBodyContent;
+
+  private sheetBodyService: SheetBodyService;
+
+  constructor(sheetBodyService: SheetBodyService) {
+    this.sheetBodyService = sheetBodyService;
+
+    this.sheetBodyService.sheetBodyChange$.subscribe(sheetBodyContent => this.bodyContent = sheetBodyContent);
+  }
 }
 
-export enum SheetBodyComponents {
-  ATTRIBUTES,
-  ADVANTAGES,
-  SKILLS,
-  MAGIC,
-  EQUIPMENT,
-  NOTES
-}
+

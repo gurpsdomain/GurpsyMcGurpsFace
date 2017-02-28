@@ -21,6 +21,7 @@ import {AdvantagesComponent} from './sheet-body-component/advantages-component/a
 import {EquipmentComponent} from './sheet-body-component/equipment-component/equipment.component';
 import {MagicComponent} from './sheet-body-component/magic-component/magic.component';
 import {SkillsComponent} from './sheet-body-component/skills-component/skills.component';
+import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -54,6 +55,7 @@ describe('SheetComponent', function () {
         ThemeStorageDelegate,
         SheetStorageDelegate,
         LanguageStorageDelegate,
+        SheetBodyService
       ]
     })
       .compileComponents();

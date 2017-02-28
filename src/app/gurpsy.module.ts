@@ -31,6 +31,7 @@ import { SkillsComponent } from './components/sheet-component/sheet-body-compone
 import { MagicComponent } from './components/sheet-component/sheet-body-component/magic-component/magic.component';
 import { EquipmentComponent } from './components/sheet-component/sheet-body-component/equipment-component/equipment.component';
 import { AdvantagesComponent } from './components/sheet-component/sheet-body-component/advantages-component/advantages.component';
+import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -67,7 +68,8 @@ import { AdvantagesComponent } from './components/sheet-component/sheet-body-com
     SheetStorageDelegate,
     LanguageStorageDelegate,
     ModelReadService,
-    JsonService
+    JsonService,
+    SheetBodyService
    ],
   entryComponents: [
     DeleteSettingsDialogComponent,

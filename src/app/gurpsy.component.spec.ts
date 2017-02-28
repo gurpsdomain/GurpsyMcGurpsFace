@@ -27,6 +27,7 @@ import {AdvantagesComponent} from './components/sheet-component/sheet-body-compo
 import {EquipmentComponent} from './components/sheet-component/sheet-body-component/equipment-component/equipment.component';
 import {MagicComponent} from './components/sheet-component/sheet-body-component/magic-component/magic.component';
 import {SkillsComponent} from './components/sheet-component/sheet-body-component/skills-component/skills.component';
+import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -61,7 +62,8 @@ describe('GurpsyComponent', () => {
         SheetStorageDelegate,
         LanguageStorageDelegate,
         ModelReadService,
-        JsonService
+        JsonService,
+        SheetBodyService
       ]
     });
   });
