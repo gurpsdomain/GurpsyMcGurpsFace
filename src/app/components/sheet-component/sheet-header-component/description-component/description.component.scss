@@ -1,6 +1,11 @@
 @import "../../../../../gurpsy-material-theme";
 
 .sheetComponent .sheetComponentBody {
+  padding-top: 0px;
+
+  .flex-item {
+    padding-top: 4px;
+  }
   .flex-item:nth-child(2) {
     border-left: solid black 1px;
     border-right: solid black 1px;

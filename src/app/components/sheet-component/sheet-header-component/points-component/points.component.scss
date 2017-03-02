@@ -1,6 +1,11 @@
 @import "../../../../../gurpsy-material-theme";
 
-.earned {
-  border-top: solid darkgray 1px;
+.sheetComponent .sheetComponentBody table {
+
+  border-spacing: 2px;
+
+  td:last-child {
+    text-align: right;
+  }
 }
 

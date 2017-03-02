@@ -2,23 +2,20 @@
   <div class="sheetComponentHeader">
     {{ 'SHEET.IDENTITY.IDENTITY' | translate }}
   </div>
-  <div class="sheetComponentBody flex-container"
-       fxLayout="row"
-       fxLayoutWrap="nowrap"
-       fxLayoutGap="16px">
-    <div class="key flex-container flex-item"
-         fxLayout="column"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item"> {{ 'SHEET.IDENTITY.NAME' | translate }}</label>
-      <label class="flex-item"> {{ 'SHEET.IDENTITY.TITLE' | translate }}</label>
-      <label class="flex-item"> {{ 'SHEET.IDENTITY.RELIGION' | translate }}</label>
-    </div>
-    <div class="value flex-container flex-item"
-         fxLayout="column"
-         fxLayoutWrap="nowrap">
-      <span class="flex-item">{{sheet.metaData.identity.name}}</span>
-      <span class="flex-item">{{sheet.metaData.identity.title}}</span>
-      <span class="flex-item">{{sheet.metaData.identity.religion}}</span>
-    </div>
+  <div class="sheetComponentBody">
+    <table>
+      <tr>
+        <td>{{ 'SHEET.IDENTITY.NAME' | translate }}</td>
+        <td>{{sheet.metaData.identity.name}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.IDENTITY.TITLE' | translate }}</td>
+        <td>{{sheet.metaData.identity.title}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.IDENTITY.RELIGION' | translate }}</td>
+        <td>{{sheet.metaData.identity.religion}}</td>
+      </tr>
+    </table>
   </div>
 </div>

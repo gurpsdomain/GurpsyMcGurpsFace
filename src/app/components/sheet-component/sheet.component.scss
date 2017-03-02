@@ -19,43 +19,31 @@
 }
 
 .sheetComponentBody {
-  padding: 0px 4px 0px 4px;
+  padding: 4px 4px 2px 4px;
 
   table {
     border-spacing: 0px;
+    table-layout: auto;
+    width: 100%;
 
     tr {
       line-height: 13px;
 
       td {
         white-space: nowrap;
+      }
+
+      td:last-child {
+        max-width: 1px;
+        width: 100%;
         overflow: hidden;
+        white-space: nowrap;
         text-overflow: ellipsis;
       }
 
-      td:first-child{
+      td:first-child {
         padding-right: 10px;
       }
-    }
-  }
-
-  .key {
-    overflow: hidden;
-
-    label {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  .value {
-    overflow: hidden;
-
-    span {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
   }
 }

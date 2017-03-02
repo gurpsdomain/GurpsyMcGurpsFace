@@ -30,45 +30,45 @@
   "SHEET": {
     "ADVANTAGES": "Advantages",
     "DESCRIPTION": {
-      "AGE": "Leeftijd",
-      "BIRTHDAY": "Verjaardag",
+      "AGE": "Leeftijd:",
+      "BIRTHDAY": "Verjaardag:",
       "DESCRIPTION": "Omschrijving",
-      "EYES": "Ogen",
-      "GENDER": "Geslacht",
-      "HAIR": "Haar",
-      "HAND": "Hand",
-      "HEIGHT": "Lengte",
-      "RACE": "Ras",
-      "SIZE": "Grootte",
-      "SKIN": "Huid",
-      "TL": "TL",
-      "WEIGHT": "Gewicht"
+      "EYES": "Ogen:",
+      "GENDER": "Geslacht:",
+      "HAIR": "Haar:",
+      "HAND": "Hand:",
+      "HEIGHT": "Lengte:",
+      "RACE": "Ras:",
+      "SIZE": "Grootte:",
+      "SKIN": "Huid:",
+      "TL": "TL:",
+      "WEIGHT": "Gewicht:"
     },
     "DISADVANTAGES": "Disadvantages",
     "EQUIPMENT": "Materialen",
     "IDENTITY": {
       "IDENTITY": "Identiteit",
-      "NAME": "Naam",
-      "TITLE": "Titel",
-      "RELIGION": "Religie"
+      "NAME": "Naam:",
+      "TITLE": "Titel:",
+      "RELIGION": "Religie:"
     },
     "NOTES": "Notities",
     "PLAYER_INFORMATION": {
       "PLAYER_INFORMATION": "Speler Informatie",
-      "PLAYER": "Speler",
-      "CAMPAIGN": "Campaign",
-      "CREATED_ON": "Gecreeerd op"
+      "PLAYER": "Speler:",
+      "CAMPAIGN": "Campaign:",
+      "CREATED_ON": "Gecreeerd op:"
     },
     "POINTS": {
       "POINTS": "Punten",
-      "RACE": "Ras",
-      "ATTRIBUTES": "Attributes",
-      "ADVANTAGES": "Advantages",
-      "DISADVANTAGES": "Disadvantages",
-      "QUIRKS": "Quirks",
-      "SKILLS": "Skills",
-      "SPELLS": "Spells",
-      "EARNED": "Verdiend"
+      "RACE": "Ras:",
+      "ATTRIBUTES": "Attributes:",
+      "ADVANTAGES": "Advantages:",
+      "DISADVANTAGES": "Disadvantages:",
+      "QUIRKS": "Quirks:",
+      "SKILLS": "Skills:",
+      "SPELLS": "Spells:",
+      "EARNED": "Verdiend:"
     },
     "PORTRAIT": {
       "PORTRAIT": "Portret"

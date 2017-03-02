@@ -3,69 +3,39 @@
     <span *ngIf="sheet.points.total">{{sheet.points.total + ' '}}</span>{{ 'SHEET.POINTS.POINTS' | translate }}
   </div>
   <div class="sheetComponentBody">
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="10px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.RACE' | translate }}</label>
-      <span class="flex-item">0</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutGap="10px"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.ATTRIBUTES' | translate }}</label>
-      <span class="flex-item">0</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="10px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.ADVANTAGES' | translate }}</label>
-      <span class="flex-item">{{sheet.points.advantages}}</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="10px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.DISADVANTAGES' | translate }}</label>
-      <span class="flex-item">{{sheet.points.disadvantages}}</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="10px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.QUIRKS' | translate }}</label>
-      <span class="flex-item">0</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="10px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.SKILLS' | translate }}</label>
-      <span class="flex-item">{{sheet.points.skills}}</span>
-    </div>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="10px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.SPELLS' | translate }}</label>
-      <span class="flex-item">{{sheet.points.spells}}</span>
-    </div>
-    <div class="earned flex-container"
-         fxLayout="row"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutGap="10px"
-         fxLayoutWrap="nowrap">
-      <label class="flex-item">{{ 'SHEET.POINTS.EARNED' | translate }}</label>
-      <span class="flex-item">{{sheet.points.unspent}}</span>
-    </div>
+    <table>
+      <tr>
+        <td>{{ 'SHEET.POINTS.RACE' | translate }}</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.POINTS.ATTRIBUTES' | translate }}</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.POINTS.ADVANTAGES' | translate }}</td>
+        <td>{{sheet.points.advantages}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.POINTS.DISADVANTAGES' | translate }}</td>
+        <td>{{sheet.points.disadvantages}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.POINTS.QUIRKS' | translate }}</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.POINTS.SKILLS' | translate }}</td>
+        <td>{{sheet.points.skills}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.POINTS.SPELLS' | translate }}</td>
+        <td>{{sheet.points.spells}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.POINTS.EARNED' | translate }}</td>
+        <td>{{sheet.points.unspent}}</td>
+      </tr>
+    </table>
   </div>
 </div>
