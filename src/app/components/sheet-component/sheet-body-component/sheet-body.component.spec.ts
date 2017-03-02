@@ -14,6 +14,7 @@ import {EquipmentComponent} from './equipment-component/equipment.component';
 import {MagicComponent} from './magic-component/magic.component';
 import {SkillsComponent} from './skills-component/skills.component';
 import {SheetBodyService} from '../../../services/sheet-body-service/sheet-body.service';
+import {GeneralComponent} from './general-component/general.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -23,6 +24,7 @@ describe('SheetBodyComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         SheetBodyComponent,
+        GeneralComponent,
         AdvantagesComponent,
         EquipmentComponent,
         MagicComponent,

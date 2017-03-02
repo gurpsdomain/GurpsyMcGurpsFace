@@ -28,6 +28,7 @@ import {EquipmentComponent} from './components/sheet-component/sheet-body-compon
 import {MagicComponent} from './components/sheet-component/sheet-body-component/magic-component/magic.component';
 import {SkillsComponent} from './components/sheet-component/sheet-body-component/skills-component/skills.component';
 import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
+import {GeneralComponent} from './components/sheet-component/sheet-body-component/general-component/general.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -40,6 +41,7 @@ describe('GurpsyComponent', () => {
         GurpsyComponent,
         SheetComponent,
         SheetHeaderComponent,
+        GeneralComponent,
         SheetBodyComponent,
         PortraitComponent,
         IdentityComponent,

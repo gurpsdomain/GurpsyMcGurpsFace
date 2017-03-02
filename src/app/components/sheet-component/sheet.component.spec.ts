@@ -22,6 +22,7 @@ import {EquipmentComponent} from './sheet-body-component/equipment-component/equ
 import {MagicComponent} from './sheet-body-component/magic-component/magic.component';
 import {SkillsComponent} from './sheet-body-component/skills-component/skills.component';
 import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
+import {GeneralComponent} from './sheet-body-component/general-component/general.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -39,6 +40,7 @@ describe('SheetComponent', function () {
         SheetComponent,
         SheetHeaderComponent,
         SheetBodyComponent,
+        GeneralComponent,
         PortraitComponent,
         IdentityComponent,
         PlayerInformationComponent,

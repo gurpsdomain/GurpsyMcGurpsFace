@@ -8,7 +8,7 @@ import {SheetBodyService, SheetBodyContent} from '../../../services/sheet-body-s
 })
 export class SheetBodyComponent {
 
-  public bodyContent: SheetBodyContent = SheetBodyContent.NOTES;
+  public bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
 
   public sheetBodyComponents = SheetBodyContent;
 

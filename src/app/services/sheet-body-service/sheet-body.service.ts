@@ -8,10 +8,7 @@ export class SheetBodyService {
 
   public sheetBodyChange$ = this.sheetBodyContentSource.asObservable();
 
-  public bodyContent: SheetBodyContent = SheetBodyContent.SKILLS;
-
-  constructor() {
-  }
+  public bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
 
   private handleSheetBodyChange(sheetBody: SheetBodyContent): void {
     this.sheetBodyContentSource.next(sheetBody);
@@ -24,7 +21,7 @@ export class SheetBodyService {
 }
 
 export enum SheetBodyContent {
-  ATTRIBUTES,
+  GENERAL,
   ADVANTAGES,
   SKILLS,
   MAGIC,

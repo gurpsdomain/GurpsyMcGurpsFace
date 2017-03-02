@@ -32,6 +32,7 @@ import { MagicComponent } from './components/sheet-component/sheet-body-componen
 import { EquipmentComponent } from './components/sheet-component/sheet-body-component/equipment-component/equipment.component';
 import { AdvantagesComponent } from './components/sheet-component/sheet-body-component/advantages-component/advantages.component';
 import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
+import { GeneralComponent } from './components/sheet-component/sheet-body-component/general-component/general.component';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -50,7 +51,8 @@ import {SheetBodyService} from './services/sheet-body-service/sheet-body.service
     SkillsComponent,
     MagicComponent,
     EquipmentComponent,
-    AdvantagesComponent
+    AdvantagesComponent,
+    GeneralComponent
   ],
   imports: [
     BrowserModule,
