@@ -1,7 +1,6 @@
 {
   "en": "English",
   "nl": "Dutch",
-  "ADVANTAGES": "Advantages",
   "APPLICATION": "GurpsyMcGurpsFace",
   "DIALOG": {
     "OK": "Yes",
@@ -19,8 +18,6 @@
       "HEADER": "Open Character Sheet"
     }
   },
-  "DISADVANTAGES": "Disadvantages",
-  "EQUIPMENT": "Equipment",
   "MENU": {
     "OPEN": "Open sheet",
     "DARK_THEME": "Night mode",
@@ -31,39 +28,54 @@
     "SHEET_LOADED": "Loaded Character Sheet: {{value}}"
   },
   "SHEET": {
+    "ADVANTAGES": "Advantages",
     "DESCRIPTION": {
-      "DESCRIPTION": "Description"
+      "AGE": "Age:",
+      "BIRTHDAY": "Birthday:",
+      "DESCRIPTION": "Description",
+      "EYES": "Eyes:",
+      "GENDER": "Gender:",
+      "HAIR": "Hair:",
+      "HAND": "Hand:",
+      "HEIGHT": "Height:",
+      "RACE": "Race:",
+      "SIZE": "Size:",
+      "SKIN": "Skin:",
+      "TL": "TL:",
+      "WEIGHT": "Weight:"
     },
+    "DISADVANTAGES": "Disadvantages",
+    "EQUIPMENT": "Equipment",
     "IDENTITY": {
       "IDENTITY": "Identity",
-      "NAME": "Name",
-      "TITLE": "Title",
-      "RELIGION": "Religion"
+      "NAME": "Name:",
+      "TITLE": "Title:",
+      "RELIGION": "Religion:"
     },
     "NOTES": "Notes",
     "PLAYER_INFORMATION": {
       "PLAYER_INFORMATION": "Player Information",
-      "PLAYER": "Player",
-      "CAMPAIGN": "Campaign",
-      "CREATED_ON": "Created on"
+      "PLAYER": "Player:",
+      "CAMPAIGN": "Campaign:",
+      "CREATED_ON": "Created on:"
     },
     "POINTS": {
       "POINTS": "Points",
-      "RACE": "Race",
-      "ATTRIBUTES": "Attributes",
-      "ADVANTAGES": "Advantages",
-      "DISADVANTAGES": "Disadvantages",
-      "QUIRKS": "Quirks",
-      "SKILLS": "Skills",
-      "SPELLS": "Spells",
-      "EARNED": "Earned"
+      "RACE": "Race:",
+      "ATTRIBUTES": "Attributes:",
+      "ADVANTAGES": "Advantages:",
+      "DISADVANTAGES": "Disadvantages:",
+      "QUIRKS": "Quirks:",
+      "SKILLS": "Skills:",
+      "SPELLS": "Spells:",
+      "EARNED": "Earned:"
     },
     "PORTRAIT": {
       "PORTRAIT": "Portrait"
-    }
+    },
+    "SKILLS": "Skills",
+    "SPELLS": "Spells"
   },
-  "SKILLS": "Skills",
-  "SPELLS": "Spells",
   "SUBJECT": {
     "ATTRIBUTES": "Attributes",
     "SKILLS": "Skills",
