@@ -1,7 +1,6 @@
 {
   "en": "Engels",
   "nl": "Nederlands",
-  "ADVANTAGES": "Advantages",
   "APPLICATION": "GurpsyMcGurpsFace",
   "DIALOG": {
     "OK": "Ja",
@@ -19,8 +18,6 @@
       "HEADER": "Open Character Sheet"
     }
   },
-  "DISADVANTAGES": "Disadvantages",
-  "EQUIPMENT": "Materialen",
   "MENU": {
     "OPEN": "Open sheet",
     "DARK_THEME": "Nachtmodus",
@@ -31,9 +28,12 @@
     "SHEET_LOADED": "Character Sheet geladen: {{value}}"
   },
   "SHEET": {
+    "ADVANTAGES": "Advantages",
     "DESCRIPTION": {
       "DESCRIPTION": "Omschrijving"
     },
+    "DISADVANTAGES": "Disadvantages",
+    "EQUIPMENT": "Materialen",
     "IDENTITY": {
       "IDENTITY": "Identiteit",
       "NAME": "Naam",
@@ -60,10 +60,10 @@
     },
     "PORTRAIT": {
       "PORTRAIT": "Portret"
-    }
+    },
+    "SKILLS": "Skills",
+    "SPELLS": "Spreuken"
   },
-  "SKILLS": "Skills",
-  "SPELLS": "Spreuken",
   "SUBJECT": {
     "ATTRIBUTES": "Attributes",
     "SKILLS": "Skills",
