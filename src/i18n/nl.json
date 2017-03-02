@@ -30,7 +30,19 @@
   "SHEET": {
     "ADVANTAGES": "Advantages",
     "DESCRIPTION": {
-      "DESCRIPTION": "Omschrijving"
+      "AGE": "Leeftijd",
+      "BIRTHDAY": "Verjaardag",
+      "DESCRIPTION": "Omschrijving",
+      "EYES": "Ogen",
+      "GENDER": "Geslacht",
+      "HAIR": "Haar",
+      "HAND": "Hand",
+      "HEIGHT": "Lengte",
+      "RACE": "Ras",
+      "SIZE": "Grootte",
+      "SKIN": "Huid",
+      "TL": "TL",
+      "WEIGHT": "Gewicht"
     },
     "DISADVANTAGES": "Disadvantages",
     "EQUIPMENT": "Materialen",

@@ -2,7 +2,68 @@
   <div class="sheetComponentHeader">
     {{ 'SHEET.DESCRIPTION.DESCRIPTION' | translate }}
   </div>
-  <div class="sheetComponentBody">
-    {{sheet.metaData.description.age}}
+  <div class="sheetComponentBody flex-container"
+       fxLayout="row"
+       fxLayoutAlign="space-between stretch">
+    <div class="flex-item" fxFlex="100%">
+      <table>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.RACE' | translate }}</td>
+          <td>{{sheet.metaData.description.race}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.GENDER' | translate }}</td>
+          <td>{{sheet.metaData.description.gender}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.AGE' | translate }}</td>
+          <td>{{sheet.metaData.description.age}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.BIRTHDAY' | translate }}</td>
+          <td>{{sheet.metaData.description.birthday}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="flex-item" fxFlex="100%">
+      <table>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.WEIGHT' | translate }}</td>
+          <td>{{sheet.metaData.description.weight}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.HEIGHT' | translate }}</td>
+          <td>{{sheet.metaData.description.height}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.SIZE' | translate }}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.TL' | translate }}</td>
+          <td>{{sheet.metaData.description.TL}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="flex-item" fxFlex="100%">
+      <table>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.HAIR' | translate }}</td>
+          <td>{{sheet.metaData.description.hair}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.EYES' | translate }}</td>
+          <td>{{sheet.metaData.description.eyes}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.SKIN' | translate }}</td>
+          <td>{{sheet.metaData.description.skin}}</td>
+        </tr>
+        <tr>
+          <td>{{ 'SHEET.DESCRIPTION.HAND' | translate }}</td>
+          <td>{{sheet.metaData.description.hand}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

@@ -30,7 +30,19 @@
   "SHEET": {
     "ADVANTAGES": "Advantages",
     "DESCRIPTION": {
-      "DESCRIPTION": "Description"
+      "AGE": "Age",
+      "BIRTHDAY": "Birthday",
+      "DESCRIPTION": "Description",
+      "EYES": "Eyes",
+      "GENDER": "Gender",
+      "HAIR": "Hair",
+      "HAND": "Hand",
+      "HEIGHT": "Height",
+      "RACE": "Race",
+      "SIZE": "Size",
+      "SKIN": "Skin",
+      "TL": "TL",
+      "WEIGHT": "Weight"
     },
     "DISADVANTAGES": "Disadvantages",
     "EQUIPMENT": "Equipment",

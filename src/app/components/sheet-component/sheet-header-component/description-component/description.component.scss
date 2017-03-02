@@ -1,5 +1,13 @@
 @import "../../../../../gurpsy-material-theme";
 
-.descriptionComponent .sheetComponentBody .flex-container {
-  border:1px solid black;
+.sheetComponent .sheetComponentBody {
+  .flex-item:nth-child(2) {
+    border-left: solid black 1px;
+    border-right: solid black 1px;
+
+  }
+  .flex-item:not(:first-child) table {
+    padding-left: 4px;
+  }
 }
+

@@ -21,6 +21,24 @@
 .sheetComponentBody {
   padding: 0px 4px 0px 4px;
 
+  table {
+    border-spacing: 0px;
+
+    tr {
+      line-height: 13px;
+
+      td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      td:first-child{
+        padding-right: 10px;
+      }
+    }
+  }
+
   .key {
     overflow: hidden;
 
