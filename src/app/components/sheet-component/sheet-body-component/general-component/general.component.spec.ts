@@ -1,9 +1,7 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import { GeneralComponent } from './general.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {GeneralComponent} from './general.component';
+import {TranslateModule} from 'ng2-translate';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -11,9 +9,14 @@ describe('GeneralComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GeneralComponent ]
+      declarations: [
+        GeneralComponent
+      ],
+      imports: [
+        TranslateModule.forRoot()
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
