@@ -15,6 +15,9 @@ import {StorageService} from '../../../../services/storage-service/storage.servi
 import {ThemeStorageDelegate} from '../../../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {LanguageStorageDelegate} from '../../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {SheetBodyService} from '../../../../services/sheet-body-service/sheet-body.service';
+import {PointsComponent} from '../../reusable-components/points-component/points.component';
+import {PortraitComponent} from '../../reusable-components/portrait-component/portrait.component';
+import {DescriptionComponent} from '../../reusable-components/description-component/description.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -29,7 +32,10 @@ describe('SheetBodyComponent', () => {
         EquipmentComponent,
         MagicComponent,
         NotesComponent,
-        SkillsComponent],
+        SkillsComponent,
+        PointsComponent,
+        PortraitComponent,
+        DescriptionComponent],
       imports: [
         TranslateModule.forRoot()
       ],

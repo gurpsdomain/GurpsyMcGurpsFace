@@ -1,8 +1,11 @@
-<div class="sheetComponent">
-  <div class="sheetComponentHeader">
-    {{ 'SHEET.GENERAL' | translate }}
+<div fxHide
+     fxHide.xs="false">
+  <div class="flex-container"
+       fxLayout="row"
+       fxLayoutAlign="space-between stretch"
+       fxLayoutWrap="nowrap">
+    <gurpsy-portrait-component class="flex-item"></gurpsy-portrait-component>
+    <gurpsy-points-component class="flex-item"></gurpsy-points-component>
   </div>
-  <div class="sheetComponentBody">
-    General body
-  </div>
+  <gurpsy-description-component></gurpsy-description-component>
 </div>
