@@ -2,20 +2,35 @@
 
 @include mat-core();
 
+@mixin gurpsy-theme($theme) {
+  $accent: map-get($theme, accent);
+
+  .sheetComponentHeader {
+    background: mat-color($accent);
+    color: mat-color($accent, default-contrast);
+  }
+}
+
 $primary: mat-palette($mat-green, 900);
-$accent:  mat-palette($mat-green, 400);
+$accent: mat-palette($mat-green, 400);
 $warn: mat-palette($mat-red, A700);
 
 $theme: mat-light-theme($primary, $accent, $warn);
-
 @include angular-material-theme($theme);
 
-.gurpsy-dark {
+.day{
+  @include gurpsy-theme($theme);
+}
+
+.night {
   $dark-primary: mat-palette($mat-purple, 900);
-  $dark-accent:  mat-palette($mat-purple, 500);
-  $dark-warn:    mat-palette($mat-deep-orange);
+  $dark-accent: mat-palette($mat-purple, 500);
+  $dark-warn: mat-palette($mat-deep-orange);
 
   $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-
   @include angular-material-theme($dark-theme);
+  @include gurpsy-theme($dark-theme);
 }
+
+
+

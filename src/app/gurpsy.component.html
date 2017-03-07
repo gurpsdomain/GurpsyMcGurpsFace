@@ -1,4 +1,4 @@
-<md-sidenav-container [class.gurpsy-dark]="isDarkTheme">
+<md-sidenav-container [class.night]="isNight" [class.day]="!isNight">
   <md-sidenav #sidenav>
     <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"></gurpsy-side-navigation>
   </md-sidenav>
@@ -25,7 +25,7 @@
           <md-icon class="flex-item">account_box</md-icon>
           <span class="flex-item" fxFlex="100%">{{ 'MENU.OPEN' | translate }}</span>
         </button>
-        <button md-menu-item (click)="onThemeChange()" [class.buttonSelected]="isDarkTheme" class="flex-container">
+        <button md-menu-item (click)="onThemeChange()" [class.buttonSelected]="isNight" class="flex-container">
           <md-icon class="flex-item">g_translate</md-icon>
           <span class="flex-item" fxFlex="100%">   {{ 'MENU.DARK_THEME' | translate }}</span>
         </button>

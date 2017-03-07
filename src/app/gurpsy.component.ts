@@ -28,7 +28,7 @@ export class GurpsyComponent implements OnInit {
   private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
 
   public dialog: MdDialog;
-  public isDarkTheme = true;
+  public isNight = true;
   public isDutch = false;
 
   constructor(theme: ThemeService, language: LanguagesService, dialog: MdDialog, modelReadService: ModelReadService,
@@ -48,8 +48,8 @@ export class GurpsyComponent implements OnInit {
   }
 
   public onThemeChange(): void {
-    this.isDarkTheme = !this.isDarkTheme;
-    let theme: string = this.isDarkTheme ? ThemeService.THEME_NIGHT : ThemeService.THEME_DAY;
+    this.isNight = !this.isNight;
+    let theme: string = this.isNight ? ThemeService.THEME_NIGHT : ThemeService.THEME_DAY;
     this.themeService.setTheme(theme);
   }
 
@@ -96,7 +96,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private setTheme(theme: string) {
-    this.isDarkTheme = theme === ThemeService.THEME_NIGHT;
+    this.isNight = theme === ThemeService.THEME_NIGHT;
   }
 
   private setLanguage(locale: string) {
