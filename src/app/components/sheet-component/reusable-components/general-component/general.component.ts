@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'gurpsy-skills-component',
-  templateUrl: './skills.component.html',
+  selector: 'gurpsy-general-component',
+  templateUrl: 'general.component.html',
   styleUrls: ['../../sheet.component.scss']
 })
-export class SkillsComponent implements OnInit {
+export class GeneralComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit() {
   }
+
 }

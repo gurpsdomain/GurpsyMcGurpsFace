@@ -1,17 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
-import {SheetImpl} from '../../../../model/sheet-impl';
+import {Sheet} from '../../../../model/sheet';
 
 @Component({
-  selector: 'gurpsy-points-component',
-  templateUrl: './points.component.html',
-  styleUrls: ['../../sheet.component.scss',
-    './points.component.scss'
-  ]
+  selector: 'gurpsy-identity-component',
+  templateUrl: 'identity.component.html',
+  styleUrls: ['../../sheet.component.scss']
 })
-export class PointsComponent implements OnInit {
-  public sheet: SheetImpl;
+export class IdentityComponent implements OnInit {
 
+  public sheet: Sheet;
   private modelReadService: ModelReadService;
 
   constructor(modelReadService: ModelReadService) {
@@ -22,5 +20,4 @@ export class PointsComponent implements OnInit {
     this.sheet = this.modelReadService.getSheet();
     this.modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
   }
-
 }

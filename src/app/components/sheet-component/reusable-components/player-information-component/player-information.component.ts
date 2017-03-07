@@ -1,17 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
-import {Sheet} from '../../../../model/sheet';
+import {SheetImpl} from '../../../../model/sheet-impl';
 
 @Component({
-  selector: 'gurpsy-portrait-component',
-  templateUrl: './portrait.component.html',
-  styleUrls: ['../../sheet.component.scss',
-    './portrait.component.scss'
-  ]
+  selector: 'gurpsy-player-information-component',
+  templateUrl: 'player-information.component.html',
+  styleUrls: ['../../sheet.component.scss']
 })
-export class PortraitComponent implements OnInit {
+export class PlayerInformationComponent implements OnInit {
 
-  public sheet: Sheet;
+  public sheet: SheetImpl;
 
   private modelReadService: ModelReadService;
 

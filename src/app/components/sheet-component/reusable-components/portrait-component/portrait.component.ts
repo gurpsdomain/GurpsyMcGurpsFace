@@ -3,13 +3,16 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 import {Sheet} from '../../../../model/sheet';
 
 @Component({
-  selector: 'gurpsy-identity-component',
-  templateUrl: './identity.component.html',
-  styleUrls: ['../../sheet.component.scss']
+  selector: 'gurpsy-portrait-component',
+  templateUrl: 'portrait.component.html',
+  styleUrls: ['../../sheet.component.scss',
+    'portrait.component.scss'
+  ]
 })
-export class IdentityComponent implements OnInit {
+export class PortraitComponent implements OnInit {
 
   public sheet: Sheet;
+
   private modelReadService: ModelReadService;
 
   constructor(modelReadService: ModelReadService) {

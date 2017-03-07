@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {SheetBodyService, SheetBodyContent} from '../../../services/sheet-body-service/sheet-body.service';
+import {SheetBodyService, SheetBodyContent} from '../../../../services/sheet-body-service/sheet-body.service';
 
 @Component({
   selector: 'gurpsy-sheet-body',
-  templateUrl: './sheet-body.component.html',
-  styleUrls: ['../sheet.component.scss']
+  templateUrl: 'sheet-body.component.html',
+  styleUrls: ['../../sheet.component.scss']
 })
 export class SheetBodyComponent {
 

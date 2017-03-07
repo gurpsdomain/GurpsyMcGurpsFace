@@ -3,12 +3,13 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 import {SheetImpl} from '../../../../model/sheet-impl';
 
 @Component({
-  selector: 'gurpsy-player-information-component',
-  templateUrl: './player-information.component.html',
-  styleUrls: ['../../sheet.component.scss']
+  selector: 'gurpsy-points-component',
+  templateUrl: 'points.component.html',
+  styleUrls: ['../../sheet.component.scss',
+    'points.component.scss'
+  ]
 })
-export class PlayerInformationComponent implements OnInit {
-
+export class PointsComponent implements OnInit {
   public sheet: SheetImpl;
 
   private modelReadService: ModelReadService;
@@ -21,4 +22,5 @@ export class PlayerInformationComponent implements OnInit {
     this.sheet = this.modelReadService.getSheet();
     this.modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
   }
+
 }

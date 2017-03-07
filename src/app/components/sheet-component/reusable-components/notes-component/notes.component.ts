@@ -4,7 +4,7 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 
 @Component({
   selector: 'gurpsy-notes-component',
-  templateUrl: './notes.component.html',
+  templateUrl: 'notes.component.html',
   styleUrls: ['../../sheet.component.scss']
 })
 export class NotesComponent implements OnInit {

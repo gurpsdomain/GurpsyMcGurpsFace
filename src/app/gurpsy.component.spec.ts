@@ -5,13 +5,13 @@ import {TranslateModule} from 'ng2-translate';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet-component/sheet.component';
-import {SheetHeaderComponent} from './components/sheet-component/sheet-header-component/sheet-header.component';
-import {PortraitComponent} from './components/sheet-component/sheet-header-component/portrait-component/portrait.component';
-import {IdentityComponent} from './components/sheet-component/sheet-header-component/identity-component/identity.component';
+import {SheetHeaderComponent} from './components/sheet-component/structural-components/sheet-header-component/sheet-header.component';
+import {PortraitComponent} from './components/sheet-component/reusable-components/portrait-component/portrait.component';
+import {IdentityComponent} from './components/sheet-component/reusable-components/identity-component/identity.component';
 // tslint:disable-next-line max-line-length
-import {PlayerInformationComponent} from './components/sheet-component/sheet-header-component/player-information-component/player-information.component';
-import {DescriptionComponent} from './components/sheet-component/sheet-header-component/description-component/description.component';
-import {PointsComponent} from './components/sheet-component/sheet-header-component/points-component/points.component';
+import {PlayerInformationComponent} from './components/sheet-component/reusable-components/player-information-component/player-information.component';
+import {DescriptionComponent} from './components/sheet-component/reusable-components/description-component/description.component';
+import {PointsComponent} from './components/sheet-component/reusable-components/points-component/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {StorageService} from './services/storage-service/storage.service';
 import {ThemeService} from './services/theme-service/theme.service';
@@ -21,14 +21,14 @@ import {JsonService} from './services/json-service/json.service';
 import {LanguageStorageDelegate} from './services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {SheetBodyComponent} from './components/sheet-component/sheet-body-component/sheet-body.component';
-import {NotesComponent} from './components/sheet-component/sheet-body-component/notes-component/notes.component';
-import {AdvantagesComponent} from './components/sheet-component/sheet-body-component/advantages-component/advantages.component';
-import {EquipmentComponent} from './components/sheet-component/sheet-body-component/equipment-component/equipment.component';
-import {MagicComponent} from './components/sheet-component/sheet-body-component/magic-component/magic.component';
-import {SkillsComponent} from './components/sheet-component/sheet-body-component/skills-component/skills.component';
+import {SheetBodyComponent} from './components/sheet-component/structural-components/sheet-body-component/sheet-body.component';
+import {NotesComponent} from './components/sheet-component/reusable-components/notes-component/notes.component';
+import {AdvantagesComponent} from './components/sheet-component/reusable-components/advantages-component/advantages.component';
+import {EquipmentComponent} from './components/sheet-component/reusable-components/equipment-component/equipment.component';
+import {MagicComponent} from './components/sheet-component/reusable-components/magic-component/magic.component';
+import {SkillsComponent} from './components/sheet-component/reusable-components/skills-component/skills.component';
 import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
-import {GeneralComponent} from './components/sheet-component/sheet-body-component/general-component/general.component';
+import {GeneralComponent} from './components/sheet-component/reusable-components/general-component/general.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {

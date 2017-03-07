@@ -1,10 +1,10 @@
 import {SheetComponent} from './sheet.component';
-import {SheetHeaderComponent} from './sheet-header-component/sheet-header.component';
-import {PortraitComponent} from './sheet-header-component/portrait-component/portrait.component';
-import {IdentityComponent} from './sheet-header-component/identity-component/identity.component';
-import {PlayerInformationComponent} from './sheet-header-component/player-information-component/player-information.component';
-import {DescriptionComponent} from './sheet-header-component/description-component/description.component';
-import {PointsComponent} from './sheet-header-component/points-component/points.component';
+import {SheetHeaderComponent} from './structural-components/sheet-header-component/sheet-header.component';
+import {PortraitComponent} from './reusable-components/portrait-component/portrait.component';
+import {IdentityComponent} from './reusable-components/identity-component/identity.component';
+import {PlayerInformationComponent} from './reusable-components/player-information-component/player-information.component';
+import {DescriptionComponent} from './reusable-components/description-component/description.component';
+import {PointsComponent} from './reusable-components/points-component/points.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
@@ -15,14 +15,14 @@ import {StorageService} from '../../services/storage-service/storage.service';
 import {LanguageStorageDelegate} from '../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {ThemeStorageDelegate} from '../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
 import {SheetStorageDelegate} from '../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {SheetBodyComponent} from './sheet-body-component/sheet-body.component';
-import {NotesComponent} from './sheet-body-component/notes-component/notes.component';
-import {AdvantagesComponent} from './sheet-body-component/advantages-component/advantages.component';
-import {EquipmentComponent} from './sheet-body-component/equipment-component/equipment.component';
-import {MagicComponent} from './sheet-body-component/magic-component/magic.component';
-import {SkillsComponent} from './sheet-body-component/skills-component/skills.component';
+import {SheetBodyComponent} from './structural-components/sheet-body-component/sheet-body.component';
+import {NotesComponent} from './reusable-components/notes-component/notes.component';
+import {AdvantagesComponent} from './reusable-components/advantages-component/advantages.component';
+import {EquipmentComponent} from './reusable-components/equipment-component/equipment.component';
+import {MagicComponent} from './reusable-components/magic-component/magic.component';
+import {SkillsComponent} from './reusable-components/skills-component/skills.component';
 import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
-import {GeneralComponent} from './sheet-body-component/general-component/general.component';
+import {GeneralComponent} from './reusable-components/general-component/general.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
