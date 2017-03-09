@@ -25,7 +25,6 @@ md-sidenav-container {
     height: 90px;
     margin-bottom: 20px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
-    color: mat-color($primary, default-contrast);
     background: url(assets/images/day.png);
   }
 
@@ -38,8 +37,6 @@ md-sidenav-container {
 }
 
 md-sidenav-container.night {
-  background: #101822 !important;
-
   .sideNavigationHeader {
     background: url(assets/images/night.png);
   }

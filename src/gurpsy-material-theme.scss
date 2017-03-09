@@ -7,14 +7,28 @@
 @mixin gurpsy-theme($theme) {
   $accent: map-get($theme, accent);
   $primary: map-get($theme, primary);
+  $backgroundMap: map-get($theme, background);
+  $background: map-get($backgroundMap, background);
 
   .sheetComponentHeader {
     background: mat-color($primary);
     color: mat-color($primary, default-contrast);
   }
 
-  .sideNavigationContent button md-icon {
-    color: mat-color($accent);
+  .mat-sidenav-content {
+    background: $background;
+  }
+
+  .sideNavigation {
+    .sideNavigationHeader .avatar img {
+      border: 1px solid mat-color($accent);
+    }
+
+    .sideNavigationContent {
+      button md-icon {
+        color: mat-color($accent);
+      }
+    }
   }
 }
 
@@ -42,8 +56,8 @@
   );
 }
 
-$primary: mat-palette($gurpsy-green, 900);
-$accent: mat-palette($gurpsy-green, 400);
+$primary: mat-palette($gurpsy-day-green, 900);
+$accent: mat-palette($gurpsy-day-green, 600);
 $warn: mat-palette($gurpsy-red, A700);
 
 $theme: gurpsy-light-theme($primary, $accent, $warn);
@@ -58,7 +72,7 @@ $theme: gurpsy-light-theme($primary, $accent, $warn);
 .night {
   $dark-primary: mat-palette($gurpsy-night-light-blue, 900);
   $dark-accent: mat-palette($gurpsy-night-light-blue, 600);
-  $dark-warn: mat-palette($gurpsy-deep-orange);
+  $dark-warn: mat-palette($mat-deep-orange);
 
   $dark-theme: gurpsy-dark-theme($dark-primary, $dark-accent, $dark-warn);
   @include angular-material-theme($dark-theme);
