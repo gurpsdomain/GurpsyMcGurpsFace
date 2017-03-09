@@ -1,33 +1,66 @@
 @import '~@angular/material/core/theming/all-theme';
+@import 'gurpsy-palette';
 
 @include mat-core();
 
+// Mixin to be used to style custom components
 @mixin gurpsy-theme($theme) {
   $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
 
   .sheetComponentHeader {
-    background: mat-color($accent);
-    color: mat-color($accent, default-contrast);
+    background: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+  }
+
+  .sideNavigationContent button md-icon {
+    color: mat-color($accent);
   }
 }
 
-$primary: mat-palette($mat-green, 900);
-$accent: mat-palette($mat-green, 400);
-$warn: mat-palette($mat-red, A700);
+// Creates a container object for a light theme to be given to individual component theme mixins.
+@function gurpsy-light-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $gurpsy-light-theme-foreground,
+    background: $gurpsy-light-theme-background,
+  );
+}
 
-$theme: mat-light-theme($primary, $accent, $warn);
+// Creates a container object for a dark theme to be given to individual component theme mixins.
+@function gurpsy-dark-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: true,
+    foreground: $gurpsy-dark-theme-foreground,
+    background: $gurpsy-dark-theme-background,
+  );
+}
+
+$primary: mat-palette($gurpsy-green, 900);
+$accent: mat-palette($gurpsy-green, 400);
+$warn: mat-palette($gurpsy-red, A700);
+
+$theme: gurpsy-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
 
-.day{
+// Place the day theme behind the .day selector
+.day {
   @include gurpsy-theme($theme);
 }
 
+// Place the night theme behind the .night selector
 .night {
-  $dark-primary: mat-palette($mat-purple, 900);
-  $dark-accent: mat-palette($mat-purple, 500);
-  $dark-warn: mat-palette($mat-deep-orange);
+  $dark-primary: mat-palette($gurpsy-night-light-blue, 900);
+  $dark-accent: mat-palette($gurpsy-night-light-blue, 600);
+  $dark-warn: mat-palette($gurpsy-deep-orange);
 
-  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+  $dark-theme: gurpsy-dark-theme($dark-primary, $dark-accent, $dark-warn);
   @include angular-material-theme($dark-theme);
   @include gurpsy-theme($dark-theme);
 }
