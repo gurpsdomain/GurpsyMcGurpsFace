@@ -3,6 +3,9 @@
 .sheetComponent .sheetComponentBody table {
   border-collapse: collapse;
 
+  td:last-child {
+    text-align: right;
+  }
   tr.last {
     border-bottom: 1pt solid black;
   }

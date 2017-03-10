@@ -32,6 +32,7 @@ import { MagicComponent } from './components/sheet-component/structural-componen
 import { EquipmentComponent } from './components/sheet-component/reusable-components/equipment-component/equipment.component';
 import { AdvantagesComponent } from './components/sheet-component/reusable-components/advantages-component/advantages.component';
 import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
+// tslint:disable-next-line max-line-length
 import { GeneralComponent } from './components/sheet-component/structural-components/sheet-body-component/general-component/general.component';
 import { AttributesComponent } from './components/sheet-component/reusable-components/attributes-component/attributes.component';
 @NgModule({

@@ -5,6 +5,7 @@ import {TranslateModule} from 'ng2-translate';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet-component/sheet.component';
+// tslint:disable-next-line max-line-length
 import {SheetHeaderComponent} from './components/sheet-component/structural-components/sheet-header-component/sheet-header.component';
 import {PortraitComponent} from './components/sheet-component/reusable-components/portrait-component/portrait.component';
 import {IdentityComponent} from './components/sheet-component/reusable-components/identity-component/identity.component';
@@ -28,6 +29,7 @@ import {EquipmentComponent} from './components/sheet-component/reusable-componen
 import {MagicComponent} from './components/sheet-component/structural-components/sheet-body-component/magic-component/magic.component';
 import {SkillsComponent} from './components/sheet-component/reusable-components/skills-component/skills.component';
 import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
+// tslint:disable-next-line max-line-length
 import {GeneralComponent} from './components/sheet-component/structural-components/sheet-body-component/general-component/general.component';
 import {AttributesComponent} from './components/sheet-component/reusable-components/attributes-component/attributes.component';
 

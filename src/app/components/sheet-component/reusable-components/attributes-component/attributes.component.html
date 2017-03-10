@@ -57,8 +57,11 @@
         <td>{{sheet.secondaryCharacteristics.touch}}</td>
       </tr>
       <tr>
-        <td colspan="2">
-          <div class="flex-container">
+        <td class="singleColumn" colspan="2">
+          <div class="flex-container"
+               fxLayout="row"
+               fxLayoutAlign="space-between stretch"
+               fxLayoutWrap="nowrap">
             <div class="flex-item">
               {{ 'SHEET.ATTRIBUTES.THR' | translate }} {{sheet.secondaryCharacteristics.damageThrusting}}
             </div>

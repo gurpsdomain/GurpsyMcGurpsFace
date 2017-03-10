@@ -39,7 +39,7 @@
         text-overflow: ellipsis;
       }
 
-      td:first-child {
+      td:first-child:not(.singleColumn) {
         padding-right: 10px;
       }
     }
