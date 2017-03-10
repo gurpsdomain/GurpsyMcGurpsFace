@@ -150,7 +150,7 @@ $gurpsy-light-theme-background: (
 $gurpsy-dark-theme-background: (
   status-bar: black,
   app-bar: map_get($gurpsy-dark-blue, 500),
-  background: map-get($gurpsy-dark-blue, 700),
+  background: map-get($gurpsy-dark-blue, 800),
   hover: rgba(white, 0.04),
   card: map_get($gurpsy-dark-blue, 600),
   dialog: map_get($gurpsy-dark-blue, 700),
