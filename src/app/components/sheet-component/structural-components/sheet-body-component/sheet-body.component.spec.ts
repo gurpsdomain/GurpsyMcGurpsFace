@@ -19,6 +19,7 @@ import {PointsComponent} from '../../reusable-components/points-component/points
 import {PortraitComponent} from '../../reusable-components/portrait-component/portrait.component';
 import {DescriptionComponent} from '../../reusable-components/description-component/description.component';
 import {AttributesComponent} from '../../reusable-components/attributes-component/attributes.component';
+import {HitLocationComponent} from '../../reusable-components/hit-location-component/hit-location.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -37,7 +38,9 @@ describe('SheetBodyComponent', () => {
         PointsComponent,
         PortraitComponent,
         DescriptionComponent,
-        AttributesComponent],
+        AttributesComponent,
+        HitLocationComponent
+      ],
       imports: [
         TranslateModule.forRoot()
       ],

@@ -12,7 +12,7 @@
   $background: map-get($backgroundMap, background);
   $selectedButton: map-get($backgroundMap, raised-button);
 
-  .sheetComponentHeader {
+  .sheetComponentHeader, .headerRow {
     background: mat-color($primary);
     color: mat-color($primary, default-contrast);
   }

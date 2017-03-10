@@ -14,6 +14,7 @@ import {ThemeStorageDelegate} from '../../../../../services/storage-service/dele
 import {LanguageStorageDelegate} from '../../../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
 import {SheetStorageDelegate} from '../../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {AttributesComponent} from '../../../reusable-components/attributes-component/attributes.component';
+import {HitLocationComponent} from '../../../reusable-components/hit-location-component/hit-location.component';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -26,7 +27,8 @@ describe('GeneralComponent', () => {
         PortraitComponent,
         PointsComponent,
         DescriptionComponent,
-        AttributesComponent
+        AttributesComponent,
+        HitLocationComponent
       ],
       imports: [
         TranslateModule.forRoot()

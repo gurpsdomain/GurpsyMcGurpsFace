@@ -32,6 +32,7 @@ import {SheetBodyService} from './services/sheet-body-service/sheet-body.service
 // tslint:disable-next-line max-line-length
 import {GeneralComponent} from './components/sheet-component/structural-components/sheet-body-component/general-component/general.component';
 import {AttributesComponent} from './components/sheet-component/reusable-components/attributes-component/attributes.component';
+import {HitLocationComponent} from './components/sheet-component/reusable-components/hit-location-component/hit-location.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -53,7 +54,8 @@ describe('GurpsyComponent', () => {
         PointsComponent,
         SideNavigationComponent,
         NotesComponent,
-        AttributesComponent
+        AttributesComponent,
+        HitLocationComponent
       ],
       imports: [
         FormsModule,

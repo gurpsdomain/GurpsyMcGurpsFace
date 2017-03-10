@@ -24,6 +24,7 @@ import {SkillsComponent} from './reusable-components/skills-component/skills.com
 import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
 import {GeneralComponent} from './structural-components/sheet-body-component/general-component/general.component';
 import {AttributesComponent} from './reusable-components/attributes-component/attributes.component';
+import {HitLocationComponent} from './reusable-components/hit-location-component/hit-location.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -48,7 +49,9 @@ describe('SheetComponent', function () {
         DescriptionComponent,
         PointsComponent,
         NotesComponent,
-        AttributesComponent],
+        AttributesComponent,
+        HitLocationComponent
+      ],
       imports: [
         TranslateModule.forRoot()
       ],

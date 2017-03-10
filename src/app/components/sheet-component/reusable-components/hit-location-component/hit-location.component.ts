@@ -3,14 +3,14 @@ import {SheetImpl} from '../../../../model/sheet-impl';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
-  selector: 'gurpsy-attributes-component',
-  templateUrl: './attributes.component.html',
+  selector: 'gurpsy-hit-location-component',
+  templateUrl: './hit-location.component.html',
   styleUrls: [
-    './attributes.component.scss',
+    './hit-location.component.scss',
     '../../sheet.component.scss'
   ]
 })
-export class AttributesComponent implements OnInit {
+export class HitLocationComponent implements OnInit {
 
   public sheet: SheetImpl;
 

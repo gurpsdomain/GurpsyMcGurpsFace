@@ -1,0 +1,24 @@
+@import "../../../../../gurpsy-material-theme";
+
+.sheetComponent .sheetComponentBody {
+  padding: 0px 0px 2px 0px;
+
+  table {
+
+    td {
+      text-align: right;
+    }
+    td:first-child {
+      padding-left: 4px;
+    }
+    td:first-child, td:nth-child(2) {
+      text-align: center;
+    }
+    td:last-child {
+      width: inherit;
+      max-width: inherit;
+      padding-left: 6px;
+      padding-right: 4px;
+    }
+  }
+}
