@@ -29,6 +29,24 @@
   },
   "SHEET": {
     "ADVANTAGES": "Advantages",
+    "ATTRIBUTES": {
+      "ATTRIBUTES": "Attributes",
+      "STRENGTH": "Strength (ST)",
+      "DEXTERITY": "Dexterity (DX)",
+      "INTELLIGENCE": "Intelligence (IQ)",
+      "HEALTH": "Health (HT)",
+      "WILL": "Will",
+      "FREIGHT": "Freight check",
+      "SPEED": "Basic speed",
+      "MOVE": "Basic Move",
+      "PERCEPTION": "Perception",
+      "VISION": "Vision",
+      "HEARING": "Hearing",
+      "TASTE": "Taste & smell",
+      "TOUCH": "Touch",
+      "THR": "thr",
+      "SW": "sw"
+    },
     "DESCRIPTION": {
       "AGE": "Leeftijd:",
       "BIRTHDAY": "Verjaardag:",
