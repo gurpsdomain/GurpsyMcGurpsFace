@@ -10,7 +10,7 @@ export class SideNavigationComponent {
 
   @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
   public sheetBodyComponents = SheetBodyContent;
-  public sheetBodyContent: SheetBodyContent;
+  public sheetBodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
 
   private sheetBodyService: SheetBodyService;
 

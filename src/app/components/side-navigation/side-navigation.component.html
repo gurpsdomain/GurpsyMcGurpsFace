@@ -12,6 +12,7 @@
   <div class="sideNavigationContent">
     <button md-button
             (click)="onSheetBodyClick(sheetBodyComponents.GENERAL)"
+            [class.selected]="sheetBodyContent == sheetBodyComponents.GENERAL"
             class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
@@ -20,6 +21,7 @@
     </button>
     <button md-button
             (click)="onSheetBodyClick(sheetBodyComponents.ADVANTAGES)"
+            [class.selected]="sheetBodyContent == sheetBodyComponents.ADVANTAGES"
             class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
@@ -28,6 +30,7 @@
     </button>
     <button md-button
             (click)="onSheetBodyClick(sheetBodyComponents.SKILLS)"
+            [class.selected]="sheetBodyContent == sheetBodyComponents.SKILLS"
             class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
@@ -36,6 +39,7 @@
     </button>
     <button md-button
             (click)="onSheetBodyClick(sheetBodyComponents.MAGIC)"
+            [class.selected]="sheetBodyContent == sheetBodyComponents.MAGIC"
             class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
@@ -44,6 +48,7 @@
     </button>
     <button md-button
             (click)="onSheetBodyClick(sheetBodyComponents.EQUIPMENT)"
+            [class.selected]="sheetBodyContent == sheetBodyComponents.EQUIPMENT"
             class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
@@ -52,6 +57,7 @@
     </button>
     <button md-button
             (click)="onSheetBodyClick(sheetBodyComponents.NOTES)"
+            [class.selected]="sheetBodyContent == sheetBodyComponents.NOTES"
             class="sideNavigationContentLine flex-container"
             fxLayoutAlign="space-between stretch"
             fxLayoutWrap="nowrap">
