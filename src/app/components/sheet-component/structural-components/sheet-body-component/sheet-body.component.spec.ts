@@ -5,9 +5,9 @@ import {TranslateModule} from 'ng2-translate';
 import {NotesComponent} from '../../reusable-components/notes-component/notes.component';
 import {AdvantagesComponent} from '../../reusable-components/advantages-component/advantages.component';
 import {EquipmentComponent} from '../../reusable-components/equipment-component/equipment.component';
-import {MagicComponent} from '../../reusable-components/magic-component/magic.component';
+import {MagicComponent} from './magic-component/magic.component';
 import {SkillsComponent} from '../../reusable-components/skills-component/skills.component';
-import {GeneralComponent} from '../../reusable-components/general-component/general.component';
+import {GeneralComponent} from './general-component/general.component';
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 import {JsonService} from '../../../../services/json-service/json.service';
@@ -18,6 +18,7 @@ import {SheetBodyService} from '../../../../services/sheet-body-service/sheet-bo
 import {PointsComponent} from '../../reusable-components/points-component/points.component';
 import {PortraitComponent} from '../../reusable-components/portrait-component/portrait.component';
 import {DescriptionComponent} from '../../reusable-components/description-component/description.component';
+import {AttributesComponent} from '../../reusable-components/attributes-component/attributes.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -35,7 +36,8 @@ describe('SheetBodyComponent', () => {
         SkillsComponent,
         PointsComponent,
         PortraitComponent,
-        DescriptionComponent],
+        DescriptionComponent,
+        AttributesComponent],
       imports: [
         TranslateModule.forRoot()
       ],

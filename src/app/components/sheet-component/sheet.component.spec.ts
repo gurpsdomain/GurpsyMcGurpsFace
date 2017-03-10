@@ -19,10 +19,11 @@ import {SheetBodyComponent} from './structural-components/sheet-body-component/s
 import {NotesComponent} from './reusable-components/notes-component/notes.component';
 import {AdvantagesComponent} from './reusable-components/advantages-component/advantages.component';
 import {EquipmentComponent} from './reusable-components/equipment-component/equipment.component';
-import {MagicComponent} from './reusable-components/magic-component/magic.component';
+import {MagicComponent} from './structural-components/sheet-body-component/magic-component/magic.component';
 import {SkillsComponent} from './reusable-components/skills-component/skills.component';
 import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
-import {GeneralComponent} from './reusable-components/general-component/general.component';
+import {GeneralComponent} from './structural-components/sheet-body-component/general-component/general.component';
+import {AttributesComponent} from './reusable-components/attributes-component/attributes.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -46,7 +47,8 @@ describe('SheetComponent', function () {
         PlayerInformationComponent,
         DescriptionComponent,
         PointsComponent,
-        NotesComponent],
+        NotesComponent,
+        AttributesComponent],
       imports: [
         TranslateModule.forRoot()
       ],

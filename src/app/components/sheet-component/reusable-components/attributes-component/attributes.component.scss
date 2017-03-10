@@ -1,0 +1,10 @@
+@import "../../../../../gurpsy-material-theme";
+
+.sheetComponent .sheetComponentBody table {
+  border-collapse: collapse;
+
+  tr.last {
+    border-bottom: 1pt solid black;
+  }
+}
+

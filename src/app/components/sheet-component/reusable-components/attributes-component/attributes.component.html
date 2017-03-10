@@ -1,0 +1,73 @@
+<div class="sheetComponent">
+  <div class="sheetComponentHeader">
+    {{ 'SHEET.ATTRIBUTES.ATTRIBUTES' | translate }}
+  </div>
+  <div class="sheetComponentBody">
+    <table>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.STRENGTH' | translate }}</td>
+        <td>{{sheet.attributes.strength}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.DEXTERITY' | translate }}</td>
+        <td>{{sheet.attributes.dexterity}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.INTELLIGENCE' | translate }}</td>
+        <td>{{sheet.attributes.intelligence}}</td>
+      </tr>
+      <tr class="last">
+        <td>{{ 'SHEET.ATTRIBUTES.HEALTH' | translate }}</td>
+        <td>{{sheet.attributes.health}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.WILL' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.will}}</td>
+      </tr>
+      <tr class="last">
+        <td>{{ 'SHEET.ATTRIBUTES.FRIGHT' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.frightCheck}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.SPEED' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.basicSpeed}}</td>
+      </tr>
+      <tr class="last">
+        <td>{{ 'SHEET.ATTRIBUTES.MOVE' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.basicMove}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.PERCEPTION' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.perception}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.VISION' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.vision}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.HEARING' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.hearing}}</td>
+      </tr>
+      <tr>
+        <td>{{ 'SHEET.ATTRIBUTES.TASTE' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.tasteAndSmell}}</td>
+      </tr>
+      <tr class="last">
+        <td>{{ 'SHEET.ATTRIBUTES.TOUCH' | translate }}</td>
+        <td>{{sheet.secondaryCharacteristics.touch}}</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="flex-container">
+            <div class="flex-item">
+              {{ 'SHEET.ATTRIBUTES.THR' | translate }} {{sheet.secondaryCharacteristics.damageThrusting}}
+            </div>
+            <div class="flex-item">
+              {{ 'SHEET.ATTRIBUTES.SW' | translate }} {{sheet.secondaryCharacteristics.damageSwinging}}
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
