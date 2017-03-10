@@ -36,7 +36,7 @@
       "INTELLIGENCE": "Intelligence (IQ)",
       "HEALTH": "Health (HT)",
       "WILL": "Will",
-      "FRIGHT": "Freight check",
+      "FREIGHT": "Freight check",
       "SPEED": "Basic speed",
       "MOVE": "Basic Move",
       "PERCEPTION": "Perception",
@@ -48,7 +48,7 @@
       "SW": "sw"
     },
     "DESCRIPTION": {
-      "AGE": "Hoe lang je al leeft:",
+      "AGE": "Leeftijd:",
       "BIRTHDAY": "Verjaardag:",
       "DESCRIPTION": "Omschrijving",
       "EYES": "Ogen:",
