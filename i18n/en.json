@@ -70,6 +70,25 @@
       "TITLE": "Title:",
       "RELIGION": "Religion:"
     },
+    "HIT_LOCATION": {
+      "HIT_LOCATION": "Hit location",
+      "EYE": "Eye",
+      "SKULL": "Skull",
+      "FACE": "Face",
+      "RIGHT_LEG": "Right leg",
+      "RIGHT_ARM": "Right arm",
+      "TORSO": "Torso",
+      "GROIN": "Groin",
+      "LEFT_ARM": "Left arm",
+      "LEFT_LEG": "Left leg",
+      "HAND": "Hand",
+      "FOOT": "Foot",
+      "NECK": "Neck",
+      "VITALS": "Vitals",
+      "ROLL": "Roll",
+      "WHERE": "Where",
+      "DR" : "DR"
+    },
     "NOTES": "Notes",
     "PLAYER_INFORMATION": {
       "PLAYER_INFORMATION": "Player Information",
