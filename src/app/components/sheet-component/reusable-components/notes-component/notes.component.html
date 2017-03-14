@@ -3,6 +3,9 @@
     {{ 'SHEET.NOTES' | translate }}
   </div>
   <div class="sheetComponentBody">
-    Notes body
+    <div *ngFor="let note of sheet.notes;" class="note">
+      <div class="noteHeader">{{note.name}}</div>
+      <div class="noteBody">{{note.note}}</div>
+    </div>
   </div>
 </div>

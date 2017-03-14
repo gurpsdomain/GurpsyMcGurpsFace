@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../../../../model/sheet';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
   selector: 'gurpsy-notes-component',
   templateUrl: 'notes.component.html',
-  styleUrls: ['../../sheet.component.scss']
+  styleUrls: [
+    './notes.component.scss',
+    '../../sheet.component.scss'
+  ]
 })
 export class NotesComponent implements OnInit {
 
