@@ -110,7 +110,14 @@
     "PORTRAIT": {
       "PORTRAIT": "Portret"
     },
-    "SKILLS": "Skills",
+    "SKILLS": {
+      "SKILLS": "Skills",
+      "SKILL": "Skill",
+      "SL": "SL",
+      "RSL": "RSL",
+      "PTS": "Pts",
+      "REF": "Ref"
+    },
     "SPELLS": "Spreuken"
   },
   "SUBJECT": {

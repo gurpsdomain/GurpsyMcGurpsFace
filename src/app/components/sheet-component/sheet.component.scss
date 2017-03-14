@@ -44,4 +44,11 @@
       }
     }
   }
+  table.headerRowTable {
+    tr:nth-child(2) {
+      td {
+        padding-top: 6px;
+      }
+    }
+  }
 }
