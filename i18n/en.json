@@ -87,7 +87,7 @@
       "VITALS": "Vitals",
       "ROLL": "Roll",
       "WHERE": "Where",
-      "DR" : "DR"
+      "DR": "DR"
     },
     "NOTES": "Notes",
     "PLAYER_INFORMATION": {
@@ -110,7 +110,14 @@
     "PORTRAIT": {
       "PORTRAIT": "Portrait"
     },
-    "SKILLS": "Skills",
+    "SKILLS": {
+      "SKILLS": "Skills",
+      "SKILL": "Skill",
+      "SL": "SL",
+      "RSL": "RSL",
+      "PTS": "Pts",
+      "REF": "Ref"
+    },
     "SPELLS": "Spells"
   },
   "SUBJECT": {
