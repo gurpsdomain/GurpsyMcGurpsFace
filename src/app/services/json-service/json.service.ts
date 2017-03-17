@@ -33,10 +33,10 @@ export class JsonService {
    */
   public parseFile(file: File): Promise<Sheet> {
     return new Promise((resolve, reject) => {
-        let fileReader = new FileReader();
+        const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            let sheet: Sheet = this.parseJsonSheet(fileReader.result);
+            const sheet: Sheet = this.parseJsonSheet(fileReader.result);
             resolve(sheet);
           } else {
             reject();

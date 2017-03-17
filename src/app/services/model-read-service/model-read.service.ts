@@ -55,10 +55,10 @@ export class ModelReadService {
     let validReadModel = true;
 
     try {
-      let description: Description = sheet.metaData.description;
-      let identity: Identity = sheet.metaData.identity;
-      let playerInformation: PlayerInformation = sheet.metaData.playerInformation;
-      let points: Points = sheet.points;
+      const description: Description = sheet.metaData.description;
+      const identity: Identity = sheet.metaData.identity;
+      const playerInformation: PlayerInformation = sheet.metaData.playerInformation;
+      const points: Points = sheet.points;
 
       if (!description || !identity || !playerInformation || !points) {
         validReadModel = false;
@@ -98,7 +98,7 @@ export class ModelReadService {
   }
 
   private initEmptySheet(): void {
-    let emptySheet: Sheet = new SheetImpl();
+    const emptySheet: Sheet = new SheetImpl();
     this.setSheet(emptySheet);
   }
 }

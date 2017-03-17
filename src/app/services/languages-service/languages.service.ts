@@ -67,7 +67,7 @@ export class LanguagesService {
 
   private changeLanguage(newLocale: string): void {
     let validLocale = false;
-    for (let locale of LanguagesService.AVAILABLE_LANGUAGES) {
+    for (const locale of LanguagesService.AVAILABLE_LANGUAGES) {
       if (locale === newLocale) {
         this.translateService.use(newLocale);
         validLocale = true;

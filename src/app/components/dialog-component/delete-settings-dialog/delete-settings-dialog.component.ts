@@ -51,7 +51,7 @@ export class DeleteSettingsDialogComponent {
   private addToStoredSheets(sheet: Sheet): void {
     let add = true;
 
-    for (let storedSheet of this.sheetsToDelete) {
+    for (const storedSheet of this.sheetsToDelete) {
       if (storedSheet.metaData.identity.name === sheet.metaData.identity.name) {
         add = false;
       }
@@ -63,9 +63,9 @@ export class DeleteSettingsDialogComponent {
   }
 
   private removeFromStoredSheets(sheet: Sheet): void {
-    let newStoredSheets: Sheet[] = [];
+    const newStoredSheets: Sheet[] = [];
 
-    for (let storedSheet of this.sheetsToDelete) {
+    for (const storedSheet of this.sheetsToDelete) {
       if (storedSheet.metaData.identity.name !== sheet.metaData.identity.name) {
         newStoredSheets.push(storedSheet);
       }

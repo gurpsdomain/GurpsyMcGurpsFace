@@ -36,7 +36,7 @@ export class ThemeStorageDelegate {
    * @returns theme: Promise<String>
    */
   public retrieve(): Promise<string> {
-    let theme: string = localStorage.getItem(this.getStorageKey());
+    const theme: string = localStorage.getItem(this.getStorageKey());
 
     if (theme) {
       return Promise.resolve(theme);

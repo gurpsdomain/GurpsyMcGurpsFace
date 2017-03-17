@@ -35,7 +35,7 @@ export class SheetStorageDelegate {
    * @param sheet: Sheet
    */
   public setCurrent(sheet: Sheet): void {
-    let sheets: Sheets = this.getSheets();
+    const sheets: Sheets = this.getSheets();
 
     if (!this.isCurrent(sheets, sheet)) {
       this.addCurrentAsPrevious(sheets);
@@ -53,7 +53,7 @@ export class SheetStorageDelegate {
    * @returns Promise<Sheet> or an empty promise if there is no current sheet.
    */
   public retrieveCurrent(): Promise<Sheet> {
-    let current: Sheet = this.getCurrentSheet();
+    const current: Sheet = this.getCurrentSheet();
 
     return Promise.resolve(current);
   }
@@ -64,7 +64,7 @@ export class SheetStorageDelegate {
    * @returns Promise<Sheet[]> or an empty promise if there are no previously opened sheets.
    */
   public retrievePrevious(): Promise<Sheet[]> {
-    let previous: Sheet[] = this.getPreviouslyOpenedSheets();
+    const previous: Sheet[] = this.getPreviouslyOpenedSheets();
 
     return Promise.resolve(previous);
   }
@@ -76,8 +76,8 @@ export class SheetStorageDelegate {
    *          opened sheets.
    */
   public retrieveAll(): Promise<Sheet[]> {
-    let current: Sheet = this.getCurrentSheet();
-    let all: Sheet[] = this.getPreviouslyOpenedSheets();
+    const current: Sheet = this.getCurrentSheet();
+    const all: Sheet[] = this.getPreviouslyOpenedSheets();
     all.push(current);
 
     return Promise.resolve(all);
@@ -88,13 +88,13 @@ export class SheetStorageDelegate {
    * @param sheetsToRemove : Sheet[]
    */
   public remove(sheetsToRemove: Sheet[]): void {
-    let previouslyOpenedSheets = this.getPreviouslyOpenedSheets();
+    const previouslyOpenedSheets = this.getPreviouslyOpenedSheets();
 
-    let newSheetList: Sheet[] = [];
+    const newSheetList: Sheet[] = [];
 
-    for (let sheet of previouslyOpenedSheets) {
+    for (const sheet of previouslyOpenedSheets) {
       let remove = false;
-      for (let sheetToRemove of sheetsToRemove) {
+      for (const sheetToRemove of sheetsToRemove) {
         if (sheet.metaData.identity.name === sheetToRemove.metaData.identity.name) {
           remove = true;
         }
@@ -105,23 +105,22 @@ export class SheetStorageDelegate {
       }
     }
 
-    let sheets: Sheets = this.getSheets();
+    const sheets: Sheets = this.getSheets();
     sheets.previous = newSheetList;
 
     this.persist(sheets);
   }
 
   private persist(sheets: Sheets): void {
-    let jsonSheets = JSON.stringify(sheets);
-
+    const jsonSheets = JSON.stringify(sheets);
 
     localStorage.setItem(this.getStorageKey(), jsonSheets);
   }
 
   private removeFromPrevious(sheets: Sheets, sheet: Sheet): Sheets {
-    let newSheets: Sheet[] = [];
+    const newSheets: Sheet[] = [];
 
-    for (let sheetIterator of sheets.previous) {
+    for (const sheetIterator of sheets.previous) {
       if (sheetIterator && sheetIterator.metaData.identity.name !== sheet.metaData.identity.name) {
         newSheets.push(sheetIterator);
       }
@@ -140,7 +139,7 @@ export class SheetStorageDelegate {
   }
 
   private getSheets(): Sheets {
-    let sheets: string = localStorage.getItem(this.getStorageKey());
+    const sheets: string = localStorage.getItem(this.getStorageKey());
 
     if (sheets) {
       return this.jsonService.parseJsonSheets(sheets);

@@ -36,7 +36,7 @@ export class LanguageStorageDelegate {
    * @returns locale: Promise<String>
    */
   public retrieve(): Promise<string> {
-    let locale: string = localStorage.getItem(this.getStorageKey());
+    const locale: string = localStorage.getItem(this.getStorageKey());
 
     if (locale) {
       return Promise.resolve(locale);

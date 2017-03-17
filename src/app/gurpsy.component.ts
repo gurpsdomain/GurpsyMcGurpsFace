@@ -15,8 +15,8 @@ import {Sheet} from './model/sheet';
 })
 export class GurpsyComponent implements OnInit {
 
-  private static DIALOG_WIDTH: string = '400px';
-  private static SNACKBAR_DURATION_TIME: number = 4000;
+  private static DIALOG_WIDTH = '400px';
+  private static SNACKBAR_DURATION_TIME = 4000;
 
   private themeService: ThemeService;
   private languageService: LanguagesService;
@@ -48,7 +48,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   public onThemeChange(): void {
-    let theme = this.theme === ThemeService.THEME_NIGHT ? ThemeService.THEME_DAY :
+    const theme = this.theme === ThemeService.THEME_NIGHT ? ThemeService.THEME_DAY :
       ThemeService.THEME_NIGHT;
     this.setTheme(theme);
     this.themeService.setTheme(theme);
@@ -56,7 +56,7 @@ export class GurpsyComponent implements OnInit {
 
   public onLanguageChange(): void {
     this.isDutch = !this.isDutch;
-    let language = this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH;
+    const language = this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH;
     this.languageService.setLanguage(language);
   }
 

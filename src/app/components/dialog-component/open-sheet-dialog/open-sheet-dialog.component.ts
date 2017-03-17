@@ -68,7 +68,7 @@ export class OpenSheetDialogComponent {
   }
 
   private handleFileSelected() {
-    let sheet: File = this.selectedFile[0];
+    const sheet: File = this.selectedFile[0];
     this.modelReadService.loadSheetFromFile(sheet);
   }
 

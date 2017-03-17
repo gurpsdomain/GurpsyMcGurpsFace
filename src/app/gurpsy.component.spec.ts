@@ -77,8 +77,8 @@ describe('GurpsyComponent', () => {
   });
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(GurpsyComponent);
-    let app = fixture.debugElement.componentInstance;
+    const fixture = TestBed.createComponent(GurpsyComponent);
+    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 });

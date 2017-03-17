@@ -20,29 +20,29 @@ import {
 } from './sheet';
 
 export class PlayerInformationImpl implements PlayerInformation {
-  player: string = '';
-  campaign: string = '';
-  createdOn: string = '';
+  player = '';
+  campaign = '';
+  createdOn = '';
 }
 
 export class IdentityImpl implements Identity {
-  name: string = '';
-  title: string = '';
-  religion: string = '';
+  name = '';
+  title = '';
+  religion = '';
 }
 
 export class DescriptionImpl implements Description {
-  race: string = '';
-  gender: string = '';
-  age: string = '';
-  birthday: string = '';
-  height: string = '';
-  weight: string = '';
-  TL: string = '';
-  hair: string = '';
-  eyes: string = '';
-  skin: string = '';
-  hand: string = '';
+  race = '';
+  gender = '';
+  age = '';
+  birthday = '';
+  height = '';
+  weight = '';
+  TL = '';
+  hair = '';
+  eyes = '';
+  skin = '';
+  hand = '';
 }
 
 export class MetaDataImpl implements MetaData {
@@ -52,112 +52,112 @@ export class MetaDataImpl implements MetaData {
 }
 
 export class PointsImpl implements Points {
-  total: number = 0;
-  advantages: number = 0;
-  disadvantages: number = 0;
-  skills: number = 0;
-  spells: number = 0;
-  unspent: number = 0;
+  total = 0;
+  advantages = 0;
+  disadvantages = 0;
+  skills = 0;
+  spells = 0;
+  unspent = 0;
 }
 
 export class AttributesImpl implements Attributes {
-  strength: number = 0;
-  dexterity: number = 0;
-  health: number = 0;
-  intelligence: number = 0;
+  strength = 0;
+  dexterity = 0;
+  health = 0;
+  intelligence = 0;
 }
 
 export class BasicLiftImpl implements BasicLift {
-  imperial: string = '';
-  realMetric: string = '';
-  gameMetric: string = '';
+  imperial = '';
+  realMetric = '';
+  gameMetric = '';
 }
 
 export class SecondaryCharacteristicsImpl implements SecondaryCharacteristics {
-  sizeModifier: number = 0;
-  will: number = 0;
-  perception: number = 0;
-  vision: number = 0;
-  hearing: number = 0;
-  tasteAndSmell: number = 0;
-  touch: number = 0;
+  sizeModifier = 0;
+  will = 0;
+  perception = 0;
+  vision = 0;
+  hearing = 0;
+  tasteAndSmell = 0;
+  touch = 0;
   basicLift: BasicLift = new BasicLiftImpl();
-  hitPoints: number = 0;
-  fatiguePoints: number = 0;
-  basicSpeed: number = 0;
-  basicMove: number = 0;
-  damageSwinging: string = '';
-  damageThrusting: string = '';
-  frightCheck: number = 0;
+  hitPoints = 0;
+  fatiguePoints = 0;
+  basicSpeed = 0;
+  basicMove = 0;
+  damageSwinging = '';
+  damageThrusting = '';
+  frightCheck = 0;
 }
 
 export class DamageResistancesImpl implements DamageResistances {
-  eye: number = 0;
-  skull: number = 0;
-  face: number = 0;
-  rightLeg: number = 0;
-  rightArm: number = 0;
-  torso: number = 0;
-  groin: number = 0;
-  leftArm: number = 0;
-  leftLeg: number = 0;
-  hand: number = 0;
-  foot: number = 0;
-  neck: number = 0;
-  vitals: number = 0;
+  eye = 0;
+  skull = 0;
+  face = 0;
+  rightLeg = 0;
+  rightArm = 0;
+  torso = 0;
+  groin = 0;
+  leftArm = 0;
+  leftLeg = 0;
+  hand = 0;
+  foot = 0;
+  neck = 0;
+  vitals = 0;
 }
 
 export class ModifierImpl implements Modifier {
-  name: string = '';
-  pageReference: string = '';
-  note: string = '';
+  name = '';
+  pageReference = '';
+  note = '';
 }
 
 export class AdvantageImpl implements Advantage {
-  name: string = '';
-  points: number = 0;
-  pageReference: string = '';
+  name = '';
+  points = 0;
+  pageReference = '';
   modifiers: Modifier[] = [];
-  level?: number = 0;
+  level? = 0;
 }
 
 export class DisadvantageImpl implements Disadvantage {
-  name: string = '';
-  points: number = 0;
-  pageReference: string = '';
+  name = '';
+  points = 0;
+  pageReference = '';
   modifiers: any[] = [];
 }
 
 export class SkillImpl implements Skill {
-  name: string = '';
-  points: number = 0;
-  level: number = 0;
-  pageReference: string = '';
-  controllingAttribute: string = '';
-  difficultyLevel: string = '';
+  name = '';
+  points = 0;
+  level = 0;
+  pageReference = '';
+  controllingAttribute = '';
+  difficultyLevel = '';
 }
 
 export class SpellImpl implements Spell {
-  name: string = '';
-  points: number = 0;
-  level: number = 0;
-  difficultyLevel: string = '';
-  castingTime: string = '';
-  colleges: string = '';
-  powerSource: string = '';
-  duration: string = '';
-  maintenanceCost: string = '';
-  spellClasses: string = '';
-  pageReference: string = '';
+  name = '';
+  points = 0;
+  level = 0;
+  difficultyLevel = '';
+  castingTime = '';
+  colleges = '';
+  powerSource = '';
+  duration = '';
+  maintenanceCost = '';
+  spellClasses = '';
+  pageReference = '';
 }
 
 export class EquipmentImpl implements Equipment {
-  name: string = '';
+  name = '';
 }
 
 export class NoteImpl implements Note {
-  name: string = '';
-  note: string = '';
+  name = '';
+  note = '';
 }
 
 export class SheetImpl implements Sheet {
