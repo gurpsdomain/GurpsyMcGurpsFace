@@ -28,7 +28,13 @@
     "SHEET_LOADED": "Character Sheet geladen: {{value}}"
   },
   "SHEET": {
-    "ADVANTAGES": "Advantages",
+    "ADVANTAGES": {
+      "ADVANTAGES": "Advantages",
+      "DISADVANTAGES": "Disadvantages",
+      "LEVEL": "Lvl",
+      "PTS": "Pts",
+      "REF": "Ref"
+    },
     "ATTRIBUTES": {
       "ATTRIBUTES": "Attributes",
       "STRENGTH": "Strength (ST)",
