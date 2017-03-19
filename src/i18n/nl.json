@@ -95,6 +95,19 @@
       "WHERE": "Waar",
       "DR": "DR"
     },
+    "MAGIC": {
+      "SPELLS": "Spells",
+      "POINTS": "Pts",
+      "LEVEL": "Lvl",
+      "DIFFICULTY_LEVEL": "?",
+      "CASTING_TIME": "?",
+      "COLLEGES": "?",
+      "POWER_SOURCE": "?",
+      "DURATION": "?",
+      "MAINTENANCE_COST": "?",
+      "SPELL_CLASSES": "?",
+      "PAGE_REFERENCE": "Ref"
+    },
     "NOTES": "Notities",
     "PLAYER_INFORMATION": {
       "PLAYER_INFORMATION": "Speler Informatie",
@@ -123,8 +136,7 @@
       "RSL": "RSL",
       "PTS": "Pts",
       "REF": "Ref"
-    },
-    "SPELLS": "Spreuken"
+    }
   },
   "SUBJECT": {
     "GENERAL": "Algemeen",

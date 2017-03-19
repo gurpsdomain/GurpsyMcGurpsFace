@@ -1,0 +1,32 @@
+<div class="sheetComponent">
+  <div class="sheetComponentBody">
+    <table class="headerRowTable">
+      <tr class="headerRow">
+        <td>{{ 'SHEET.MAGIC.SPELLS' | translate }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let spell of sheet.spells;">
+        <td>{{spell.name}}</td>
+        <td>{{spell.points}}</td>
+        <td>{{spell.level}}</td>
+        <td>{{spell.difficultyLevel}}</td>
+        <td>{{spell.castingTime}}</td>
+        <td>{{spell.colleges}}</td>
+        <td>{{spell.powerSource}}</td>
+        <td>{{spell.duration}}</td>
+        <td>{{spell.maintenanceCost}}</td>
+        <td>{{spell.spellClasses}}</td>
+        <td>{{spell.pageReference}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
