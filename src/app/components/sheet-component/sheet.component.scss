@@ -45,6 +45,12 @@
     }
   }
   table.headerRowTable {
+    tr:first-child {
+      td {
+        padding-bottom: 2px;
+        padding-top: 2px;
+      }
+    }
     tr:nth-child(2) {
       td {
         padding-top: 6px;
@@ -52,3 +58,4 @@
     }
   }
 }
+

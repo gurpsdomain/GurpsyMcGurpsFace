@@ -1,5 +1,5 @@
 <div class="sheetComponent">
-  <div class="sheetComponentBody">
+  <div class="sheetComponentBody headerLess">
     <table class="headerRowTable">
       <tr class="headerRow">
         <td>{{ 'SHEET.MAGIC.SPELLS' | translate }}</td>
@@ -7,8 +7,12 @@
         <td>{{ 'SHEET.MAGIC.LEVEL' | translate }}</td>
         <td>{{ 'SHEET.MAGIC.DIFFICULTY_LEVEL' | translate }}</td>
         <td>{{ 'SHEET.MAGIC.CASTING_TIME' | translate }}</td>
-        <td>{{ 'SHEET.MAGIC.COLLEGES' | translate }}</td>
-        <td>{{ 'SHEET.MAGIC.POWER_SOURCE' | translate }}</td>
+        <td fxHide="false"
+            fxHide.xs>{{ 'SHEET.MAGIC.COLLEGES' | translate }}
+        </td>
+        <td fxHide="false"
+            fxHide.xs>{{ 'SHEET.MAGIC.POWER_SOURCE' | translate }}
+        </td>
         <td>{{ 'SHEET.MAGIC.DURATION' | translate }}</td>
         <td>{{ 'SHEET.MAGIC.MAINTENANCE_COST' | translate }}</td>
         <td>{{ 'SHEET.MAGIC.SPELL_CLASSES' | translate }}</td>
@@ -20,8 +24,12 @@
         <td>{{spell.level}}</td>
         <td>{{spell.difficultyLevel}}</td>
         <td>{{spell.castingTime}}</td>
-        <td>{{spell.colleges}}</td>
-        <td>{{spell.powerSource}}</td>
+        <td fxHide="false"
+            fxHide.xs> {{spell.colleges}}
+        </td>
+        <td fxHide="false"
+            fxHide.xs>{{spell.powerSource}}
+        </td>
         <td>{{spell.duration}}</td>
         <td>{{spell.maintenanceCost}}</td>
         <td>{{spell.spellClasses}}</td>
