@@ -3,16 +3,16 @@
     <table class="headerRowTable">
       <tr class="headerRow">
         <td>{{ 'SHEET.MAGIC.SPELLS' | translate }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ 'SHEET.MAGIC.POINTS' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.LEVEL' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.DIFFICULTY_LEVEL' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.CASTING_TIME' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.COLLEGES' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.POWER_SOURCE' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.DURATION' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.MAINTENANCE_COST' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.SPELL_CLASSES' | translate }}</td>
+        <td>{{ 'SHEET.MAGIC.PAGE_REFERENCE' | translate }}</td>
       </tr>
       <tr *ngFor="let spell of sheet.spells;">
         <td>{{spell.name}}</td>
