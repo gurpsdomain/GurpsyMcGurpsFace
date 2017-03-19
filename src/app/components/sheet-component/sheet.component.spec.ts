@@ -19,7 +19,7 @@ import {SheetBodyComponent} from './structural-components/sheet-body-component/s
 import {NotesComponent} from './reusable-components/notes-component/notes.component';
 import {AdvantagesComponent} from './reusable-components/advantages-component/advantages.component';
 import {EquipmentComponent} from './reusable-components/equipment-component/equipment.component';
-import {MagicComponent} from './reusable-components/magic-component/magic.component';
+import {SpellsComponent} from './reusable-components/spells-component/spells.component';
 import {SkillsComponent} from './reusable-components/skills-component/skills.component';
 import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
 import {GeneralComponent} from './structural-components/sheet-body-component/general-component/general.component';
@@ -42,7 +42,7 @@ describe('SheetComponent', function () {
         AdvantagesComponent,
         DisadvantagesComponent,
         EquipmentComponent,
-        MagicComponent,
+        SpellsComponent,
         SkillsComponent,
         SheetComponent,
         SheetHeaderComponent,

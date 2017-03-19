@@ -3,14 +3,14 @@ import {Sheet} from '../../../../model/sheet';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
-  selector: 'gurpsy-magic-component',
-  templateUrl: 'magic.component.html',
+  selector: 'gurpsy-spells-component',
+  templateUrl: 'spells.component.html',
   styleUrls: [
-    './magic.component.scss',
+    './spells.component.scss',
     '../../sheet.component.scss'
   ]
 })
-export class MagicComponent implements OnInit {
+export class SpellsComponent implements OnInit {
 
   public sheet: Sheet;
   private modelReadService: ModelReadService;

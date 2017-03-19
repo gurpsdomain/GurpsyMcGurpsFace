@@ -5,7 +5,7 @@ import {TranslateModule} from 'ng2-translate';
 import {NotesComponent} from '../../reusable-components/notes-component/notes.component';
 import {AdvantagesComponent} from '../../reusable-components/advantages-component/advantages.component';
 import {EquipmentComponent} from '../../reusable-components/equipment-component/equipment.component';
-import {MagicComponent} from '../../reusable-components/magic-component/magic.component';
+import {SpellsComponent} from '../../reusable-components/spells-component/spells.component';
 import {SkillsComponent} from '../../reusable-components/skills-component/skills.component';
 import {GeneralComponent} from './general-component/general.component';
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
@@ -36,7 +36,7 @@ describe('SheetBodyComponent', () => {
         AdvantagesComponent,
         DisadvantagesComponent,
         EquipmentComponent,
-        MagicComponent,
+        SpellsComponent,
         NotesComponent,
         SkillsComponent,
         PointsComponent,

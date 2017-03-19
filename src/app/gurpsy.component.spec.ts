@@ -26,7 +26,7 @@ import {SheetBodyComponent} from './components/sheet-component/structural-compon
 import {NotesComponent} from './components/sheet-component/reusable-components/notes-component/notes.component';
 import {AdvantagesComponent} from './components/sheet-component/reusable-components/advantages-component/advantages.component';
 import {EquipmentComponent} from './components/sheet-component/reusable-components/equipment-component/equipment.component';
-import {MagicComponent} from './components/sheet-component/reusable-components/magic-component/magic.component';
+import {SpellsComponent} from './components/sheet-component/reusable-components/spells-component/spells.component';
 import {SkillsComponent} from './components/sheet-component/reusable-components/skills-component/skills.component';
 import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
 // tslint:disable-next-line max-line-length
@@ -45,7 +45,7 @@ describe('GurpsyComponent', () => {
         AdvantagesComponent,
         DisadvantagesComponent,
         EquipmentComponent,
-        MagicComponent,
+        SpellsComponent,
         SkillsComponent,
         GurpsyComponent,
         SheetComponent,
