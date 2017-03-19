@@ -3,6 +3,8 @@
     {{ 'SHEET.EQUIPMENT' | translate }}
   </div>
   <div class="sheetComponentBody">
-    Equipment body
+    <div *ngFor="let equipment of sheet.equipments;">
+      <div>{{equipment.name}}</div>
+    </div>
   </div>
 </div>
