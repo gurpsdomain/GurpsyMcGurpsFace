@@ -33,12 +33,17 @@ import {SheetBodyService} from './services/sheet-body-service/sheet-body.service
 import {GeneralComponent} from './components/sheet-component/structural-components/sheet-body-component/general-component/general.component';
 import {AttributesComponent} from './components/sheet-component/reusable-components/attributes-component/attributes.component';
 import {HitLocationComponent} from './components/sheet-component/reusable-components/hit-location-component/hit-location.component';
+// tslint:disable-next-line max-line-length
+import {AdvantagesDisadvantagesComponent} from './components/sheet-component/structural-components/sheet-body-component/advantages-disadvantages-component/advantages-disadvantages.component';
+import {DisadvantagesComponent} from './components/sheet-component/reusable-components/disadvantages-component/disadvantages.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
+        AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
+        DisadvantagesComponent,
         EquipmentComponent,
         MagicComponent,
         SkillsComponent,
@@ -76,7 +81,7 @@ describe('GurpsyComponent', () => {
     });
   });
 
-  it('should create the app', async(() => {
+  it('should create GurpsyMcGurpsFace', async(() => {
     const fixture = TestBed.createComponent(GurpsyComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();

@@ -20,6 +20,8 @@ import {PortraitComponent} from '../../reusable-components/portrait-component/po
 import {DescriptionComponent} from '../../reusable-components/description-component/description.component';
 import {AttributesComponent} from '../../reusable-components/attributes-component/attributes.component';
 import {HitLocationComponent} from '../../reusable-components/hit-location-component/hit-location.component';
+import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages-component/advantages-disadvantages.component';
+import {DisadvantagesComponent} from '../../reusable-components/disadvantages-component/disadvantages.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -30,7 +32,9 @@ describe('SheetBodyComponent', () => {
       declarations: [
         SheetBodyComponent,
         GeneralComponent,
+        AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
+        DisadvantagesComponent,
         EquipmentComponent,
         MagicComponent,
         NotesComponent,
@@ -63,7 +67,7 @@ describe('SheetBodyComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a Sheet Body Structural Component', () => {
     expect(component).toBeTruthy();
   });
 });

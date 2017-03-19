@@ -1,42 +1,18 @@
-<div class="flex-container"
-     fxLayout="row"
-     fxLayout.xs="column"
-     fxLayoutAlign="space-between stretch"
-     fxLayoutWrap="nowrap">
-  <div class="sheetComponent flex-item"
-       fxFlex="100%">
-    <div class="sheetComponentBody">
-      <table class="headerRowTable">
-        <tr class="headerRow">
-          <td>{{ 'SHEET.ADVANTAGES.ADVANTAGES' | translate }}</td>
-          <td>{{ 'SHEET.ADVANTAGES.LEVEL' | translate }}</td>
-          <td>{{ 'SHEET.ADVANTAGES.PTS' | translate }}</td>
-          <td>{{ 'SHEET.ADVANTAGES.REF' | translate }}</td>
-        </tr>
-        <tr *ngFor="let advantage of sheet.advantages;">
-          <td>{{advantage.name}}</td>
-          <td>{{advantage.level}}</td>
-          <td>{{advantage.points}}</td>
-          <td>{{advantage.pageReference}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  <div class="sheetComponent flex-item"
-       fxFlex="100%">
-    <div class="sheetComponentBody">
-      <table class="headerRowTable">
-        <tr class="headerRow">
-          <td>{{ 'SHEET.ADVANTAGES.DISADVANTAGES' | translate }}</td>
-          <td>{{ 'SHEET.ADVANTAGES.PTS' | translate }}</td>
-          <td>{{ 'SHEET.ADVANTAGES.REF' | translate }}</td>
-        </tr>
-        <tr *ngFor="let disadvantage of sheet.disadvantages;">
-          <td>{{disadvantage.name}}</td>
-          <td>{{disadvantage.points}}</td>
-          <td>{{disadvantage.pageReference}}</td>
-        </tr>
-      </table>
-    </div>
+<div class="sheetComponent">
+  <div class="sheetComponentBody">
+    <table class="headerRowTable">
+      <tr class="headerRow">
+        <td>{{ 'SHEET.ADVANTAGES.ADVANTAGES' | translate }}</td>
+        <td>{{ 'SHEET.ADVANTAGES.LEVEL' | translate }}</td>
+        <td>{{ 'SHEET.ADVANTAGES.PTS' | translate }}</td>
+        <td>{{ 'SHEET.ADVANTAGES.REF' | translate }}</td>
+      </tr>
+      <tr *ngFor="let advantage of sheet.advantages;">
+        <td>{{advantage.name}}</td>
+        <td>{{advantage.level}}</td>
+        <td>{{advantage.points}}</td>
+        <td>{{advantage.pageReference}}</td>
+      </tr>
+    </table>
   </div>
 </div>

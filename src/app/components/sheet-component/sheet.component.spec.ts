@@ -25,6 +25,9 @@ import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.ser
 import {GeneralComponent} from './structural-components/sheet-body-component/general-component/general.component';
 import {AttributesComponent} from './reusable-components/attributes-component/attributes.component';
 import {HitLocationComponent} from './reusable-components/hit-location-component/hit-location.component';
+// tslint:disable-next-line max-line-length
+import {AdvantagesDisadvantagesComponent} from './structural-components/sheet-body-component/advantages-disadvantages-component/advantages-disadvantages.component';
+import {DisadvantagesComponent} from './reusable-components/disadvantages-component/disadvantages.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -35,7 +38,9 @@ describe('SheetComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
+        AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
+        DisadvantagesComponent,
         EquipmentComponent,
         MagicComponent,
         SkillsComponent,
