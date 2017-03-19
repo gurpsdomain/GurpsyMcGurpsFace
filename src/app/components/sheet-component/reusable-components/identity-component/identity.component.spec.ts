@@ -42,5 +42,5 @@ describe('IdentityComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create Identity component', () => expect(comp).toBeDefined());
+  it('should create a reusable Identity Component', () => expect(comp).toBeDefined());
 });

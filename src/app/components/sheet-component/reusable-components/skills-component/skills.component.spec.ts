@@ -39,7 +39,7 @@ describe('SkillsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a reusable Skills Component', () => {
     expect(component).toBeTruthy();
   });
 });

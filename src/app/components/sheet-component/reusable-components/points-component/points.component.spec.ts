@@ -43,5 +43,5 @@ describe('PointsComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create Points component', () => expect(comp).toBeDefined());
+  it('should create a reusable Points Component', () => expect(comp).toBeDefined());
 });

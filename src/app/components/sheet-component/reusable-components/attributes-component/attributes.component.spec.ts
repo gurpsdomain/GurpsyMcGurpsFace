@@ -37,7 +37,7 @@ describe('AttributesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a reusable Attributes Component', () => {
     expect(component).toBeTruthy();
   });
 });

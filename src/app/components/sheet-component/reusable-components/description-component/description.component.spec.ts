@@ -42,5 +42,5 @@ describe('DescriptionComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create Description component', () => expect(comp).toBeDefined());
+  it('should create a reusable Description Component', () => expect(comp).toBeDefined());
 });

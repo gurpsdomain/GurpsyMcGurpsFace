@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
-
-import { TestBed, async, inject } from '@angular/core/testing';
-import { JsonService } from './json.service';
+import {TestBed} from '@angular/core/testing';
+import {JsonService} from './json.service';
 
 describe('JsonService', () => {
   beforeEach(() => {

@@ -51,7 +51,7 @@ describe('GeneralComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a structural General Component', () => {
     expect(component).toBeTruthy();
   });
 });

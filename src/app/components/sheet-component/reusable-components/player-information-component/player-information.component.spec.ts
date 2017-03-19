@@ -43,5 +43,5 @@ describe('PlayerInformationComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create Player Information component', () => expect(comp).toBeDefined());
+  it('should create a reusable Player Information component', () => expect(comp).toBeDefined());
 });

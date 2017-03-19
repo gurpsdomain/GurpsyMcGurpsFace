@@ -39,7 +39,7 @@ describe('AdvantagesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create an Reusable Advantages Component', () => {
     expect(component).toBeTruthy();
   });
 });

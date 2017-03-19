@@ -39,7 +39,7 @@ describe('EquipmentComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a reusable Equipment Component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -39,7 +39,7 @@ describe('NotesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a reuable Notes Component', () => {
     expect(component).toBeTruthy();
   });
 });
