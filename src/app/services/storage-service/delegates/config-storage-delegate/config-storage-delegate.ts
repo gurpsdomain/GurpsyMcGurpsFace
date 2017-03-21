@@ -1,13 +1,16 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
+import {ConfigImpl, Config} from '../../../../model/config/config';
+import {JsonService} from '../../../json-service/json.service';
 
 @Injectable()
 export class ConfigStorageDelegate {
 
-  private static STORAGE_KEY = '.theme';
+  private static STORAGE_KEY = '.config';
 
-  private subjectChangeSource = new Subject<string>();
+  private subjectChangeSource = new Subject<Config>();
+  private jsonService: JsonService;
 
   /**
    * Register to this observable to be notified when the value is changed
@@ -17,36 +20,14 @@ export class ConfigStorageDelegate {
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor() {
+  constructor(jsonService: JsonService) {
+    this.jsonService = jsonService;
+
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   /**
-   * Store the given theme in Local Storage.
-   *
-   * @param theme : String
-   */
-  public store(theme: string) {
-    localStorage.setItem(this.getStorageKey(), theme);
-  }
-
-  /**
-   * Retrieve the given theme from Locale Storage.
-   *
-   * @returns theme: Promise<String>
-   */
-  public retrieve(): Promise<string> {
-    const theme: string = localStorage.getItem(this.getStorageKey());
-
-    if (theme) {
-      return Promise.resolve(theme);
-    } else {
-      return Promise.reject('WARNING - Theme unavailable');
-    }
-  }
-
-  /**
-   * Remove the Theme settings from Local Storage.
+   * Remove the Config settings from Local Storage.
    *
    */
   public clear(): void {
@@ -54,8 +35,49 @@ export class ConfigStorageDelegate {
     this.change(null);
   }
 
-  private change(theme: string) {
-    this.subjectChangeSource.next(theme);
+  /**
+   * Store the given theme.
+   *
+   * @param theme
+   */
+  public storeTheme(theme: string) {
+    const config: Config = this.retrieve();
+    config.theme = theme;
+
+    this.store(config);
+  }
+
+  /**
+   * Retrieve the currently stored theme.
+   *
+   * @returns Promise<string> the current theme.
+   */
+  public retrieveTheme(): Promise<string> {
+    const config: Config = this.retrieve();
+
+    if (config.theme === '') {
+      return Promise.reject('No theme stored, use default.');
+    } else {
+      return Promise.resolve(config.theme);
+    }
+  }
+
+  private store(config: Config) {
+    localStorage.setItem(this.getStorageKey(), JSON.stringify(config));
+  }
+
+  private retrieve(): Config {
+    const config: string = localStorage.getItem(this.getStorageKey());
+
+    if (config) {
+      return this.jsonService.parseJsonConfig(config);
+    } else {
+      return new ConfigImpl();
+    }
+  }
+
+  private change(config: Config) {
+    this.subjectChangeSource.next(config);
   }
 
   private getStorageKey(): string {
@@ -64,7 +86,7 @@ export class ConfigStorageDelegate {
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getStorageKey()) {
-      this.change(event.newValue);
+      this.change(this.jsonService.parseJsonConfig(event.newValue));
     }
   }
 }

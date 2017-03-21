@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Sheet} from '../../model/sheet';
+import {Observable} from 'rxjs';
+import {Config} from '../../model/config/config';
 
 @Injectable()
 export class StorageService {
@@ -32,9 +34,9 @@ export class StorageService {
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
    *
-   * @type Observable<string>
+   * @type Observable<Config>
    */
-  public getConfigObserver() {
+  public getConfigObserver(): Observable<Config> {
     return this.configStorageDelegate.valueChange$;
   }
 
@@ -50,10 +52,10 @@ export class StorageService {
   /**
    * Store the given config in Local Storage;
    *
-   * @param config : String
+   * @param theme : String
    */
-  public storeConfig(config: string) {
-    this.configStorageDelegate.store(config);
+  public storeTheme(theme: string) {
+    this.configStorageDelegate.storeTheme(theme);
   }
 
   /**
@@ -86,12 +88,12 @@ export class StorageService {
 
 
   /**
-   * Retrieve the given config from Locale Storage.
+   * Retrieve the given theme from Locale Storage.
    *
-   * @returns locale: Promise<String>
+   * @returns theme: Promise<String>
    */
-  public getConfig(): Promise<string> {
-    return this.configStorageDelegate.retrieve();
+  public getTheme(): Promise<string> {
+    return this.configStorageDelegate.retrieveTheme();
   }
 
   /**

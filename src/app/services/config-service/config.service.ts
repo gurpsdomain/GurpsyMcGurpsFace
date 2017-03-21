@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../storage-service/storage.service';
+import {Observable} from 'rxjs';
+import {Config} from '../../model/config/config';
 
 @Injectable()
 export class ConfigService {
@@ -15,30 +17,30 @@ export class ConfigService {
   }
 
   /**
-   * Set Config.
+   * Set theme.
    *
-   * @param config : string
+   * @param theme : string
    */
-  public setConfig(config: string) {
-    this.storageService.storeConfig(config);
+  public setTheme(theme: string) {
+    this.storageService.storeTheme(theme);
   }
 
   /**
-   * Get Config.
+   * Get theme.
    *
-   * @return Promise<string>  A promise that resolves to the current config
+   * @return Promise<string>  A promise that resolves to the current theme
    */
-  public getConfig(): Promise<string> {
-    return this.storageService.getConfig();
+  public getTheme(): Promise<string> {
+    return this.storageService.getTheme();
   }
 
   /**
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
    *
-   * @type Observable<string>
+   * @type Observable<Config>
    */
-  public getConfigObserver() {
+  public getConfigObserver(): Observable<Config> {
     return this.storageService.getConfigObserver();
   }
 }

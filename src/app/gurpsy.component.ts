@@ -49,7 +49,7 @@ export class GurpsyComponent implements OnInit {
     const theme = this.theme === ConfigService.THEME_NIGHT ? ConfigService.THEME_DAY :
       ConfigService.THEME_NIGHT;
     this.setTheme(theme);
-    this.configService.setConfig(theme);
+    this.configService.setTheme(theme);
   }
 
   public onOpenSheetDialog(): void {
@@ -75,8 +75,8 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initTheme(): void {
-    this.configService.getConfig().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ConfigService.THEME_DEFAULT));
-    this.configService.getConfigObserver().subscribe(theme => this.setTheme(theme));
+    this.configService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ConfigService.THEME_DEFAULT));
+    this.configService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
   }
 
   private initSheetChangeListener(): void {
@@ -84,7 +84,12 @@ export class GurpsyComponent implements OnInit {
   }
 
   private setTheme(theme: string) {
-    this.theme = theme;
+    if (theme === ConfigService.THEME_NIGHT || theme === ConfigService.THEME_DAY) {
+      this.theme = theme;
+    } else {
+      this.theme = ConfigService.THEME_DEFAULT;
+      console.log('WARNING - Invalid theme stored in Local Storage: ', theme);
+    }
   }
 
   private showNewSheetLoadedMessage(sheet: Sheet): void {

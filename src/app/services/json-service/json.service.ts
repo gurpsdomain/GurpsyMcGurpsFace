@@ -1,8 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Sheet, Sheets} from '../../model/sheet';
+import {Config} from '../../model/config/config';
 
 @Injectable()
 export class JsonService {
+
+  /**
+   * Parse a json string into a typed Config object.
+   *
+   * @param json
+   * @returns config: Config
+   */
+  public parseJsonConfig(json: string): Config {
+    return JSON.parse(json);
+  }
 
   /**
    * Parse a json string into a typed Sheet object.
