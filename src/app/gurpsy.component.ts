@@ -18,8 +18,8 @@ export class GurpsyComponent implements OnInit {
   private static DIALOG_WIDTH = '400px';
   private static SNACKBAR_DURATION_TIME = 4000;
 
-  private themeService: ThemeService;
   private languageService: LanguagesService;
+  private themeService: ThemeService;
   private modelReadService: ModelReadService;
   private snackBar: MdSnackBar;
   private translate: TranslateService;
@@ -28,13 +28,12 @@ export class GurpsyComponent implements OnInit {
   private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
 
   public dialog: MdDialog;
-  public isDutch = false;
   public theme: string;
 
-  constructor(theme: ThemeService, language: LanguagesService, dialog: MdDialog, modelReadService: ModelReadService,
+  constructor(theme: ThemeService, languageService: LanguagesService, dialog: MdDialog, modelReadService: ModelReadService,
               snackBar: MdSnackBar, translate: TranslateService) {
+    this.languageService = languageService;
     this.themeService = theme;
-    this.languageService = language;
     this.dialog = dialog;
     this.modelReadService = modelReadService;
     this.snackBar = snackBar;
@@ -43,7 +42,6 @@ export class GurpsyComponent implements OnInit {
 
   ngOnInit(): void {
     this.initTheme();
-    this.initLanguage();
     this.initSheetChangeListener();
   }
 
@@ -52,12 +50,6 @@ export class GurpsyComponent implements OnInit {
       ThemeService.THEME_NIGHT;
     this.setTheme(theme);
     this.themeService.setTheme(theme);
-  }
-
-  public onLanguageChange(): void {
-    this.isDutch = !this.isDutch;
-    const language = this.isDutch ? LanguagesService.DUTCH : LanguagesService.ENGLISH;
-    this.languageService.setLanguage(language);
   }
 
   public onOpenSheetDialog(): void {
@@ -87,21 +79,12 @@ export class GurpsyComponent implements OnInit {
     this.themeService.getThemeObserver().subscribe(theme => this.setTheme(theme));
   }
 
-  private initLanguage(): void {
-    this.languageService.getLanguage().then(locale => this.setLanguage(locale)).catch(err => this.setLanguage(LanguagesService.DEFAULT));
-    this.languageService.languageChange$.subscribe(locale => this.setLanguage(locale));
-  }
-
   private initSheetChangeListener(): void {
     this.modelReadService.modelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
   private setTheme(theme: string) {
     this.theme = theme;
-  }
-
-  private setLanguage(locale: string) {
-    this.isDutch = locale === LanguagesService.DUTCH;
   }
 
   private showNewSheetLoadedMessage(sheet: Sheet): void {
@@ -111,6 +94,4 @@ export class GurpsyComponent implements OnInit {
       });
     });
   }
-
-
 }

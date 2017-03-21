@@ -25,6 +25,4 @@ describe('DeleteSettingsDialogComponent', () => {
   // it('should create', () => {
   //   expect(component).toBeTruthy();
   // });
-
-
 });

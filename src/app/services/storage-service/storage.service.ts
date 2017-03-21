@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {ThemeStorageDelegate} from './delegates/theme-storage-delegate/theme-storage-delegate';
-import {LanguageStorageDelegate} from './delegates/language-storage-delegate/language-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Sheet} from '../../model/sheet';
 
@@ -10,26 +9,13 @@ export class StorageService {
   public static STORAGE_KEY = 'gurpsy-mc-gurps-face';
   public static STORAGE_EVENT_LISTENER_KEY = 'storage';
 
-  private languageStorageDelegate: LanguageStorageDelegate;
   private sheetStorageDelegate: SheetStorageDelegate;
   private themeStorageDelegate: ThemeStorageDelegate;
 
   constructor(themeStorageDelegate: ThemeStorageDelegate,
-              languageStorageDelegate: LanguageStorageDelegate,
               sheetStorageDelegate: SheetStorageDelegate) {
-    this.languageStorageDelegate = languageStorageDelegate;
     this.sheetStorageDelegate = sheetStorageDelegate;
     this.themeStorageDelegate = themeStorageDelegate;
-  }
-
-  /**
-   * Acquire the Observer on which you can register yourself to be notified when the value is changed
-   * in Local Storage.
-   *
-   * @type Observable<string>
-   */
-  public getLanguageObserver() {
-    return this.languageStorageDelegate.valueChange$;
   }
 
   /**
@@ -50,15 +36,6 @@ export class StorageService {
    */
   public getThemeObserver() {
     return this.themeStorageDelegate.valueChange$;
-  }
-
-  /**
-   * Store the given locale in Local Storage;
-   *
-   * @param locale : String
-   */
-  public storeLanguage(locale: string): void {
-    this.languageStorageDelegate.store(locale);
   }
 
   /**
@@ -107,14 +84,6 @@ export class StorageService {
     return this.sheetStorageDelegate.retrieveAll();
   }
 
-  /**
-   * Retrieve the given locale from Locale Storage.
-   *
-   * @returns locale: Promise<String>
-   */
-  public getLanguage(): Promise<string> {
-    return this.languageStorageDelegate.retrieve();
-  }
 
   /**
    * Retrieve the given theme from Locale Storage.
@@ -128,14 +97,10 @@ export class StorageService {
   /**
    * Clear the stored entries from Local Storage.
    *
-   * @param clearLanguage: boolean  Clear Language Setting
    * @param clearTheme: boolean     Clear the Theme Setting
    * @param sheetsToDelete: Sheet[] An Array of Sheets that should be deleted.
    */
-  public clearStorage(clearLanguage: boolean, clearTheme: boolean, sheetsToDelete: Sheet[]): void {
-    if (clearLanguage) {
-      this.languageStorageDelegate.clear();
-    }
+  public clearStorage(clearTheme: boolean, sheetsToDelete: Sheet[]): void {
     if (clearTheme) {
       this.themeStorageDelegate.clear();
     }
