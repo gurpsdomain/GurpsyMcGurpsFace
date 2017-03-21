@@ -7,9 +7,7 @@ import {DisadvantagesComponent} from '../../../reusable-components/disadvantages
 import {ModelReadService} from '../../../../../services/model-read-service/model-read.service';
 import {JsonService} from '../../../../../services/json-service/json.service';
 import {StorageService} from '../../../../../services/storage-service/storage.service';
-import {ThemeStorageDelegate} from '../../../../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
-// tslint:disable-next-line max-line-length
-import {LanguageStorageDelegate} from '../../../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
+import {ConfigStorageDelegate} from '../../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from '../../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 
 describe('AdvantagesComponent', () => {
@@ -30,8 +28,7 @@ describe('AdvantagesComponent', () => {
         ModelReadService,
         JsonService,
         StorageService,
-        ThemeStorageDelegate,
-        LanguageStorageDelegate,
+        ConfigStorageDelegate,
         SheetStorageDelegate
       ]
     })

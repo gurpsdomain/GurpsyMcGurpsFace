@@ -1,6 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MaterialModule} from '@angular/material';
 import {DeleteSettingsDialogComponent} from './delete-settings-dialog.component';
 
 describe('DeleteSettingsDialogComponent', () => {
@@ -9,9 +8,7 @@ describe('DeleteSettingsDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DeleteSettingsDialogComponent],
-      imports: [
-        MaterialModule.forRoot()]
+      declarations: [DeleteSettingsDialogComponent]
     })
       .compileComponents();
   }));

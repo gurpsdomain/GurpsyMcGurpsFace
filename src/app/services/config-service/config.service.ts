@@ -2,11 +2,11 @@ import {Injectable} from '@angular/core';
 import {StorageService} from '../storage-service/storage.service';
 
 @Injectable()
-export class ThemeService {
+export class ConfigService {
 
   public static THEME_DAY = 'day';
   public static THEME_NIGHT = 'night';
-  public static DEFAULT = ThemeService.THEME_DAY;
+  public static THEME_DEFAULT = ConfigService.THEME_DAY;
 
   private storageService: StorageService;
 
@@ -15,21 +15,21 @@ export class ThemeService {
   }
 
   /**
-   * Set theme.
+   * Set Config.
    *
-   * @param theme : string
+   * @param config : string
    */
-  public setTheme(theme: string) {
-    this.storageService.storeTheme(theme);
+  public setConfig(config: string) {
+    this.storageService.storeConfig(config);
   }
 
   /**
-   * Get theme.
+   * Get Config.
    *
-   * @return Promise<string>  A promise that resolves to the current theme
+   * @return Promise<string>  A promise that resolves to the current config
    */
-  public getTheme(): Promise<string> {
-    return this.storageService.getTheme();
+  public getConfig(): Promise<string> {
+    return this.storageService.getConfig();
   }
 
   /**
@@ -38,7 +38,7 @@ export class ThemeService {
    *
    * @type Observable<string>
    */
-  public getThemeObserver() {
-    return this.storageService.getThemeObserver();
+  public getConfigObserver() {
+    return this.storageService.getConfigObserver();
   }
 }

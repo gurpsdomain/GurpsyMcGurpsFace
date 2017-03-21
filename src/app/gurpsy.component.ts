@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
 import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
-import {ThemeService} from './services/theme-service/theme.service';
+import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {TranslateService} from 'ng2-translate';
@@ -19,7 +19,7 @@ export class GurpsyComponent implements OnInit {
   private static SNACKBAR_DURATION_TIME = 4000;
 
   private languageService: LanguagesService;
-  private themeService: ThemeService;
+  private configService: ConfigService;
   private modelReadService: ModelReadService;
   private snackBar: MdSnackBar;
   private translate: TranslateService;
@@ -30,10 +30,10 @@ export class GurpsyComponent implements OnInit {
   public dialog: MdDialog;
   public theme: string;
 
-  constructor(theme: ThemeService, languageService: LanguagesService, dialog: MdDialog, modelReadService: ModelReadService,
+  constructor(theme: ConfigService, languageService: LanguagesService, dialog: MdDialog, modelReadService: ModelReadService,
               snackBar: MdSnackBar, translate: TranslateService) {
     this.languageService = languageService;
-    this.themeService = theme;
+    this.configService = theme;
     this.dialog = dialog;
     this.modelReadService = modelReadService;
     this.snackBar = snackBar;
@@ -46,10 +46,10 @@ export class GurpsyComponent implements OnInit {
   }
 
   public onThemeChange(): void {
-    const theme = this.theme === ThemeService.THEME_NIGHT ? ThemeService.THEME_DAY :
-      ThemeService.THEME_NIGHT;
+    const theme = this.theme === ConfigService.THEME_NIGHT ? ConfigService.THEME_DAY :
+      ConfigService.THEME_NIGHT;
     this.setTheme(theme);
-    this.themeService.setTheme(theme);
+    this.configService.setConfig(theme);
   }
 
   public onOpenSheetDialog(): void {
@@ -75,8 +75,8 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initTheme(): void {
-    this.themeService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ThemeService.DEFAULT));
-    this.themeService.getThemeObserver().subscribe(theme => this.setTheme(theme));
+    this.configService.getConfig().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ConfigService.THEME_DEFAULT));
+    this.configService.getConfigObserver().subscribe(theme => this.setTheme(theme));
   }
 
   private initSheetChangeListener(): void {

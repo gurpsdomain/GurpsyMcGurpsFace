@@ -15,11 +15,11 @@ import {DescriptionComponent} from './components/sheet-component/reusable-compon
 import {PointsComponent} from './components/sheet-component/reusable-components/points-component/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {StorageService} from './services/storage-service/storage.service';
-import {ThemeService} from './services/theme-service/theme.service';
+import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {JsonService} from './services/json-service/json.service';
-import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
+import {ConfigStorageDelegate} from './services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SheetBodyComponent} from './components/sheet-component/structural-components/sheet-body-component/sheet-body.component';
 import {NotesComponent} from './components/sheet-component/reusable-components/notes-component/notes.component';
@@ -67,10 +67,10 @@ describe('GurpsyComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        ThemeService,
+        ConfigService,
         LanguagesService,
         StorageService,
-        ThemeStorageDelegate,
+        ConfigStorageDelegate,
         SheetStorageDelegate,
         ModelReadService,
         JsonService,

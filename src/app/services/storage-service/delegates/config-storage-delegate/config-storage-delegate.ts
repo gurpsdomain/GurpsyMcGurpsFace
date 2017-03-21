@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 
 @Injectable()
-export class ThemeStorageDelegate {
+export class ConfigStorageDelegate {
 
   private static STORAGE_KEY = '.theme';
 
@@ -59,7 +59,7 @@ export class ThemeStorageDelegate {
   }
 
   private getStorageKey(): string {
-    return StorageService.STORAGE_KEY + ThemeStorageDelegate.STORAGE_KEY;
+    return StorageService.STORAGE_KEY + ConfigStorageDelegate.STORAGE_KEY;
   }
 
   private handleStorageChange(event: StorageEvent): void {

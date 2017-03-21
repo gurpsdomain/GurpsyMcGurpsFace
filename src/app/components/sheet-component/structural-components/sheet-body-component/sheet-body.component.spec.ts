@@ -12,8 +12,7 @@ import {SheetStorageDelegate} from '../../../../services/storage-service/delegat
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 import {JsonService} from '../../../../services/json-service/json.service';
 import {StorageService} from '../../../../services/storage-service/storage.service';
-import {ThemeStorageDelegate} from '../../../../services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
-import {LanguageStorageDelegate} from '../../../../services/storage-service/delegates/language-storage-delegate/language-storage-delegate';
+import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetBodyService} from '../../../../services/sheet-body-service/sheet-body.service';
 import {PointsComponent} from '../../reusable-components/points-component/points.component';
 import {PortraitComponent} from '../../reusable-components/portrait-component/portrait.component';
@@ -52,8 +51,7 @@ describe('SheetBodyComponent', () => {
         ModelReadService,
         JsonService,
         StorageService,
-        ThemeStorageDelegate,
-        LanguageStorageDelegate,
+        ConfigStorageDelegate,
         SheetStorageDelegate,
         SheetBodyService
       ]

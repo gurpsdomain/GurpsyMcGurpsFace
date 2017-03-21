@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ThemeStorageDelegate} from './delegates/theme-storage-delegate/theme-storage-delegate';
+import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Sheet} from '../../model/sheet';
 
@@ -10,12 +10,12 @@ export class StorageService {
   public static STORAGE_EVENT_LISTENER_KEY = 'storage';
 
   private sheetStorageDelegate: SheetStorageDelegate;
-  private themeStorageDelegate: ThemeStorageDelegate;
+  private configStorageDelegate: ConfigStorageDelegate;
 
-  constructor(themeStorageDelegate: ThemeStorageDelegate,
+  constructor(configStorageDelegate: ConfigStorageDelegate,
               sheetStorageDelegate: SheetStorageDelegate) {
     this.sheetStorageDelegate = sheetStorageDelegate;
-    this.themeStorageDelegate = themeStorageDelegate;
+    this.configStorageDelegate = configStorageDelegate;
   }
 
   /**
@@ -34,12 +34,12 @@ export class StorageService {
    *
    * @type Observable<string>
    */
-  public getThemeObserver() {
-    return this.themeStorageDelegate.valueChange$;
+  public getConfigObserver() {
+    return this.configStorageDelegate.valueChange$;
   }
 
   /**
-   * Store the given theme in Local Storage;
+   * Store the given sheet in Local Storage;
    *
    * @param sheet : Sheet
    */
@@ -48,12 +48,12 @@ export class StorageService {
   }
 
   /**
-   * Store the given theme in Local Storage;
+   * Store the given config in Local Storage;
    *
-   * @param theme : String
+   * @param config : String
    */
-  public storeTheme(theme: string) {
-    this.themeStorageDelegate.store(theme);
+  public storeConfig(config: string) {
+    this.configStorageDelegate.store(config);
   }
 
   /**
@@ -71,7 +71,7 @@ export class StorageService {
    * @returns Promise<Sheet[]> or an empty promise if there are no previously opened sheets.
    */
   public getPreviouslyOpenedSheets(): Promise<Sheet[]> {
-      return this.sheetStorageDelegate.retrievePrevious();
+    return this.sheetStorageDelegate.retrievePrevious();
   }
 
   /**
@@ -86,23 +86,23 @@ export class StorageService {
 
 
   /**
-   * Retrieve the given theme from Locale Storage.
+   * Retrieve the given config from Locale Storage.
    *
    * @returns locale: Promise<String>
    */
-  public getTheme(): Promise<string> {
-    return this.themeStorageDelegate.retrieve();
+  public getConfig(): Promise<string> {
+    return this.configStorageDelegate.retrieve();
   }
 
   /**
    * Clear the stored entries from Local Storage.
    *
-   * @param clearTheme: boolean     Clear the Theme Setting
+   * @param clearConfig: boolean     Clear the config
    * @param sheetsToDelete: Sheet[] An Array of Sheets that should be deleted.
    */
-  public clearStorage(clearTheme: boolean, sheetsToDelete: Sheet[]): void {
-    if (clearTheme) {
-      this.themeStorageDelegate.clear();
+  public clearStorage(clearConfig: boolean, sheetsToDelete: Sheet[]): void {
+    if (clearConfig) {
+      this.configStorageDelegate.clear();
     }
     if (sheetsToDelete.length > 0) {
       this.sheetStorageDelegate.remove(sheetsToDelete);

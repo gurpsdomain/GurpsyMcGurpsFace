@@ -19,10 +19,10 @@ import {DeleteSettingsDialogComponent} from './components/dialog-component/delet
 import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
 import {StorageService} from './services/storage-service/storage.service';
 import {LanguagesService} from './services/languages-service/languages.service';
-import {ThemeService} from './services/theme-service/theme.service';
+import {ConfigService} from './services/config-service/config.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {JsonService} from './services/json-service/json.service';
-import {ThemeStorageDelegate} from './services/storage-service/delegates/theme-storage-delegate/theme-storage-delegate';
+import {ConfigStorageDelegate} from './services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {NotesComponent} from './components/sheet-component/reusable-components/notes-component/notes.component';
 import {SheetBodyComponent} from './components/sheet-component/structural-components/sheet-body-component/sheet-body.component';
@@ -73,9 +73,9 @@ import {DisadvantagesComponent} from './components/sheet-component/reusable-comp
   ],
   providers: [
     LanguagesService,
-    ThemeService,
+    ConfigService,
     StorageService,
-    ThemeStorageDelegate,
+    ConfigStorageDelegate,
     SheetStorageDelegate,
     ModelReadService,
     JsonService,
