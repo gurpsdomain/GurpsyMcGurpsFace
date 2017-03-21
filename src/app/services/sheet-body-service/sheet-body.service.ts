@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
+import {ConfigService} from '../config-service/config.service';
 
 @Injectable()
 export class SheetBodyService {
@@ -8,15 +9,34 @@ export class SheetBodyService {
 
   public sheetBodyChange$ = this.sheetBodyContentSource.asObservable();
 
-  public bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
+  private bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
+
+  private configService: ConfigService;
+
+  constructor(configService: ConfigService) {
+    this.configService = configService;
+    this.initSheetBodyContent();
+  }
+
+  /**
+   * Set the SheetBodyContent.
+   *
+   * @param sheetBodyContent
+   */
+  public setSheetBodyContent(sheetBodyContent: SheetBodyContent): void {
+    this.bodyContent = sheetBodyContent;
+    this.configService.setbodyContent(sheetBodyContent);
+    this.handleSheetBodyChange(sheetBodyContent);
+  }
 
   private handleSheetBodyChange(sheetBody: SheetBodyContent): void {
     this.sheetBodyContentSource.next(sheetBody);
   }
 
-  public setSheetBodyContent(sheetBodyContent: SheetBodyContent): void {
-    this.bodyContent = sheetBodyContent;
-    this.handleSheetBodyChange(sheetBodyContent);
+  private initSheetBodyContent(): void {
+    this.configService.getBodyContent().then(bodyContent =>
+      this.setSheetBodyContent(bodyContent)).catch(err =>
+      this.setSheetBodyContent(SheetBodyContent.GENERAL));
   }
 }
 

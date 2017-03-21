@@ -1,12 +1,15 @@
 /* tslint:disable:no-unused-variable */
-
-import { TestBed, async, inject } from '@angular/core/testing';
-import { SheetBodyService } from './sheet-body.service';
+import {TestBed} from '@angular/core/testing';
+import {SheetBodyService} from './sheet-body.service';
+import {ConfigService} from '../config-service/config.service';
 
 describe('SheetBodyService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SheetBodyService]
+      providers: [
+        ConfigService,
+        SheetBodyService
+      ]
     });
   });
 

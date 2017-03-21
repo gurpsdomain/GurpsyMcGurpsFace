@@ -27,6 +27,7 @@ import {HitLocationComponent} from './reusable-components/hit-location-component
 // tslint:disable-next-line max-line-length
 import {AdvantagesDisadvantagesComponent} from './structural-components/sheet-body-component/advantages-disadvantages-component/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './reusable-components/disadvantages-component/disadvantages.component';
+import {ConfigService} from '../../services/config-service/config.service';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -60,6 +61,7 @@ describe('SheetComponent', function () {
         TranslateModule.forRoot()
       ],
       providers: [
+        ConfigService,
         ModelReadService,
         JsonService,
         StorageService,

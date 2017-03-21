@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {ConfigImpl, Config} from '../../../../model/config/config';
 import {JsonService} from '../../../json-service/json.service';
+import {SheetBodyContent} from '../../../sheet-body-service/sheet-body.service';
 
 @Injectable()
 export class ConfigStorageDelegate {
@@ -36,6 +37,18 @@ export class ConfigStorageDelegate {
   }
 
   /**
+   * Store the given BodyContent.
+   *
+   * @param BodyContent
+   */
+  public storeBodyContent(bodyContent: SheetBodyContent) {
+    const config: Config = this.retrieve();
+    config.bodyContent = bodyContent;
+
+    this.store(config);
+  }
+
+  /**
    * Store the given theme.
    *
    * @param theme
@@ -59,6 +72,21 @@ export class ConfigStorageDelegate {
       return Promise.reject('No theme stored, use default.');
     } else {
       return Promise.resolve(config.theme);
+    }
+  }
+
+  /**
+   * Retrieve the currently stored theme.
+   *
+   * @returns Promise<string> the current theme.
+   */
+  public retrieveBodyContent(): Promise<SheetBodyContent> {
+    const config: Config = this.retrieve();
+
+    if (!config.bodyContent) {
+      return Promise.reject('No BodyContent stored, use default.');
+    } else {
+      return Promise.resolve(config.bodyContent);
     }
   }
 

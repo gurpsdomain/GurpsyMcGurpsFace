@@ -1,9 +1,9 @@
 export interface Config {
   theme: string;
-  bodyContent: string;
+  bodyContent: Number;
 }
 
 export class ConfigImpl implements Config {
   theme = '';
-  bodyContent = '';
+  bodyContent = 0;
 }

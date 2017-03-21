@@ -5,6 +5,11 @@ import {TranslateModule} from 'ng2-translate';
 import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
 import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
+import {ConfigService} from '../../services/config-service/config.service';
+import {StorageService} from '../../services/storage-service/storage.service';
+import {ConfigStorageDelegate} from '../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
+import {JsonService} from '../../services/json-service/json.service';
+import {SheetStorageDelegate} from '../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -18,9 +23,14 @@ describe('SideNavigationComponent', () => {
       imports: [
         FormsModule,
         TranslateModule.forRoot(),
-        MaterialModule.forRoot()],
+        MaterialModule],
       providers: [
-        SheetBodyService
+        ConfigService,
+        ConfigStorageDelegate,
+        JsonService,
+        SheetBodyService,
+        SheetStorageDelegate,
+        StorageService
       ]
     })
       .compileComponents();

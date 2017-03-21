@@ -21,6 +21,7 @@ import {AttributesComponent} from '../../reusable-components/attributes-componen
 import {HitLocationComponent} from '../../reusable-components/hit-location-component/hit-location.component';
 import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages-component/advantages-disadvantages.component';
 import {DisadvantagesComponent} from '../../reusable-components/disadvantages-component/disadvantages.component';
+import {ConfigService} from '../../../../services/config-service/config.service';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -48,12 +49,13 @@ describe('SheetBodyComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        ModelReadService,
-        JsonService,
-        StorageService,
+        ConfigService,
         ConfigStorageDelegate,
+        JsonService,
+        ModelReadService,
+        SheetBodyService,
         SheetStorageDelegate,
-        SheetBodyService
+        StorageService
       ]
     })
       .compileComponents();

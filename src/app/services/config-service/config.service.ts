@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {StorageService} from '../storage-service/storage.service';
 import {Observable} from 'rxjs';
 import {Config} from '../../model/config/config';
+import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
 
 @Injectable()
 export class ConfigService {
@@ -17,12 +18,30 @@ export class ConfigService {
   }
 
   /**
+   * Set bodyContent.
+   *
+   * @param bodyContent : SheetBodyContent
+   */
+  public setbodyContent(bodyContent: SheetBodyContent) {
+    this.storageService.storeBodyContent(bodyContent);
+  }
+
+  /**
    * Set theme.
    *
    * @param theme : string
    */
   public setTheme(theme: string) {
     this.storageService.storeTheme(theme);
+  }
+
+  /**
+   * Get bodyContent.
+   *
+   * @return Promise<SheetBodyContent>  A promise that resolves to the current BodyContent
+   */
+  public getBodyContent(): Promise<SheetBodyContent> {
+    return this.storageService.getBodyContent();
   }
 
   /**

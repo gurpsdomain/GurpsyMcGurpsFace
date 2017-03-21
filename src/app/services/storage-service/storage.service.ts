@@ -4,6 +4,7 @@ import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-sto
 import {Sheet} from '../../model/sheet';
 import {Observable} from 'rxjs';
 import {Config} from '../../model/config/config';
+import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
 
 @Injectable()
 export class StorageService {
@@ -50,12 +51,30 @@ export class StorageService {
   }
 
   /**
-   * Store the given config in Local Storage;
+   * Store the given BodyContent in Local Storage;
+   *
+   * @param bodyContent : SheetBodyContent
+   */
+  public storeBodyContent(bodyContent: SheetBodyContent) {
+    this.configStorageDelegate.storeBodyContent(bodyContent);
+  }
+
+  /**
+   * Store the given theme in Local Storage;
    *
    * @param theme : String
    */
   public storeTheme(theme: string) {
     this.configStorageDelegate.storeTheme(theme);
+  }
+
+  /**
+   * Retrieve the given BodyContent from Locale Storage.
+   *
+   * @returns theme: Promise<SheetBodyContent>
+   */
+  public getBodyContent(): Promise<SheetBodyContent> {
+    return this.configStorageDelegate.retrieveBodyContent();
   }
 
   /**
