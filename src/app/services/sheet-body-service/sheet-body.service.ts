@@ -24,19 +24,30 @@ export class SheetBodyService {
    * @param sheetBodyContent
    */
   public setSheetBodyContent(sheetBodyContent: SheetBodyContent): void {
-    this.bodyContent = sheetBodyContent;
     this.configService.setbodyContent(sheetBodyContent);
     this.handleSheetBodyChange(sheetBodyContent);
   }
 
-  private handleSheetBodyChange(sheetBody: SheetBodyContent): void {
-    this.sheetBodyContentSource.next(sheetBody);
+  private handleSheetBodyChange(sheetBodyContent: SheetBodyContent): void {
+
+    if (this.isSheetBodyContentInvalid(sheetBodyContent)) {
+      console.log('WARNING - Invalid Sheet Body Content stored in Local Storage: ', sheetBodyContent);
+      return;
+    }
+
+    this.bodyContent = sheetBodyContent;
+    this.sheetBodyContentSource.next(sheetBodyContent);
   }
 
   private initSheetBodyContent(): void {
     this.configService.getBodyContent().then(bodyContent =>
       this.setSheetBodyContent(bodyContent)).catch(err =>
       this.setSheetBodyContent(SheetBodyContent.GENERAL));
+    this.configService.getConfigObserver().subscribe(config => this.handleSheetBodyChange(config.bodyContent.valueOf()));
+  }
+
+  private isSheetBodyContentInvalid(sheetBodyContent: SheetBodyContent): boolean {
+    return typeof SheetBodyContent[sheetBodyContent] === 'undefined';
   }
 }
 
