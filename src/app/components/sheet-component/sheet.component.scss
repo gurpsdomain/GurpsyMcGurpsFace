@@ -43,6 +43,9 @@
         padding-right: 10px;
       }
     }
+    tr.last {
+      border-bottom: 1pt solid black;
+    }
   }
   table.headerRowTable {
     tr:first-child {

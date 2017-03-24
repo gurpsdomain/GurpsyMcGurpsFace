@@ -70,6 +70,19 @@
     },
     "DISADVANTAGES": "Disadvantages",
     "EQUIPMENT": "Equipment",
+    "FATIGUE-HIT": {
+      "BASIC_FP": "Basic FP",
+      "BASIC_HP": "Basic HP",
+      "CHECK": "Check",
+      "COLLAPSE": "Collapse",
+      "CURRENT_FP": "Current FP",
+      "CURRENT_HP": "Current HP",
+      "DEAD": "Dead",
+      "FATIGUE-HIT": "Fatigue/Hit",
+      "REELING": "Reeling",
+      "TIRED": "Tired",
+      "UNCONSCIOUS": "Unconscious"
+    },
     "IDENTITY": {
       "IDENTITY": "Identity",
       "NAME": "Name:",

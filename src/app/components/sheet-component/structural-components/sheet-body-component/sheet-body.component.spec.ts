@@ -22,6 +22,7 @@ import {HitLocationComponent} from '../../reusable-components/hit-location-compo
 import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages-component/advantages-disadvantages.component';
 import {DisadvantagesComponent} from '../../reusable-components/disadvantages-component/disadvantages.component';
 import {ConfigService} from '../../../../services/config-service/config.service';
+import {FatigueHitComponent} from '../../reusable-components/fatigue-hit-component/fatigue-hit.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -36,6 +37,7 @@ describe('SheetBodyComponent', () => {
         AdvantagesComponent,
         DisadvantagesComponent,
         EquipmentComponent,
+        FatigueHitComponent,
         SpellsComponent,
         NotesComponent,
         SkillsComponent,

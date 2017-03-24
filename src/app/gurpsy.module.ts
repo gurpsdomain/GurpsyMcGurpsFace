@@ -38,6 +38,7 @@ import {HitLocationComponent} from './components/sheet-component/reusable-compon
 // tslint:disable-next-line max-line-length
 import {AdvantagesDisadvantagesComponent} from './components/sheet-component/structural-components/sheet-body-component/advantages-disadvantages-component/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './components/sheet-component/reusable-components/disadvantages-component/disadvantages.component';
+import {FatigueHitComponent} from './components/sheet-component/reusable-components/fatigue-hit-component/fatigue-hit.component';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -61,7 +62,8 @@ import {DisadvantagesComponent} from './components/sheet-component/reusable-comp
     DisadvantagesComponent,
     GeneralComponent,
     AttributesComponent,
-    HitLocationComponent
+    HitLocationComponent,
+    FatigueHitComponent
   ],
   imports: [
     BrowserModule,

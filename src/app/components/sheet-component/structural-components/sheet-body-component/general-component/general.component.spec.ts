@@ -13,6 +13,7 @@ import {ConfigStorageDelegate} from '../../../../../services/storage-service/del
 import {SheetStorageDelegate} from '../../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {AttributesComponent} from '../../../reusable-components/attributes-component/attributes.component';
 import {HitLocationComponent} from '../../../reusable-components/hit-location-component/hit-location.component';
+import {FatigueHitComponent} from '../../../reusable-components/fatigue-hit-component/fatigue-hit.component';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -21,12 +22,13 @@ describe('GeneralComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        GeneralComponent,
-        PortraitComponent,
-        PointsComponent,
-        DescriptionComponent,
         AttributesComponent,
-        HitLocationComponent
+        DescriptionComponent,
+        FatigueHitComponent,
+        GeneralComponent,
+        HitLocationComponent,
+        PortraitComponent,
+        PointsComponent
       ],
       imports: [
         TranslateModule.forRoot()

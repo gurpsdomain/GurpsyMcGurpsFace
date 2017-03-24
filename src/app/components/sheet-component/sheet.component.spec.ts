@@ -28,6 +28,7 @@ import {HitLocationComponent} from './reusable-components/hit-location-component
 import {AdvantagesDisadvantagesComponent} from './structural-components/sheet-body-component/advantages-disadvantages-component/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './reusable-components/disadvantages-component/disadvantages.component';
 import {ConfigService} from '../../services/config-service/config.service';
+import {FatigueHitComponent} from './reusable-components/fatigue-hit-component/fatigue-hit.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -42,6 +43,7 @@ describe('SheetComponent', function () {
         AdvantagesComponent,
         DisadvantagesComponent,
         EquipmentComponent,
+        FatigueHitComponent,
         SpellsComponent,
         SkillsComponent,
         SheetComponent,
