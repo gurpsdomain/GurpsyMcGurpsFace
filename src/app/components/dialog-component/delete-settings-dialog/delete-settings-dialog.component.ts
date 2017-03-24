@@ -11,7 +11,7 @@ import {Sheet} from '../../../model/sheet';
 export class DeleteSettingsDialogComponent {
 
   public storedSheets: Sheet[] = [];
-  public clearTheme = true;
+  public clearSettings = true;
 
   private dialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
   private storageService: StorageService;
@@ -34,7 +34,7 @@ export class DeleteSettingsDialogComponent {
   }
 
   public onDeleteSettings(): void {
-    this.storageService.clearStorage(this.clearTheme, this.sheetsToDelete);
+    this.storageService.clearStorage(this.clearSettings, this.sheetsToDelete);
     this.dialogRef.close();
   }
 

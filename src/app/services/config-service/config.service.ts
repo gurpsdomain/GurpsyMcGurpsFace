@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../storage-service/storage.service';
-import {Observable} from 'rxjs';
-import {Config} from '../../model/config/config';
+import {Observable, Subject} from 'rxjs';
+import {Config, ConfigImpl} from '../../model/config/config';
 import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
 
 @Injectable()
@@ -12,9 +12,12 @@ export class ConfigService {
   public static THEME_DEFAULT = ConfigService.THEME_DAY;
 
   private storageService: StorageService;
+  private configChangeSource = new Subject<Config>();
+  private configChange$ = this.configChangeSource.asObservable();
 
   constructor(storage: StorageService) {
     this.storageService = storage;
+    this.initStorageChangeListener();
   }
 
   /**
@@ -60,6 +63,19 @@ export class ConfigService {
    * @type Observable<Config>
    */
   public getConfigObserver(): Observable<Config> {
-    return this.storageService.getConfigObserver();
+    return this.configChange$;
+  }
+
+  private initStorageChangeListener(): void {
+    this.storageService.getConfigObserver().subscribe(config => this.handleStorageConfigChange(config));
+  }
+
+  private handleStorageConfigChange(newConfig: Config): void {
+    let config = newConfig;
+
+    if (config === null) {
+      config = new ConfigImpl();
+    }
+    this.configChangeSource.next(config);
   }
 }
