@@ -8,8 +8,7 @@
     "DELETE_DATA": {
       "HEADER": "Delete locally stored data",
       "SHEETS": "Stored Character Sheets",
-      "LANGUAGE": "Delete Language settings",
-      "THEME": "Delete Theme settings",
+      "SETTINGS": "Delete Settings",
       "DELETE": "Delete"
     },
     "OPEN_SHEET": {
