@@ -39,6 +39,7 @@ import {HitLocationComponent} from './components/sheet-component/reusable-compon
 import {AdvantagesDisadvantagesComponent} from './components/sheet-component/structural-components/sheet-body-component/advantages-disadvantages-component/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './components/sheet-component/reusable-components/disadvantages-component/disadvantages.component';
 import {FatigueHitComponent} from './components/sheet-component/reusable-components/fatigue-hit-component/fatigue-hit.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     GurpsyComponent,
@@ -67,6 +68,7 @@ import {FatigueHitComponent} from './components/sheet-component/reusable-compone
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     FlexLayoutModule,
