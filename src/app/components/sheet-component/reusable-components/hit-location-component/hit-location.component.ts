@@ -3,7 +3,7 @@ import {SheetImpl} from '../../../../model/sheet-impl';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
-  selector: 'gurpsy-hit-location-component',
+  selector: 'gurpsy-hit-location',
   templateUrl: './hit-location.component.html',
   styleUrls: [
     './hit-location.component.scss',

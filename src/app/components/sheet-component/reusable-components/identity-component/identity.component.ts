@@ -3,7 +3,7 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 import {Sheet} from '../../../../model/sheet';
 
 @Component({
-  selector: 'gurpsy-identity-component',
+  selector: 'gurpsy-identity',
   templateUrl: 'identity.component.html',
   styleUrls: ['../../sheet.component.scss']
 })

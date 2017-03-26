@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'gurpsy-general-component',
+  selector: 'gurpsy-struct-general',
   templateUrl: 'general.component.html',
   styleUrls: ['../../../sheet.component.scss']
 })

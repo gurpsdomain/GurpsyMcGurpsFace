@@ -3,7 +3,7 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 import {Sheet} from '../../../../model/sheet';
 
 @Component({
-  selector: 'gurpsy-disadvantages-component',
+  selector: 'gurpsy-disadvantages',
   templateUrl: 'disadvantages.component.html',
   styleUrls: ['./disadvantages.component.scss',
     '../../sheet.component.scss'

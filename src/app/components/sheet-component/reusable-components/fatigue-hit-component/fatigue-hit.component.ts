@@ -3,7 +3,7 @@ import {SheetImpl} from '../../../../model/sheet-impl';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
-  selector: 'gurpsy-fatigue-hit-component',
+  selector: 'gurpsy-fatigue-hit',
   templateUrl: './fatigue-hit.component.html',
   styleUrls: [
     '../../sheet.component.scss',

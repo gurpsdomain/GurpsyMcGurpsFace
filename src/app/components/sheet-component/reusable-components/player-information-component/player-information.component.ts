@@ -3,7 +3,7 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 import {SheetImpl} from '../../../../model/sheet-impl';
 
 @Component({
-  selector: 'gurpsy-player-information-component',
+  selector: 'gurpsy-player-information',
   templateUrl: 'player-information.component.html',
   styleUrls: ['../../sheet.component.scss']
 })

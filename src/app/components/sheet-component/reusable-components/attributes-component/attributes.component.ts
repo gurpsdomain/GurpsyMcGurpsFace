@@ -3,7 +3,7 @@ import {SheetImpl} from '../../../../model/sheet-impl';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
-  selector: 'gurpsy-attributes-component',
+  selector: 'gurpsy-attributes',
   templateUrl: './attributes.component.html',
   styleUrls: [
     './attributes.component.scss',
