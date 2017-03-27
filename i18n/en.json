@@ -3,13 +3,19 @@
   "nl": "Dutch",
   "APPLICATION": "GurpsyMcGurpsFace",
   "DIALOG": {
+    "ABOUT": {
+    },
     "OK": "Yes",
     "CANCEL": "Cancel",
+    "CLOSE": "Close",
     "DELETE_DATA": {
       "HEADER": "Delete locally stored data",
       "SHEETS": "Stored Character Sheets",
       "SETTINGS": "Delete Settings",
       "DELETE": "Delete"
+    },
+    "DICE": {
+      "RETHROW": "Throw again"
     },
     "OPEN_SHEET": {
       "FROM_FILE": "From file",
@@ -18,10 +24,12 @@
     }
   },
   "MENU": {
+    "ABOUT" : "About",
     "OPEN": "Open sheet",
     "DARK_THEME": "Night mode",
     "LANGUAGE": "Dutch",
-    "CLEAR_SETTINGS": "Clear settings"
+    "CLEAR_SETTINGS": "Clear settings",
+    "THROW_DICE": "Throw dice"
   },
   "MESSAGE": {
     "SHEET_LOADED": "Loaded Character Sheet: {{value}}"
