@@ -11,7 +11,6 @@ export class AboutDialogComponent {
 
   private dialogRef: MdDialogRef<AboutDialogComponent>;
 
-
   constructor(dialogRef: MdDialogRef<AboutDialogComponent>) {
     this.dialogRef = dialogRef;
 

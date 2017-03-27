@@ -4,6 +4,7 @@
   "APPLICATION": "GurpsyMcGurpsFace",
   "DIALOG": {
     "ABOUT": {
+      "ABOUT" : "This application is for study purposes only. It is not affiliated with Steve Jackson Games. At this moment it does not aim to become a fully functional GURPS Character sheet editor/viewer. But then again, it is possible that it will be so one day. If that day comes we will contact Steve Jackson Games to figure out if this is legal, or how to make it so."
     },
     "OK": "Yes",
     "CANCEL": "Cancel",
