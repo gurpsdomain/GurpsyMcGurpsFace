@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
-import {DeleteSettingsDialogComponent} from './components/dialog-component/delete-settings-dialog/delete-settings-dialog.component';
-import {OpenSheetDialogComponent} from './components/dialog-component/open-sheet-dialog/open-sheet-dialog.component';
+import {DeleteSettingsDialogComponent} from './components/dialog/delete-settings-dialog/delete-settings-dialog.component';
+import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {TranslateService} from 'ng2-translate';
 import {Sheet} from './model/sheet';
-import {AboutDialogComponent} from './components/dialog-component/about-dialog/about-dialog.component';
-import {DiceDialogComponent} from './components/dialog-component/dice-dialog/dice-dialog.component';
+import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 
 @Component({
   selector: 'gurpsy-root',

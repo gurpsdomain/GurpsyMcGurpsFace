@@ -1,25 +1,34 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages.component';
+import {GeneralComponent} from './general.component';
 import {TranslateModule} from 'ng2-translate';
-import {AdvantagesComponent} from '../../../reusable-components/advantages-component/advantages.component';
-import {DisadvantagesComponent} from '../../../reusable-components/disadvantages-component/disadvantages.component';
+import {PortraitComponent} from '../../../reusable/portrait/portrait.component';
+import {PointsComponent} from '../../../reusable/points/points.component';
+import {DescriptionComponent} from '../../../reusable/description/description.component';
 import {ModelReadService} from '../../../../../services/model-read-service/model-read.service';
 import {JsonService} from '../../../../../services/json-service/json.service';
 import {StorageService} from '../../../../../services/storage-service/storage.service';
+// tslint:disable-next-line max-line-length
 import {ConfigStorageDelegate} from '../../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from '../../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {AttributesComponent} from '../../../reusable/attributes/attributes.component';
+import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.component';
+import {FatigueHitComponent} from '../../../reusable/fatigue-hit/fatigue-hit.component';
 
-describe('AdvantagesComponent', () => {
-  let component: AdvantagesDisadvantagesComponent;
-  let fixture: ComponentFixture<AdvantagesDisadvantagesComponent>;
+describe('GeneralComponent', () => {
+  let component: GeneralComponent;
+  let fixture: ComponentFixture<GeneralComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AdvantagesDisadvantagesComponent,
-        AdvantagesComponent,
-        DisadvantagesComponent
+        AttributesComponent,
+        DescriptionComponent,
+        FatigueHitComponent,
+        GeneralComponent,
+        HitLocationComponent,
+        PortraitComponent,
+        PointsComponent
       ],
       imports: [
         TranslateModule.forRoot()
@@ -36,12 +45,12 @@ describe('AdvantagesComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdvantagesDisadvantagesComponent);
+    fixture = TestBed.createComponent(GeneralComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create a structural Advantages/Disadvantages Component', () => {
+  it('should create a structural General Component', () => {
     expect(component).toBeTruthy();
   });
 });

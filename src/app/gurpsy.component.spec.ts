@@ -4,15 +4,15 @@ import {MaterialModule} from '@angular/material';
 import {TranslateModule} from 'ng2-translate';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
-import {SheetComponent} from './components/sheet-component/sheet.component';
+import {SheetComponent} from './components/sheet/sheet.component';
 // tslint:disable-next-line max-line-length
-import {SheetHeaderComponent} from './components/sheet-component/structural-components/sheet-header-component/sheet-header.component';
-import {PortraitComponent} from './components/sheet-component/reusable-components/portrait-component/portrait.component';
-import {IdentityComponent} from './components/sheet-component/reusable-components/identity-component/identity.component';
+import {SheetHeaderComponent} from './components/sheet/structural/sheet-header/sheet-header.component';
+import {PortraitComponent} from './components/sheet/reusable/portrait/portrait.component';
+import {IdentityComponent} from './components/sheet/reusable/identity/identity.component';
 // tslint:disable-next-line max-line-length
-import {PlayerInformationComponent} from './components/sheet-component/reusable-components/player-information-component/player-information.component';
-import {DescriptionComponent} from './components/sheet-component/reusable-components/description-component/description.component';
-import {PointsComponent} from './components/sheet-component/reusable-components/points-component/points.component';
+import {PlayerInformationComponent} from './components/sheet/reusable/player-information/player-information.component';
+import {DescriptionComponent} from './components/sheet/reusable/description/description.component';
+import {PointsComponent} from './components/sheet/reusable/points/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {StorageService} from './services/storage-service/storage.service';
 import {ConfigService} from './services/config-service/config.service';
@@ -21,21 +21,21 @@ import {ModelReadService} from './services/model-read-service/model-read.service
 import {JsonService} from './services/json-service/json.service';
 import {ConfigStorageDelegate} from './services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {SheetBodyComponent} from './components/sheet-component/structural-components/sheet-body-component/sheet-body.component';
-import {NotesComponent} from './components/sheet-component/reusable-components/notes-component/notes.component';
-import {AdvantagesComponent} from './components/sheet-component/reusable-components/advantages-component/advantages.component';
-import {EquipmentComponent} from './components/sheet-component/reusable-components/equipment-component/equipment.component';
-import {SpellsComponent} from './components/sheet-component/reusable-components/spells-component/spells.component';
-import {SkillsComponent} from './components/sheet-component/reusable-components/skills-component/skills.component';
+import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
+import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
+import {AdvantagesComponent} from './components/sheet/reusable/advantages/advantages.component';
+import {EquipmentComponent} from './components/sheet/reusable/equipment/equipment.component';
+import {SpellsComponent} from './components/sheet/reusable/spells/spells.component';
+import {SkillsComponent} from './components/sheet/reusable/skills/skills.component';
 import {SheetBodyService} from './services/sheet-body-service/sheet-body.service';
 // tslint:disable-next-line max-line-length
-import {GeneralComponent} from './components/sheet-component/structural-components/sheet-body-component/general-component/general.component';
-import {AttributesComponent} from './components/sheet-component/reusable-components/attributes-component/attributes.component';
-import {HitLocationComponent} from './components/sheet-component/reusable-components/hit-location-component/hit-location.component';
+import {GeneralComponent} from './components/sheet/structural/sheet-body/general/general.component';
+import {AttributesComponent} from './components/sheet/reusable/attributes/attributes.component';
+import {HitLocationComponent} from './components/sheet/reusable/hit-location/hit-location.component';
 // tslint:disable-next-line max-line-length
-import {AdvantagesDisadvantagesComponent} from './components/sheet-component/structural-components/sheet-body-component/advantages-disadvantages-component/advantages-disadvantages.component';
-import {DisadvantagesComponent} from './components/sheet-component/reusable-components/disadvantages-component/disadvantages.component';
-import {FatigueHitComponent} from './components/sheet-component/reusable-components/fatigue-hit-component/fatigue-hit.component';
+import {AdvantagesDisadvantagesComponent} from './components/sheet/structural/sheet-body/advantages-disadvantages/advantages-disadvantages.component';
+import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/disadvantages.component';
+import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {

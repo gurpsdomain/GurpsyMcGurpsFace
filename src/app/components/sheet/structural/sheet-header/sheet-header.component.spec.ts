@@ -1,10 +1,10 @@
 /* tslint:disable:no-unused-variable */
 import {SheetHeaderComponent} from './sheet-header.component';
-import {PortraitComponent} from '../../reusable-components/portrait-component/portrait.component';
-import {IdentityComponent} from '../../reusable-components/identity-component/identity.component';
-import {PlayerInformationComponent} from '../../reusable-components/player-information-component/player-information.component';
-import {DescriptionComponent} from '../../reusable-components/description-component/description.component';
-import {PointsComponent} from '../../reusable-components/points-component/points.component';
+import {PortraitComponent} from '../../reusable/portrait/portrait.component';
+import {IdentityComponent} from '../../reusable/identity/identity.component';
+import {PlayerInformationComponent} from '../../reusable/player-information/player-information.component';
+import {DescriptionComponent} from '../../reusable/description/description.component';
+import {PointsComponent} from '../../reusable/points/points.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
