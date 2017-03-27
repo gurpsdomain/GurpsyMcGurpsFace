@@ -1,6 +1,6 @@
 # GurpsyMcGurpsFace [![Build Status](https://travis-ci.org/gurpsdomain/GurpsyMcGurpsFace.svg?branch=master)](https://travis-ci.org/gurpsdomain/GurpsyMcGurpsFace)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
