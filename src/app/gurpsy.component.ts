@@ -33,6 +33,7 @@ export class GurpsyComponent implements OnInit {
 
   public dialog: MdDialog;
   public theme: string;
+  public night: string;
 
   constructor(theme: ConfigService, languageService: LanguagesService, dialog: MdDialog, modelReadService: ModelReadService,
               snackBar: MdSnackBar, translate: TranslateService) {
@@ -103,6 +104,8 @@ export class GurpsyComponent implements OnInit {
   private initTheme(): void {
     this.configService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ConfigService.THEME_DEFAULT));
     this.configService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
+
+    this.configService.getNightTheme().then(night => this.night = night);
   }
 
   private initSheetChangeListener(): void {
@@ -116,6 +119,7 @@ export class GurpsyComponent implements OnInit {
       this.theme = ConfigService.THEME_DEFAULT;
       console.log('WARNING - Invalid theme stored in Local Storage: ', theme);
     }
+    console.log('Theme is now set to: ', theme);
   }
 
   private showNewSheetLoadedMessage(sheet: Sheet): void {

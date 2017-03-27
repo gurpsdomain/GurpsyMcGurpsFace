@@ -56,6 +56,18 @@ export class ConfigService {
     return this.storageService.getTheme();
   }
 
+
+  /**
+   * Get the value of the night theme.
+   *
+   * @return Promise<string>  A promise that resolves to the night theme
+   */
+  public getNightTheme(): Promise<string> {
+    return Promise.resolve(ConfigService.THEME_NIGHT);
+  }
+
+
+
   /**
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
