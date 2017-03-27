@@ -7,6 +7,8 @@ import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {TranslateService} from 'ng2-translate';
 import {Sheet} from './model/sheet';
+import {AboutDialogComponent} from './components/dialog-component/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './components/dialog-component/dice-dialog/dice-dialog.component';
 
 @Component({
   selector: 'gurpsy-root',
@@ -24,6 +26,8 @@ export class GurpsyComponent implements OnInit {
   private snackBar: MdSnackBar;
   private translate: TranslateService;
 
+  private aboutDialogRef: MdDialogRef<AboutDialogComponent>;
+  private diceDialogRef: MdDialogRef<DiceDialogComponent>;
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
 
@@ -50,6 +54,28 @@ export class GurpsyComponent implements OnInit {
       ConfigService.THEME_NIGHT;
     this.setTheme(theme);
     this.configService.setTheme(theme);
+  }
+
+  public onOpenThrowDiceDialog(): void {
+    this.diceDialogRef = this.dialog.open(DiceDialogComponent, {
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+
+    this.diceDialogRef.afterClosed().subscribe(
+      this.diceDialogRef = null
+    );
+  }
+
+  public onOpenAboutDialog(): void {
+    this.aboutDialogRef = this.dialog.open(AboutDialogComponent, {
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+
+    this.aboutDialogRef.afterClosed().subscribe(
+      this.aboutDialogRef = null
+    );
   }
 
   public onOpenSheetDialog(): void {

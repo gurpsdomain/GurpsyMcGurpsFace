@@ -25,6 +25,10 @@
           <md-icon class="flex-item">account_box</md-icon>
           <span class="flex-item" fxFlex="100%">{{ 'MENU.OPEN' | translate }}</span>
         </button>
+        <button md-menu-item (click)="onOpenThrowDiceDialog()" class="flex-container">
+          <md-icon class="flex-item">account_box</md-icon>
+          <span class="flex-item" fxFlex="100%">{{ 'MENU.THROW_DICE' | translate }}</span>
+        </button>
         <button md-menu-item (click)="onThemeChange()" class="flex-container">
           <md-icon class="flex-item">g_translate</md-icon>
           <span class="flex-item" fxFlex="100%">   {{ 'MENU.DARK_THEME' | translate }}</span>
@@ -32,6 +36,10 @@
         <button md-menu-item (click)="onOpenDeleteSettingsDialog()" class="flex-container">
           <md-icon class="flex-item">delete</md-icon>
           <span class="flex-item" fxFlex="100%">{{ 'MENU.CLEAR_SETTINGS' | translate }}</span>
+        </button>
+        <button md-menu-item (click)="onOpenAboutDialog()" class="flex-container">
+          <md-icon class="flex-item">account_box</md-icon>
+          <span class="flex-item" fxFlex="100%">{{ 'MENU.ABOUT' | translate }}</span>
         </button>
       </md-menu>
     </div>

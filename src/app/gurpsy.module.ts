@@ -40,8 +40,12 @@ import {AdvantagesDisadvantagesComponent} from './components/sheet-component/str
 import {DisadvantagesComponent} from './components/sheet-component/reusable-components/disadvantages-component/disadvantages.component';
 import {FatigueHitComponent} from './components/sheet-component/reusable-components/fatigue-hit-component/fatigue-hit.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AboutDialogComponent} from './components/dialog-component/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './components/dialog-component/dice-dialog/dice-dialog.component';
 @NgModule({
   declarations: [
+    AboutDialogComponent,
+    DiceDialogComponent,
     GurpsyComponent,
     SheetComponent,
     SheetHeaderComponent,
@@ -86,7 +90,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SheetBodyService
   ],
   entryComponents: [
+    AboutDialogComponent,
     DeleteSettingsDialogComponent,
+    DiceDialogComponent,
     OpenSheetDialogComponent
   ],
   bootstrap: [GurpsyComponent]
