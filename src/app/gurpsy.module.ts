@@ -42,6 +42,7 @@ import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatig
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
+import {LoggingService} from './services/logging-service/logging.service';
 @NgModule({
   declarations: [
     AboutDialogComponent,
@@ -81,6 +82,7 @@ import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.c
   ],
   providers: [
     LanguagesService,
+    LoggingService,
     ConfigService,
     StorageService,
     ConfigStorageDelegate,

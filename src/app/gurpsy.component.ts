@@ -9,6 +9,7 @@ import {TranslateService} from 'ng2-translate';
 import {Sheet} from './model/sheet';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
+import {LoggingService} from './services/logging-service/logging.service';
 
 @Component({
   selector: 'gurpsy-root',
@@ -21,6 +22,7 @@ export class GurpsyComponent implements OnInit {
   private static SNACKBAR_DURATION_TIME = 4000;
 
   private languageService: LanguagesService;
+  private loggingService: LoggingService;
   private configService: ConfigService;
   private modelReadService: ModelReadService;
   private snackBar: MdSnackBar;
@@ -35,9 +37,11 @@ export class GurpsyComponent implements OnInit {
   public theme: string;
   public night: string;
 
-  constructor(theme: ConfigService, languageService: LanguagesService, dialog: MdDialog, modelReadService: ModelReadService,
-              snackBar: MdSnackBar, translate: TranslateService) {
+  constructor(theme: ConfigService, languageService: LanguagesService, loggingService: LoggingService,
+              dialog: MdDialog, modelReadService: ModelReadService, snackBar: MdSnackBar,
+              translate: TranslateService) {
     this.languageService = languageService;
+    this.loggingService = loggingService;
     this.configService = theme;
     this.dialog = dialog;
     this.modelReadService = modelReadService;
@@ -117,9 +121,8 @@ export class GurpsyComponent implements OnInit {
       this.theme = theme;
     } else {
       this.theme = ConfigService.THEME_DEFAULT;
-      console.log('WARNING - Invalid theme stored in Local Storage: ', theme);
+      this.loggingService.warn('Invalid theme stored in Local Storage: ' + theme);
     }
-    console.log('Theme is now set to: ', theme);
   }
 
   private showNewSheetLoadedMessage(sheet: Sheet): void {

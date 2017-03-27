@@ -36,6 +36,7 @@ import {HitLocationComponent} from './components/sheet/reusable/hit-location/hit
 import {AdvantagesDisadvantagesComponent} from './components/sheet/structural/sheet-body/advantages-disadvantages/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/disadvantages.component';
 import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
+import {LoggingService} from './services/logging-service/logging.service';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -71,6 +72,7 @@ describe('GurpsyComponent', () => {
       providers: [
         ConfigService,
         LanguagesService,
+        LoggingService,
         StorageService,
         ConfigStorageDelegate,
         SheetStorageDelegate,
