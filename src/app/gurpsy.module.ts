@@ -43,6 +43,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
+import { LiftingMovingComponent } from './components/sheet/reusable/lifting-moving/lifting-moving.component';
+import { EncumbranceComponent } from './components/sheet/reusable/encumbrance/encumbrance.component';
 @NgModule({
   declarations: [
     AboutDialogComponent,
@@ -69,7 +71,9 @@ import {LoggingService} from './services/logging-service/logging.service';
     GeneralComponent,
     AttributesComponent,
     HitLocationComponent,
-    FatigueHitComponent
+    FatigueHitComponent,
+    LiftingMovingComponent,
+    EncumbranceComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,8 @@ import {SheetStorageDelegate} from '../../../../../services/storage-service/dele
 import {AttributesComponent} from '../../../reusable/attributes/attributes.component';
 import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.component';
 import {FatigueHitComponent} from '../../../reusable/fatigue-hit/fatigue-hit.component';
+import {LiftingMovingComponent} from "../../../reusable/lifting-moving/lifting-moving.component";
+import {EncumbranceComponent} from "../../../reusable/encumbrance/encumbrance.component";
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -24,9 +26,11 @@ describe('GeneralComponent', () => {
       declarations: [
         AttributesComponent,
         DescriptionComponent,
+        EncumbranceComponent,
         FatigueHitComponent,
         GeneralComponent,
         HitLocationComponent,
+        LiftingMovingComponent,
         PortraitComponent,
         PointsComponent
       ],
