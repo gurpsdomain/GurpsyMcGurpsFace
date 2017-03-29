@@ -29,6 +29,8 @@ import {AdvantagesDisadvantagesComponent} from './structural/sheet-body/advantag
 import {DisadvantagesComponent} from './reusable/disadvantages/disadvantages.component';
 import {ConfigService} from '../../services/config-service/config.service';
 import {FatigueHitComponent} from './reusable/fatigue-hit/fatigue-hit.component';
+import {LiftingMovingComponent} from './reusable/lifting-moving/lifting-moving.component';
+import {EncumbranceComponent} from './reusable/encumbrance/encumbrance.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -42,8 +44,10 @@ describe('SheetComponent', function () {
         AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
         DisadvantagesComponent,
+        EncumbranceComponent,
         EquipmentComponent,
         FatigueHitComponent,
+        LiftingMovingComponent,
         SpellsComponent,
         SkillsComponent,
         SheetComponent,

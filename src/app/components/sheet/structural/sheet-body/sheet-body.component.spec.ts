@@ -23,6 +23,8 @@ import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages/advan
 import {DisadvantagesComponent} from '../../reusable/disadvantages/disadvantages.component';
 import {ConfigService} from '../../../../services/config-service/config.service';
 import {FatigueHitComponent} from '../../reusable/fatigue-hit/fatigue-hit.component';
+import {EncumbranceComponent} from '../../reusable/encumbrance/encumbrance.component';
+import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-moving.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -36,8 +38,10 @@ describe('SheetBodyComponent', () => {
         AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
         DisadvantagesComponent,
+        EncumbranceComponent,
         EquipmentComponent,
         FatigueHitComponent,
+        LiftingMovingComponent,
         SpellsComponent,
         NotesComponent,
         SkillsComponent,

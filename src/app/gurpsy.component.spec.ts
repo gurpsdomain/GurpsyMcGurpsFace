@@ -37,6 +37,8 @@ import {AdvantagesDisadvantagesComponent} from './components/sheet/structural/sh
 import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/disadvantages.component';
 import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
 import {LoggingService} from './services/logging-service/logging.service';
+import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
+import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -45,8 +47,10 @@ describe('GurpsyComponent', () => {
         AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
         DisadvantagesComponent,
+        EncumbranceComponent,
         EquipmentComponent,
         FatigueHitComponent,
+        LiftingMovingComponent,
         SpellsComponent,
         SkillsComponent,
         GurpsyComponent,
