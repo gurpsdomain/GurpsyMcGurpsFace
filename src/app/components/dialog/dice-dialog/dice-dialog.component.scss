@@ -1,5 +1,15 @@
 @import "../../../../gurpsy-material-theme";
 
+md-dialog-content {
+  width: 100%;
+  height: 350px;
+
+  .diceView {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 
 
 
