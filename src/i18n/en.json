@@ -2,9 +2,10 @@
   "en": "English",
   "nl": "Dutch",
   "APPLICATION": "GurpsyMcGurpsFace",
+  "VERSION": "0.1-SNAPSHOT",
   "DIALOG": {
     "ABOUT": {
-      "ABOUT" : "This application is for study purposes only. It is not affiliated with Steve Jackson Games. At this moment it does not aim to become a fully functional GURPS Character sheet editor/viewer. But then again, it is possible that it will be so one day. If that day comes we will contact Steve Jackson Games to figure out if this is legal, or how to make it so."
+      "ABOUT": "This application is for study purposes only. It is not affiliated to Steve Jackson Games. At this moment it does not aim to become a fully functional GURPS Character sheet editor/viewer. But then again, it is possible that it will be so one day. If that day comes we will contact Steve Jackson Games to figure out if this is legal, or how to make it so."
     },
     "OK": "Yes",
     "CANCEL": "Cancel",
@@ -25,7 +26,7 @@
     }
   },
   "MENU": {
-    "ABOUT" : "About",
+    "ABOUT": "About",
     "OPEN": "Open sheet",
     "DARK_THEME": "Night mode",
     "LANGUAGE": "Dutch",
