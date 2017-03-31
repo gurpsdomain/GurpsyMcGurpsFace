@@ -1,6 +1,8 @@
 <md-dialog-content>
-  <div #diceView class="diceView">
+  <div class="diceView">
+    <canvas #canvas (window:resize)="onResize($event)">
 
+    </canvas>
   </div>
 </md-dialog-content>
 
