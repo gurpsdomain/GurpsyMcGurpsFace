@@ -8,8 +8,6 @@ import * as THREE from 'three';
 })
 export class DiceDialogComponent implements AfterViewInit {
 
-  @ViewChild('diceView') diceView;
-
   private camera: THREE.PerspectiveCamera;
 
   @ViewChild('canvas')
