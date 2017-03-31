@@ -29,7 +29,7 @@ export class DiceDialogComponent implements AfterViewInit {
   public size = 200;
 
   @Input()
-  public texture = '/assets/textures/crate.gif';
+  public texture = 'assets/textures/crate.gif';
 
   @Input()
   public cameraZ = 400;
@@ -42,16 +42,6 @@ export class DiceDialogComponent implements AfterViewInit {
 
   @Input()
   public farClippingPane = 1000;
-
-  /**
-   * Update scene after resizing.
-   */
-  public onResize() {
-    this.camera.aspect = this.getAspectRatio();
-    this.camera.updateProjectionMatrix();
-
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
-  }
 
   /**
    * We need to wait until template is bound to DOM, as we need the view
