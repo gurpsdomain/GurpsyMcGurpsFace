@@ -1,5 +1,6 @@
 import {Component, ViewChild, AfterViewInit, Input, ElementRef} from '@angular/core';
 import * as THREE from 'three';
+import {DiceFactory} from './factory/dice-factory';
 
 @Component({
   selector: 'gurpsy-delete-settings-dialog',
@@ -13,7 +14,7 @@ export class DiceDialogComponent implements AfterViewInit {
   @ViewChild('canvas')
   private canvasRef: ElementRef;
 
-  private cube: THREE.Mesh;
+  private dice: THREE.Mesh;
 
   private renderer: THREE.WebGLRenderer;
 
@@ -24,12 +25,6 @@ export class DiceDialogComponent implements AfterViewInit {
 
   @Input()
   public rotationSpeedY = 0.01;
-
-  @Input()
-  public size = 200;
-
-  @Input()
-  public texture = 'assets/textures/crate.gif';
 
   @Input()
   public cameraZ = 400;
@@ -43,14 +38,9 @@ export class DiceDialogComponent implements AfterViewInit {
   @Input()
   public farClippingPane = 1000;
 
-  /**
-   * We need to wait until template is bound to DOM, as we need the view
-   * dimensions to create the scene. We could create the cube in a Init hook,
-   * but we would be unable to add it to the scene until now.
-   */
   public ngAfterViewInit() {
     this.createScene();
-    this.createCube();
+    this.createDice();
     this.startRenderingLoop();
   }
 
@@ -64,19 +54,13 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   private animateCube() {
-    this.cube.rotation.x += this.rotationSpeedX;
-    this.cube.rotation.y += this.rotationSpeedY;
+    this.dice.rotation.x += this.rotationSpeedX;
+    this.dice.rotation.y += this.rotationSpeedY;
   }
 
-  private createCube() {
-    const texture = new THREE.TextureLoader().load(this.texture);
-    const material = new THREE.MeshBasicMaterial({map: texture});
-
-    const geometry = new THREE.BoxBufferGeometry(this.size, this.size, this.size);
-    this.cube = new THREE.Mesh(geometry, material);
-
-    // Add cube to scene
-    this.scene.add(this.cube);
+  private createDice() {
+    this.dice = new DiceFactory().createDice();
+    this.scene.add(this.dice);
   }
 
   private createScene() {
