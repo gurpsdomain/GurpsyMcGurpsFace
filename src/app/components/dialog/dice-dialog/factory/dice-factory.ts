@@ -13,9 +13,10 @@ export class DiceFactory extends THREE.Mesh {
   private static TEXTURE_FACE_SIX = 'assets/textures/dice-6.png';
 
 
-  public createDice(): THREE.Mesh {
+  public createDie(x: number, y: number, z: number): THREE.Mesh {
     const geometry = new THREE.BoxBufferGeometry(DiceFactory.SIZE, DiceFactory.SIZE, DiceFactory.SIZE);
     const dice = new THREE.Mesh(geometry, new THREE.MultiMaterial(this.createMaterial()));
+    dice.position.set(x, y, z);
 
     return dice;
   }

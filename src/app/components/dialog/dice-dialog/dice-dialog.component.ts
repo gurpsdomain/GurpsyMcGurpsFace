@@ -20,7 +20,9 @@ export class DiceDialogComponent implements AfterViewInit {
   private canvasRef: ElementRef;
 
   private camera: THREE.PerspectiveCamera;
-  private dice: THREE.Mesh;
+  private diceOne: THREE.Mesh;
+  private diceTwo: THREE.Mesh;
+  private diceThree: THREE.Mesh;
   private renderer: THREE.WebGLRenderer;
   private scene: THREE.Scene;
 
@@ -40,13 +42,21 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   private animateCube() {
-    this.dice.rotation.x += DiceDialogComponent.ROTATION_SPEED_X;
-    this.dice.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y;
+    this.diceOne.rotation.x += DiceDialogComponent.ROTATION_SPEED_X + DiceDialogComponent.ROTATION_SPEED_Y;
+    this.diceOne.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y;
+    this.diceTwo.rotation.x += DiceDialogComponent.ROTATION_SPEED_X + DiceDialogComponent.ROTATION_SPEED_X;
+    this.diceTwo.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y;
+    this.diceThree.rotation.x += DiceDialogComponent.ROTATION_SPEED_X;
+    this.diceThree.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y + DiceDialogComponent.ROTATION_SPEED_X;
   }
 
   private createDice() {
-    this.dice = new DiceFactory().createDice();
-    this.scene.add(this.dice);
+    this.diceOne = new DiceFactory().createDie(-110, -90, 30);
+    this.scene.add(this.diceOne);
+    this.diceTwo = new DiceFactory().createDie(0, 0, 0);
+    this.scene.add(this.diceTwo);
+    this.diceThree = new DiceFactory().createDie(120, 90, -20);
+    this.scene.add(this.diceThree);
   }
 
   private createScene() {
