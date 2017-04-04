@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import Material = THREE.Material;
 
-export class DiceFactory {
+export class DiceFactory extends THREE.Mesh {
 
   private static SIZE = 80;
 

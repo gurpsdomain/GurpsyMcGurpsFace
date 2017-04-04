@@ -1,4 +1,4 @@
-import {Component, ViewChild, AfterViewInit, Input, ElementRef} from '@angular/core';
+import {Component, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 import * as THREE from 'three';
 import {DiceFactory} from './factory/dice-factory';
 
@@ -9,34 +9,20 @@ import {DiceFactory} from './factory/dice-factory';
 })
 export class DiceDialogComponent implements AfterViewInit {
 
-  private camera: THREE.PerspectiveCamera;
+  public static ROTATION_SPEED_X = 0.005;
+  public static ROTATION_SPEED_Y = 0.01;
+  public static CAMERA_Z = 400;
+  public static FIELD_OF_VIEW = 70;
+  public static NEAR_CLIPPING_PANE = 1;
+  public static FAR_CLIPPING_PLANE = 1000;
 
   @ViewChild('canvas')
   private canvasRef: ElementRef;
 
+  private camera: THREE.PerspectiveCamera;
   private dice: THREE.Mesh;
-
   private renderer: THREE.WebGLRenderer;
-
   private scene: THREE.Scene;
-
-  @Input()
-  public rotationSpeedX = 0.005;
-
-  @Input()
-  public rotationSpeedY = 0.01;
-
-  @Input()
-  public cameraZ = 400;
-
-  @Input()
-  public fieldOfView = 70;
-
-  @Input()
-  public nearClippingPane = 1;
-
-  @Input()
-  public farClippingPane = 1000;
 
   public ngAfterViewInit() {
     this.createScene();
@@ -54,8 +40,8 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   private animateCube() {
-    this.dice.rotation.x += this.rotationSpeedX;
-    this.dice.rotation.y += this.rotationSpeedY;
+    this.dice.rotation.x += DiceDialogComponent.ROTATION_SPEED_X;
+    this.dice.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y;
   }
 
   private createDice() {
@@ -64,18 +50,16 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   private createScene() {
-    /* Scene */
     this.scene = new THREE.Scene();
 
-    /* Camera */
-    const aspectRatio = this.getAspectRatio();
     this.camera = new THREE.PerspectiveCamera(
-      this.fieldOfView,
-      aspectRatio,
-      this.nearClippingPane,
-      this.farClippingPane
+      DiceDialogComponent.FIELD_OF_VIEW,
+      this.getAspectRatio(),
+      DiceDialogComponent.NEAR_CLIPPING_PANE,
+      DiceDialogComponent.FAR_CLIPPING_PLANE
     );
-    this.camera.position.z = this.cameraZ;
+
+    this.camera.position.z = DiceDialogComponent.CAMERA_Z;
   }
 
   private getAspectRatio() {
@@ -83,7 +67,7 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   private startRenderingLoop() {
-    this.renderer = new THREE.WebGLRenderer({canvas: this.canvas});
+    this.renderer = new THREE.WebGLRenderer({canvas: this.canvas, alpha: true});
     this.renderer.setPixelRatio(devicePixelRatio);
     this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
 
