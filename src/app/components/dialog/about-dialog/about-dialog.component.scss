@@ -1,7 +1,7 @@
 @import "../../../../gurpsy-material-theme";
 
 .gurpsy-face {
-  height: 100px;
+  height: 120px;
 }
 
 .about {
@@ -12,13 +12,12 @@
   margin-bottom: 20px;
 
   .title {
-    font-size: x-large;
+    font-size: larger;
     font-weight: bold;
   }
 
   .version {
-    font-size: small;
-    text-align: right;
+    font-size: smaller;
   }
 }
 

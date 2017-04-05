@@ -1,12 +1,15 @@
 <div class="header flex-container"
+     fxLayout="row"
+     fxLayout.xs="column"
      fxLayoutAlign="space-between stretch"
      fxLayoutWrap="nowrap">
   <div class="flex-item">
     <img class="gurpsy-face" src="assets/images/gurpsy-face.png">
   </div>
-  <div class="flex-item">
-    <div class="title"> {{'APPLICATION'| translate}}</div>
-    <div class="version"> {{'VERSION'| translate}}</div>
+  <div class="flex-item flex-container"
+       fxLayout="column">
+    <div class="flex-item title"> {{'APPLICATION'| translate}}</div>
+    <div class="flex-item version"> {{'VERSION'| translate}}</div>
   </div>
 </div>
 
