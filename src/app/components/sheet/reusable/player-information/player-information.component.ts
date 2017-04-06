@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
-import {SheetImpl} from '../../../../model/sheet-impl';
+import {SheetImpl} from '../../../../models/sheet/sheet-impl';
 
 @Component({
   selector: 'gurpsy-player-information',

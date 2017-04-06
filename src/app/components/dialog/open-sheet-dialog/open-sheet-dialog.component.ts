@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {MdDialogRef, MdTabChangeEvent} from '@angular/material';
 import {ModelReadService} from '../../../services/model-read-service/model-read.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
-import {Sheet} from '../../../model/sheet';
+import {Sheet} from '../../../models/sheet/sheet';
 
 
 

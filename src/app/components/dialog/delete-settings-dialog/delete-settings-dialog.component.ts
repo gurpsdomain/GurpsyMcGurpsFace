@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {MdDialogRef, MdCheckboxChange} from '@angular/material';
 import {StorageService} from '../../../services/storage-service/storage.service';
-import {Sheet} from '../../../model/sheet';
+import {Sheet} from '../../../models/sheet/sheet';
 
 @Component({
   selector: 'gurpsy-delete-settings-dialog',

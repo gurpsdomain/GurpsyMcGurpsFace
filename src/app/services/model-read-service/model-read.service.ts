@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {JsonService} from '../json-service/json.service';
 import {Subject} from 'rxjs';
 import {StorageService} from '../storage-service/storage.service';
-import {Sheet, Points, Description, Identity, PlayerInformation} from '../../model/sheet';
-import {SheetImpl} from '../../model/sheet-impl';
+import {Sheet, Points, Description, Identity, PlayerInformation} from '../../models/sheet/sheet';
+import {SheetImpl} from '../../models/sheet/sheet-impl';
 
 @Injectable()
 export class ModelReadService {

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {Sheet} from '../../model/sheet';
+import {Sheet} from '../../models/sheet/sheet';
 import {Observable} from 'rxjs';
-import {Config} from '../../model/config/config';
+import {Config} from '../../models/config/config';
 import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
 
 @Injectable()

@@ -6,7 +6,7 @@ import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {TranslateService} from 'ng2-translate';
-import {Sheet} from './model/sheet';
+import {Sheet} from './models/sheet/sheet';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';

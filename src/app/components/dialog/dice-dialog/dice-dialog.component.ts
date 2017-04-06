@@ -1,6 +1,6 @@
 import {Component, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 import * as THREE from 'three';
-import {DiceFactory} from './factory/dice-factory';
+import {Die} from '../../../models/die/die';
 
 @Component({
   selector: 'gurpsy-delete-settings-dialog',
@@ -41,7 +41,7 @@ export class DiceDialogComponent implements AfterViewInit {
     return this.canvasRef.nativeElement;
   }
 
-  private animateCube() {
+  private animateDice() {
     this.diceOne.rotation.x += DiceDialogComponent.ROTATION_SPEED_X + DiceDialogComponent.ROTATION_SPEED_Y;
     this.diceOne.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y;
     this.diceTwo.rotation.x += DiceDialogComponent.ROTATION_SPEED_X + DiceDialogComponent.ROTATION_SPEED_X;
@@ -51,11 +51,11 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   private createDice() {
-    this.diceOne = new DiceFactory().createDie(-110, -90, 30);
+    this.diceOne = new Die(-110, -90, 30);
     this.scene.add(this.diceOne);
-    this.diceTwo = new DiceFactory().createDie(0, 0, 0);
+    this.diceTwo = new Die(0, 0, 0);
     this.scene.add(this.diceTwo);
-    this.diceThree = new DiceFactory().createDie(120, 90, -20);
+    this.diceThree = new Die(120, 90, -20);
     this.scene.add(this.diceThree);
   }
 
@@ -84,7 +84,7 @@ export class DiceDialogComponent implements AfterViewInit {
     const component: DiceDialogComponent = this;
     (function render() {
       requestAnimationFrame(render);
-      component.animateCube();
+      component.animateDice();
       component.renderer.render(component.scene, component.camera);
     }());
   }

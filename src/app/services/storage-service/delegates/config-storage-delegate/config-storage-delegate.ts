@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {ConfigImpl, Config} from '../../../../model/config/config';
+import {ConfigImpl, Config} from '../../../../models/config/config';
 import {JsonService} from '../../../json-service/json.service';
 import {SheetBodyContent} from '../../../sheet-body-service/sheet-body.service';
 

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../storage-service/storage.service';
 import {Observable, Subject} from 'rxjs';
-import {Config, ConfigImpl} from '../../model/config/config';
+import {Config, ConfigImpl} from '../../models/config/config';
 import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
 
 @Injectable()

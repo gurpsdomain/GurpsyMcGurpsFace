@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Sheet} from '../../../../model/sheet';
+import {Sheet} from '../../../../models/sheet/sheet';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
