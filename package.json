@@ -50,7 +50,7 @@
     "karma-jasmine-html-reporter": "0.2.2",
     "protractor": "4.0.9",
     "travis-encrypt": "2.1.1",
-    "ts-node": "3.0.2",
+    "ts-node": "2.0.0",
     "tslint": "5.0.0",
     "typescript": "2.2.2",
     "webdriver-manager": "10.2.5",
