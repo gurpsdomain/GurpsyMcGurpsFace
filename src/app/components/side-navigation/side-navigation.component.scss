@@ -24,6 +24,13 @@
     .sideNavigationContentLine {
       padding: 0px 8px 0px 8px;
       width: 100%;
+
+      span {
+        text-align: left;
+      }
+      md-icon {
+        padding: 6px 0px 6px 0px;
+      }
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'hammerjs';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -45,6 +46,7 @@ import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.c
 import {LoggingService} from './services/logging-service/logging.service';
 import { LiftingMovingComponent } from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import { EncumbranceComponent } from './components/sheet/reusable/encumbrance/encumbrance.component';
+
 @NgModule({
   declarations: [
     AboutDialogComponent,
