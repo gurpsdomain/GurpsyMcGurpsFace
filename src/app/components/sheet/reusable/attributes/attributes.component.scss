@@ -4,6 +4,7 @@
   border-collapse: collapse;
 
   td:last-child {
+    max-width: inherit;
     text-align: right;
   }
 }

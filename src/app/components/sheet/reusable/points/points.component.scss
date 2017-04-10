@@ -5,6 +5,7 @@
   border-spacing: 2px;
 
   td:last-child {
+    max-width: inherit;
     text-align: right;
   }
 }
