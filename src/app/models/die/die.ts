@@ -34,6 +34,5 @@ export class Die extends THREE.Mesh {
     super(geometry, new THREE.MultiMaterial(material));
 
     this.position.set(x, y, z);
-
   }
 }
