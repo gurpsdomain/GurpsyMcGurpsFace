@@ -3,13 +3,15 @@ import * as THREE from 'three';
 export class Die extends THREE.Mesh {
 
   private static SIZE = 50;
-
   private static TEXTURE_FACE_ONE = 'assets/textures/dice-1.png';
   private static TEXTURE_FACE_TWO = 'assets/textures/dice-2.png';
   private static TEXTURE_FACE_THREE = 'assets/textures/dice-3.png';
   private static TEXTURE_FACE_FOUR = 'assets/textures/dice-4.png';
   private static TEXTURE_FACE_FIVE = 'assets/textures/dice-5.png';
   private static TEXTURE_FACE_SIX = 'assets/textures/dice-6.png';
+
+  private rotationSpeedX: number;
+  private rotationSpeedY: number;
 
   constructor(x: number, y: number, z: number) {
 
@@ -34,5 +36,13 @@ export class Die extends THREE.Mesh {
     super(geometry, new THREE.MultiMaterial(material));
 
     this.position.set(x, y, z);
+
+    this.rotationSpeedX = 0.01;
+    this.rotationSpeedY = 0.02;
+  }
+
+  public rotate(): void {
+    this.rotation.x += this.rotationSpeedX;
+    this.rotation.y += this.rotationSpeedY;
   }
 }

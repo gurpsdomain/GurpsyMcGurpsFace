@@ -1,6 +1,8 @@
 import {Component, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 import * as THREE from 'three';
-import {Die} from '../../../models/die/die';
+import {Die} from '../../../models/3d/die';
+import {Table} from '../../../models/3d/table';
+import {Camera} from '../../../models/3d/camera';
 
 @Component({
   selector: 'gurpsy-delete-settings-dialog',
@@ -9,104 +11,81 @@ import {Die} from '../../../models/die/die';
 })
 export class DiceDialogComponent implements AfterViewInit {
 
-  private static TEXTURE_TABLE = 'assets/textures/walnut-tabletop.jpg';
-
-  private static ROTATION_SPEED_X = 0.005;
-  private static ROTATION_SPEED_Y = 0.01;
-  private static CAMERA_Z = 400;
-  private static FIELD_OF_VIEW = 70;
-  private static NEAR_CLIPPING_PANE = 1;
-  private static FAR_CLIPPING_PLANE = 1000;
-
   @ViewChild('canvas')
   private canvasRef: ElementRef;
 
-  private camera: THREE.PerspectiveCamera;
-  private diceOne: THREE.Mesh;
-  private diceTwo: THREE.Mesh;
-  private diceThree: THREE.Mesh;
-  private tableTop: THREE.Mesh;
-  private renderer: THREE.WebGLRenderer;
-  private scene: THREE.Scene;
-
   public ngAfterViewInit() {
-    this.createScene();
-    this.createCamera();
-    this.createTableTop();
-    this.createDice();
-    this.startRenderingLoop();
+    const scene = this.createScene();
+    this.addTable(scene);
+    const dice = this.addDice(scene);
+    const camera = this.addCamera();
+    const renderer = this.createRenderer();
+    this.startRenderingLoop(scene, camera, dice, renderer);
   }
 
   public onRethrow(): void {
     console.log('Rethrowing');
   }
 
-
   private createScene() {
-    this.scene = new THREE.Scene();
+    return new THREE.Scene();
   }
 
-  private createCamera() {
-    this.camera = new THREE.PerspectiveCamera(
-      DiceDialogComponent.FIELD_OF_VIEW,
-      this.getAspectRatio(),
-      DiceDialogComponent.NEAR_CLIPPING_PANE,
-      DiceDialogComponent.FAR_CLIPPING_PLANE
-    );
+  private addDice(scene: THREE.Scene): Array<Die> {
+    const dice = new Array<Die>();
 
-    this.camera.position.z = DiceDialogComponent.CAMERA_Z;
-    this.camera.position.y = 50;
-    this.camera.rotation.x = -0.4;
+
+    const diceOne = new Die(-110, -90, 0);
+    scene.add(diceOne);
+    dice.push(diceOne);
+
+    const diceTwo = new Die(0, 0, 0);
+    scene.add(diceTwo);
+    dice.push(diceTwo);
+
+    const diceThree = new Die(120, 90, 0);
+    scene.add(diceThree);
+    dice.push(diceThree);
+
+    return dice;
   }
 
-  private createDice(): void {
-    this.diceOne = new Die(-110, -90, 0);
-    this.scene.add(this.diceOne);
-    this.diceTwo = new Die(0, 0, 0);
-    this.scene.add(this.diceTwo);
-    this.diceThree = new Die(120, 90, 0);
-    this.scene.add(this.diceThree);
+  private addTable(scene: THREE.Scene): void {
+    scene.add(new Table());
   }
 
-  private createTableTop(): void {
-
-    const tableTexture = new THREE.TextureLoader().load(DiceDialogComponent.TEXTURE_TABLE);
-    const tableMaterial = new THREE.MeshBasicMaterial({map: tableTexture});
-
-    const geometry = new THREE.PlaneGeometry(1024, 512);
-    this.tableTop = new THREE.Mesh(geometry, tableMaterial);
-    this.tableTop.position.set(0, -150, 0);
-    this.tableTop.rotation.x = -Math.PI / 2;
-    this.scene.add(this.tableTop);
+  private addCamera() {
+    return new Camera(this.getAspectRatio());
   }
 
-  private startRenderingLoop(): void {
-    this.renderer = new THREE.WebGLRenderer({canvas: this.canvas, alpha: true});
-    this.renderer.setPixelRatio(devicePixelRatio);
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
+  private createRenderer(): THREE.WebGLRenderer {
+    const renderer = new THREE.WebGLRenderer({canvas: this.getCanvas(), alpha: true});
+    renderer.setPixelRatio(devicePixelRatio);
+    renderer.setSize(this.getCanvas().clientWidth, this.getCanvas().clientHeight);
 
+    return renderer;
+  }
+
+  private startRenderingLoop(scene: THREE.Scene, camera: THREE.Camera, dice: Array<Die>, renderer: THREE.WebGLRenderer): void {
     const component: DiceDialogComponent = this;
     (function render() {
       requestAnimationFrame(render);
-      component.animateDice();
-      component.renderer.render(component.scene, component.camera);
+      component.animateDice(dice);
+      renderer.render(scene, camera);
     }());
   }
 
-  private get canvas(): HTMLCanvasElement {
+  private getCanvas(): HTMLCanvasElement {
     return this.canvasRef.nativeElement;
   }
 
-  private animateDice(): void {
-    this.diceOne.rotation.x += DiceDialogComponent.ROTATION_SPEED_X + DiceDialogComponent.ROTATION_SPEED_Y;
-    this.diceOne.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y;
-    this.diceTwo.rotation.x += DiceDialogComponent.ROTATION_SPEED_X + DiceDialogComponent.ROTATION_SPEED_X;
-    this.diceTwo.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y;
-    this.diceThree.rotation.x += DiceDialogComponent.ROTATION_SPEED_X;
-    this.diceThree.rotation.y += DiceDialogComponent.ROTATION_SPEED_Y + DiceDialogComponent.ROTATION_SPEED_X;
+  private animateDice(dice: Array<Die>): void {
+    for (const die of dice) {
+      die.rotate();
+    }
   }
 
   private getAspectRatio(): number {
-    return this.canvas.clientWidth / this.canvas.clientHeight;
+    return this.getCanvas().clientWidth / this.getCanvas().clientHeight;
   }
 }
