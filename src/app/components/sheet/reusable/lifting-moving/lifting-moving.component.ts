@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SheetImpl } from '../../../../models/sheet/sheet-impl';
+import { ModelReadService } from '../../../../services/model-read-service/model-read.service';
 
 @Component({
   selector: 'gurpsy-lifting-moving',
@@ -7,10 +9,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class LiftingMovingComponent implements OnInit {
 
-  constructor() {
+  public sheet: SheetImpl;
+
+  private modelReadService: ModelReadService;
+
+  constructor(modelReadService: ModelReadService) {
+    this.modelReadService = modelReadService;
   }
 
   ngOnInit() {
+    this.sheet = this.modelReadService.getSheet();
+    this.modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
   }
-
 }

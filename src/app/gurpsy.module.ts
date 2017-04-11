@@ -40,12 +40,12 @@ import {HitLocationComponent} from './components/sheet/reusable/hit-location/hit
 import {AdvantagesDisadvantagesComponent} from './components/sheet/structural/sheet-body/advantages-disadvantages/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/disadvantages.component';
 import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
+import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
+import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
-import { LiftingMovingComponent } from './components/sheet/reusable/lifting-moving/lifting-moving.component';
-import { EncumbranceComponent } from './components/sheet/reusable/encumbrance/encumbrance.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +73,8 @@ import { EncumbranceComponent } from './components/sheet/reusable/encumbrance/en
     GeneralComponent,
     AttributesComponent,
     HitLocationComponent,
+    EncumbranceComponent,
+    LiftingMovingComponent,
     FatigueHitComponent,
     LiftingMovingComponent,
     EncumbranceComponent
