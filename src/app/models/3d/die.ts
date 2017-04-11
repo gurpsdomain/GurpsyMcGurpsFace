@@ -37,8 +37,8 @@ export class Die extends THREE.Mesh {
 
     this.position.set(x, y, z);
 
-    this.rotationSpeedX = 0.01;
-    this.rotationSpeedY = 0.02;
+    this.rotationSpeedX = Math.random() / 10;
+    this.rotationSpeedY = Math.random() / 10;
   }
 
   public rotate(): void {

@@ -5,7 +5,7 @@ import {Table} from '../../../models/3d/table';
 import {Camera} from '../../../models/3d/camera';
 
 @Component({
-  selector: 'gurpsy-delete-settings-dialog',
+  selector: 'gurpsy-dice-dialog',
   templateUrl: './dice-dialog.component.html',
   styleUrls: ['./dice-dialog.component.scss']
 })
@@ -75,14 +75,14 @@ export class DiceDialogComponent implements AfterViewInit {
     }());
   }
 
-  private getCanvas(): HTMLCanvasElement {
-    return this.canvasRef.nativeElement;
-  }
-
   private animateDice(dice: Array<Die>): void {
     for (const die of dice) {
       die.rotate();
     }
+  }
+
+  private getCanvas(): HTMLCanvasElement {
+    return this.canvasRef.nativeElement;
   }
 
   private getAspectRatio(): number {
