@@ -79,6 +79,28 @@
     },
     "DISADVANTAGES": "Disadvantages",
     "EQUIPMENT": "Equipment",
+    "ENCUMBRANCE": {
+      "ENCUMBRANCE": "Encumbrance, Move & Dodge",
+      "LEVEL": "Level",
+      "MAX_LOAD": "Max Load",
+      "MOVE": "Move",
+      "DODGE": "Dodge",
+      "NONE": "None (0)",
+      "LIGHT": "Light (1)",
+      "MEDIUM": "Medium (2)",
+      "HEAVY": "Heavy (3)",
+      "XHEAVY": "X-Heavy (4)"
+    },
+    "LIFTING_MOVING": {
+      "BASIC_LIFT": "Basic Lift:",
+      "ONE_HANDED_LIFT": "One-Handed Lift:",
+      "TWO_HANDED_LIFT": "Two-Handed Lift:",
+      "LIFTING_MOVING": "Lifting & Moving Things:",
+      "SHOVE_KNOCK_OVER": "Shove & Knock Over:",
+      "RUNNING_SHOVE_KNOCK_OVER": "Running Shove & Knock Over:",
+      "CARRY_ON_BACK": "Carry on Back:",
+      "SHIFT_SLIGHTLY": "Shift Slightly:"
+    },
     "FATIGUE-HIT": {
       "BASIC_FP": "Basic FP",
       "BASIC_HP": "Basic HP",
