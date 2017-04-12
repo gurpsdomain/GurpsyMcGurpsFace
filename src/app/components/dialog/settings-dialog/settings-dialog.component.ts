@@ -12,6 +12,7 @@ export class SettingsDialogComponent {
 
   public storedSheets: Sheet[] = [];
   public clearSettings = true;
+  public serverUrl = 'https://localhost:8080';
 
   private dialogRef: MdDialogRef<SettingsDialogComponent>;
   private storageService: StorageService;

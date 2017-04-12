@@ -1,14 +1,21 @@
-<h1 md-dialog-title> {{'DIALOG.DELETE_DATA.HEADER'| translate}}</h1>
+<h1 md-dialog-title>
+  <md-icon>settings</md-icon>
+  <span> {{'DIALOG.SETTINGS.HEADER'| translate}} </span></h1>
 <md-dialog-content>
+
+  <md-input-container>
+    <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl">
+  </md-input-container>
+
 
   <div>
     <md-checkbox [(ngModel)]="clearSettings">
-      {{'DIALOG.DELETE_DATA.SETTINGS'| translate}}
+      {{'DIALOG.SETTINGS.DELETE_SETTINGS'| translate}}
     </md-checkbox>
   </div>
 
   <div *ngIf="storedSheets.length > 0" class="sheets">
-    {{'DIALOG.DELETE_DATA.SHEETS' | translate}}
+    {{'DIALOG.SETTINGS.SHEETS' | translate}}
     <md-checkbox *ngFor="let sheet of storedSheets;" (change)="onSheetSelected(sheet, $event)">
       <span class="sheetName">{{sheet.metaData.identity.name}}</span>
       <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
@@ -17,6 +24,6 @@
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.DELETE_DATA.DELETE'| translate}}</button>
+  <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.SETTINGS.DELETE'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>
