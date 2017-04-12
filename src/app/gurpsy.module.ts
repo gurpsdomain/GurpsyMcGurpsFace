@@ -16,7 +16,6 @@ import {DescriptionComponent} from './components/sheet/reusable/description/desc
 import {PointsComponent} from './components/sheet/reusable/points/points.component';
 import {IdentityComponent} from './components/sheet/reusable/identity/identity.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
-import {DeleteSettingsDialogComponent} from './components/dialog/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {StorageService} from './services/storage-service/storage.service';
 import {LanguagesService} from './services/languages-service/languages.service';
@@ -46,6 +45,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
+import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,7 @@ import {LoggingService} from './services/logging-service/logging.service';
     PointsComponent,
     IdentityComponent,
     SideNavigationComponent,
-    DeleteSettingsDialogComponent,
+    SettingsDialogComponent,
     OpenSheetDialogComponent,
     NotesComponent,
     SheetBodyComponent,
@@ -101,7 +101,7 @@ import {LoggingService} from './services/logging-service/logging.service';
   ],
   entryComponents: [
     AboutDialogComponent,
-    DeleteSettingsDialogComponent,
+    SettingsDialogComponent,
     DiceDialogComponent,
     OpenSheetDialogComponent
   ],

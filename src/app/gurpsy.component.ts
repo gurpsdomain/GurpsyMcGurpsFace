@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry} from '@angular/material';
-import {DeleteSettingsDialogComponent} from './components/dialog/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
@@ -11,6 +10,7 @@ import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialo
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
 import {DomSanitizer} from '@angular/platform-browser';
+import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 
 @Component({
   selector: 'gurpsy-root',
@@ -32,7 +32,7 @@ export class GurpsyComponent implements OnInit {
   private aboutDialogRef: MdDialogRef<AboutDialogComponent>;
   private diceDialogRef: MdDialogRef<DiceDialogComponent>;
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
-  private deleteSettingsDialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
+  private deleteSettingsDialogRef: MdDialogRef<SettingsDialogComponent>;
 
   public dialog: MdDialog;
   public theme: string;
@@ -100,7 +100,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   public onOpenDeleteSettingsDialog(): void {
-    this.deleteSettingsDialogRef = this.dialog.open(DeleteSettingsDialogComponent, {
+    this.deleteSettingsDialogRef = this.dialog.open(SettingsDialogComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,
       disableClose: false
     });

@@ -1,20 +1,20 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {DeleteSettingsDialogComponent} from './delete-settings-dialog.component';
+import {SettingsDialogComponent} from './settings-dialog.component';
 
-describe('AboutDialogComponent', () => {
-  let component: DeleteSettingsDialogComponent;
-  let fixture: ComponentFixture<DeleteSettingsDialogComponent>;
+describe('SettingsDialogComponent', () => {
+  let component: SettingsDialogComponent;
+  let fixture: ComponentFixture<SettingsDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DeleteSettingsDialogComponent]
+      declarations: [SettingsDialogComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteSettingsDialogComponent);
+    fixture = TestBed.createComponent(SettingsDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

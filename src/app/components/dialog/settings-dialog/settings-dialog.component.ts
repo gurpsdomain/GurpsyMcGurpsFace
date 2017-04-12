@@ -4,21 +4,21 @@ import {StorageService} from '../../../services/storage-service/storage.service'
 import {Sheet} from '../../../models/sheet/sheet';
 
 @Component({
-  selector: 'gurpsy-delete-settings-dialog',
-  templateUrl: './delete-settings-dialog.component.html',
-  styleUrls: ['./delete-settings-dialog.component.scss']
+  selector: 'gurpsy-settings-dialog',
+  templateUrl: './settings-dialog.component.html',
+  styleUrls: ['./settings-dialog.component.scss']
 })
-export class DeleteSettingsDialogComponent {
+export class SettingsDialogComponent {
 
   public storedSheets: Sheet[] = [];
   public clearSettings = true;
 
-  private dialogRef: MdDialogRef<DeleteSettingsDialogComponent>;
+  private dialogRef: MdDialogRef<SettingsDialogComponent>;
   private storageService: StorageService;
 
   private sheetsToDelete: Sheet[] = [];
 
-  constructor(dialogRef: MdDialogRef<DeleteSettingsDialogComponent>, storage: StorageService) {
+  constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, storage: StorageService) {
     this.dialogRef = dialogRef;
     this.storageService = storage;
 
