@@ -25,8 +25,12 @@
           <md-icon>account_box</md-icon>
           <span>{{ 'MENU.OPEN' | translate }}</span>
         </button>
+        <button md-menu-item (click)="onOpenDeleteSettingsDialog()">
+          <md-icon>settings</md-icon>
+          <span>{{ 'MENU.SETTINGS' | translate }}</span>
+        </button>
         <button md-menu-item (click)="onOpenThrowDiceDialog()">
-          <md-icon>group_work</md-icon>
+          <md-icon svgIcon="d6"></md-icon>
           <span>{{ 'MENU.THROW_DICE' | translate }}</span>
         </button>
         <button md-menu-item
@@ -39,10 +43,6 @@
         <button md-menu-item (click)="onOpenAboutDialog()">
           <md-icon>pan_tool</md-icon>
           <span>{{ 'MENU.ABOUT' | translate }}</span>
-        </button>
-        <button md-menu-item (click)="onOpenDeleteSettingsDialog()">
-          <md-icon>delete</md-icon>
-          <span>{{ 'MENU.CLEAR_SETTINGS' | translate }}</span>
         </button>
       </md-menu>
     </div>

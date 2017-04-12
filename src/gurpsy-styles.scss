@@ -42,13 +42,13 @@ md-sidenav-container.night {
   }
 }
 
-.md-menu-panel .md-menu-content {
-  button, md-button-toggle {
+.mat-menu-panel .mat-menu-content {
+  button {
     md-icon {
       margin-right: 16px;
-    }
-    .md-button-toggle-label-content {
-      width: 100%;
+      svg {
+        vertical-align: top;
+      }
     }
   }
 }

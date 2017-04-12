@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar} from '@angular/material';
+import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry} from '@angular/material';
 import {DeleteSettingsDialogComponent} from './components/dialog/delete-settings-dialog/delete-settings-dialog.component';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {ConfigService} from './services/config-service/config.service';
@@ -10,6 +10,7 @@ import {Sheet} from './models/sheet/sheet';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'gurpsy-root',
@@ -39,7 +40,7 @@ export class GurpsyComponent implements OnInit {
 
   constructor(theme: ConfigService, languageService: LanguagesService, loggingService: LoggingService,
               dialog: MdDialog, modelReadService: ModelReadService, snackBar: MdSnackBar,
-              translate: TranslateService) {
+              translate: TranslateService, iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
     this.languageService = languageService;
     this.loggingService = loggingService;
     this.configService = theme;
@@ -47,6 +48,10 @@ export class GurpsyComponent implements OnInit {
     this.modelReadService = modelReadService;
     this.snackBar = snackBar;
     this.translate = translate;
+
+    iconRegistry.addSvgIcon(
+      'd6',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/dice-6.svg'));
   }
 
   ngOnInit(): void {
