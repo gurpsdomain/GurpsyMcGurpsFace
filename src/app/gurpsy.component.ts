@@ -52,6 +52,9 @@ export class GurpsyComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'd6',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/dice-6.svg'));
+    iconRegistry.addSvgIcon(
+      'gurpsy-face',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/gurpsy-face.svg'));
   }
 
   ngOnInit(): void {
