@@ -10,10 +10,11 @@
     "OK": "Yes",
     "CANCEL": "Cancel",
     "CLOSE": "Close",
-    "DELETE_DATA": {
-      "HEADER": "Delete locally stored data",
+    "SETTINGS": {
+      "HEADER": "Settings",
+      "SERVER_URL": "CodyMcCodeBase url",
       "SHEETS": "Stored Character Sheets",
-      "SETTINGS": "Delete Settings",
+      "DELETE_SETTINGS": "Delete Settings",
       "DELETE": "Delete"
     },
     "DICE": {
