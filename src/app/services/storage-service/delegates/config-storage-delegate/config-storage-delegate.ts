@@ -61,18 +61,15 @@ export class ConfigStorageDelegate {
   }
 
   /**
-   * Retrieve the currently stored theme.
+   * Store the given server URL.
    *
-   * @returns Promise<string> the current theme.
+   * @param server URL
    */
-  public retrieveTheme(): Promise<string> {
+  public storeServerUrl(serverUrl: string) {
     const config: Config = this.retrieve();
+    config.serverUrl = serverUrl;
 
-    if (config.theme === '') {
-      return Promise.reject('No theme stored, use default.');
-    } else {
-      return Promise.resolve(config.theme);
-    }
+    this.store(config);
   }
 
   /**
@@ -87,6 +84,36 @@ export class ConfigStorageDelegate {
       return Promise.reject('No BodyContent stored, use default.');
     } else {
       return Promise.resolve(config.bodyContent);
+    }
+  }
+
+  /**
+   * Retrieve the currently stored serverUrl.
+   *
+   * @returns Promise<string> the current serverUrl.
+   */
+  public retrieveServerUrl(): Promise<string> {
+    const config: Config = this.retrieve();
+
+    if (config.serverUrl === '') {
+      return Promise.reject('No serverUrl stored, use default.');
+    } else {
+      return Promise.resolve(config.serverUrl);
+    }
+  }
+
+  /**
+   * Retrieve the currently stored theme.
+   *
+   * @returns Promise<string> the current theme.
+   */
+  public retrieveTheme(): Promise<string> {
+    const config: Config = this.retrieve();
+
+    if (config.theme === '') {
+      return Promise.reject('No theme stored, use default.');
+    } else {
+      return Promise.resolve(config.theme);
     }
   }
 

@@ -60,6 +60,15 @@ export class StorageService {
   }
 
   /**
+   * Store the given serverUrl in Local Storage;
+   *
+   * @param serverUrl : String
+   */
+  public storeServerUrl(serverUrl: string) {
+    this.configStorageDelegate.storeServerUrl(serverUrl);
+  }
+
+  /**
    * Store the given theme in Local Storage;
    *
    * @param theme : String
@@ -103,6 +112,15 @@ export class StorageService {
    */
   public getSheets(): Promise<Sheet[]> {
     return this.sheetStorageDelegate.retrieveAll();
+  }
+
+  /**
+   * Retrieve the given serverUrl from Locale Storage.
+   *
+   * @returns serverUrl: Promise<String>
+   */
+  public getServerUrl(): Promise<string> {
+    return this.configStorageDelegate.retrieveServerUrl();
   }
 
 

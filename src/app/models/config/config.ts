@@ -1,9 +1,11 @@
 export interface Config {
-  theme: string;
   bodyContent: Number;
+  serverUrl: string;
+  theme: string;
 }
 
 export class ConfigImpl implements Config {
-  theme = '';
   bodyContent = 0;
+  serverUrl = '';
+  theme = '';
 }

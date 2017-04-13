@@ -24,7 +24,7 @@ export class SheetBodyService {
    * @param sheetBodyContent
    */
   public setSheetBodyContent(sheetBodyContent: SheetBodyContent): void {
-    this.configService.setbodyContent(sheetBodyContent);
+    this.configService.setBodyContent(sheetBodyContent);
     this.handleSheetBodyChange(sheetBodyContent);
   }
 

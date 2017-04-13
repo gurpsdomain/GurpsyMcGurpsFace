@@ -25,8 +25,17 @@ export class ConfigService {
    *
    * @param bodyContent : SheetBodyContent
    */
-  public setbodyContent(bodyContent: SheetBodyContent) {
+  public setBodyContent(bodyContent: SheetBodyContent) {
     this.storageService.storeBodyContent(bodyContent);
+  }
+
+  /**
+   * Set serverUrl.
+   *
+   * @param serverUrl : string
+   */
+  public setServerUrl(serverUrl: string) {
+    this.storageService.storeServerUrl(serverUrl);
   }
 
   /**
@@ -48,6 +57,15 @@ export class ConfigService {
   }
 
   /**
+   * Get serverUrl.
+   *
+   * @return Promise<string>  A promise that resolves to the current serverUrl
+   */
+  public getServerUrl(): Promise<string> {
+    return this.storageService.getServerUrl();
+  }
+
+  /**
    * Get theme.
    *
    * @return Promise<string>  A promise that resolves to the current theme
@@ -65,8 +83,6 @@ export class ConfigService {
   public getNightTheme(): Promise<string> {
     return Promise.resolve(ConfigService.THEME_NIGHT);
   }
-
-
 
   /**
    * Acquire the Observer on which you can register yourself to be notified when the value is changed

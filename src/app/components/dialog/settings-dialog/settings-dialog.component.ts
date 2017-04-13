@@ -1,29 +1,41 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MdDialogRef, MdCheckboxChange} from '@angular/material';
 import {StorageService} from '../../../services/storage-service/storage.service';
 import {Sheet} from '../../../models/sheet/sheet';
+import {ConfigService} from '../../../services/config-service/config.service';
 
 @Component({
   selector: 'gurpsy-settings-dialog',
   templateUrl: './settings-dialog.component.html',
   styleUrls: ['./settings-dialog.component.scss']
 })
-export class SettingsDialogComponent {
+export class SettingsDialogComponent implements OnInit {
+
 
   public storedSheets: Sheet[] = [];
   public clearSettings = true;
-  public serverUrl = 'https://localhost:8080';
+  public serverUrl: string;
 
   private dialogRef: MdDialogRef<SettingsDialogComponent>;
+  private configService: ConfigService;
   private storageService: StorageService;
-
   private sheetsToDelete: Sheet[] = [];
 
-  constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, storage: StorageService) {
+  constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, configService: ConfigService, storage: StorageService) {
     this.dialogRef = dialogRef;
+    this.configService = configService;
     this.storageService = storage;
 
     this.initPreviouslyOpenedSheetList();
+  }
+
+  public ngOnInit(): void {
+    this.configService.getServerUrl().then(serverUrl => this.serverUrl = serverUrl);
+    this.configService.getConfigObserver().subscribe(config => this.serverUrl = config.serverUrl);
+  }
+
+  public onServerUrlChange(serverUrl: string): void {
+    this.configService.setServerUrl(serverUrl);
   }
 
   public onSheetSelected(sheet: Sheet, event: MdCheckboxChange): void {

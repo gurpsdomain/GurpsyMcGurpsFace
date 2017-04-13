@@ -4,9 +4,9 @@
 <md-dialog-content>
 
   <md-input-container>
-    <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl">
+    <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
+           (change)="onServerUrlChange(serverUrl, $event)">
   </md-input-container>
-
 
   <div>
     <md-checkbox [(ngModel)]="clearSettings">
@@ -21,9 +21,13 @@
       <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
     </md-checkbox>
   </div>
+
+  <button md-button color="warning" (click)="onDeleteSettings()">
+    {{'DIALOG.SETTINGS.DELETE'| translate}}
+  </button>
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button color="primary" (click)="onDeleteSettings()"> {{'DIALOG.SETTINGS.DELETE'| translate}}</button>
+  <button md-button color="primary"> {{'DIALOG.OK'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>
