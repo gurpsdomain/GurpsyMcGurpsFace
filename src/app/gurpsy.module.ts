@@ -46,6 +46,7 @@ import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialo
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
+import { PageReferenceComponent } from './components/sheet/reusable/page-reference/page-reference.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import {SettingsDialogComponent} from './components/dialog/settings-dialog/setti
     LiftingMovingComponent,
     FatigueHitComponent,
     LiftingMovingComponent,
-    EncumbranceComponent
+    EncumbranceComponent,
+    PageReferenceComponent
   ],
   imports: [
     BrowserModule,
