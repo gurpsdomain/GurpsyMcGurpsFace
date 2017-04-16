@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'gurpsy-page-reference',
@@ -6,6 +6,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./page-reference.component.scss']
 })
 export class PageReferenceComponent implements OnInit {
+
+  @Input() pageReference: String;
+  private book: String;
+  private page: number;
 
   constructor() {
   }

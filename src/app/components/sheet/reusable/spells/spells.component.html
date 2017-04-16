@@ -33,7 +33,9 @@
         <td>{{spell.duration}}</td>
         <td>{{spell.maintenanceCost}}</td>
         <td>{{spell.spellClasses}}</td>
-        <td>{{spell.pageReference}}</td>
+        <td>
+          <gurpsy-page-reference [pageReference]="spell.pageReference"></gurpsy-page-reference>
+        </td>
       </tr>
     </table>
   </div>

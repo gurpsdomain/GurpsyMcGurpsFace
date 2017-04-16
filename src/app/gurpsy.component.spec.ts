@@ -39,6 +39,7 @@ import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatig
 import {LoggingService} from './services/logging-service/logging.service';
 import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
+import {PageReferenceComponent} from './components/sheet/reusable/page-reference/page-reference.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -46,14 +47,16 @@ describe('GurpsyComponent', () => {
       declarations: [
         AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
+        AttributesComponent,
         DisadvantagesComponent,
         EncumbranceComponent,
         EquipmentComponent,
         FatigueHitComponent,
+        GurpsyComponent,
         LiftingMovingComponent,
         SpellsComponent,
         SkillsComponent,
-        GurpsyComponent,
+        PageReferenceComponent,
         SheetComponent,
         SheetHeaderComponent,
         GeneralComponent,
@@ -65,7 +68,6 @@ describe('GurpsyComponent', () => {
         PointsComponent,
         SideNavigationComponent,
         NotesComponent,
-        AttributesComponent,
         HitLocationComponent
       ],
       imports: [

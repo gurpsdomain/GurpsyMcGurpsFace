@@ -13,7 +13,9 @@
         <td>{{skill.points}}</td>
         <td>{{skill.controllingAttribute}}{{skill.level}}</td>
         <td>{{skill.points}}</td>
-        <td>{{skill.pageReference}}</td>
+        <td>
+          <gurpsy-page-reference [pageReference]="skill.pageReference"></gurpsy-page-reference>
+        </td>
       </tr>
     </table>
   </div>

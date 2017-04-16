@@ -9,7 +9,9 @@
       <tr *ngFor="let disadvantage of sheet.disadvantages;">
         <td>{{disadvantage.name}}</td>
         <td>{{disadvantage.points}}</td>
-        <td>{{disadvantage.pageReference}}</td>
+        <td>
+          <gurpsy-page-reference [pageReference]="disadvantage.pageReference"></gurpsy-page-reference>
+        </td>
       </tr>
     </table>
   </div>

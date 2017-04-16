@@ -11,7 +11,9 @@
         <td>{{advantage.name}}</td>
         <td>{{advantage.level}}</td>
         <td>{{advantage.points}}</td>
-        <td>{{advantage.pageReference}}</td>
+        <td>
+          <gurpsy-page-reference [pageReference]="advantage.pageReference"></gurpsy-page-reference>
+        </td>
       </tr>
     </table>
   </div>

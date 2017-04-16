@@ -9,6 +9,7 @@ import {JsonService} from '../../../../../services/json-service/json.service';
 import {StorageService} from '../../../../../services/storage-service/storage.service';
 import {ConfigStorageDelegate} from '../../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from '../../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {PageReferenceComponent} from '../../../reusable/page-reference/page-reference.component';
 
 describe('AdvantagesComponent', () => {
   let component: AdvantagesDisadvantagesComponent;
@@ -19,7 +20,8 @@ describe('AdvantagesComponent', () => {
       declarations: [
         AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
-        DisadvantagesComponent
+        DisadvantagesComponent,
+        PageReferenceComponent
       ],
       imports: [
         TranslateModule.forRoot()
