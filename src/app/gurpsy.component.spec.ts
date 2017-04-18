@@ -40,6 +40,7 @@ import {LoggingService} from './services/logging-service/logging.service';
 import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from './components/sheet/reusable/page-reference/page-reference.component';
+import {LibraryComponent} from './components/library/library.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -48,27 +49,28 @@ describe('GurpsyComponent', () => {
         AdvantagesDisadvantagesComponent,
         AdvantagesComponent,
         AttributesComponent,
+        DescriptionComponent,
         DisadvantagesComponent,
         EncumbranceComponent,
         EquipmentComponent,
         FatigueHitComponent,
-        GurpsyComponent,
-        LiftingMovingComponent,
-        SpellsComponent,
-        SkillsComponent,
-        PageReferenceComponent,
-        SheetComponent,
-        SheetHeaderComponent,
         GeneralComponent,
-        SheetBodyComponent,
-        PortraitComponent,
+        GurpsyComponent,
+        HitLocationComponent,
         IdentityComponent,
+        LibraryComponent,
+        LiftingMovingComponent,
+        NotesComponent,
+        PageReferenceComponent,
+        PortraitComponent,
         PlayerInformationComponent,
-        DescriptionComponent,
         PointsComponent,
         SideNavigationComponent,
-        NotesComponent,
-        HitLocationComponent
+        SheetComponent,
+        SheetHeaderComponent,
+        SheetBodyComponent,
+        SpellsComponent,
+        SkillsComponent
       ],
       imports: [
         FormsModule,

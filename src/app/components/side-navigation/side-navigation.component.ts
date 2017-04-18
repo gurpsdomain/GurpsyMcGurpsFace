@@ -8,9 +8,12 @@ import {SheetBodyService, SheetBodyContent} from '../../services/sheet-body-serv
 })
 export class SideNavigationComponent {
 
+  @Output() onShowLibrary: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
+
   public sheetBodyComponents = SheetBodyContent;
   public sheetBodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
+  public showLibrary = false;
 
   private sheetBodyService: SheetBodyService;
 
@@ -24,7 +27,24 @@ export class SideNavigationComponent {
     this.onCloseSideNavigation.next();
   }
 
+  public onLibraryClick(): void {
+    this.onShowLibrary.next(this.toggleShowLibrary());
+  }
+
   public onSheetBodyClick(sheetBodyComponent: SheetBodyContent): void {
+    this.showLibrary = false;
+    this.onShowLibrary.next(false);
     this.sheetBodyService.setSheetBodyContent(sheetBodyComponent);
   }
+
+  private toggleShowLibrary(): boolean {
+    this.showLibrary = !this.showLibrary;
+    console.log("Going to return this value: ",
+      this.showLibrary
+    )
+    ;
+    return this.showLibrary;
+  }
 }
+
+

@@ -37,6 +37,7 @@ export class GurpsyComponent implements OnInit {
   public dialog: MdDialog;
   public theme: string;
   public night: string;
+  public showLibrary: boolean;
 
   constructor(theme: ConfigService, languageService: LanguagesService, loggingService: LoggingService,
               dialog: MdDialog, modelReadService: ModelReadService, snackBar: MdSnackBar,
@@ -55,11 +56,15 @@ export class GurpsyComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'gurpsy-face',
       sanitizer.bypassSecurityTrustResourceUrl('assets/icons/gurpsy-face.svg'));
+    iconRegistry.addSvgIcon(
+      'books',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/book-open-page-variant.svg'));
   }
 
   ngOnInit(): void {
-    this.initTheme();
+    this.initLibrary();
     this.initSheetChangeListener();
+    this.initTheme();
   }
 
   public onThemeChange(): void {
@@ -111,6 +116,14 @@ export class GurpsyComponent implements OnInit {
     this.deleteSettingsDialogRef.afterClosed().subscribe(
       this.deleteSettingsDialogRef = null
     );
+  }
+
+  public onShowLibrary(agreed: boolean): void {
+    this.showLibrary = agreed;
+  }
+
+  private initLibrary(): void {
+    this.showLibrary = false;
   }
 
   private initTheme(): void {

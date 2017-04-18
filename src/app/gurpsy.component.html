@@ -1,6 +1,9 @@
 <md-sidenav-container class="{{theme}}">
   <md-sidenav #sidenav>
-    <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"></gurpsy-side-navigation>
+    <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"
+                            (onShowLibrary)="onShowLibrary($event)">
+
+    </gurpsy-side-navigation>
   </md-sidenav>
 
   <md-toolbar class="flex-container">
@@ -48,9 +51,15 @@
     </div>
   </md-toolbar>
 
-  <md-card>
-    <gurpsy-sheet></gurpsy-sheet>
-  </md-card>
+  <div *ngIf="showLibrary; else elseBlock">
+    <gurpsy-library></gurpsy-library>
+  </div>
+  <ng-template #elseBlock>
+    <md-card>
+      <gurpsy-sheet></gurpsy-sheet>
+    </md-card>
+  </ng-template>
+
 
 </md-sidenav-container>
 

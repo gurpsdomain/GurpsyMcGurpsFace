@@ -183,11 +183,12 @@
     }
   },
   "SUBJECT": {
-    "GENERAL": "General",
-    "SKILLS": "Skills",
     "DIS_ADVANTAGES": "(Dis)Advantages",
     "EQUIPMENT": "Equipment",
+    "GENERAL": "General",
+    "LIBRARY": "Library",
+    "MAGIC": "Magic",
     "NOTES": "Notes",
-    "MAGIC": "Magic"
+    "SKILLS": "Skills"
   }
 }

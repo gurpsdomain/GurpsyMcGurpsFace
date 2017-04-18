@@ -46,18 +46,27 @@ import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialo
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
-import { PageReferenceComponent } from './components/sheet/reusable/page-reference/page-reference.component';
+import {PageReferenceComponent} from './components/sheet/reusable/page-reference/page-reference.component';
+import {LibraryComponent} from './components/library/library.component';
 
 @NgModule({
   declarations: [
     AboutDialogComponent,
+    AdvantagesComponent,
+    AdvantagesDisadvantagesComponent,
+    AttributesComponent,
+    DescriptionComponent,
     DiceDialogComponent,
+    DisadvantagesComponent,
+    EncumbranceComponent,
+    EquipmentComponent,
+    FatigueHitComponent,
+    GeneralComponent,
     GurpsyComponent,
     SheetComponent,
     SheetHeaderComponent,
     PortraitComponent,
     PlayerInformationComponent,
-    DescriptionComponent,
     PointsComponent,
     IdentityComponent,
     SideNavigationComponent,
@@ -67,19 +76,12 @@ import { PageReferenceComponent } from './components/sheet/reusable/page-referen
     SheetBodyComponent,
     SkillsComponent,
     SpellsComponent,
-    EquipmentComponent,
-    AdvantagesDisadvantagesComponent,
-    AdvantagesComponent,
-    DisadvantagesComponent,
-    GeneralComponent,
-    AttributesComponent,
     HitLocationComponent,
     EncumbranceComponent,
     LiftingMovingComponent,
-    FatigueHitComponent,
     LiftingMovingComponent,
-    EncumbranceComponent,
-    PageReferenceComponent
+    PageReferenceComponent,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,

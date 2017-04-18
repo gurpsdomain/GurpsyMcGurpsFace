@@ -52,5 +52,12 @@
       <md-icon>mode_edit</md-icon>
       <span fxFlex="100%">{{'SUBJECT.NOTES'| translate}}</span>
     </button>
+    <button md-button
+            (click)="onLibraryClick()"
+            [class.selected]="showLibrary"
+            class="sideNavigationContentLine">
+      <md-icon svgIcon="books"></md-icon>
+      <span fxFlex="100%">{{'SUBJECT.LIBRARY'| translate}}</span>
+    </button>
   </div>
 </div>
