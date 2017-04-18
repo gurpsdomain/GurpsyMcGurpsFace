@@ -15,6 +15,12 @@ md-sidenav {
 
   .sideNavigationContent .sideNavigationContentLine md-icon {
     margin-right: 16px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
   }
 }
 
