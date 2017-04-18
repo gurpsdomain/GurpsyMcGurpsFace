@@ -10,6 +10,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
+        "assets/library",
         "assets/images",
         "assets/sheets",
         "assets/textures",

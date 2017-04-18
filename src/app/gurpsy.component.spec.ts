@@ -41,6 +41,7 @@ import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encu
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from './components/sheet/reusable/page-reference/page-reference.component';
 import {LibraryComponent} from './components/library/library.component';
+import {PdfViewerComponent} from 'ng2-pdf-viewer';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -70,7 +71,8 @@ describe('GurpsyComponent', () => {
         SheetHeaderComponent,
         SheetBodyComponent,
         SpellsComponent,
-        SkillsComponent
+        SkillsComponent,
+        PdfViewerComponent
       ],
       imports: [
         FormsModule,

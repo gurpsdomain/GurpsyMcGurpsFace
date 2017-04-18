@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { LibraryComponent } from './library.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {LibraryComponent} from './library.component';
+import {PdfViewerComponent} from 'ng2-pdf-viewer';
 
 describe('LibraryComponent', () => {
   let component: LibraryComponent;
@@ -8,9 +8,11 @@ describe('LibraryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LibraryComponent ]
+      declarations: [
+        LibraryComponent,
+        PdfViewerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -39,10 +39,6 @@ export class SideNavigationComponent {
 
   private toggleShowLibrary(): boolean {
     this.showLibrary = !this.showLibrary;
-    console.log("Going to return this value: ",
-      this.showLibrary
-    )
-    ;
     return this.showLibrary;
   }
 }

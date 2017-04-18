@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'gurpsy-library',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibraryComponent implements OnInit {
 
-  constructor() { }
+  pdfSrc = 'assets/library/gurpslite.pdf';
+  page = 1;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

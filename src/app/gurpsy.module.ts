@@ -48,6 +48,7 @@ import {LoggingService} from './services/logging-service/logging.service';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {PageReferenceComponent} from './components/sheet/reusable/page-reference/page-reference.component';
 import {LibraryComponent} from './components/library/library.component';
+import {PdfViewerComponent} from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import {LibraryComponent} from './components/library/library.component';
     LiftingMovingComponent,
     LiftingMovingComponent,
     PageReferenceComponent,
-    LibraryComponent
+    LibraryComponent,
+    PdfViewerComponent
   ],
   imports: [
     BrowserModule,
