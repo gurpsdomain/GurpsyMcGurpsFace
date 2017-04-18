@@ -34,7 +34,7 @@ describe('EncumbranceComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create an Reusable Encumbrance Component', () => {
     expect(component).toBeTruthy();
   });
 });

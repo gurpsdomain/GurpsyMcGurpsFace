@@ -22,6 +22,13 @@ export class GurpsyComponent implements OnInit {
   private static DIALOG_WIDTH = '400px';
   private static SNACKBAR_DURATION_TIME = 4000;
 
+  private static ICON_D6_NAME = 'd6';
+  private static ICON_D6_URL = 'assets/icons/dice-6.svg';
+  private static ICON_LOGO_NAME = 'gurpsy-face';
+  private static ICON_LOGO_URL = 'assets/icons/gurpsy-face.svg';
+  private static ICON_LIBRARY_NAME = 'books';
+  private static ICON_LIBRARY_URL = 'assets/icons/book-open-page-variant.svg';
+
   private languageService: LanguagesService;
   private loggingService: LoggingService;
   private configService: ConfigService;
@@ -50,18 +57,10 @@ export class GurpsyComponent implements OnInit {
     this.snackBar = snackBar;
     this.translate = translate;
 
-    iconRegistry.addSvgIcon(
-      'd6',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/dice-6.svg'));
-    iconRegistry.addSvgIcon(
-      'gurpsy-face',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/gurpsy-face.svg'));
-    iconRegistry.addSvgIcon(
-      'books',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/icons/book-open-page-variant.svg'));
+    this.registerCustomIcons(iconRegistry, sanitizer);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.initLibrary();
     this.initSheetChangeListener();
     this.initTheme();
@@ -152,5 +151,17 @@ export class GurpsyComponent implements OnInit {
         duration: GurpsyComponent.SNACKBAR_DURATION_TIME,
       });
     });
+  }
+
+  private registerCustomIcons(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer): void {
+    iconRegistry.addSvgIcon(
+      GurpsyComponent.ICON_D6_NAME,
+      sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_D6_URL));
+    iconRegistry.addSvgIcon(
+      GurpsyComponent.ICON_LOGO_NAME,
+      sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_LOGO_URL));
+    iconRegistry.addSvgIcon(
+      GurpsyComponent.ICON_LIBRARY_NAME,
+      sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_LIBRARY_URL));
   }
 }

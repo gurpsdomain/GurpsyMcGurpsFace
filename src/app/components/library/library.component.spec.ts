@@ -21,7 +21,7 @@ describe('LibraryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create an Reusable Library Component', () => {
     expect(component).toBeTruthy();
   });
 });

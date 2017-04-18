@@ -34,7 +34,8 @@ describe('LiftingMovingComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create an Reusable Lifting/Moving Component', () => {
     expect(component).toBeTruthy();
   });
-});
+})
+;
