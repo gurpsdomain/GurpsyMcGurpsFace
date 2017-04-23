@@ -46,9 +46,12 @@ import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialo
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
-import {PageReferenceComponent} from './components/sheet/reusable/page-reference/page-reference.component';
+import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
 import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
+import {BookConfigurationComponent} from './components/generic/book-configuration/book-configuration.component';
+import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';
+import {LibraryService} from './services/library-service/library.service';
 
 @NgModule({
   declarations: [
@@ -79,11 +82,13 @@ import {PdfViewerComponent} from 'ng2-pdf-viewer';
     SpellsComponent,
     HitLocationComponent,
     EncumbranceComponent,
+    LibraryComponent,
     LiftingMovingComponent,
     LiftingMovingComponent,
     PageReferenceComponent,
-    LibraryComponent,
-    PdfViewerComponent
+    PdfViewerComponent,
+    BookConfigurationComponent,
+    BooksConfigurationComponent
   ],
   imports: [
     BrowserModule,
@@ -95,11 +100,12 @@ import {PdfViewerComponent} from 'ng2-pdf-viewer';
     TranslateModule.forRoot()
   ],
   providers: [
-    LanguagesService,
-    LoggingService,
     ConfigService,
-    StorageService,
     ConfigStorageDelegate,
+    LanguagesService,
+    LibraryService,
+    LoggingService,
+    StorageService,
     SheetStorageDelegate,
     ModelReadService,
     JsonService,

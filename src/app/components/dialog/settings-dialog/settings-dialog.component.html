@@ -3,28 +3,43 @@
   <span> {{'DIALOG.SETTINGS.HEADER'| translate}} </span></h1>
 <md-dialog-content>
 
-  <md-input-container>
-    <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
-           (change)="onServerUrlChange(serverUrl)">
-  </md-input-container>
+  <div>
+    <div>
+      {{'DIALOG.SETTINGS.APPLICATION_SETTINGS'| translate}}
+    </div>
+    <md-input-container>
+      <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
+             (change)="onServerUrlChange(serverUrl)">
+    </md-input-container>
+  </div>
 
   <div>
+    <div>
+      {{'DIALOG.SETTINGS.LIBRARY_SETTINGS.HEADER'| translate}}
+    </div>
+    <gurpsy-references-configuration></gurpsy-references-configuration>
+  </div>
+
+  <div>
+    <div>
+      {{'DIALOG.SETTINGS.CLEANUP'| translate}}
+    </div>
     <md-checkbox [(ngModel)]="clearSettings">
       {{'DIALOG.SETTINGS.DELETE_SETTINGS'| translate}}
     </md-checkbox>
-  </div>
 
-  <div *ngIf="storedSheets.length > 0" class="sheets">
-    {{'DIALOG.SETTINGS.SHEETS' | translate}}
-    <md-checkbox *ngFor="let sheet of storedSheets;" (change)="onSheetSelected(sheet, $event)">
-      <span class="sheetName">{{sheet.metaData.identity.name}}</span>
-      <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
-    </md-checkbox>
-  </div>
+    <div *ngIf="storedSheets.length > 0" class="sheets">
+      {{'DIALOG.SETTINGS.SHEETS' | translate}}
+      <md-checkbox *ngFor="let sheet of storedSheets;" (change)="onSheetSelected(sheet, $event)">
+        <span class="sheetName">{{sheet.metaData.identity.name}}</span>
+        <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
+      </md-checkbox>
+    </div>
 
-  <button md-button color="warning" (click)="onDeleteSettings()">
-    {{'DIALOG.SETTINGS.DELETE'| translate}}
-  </button>
+    <button md-button color="warning" (click)="onDeleteSettings()">
+      {{'DIALOG.SETTINGS.DELETE'| translate}}
+    </button>
+  </div>
 </md-dialog-content>
 
 <md-dialog-actions align="end">

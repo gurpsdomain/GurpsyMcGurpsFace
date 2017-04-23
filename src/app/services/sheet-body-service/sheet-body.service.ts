@@ -6,11 +6,9 @@ import {ConfigService} from '../config-service/config.service';
 export class SheetBodyService {
 
   private sheetBodyContentSource = new Subject<SheetBodyContent>();
-
   public sheetBodyChange$ = this.sheetBodyContentSource.asObservable();
 
   private bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
-
   private configService: ConfigService;
 
   constructor(configService: ConfigService) {

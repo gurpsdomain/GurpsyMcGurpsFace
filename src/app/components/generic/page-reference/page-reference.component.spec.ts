@@ -19,7 +19,7 @@ describe('PageReferenceComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create  a reusable Page-reference Component', () => {
+  it('should create a reusable generic Page Reference Component', () => {
     expect(component).toBeTruthy();
   });
 });

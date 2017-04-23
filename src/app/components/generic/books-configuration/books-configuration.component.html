@@ -1,0 +1,10 @@
+<gurpsy-book-configuration
+  *ngFor="let book of bookConfigurations"
+  [configuration]="book"
+  [availableBooks]="getAvailableBooks()"
+  (changeBookConfiguration)="onChangeBookConfiguration(book)"
+  (deleteBookConfiguration)="onDeleteBookConfiguration(book)">
+</gurpsy-book-configuration>
+<button md-icon-button (click)="onNewBookConfiguration()">
+  <md-icon>keyboard_arrow_left</md-icon>
+</button>

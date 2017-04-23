@@ -9,6 +9,7 @@ export class LibraryComponent implements OnInit {
 
   pdfSrc = 'assets/library/gurpslite.pdf';
   page = 1;
+  zoom = 1;
 
   constructor() {
   }

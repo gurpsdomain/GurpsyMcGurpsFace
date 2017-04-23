@@ -1,0 +1,21 @@
+<md-select placeholder="Book">
+  <md-option *ngFor="let book of availableBooks" [value]="book">
+    {{ book }}
+  </md-option>
+</md-select>
+<md-input-container class="fileLocation">
+  <input mdInput placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.FILE_LOCATION'| translate}}"
+         [(ngModel)]="configuration.file"
+         (change)="onChangeBookConfiguration()">
+</md-input-container>
+<md-input-container class="offset">
+  <input mdInput
+         type="number"
+         maxlength="2"
+         placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.OFFSET'| translate}}"
+         [(ngModel)]="configuration.offset"
+         (change)="onChangeBookConfiguration()">
+</md-input-container>
+<button md-icon-button (click)="onDeleteBookConfiguration()">
+  <md-icon>keyboard_arrow_left</md-icon>
+</button>

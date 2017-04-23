@@ -25,7 +25,7 @@ import {ConfigService} from '../../../../services/config-service/config.service'
 import {FatigueHitComponent} from '../../reusable/fatigue-hit/fatigue-hit.component';
 import {EncumbranceComponent} from '../../reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-moving.component';
-import {PageReferenceComponent} from '../../reusable/page-reference/page-reference.component';
+import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
