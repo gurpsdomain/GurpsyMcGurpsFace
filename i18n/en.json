@@ -11,11 +11,18 @@
     "CANCEL": "Cancel",
     "CLOSE": "Close",
     "SETTINGS": {
-      "HEADER": "Settings",
-      "SERVER_URL": "Server url",
-      "SHEETS": "Stored Character Sheets",
+      "APPLICATION_SETTINGS": "Application Settings",
+      "CLEANUP": "Cleanup",
+      "DELETE": "Delete",
       "DELETE_SETTINGS": "Delete Settings",
-      "DELETE": "Delete"
+      "HEADER": "Settings",
+      "LIBRARY_SETTINGS": {
+        "HEADER": "Library Settings",
+        "FILE_LOCATION": "File location",
+        "OFFSET": "Offset"
+      },
+      "SERVER_URL": "Server url",
+      "SHEETS": "Stored Character Sheets"
     },
     "DICE": {
       "RETHROW": "Throw again"
