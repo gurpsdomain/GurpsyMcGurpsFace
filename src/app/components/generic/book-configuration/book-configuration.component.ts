@@ -1,5 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {BookConfiguration, Book} from '../../../models/book-configuration/book-configuration';
+import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
+import {Book} from '../../../models/book-configuration/book-configuration-implementation';
 
 @Component({
   selector: 'gurpsy-book-configuration',

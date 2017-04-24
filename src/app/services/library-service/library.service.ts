@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
+import {BookConfiguration} from '../../models/book-configuration/book-configuration';
 import {
-  Reference,
-  Book,
-  BookConfigurationImpl,
-  BookConfiguration
-} from '../../models/book-configuration/book-configuration';
+  Reference, BookConfigurationImpl,
+  Book
+} from '../../models/book-configuration/book-configuration-implementation';
 
 @Injectable()
 export class LibraryService {

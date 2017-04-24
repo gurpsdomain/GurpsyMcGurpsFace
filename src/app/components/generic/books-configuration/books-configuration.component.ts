@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {BookConfiguration, BookConfigurationImpl, Book} from '../../../models/book-configuration/book-configuration';
+import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {LibraryService} from '../../../services/library-service/library.service';
+import {BookConfigurationImpl, Book} from '../../../models/book-configuration/book-configuration-implementation';
 
 @Component({
   selector: 'gurpsy-references-configuration',
