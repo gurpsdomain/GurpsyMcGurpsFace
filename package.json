@@ -21,7 +21,7 @@
     "@angular/common": "4.0.0",
     "@angular/compiler": "4.0.0",
     "@angular/core": "4.0.0",
-    "@angular/flex-layout": "2.0.0-beta.7",
+    "@angular/flex-layout": "2.0.0-beta.8",
     "@angular/forms": "4.0.0",
     "@angular/http": "4.0.0",
     "@angular/material": "2.0.0-beta.2",
@@ -60,6 +60,6 @@
     "tslint": "5.1.0",
     "typescript": "2.2.2",
     "webdriver-manager": "10.2.5",
-    "webpack": "2.3.2"
+    "webpack": "2.4.1"
   }
 }
