@@ -14,7 +14,6 @@ export class BookConfigurationComponent {
   @Output() deleteBookConfiguration: EventEmitter<any> = new EventEmitter();
   @Output() changeBookConfiguration: EventEmitter<any> = new EventEmitter();
 
-
   public onChangeBookConfiguration(): void {
     this.changeBookConfiguration.next();
   }
@@ -22,4 +21,6 @@ export class BookConfigurationComponent {
   public onDeleteBookConfiguration(): void {
     this.deleteBookConfiguration.next();
   }
+
+
 }

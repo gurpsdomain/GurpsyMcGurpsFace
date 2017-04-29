@@ -2,26 +2,25 @@
   <md-icon>settings</md-icon>
   <span> {{'DIALOG.SETTINGS.HEADER'| translate}} </span></h1>
 <md-dialog-content>
-
-  <div>
-    <div>
+  <md-card>
+    <div class="settingsCardHeader">
       {{'DIALOG.SETTINGS.APPLICATION_SETTINGS'| translate}}
     </div>
     <md-input-container>
       <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
              (change)="onServerUrlChange(serverUrl)">
     </md-input-container>
-  </div>
+  </md-card>
 
-  <div>
-    <div>
+  <md-card>
+    <div class="settingsCardHeader">
       {{'DIALOG.SETTINGS.LIBRARY_SETTINGS.HEADER'| translate}}
     </div>
     <gurpsy-references-configuration></gurpsy-references-configuration>
-  </div>
+  </md-card>
 
-  <div>
-    <div>
+  <md-card>
+    <div class="settingsCardHeader">
       {{'DIALOG.SETTINGS.CLEANUP'| translate}}
     </div>
     <md-checkbox [(ngModel)]="clearSettings">
@@ -39,7 +38,7 @@
     <button md-button color="warning" (click)="onDeleteSettings()">
       {{'DIALOG.SETTINGS.DELETE'| translate}}
     </button>
-  </div>
+  </md-card>
 </md-dialog-content>
 
 <md-dialog-actions align="end">

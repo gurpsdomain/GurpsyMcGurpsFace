@@ -1,20 +1,29 @@
-<md-select placeholder="Book">
+<md-select class="flex-item" placeholder="Book">
   <md-option *ngFor="let book of availableBooks" [value]="book">
     {{ book }}
   </md-option>
 </md-select>
-<md-input-container class="offset">
-  <input mdInput
-         type="number"
-         placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.OFFSET'| translate}}"
-         [(ngModel)]="configuration.offset"
-         (change)="onChangeBookConfiguration()">
-</md-input-container>
-<md-input-container class="fileLocation">
-  <input mdInput placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.FILE_LOCATION'| translate}}"
-         [(ngModel)]="configuration.file"
-         (change)="onChangeBookConfiguration()">
-</md-input-container>
-<button md-icon-button (click)="onDeleteBookConfiguration()">
-  <md-icon>delete</md-icon>
+<button md-icon-button (click)="onNewBookConfiguration()">
+  <md-icon>playlist_add</md-icon>
 </button>
+
+<div class="flex-container">
+  <div class="flex-container flex-item">
+
+    <md-input-container class="flex-item" class="offset">
+      <input mdInput
+             type="number"
+             placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.OFFSET'| translate}}"
+             [(ngModel)]="configuration.offset"
+             (change)="onChangeBookConfiguration()">
+    </md-input-container>
+    <button class="flex-item" md-icon-button (click)="onDeleteBookConfiguration()">
+      <md-icon>delete</md-icon>
+    </button>
+  </div>
+  <md-input-container class="fileLocation">
+    <input mdInput placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.FILE_LOCATION'| translate}}"
+           [(ngModel)]="configuration.file"
+           (change)="onChangeBookConfiguration()">
+  </md-input-container>
+</div>

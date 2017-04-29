@@ -1,15 +1,26 @@
 @import "../../../../gurpsy-material-theme";
 
-md-dialog-content .sheets {
-  margin-top: 16px;
+md-dialog-content {
+  md-card {
+    margin: 4px 0px 4px 0px;
 
-  md-checkbox {
-    display: block;
+    .settingsCardHeader {
+      font-size: small;
+      margin-bottom: 8px;
+    }
+
   }
+  .sheets {
+    margin-top: 16px;
 
-  .sheetPoints {
-    font-size: small;
-    color: grey;
+    md-checkbox {
+      display: block;
+    }
+
+    .sheetPoints {
+      font-size: small;
+      color: grey;
+    }
   }
 }
 
