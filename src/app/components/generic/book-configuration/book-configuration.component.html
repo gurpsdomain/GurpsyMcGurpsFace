@@ -1,15 +1,14 @@
-<md-select class="flex-item" placeholder="Book">
+<md-select class="flex-item">
   <md-option *ngFor="let book of availableBooks" [value]="book">
-    {{ book }}
+    {{ 'BOOK.BOOK_' + book | translate }}
   </md-option>
 </md-select>
-<button md-icon-button (click)="onNewBookConfiguration()">
+<button md-icon-button (click)="onToggleDetails()">
   <md-icon>playlist_add</md-icon>
 </button>
 
 <div class="flex-container">
   <div class="flex-container flex-item">
-
     <md-input-container class="flex-item" class="offset">
       <input mdInput
              type="number"

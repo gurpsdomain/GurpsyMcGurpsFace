@@ -14,6 +14,8 @@ export class BookConfigurationComponent {
   @Output() deleteBookConfiguration: EventEmitter<any> = new EventEmitter();
   @Output() changeBookConfiguration: EventEmitter<any> = new EventEmitter();
 
+  public bookTest = Book.MARTIAL_ARTS;
+
   public onChangeBookConfiguration(): void {
     this.changeBookConfiguration.next();
   }
@@ -22,5 +24,7 @@ export class BookConfigurationComponent {
     this.deleteBookConfiguration.next();
   }
 
+  public onToggleDetails(): void {
 
+  }
 }
