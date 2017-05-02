@@ -42,6 +42,7 @@ import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
 import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
+import {FileInputComponent} from './components/generic/file-input/file-input.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -72,7 +73,8 @@ describe('GurpsyComponent', () => {
         SheetBodyComponent,
         SpellsComponent,
         SkillsComponent,
-        PdfViewerComponent
+        PdfViewerComponent,
+        FileInputComponent
       ],
       imports: [
         FormsModule,

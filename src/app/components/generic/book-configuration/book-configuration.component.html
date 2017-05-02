@@ -35,4 +35,9 @@
            [(ngModel)]="configuration.file"
            (change)="onChangeBookConfiguration()">
   </md-input-container>
+
+  <gurpsy-file-input (onFileSelect)="onFileSelect($event)" [accept]="'application/pdf'">
+    <span class="nofiles">Choose file</span>
+    <span class="selected">Files selected</span>
+  </gurpsy-file-input>
 </div>

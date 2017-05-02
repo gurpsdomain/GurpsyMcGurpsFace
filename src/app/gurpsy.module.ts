@@ -52,6 +52,7 @@ import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {BookConfigurationComponent} from './components/generic/book-configuration/book-configuration.component';
 import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';
 import {LibraryService} from './services/library-service/library.service';
+import { FileInputComponent } from './components/generic/file-input/file-input.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import {LibraryService} from './services/library-service/library.service';
     PageReferenceComponent,
     PdfViewerComponent,
     BookConfigurationComponent,
-    BooksConfigurationComponent
+    BooksConfigurationComponent,
+    FileInputComponent
   ],
   imports: [
     BrowserModule,

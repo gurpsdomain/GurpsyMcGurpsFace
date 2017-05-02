@@ -2,6 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BookConfigurationComponent} from './book-configuration.component';
 import {TranslateModule} from 'ng2-translate';
 import {MaterialModule} from '@angular/material';
+import {FileInputComponent} from '../file-input/file-input.component';
 
 describe('BookConfigurationComponent', () => {
   let component: BookConfigurationComponent;
@@ -10,7 +11,8 @@ describe('BookConfigurationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        BookConfigurationComponent
+        BookConfigurationComponent,
+        FileInputComponent
       ],
       imports: [
         MaterialModule,

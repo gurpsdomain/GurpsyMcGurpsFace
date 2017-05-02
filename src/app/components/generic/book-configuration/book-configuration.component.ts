@@ -27,4 +27,8 @@ export class BookConfigurationComponent {
   public onToggleDetails(): void {
     this.showDetails = !this.showDetails;
   }
+
+  public onFileSelect(event): void {
+    console.log('Received event: ', event);
+  }
 }
