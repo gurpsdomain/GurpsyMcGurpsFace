@@ -8,6 +8,9 @@
     "BOOK_3": "Gurps Psionics 4th Edition",
     "BOOK_4": "Gurps Martial Arts 4th Edition"
   },
+  "BOOKS_CONFIGURATION": {
+    "ADD_BOOK": "Add Book"
+  },
   "DIALOG": {
     "ABOUT": {
       "ABOUT": "This application is for study purposes only. It is not affiliated to Steve Jackson Games. At this moment it does not aim to become a fully functional GURPS Character sheet editor/viewer. But then again, it is possible that it will be so one day. If that day comes we will contact Steve Jackson Games to figure out if this is legal, or how to make it so."
@@ -23,6 +26,7 @@
       "HEADER": "Settings",
       "LIBRARY_SETTINGS": {
         "HEADER": "Library Settings",
+        "BODY": "Configure your locally stored books to enable quick reference lookups. ",
         "FILE_LOCATION": "File location",
         "OFFSET": "Offset"
       },
