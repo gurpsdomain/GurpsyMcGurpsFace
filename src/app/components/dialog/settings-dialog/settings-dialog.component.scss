@@ -1,13 +1,19 @@
 @import "../../../../gurpsy-material-theme";
 
 md-dialog-content {
+  md-card:not(:first-child) {
+    margin-top: 12px;
+  }
   md-card {
-    margin: 4px 0px 4px 0px;
-
     .settingsCardHeader {
       font-size: small;
+      color: mat-color($primary);
       margin-bottom: 8px;
       text-align: right;
+    }
+
+    .settingsCardBody {
+      font-size: smaller;
     }
 
   }

@@ -25,12 +25,12 @@ export class BooksConfigurationComponent {
   }
 
   public onDeleteBookConfiguration(book: BookConfiguration): void {
-    console.log('A BookConfiguration configuration has been deleted: ', book);
+    const index =  this.bookConfigurations.lastIndexOf(book);
+    this.bookConfigurations.splice(index, 1);
   }
 
   public onNewBookConfiguration(): void {
     const book = new BookConfigurationImpl();
-    console.log('A BookConfiguration configuration has been created: ', book);
     this.bookConfigurations.push(book);
   }
 
@@ -38,5 +38,4 @@ export class BooksConfigurationComponent {
 
     return this.libraryService.getBooks();
   }
-
 }

@@ -2,7 +2,7 @@ import {BookConfiguration} from './book-configuration';
 
 export class BookConfigurationImpl implements BookConfiguration {
   book: Book;
-  offset: number;
+  offset = 0;
   file: string;
 }
 

@@ -26,5 +26,4 @@ export class FileInputComponent {
   get fileCount(): number {
     return this._files && this._files.length || 0;
   }
-
 }

@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {SettingsDialogComponent} from './settings-dialog.component';
-import {FileInputComponent} from '../../generic/file-input/file-input.component';
 
 describe('SettingsDialogComponent', () => {
   let component: SettingsDialogComponent;
@@ -10,8 +9,7 @@ describe('SettingsDialogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        SettingsDialogComponent,
-        FileInputComponent
+        SettingsDialogComponent
       ]
     })
       .compileComponents();

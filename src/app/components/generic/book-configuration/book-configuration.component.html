@@ -6,38 +6,59 @@
        fxFlexAlign="center">
     {{ 'BOOK.BOOK_' + configuration.book | translate }}
   </div>
+  <button *ngIf="!showDetails"
+          md-icon-button
+          class="flex-item"
+          (click)="onToggleDetails()">
+    <md-icon>keyboard_arrow_down</md-icon>
+  </button>
   <button
+    *ngIf="showDetails"
     md-icon-button
     class="flex-item"
     (click)="onToggleDetails()">
-    <md-icon>settings</md-icon>
+    <md-icon>keyboard_arrow_up</md-icon>
   </button>
 </div>
 
-<div class="flex-container" *ngIf=showDetails>
-  <md-select class="flex-item">
+<div class="flex-container details"
+     fxLayout="column"
+     fxLayoutAlign="space-between stretch"
+     fxLayoutWrap="nowrap"
+     *ngIf=showDetails>
+  <md-select
+    class="flex-item"
+    fxFlex="100%">
     <md-option *ngFor="let book of availableBooks" [value]="book">
       {{ 'BOOK.BOOK_' + book | translate }}
     </md-option>
   </md-select>
-  <md-input-container class="flex-item" class="offset">
-    <input mdInput
-           type="number"
-           placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.OFFSET'| translate}}"
-           [(ngModel)]="configuration.offset"
-           (change)="onChangeBookConfiguration()">
-  </md-input-container>
-  <button class="flex-item" md-icon-button (click)="onDeleteBookConfiguration()">
-    <md-icon>delete</md-icon>
+  <div
+    class="flex-container"
+    fxLayout="row"
+    fxLayoutAlign="space-between stretch"
+    fxLayoutWrap="nowrap">
+    <md-input-container
+      class="fileLocation flex-item"
+      fxFlex="100%">
+      <input
+        mdInput
+        placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.FILE_LOCATION'| translate}}"
+        [(ngModel)]="configuration.file"
+        (change)="onChangeBookConfiguration()">
+    </md-input-container>
+    <md-input-container class="flex-item" class="offset">
+      <input mdInput
+             type="number"
+             placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.OFFSET'| translate}}"
+             [(ngModel)]="configuration.offset"
+             (change)="onChangeBookConfiguration()">
+    </md-input-container>
+  </div>
+  <button class="flex-item"
+          fxFlexAlign="end"
+          md-icon-button
+          (click)="onDeleteBookConfiguration()">
+    <md-icon color="primary">delete_forever</md-icon>
   </button>
-  <md-input-container class="fileLocation">
-    <input mdInput placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.FILE_LOCATION'| translate}}"
-           [(ngModel)]="configuration.file"
-           (change)="onChangeBookConfiguration()">
-  </md-input-container>
-
-  <gurpsy-file-input (onFileSelect)="onFileSelect($event)" [accept]="'application/pdf'">
-    <span class="nofiles">Choose file</span>
-    <span class="selected">Files selected</span>
-  </gurpsy-file-input>
 </div>
