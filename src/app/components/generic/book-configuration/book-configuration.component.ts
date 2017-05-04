@@ -22,6 +22,8 @@ export class BookConfigurationComponent implements OnInit {
     if (this.isBookConfigurationEmpty()) {
       this.showDetails = true;
     }
+
+
   }
 
   public onChangeBookConfiguration(): void {

@@ -35,8 +35,10 @@ export class BooksConfigurationComponent implements OnInit {
   }
 
   public onNewBookConfiguration(): void {
-    const book = new BookConfigurationImpl();
-    this.bookConfigurations.push(book);
+    const bookConfiguration = new BookConfigurationImpl();
+    bookConfiguration.book = this.availableBooks[0];
+    this.bookConfigurations.push(bookConfiguration);
+    this.updateAvailableBooks();
   }
 
   private updateAvailableBooks(): void {
@@ -48,5 +50,7 @@ export class BooksConfigurationComponent implements OnInit {
     }
 
     this.availableBooks = books;
+
+    console.log('Current booklist is: ', this.availableBooks);
   }
 }

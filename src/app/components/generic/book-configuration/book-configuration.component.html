@@ -23,6 +23,9 @@
     fxFlex="100%"
     (change)="onChangeBookConfiguration()"
     [(ngModel)]="configuration.book">
+    <md-option *ngIf="configuration.book > -1" [value]="configuration.book">
+      {{ 'BOOK.BOOK_' + configuration.book | translate }}
+    </md-option>
     <md-option *ngFor="let book of availableBooks" [value]="book">
       {{ 'BOOK.BOOK_' + book | translate }}
     </md-option>
@@ -52,6 +55,7 @@
   <button class="flex-item"
           fxFlexAlign="end"
           md-icon-button
+
           (click)="onDeleteBookConfiguration()">
     <md-icon color="primary">delete_forever</md-icon>
   </button>
