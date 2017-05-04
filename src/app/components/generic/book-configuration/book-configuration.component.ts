@@ -36,10 +36,6 @@ export class BookConfigurationComponent implements OnInit {
     this.showDetails = !this.showDetails;
   }
 
-  public onFileSelect(event): void {
-    console.log('Received event: ', event);
-  }
-
   private isBookConfigurationEmpty(): boolean {
     return isUndefined(this.configuration.book);
   }

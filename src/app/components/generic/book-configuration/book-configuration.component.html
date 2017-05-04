@@ -6,21 +6,13 @@
        fxFlexAlign="center">
     {{ 'BOOK.BOOK_' + configuration.book | translate }}
   </div>
-  <button *ngIf="!showDetails"
-          md-icon-button
+  <button md-icon-button
           class="flex-item"
           (click)="onToggleDetails()">
-    <md-icon>keyboard_arrow_down</md-icon>
-  </button>
-  <button
-    *ngIf="showDetails"
-    md-icon-button
-    class="flex-item"
-    (click)="onToggleDetails()">
-    <md-icon>keyboard_arrow_up</md-icon>
+    <md-icon *ngIf="showDetails">keyboard_arrow_up</md-icon>
+    <md-icon *ngIf="!showDetails">keyboard_arrow_down</md-icon>
   </button>
 </div>
-
 <div class="flex-container details"
      fxLayout="column"
      fxLayoutAlign="space-between stretch"
@@ -28,7 +20,9 @@
      *ngIf=showDetails>
   <md-select
     class="flex-item"
-    fxFlex="100%">
+    fxFlex="100%"
+    (change)="onChangeBookConfiguration()"
+    [(ngModel)]="configuration.book">
     <md-option *ngFor="let book of availableBooks" [value]="book">
       {{ 'BOOK.BOOK_' + book | translate }}
     </md-option>

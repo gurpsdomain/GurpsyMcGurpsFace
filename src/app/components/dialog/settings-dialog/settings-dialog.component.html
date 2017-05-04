@@ -37,14 +37,15 @@
         <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
       </md-checkbox>
     </div>
-
-    <button md-button color="warning" (click)="onDeleteSettings()">
-      {{'DIALOG.SETTINGS.DELETE'| translate}}
-    </button>
+    <div class="deleteSettings">
+      <button md-raised-button color="warning" (click)="onDeleteSettings()">
+        {{'DIALOG.SETTINGS.DELETE'| translate}}
+      </button>
+    </div>
   </md-card>
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button color="primary"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button color="primary" (click)="onPersistSettings()"> {{'DIALOG.OK'| translate}}</button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>

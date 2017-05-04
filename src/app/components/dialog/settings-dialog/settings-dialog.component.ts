@@ -48,7 +48,11 @@ export class SettingsDialogComponent implements OnInit {
 
   public onDeleteSettings(): void {
     this.storageService.clearStorage(this.clearSettings, this.sheetsToDelete);
+  }
+
+  public onPersistSettings(): void {
     this.dialogRef.close();
+    console.log('Persist all settings');
   }
 
   private initPreviouslyOpenedSheetList(): void {
