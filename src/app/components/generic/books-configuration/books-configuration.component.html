@@ -2,7 +2,7 @@
   *ngFor="let book of bookConfigurations"
   [configuration]="book"
   [availableBooks]="availableBooks"
-  (changeBookConfiguration)="onChangeBookConfiguration(book)"
+  (changeBookConfiguration)="onChangeBookConfiguration()"
   (deleteBookConfiguration)="onDeleteBookConfiguration(book)">
 </gurpsy-book-configuration>
 <div class="addBookConfiguration">

@@ -4,6 +4,7 @@ import {StorageService} from '../../storage.service';
 import {ConfigImpl, Config} from '../../../../models/config/config';
 import {JsonService} from '../../../json-service/json.service';
 import {SheetBodyContent} from '../../../sheet-body-service/sheet-body.service';
+import {BookConfiguration} from '../../../../models/book-configuration/book-configuration';
 
 @Injectable()
 export class ConfigStorageDelegate {
@@ -37,9 +38,21 @@ export class ConfigStorageDelegate {
   }
 
   /**
-   * Store the given BodyContent.
+   * Store the given BookConfigurations.
    *
-   * @param BodyContent
+   * @param BookConfiguration[]
+   */
+  public storeBookConfigurations(bookConfigurations: BookConfiguration[]) {
+    const config: Config = this.retrieve();
+    config.books = bookConfigurations;
+
+    this.store(config);
+  }
+
+  /**
+   * Store the given BookConfigurations.
+   *
+   * @param Array<Book
    */
   public storeBodyContent(bodyContent: SheetBodyContent) {
     const config: Config = this.retrieve();
@@ -84,6 +97,21 @@ export class ConfigStorageDelegate {
       return Promise.reject('No BodyContent stored, use default.');
     } else {
       return Promise.resolve(config.bodyContent);
+    }
+  }
+
+  /**
+   * Retrieve the currently stored BookConfigurations.
+   *
+   * @returns Promise<BookConfiguration[]> the current BookConfigurations.
+   */
+  public retrieveBookConfigurations(): Promise<BookConfiguration[]> {
+    const config: Config = this.retrieve();
+
+    if (!config.books) {
+      return Promise.reject('No BookConfigurations stored.');
+    } else {
+      return Promise.resolve(config.books);
     }
   }
 

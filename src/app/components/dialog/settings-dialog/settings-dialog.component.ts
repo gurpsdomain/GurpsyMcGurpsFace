@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdDialogRef, MdCheckboxChange} from '@angular/material';
 import {StorageService} from '../../../services/storage-service/storage.service';
 import {Sheet} from '../../../models/sheet/sheet';
 import {ConfigService} from '../../../services/config-service/config.service';
+import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
 
 @Component({
   selector: 'gurpsy-settings-dialog',
@@ -20,6 +21,9 @@ export class SettingsDialogComponent implements OnInit {
   private configService: ConfigService;
   private storageService: StorageService;
   private sheetsToDelete: Sheet[] = [];
+
+  @ViewChild(BooksConfigurationComponent)
+  private bookConfigurationChild: BooksConfigurationComponent;
 
   constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, configService: ConfigService, storage: StorageService) {
     this.dialogRef = dialogRef;
@@ -51,7 +55,9 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   public onPersistSettings(): void {
+    this.bookConfigurationChild.storeBookConfigurations();
     this.dialogRef.close();
+
     console.log('Persist all settings');
   }
 

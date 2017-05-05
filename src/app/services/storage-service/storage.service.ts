@@ -5,6 +5,7 @@ import {Sheet} from '../../models/sheet/sheet';
 import {Observable} from 'rxjs';
 import {Config} from '../../models/config/config';
 import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
+import {BookConfiguration} from '../../models/book-configuration/book-configuration';
 
 @Injectable()
 export class StorageService {
@@ -42,27 +43,36 @@ export class StorageService {
   }
 
   /**
-   * Store the given sheet in Local Storage;
-   *
-   * @param sheet : Sheet
-   */
-  public storeSheet(sheet: Sheet): void {
-    this.sheetStorageDelegate.setCurrent(sheet);
-  }
-
-  /**
    * Store the given BodyContent in Local Storage;
    *
-   * @param bodyContent : SheetBodyContent
+   * @param SheetBodyContent
    */
   public storeBodyContent(bodyContent: SheetBodyContent) {
     this.configStorageDelegate.storeBodyContent(bodyContent);
   }
 
   /**
+   * Store the given BookConfigurations in Local Storage;
+   *
+   * @param BookConfiguration[]
+   */
+  public storeBookConfigurations(bookConfigurations: BookConfiguration[]) {
+    this.configStorageDelegate.storeBookConfigurations(bookConfigurations);
+  }
+
+  /**
+   * Store the given sheet in Local Storage;
+   *
+   * @param Sheet
+   */
+  public storeSheet(sheet: Sheet): void {
+    this.sheetStorageDelegate.setCurrent(sheet);
+  }
+
+  /**
    * Store the given serverUrl in Local Storage;
    *
-   * @param serverUrl : String
+   * @param String
    */
   public storeServerUrl(serverUrl: string) {
     this.configStorageDelegate.storeServerUrl(serverUrl);
@@ -71,7 +81,7 @@ export class StorageService {
   /**
    * Store the given theme in Local Storage;
    *
-   * @param theme : String
+   * @param String
    */
   public storeTheme(theme: string) {
     this.configStorageDelegate.storeTheme(theme);
@@ -80,10 +90,19 @@ export class StorageService {
   /**
    * Retrieve the given BodyContent from Locale Storage.
    *
-   * @returns theme: Promise<SheetBodyContent>
+   * @returns Promise<SheetBodyContent>
    */
   public getBodyContent(): Promise<SheetBodyContent> {
     return this.configStorageDelegate.retrieveBodyContent();
+  }
+
+  /**
+   * Retrieve the given BookConfigurations from Locale Storage.
+   *
+   * @returns Promise<BookConfiguration[]>
+   */
+  public getBookConfigurations(): Promise<BookConfiguration[]> {
+    return this.configStorageDelegate.retrieveBookConfigurations();
   }
 
   /**

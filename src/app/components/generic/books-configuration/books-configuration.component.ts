@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {LibraryService} from '../../../services/library-service/library.service';
 import {BookConfigurationImpl, Book} from '../../../models/book-configuration/book-configuration-implementation';
+import {isArray} from 'util';
 
 @Component({
-  selector: 'gurpsy-references-configuration',
+  selector: 'gurpsy-books-configuration',
   templateUrl: './books-configuration.component.html',
   styleUrls: ['./books-configuration.component.scss']
 })
@@ -16,15 +17,16 @@ export class BooksConfigurationComponent implements OnInit {
 
   constructor(libraryService: LibraryService) {
     this.libraryService = libraryService;
-    this.bookConfigurations = this.libraryService.getBookConfigurations();
-    this.availableBooks = this.libraryService.getBooks();
   }
 
   public ngOnInit(): void {
+    this.libraryService.getBookConfigurations()
+      .then(bookConfigurations => this.setBookConfigurations(bookConfigurations))
+      .catch(any => this.setBookConfigurations([]));
     this.updateAvailableBooks();
   }
 
-  public onChangeBookConfiguration(book: BookConfiguration): void {
+  public onChangeBookConfiguration(): void {
     this.updateAvailableBooks();
   }
 
@@ -41,6 +43,18 @@ export class BooksConfigurationComponent implements OnInit {
     this.updateAvailableBooks();
   }
 
+  public storeBookConfigurations(): void {
+    this.libraryService.storeBookConfigurations(this.bookConfigurations);
+  }
+
+  private setBookConfigurations(bookConfigurations: BookConfiguration[]) {
+    if (isArray(bookConfigurations)) {
+      this.bookConfigurations = bookConfigurations;
+    } else {
+      this.bookConfigurations = [];
+    }
+  }
+
   private updateAvailableBooks(): void {
     const books = this.libraryService.getBooks();
 
@@ -50,7 +64,5 @@ export class BooksConfigurationComponent implements OnInit {
     }
 
     this.availableBooks = books;
-
-    console.log('Current booklist is: ', this.availableBooks);
   }
 }

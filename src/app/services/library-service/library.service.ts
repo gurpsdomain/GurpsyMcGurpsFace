@@ -2,15 +2,22 @@ import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
 import {BookConfiguration} from '../../models/book-configuration/book-configuration';
 import {
-  Reference, BookConfigurationImpl,
+  Reference,
+  BookConfigurationImpl,
   Book
 } from '../../models/book-configuration/book-configuration-implementation';
+import {ConfigService} from '../config-service/config.service';
 
 @Injectable()
 export class LibraryService {
 
   private referenceRequest = new Subject<Reference>();
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
+  private configService: ConfigService;
+
+  constructor(configService: ConfigService) {
+    this.configService = configService;
+  }
 
   /**
    * Lookup a reference.
@@ -36,31 +43,25 @@ export class LibraryService {
   }
 
   /**
-   * Return an array of Book Configurations
+   * Set BookConfigurations;
    *
-   * @returns {Array<BookConfiguration>}
+   * @param BookConfiguration[]
    */
-  public getBookConfigurations(): BookConfiguration[] {
-    const books: Array<BookConfiguration> = [];
-
-    const basics = new BookConfigurationImpl();
-    basics.book = Book.BASICS;
-    basics.file = '/gurpsbasics.pdf';
-    basics.offset = 0;
-
-    const magic = new BookConfigurationImpl();
-    magic.book = Book.MAGIC;
-    magic.file = '/gurpsmagic.pdf';
-    magic.offset = 0;
-
-    books.push(magic);
-    books.push(basics);
-
-    return books;
+  public storeBookConfigurations(bookConfigurations: BookConfiguration[]) {
+    this.configService.storeBookConfigurations(bookConfigurations);
   }
 
   /**
-   * Return an array of Books
+   * Retrieve the given BookConfigurations;
+   *
+   * @returns Promise<BookConfiguration[]>
+   */
+  public getBookConfigurations(): Promise<BookConfiguration[]> {
+    return this.configService.getBookConfigurations();
+  }
+
+  /**
+   * Return an array of Books that are available as references.
    *
    * @returns {Array<Book>}
    */
