@@ -1,7 +1,6 @@
 @import '~@angular/material/core/theming/all-theme';
 @import 'gurpsy-palette';
 
-@include mat-core();
 
 // Mixin to be used to style custom components
 @mixin gurpsy-theme($theme) {

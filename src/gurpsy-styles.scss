@@ -1,5 +1,7 @@
 @import "gurpsy-material-theme";
 
+@include mat-core();
+
 html {
   height: 100%;
 }
