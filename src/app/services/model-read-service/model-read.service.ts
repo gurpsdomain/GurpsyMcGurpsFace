@@ -2,16 +2,16 @@ import {Injectable} from '@angular/core';
 import {JsonService} from '../json-service/json.service';
 import {Subject} from 'rxjs';
 import {StorageService} from '../storage-service/storage.service';
-import {Sheet, Points, Description, Identity, PlayerInformation} from '../../models/sheet/sheet';
-import {SheetImpl} from '../../models/sheet/sheet-impl';
+import {OutputSheet, Points, Description, Identity, PlayerInformation} from '../../models/sheet/output';
+import {SheetImpl} from '../../models/sheet/output-impl';
 
 @Injectable()
 export class ModelReadService {
 
-  private model: Sheet;
+  private model: OutputSheet;
   private jsonService: JsonService;
   private storageService: StorageService;
-  private modelChangeSource = new Subject<Sheet>();
+  private modelChangeSource = new Subject<OutputSheet>();
 
   public modelChange$ = this.modelChangeSource.asObservable();
 
@@ -34,24 +34,24 @@ export class ModelReadService {
   }
 
   /**
-   * Set the current sheet to the given sheet. Likely this is an already saved instance of a Sheet.
+   * Set the current sheet to the given sheet. Likely this is an already saved instance of a OutputSheet.
    *
    * @param sheet
    */
-  public loadSheet(sheet: Sheet): void {
+  public loadSheet(sheet: OutputSheet): void {
     this.useSheet(sheet);
   }
 
   /**
    * Return the current sheet.
    *
-   * @returns {Sheet}
+   * @returns {OutputSheet}
    */
-  public getSheet(): Sheet {
+  public getSheet(): OutputSheet {
     return this.model;
   }
 
-  private isValidReadModel(sheet: Sheet): boolean {
+  private isValidReadModel(sheet: OutputSheet): boolean {
     let validReadModel = true;
 
     try {
@@ -70,7 +70,7 @@ export class ModelReadService {
     return validReadModel;
   }
 
-  private handleStoredSheet(sheet: Sheet): void {
+  private handleStoredSheet(sheet: OutputSheet): void {
     if (this.isValidReadModel(sheet)) {
       this.setSheet(sheet);
     } else {
@@ -78,17 +78,17 @@ export class ModelReadService {
     }
   }
 
-  private useSheet(sheet: Sheet): void {
+  private useSheet(sheet: OutputSheet): void {
     this.setSheet(sheet);
     this.persistSheet(sheet);
   }
 
-  private setSheet(sheet: Sheet): void {
+  private setSheet(sheet: OutputSheet): void {
     this.model = sheet;
     this.modelChangeSource.next(sheet);
   }
 
-  private persistSheet(sheet: Sheet): void {
+  private persistSheet(sheet: OutputSheet): void {
     this.storageService.storeSheet(sheet);
   }
 
@@ -98,7 +98,7 @@ export class ModelReadService {
   }
 
   private initEmptySheet(): void {
-    const emptySheet: Sheet = new SheetImpl();
+    const emptySheet: OutputSheet = new SheetImpl();
     this.setSheet(emptySheet);
   }
 }

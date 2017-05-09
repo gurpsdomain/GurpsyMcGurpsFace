@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdDialogRef, MdCheckboxChange} from '@angular/material';
 import {StorageService} from '../../../services/storage-service/storage.service';
-import {Sheet} from '../../../models/sheet/sheet';
+import {OutputSheet} from '../../../models/sheet/output';
 import {ConfigService} from '../../../services/config-service/config.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
 
@@ -13,14 +13,14 @@ import {BooksConfigurationComponent} from '../../generic/books-configuration/boo
 export class SettingsDialogComponent implements OnInit {
 
 
-  public storedSheets: Sheet[] = [];
+  public storedSheets: OutputSheet[] = [];
   public clearSettings = true;
   public serverUrl: string;
 
   private dialogRef: MdDialogRef<SettingsDialogComponent>;
   private configService: ConfigService;
   private storageService: StorageService;
-  private sheetsToDelete: Sheet[] = [];
+  private sheetsToDelete: OutputSheet[] = [];
 
   @ViewChild(BooksConfigurationComponent)
   private bookConfigurationChild: BooksConfigurationComponent;
@@ -42,7 +42,7 @@ export class SettingsDialogComponent implements OnInit {
     this.configService.setServerUrl(serverUrl);
   }
 
-  public onSheetSelected(sheet: Sheet, event: MdCheckboxChange): void {
+  public onSheetSelected(sheet: OutputSheet, event: MdCheckboxChange): void {
     if (event.checked) {
       this.addToStoredSheets(sheet);
     } else {
@@ -66,11 +66,11 @@ export class SettingsDialogComponent implements OnInit {
       sheets => this.setStoredSheets(sheets));
   }
 
-  private setStoredSheets(sheets: Sheet[]): void {
+  private setStoredSheets(sheets: OutputSheet[]): void {
     this.storedSheets = sheets;
   }
 
-  private addToStoredSheets(sheet: Sheet): void {
+  private addToStoredSheets(sheet: OutputSheet): void {
     let add = true;
 
     for (const storedSheet of this.sheetsToDelete) {
@@ -84,8 +84,8 @@ export class SettingsDialogComponent implements OnInit {
     }
   }
 
-  private removeFromStoredSheets(sheet: Sheet): void {
-    const newStoredSheets: Sheet[] = [];
+  private removeFromStoredSheets(sheet: OutputSheet): void {
+    const newStoredSheets: OutputSheet[] = [];
 
     for (const storedSheet of this.sheetsToDelete) {
       if (storedSheet.metaData.identity.name !== sheet.metaData.identity.name) {

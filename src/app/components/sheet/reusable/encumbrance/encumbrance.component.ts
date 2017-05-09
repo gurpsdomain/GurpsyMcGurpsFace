@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SheetImpl } from '../../../../models/sheet/sheet-impl';
+import { OutputSheet } from '../../../../models/sheet/output';
 import { ModelReadService } from '../../../../services/model-read-service/model-read.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ModelReadService } from '../../../../services/model-read-service/model-
 })
 export class EncumbranceComponent implements OnInit {
 
-  public sheet: SheetImpl;
+  public sheet: OutputSheet;
 
   private modelReadService: ModelReadService;
 

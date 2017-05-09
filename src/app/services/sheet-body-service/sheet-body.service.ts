@@ -29,7 +29,7 @@ export class SheetBodyService {
   private handleSheetBodyChange(sheetBodyContent: SheetBodyContent): void {
 
     if (this.isSheetBodyContentInvalid(sheetBodyContent)) {
-      console.log('WARNING - Invalid Sheet Body Content stored in Local Storage: ', sheetBodyContent);
+      console.log('WARNING - Invalid OutputSheet Body Content stored in Local Storage: ', sheetBodyContent);
       return;
     }
 

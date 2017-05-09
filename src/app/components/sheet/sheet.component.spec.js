@@ -19,6 +19,6 @@ describe('SheetComponent', function () {
         comp = fixture.componentInstance;
         de = fixture.debugElement.query(platform_browser_1.By.css('h1'));
     });
-    it('should create a Sheet component', function () { return expect(comp).toBeDefined(); });
+    it('should create a OutputSheet component', function () { return expect(comp).toBeDefined(); });
 });
 //# sourceMappingURL=sheet.component.spec.js.map

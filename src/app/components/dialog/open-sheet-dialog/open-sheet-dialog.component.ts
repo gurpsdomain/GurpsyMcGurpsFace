@@ -2,9 +2,7 @@ import {Component} from '@angular/core';
 import {MdDialogRef, MdTabChangeEvent} from '@angular/material';
 import {ModelReadService} from '../../../services/model-read-service/model-read.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
-import {Sheet} from '../../../models/sheet/sheet';
-
-
+import {OutputSheet} from '../../../models/sheet/output';
 
 @Component({
   selector: 'gurpsy-open-sheet-dialog',
@@ -14,11 +12,11 @@ import {Sheet} from '../../../models/sheet/sheet';
 export class OpenSheetDialogComponent {
 
   public showOk = false;
-  public previouslyOpenedSheets: Sheet[] = [];
+  public previouslyOpenedSheets: OutputSheet[] = [];
 
   private selectedTab: SelectedTab = SelectedTab.File;
   private selectedFile: Array<File> = [];
-  private selectedPreviousSheet: Sheet = null;
+  private selectedPreviousSheet: OutputSheet = null;
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private modelReadService: ModelReadService;
   private storageService: StorageService;
@@ -61,7 +59,7 @@ export class OpenSheetDialogComponent {
     this.setShowOk();
   }
 
-  public onPreviousSheetSelected(sheet: Sheet) {
+  public onPreviousSheetSelected(sheet: OutputSheet) {
     this.selectedPreviousSheet = sheet;
 
     this.setShowOk();
@@ -86,7 +84,7 @@ export class OpenSheetDialogComponent {
       sheets => this.setPreviouslyOpenedSheets(sheets));
   }
 
-  private setPreviouslyOpenedSheets(sheets: Sheet[]): void {
+  private setPreviouslyOpenedSheets(sheets: OutputSheet[]): void {
     this.previouslyOpenedSheets = sheets;
   }
 }

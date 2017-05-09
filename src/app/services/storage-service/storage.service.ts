@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {Sheet} from '../../models/sheet/sheet';
+import {OutputSheet} from '../../models/sheet/output';
 import {Observable} from 'rxjs';
 import {Config} from '../../models/config/config';
 import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
@@ -65,7 +65,7 @@ export class StorageService {
    *
    * @param Sheet
    */
-  public storeSheet(sheet: Sheet): void {
+  public storeSheet(sheet: OutputSheet): void {
     this.sheetStorageDelegate.setCurrent(sheet);
   }
 
@@ -106,11 +106,11 @@ export class StorageService {
   }
 
   /**
-   * Retrieve the Current Sheet for Local Storage.
+   * Retrieve the Current OutputSheet for Local Storage.
    *
    * @returns Promise<Sheet> or an empty promise if there is no current sheet.
    */
-  public getCurrentSheet(): Promise<Sheet> {
+  public getCurrentSheet(): Promise<OutputSheet> {
     return this.sheetStorageDelegate.retrieveCurrent();
   }
 
@@ -119,7 +119,7 @@ export class StorageService {
    *
    * @returns Promise<Sheet[]> or an empty promise if there are no previously opened sheets.
    */
-  public getPreviouslyOpenedSheets(): Promise<Sheet[]> {
+  public getPreviouslyOpenedSheets(): Promise<OutputSheet[]> {
     return this.sheetStorageDelegate.retrievePrevious();
   }
 
@@ -129,7 +129,7 @@ export class StorageService {
    * @returns Promise<Sheet[]> or an empty promise if there are no current and previously
    *          opened sheets.
    */
-  public getSheets(): Promise<Sheet[]> {
+  public getSheets(): Promise<OutputSheet[]> {
     return this.sheetStorageDelegate.retrieveAll();
   }
 
@@ -156,9 +156,9 @@ export class StorageService {
    * Clear the stored entries from Local Storage.
    *
    * @param clearConfig: boolean     Clear the config
-   * @param sheetsToDelete: Sheet[] An Array of Sheets that should be deleted.
+   * @param sheetsToDelete: OutputSheet[] An Array of Sheets that should be deleted.
    */
-  public clearStorage(clearConfig: boolean, sheetsToDelete: Sheet[]): void {
+  public clearStorage(clearConfig: boolean, sheetsToDelete: OutputSheet[]): void {
     if (clearConfig) {
       this.configStorageDelegate.clear();
     }

@@ -1,6 +1,5 @@
 import {
   PlayerInformation,
-  Sheets,
   Identity,
   Description,
   MetaData,
@@ -16,8 +15,9 @@ import {
   Spell,
   Equipment,
   Note,
-  Sheet
-} from './sheet';
+  OutputSheet,
+  OutputSheets
+} from './output';
 
 export class PlayerInformationImpl implements PlayerInformation {
   player = '';
@@ -161,7 +161,7 @@ export class NoteImpl implements Note {
   note = '';
 }
 
-export class SheetImpl implements Sheet {
+export class SheetImpl implements OutputSheet {
   metaData: MetaData = new MetaDataImpl();
   points: Points = new PointsImpl();
   attributes: Attributes = new AttributesImpl();
@@ -175,9 +175,9 @@ export class SheetImpl implements Sheet {
   notes: Note[] = [];
 }
 
-export class SheetsImpl implements Sheets {
-  current: Sheet;
-  previous: Sheet[] = [];
+export class OutputSheetsImpl implements OutputSheets {
+  current: OutputSheet;
+  previous: OutputSheet[] = [];
 }
 
 

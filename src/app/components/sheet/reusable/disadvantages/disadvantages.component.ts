@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
-import {Sheet} from '../../../../models/sheet/sheet';
+import {OutputSheet} from '../../../../models/sheet/output';
 
 @Component({
   selector: 'gurpsy-disadvantages',
@@ -11,7 +11,7 @@ import {Sheet} from '../../../../models/sheet/sheet';
 })
 export class DisadvantagesComponent implements OnInit {
 
-  public sheet: Sheet;
+  public sheet: OutputSheet;
   private modelReadService: ModelReadService;
 
   constructor(modelReadService: ModelReadService) {

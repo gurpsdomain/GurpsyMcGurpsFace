@@ -75,7 +75,7 @@ describe('SheetBodyComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a structural Sheet Body Component', () => {
+  it('should create a structural OutputSheet Body Component', () => {
     expect(component).toBeTruthy();
   });
 });

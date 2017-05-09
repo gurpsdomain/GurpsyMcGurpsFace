@@ -50,7 +50,7 @@ describe('SheetHeaderComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create structural Sheet Header Component', () => expect(comp).toBeDefined());
+  it('should create structural OutputSheet Header Component', () => expect(comp).toBeDefined());
 });
 
 

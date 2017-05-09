@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Sheet} from '../../../../models/sheet/sheet';
+import {OutputSheet} from '../../../../models/sheet/output';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
@@ -10,7 +10,7 @@ import {ModelReadService} from '../../../../services/model-read-service/model-re
 })
 export class EquipmentComponent implements OnInit {
 
-  public sheet: Sheet;
+  public sheet: OutputSheet;
   private modelReadService: ModelReadService;
 
   constructor(modelReadService: ModelReadService) {

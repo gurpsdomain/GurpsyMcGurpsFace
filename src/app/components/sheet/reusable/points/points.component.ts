@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
-import {SheetImpl} from '../../../../models/sheet/sheet-impl';
+import {OutputSheet} from '../../../../models/sheet/output';
 
 @Component({
   selector: 'gurpsy-points',
@@ -10,7 +10,7 @@ import {SheetImpl} from '../../../../models/sheet/sheet-impl';
   ]
 })
 export class PointsComponent implements OnInit {
-  public sheet: SheetImpl;
+  public sheet: OutputSheet;
 
   private modelReadService: ModelReadService;
 

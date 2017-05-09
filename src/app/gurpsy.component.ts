@@ -5,7 +5,7 @@ import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelReadService} from './services/model-read-service/model-read.service';
 import {TranslateService} from 'ng2-translate';
-import {Sheet} from './models/sheet/sheet';
+import {OutputSheet} from './models/sheet/output';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
@@ -145,7 +145,7 @@ export class GurpsyComponent implements OnInit {
     }
   }
 
-  private showNewSheetLoadedMessage(sheet: Sheet): void {
+  private showNewSheetLoadedMessage(sheet: OutputSheet): void {
     this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
       this.snackBar.open(res, '', {
         duration: GurpsyComponent.SNACKBAR_DURATION_TIME,

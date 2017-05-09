@@ -140,7 +140,7 @@ export interface Note {
   note: string;
 }
 
-export interface Sheet {
+export interface OutputSheet {
   metaData: MetaData;
   points: Points;
   attributes: Attributes;
@@ -154,9 +154,9 @@ export interface Sheet {
   notes: Note[];
 }
 
-export interface Sheets {
-  current: Sheet;
-  previous: Sheet[];
+export interface OutputSheets {
+  current: OutputSheet;
+  previous: OutputSheet[];
 }
 
 
