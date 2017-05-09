@@ -6,7 +6,7 @@ export interface Modifier {
 export interface Advantage {
   name: string;
   modifiers: Modifier[];
-  levels?: number;
+  levels: number;
 }
 
 export interface Disadvantage {
