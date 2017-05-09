@@ -9,7 +9,7 @@ import {SpellsComponent} from '../../reusable/spells/spells.component';
 import {SkillsComponent} from '../../reusable/skills/skills.component';
 import {GeneralComponent} from './general/general.component';
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
+import {OutputModelService} from '../../../../services/model-read-service/output-model.service';
 import {JsonService} from '../../../../services/json-service/json.service';
 import {StorageService} from '../../../../services/storage-service/storage.service';
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
@@ -60,7 +60,7 @@ describe('SheetBodyComponent', () => {
         ConfigService,
         ConfigStorageDelegate,
         JsonService,
-        ModelReadService,
+        OutputModelService,
         SheetBodyService,
         SheetStorageDelegate,
         StorageService

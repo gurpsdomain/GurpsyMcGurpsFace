@@ -5,7 +5,7 @@ import {TranslateModule} from 'ng2-translate';
 import {PortraitComponent} from '../../../reusable/portrait/portrait.component';
 import {PointsComponent} from '../../../reusable/points/points.component';
 import {DescriptionComponent} from '../../../reusable/description/description.component';
-import {ModelReadService} from '../../../../../services/model-read-service/model-read.service';
+import {OutputModelService} from '../../../../../services/model-read-service/output-model.service';
 import {JsonService} from '../../../../../services/json-service/json.service';
 import {StorageService} from '../../../../../services/storage-service/storage.service';
 // tslint:disable-next-line max-line-length
@@ -38,7 +38,7 @@ describe('GeneralComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        ModelReadService,
+        OutputModelService,
         JsonService,
         StorageService,
         ConfigStorageDelegate,

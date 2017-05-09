@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MdDialogRef, MdTabChangeEvent} from '@angular/material';
-import {ModelReadService} from '../../../services/model-read-service/model-read.service';
+import {OutputModelService} from '../../../services/model-read-service/output-model.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
 
@@ -18,11 +18,11 @@ export class OpenSheetDialogComponent {
   private selectedFile: Array<File> = [];
   private selectedPreviousSheet: OutputSheet = null;
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
-  private modelReadService: ModelReadService;
+  private modelReadService: OutputModelService;
   private storageService: StorageService;
 
   constructor(dialogRef: MdDialogRef<OpenSheetDialogComponent>,
-              modelReadService: ModelReadService,
+              modelReadService: OutputModelService,
               storageService: StorageService) {
     this.dialogRef = dialogRef;
     this.modelReadService = modelReadService;

@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FatigueHitComponent} from './fatigue-hit.component';
 import {JsonService} from '../../../../services/json-service/json.service';
-import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
+import {OutputModelService} from '../../../../services/model-read-service/output-model.service';
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {StorageService} from '../../../../services/storage-service/storage.service';
@@ -15,7 +15,7 @@ describe('FatigueHitComponent', () => {
     TestBed.configureTestingModule({
       declarations: [FatigueHitComponent],
       providers: [
-        ModelReadService,
+        OutputModelService,
         JsonService,
         ConfigStorageDelegate,
         SheetStorageDelegate,

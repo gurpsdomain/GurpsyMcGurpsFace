@@ -3,7 +3,7 @@ import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry} from '@angular/materi
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
-import {ModelReadService} from './services/model-read-service/model-read.service';
+import {OutputModelService} from './services/model-read-service/output-model.service';
 import {TranslateService} from 'ng2-translate';
 import {OutputSheet} from './models/sheet/output';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
@@ -32,7 +32,7 @@ export class GurpsyComponent implements OnInit {
   private languageService: LanguagesService;
   private loggingService: LoggingService;
   private configService: ConfigService;
-  private modelReadService: ModelReadService;
+  private modelReadService: OutputModelService;
   private snackBar: MdSnackBar;
   private translate: TranslateService;
 
@@ -47,7 +47,7 @@ export class GurpsyComponent implements OnInit {
   public showLibrary: boolean;
 
   constructor(theme: ConfigService, languageService: LanguagesService, loggingService: LoggingService,
-              dialog: MdDialog, modelReadService: ModelReadService, snackBar: MdSnackBar,
+              dialog: MdDialog, modelReadService: OutputModelService, snackBar: MdSnackBar,
               translate: TranslateService, iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
     this.languageService = languageService;
     this.loggingService = loggingService;

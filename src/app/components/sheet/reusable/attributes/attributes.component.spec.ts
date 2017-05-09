@@ -5,7 +5,7 @@ import {StorageService} from '../../../../services/storage-service/storage.servi
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {JsonService} from '../../../../services/json-service/json.service';
-import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
+import {OutputModelService} from '../../../../services/model-read-service/output-model.service';
 import {TranslateModule} from 'ng2-translate';
 
 describe('AttributesComponent', () => {
@@ -16,7 +16,7 @@ describe('AttributesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AttributesComponent],
       providers: [
-        ModelReadService,
+        OutputModelService,
         JsonService,
         ConfigStorageDelegate,
         SheetStorageDelegate,

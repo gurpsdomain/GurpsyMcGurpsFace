@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OutputSheet } from '../../../../models/sheet/output';
-import { ModelReadService } from '../../../../services/model-read-service/model-read.service';
+import { OutputModelService } from '../../../../services/model-read-service/output-model.service';
 
 @Component({
   selector: 'gurpsy-encumbrance',
@@ -14,9 +14,9 @@ export class EncumbranceComponent implements OnInit {
 
   public sheet: OutputSheet;
 
-  private modelReadService: ModelReadService;
+  private modelReadService: OutputModelService;
 
-  constructor(modelReadService: ModelReadService) {
+  constructor(modelReadService: OutputModelService) {
     this.modelReadService = modelReadService;
   }
 
