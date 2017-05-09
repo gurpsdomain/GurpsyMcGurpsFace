@@ -132,6 +132,7 @@ export interface Spell {
 
 export interface Equipment {
   name: string;
+  pageReference: string;
 }
 
 export interface Note {

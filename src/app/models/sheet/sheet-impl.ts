@@ -153,6 +153,7 @@ export class SpellImpl implements Spell {
 
 export class EquipmentImpl implements Equipment {
   name = '';
+  pageReference = '';
 }
 
 export class NoteImpl implements Note {
