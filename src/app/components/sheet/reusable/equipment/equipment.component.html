@@ -3,9 +3,13 @@
     {{ 'SHEET.EQUIPMENT' | translate }}
   </div>
   <div class="sheetComponentBody">
-    <div *ngFor="let equipment of sheet.equipments;">
-      <div>{{equipment.name}}</div>
-      <gurpsy-page-reference>{{equipment.pageReference}}</gurpsy-page-reference>
-    </div>
+    <table class="headerRowTable">
+      <tr *ngFor="let equipment of sheet.equipments;">
+        <td>{{equipment.name}}</td>
+        <td>
+          <gurpsy-page-reference [pageReference]="equipment.pageReference"></gurpsy-page-reference>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>

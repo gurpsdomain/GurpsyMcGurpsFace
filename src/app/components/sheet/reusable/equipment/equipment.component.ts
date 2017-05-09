@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../../../../models/sheet/sheet';
 import {ModelReadService} from '../../../../services/model-read-service/model-read.service';
 
 @Component({
   selector: 'gurpsy-equipment',
   templateUrl: 'equipment.component.html',
-  styleUrls: ['../../sheet.component.scss']
+  styleUrls: ['./equipment.component.scss',
+    '/../../sheet.component.scss']
 })
 export class EquipmentComponent implements OnInit {
 
