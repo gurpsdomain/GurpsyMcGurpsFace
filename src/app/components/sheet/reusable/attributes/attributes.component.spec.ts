@@ -6,7 +6,7 @@ import {SheetStorageDelegate} from '../../../../services/storage-service/delegat
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {JsonService} from '../../../../services/json-service/json.service';
 import {OutputModelService} from '../../../../services/model-read-service/output-model.service';
-import {TranslateModule} from 'ng2-translate';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('AttributesComponent', () => {
   let component: AttributesComponent;

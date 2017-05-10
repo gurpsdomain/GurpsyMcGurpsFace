@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages.component';
-import {TranslateModule} from 'ng2-translate';
+import {TranslateModule} from '@ngx-translate/core';
 import {AdvantagesComponent} from '../../../reusable/advantages/advantages.component';
 import {DisadvantagesComponent} from '../../../reusable/disadvantages/disadvantages.component';
 import {OutputModelService} from '../../../../../services/model-read-service/output-model.service';

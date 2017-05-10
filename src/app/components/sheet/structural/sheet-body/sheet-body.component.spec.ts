@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {SheetBodyComponent} from './sheet-body.component';
-import {TranslateModule} from 'ng2-translate';
+import {TranslateModule} from '@ngx-translate/core';
 import {NotesComponent} from '../../reusable/notes/notes.component';
 import {AdvantagesComponent} from '../../reusable/advantages/advantages.component';
 import {EquipmentComponent} from '../../reusable/equipment/equipment.component';

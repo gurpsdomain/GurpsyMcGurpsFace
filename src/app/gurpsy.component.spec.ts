@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed, async} from '@angular/core/testing';
 import {MaterialModule} from '@angular/material';
-import {TranslateModule} from 'ng2-translate';
+import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';

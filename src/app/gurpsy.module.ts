@@ -2,9 +2,8 @@ import 'hammerjs';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpModule, Http} from '@angular/http';
 import {MaterialModule} from '@angular/material';
-import {TranslateModule} from 'ng2-translate';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';
@@ -52,7 +51,13 @@ import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {BookConfigurationComponent} from './components/generic/book-configuration/book-configuration.component';
 import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';
 import {LibraryService} from './services/library-service/library.service';
-import { FileInputComponent } from './components/generic/file-input/file-input.component';
+import {FileInputComponent} from './components/generic/file-input/file-input.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: Http) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -99,7 +104,13 @@ import { FileInputComponent } from './components/generic/file-input/file-input.c
     HttpModule,
     FlexLayoutModule,
     MaterialModule,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [Http]
+      }
+    })
   ],
   providers: [
     ConfigService,

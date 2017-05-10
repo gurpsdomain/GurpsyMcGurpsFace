@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BookConfigurationComponent} from './book-configuration.component';
-import {TranslateModule} from 'ng2-translate';
+import {TranslateModule} from '@ngx-translate/core';
 import {MaterialModule} from '@angular/material';
 
 describe('BookConfigurationComponent', () => {

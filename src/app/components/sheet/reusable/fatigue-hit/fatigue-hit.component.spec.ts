@@ -5,7 +5,7 @@ import {OutputModelService} from '../../../../services/model-read-service/output
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {StorageService} from '../../../../services/storage-service/storage.service';
-import {TranslateModule} from 'ng2-translate';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('FatigueHitComponent', () => {
   let component: FatigueHitComponent;

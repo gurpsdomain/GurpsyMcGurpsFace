@@ -4,13 +4,13 @@ import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/op
 import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {OutputModelService} from './services/model-read-service/output-model.service';
-import {TranslateService} from 'ng2-translate';
 import {OutputSheet} from './models/sheet/output';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging-service/logging.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'gurpsy-root',
