@@ -108,6 +108,7 @@
       "XHEAVY": "X-Heavy (4)"
     },
     "LIFTING_MOVING": {
+      "HEADER": "Lifting & Moving Things",
       "BASIC_LIFT": "Basic Lift:",
       "ONE_HANDED_LIFT": "One-Handed Lift:",
       "TWO_HANDED_LIFT": "Two-Handed Lift:",
