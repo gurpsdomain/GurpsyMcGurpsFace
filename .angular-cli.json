@@ -26,8 +26,9 @@
       "prefix": "gurpsy",
       "mobile": false,
       "styles": [
-        "gurpsy-styles.scss",
-        "gurpsy-material-theme.scss"
+        "gurpsy-palette.scss",
+        "gurpsy-material-theme.scss",
+        "gurpsy-styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

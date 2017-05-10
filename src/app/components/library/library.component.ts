@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'gurpsy-library',
-  templateUrl: 'library.component.html',
-  styleUrls: ['library.component.scss']
+  templateUrl: 'library.component.html'
 })
 export class LibraryComponent implements OnInit {
 

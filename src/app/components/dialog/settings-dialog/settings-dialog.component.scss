@@ -1,4 +1,5 @@
-@import "../../../../gurpsy-material-theme";
+//@import "../../../../gurpsy-material-theme";
+//@import '~@angular/material/theming';
 
 md-dialog-content {
   md-card:not(:first-child) {
@@ -7,7 +8,7 @@ md-dialog-content {
   md-card {
     .settingsCardHeader {
       font-size: small;
-      color: mat-color($primary);
+      color: green;
       margin-bottom: 8px;
       text-align: right;
     }
