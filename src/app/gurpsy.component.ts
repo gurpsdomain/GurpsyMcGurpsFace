@@ -69,13 +69,6 @@ export class GurpsyComponent implements OnInit {
     this.initTheme();
   }
 
-  public onThemeChange(): void {
-    const theme = this.theme === ConfigService.THEME_NIGHT ? ConfigService.THEME_DAY :
-      ConfigService.THEME_NIGHT;
-    this.setTheme(theme);
-    this.configService.setTheme(theme);
-  }
-
   public onOpenThrowDiceDialog(): void {
     this.diceDialogRef = this.dialog.open(DiceDialogComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,

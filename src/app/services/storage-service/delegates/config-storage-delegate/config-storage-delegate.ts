@@ -147,6 +147,7 @@ export class ConfigStorageDelegate {
 
   private store(config: Config) {
     localStorage.setItem(this.getStorageKey(), JSON.stringify(config));
+    this.change(config);
   }
 
   private retrieve(): Config {

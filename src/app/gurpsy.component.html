@@ -28,20 +28,13 @@
           <md-icon>account_box</md-icon>
           <span>{{ 'MENU.OPEN' | translate }}</span>
         </button>
-        <button md-menu-item (click)="onOpenDeleteSettingsDialog()">
-          <md-icon>settings</md-icon>
-          <span>{{ 'MENU.SETTINGS' | translate }}</span>
-        </button>
         <button md-menu-item (click)="onOpenThrowDiceDialog()">
           <md-icon svgIcon="d6"></md-icon>
           <span>{{ 'MENU.THROW_DICE' | translate }}</span>
         </button>
-        <button md-menu-item
-                (click)="onThemeChange()">
-          <md-icon [class.selected]="theme == night">
-            insert_photo
-          </md-icon>
-          <span>   {{ 'MENU.DARK_THEME' | translate }}</span>
+        <button md-menu-item (click)="onOpenDeleteSettingsDialog()">
+          <md-icon>settings</md-icon>
+          <span>{{ 'MENU.SETTINGS' | translate }}</span>
         </button>
         <button md-menu-item (click)="onOpenAboutDialog()">
           <md-icon svgIcon="gurpsy-face"></md-icon>

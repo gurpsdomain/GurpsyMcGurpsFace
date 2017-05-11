@@ -12,9 +12,9 @@ import {BooksConfigurationComponent} from '../../generic/books-configuration/boo
 })
 export class SettingsDialogComponent implements OnInit {
 
-
   public storedSheets: OutputSheet[] = [];
   public clearSettings = true;
+  public nightTheme = false;
   public serverUrl: string;
 
   private dialogRef: MdDialogRef<SettingsDialogComponent>;
@@ -36,10 +36,18 @@ export class SettingsDialogComponent implements OnInit {
   public ngOnInit(): void {
     this.configService.getServerUrl().then(serverUrl => this.serverUrl = serverUrl);
     this.configService.getConfigObserver().subscribe(config => this.serverUrl = config.serverUrl);
+
+    this.initTheme();
   }
 
   public onServerUrlChange(serverUrl: string): void {
     this.configService.setServerUrl(serverUrl);
+  }
+
+  public onThemeChange(): void {
+    const theme = this.nightTheme ? ConfigService.THEME_NIGHT : ConfigService.THEME_DAY;
+    this.setTheme(theme);
+    this.configService.setTheme(theme);
   }
 
   public onSheetSelected(sheet: OutputSheet, event: MdCheckboxChange): void {
@@ -94,5 +102,18 @@ export class SettingsDialogComponent implements OnInit {
     }
 
     this.sheetsToDelete = newStoredSheets;
+  }
+
+  private initTheme(): void {
+    this.configService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ConfigService.THEME_DEFAULT));
+    this.configService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
+  }
+
+  private setTheme(theme: string) {
+    if (theme === ConfigService.THEME_NIGHT) {
+      this.nightTheme = true;
+    } else {
+      this.nightTheme = false;
+    }
   }
 }

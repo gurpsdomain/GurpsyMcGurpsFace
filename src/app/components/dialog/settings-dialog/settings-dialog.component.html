@@ -6,10 +6,21 @@
     <div class="settingsCardHeader">
       {{'DIALOG.SETTINGS.APPLICATION_SETTINGS'| translate}}
     </div>
-    <md-input-container>
-      <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
-             (change)="onServerUrlChange(serverUrl)">
-    </md-input-container>
+    <div class="flex-container"
+         fxLayout="column"
+         fxLayoutAlign="space-between stretch"
+         fxLayoutWrap="nowrap">
+      <md-input-container class="flex-item">
+        <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
+               (change)="onServerUrlChange(serverUrl)">
+      </md-input-container>
+      <md-checkbox
+        class="flex-item"
+        (change)="onThemeChange()"
+        [(ngModel)]="nightTheme">
+        {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
+      </md-checkbox>
+    </div>
   </md-card>
 
   <md-card>
@@ -23,7 +34,7 @@
   </md-card>
 
   <md-card>
-    <div class="settingsCardHeader">
+    <div class="settingsCardHeader warning">
       {{'DIALOG.SETTINGS.CLEANUP'| translate}}
     </div>
     <md-checkbox [(ngModel)]="clearSettings">
