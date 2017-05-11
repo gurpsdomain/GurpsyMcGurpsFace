@@ -11,11 +11,11 @@
       "assets": [
         "assets",
         "assets/library",
+        "assets/i18n",
         "assets/images",
         "assets/sheets",
         "assets/textures",
-        "favicon.ico",
-        "i18n"
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
