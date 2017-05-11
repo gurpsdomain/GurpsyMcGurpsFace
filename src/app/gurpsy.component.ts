@@ -11,6 +11,7 @@ import {LoggingService} from './services/logging-service/logging.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
+import {OverlayContainer} from '@angular/material';
 
 @Component({
   selector: 'gurpsy-root',
@@ -35,6 +36,7 @@ export class GurpsyComponent implements OnInit {
   private modelReadService: OutputModelService;
   private snackBar: MdSnackBar;
   private translate: TranslateService;
+  private overlayContainer: OverlayContainer;
 
   private aboutDialogRef: MdDialogRef<AboutDialogComponent>;
   private diceDialogRef: MdDialogRef<DiceDialogComponent>;
@@ -48,7 +50,7 @@ export class GurpsyComponent implements OnInit {
 
   constructor(theme: ConfigService, languageService: LanguagesService, loggingService: LoggingService,
               dialog: MdDialog, modelReadService: OutputModelService, snackBar: MdSnackBar,
-              translate: TranslateService, iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+              translate: TranslateService, iconRegistry: MdIconRegistry, sanitizer: DomSanitizer, overlayContainer: OverlayContainer) {
     this.languageService = languageService;
     this.loggingService = loggingService;
     this.configService = theme;
@@ -56,6 +58,7 @@ export class GurpsyComponent implements OnInit {
     this.modelReadService = modelReadService;
     this.snackBar = snackBar;
     this.translate = translate;
+    this.overlayContainer = overlayContainer;
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
@@ -139,8 +142,10 @@ export class GurpsyComponent implements OnInit {
   private setTheme(theme: string) {
     if (theme === ConfigService.THEME_NIGHT || theme === ConfigService.THEME_DAY) {
       this.theme = theme;
+      this.overlayContainer.themeClass = theme;
     } else {
       this.theme = ConfigService.THEME_DEFAULT;
+      this.overlayContainer.themeClass = theme;
       this.loggingService.warn('Invalid theme stored in Local Storage: ' + theme);
     }
   }

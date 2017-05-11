@@ -45,4 +45,7 @@ import {
   ],
 })
 export class GurpsyMaterialModule {
+  // constructor(overlayContainer: OverlayContainer) {
+  //   overlayContainer.themeClass = 'night';
+  // }
 }
