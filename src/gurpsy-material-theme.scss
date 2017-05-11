@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 @import 'gurpsy-palette';
-// Custom component theming
+@import "app/components/dialog/about-dialog/about-dialog.component";
 @import "app/components/sheet/sheet.component";
 @import "app/gurpsy.component";
 
@@ -31,8 +31,9 @@
 @mixin gurpsy-theme($theme) {
   @include angular-material-theme($theme);
 
-  @include gurpsy-sheet-theme($theme);
+  @include gurpsy-about-dialog-theme($theme);
   @include gurpsy-component-theme($theme);
+  @include gurpsy-sheet-theme($theme);
 }
 
 .day {

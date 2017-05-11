@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+@mixin gurpsy-about-dialog-theme($theme) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  //$foregroundMap: map-get($theme, foreground);
+  //$text: map-get($foregroundMap, text);
+
+  .gurpsy-face svg {
+    color: mat-color($accent);
+  }
+
+  .title,.about {
+    color: mat-color($accent);
+  }
+
+  .version {
+    color: mat-color($accent);
+  }
+}
