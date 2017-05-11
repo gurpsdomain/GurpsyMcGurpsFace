@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+@mixin gurpsy-sheet-theme($theme) {
+  $primary: map-get($theme, primary);
+
+  .sheetComponentHeader, .headerRow {
+    background: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+  }
+}

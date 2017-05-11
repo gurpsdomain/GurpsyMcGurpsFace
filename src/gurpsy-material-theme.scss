@@ -1,5 +1,8 @@
 @import '~@angular/material/theming';
 @import 'gurpsy-palette';
+// Custom component theming
+@import "app/components/sheet/sheet.component";
+@import "app/gurpsy.component";
 
 @include mat-core();
 
@@ -27,6 +30,9 @@
 
 @mixin gurpsy-theme($theme) {
   @include angular-material-theme($theme);
+
+  @include gurpsy-sheet-theme($theme);
+  @include gurpsy-component-theme($theme);
 }
 
 .day {
@@ -48,36 +54,3 @@
 
   @include gurpsy-theme($dark-theme);
 }
-
-// Mixin to be used to style custom components
-//@mixin gurpsy-theme($theme) {
-//
-//  .sheetComponentHeader, .headerRow {
-//    background: mat-color($primary);
-//    color: mat-color($primary, default-contrast);
-//  }
-//
-//  .mat-sidenav-content {
-//    background: $background;
-//  }
-//
-//  .sideNavigation {
-//    .sideNavigationHeader .avatar img {
-//      border: 1px solid mat-color($accent);
-//    }
-//
-//    .sideNavigationContent {
-//      button {
-//        md-icon {
-//          color: mat-color($primary, default-contrast);
-//        }
-//      }
-//      button.selected {
-//        background: $selectedButton;
-//        md-icon {
-//          color: mat-color($primary);
-//        }
-//      }
-//    }
-//  }
-//}

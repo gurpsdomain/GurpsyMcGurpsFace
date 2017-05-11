@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+
+@mixin gurpsy-component-theme($theme) {
+  $accent: map-get($theme, accent);
+
+  $primary: map-get($theme, primary);
+  $backgroundMap: map-get($theme, background);
+  $background: map-get($backgroundMap, background);
+  $selectedButton: map-get($backgroundMap, raised-button);
+
+  .mat-sidenav-content {
+    background: $background;
+  }
+
+  .sideNavigation {
+    .sideNavigationHeader .avatar img {
+      border: 1px solid mat-color($accent);
+    }
+
+    .sideNavigationContent {
+      button {
+        md-icon {
+          color: mat-color($primary, default-contrast);
+        }
+      }
+      button.selected {
+        background: $selectedButton;
+        md-icon {
+          color: mat-color($primary);
+        }
+      }
+    }
+  }
+}
+
