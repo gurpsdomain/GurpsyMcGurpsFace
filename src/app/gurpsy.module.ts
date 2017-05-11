@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule, Http} from '@angular/http';
-import {MaterialModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';
@@ -54,6 +53,7 @@ import {LibraryService} from './services/library-service/library.service';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {GurpsyMaterialModule} from './gurpsy-material.module';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -100,10 +100,10 @@ export function HttpLoaderFactory(http: Http) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    GurpsyMaterialModule,
     FormsModule,
     HttpModule,
     FlexLayoutModule,
-    MaterialModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

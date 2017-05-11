@@ -1,6 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed, async} from '@angular/core/testing';
-import {MaterialModule} from '@angular/material';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
@@ -43,6 +42,7 @@ import {PageReferenceComponent} from './components/generic/page-reference/page-r
 import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
+import {GurpsyMaterialModule} from './gurpsy-material.module';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -78,7 +78,7 @@ describe('GurpsyComponent', () => {
       ],
       imports: [
         FormsModule,
-        MaterialModule,
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [

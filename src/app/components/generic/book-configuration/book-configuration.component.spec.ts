@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BookConfigurationComponent} from './book-configuration.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {MaterialModule} from '@angular/material';
+import {GurpsyMaterialModule} from '../../../gurpsy-material.module';
 
 describe('BookConfigurationComponent', () => {
   let component: BookConfigurationComponent;
@@ -12,7 +12,7 @@ describe('BookConfigurationComponent', () => {
       declarations: [
         BookConfigurationComponent],
       imports: [
-        MaterialModule,
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
       ]
     })

@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FileInputComponent} from './file-input.component';
 import {MaterialModule} from '@angular/material';
+import {GurpsyMaterialModule} from '../../../gurpsy-material.module';
 
 describe('FileInputComponent', () => {
   let component: FileInputComponent;
@@ -12,7 +13,7 @@ describe('FileInputComponent', () => {
         FileInputComponent
       ],
       imports: [
-        MaterialModule
+        GurpsyMaterialModule
       ]
     })
       .compileComponents();
