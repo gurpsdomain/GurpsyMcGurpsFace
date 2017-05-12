@@ -30,6 +30,7 @@
         "FILE_LOCATION": "File location",
         "OFFSET": "Offset"
       },
+      "NIGHT_THEME": "Night mode",
       "SERVER_URL": "Server url",
       "SHEETS": "Stored Character Sheets"
     },
@@ -45,7 +46,6 @@
   "MENU": {
     "ABOUT": "About",
     "OPEN": "Open sheet",
-    "DARK_THEME": "Night mode",
     "SETTINGS": "Settings",
     "THROW_DICE": "Throw dice"
   },
