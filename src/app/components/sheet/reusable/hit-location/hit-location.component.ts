@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {OutputSheet} from '../../../../models/sheet/output';
-import {OutputModelService} from '../../../../services/model-read-service/output-model.service';
+import {ModelService} from '../../../../services/model-service/model.service';
 
 @Component({
   selector: 'gurpsy-hit-location',
@@ -14,9 +14,9 @@ export class HitLocationComponent implements OnInit {
 
   public sheet: OutputSheet;
 
-  private modelReadService: OutputModelService;
+  private modelReadService: ModelService;
 
-  constructor(modelReadService: OutputModelService) {
+  constructor(modelReadService: ModelService) {
     this.modelReadService = modelReadService;
   }
 

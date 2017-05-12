@@ -1,28 +1,31 @@
 import {Component} from '@angular/core';
-import {MdDialogRef, MdTabChangeEvent} from '@angular/material';
-import {OutputModelService} from '../../../services/model-read-service/output-model.service';
+import {MdDialogRef} from '@angular/material';
+import {ModelService} from '../../../services/model-service/model.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
 
 @Component({
   selector: 'gurpsy-open-sheet-dialog',
   templateUrl: './open-sheet-dialog.component.html',
-  styleUrls: ['./open-sheet-dialog.component.scss']
+  styleUrls: [
+    '../dialog.component.scss',
+    './open-sheet-dialog.component.scss'
+  ]
 })
 export class OpenSheetDialogComponent {
 
   public showOk = false;
   public previouslyOpenedSheets: OutputSheet[] = [];
 
-  private selectedTab: SelectedTab = SelectedTab.File;
   private selectedFile: Array<File> = [];
   private selectedPreviousSheet: OutputSheet = null;
+
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
-  private modelReadService: OutputModelService;
+  private modelReadService: ModelService;
   private storageService: StorageService;
 
   constructor(dialogRef: MdDialogRef<OpenSheetDialogComponent>,
-              modelReadService: OutputModelService,
+              modelReadService: ModelService,
               storageService: StorageService) {
     this.dialogRef = dialogRef;
     this.modelReadService = modelReadService;
@@ -33,28 +36,14 @@ export class OpenSheetDialogComponent {
 
   public onLoadSheet(): void {
 
+    this.handleFileSelected();
+    this.handlePreviousSheetSelected();
+
     this.dialogRef.close();
-
-    if (this.selectedTab === SelectedTab.File) {
-      this.handleFileSelected();
-
-    } else if (this.selectedTab === SelectedTab.Previous) {
-      this.handlePreviousSheetSelected();
-    }
   }
 
   public onFileSelect(fileInput: any) {
     this.selectedFile = <Array<File>> fileInput.target.files;
-
-    this.setShowOk();
-  }
-
-  public onTabSelectChange(event: MdTabChangeEvent) {
-    if (SelectedTab.File === event.index) {
-      this.selectedTab = SelectedTab.File;
-    } else {
-      this.selectedTab = SelectedTab.Previous;
-    }
 
     this.setShowOk();
   }
@@ -75,8 +64,8 @@ export class OpenSheetDialogComponent {
   }
 
   private setShowOk(): void {
-    this.showOk = (this.selectedTab === SelectedTab.File && this.selectedFile.length > 0) ||
-      (this.selectedTab === SelectedTab.Previous && this.selectedPreviousSheet !== null);
+    this.showOk = this.selectedFile.length > 0 ||
+      this.selectedPreviousSheet !== null;
   }
 
   private initPreviouslyOpenedSheetList(): void {

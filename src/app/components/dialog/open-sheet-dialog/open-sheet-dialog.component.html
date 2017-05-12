@@ -1,11 +1,30 @@
-<h1 md-dialog-title> {{'DIALOG.OPEN_SHEET.HEADER'| translate}}</h1>
+<h1 md-dialog-title
+    class="header flex-container"
+    fxLayout="row"
+    fxLayoutAlign="space-between stretch"
+    fxLayoutWrap="nowrap">
+  <md-icon
+    class="flex-item">
+    account_box
+  </md-icon>
+  <span class="flex-item"
+        fxFlex="100%">
+    {{'DIALOG.OPEN_SHEET.HEADER'| translate}}
+  </span>
+</h1>
 
 <md-dialog-content>
-  <md-tab-group (selectChange)="onTabSelectChange($event)">
-    <md-tab label="{{'DIALOG.OPEN_SHEET.FROM_FILE'| translate}}">
-      <input type="file" accept="application/json" (change)="onFileSelect($event)" placeholder="Upload file..."/>
-    </md-tab>
-    <md-tab label="{{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}">
+  <md-card>
+    <div class="dialogCardHeader">
+      {{'DIALOG.OPEN_SHEET.FROM_FILE'| translate}}
+    </div>
+    <gurpsy-file-input></gurpsy-file-input>
+  </md-card>
+  <md-card>
+    <div class="dialogCardHeader">
+      {{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}
+    </div>
+    <div>
       <button md-button *ngFor="let sheet of previouslyOpenedSheets;" (click)="onPreviousSheetSelected(sheet)">
         <div class="sheetRow flex-container"
              fxLayout="row"
@@ -19,11 +38,11 @@
           </div>
         </div>
       </button>
-    </md-tab>
-  </md-tab-group>
+    </div>
+  </md-card>
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button [disabled]="!showOk" (click)="onLoadSheet()"> {{'DIALOG.OK'| translate}}</button>
-  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
+  <button md-button color="primary" [disabled]="!showOk" (click)="onLoadSheet()"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button color="primary" md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>

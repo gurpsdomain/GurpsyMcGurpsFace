@@ -1,26 +1,31 @@
-//@import "../../../../gurpsy-material-theme";
+md-dialog-content {
+  md-card {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 
-md-dialog-content button {
-  width: 100%;
-  padding: 6px 0px 0px 0px;
+  button {
+    width: 100%;
+    padding: 6px 0px 0px 0px;
 
-  .avatar {
-    img {
+    .avatar {
+      img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .sheetRow {
       height: 40px;
     }
-  }
 
-  .sheetRow {
-    height: 40px;
-  }
+    .sheetInfo {
 
-  .sheetInfo {
+      padding-left: 8px;
 
-    padding-left: 8px;
-
-    .sheetPoints {
-      font-size: small;
-      color: grey;
+      .sheetPoints {
+        font-size: small;
+      }
     }
   }
 }

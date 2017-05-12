@@ -18,7 +18,7 @@ import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/op
 import {StorageService} from './services/storage-service/storage.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ConfigService} from './services/config-service/config.service';
-import {OutputModelService} from './services/model-read-service/output-model.service';
+import {ModelService} from './services/model-service/model.service';
 import {JsonService} from './services/json-service/json.service';
 import {ConfigStorageDelegate} from './services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
@@ -120,7 +120,7 @@ export function HttpLoaderFactory(http: Http) {
     LoggingService,
     StorageService,
     SheetStorageDelegate,
-    OutputModelService,
+    ModelService,
     JsonService,
     SheetBodyService
   ],

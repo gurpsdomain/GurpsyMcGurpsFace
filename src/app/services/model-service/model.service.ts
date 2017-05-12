@@ -6,7 +6,7 @@ import {OutputSheet, Points, Description, Identity, PlayerInformation} from '../
 import {SheetImpl} from '../../models/sheet/output-impl';
 
 @Injectable()
-export class OutputModelService {
+export class ModelService {
 
   private model: OutputSheet;
   private jsonService: JsonService;

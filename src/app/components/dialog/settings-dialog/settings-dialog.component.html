@@ -1,9 +1,20 @@
-<h1 md-dialog-title>
-  <md-icon>settings</md-icon>
-  <span> {{'DIALOG.SETTINGS.HEADER'| translate}} </span></h1>
+<h1 md-dialog-title
+    class="header flex-container"
+    fxLayout="row"
+    fxLayoutAlign="space-between stretch"
+    fxLayoutWrap="nowrap">
+  <md-icon
+    class="flex-item">
+    settings
+  </md-icon>
+  <span class="flex-item"
+        fxFlex="100%">
+    {{'DIALOG.SETTINGS.HEADER'| translate}}
+  </span>
+</h1>
 <md-dialog-content>
   <md-card>
-    <div class="settingsCardHeader">
+    <div class="dialogCardHeader">
       {{'DIALOG.SETTINGS.APPLICATION_SETTINGS'| translate}}
     </div>
     <div class="flex-container"
@@ -24,7 +35,7 @@
   </md-card>
 
   <md-card>
-    <div class="settingsCardHeader">
+    <div class="dialogCardHeader">
       {{'DIALOG.SETTINGS.LIBRARY_SETTINGS.HEADER'| translate}}
     </div>
     <div class="settingsCardBody">
@@ -34,7 +45,7 @@
   </md-card>
 
   <md-card>
-    <div class="settingsCardHeader warning">
+    <div class="dialogCardHeader warning">
       {{'DIALOG.SETTINGS.CLEANUP'| translate}}
     </div>
     <md-checkbox [(ngModel)]="clearSettings">
@@ -58,5 +69,5 @@
 
 <md-dialog-actions align="end">
   <button md-button color="primary" (click)="onPersistSettings()"> {{'DIALOG.OK'| translate}}</button>
-  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
+  <button md-button color="primary" md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>

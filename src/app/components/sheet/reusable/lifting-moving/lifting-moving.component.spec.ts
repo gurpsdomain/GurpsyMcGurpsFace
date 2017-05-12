@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {LiftingMovingComponent} from './lifting-moving.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {OutputModelService} from '../../../../services/model-read-service/output-model.service';
+import {ModelService} from '../../../../services/model-service/model.service';
 import {JsonService} from '../../../../services/json-service/json.service';
 import {StorageService} from '../../../../services/storage-service/storage.service';
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
@@ -18,7 +18,7 @@ describe('LiftingMovingComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        OutputModelService,
+        ModelService,
         JsonService,
         StorageService,
         ConfigStorageDelegate,

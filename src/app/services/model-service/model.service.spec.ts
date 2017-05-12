@@ -1,19 +1,19 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed} from '@angular/core/testing';
-import {OutputModelService} from './output-model.service';
+import {ModelService} from './model.service';
 import {JsonService} from '../json-service/json.service';
 
-describe('OutputModelService', () => {
+describe('ModelService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        OutputModelService,
+        ModelService,
         JsonService
       ]
     });
   });
 
-  // it('should ...', inject([OutputModelService], (service: OutputModelService) => {
+  // it('should ...', inject([ModelService], (service: ModelService) => {
   //   expect(service).toBeTruthy();
   // }));
 });

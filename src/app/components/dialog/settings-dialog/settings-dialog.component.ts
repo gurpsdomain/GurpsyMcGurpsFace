@@ -8,7 +8,10 @@ import {BooksConfigurationComponent} from '../../generic/books-configuration/boo
 @Component({
   selector: 'gurpsy-settings-dialog',
   templateUrl: './settings-dialog.component.html',
-  styleUrls: ['./settings-dialog.component.scss']
+  styleUrls: [
+    '../dialog.component.scss',
+    './settings-dialog.component.scss'
+  ]
 })
 export class SettingsDialogComponent implements OnInit {
 

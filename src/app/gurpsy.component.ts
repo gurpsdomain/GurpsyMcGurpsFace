@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry} from '@angular/material';
+import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry, OverlayContainer} from '@angular/material';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {ConfigService} from './services/config-service/config.service';
 import {LanguagesService} from './services/languages-service/languages.service';
-import {OutputModelService} from './services/model-read-service/output-model.service';
+import {ModelService} from './services/model-service/model.service';
 import {OutputSheet} from './models/sheet/output';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
@@ -11,7 +11,6 @@ import {LoggingService} from './services/logging-service/logging.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
-import {OverlayContainer} from '@angular/material';
 
 @Component({
   selector: 'gurpsy-root',
@@ -21,6 +20,7 @@ import {OverlayContainer} from '@angular/material';
 export class GurpsyComponent implements OnInit {
 
   private static DIALOG_WIDTH = '400px';
+  private static DIALOG_HEIGHT = '400px';
   private static SNACKBAR_DURATION_TIME = 4000;
 
   private static ICON_D6_NAME = 'd6';
@@ -33,7 +33,7 @@ export class GurpsyComponent implements OnInit {
   private languageService: LanguagesService;
   private loggingService: LoggingService;
   private configService: ConfigService;
-  private modelReadService: OutputModelService;
+  private modelReadService: ModelService;
   private snackBar: MdSnackBar;
   private translate: TranslateService;
   private overlayContainer: OverlayContainer;
@@ -49,7 +49,7 @@ export class GurpsyComponent implements OnInit {
   public showLibrary: boolean;
 
   constructor(theme: ConfigService, languageService: LanguagesService, loggingService: LoggingService,
-              dialog: MdDialog, modelReadService: OutputModelService, snackBar: MdSnackBar,
+              dialog: MdDialog, modelReadService: ModelService, snackBar: MdSnackBar,
               translate: TranslateService, iconRegistry: MdIconRegistry, sanitizer: DomSanitizer, overlayContainer: OverlayContainer) {
     this.languageService = languageService;
     this.loggingService = loggingService;

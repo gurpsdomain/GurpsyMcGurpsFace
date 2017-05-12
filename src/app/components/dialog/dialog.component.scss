@@ -1,0 +1,18 @@
+h1 {
+  md-icon {
+    padding-right: 6px;
+  }
+}
+
+md-card {
+  .dialogCardHeader {
+    font-size: small;
+    margin-bottom: 8px;
+    text-align: right;
+
+    button {
+      width: inherit;
+      height: inherit;
+    }
+  }
+}

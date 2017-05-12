@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {OutputModelService} from '../../../../services/model-read-service/output-model.service';
+import {ModelService} from '../../../../services/model-service/model.service';
 import {OutputSheet} from '../../../../models/sheet/output';
 
 @Component({
@@ -12,9 +12,9 @@ import {OutputSheet} from '../../../../models/sheet/output';
 export class PointsComponent implements OnInit {
   public sheet: OutputSheet;
 
-  private modelReadService: OutputModelService;
+  private modelReadService: ModelService;
 
-  constructor(modelReadService: OutputModelService) {
+  constructor(modelReadService: ModelService) {
     this.modelReadService = modelReadService;
   }
 
