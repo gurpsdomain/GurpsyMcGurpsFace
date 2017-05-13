@@ -10,7 +10,6 @@ import {
   MdSelectModule,
   MdSidenavModule,
   MdSnackBarModule,
-  MdTabsModule,
   MdToolbarModule
 } from '@angular/material';
 
@@ -26,7 +25,6 @@ import {
     MdSelectModule,
     MdSidenavModule,
     MdSnackBarModule,
-    MdTabsModule,
     MdToolbarModule
   ],
   exports: [
@@ -40,12 +38,8 @@ import {
     MdSelectModule,
     MdSidenavModule,
     MdSnackBarModule,
-    MdTabsModule,
     MdToolbarModule
   ],
 })
 export class GurpsyMaterialModule {
-  // constructor(overlayContainer: OverlayContainer) {
-  //   overlayContainer.themeClass = 'night';
-  // }
 }
