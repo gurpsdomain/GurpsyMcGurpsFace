@@ -173,7 +173,7 @@ $gurpsy-night-theme-foreground: (
   disabled-button: rgba(white, 0.3),
   disabled-text: rgba(white, 0.3),
   hint-text: rgba(white, 0.3),
-  secondary-text: rgba(white, 0.7),
+  secondary-text: rgba(white, 0.4),
   icon: white,
   icons: white,
   text: white
@@ -186,11 +186,11 @@ $gurpsy-night-theme-background: (
   hover: rgba(white, 0.04),
   card: map_get($gurpsy-dark-blue, 500),
   dialog: map_get($gurpsy-dark-blue, 700),
-  disabled-button: rgba(white, 0.12),
-  raised-button: map-get($gurpsy-dark-blue, 900),
-  focused-button: rgba(black, 0.12),
-  selected-button: map_get($mat-grey, 900),
-  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button: map_get($gurpsy-dark-blue, 300),
+  raised-button: map-get($gurpsy-dark-blue, 800),
+  focused-button: rgba(white, 0.12),
+  selected-button: map_get($gurpsy-dark-blue, 50),
+  selected-disabled-button: map_get($gurpsy-dark-blue, 300),
   disabled-button-toggle: map_get($mat-grey, 1000)
 );
 

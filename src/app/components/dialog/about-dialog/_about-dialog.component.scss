@@ -3,15 +3,14 @@
 @mixin gurpsy-about-dialog-theme($theme) {
   $accent: map-get($theme, accent);
   $primary: map-get($theme, primary);
-  //$foregroundMap: map-get($theme, foreground);
-  //$text: map-get($foregroundMap, text);
+  $foregroundMap: map-get($theme, foreground);
 
   .gurpsy-face svg {
-    color: mat-color($accent);
+    color: mat-color($primary);
   }
 
   .title,.about {
-    color: mat-color($accent);
+    color: mat-color($foregroundMap, text);
   }
 
   .version {

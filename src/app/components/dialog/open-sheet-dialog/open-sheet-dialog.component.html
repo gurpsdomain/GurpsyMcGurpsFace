@@ -20,7 +20,7 @@
     </div>
     <gurpsy-file-input></gurpsy-file-input>
   </md-card>
-  <md-card>
+  <md-card *ngIf="previouslyOpenedSheets && previouslyOpenedSheets.length > 0">
     <div class="dialogCardHeader">
       {{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}
     </div>
