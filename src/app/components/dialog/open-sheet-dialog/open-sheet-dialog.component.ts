@@ -17,7 +17,6 @@ export class OpenSheetDialogComponent {
   public showOk = false;
   public previouslyOpenedSheets: OutputSheet[] = [];
 
-  private selectedFile: Array<File> = [];
   private selectedPreviousSheet: OutputSheet = null;
 
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
@@ -36,16 +35,13 @@ export class OpenSheetDialogComponent {
 
   public onLoadSheet(): void {
 
-    this.handleFileSelected();
     this.handlePreviousSheetSelected();
 
     this.dialogRef.close();
   }
 
-  public onFileSelect(fileInput: any) {
-    this.selectedFile = <Array<File>> fileInput.target.files;
-
-    this.setShowOk();
+  public onFileSelect(fileInput: Array<File>) {
+    console.log('Selected the following file: ', fileInput);
   }
 
   public onPreviousSheetSelected(sheet: OutputSheet) {
@@ -54,18 +50,12 @@ export class OpenSheetDialogComponent {
     this.setShowOk();
   }
 
-  private handleFileSelected() {
-    const sheet: File = this.selectedFile[0];
-    this.modelReadService.loadSheetFromFile(sheet);
-  }
-
   private handlePreviousSheetSelected() {
     this.modelReadService.loadSheet(this.selectedPreviousSheet);
   }
 
   private setShowOk(): void {
-    this.showOk = this.selectedFile.length > 0 ||
-      this.selectedPreviousSheet !== null;
+    this.showOk = true;
   }
 
   private initPreviouslyOpenedSheetList(): void {
@@ -76,9 +66,4 @@ export class OpenSheetDialogComponent {
   private setPreviouslyOpenedSheets(sheets: OutputSheet[]): void {
     this.previouslyOpenedSheets = sheets;
   }
-}
-
-export enum SelectedTab {
-  File = 0,
-  Previous = 1
 }

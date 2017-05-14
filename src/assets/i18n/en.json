@@ -38,8 +38,8 @@
       "RETHROW": "Throw again"
     },
     "OPEN_SHEET": {
-      "FROM_FILE": "From file",
       "PREVIOUSLY": "Previously opened",
+      "SELECT_FROM_FILE": "Select a sheet",
       "HEADER": "Open Character Sheet"
     }
   },

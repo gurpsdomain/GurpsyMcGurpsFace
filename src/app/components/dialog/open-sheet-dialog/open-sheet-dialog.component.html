@@ -15,10 +15,20 @@
 
 <md-dialog-content>
   <md-card>
-    <div class="dialogCardHeader">
-      {{'DIALOG.OPEN_SHEET.FROM_FILE'| translate}}
+    <div class="flex-container"
+         fxLayout="row"
+         fxLayoutAlign="start stretch">
+      <md-input-container
+        class="flex-item"
+        fxFlex="100%"
+        (click)="fileInput.selectFile()">
+        <input mdInput readonly placeholder="{{'DIALOG.OPEN_SHEET.SELECT_FROM_FILE'| translate}}">
+      </md-input-container>
+      <gurpsy-file-input #fileInput class="flex-item"
+                         (onFileSelect)="onFileSelect($event)"
+                         [accept]="'application/json'">
+      </gurpsy-file-input>
     </div>
-    <gurpsy-file-input></gurpsy-file-input>
   </md-card>
   <md-card *ngIf="previouslyOpenedSheets && previouslyOpenedSheets.length > 0">
     <div class="dialogCardHeader">
