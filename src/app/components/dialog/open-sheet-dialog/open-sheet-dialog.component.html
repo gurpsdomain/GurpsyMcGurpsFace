@@ -22,7 +22,10 @@
         class="flex-item"
         fxFlex="100%"
         (click)="fileInput.selectFile()">
-        <input mdInput readonly placeholder="{{'DIALOG.OPEN_SHEET.SELECT_FROM_FILE'| translate}}">
+        <input mdInput
+               readonly
+               [(ngModel)]="selectedSheetName"
+               placeholder="{{'DIALOG.OPEN_SHEET.SELECT_FROM_FILE'| translate}}">
       </md-input-container>
       <gurpsy-file-input #fileInput class="flex-item"
                          (onFileSelect)="onFileSelect($event)"
@@ -53,6 +56,6 @@
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button color="primary" [disabled]="!showOk" (click)="onLoadSheet()"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button color="primary" [disabled]="!showOk" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
   <button md-button color="primary" md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>

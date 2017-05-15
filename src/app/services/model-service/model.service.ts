@@ -4,42 +4,60 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../storage-service/storage.service';
 import {OutputSheet, Points, Description, Identity, PlayerInformation} from '../../models/sheet/output';
 import {SheetImpl} from '../../models/sheet/output-impl';
+import {Http} from '@angular/http';
+import {InputSheet} from '../../models/sheet/input';
 
 @Injectable()
 export class ModelService {
 
+  private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
+
   private model: OutputSheet;
   private jsonService: JsonService;
+  private http: Http;
   private storageService: StorageService;
   private modelChangeSource = new Subject<OutputSheet>();
 
   public modelChange$ = this.modelChangeSource.asObservable();
 
-  constructor(jsonService: JsonService, storageService: StorageService) {
+  constructor(jsonService: JsonService, storageService: StorageService, http: Http) {
     this.jsonService = jsonService;
     this.storageService = storageService;
+    this.http = http;
 
     this.initSheet();
   }
 
   /**
-   * Set the current sheet to the one loaded through this file. A json file
-   * is expected and it should abide to the interface as defined in ../../model/sheet.
+   * Load a sheet from file. A json file
+   * is expected and it should abide to the interface as defined in ../../model/sheet/input.
    *
    * @param file
    */
-  public loadSheetFromFile(file: File): void {
-    this.jsonService.parseFile(file).then(
-      sheet => this.useSheet(sheet));
+  public loadSheetFromFile(file: File): Promise<InputSheet> {
+    return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.onload = readFile => {
+          if (readFile) {
+            const sheet: InputSheet = JSON.parse(fileReader.result);
+            resolve(sheet);
+          } else {
+            reject();
+          }
+        };
+        fileReader.readAsText(file);
+      }
+    );
   }
 
   /**
-   * Set the current sheet to the given sheet. Likely this is an already saved instance of a OutputSheet.
+   * Load a sheet. This method should be used to load a new sheet into
+   * this application. It will both load the new sheet and persist
+   * in local storage.
    *
    * @param sheet
    */
-  public loadSheet(sheet: OutputSheet): void {
-    this.useSheet(sheet);
+  public loadSheet(sheet: InputSheet): void {
   }
 
   /**
@@ -78,11 +96,6 @@ export class ModelService {
     }
   }
 
-  private useSheet(sheet: OutputSheet): void {
-    this.setSheet(sheet);
-    this.persistSheet(sheet);
-  }
-
   private setSheet(sheet: OutputSheet): void {
     this.model = sheet;
     this.modelChangeSource.next(sheet);
@@ -100,5 +113,10 @@ export class ModelService {
   private initEmptySheet(): void {
     const emptySheet: OutputSheet = new SheetImpl();
     this.setSheet(emptySheet);
+  }
+
+  private getFallbackSheet(): Promise<OutputSheet> {
+    return this.http.get(ModelService.FALLBACK_MODEL).toPromise().then(response => response.json()).catch(error => Promise.reject(error.message || error))
+
   }
 }
