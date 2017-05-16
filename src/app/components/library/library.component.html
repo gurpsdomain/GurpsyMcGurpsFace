@@ -2,5 +2,15 @@
             [page]="page"
             [zoom]="zoom"
             [original-size]="false"
-            style="display: block;">
+            style="display: block;"
+            (after-load-complete)="callBackFn($event)">
 </pdf-viewer>
+
+<div class="button-row">
+  <button md-raised-button (click)="onFirst()"><md-icon>first_page</md-icon></button>
+  <button md-raised-button (click)="onDecrement()"><md-icon>chevron_left</md-icon></button>
+  <button md-raised-button (click)="onZoomIn()"><md-icon>zoom_in</md-icon></button>
+  <button md-raised-button (click)="onZoomOut()"><md-icon>zoom_out</md-icon></button>
+  <button md-raised-button (click)="onIncrement()"><md-icon>chevron_right</md-icon></button>
+  <button md-raised-button (click)="onLast()"><md-icon>last_page</md-icon></button>
+</div>
