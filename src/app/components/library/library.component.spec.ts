@@ -1,6 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {LibraryComponent} from './library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
+import {MaterialModule} from '@angular/material';
+import {GurpsyMaterialModule} from '../../gurpsy-material.module';
 
 describe('LibraryComponent', () => {
   let component: LibraryComponent;
@@ -10,7 +12,10 @@ describe('LibraryComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         LibraryComponent,
-        PdfViewerComponent]
+        PdfViewerComponent],
+      imports: [
+        GurpsyMaterialModule
+      ]
     })
       .compileComponents();
   }));
