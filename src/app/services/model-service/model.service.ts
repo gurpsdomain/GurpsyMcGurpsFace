@@ -7,16 +7,18 @@ import {SheetImpl} from '../../models/sheet/output-impl';
 import {Http} from '@angular/http';
 import {InputSheet} from '../../models/sheet/input';
 import {SheetValidator} from '../../models/sheet/validators/sheet-validator';
+import {ConfigService} from '../config-service/config.service';
 
 @Injectable()
 export class ModelService {
 
-  private static SHEET_MODEL_TRANSFORMER_ENDPOINT = '';
+  private static SHEET_MODEL_TRANSFORMER_ENDPOINT = 'convert';
   private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
 
   private model: OutputSheet;
   private sheetValidator: SheetValidator;
 
+  private configService: ConfigService;
   private jsonService: JsonService;
   private http: Http;
   private storageService: StorageService;
@@ -24,7 +26,8 @@ export class ModelService {
 
   public modelChange$ = this.modelChangeSource.asObservable();
 
-  constructor(jsonService: JsonService, storageService: StorageService, http: Http) {
+  constructor(jsonService: JsonService, configService: ConfigService, storageService: StorageService, http: Http) {
+    this.configService = configService;
     this.jsonService = jsonService;
     this.storageService = storageService;
     this.http = http;
@@ -65,6 +68,8 @@ export class ModelService {
    */
   public loadSheet(sheet: InputSheet): void {
     console.log('Loading sheet: ', sheet);
+
+    this.configService.getServerUrl().then(url => this.sendConvertRequest(sheet, url));
   }
 
   /**
@@ -99,10 +104,28 @@ export class ModelService {
     this.setSheet(emptySheet);
   }
 
+  private sendConvertRequest(sheet: InputSheet, serverUrl: string) {
+    const endpoint = this.constructEndpointUrl(serverUrl);
+  }
+
+  private constructEndpointUrl(serverUrl: string): string {
+    const separatorRequired = serverUrl.charAt(serverUrl.length - 1) !== '/';
+
+    let endPoint = serverUrl;
+
+    if (separatorRequired) {
+      endPoint = endPoint.concat('/')
+    }
+
+    endPoint = endPoint.concat(ModelService.SHEET_MODEL_TRANSFORMER_ENDPOINT);
+
+    console.log("Constructed endpoint: ", endPoint);
+    return endPoint;
+  }
+
   private getFallbackSheet(): Promise<OutputSheet> {
     return this.http.get(ModelService.FALLBACK_MODEL).toPromise()
       .then(response => response.json())
       .catch(error => Promise.reject(error.message || error))
-
   }
 }
