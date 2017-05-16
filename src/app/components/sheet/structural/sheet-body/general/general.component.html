@@ -19,9 +19,28 @@
        fxLayout="column"
        fxLayoutAlign="space-between stretch"
        fxLayoutWrap="nowrap">
-    <gurpsy-encumbrance class="flex-item"></gurpsy-encumbrance>
-    <gurpsy-lifting-moving class="flex-item"></gurpsy-lifting-moving>
+    <gurpsy-encumbrance class="flex-item"
+      fxHide="false"
+      fxHide.xs>
+    </gurpsy-encumbrance>
+    <gurpsy-lifting-moving class="flex-item"
+       fxHide="false"
+       fxHide.xs>
+    </gurpsy-lifting-moving>
   </div>
   <gurpsy-hit-location class="flex-item"></gurpsy-hit-location>
   <gurpsy-fatigue-hit class="flex-item"></gurpsy-fatigue-hit>
+</div>
+<div class="flex-container"
+     fxLayout="row"
+     fxLayoutAlign="space-between stretch"
+     fxLayoutWrap="nowrap">
+  <gurpsy-encumbrance class="flex-item"
+                      fxHide="true"
+                      fxHide.xs="false">
+  </gurpsy-encumbrance>
+  <gurpsy-lifting-moving class="flex-item"
+                         fxHide="true"
+                         fxHide.xs="false">
+  </gurpsy-lifting-moving>
 </div>
