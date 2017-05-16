@@ -8,6 +8,8 @@ import {ConfigStorageDelegate} from '../../../../services/storage-service/delega
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {TranslateModule} from '@ngx-translate/core';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
+import {ConnectionBackend, Http, BaseRequestOptions, HttpModule} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('DisadvantagesComponent', () => {
   let component: DisadvantagesComponent;
@@ -20,13 +22,24 @@ describe('DisadvantagesComponent', () => {
         PageReferenceComponent
       ],
       imports: [
+        HttpModule,
         TranslateModule.forRoot()
       ],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
+        ConfigStorageDelegate,
+        ConnectionBackend,
+        Http,
         ModelService,
         JsonService,
         StorageService,
-        ConfigStorageDelegate,
         SheetStorageDelegate
       ]
     })

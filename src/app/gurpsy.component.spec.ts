@@ -43,6 +43,8 @@ import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {GurpsyMaterialModule} from './gurpsy-material.module';
+import {Http, ConnectionBackend, RequestOptions, HttpModule, BaseRequestOptions} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -78,15 +80,24 @@ describe('GurpsyComponent', () => {
       ],
       imports: [
         FormsModule,
+        HttpModule,
         GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
         ConfigService,
+        ConfigStorageDelegate,
         LanguagesService,
         LoggingService,
         StorageService,
-        ConfigStorageDelegate,
         SheetStorageDelegate,
         ModelService,
         JsonService,

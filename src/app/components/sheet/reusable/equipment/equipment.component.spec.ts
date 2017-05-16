@@ -8,6 +8,8 @@ import {StorageService} from '../../../../services/storage-service/storage.servi
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
+import {Http, BaseRequestOptions} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('EquipmentComponent', () => {
   let component: EquipmentComponent;
@@ -23,6 +25,14 @@ describe('EquipmentComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
         ModelService,
         JsonService,
         StorageService,

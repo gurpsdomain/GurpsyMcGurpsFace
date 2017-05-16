@@ -26,6 +26,8 @@ import {FatigueHitComponent} from '../../reusable/fatigue-hit/fatigue-hit.compon
 import {EncumbranceComponent} from '../../reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
+import {MockBackend} from '@angular/http/testing';
+import {BaseRequestOptions, Http} from '@angular/http';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -57,6 +59,14 @@ describe('SheetBodyComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
         ConfigService,
         ConfigStorageDelegate,
         JsonService,

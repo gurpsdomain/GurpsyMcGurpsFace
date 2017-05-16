@@ -7,6 +7,8 @@ import {ConfigStorageDelegate} from '../../../../services/storage-service/delega
 import {JsonService} from '../../../../services/json-service/json.service';
 import {ModelService} from '../../../../services/model-service/model.service';
 import {TranslateModule} from '@ngx-translate/core';
+import {ConnectionBackend, Http, HttpModule, BaseRequestOptions} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('AttributesComponent', () => {
   let component: AttributesComponent;
@@ -16,13 +18,24 @@ describe('AttributesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AttributesComponent],
       providers: [
-        ModelService,
-        JsonService,
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
         ConfigStorageDelegate,
+        ConnectionBackend,
+        Http,
+        JsonService,
+        ModelService,
         SheetStorageDelegate,
         StorageService
       ],
       imports: [
+        HttpModule,
         TranslateModule.forRoot()
       ]
     })

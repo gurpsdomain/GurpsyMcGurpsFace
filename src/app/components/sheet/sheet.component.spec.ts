@@ -32,6 +32,8 @@ import {FatigueHitComponent} from './reusable/fatigue-hit/fatigue-hit.component'
 import {LiftingMovingComponent} from './reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from './reusable/encumbrance/encumbrance.component';
 import {PageReferenceComponent} from '../generic/page-reference/page-reference.component';
+import {Http, BaseRequestOptions, HttpModule} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -66,9 +68,18 @@ describe('SheetComponent', function () {
         HitLocationComponent
       ],
       imports: [
+        HttpModule,
         TranslateModule.forRoot()
       ],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
         ConfigService,
         ModelService,
         JsonService,

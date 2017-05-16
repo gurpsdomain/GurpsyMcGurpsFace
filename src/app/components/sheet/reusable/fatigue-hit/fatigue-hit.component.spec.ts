@@ -6,6 +6,8 @@ import {ConfigStorageDelegate} from '../../../../services/storage-service/delega
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {StorageService} from '../../../../services/storage-service/storage.service';
 import {TranslateModule} from '@ngx-translate/core';
+import {MockBackend} from '@angular/http/testing';
+import {BaseRequestOptions, Http} from '@angular/http';
 
 describe('FatigueHitComponent', () => {
   let component: FatigueHitComponent;
@@ -15,6 +17,14 @@ describe('FatigueHitComponent', () => {
     TestBed.configureTestingModule({
       declarations: [FatigueHitComponent],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
         ModelService,
         JsonService,
         ConfigStorageDelegate,

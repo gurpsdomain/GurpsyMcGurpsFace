@@ -9,6 +9,8 @@ import {JsonService} from '../../../../services/json-service/json.service';
 import {StorageService} from '../../../../services/storage-service/storage.service';
 import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {ConnectionBackend, Http, HttpModule, BaseRequestOptions} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('DescriptionComponent', function () {
   let de: DebugElement;
@@ -21,12 +23,23 @@ describe('DescriptionComponent', function () {
         DescriptionComponent
       ],
       imports: [
+        HttpModule,
         TranslateModule.forRoot()
       ],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
+        ConfigStorageDelegate,
+        ConnectionBackend,
+        Http,
         ModelService,
         JsonService,
-        ConfigStorageDelegate,
         SheetStorageDelegate,
         StorageService
       ]

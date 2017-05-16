@@ -16,6 +16,8 @@ import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.
 import {FatigueHitComponent} from '../../../reusable/fatigue-hit/fatigue-hit.component';
 import {LiftingMovingComponent} from '../../../reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from '../../../reusable/encumbrance/encumbrance.component';
+import {MockBackend} from '@angular/http/testing';
+import {BaseRequestOptions, Http} from '@angular/http';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -38,6 +40,14 @@ describe('GeneralComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
+        {
+          provide: Http, useFactory: (backend, options) => {
+          return new Http(backend, options);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        MockBackend,
+        BaseRequestOptions,
         ModelService,
         JsonService,
         StorageService,
@@ -58,3 +68,4 @@ describe('GeneralComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

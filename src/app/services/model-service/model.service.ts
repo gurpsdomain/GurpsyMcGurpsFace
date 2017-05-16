@@ -10,6 +10,7 @@ import {InputSheet} from '../../models/sheet/input';
 @Injectable()
 export class ModelService {
 
+  private static SHEET_MODEL_TRANSFORMER_ENDPOINT = '';
   private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
 
   private model: OutputSheet;
@@ -55,13 +56,15 @@ export class ModelService {
    * this application. It will both load the new sheet and persist
    * in local storage.
    *
-   * @param sheet
+   * @param {InputSheet} sheet
    */
   public loadSheet(sheet: InputSheet): void {
+
+
   }
 
   /**
-   * Return the current sheet.
+   * Return the current outputSheet.
    *
    * @returns {OutputSheet}
    */
@@ -101,10 +104,6 @@ export class ModelService {
     this.modelChangeSource.next(sheet);
   }
 
-  private persistSheet(sheet: OutputSheet): void {
-    this.storageService.storeSheet(sheet);
-  }
-
   private initSheet(): void {
     this.initEmptySheet();
     this.storageService.getCurrentSheet().then(sheet => this.handleStoredSheet(sheet)).catch(any => this.initEmptySheet());
@@ -116,7 +115,9 @@ export class ModelService {
   }
 
   private getFallbackSheet(): Promise<OutputSheet> {
-    return this.http.get(ModelService.FALLBACK_MODEL).toPromise().then(response => response.json()).catch(error => Promise.reject(error.message || error))
+    return this.http.get(ModelService.FALLBACK_MODEL).toPromise()
+      .then(response => response.json())
+      .catch(error => Promise.reject(error.message || error))
 
   }
 }
