@@ -2,10 +2,11 @@ import {Injectable} from '@angular/core';
 import {JsonService} from '../json-service/json.service';
 import {Subject} from 'rxjs';
 import {StorageService} from '../storage-service/storage.service';
-import {OutputSheet, Points, Description, Identity, PlayerInformation} from '../../models/sheet/output';
+import {OutputSheet} from '../../models/sheet/output';
 import {SheetImpl} from '../../models/sheet/output-impl';
 import {Http} from '@angular/http';
 import {InputSheet} from '../../models/sheet/input';
+import {SheetValidator} from '../../models/sheet/validators/sheet-validator';
 
 @Injectable()
 export class ModelService {
@@ -14,6 +15,8 @@ export class ModelService {
   private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
 
   private model: OutputSheet;
+  private sheetValidator: SheetValidator;
+
   private jsonService: JsonService;
   private http: Http;
   private storageService: StorageService;
@@ -26,12 +29,14 @@ export class ModelService {
     this.storageService = storageService;
     this.http = http;
 
+    this.sheetValidator = new SheetValidator();
+
     this.initSheet();
   }
 
   /**
-   * Load a sheet from file. A json file
-   * is expected and it should abide to the interface as defined in ../../model/sheet/input.
+   * Load a sheet from file. A json file is expected and it should abide to the interface
+   * as defined in ../../model/sheet/input.
    *
    * @param file
    */
@@ -43,7 +48,7 @@ export class ModelService {
             const sheet: InputSheet = JSON.parse(fileReader.result);
             resolve(sheet);
           } else {
-            reject();
+            reject('Could not read file');
           }
         };
         fileReader.readAsText(file);
@@ -59,8 +64,7 @@ export class ModelService {
    * @param {InputSheet} sheet
    */
   public loadSheet(sheet: InputSheet): void {
-
-
+    console.log('Loading sheet: ', sheet);
   }
 
   /**
@@ -72,27 +76,8 @@ export class ModelService {
     return this.model;
   }
 
-  private isValidReadModel(sheet: OutputSheet): boolean {
-    let validReadModel = true;
-
-    try {
-      const description: Description = sheet.metaData.description;
-      const identity: Identity = sheet.metaData.identity;
-      const playerInformation: PlayerInformation = sheet.metaData.playerInformation;
-      const points: Points = sheet.points;
-
-      if (!description || !identity || !playerInformation || !points) {
-        validReadModel = false;
-      }
-
-    } catch (ex) {
-      validReadModel = false;
-    }
-    return validReadModel;
-  }
-
   private handleStoredSheet(sheet: OutputSheet): void {
-    if (this.isValidReadModel(sheet)) {
+    if (this.sheetValidator.isValidOutputSheet(sheet)) {
       this.setSheet(sheet);
     } else {
       this.initEmptySheet();

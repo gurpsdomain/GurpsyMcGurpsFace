@@ -23,11 +23,13 @@
         fxFlex="100%"
         (click)="fileInput.selectFile()">
         <input mdInput
+               tabindex="-1"
                readonly
-               [(ngModel)]="selectedSheetName"
+               [(ngModel)]="selectedFileName"
                placeholder="{{'DIALOG.OPEN_SHEET.SELECT_FROM_FILE'| translate}}">
       </md-input-container>
-      <gurpsy-file-input #fileInput class="flex-item"
+      <gurpsy-file-input #fileInput
+                         class="flex-item"
                          (onFileSelect)="onFileSelect($event)"
                          [accept]="'application/json'">
       </gurpsy-file-input>

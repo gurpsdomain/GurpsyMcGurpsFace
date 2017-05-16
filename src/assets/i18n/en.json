@@ -38,9 +38,10 @@
       "RETHROW": "Throw again"
     },
     "OPEN_SHEET": {
+      "HEADER": "Open Character Sheet",
+      "INVALID_SHEET": "Invalid sheet",
       "PREVIOUSLY": "Previously opened",
-      "SELECT_FROM_FILE": "Select a sheet",
-      "HEADER": "Open Character Sheet"
+      "SELECT_FROM_FILE": "Select a sheet"
     }
   },
   "MENU": {

@@ -4,6 +4,8 @@ import {ModelService} from '../../../services/model-service/model.service';
 import {StorageService} from '../../../services/storage-service/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
 import {InputSheet} from '../../../models/sheet/input';
+import {LoggingService} from '../../../services/logging-service/logging.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'gurpsy-open-sheet-dialog',
@@ -16,40 +18,45 @@ import {InputSheet} from '../../../models/sheet/input';
 export class OpenSheetDialogComponent {
 
   public showOk = false;
-  public selectedSheetName = '';
+  public selectedFileName = '';
   public selectedSheet: InputSheet;
   public previouslyOpenedSheets: OutputSheet[] = [];
 
   private selectedPreviousSheet: OutputSheet = null;
 
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
+  private logginService: LoggingService;
   private modelService: ModelService;
   private storageService: StorageService;
+  private translateService: TranslateService;
 
   constructor(dialogRef: MdDialogRef<OpenSheetDialogComponent>,
+              loggingService: LoggingService,
               modelService: ModelService,
-              storageService: StorageService) {
+              storageService: StorageService,
+              translateService: TranslateService) {
     this.dialogRef = dialogRef;
+    this.logginService = loggingService;
     this.modelService = modelService;
     this.storageService = storageService;
+    this.translateService = translateService;
 
     this.initPreviouslyOpenedSheetList();
   }
 
   public onOk(): void {
+    this.modelService.loadSheet(this.selectedSheet);
     this.dialogRef.close();
   }
 
   public onFileSelect(fileInput: Array<File>) {
-    this.modelService.loadSheetFromFile(fileInput[0]).then(sheet => this.setSelectedSheet(sheet));
+    const file = fileInput[0];
+    this.modelService.loadSheetFromFile(file)
+      .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 
   public onPreviousSheetSelected(sheet: OutputSheet) {
     this.selectedPreviousSheet = sheet;
-  }
-
-  private setShowOk(ok: boolean): void {
-    this.showOk = ok;
   }
 
   private initPreviouslyOpenedSheetList(): void {
@@ -61,9 +68,9 @@ export class OpenSheetDialogComponent {
     this.previouslyOpenedSheets = sheets;
   }
 
-  private setSelectedSheet(sheet: InputSheet): void {
+  private setSelectedSheet(sheet: InputSheet, fileName: string): void {
     this.selectedSheet = sheet;
-    this.selectedSheetName = sheet.name;
-    this.setShowOk(this.selectedSheetName !== '');
+    this.selectedFileName = fileName;
+    this.showOk = true;
   }
 }

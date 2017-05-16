@@ -1,5 +1,5 @@
 <span>
-    <input [accept]="accept" type="file" (change)="onNativeInputFileSelect($event)" #inputFile hidden />
+    <input [accept]="accept" type="file" (change)="onNativeInputFileSelect($event)" #inputFile hidden/>
     <button type="button" color="primary" md-raised-button (click)="selectFile()">
         <md-icon>file_upload</md-icon>
         <ng-content *ngIf="!fileCount" select=".nofiles"></ng-content>
