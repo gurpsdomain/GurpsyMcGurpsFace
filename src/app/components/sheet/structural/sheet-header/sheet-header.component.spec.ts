@@ -16,6 +16,7 @@ import {ConfigStorageDelegate} from '../../../../services/storage-service/delega
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {ConfigService} from '../../../../services/config-service/config.service';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
@@ -45,6 +46,7 @@ describe('SheetHeaderComponent', function () {
         },
         MockBackend,
         BaseRequestOptions,
+        ConfigService,
         ModelService,
         JsonService,
         StorageService,

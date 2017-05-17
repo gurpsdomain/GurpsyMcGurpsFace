@@ -9,6 +9,7 @@ import {ModelService} from '../../../../services/model-service/model.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {ConnectionBackend, Http, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {ConfigService} from '../../../../services/config-service/config.service';
 
 describe('AttributesComponent', () => {
   let component: AttributesComponent;
@@ -26,6 +27,7 @@ describe('AttributesComponent', () => {
         },
         MockBackend,
         BaseRequestOptions,
+        ConfigService,
         ConfigStorageDelegate,
         ConnectionBackend,
         Http,

@@ -18,6 +18,7 @@ import {LiftingMovingComponent} from '../../../reusable/lifting-moving/lifting-m
 import {EncumbranceComponent} from '../../../reusable/encumbrance/encumbrance.component';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
+import {ConfigService} from '../../../../../services/config-service/config.service';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -49,6 +50,7 @@ describe('GeneralComponent', () => {
         MockBackend,
         BaseRequestOptions,
         ModelService,
+        ConfigService,
         JsonService,
         StorageService,
         ConfigStorageDelegate,

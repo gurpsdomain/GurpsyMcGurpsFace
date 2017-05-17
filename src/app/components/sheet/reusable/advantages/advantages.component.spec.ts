@@ -10,6 +10,7 @@ import {SheetStorageDelegate} from '../../../../services/storage-service/delegat
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {Http, BaseRequestOptions, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {ConfigService} from '../../../../services/config-service/config.service';
 
 describe('AdvantagesComponent', () => {
   let component: AdvantagesComponent;
@@ -26,6 +27,7 @@ describe('AdvantagesComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
+        ConfigService,
         ConfigStorageDelegate,
         {
           provide: Http, useFactory: (backend, options) => {

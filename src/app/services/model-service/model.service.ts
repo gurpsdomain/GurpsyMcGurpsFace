@@ -4,10 +4,11 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../storage-service/storage.service';
 import {OutputSheet} from '../../models/sheet/output';
 import {SheetImpl} from '../../models/sheet/output-impl';
-import {Http} from '@angular/http';
+import {Http, RequestOptions, Headers} from '@angular/http';
 import {InputSheet} from '../../models/sheet/input';
 import {SheetValidator} from '../../models/sheet/validators/sheet-validator';
 import {ConfigService} from '../config-service/config.service';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ModelService {
@@ -69,7 +70,7 @@ export class ModelService {
   public loadSheet(sheet: InputSheet): void {
     console.log('Loading sheet: ', sheet);
 
-    this.configService.getServerUrl().then(url => this.sendConvertRequest(sheet, url));
+    this.configService.getServerUrl().then(url => this.sendConvertRequest(sheet, url).then(outputsheet => this.setSheet(outputsheet)));
   }
 
   /**
@@ -104,8 +105,31 @@ export class ModelService {
     this.setSheet(emptySheet);
   }
 
-  private sendConvertRequest(sheet: InputSheet, serverUrl: string) {
+  private sendConvertRequest(sheet: InputSheet, serverUrl: string): Promise<OutputSheet> {
     const endpoint = this.constructEndpointUrl(serverUrl);
+
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions();
+    options.headers = headers;
+
+    return this.http.post(endpoint, sheet, options).toPromise().then(response => this.extractData(response)).catch(this.handleRequestError)
+  }
+
+  private extractData(res: any): Promise<OutputSheet> {
+    return Promise.resolve(res.json());
+  }
+
+  private handleRequestError(error: any): Promise<OutputSheet> {
+    console.log('Error on request, going for fallback', error);
+    return Promise.reject(error.message || error);
+    // return this.getFallbackSheet();
+  }
+
+
+  private getFallbackSheet(): Promise<OutputSheet> {
+    return this.http.get(ModelService.FALLBACK_MODEL).toPromise()
+      .then(response => response.json())
+      .catch(error => Promise.reject(error.message || error))
   }
 
   private constructEndpointUrl(serverUrl: string): string {
@@ -119,13 +143,6 @@ export class ModelService {
 
     endPoint = endPoint.concat(ModelService.SHEET_MODEL_TRANSFORMER_ENDPOINT);
 
-    console.log("Constructed endpoint: ", endPoint);
     return endPoint;
-  }
-
-  private getFallbackSheet(): Promise<OutputSheet> {
-    return this.http.get(ModelService.FALLBACK_MODEL).toPromise()
-      .then(response => response.json())
-      .catch(error => Promise.reject(error.message || error))
   }
 }

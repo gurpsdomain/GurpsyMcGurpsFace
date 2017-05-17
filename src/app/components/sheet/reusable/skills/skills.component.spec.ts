@@ -10,6 +10,7 @@ import {SheetStorageDelegate} from '../../../../services/storage-service/delegat
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
+import {ConfigService} from '../../../../services/config-service/config.service';
 
 describe('SkillsComponent', () => {
   let component: SkillsComponent;
@@ -33,6 +34,7 @@ describe('SkillsComponent', () => {
         },
         MockBackend,
         BaseRequestOptions,
+        ConfigService,
         ModelService,
         JsonService,
         StorageService,

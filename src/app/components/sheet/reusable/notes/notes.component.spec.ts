@@ -9,6 +9,7 @@ import {ConfigStorageDelegate} from '../../../../services/storage-service/delega
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
+import {ConfigService} from '../../../../services/config-service/config.service';
 
 describe('NotesComponent', () => {
   let component: NotesComponent;
@@ -31,6 +32,7 @@ describe('NotesComponent', () => {
         },
         MockBackend,
         BaseRequestOptions,
+        ConfigService,
         ModelService,
         JsonService,
         StorageService,
