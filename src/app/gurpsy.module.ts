@@ -15,20 +15,20 @@ import {PointsComponent} from './components/sheet/reusable/points/points.compone
 import {IdentityComponent} from './components/sheet/reusable/identity/identity.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
-import {StorageService} from './services/back-end/storage-service/storage.service';
-import {LanguagesService} from './services/front-end/languages-service/languages.service';
-import {SettingsService} from './services/front-end/settings-service/settings.service';
-import {ModelService} from './services/front-end/model-service/model.service';
-import {JsonService} from './services/back-end/json-service/json.service';
-import {ConfigStorageDelegate} from './services/back-end/storage-service/delegates/config-storage-delegate/config-storage-delegate';
-import {SheetStorageDelegate} from './services/back-end/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {StorageService} from './services/back-end/storage/storage.service';
+import {LanguagesService} from './services/front-end/languages/languages.service';
+import {SettingsService} from './services/front-end/settings/settings.service';
+import {ModelService} from './services/front-end/model/model.service';
+import {JsonService} from './services/back-end/json/json.service';
+import {ConfigStorageDelegate} from './services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
 import {SkillsComponent} from './components/sheet/reusable/skills/skills.component';
 import {SpellsComponent} from './components/sheet/reusable/spells/spells.component';
 import {EquipmentComponent} from './components/sheet/reusable/equipment/equipment.component';
 import {AdvantagesComponent} from './components/sheet/reusable/advantages/advantages.component';
-import {SheetBodyService} from './services/front-end/sheet-body-service/sheet-body.service';
+import {SheetBodyService} from './services/front-end/sheet-body/sheet-body.service';
 // tslint:disable-next-line max-line-length
 import {GeneralComponent} from './components/sheet/structural/sheet-body/general/general.component';
 import {AttributesComponent} from './components/sheet/reusable/attributes/attributes.component';
@@ -42,18 +42,19 @@ import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encu
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
-import {LoggingService} from './services/back-end/logging-service/logging.service';
+import {LoggingService} from './services/back-end/logging/logging.service';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
 import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {BookConfigurationComponent} from './components/generic/book-configuration/book-configuration.component';
 import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';
-import {LibraryService} from './services/front-end/library-service/library.service';
+import {LibraryService} from './services/front-end/library/library.service';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './gurpsy-material.module';
+import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -121,6 +122,7 @@ export function HttpLoaderFactory(http: Http) {
     StorageService,
     SheetStorageDelegate,
     ModelService,
+    ModelTransformerService,
     JsonService,
     SheetBodyService
   ],

@@ -1,15 +1,15 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {EncumbranceComponent} from './encumbrance.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {ModelService} from '../../../../services/front-end/model-service/model.service';
-import {JsonService} from '../../../../services/back-end/json-service/json.service';
-import {StorageService} from '../../../../services/back-end/storage-service/storage.service';
+import {ModelService} from '../../../../services/front-end/model/model.service';
+import {JsonService} from '../../../../services/back-end/json/json.service';
+import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
-import {ConfigStorageDelegate} from '../../../../services/back-end/storage-service/delegates/config-storage-delegate/config-storage-delegate';
-import {SheetStorageDelegate} from '../../../../services/back-end/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {ConfigStorageDelegate} from '../../../../services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Http, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
-import {SettingsService} from '../../../../services/front-end/settings-service/settings.service';
+import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 
 describe('EncumbranceComponent', () => {
   let component: EncumbranceComponent;

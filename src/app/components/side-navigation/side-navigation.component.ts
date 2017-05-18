@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter} from '@angular/core';
-import {SheetBodyService, SheetBodyContent} from '../../services/front-end/sheet-body-service/sheet-body.service';
+import {SheetBodyService, SheetBodyContent} from '../../services/front-end/sheet-body/sheet-body.service';
 
 @Component({
   selector: 'gurpsy-side-navigation',

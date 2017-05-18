@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {ConfigImpl, Config} from '../../../../../models/config/config';
-import {JsonService} from '../../../json-service/json.service';
-import {SheetBodyContent} from '../../../../front-end/sheet-body-service/sheet-body.service';
+import {JsonService} from '../../../json/json.service';
+import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
 import {BookConfiguration} from '../../../../../models/book-configuration/book-configuration';
 
 @Injectable()

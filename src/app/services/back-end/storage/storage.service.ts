@@ -4,7 +4,7 @@ import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-sto
 import {OutputSheet} from '../../../models/sheet/output';
 import {Observable} from 'rxjs';
 import {Config} from '../../../models/config/config';
-import {SheetBodyContent} from '../../front-end/sheet-body-service/sheet-body.service';
+import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 
 @Injectable()

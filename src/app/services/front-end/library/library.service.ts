@@ -6,7 +6,7 @@ import {
   BookConfigurationImpl,
   Book
 } from '../../../models/book-configuration/book-configuration-implementation';
-import {SettingsService} from '../settings-service/settings.service';
+import {SettingsService} from '../settings/settings.service';
 
 @Injectable()
 export class LibraryService {

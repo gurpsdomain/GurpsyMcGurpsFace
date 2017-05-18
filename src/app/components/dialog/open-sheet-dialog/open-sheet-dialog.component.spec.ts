@@ -1,8 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {OpenSheetDialogComponent} from './open-sheet-dialog.component';
-import {ModelService} from '../../../services/front-end/model-service/model.service';
-import {JsonService} from '../../../services/back-end/json-service/json.service';
+import {ModelService} from '../../../services/front-end/model/model.service';
+import {JsonService} from '../../../services/back-end/json/json.service';
 import {FileInputComponent} from '../../generic/file-input/file-input.component';
 
 describe('OpenSheetDialogComponent', () => {

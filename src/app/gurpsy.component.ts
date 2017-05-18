@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry, OverlayContainer} from '@angular/material';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
-import {SettingsService} from './services/front-end/settings-service/settings.service';
-import {LanguagesService} from './services/front-end/languages-service/languages.service';
-import {ModelService} from './services/front-end/model-service/model.service';
+import {SettingsService} from './services/front-end/settings/settings.service';
+import {LanguagesService} from './services/front-end/languages/languages.service';
+import {ModelService} from './services/front-end/model/model.service';
 import {OutputSheet} from './models/sheet/output';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
-import {LoggingService} from './services/back-end/logging-service/logging.service';
+import {LoggingService} from './services/back-end/logging/logging.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';

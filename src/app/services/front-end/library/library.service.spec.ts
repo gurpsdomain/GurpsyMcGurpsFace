@@ -1,10 +1,10 @@
 import {TestBed, inject} from '@angular/core/testing';
 import {LibraryService} from './library.service';
-import {SettingsService} from '../settings-service/settings.service';
-import {ConfigStorageDelegate} from '../../back-end/storage-service/delegates/config-storage-delegate/config-storage-delegate';
-import {JsonService} from '../../back-end/json-service/json.service';
-import {StorageService} from '../../back-end/storage-service/storage.service';
-import {SheetStorageDelegate} from '../../back-end/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {SettingsService} from '../settings/settings.service';
+import {ConfigStorageDelegate} from '../../back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {JsonService} from '../../back-end/json/json.service';
+import {StorageService} from '../../back-end/storage/storage.service';
+import {SheetStorageDelegate} from '../../back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 
 describe('LibraryService', () => {
   beforeEach(() => {

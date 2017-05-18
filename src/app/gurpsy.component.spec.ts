@@ -13,20 +13,20 @@ import {PlayerInformationComponent} from './components/sheet/reusable/player-inf
 import {DescriptionComponent} from './components/sheet/reusable/description/description.component';
 import {PointsComponent} from './components/sheet/reusable/points/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
-import {StorageService} from './services/back-end/storage-service/storage.service';
-import {SettingsService} from './services/front-end/settings-service/settings.service';
-import {LanguagesService} from './services/front-end/languages-service/languages.service';
-import {ModelService} from './services/front-end/model-service/model.service';
-import {JsonService} from './services/back-end/json-service/json.service';
-import {ConfigStorageDelegate} from './services/back-end/storage-service/delegates/config-storage-delegate/config-storage-delegate';
-import {SheetStorageDelegate} from './services/back-end/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {StorageService} from './services/back-end/storage/storage.service';
+import {SettingsService} from './services/front-end/settings/settings.service';
+import {LanguagesService} from './services/front-end/languages/languages.service';
+import {ModelService} from './services/front-end/model/model.service';
+import {JsonService} from './services/back-end/json/json.service';
+import {ConfigStorageDelegate} from './services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
 import {AdvantagesComponent} from './components/sheet/reusable/advantages/advantages.component';
 import {EquipmentComponent} from './components/sheet/reusable/equipment/equipment.component';
 import {SpellsComponent} from './components/sheet/reusable/spells/spells.component';
 import {SkillsComponent} from './components/sheet/reusable/skills/skills.component';
-import {SheetBodyService} from './services/front-end/sheet-body-service/sheet-body.service';
+import {SheetBodyService} from './services/front-end/sheet-body/sheet-body.service';
 // tslint:disable-next-line max-line-length
 import {GeneralComponent} from './components/sheet/structural/sheet-body/general/general.component';
 import {AttributesComponent} from './components/sheet/reusable/attributes/attributes.component';
@@ -35,7 +35,7 @@ import {HitLocationComponent} from './components/sheet/reusable/hit-location/hit
 import {AdvantagesDisadvantagesComponent} from './components/sheet/structural/sheet-body/advantages-disadvantages/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/disadvantages.component';
 import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
-import {LoggingService} from './services/back-end/logging-service/logging.service';
+import {LoggingService} from './services/back-end/logging/logging.service';
 import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';

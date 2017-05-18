@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdDialogRef, MdCheckboxChange} from '@angular/material';
-import {StorageService} from '../../../services/back-end/storage-service/storage.service';
+import {StorageService} from '../../../services/back-end/storage/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
-import {SettingsService} from '../../../services/front-end/settings-service/settings.service';
+import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
 
 @Component({

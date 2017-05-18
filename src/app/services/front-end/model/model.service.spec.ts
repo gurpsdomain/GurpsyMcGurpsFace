@@ -2,15 +2,17 @@
 import {TestBed} from '@angular/core/testing';
 import {ModelService} from './model.service';
 import {Http} from '@angular/http';
-import {JsonService} from '../../back-end/json-service/json.service';
+import {ModelTransformerService} from '../../back-end/model-transformer/model-transformer.service';
+import {LoggingService} from '../../back-end/logging/logging.service';
 
 describe('ModelService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         Http,
+        LoggingService,
         ModelService,
-        JsonService
+        ModelTransformerService
       ]
     });
   });

@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {OutputSheets, OutputSheet} from '../../../../../models/sheet/output';
 import {OutputSheetsImpl} from '../../../../../models/sheet/output-impl';
-import {JsonService} from '../../../json-service/json.service';
+import {JsonService} from '../../../json/json.service';
 
 @Injectable()
 export class SheetStorageDelegate {

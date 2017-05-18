@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
-import {ModelService} from '../../../services/front-end/model-service/model.service';
-import {StorageService} from '../../../services/back-end/storage-service/storage.service';
+import {ModelService} from '../../../services/front-end/model/model.service';
+import {StorageService} from '../../../services/back-end/storage/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
 import {InputSheet} from '../../../models/sheet/input';
-import {LoggingService} from '../../../services/back-end/logging-service/logging.service';
+import {LoggingService} from '../../../services/back-end/logging/logging.service';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({

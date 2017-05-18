@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {SettingsService} from '../../front-end/settings-service/settings.service';
+import {SettingsService} from '../../front-end/settings/settings.service';
 
 @Injectable()
 export class SheetBodyService {
