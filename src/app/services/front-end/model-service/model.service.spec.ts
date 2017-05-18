@@ -1,8 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed} from '@angular/core/testing';
 import {ModelService} from './model.service';
-import {JsonService} from '../json-service/json.service';
 import {Http} from '@angular/http';
+import {JsonService} from '../../back-end/json-service/json.service';
 
 describe('ModelService', () => {
   beforeEach(() => {

@@ -4,12 +4,12 @@ import {MaterialModule} from '@angular/material';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
-import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
-import {SettingsService} from '../../services/settings-service/settings.service';
-import {StorageService} from '../../services/storage-service/storage.service';
-import {ConfigStorageDelegate} from '../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
-import {JsonService} from '../../services/json-service/json.service';
-import {SheetStorageDelegate} from '../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {SheetBodyService} from '../../services/front-end/sheet-body-service/sheet-body.service';
+import {SettingsService} from '../../services/front-end/settings-service/settings.service';
+import {StorageService} from '../../services/back-end/storage-service/storage.service';
+import {ConfigStorageDelegate} from '../../services/back-end/storage-service/delegates/config-storage-delegate/config-storage-delegate';
+import {JsonService} from '../../services/back-end/json-service/json.service';
+import {SheetStorageDelegate} from '../../services/back-end/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;

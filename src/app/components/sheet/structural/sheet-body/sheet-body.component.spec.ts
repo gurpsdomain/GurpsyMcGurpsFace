@@ -8,12 +8,13 @@ import {EquipmentComponent} from '../../reusable/equipment/equipment.component';
 import {SpellsComponent} from '../../reusable/spells/spells.component';
 import {SkillsComponent} from '../../reusable/skills/skills.component';
 import {GeneralComponent} from './general/general.component';
-import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {ModelService} from '../../../../services/model-service/model.service';
-import {JsonService} from '../../../../services/json-service/json.service';
-import {StorageService} from '../../../../services/storage-service/storage.service';
-import {ConfigStorageDelegate} from '../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
-import {SheetBodyService} from '../../../../services/sheet-body-service/sheet-body.service';
+import {SheetStorageDelegate} from '../../../../services/back-end/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {ModelService} from '../../../../services/front-end/model-service/model.service';
+import {JsonService} from '../../../../services/back-end/json-service/json.service';
+import {StorageService} from '../../../../services/back-end/storage-service/storage.service';
+// tslint:disable-next-line max-line-length
+import {ConfigStorageDelegate} from '../../../../services/back-end/storage-service/delegates/config-storage-delegate/config-storage-delegate';
+import {SheetBodyService} from '../../../../services/front-end/sheet-body-service/sheet-body.service';
 import {PointsComponent} from '../../reusable/points/points.component';
 import {PortraitComponent} from '../../reusable/portrait/portrait.component';
 import {DescriptionComponent} from '../../reusable/description/description.component';
@@ -21,7 +22,7 @@ import {AttributesComponent} from '../../reusable/attributes/attributes.componen
 import {HitLocationComponent} from '../../reusable/hit-location/hit-location.component';
 import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages/advantages-disadvantages.component';
 import {DisadvantagesComponent} from '../../reusable/disadvantages/disadvantages.component';
-import {SettingsService} from '../../../../services/settings-service/settings.service';
+import {SettingsService} from '../../../../services/front-end/settings-service/settings.service';
 import {FatigueHitComponent} from '../../reusable/fatigue-hit/fatigue-hit.component';
 import {EncumbranceComponent} from '../../reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-moving.component';

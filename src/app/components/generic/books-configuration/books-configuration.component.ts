@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
-import {LibraryService} from '../../../services/library-service/library.service';
+import {LibraryService} from '../../../services/front-end/library-service/library.service';
 import {BookConfigurationImpl, Book} from '../../../models/book-configuration/book-configuration-implementation';
 import {isArray} from 'util';
 

@@ -5,12 +5,12 @@ import {TranslateModule} from '@ngx-translate/core';
 import {PortraitComponent} from '../../../reusable/portrait/portrait.component';
 import {PointsComponent} from '../../../reusable/points/points.component';
 import {DescriptionComponent} from '../../../reusable/description/description.component';
-import {ModelService} from '../../../../../services/model-service/model.service';
-import {JsonService} from '../../../../../services/json-service/json.service';
-import {StorageService} from '../../../../../services/storage-service/storage.service';
+import {ModelService} from '../../../../../services/front-end/model-service/model.service';
+import {JsonService} from '../../../../../services/back-end/json-service/json.service';
+import {StorageService} from '../../../../../services/back-end/storage-service/storage.service';
 // tslint:disable-next-line max-line-length
-import {ConfigStorageDelegate} from '../../../../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
-import {SheetStorageDelegate} from '../../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {ConfigStorageDelegate} from '../../../../../services/back-end/storage-service/delegates/config-storage-delegate/config-storage-delegate';
+import {SheetStorageDelegate} from '../../../../../services/back-end/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {AttributesComponent} from '../../../reusable/attributes/attributes.component';
 import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.component';
 import {FatigueHitComponent} from '../../../reusable/fatigue-hit/fatigue-hit.component';
@@ -18,7 +18,7 @@ import {LiftingMovingComponent} from '../../../reusable/lifting-moving/lifting-m
 import {EncumbranceComponent} from '../../../reusable/encumbrance/encumbrance.component';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
-import {SettingsService} from '../../../../../services/settings-service/settings.service';
+import {SettingsService} from '../../../../../services/front-end/settings-service/settings.service';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;

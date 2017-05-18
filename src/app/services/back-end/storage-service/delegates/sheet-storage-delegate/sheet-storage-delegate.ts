@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {OutputSheets, OutputSheet} from '../../../../models/sheet/output';
-import {OutputSheetsImpl} from '../../../../models/sheet/output-impl';
+import {OutputSheets, OutputSheet} from '../../../../../models/sheet/output';
+import {OutputSheetsImpl} from '../../../../../models/sheet/output-impl';
 import {JsonService} from '../../../json-service/json.service';
 
 @Injectable()

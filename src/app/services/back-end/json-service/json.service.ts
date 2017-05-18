@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {OutputSheet, OutputSheets} from '../../models/sheet/output';
-import {Config} from '../../models/config/config';
+import {OutputSheet, OutputSheets} from '../../../models/sheet/output';
+import {Config} from '../../../models/config/config';
 
 @Injectable()
 export class JsonService {

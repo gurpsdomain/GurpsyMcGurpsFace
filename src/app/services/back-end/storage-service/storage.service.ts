@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {OutputSheet} from '../../models/sheet/output';
+import {OutputSheet} from '../../../models/sheet/output';
 import {Observable} from 'rxjs';
-import {Config} from '../../models/config/config';
-import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
-import {BookConfiguration} from '../../models/book-configuration/book-configuration';
+import {Config} from '../../../models/config/config';
+import {SheetBodyContent} from '../../front-end/sheet-body-service/sheet-body.service';
+import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 
 @Injectable()
 export class StorageService {

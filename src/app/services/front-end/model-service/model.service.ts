@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {JsonService} from '../json-service/json.service';
+import {JsonService} from '../../back-end/json-service/json.service';
 import {Subject} from 'rxjs';
-import {StorageService} from '../storage-service/storage.service';
-import {OutputSheet} from '../../models/sheet/output';
-import {SheetImpl} from '../../models/sheet/output-impl';
+import {StorageService} from '../../back-end/storage-service/storage.service';
+import {OutputSheet} from '../../../models/sheet/output';
+import {SheetImpl} from '../../../models/sheet/output-impl';
 import {Http, RequestOptions, Headers} from '@angular/http';
-import {InputSheet} from '../../models/sheet/input';
-import {SheetValidator} from '../../models/sheet/validators/sheet-validator';
+import {InputSheet} from '../../../models/sheet/input';
+import {SheetValidator} from '../../../models/sheet/validators/sheet-validator';
 import {SettingsService} from '../settings-service/settings.service';
 import 'rxjs/add/operator/toPromise';
 

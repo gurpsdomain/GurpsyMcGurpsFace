@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {StorageService} from '../storage-service/storage.service';
+import {StorageService} from '../../back-end/storage-service/storage.service';
 import {Observable, Subject} from 'rxjs';
-import {Config, ConfigImpl} from '../../models/config/config';
+import {Config, ConfigImpl} from '../../../models/config/config';
 import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
-import {BookConfiguration} from '../../models/book-configuration/book-configuration';
+import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 
 @Injectable()
 export class SettingsService {

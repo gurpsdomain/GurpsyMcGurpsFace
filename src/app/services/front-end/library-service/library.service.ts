@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
-import {BookConfiguration} from '../../models/book-configuration/book-configuration';
+import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {
   Reference,
   BookConfigurationImpl,
   Book
-} from '../../models/book-configuration/book-configuration-implementation';
+} from '../../../models/book-configuration/book-configuration-implementation';
 import {SettingsService} from '../settings-service/settings.service';
 
 @Injectable()
