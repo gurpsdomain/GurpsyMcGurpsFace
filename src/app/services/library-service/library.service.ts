@@ -6,16 +6,16 @@ import {
   BookConfigurationImpl,
   Book
 } from '../../models/book-configuration/book-configuration-implementation';
-import {ConfigService} from '../config-service/config.service';
+import {SettingsService} from '../settings-service/settings.service';
 
 @Injectable()
 export class LibraryService {
 
   private referenceRequest = new Subject<Reference>();
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
-  private configService: ConfigService;
+  private configService: SettingsService;
 
-  constructor(configService: ConfigService) {
+  constructor(configService: SettingsService) {
     this.configService = configService;
   }
 

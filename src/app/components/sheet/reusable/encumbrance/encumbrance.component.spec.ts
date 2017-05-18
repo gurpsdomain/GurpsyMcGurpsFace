@@ -8,7 +8,7 @@ import {ConfigStorageDelegate} from '../../../../services/storage-service/delega
 import {SheetStorageDelegate} from '../../../../services/storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Http, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
-import {ConfigService} from '../../../../services/config-service/config.service';
+import {SettingsService} from '../../../../services/settings-service/settings.service';
 
 describe('EncumbranceComponent', () => {
   let component: EncumbranceComponent;
@@ -28,7 +28,7 @@ describe('EncumbranceComponent', () => {
         },
           deps: [MockBackend, BaseRequestOptions]
         },
-        ConfigService,
+        SettingsService,
         MockBackend,
         BaseRequestOptions,
         ModelService,

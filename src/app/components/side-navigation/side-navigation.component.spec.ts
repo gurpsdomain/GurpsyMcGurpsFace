@@ -5,7 +5,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
 import {SheetBodyService} from '../../services/sheet-body-service/sheet-body.service';
-import {ConfigService} from '../../services/config-service/config.service';
+import {SettingsService} from '../../services/settings-service/settings.service';
 import {StorageService} from '../../services/storage-service/storage.service';
 import {ConfigStorageDelegate} from '../../services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
 import {JsonService} from '../../services/json-service/json.service';
@@ -25,7 +25,7 @@ describe('SideNavigationComponent', () => {
         TranslateModule.forRoot(),
         MaterialModule],
       providers: [
-        ConfigService,
+        SettingsService,
         ConfigStorageDelegate,
         JsonService,
         SheetBodyService,

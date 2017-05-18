@@ -10,7 +10,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {ConnectionBackend, Http, BaseRequestOptions, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
-import {ConfigService} from '../../../../services/config-service/config.service';
+import {SettingsService} from '../../../../services/settings-service/settings.service';
 
 describe('DisadvantagesComponent', () => {
   let component: DisadvantagesComponent;
@@ -35,7 +35,7 @@ describe('DisadvantagesComponent', () => {
         },
         MockBackend,
         BaseRequestOptions,
-        ConfigService,
+        SettingsService,
         ConfigStorageDelegate,
         ConnectionBackend,
         Http,

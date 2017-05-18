@@ -10,7 +10,7 @@ import {SheetStorageDelegate} from '../../../../services/storage-service/delegat
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
-import {ConfigService} from '../../../../services/config-service/config.service';
+import {SettingsService} from '../../../../services/settings-service/settings.service';
 
 describe('SpellsComponent', () => {
   let component: SpellsComponent;
@@ -34,7 +34,7 @@ describe('SpellsComponent', () => {
         },
         MockBackend,
         BaseRequestOptions,
-        ConfigService,
+        SettingsService,
         ModelService,
         JsonService,
         StorageService,

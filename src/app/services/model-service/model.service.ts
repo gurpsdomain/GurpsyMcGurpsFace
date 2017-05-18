@@ -7,7 +7,7 @@ import {SheetImpl} from '../../models/sheet/output-impl';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import {InputSheet} from '../../models/sheet/input';
 import {SheetValidator} from '../../models/sheet/validators/sheet-validator';
-import {ConfigService} from '../config-service/config.service';
+import {SettingsService} from '../settings-service/settings.service';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -19,7 +19,7 @@ export class ModelService {
   private model: OutputSheet;
   private sheetValidator: SheetValidator;
 
-  private configService: ConfigService;
+  private configService: SettingsService;
   private jsonService: JsonService;
   private http: Http;
   private storageService: StorageService;
@@ -27,7 +27,7 @@ export class ModelService {
 
   public modelChange$ = this.modelChangeSource.asObservable();
 
-  constructor(jsonService: JsonService, configService: ConfigService, storageService: StorageService, http: Http) {
+  constructor(jsonService: JsonService, configService: SettingsService, storageService: StorageService, http: Http) {
     this.configService = configService;
     this.jsonService = jsonService;
     this.storageService = storageService;

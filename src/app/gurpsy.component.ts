@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry, OverlayContainer} from '@angular/material';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
-import {ConfigService} from './services/config-service/config.service';
+import {SettingsService} from './services/settings-service/settings.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelService} from './services/model-service/model.service';
 import {OutputSheet} from './models/sheet/output';
@@ -32,8 +32,8 @@ export class GurpsyComponent implements OnInit {
 
   private languageService: LanguagesService;
   private loggingService: LoggingService;
-  private configService: ConfigService;
-  private modelReadService: ModelService;
+  private settingsService: SettingsService;
+  private modelService: ModelService;
   private snackBar: MdSnackBar;
   private translate: TranslateService;
   private overlayContainer: OverlayContainer;
@@ -48,14 +48,14 @@ export class GurpsyComponent implements OnInit {
   public night: string;
   public showLibrary: boolean;
 
-  constructor(theme: ConfigService, languageService: LanguagesService, loggingService: LoggingService,
-              dialog: MdDialog, modelReadService: ModelService, snackBar: MdSnackBar,
+  constructor(settingsService: SettingsService, languageService: LanguagesService, loggingService: LoggingService,
+              dialog: MdDialog, modelService: ModelService, snackBar: MdSnackBar,
               translate: TranslateService, iconRegistry: MdIconRegistry, sanitizer: DomSanitizer, overlayContainer: OverlayContainer) {
     this.languageService = languageService;
     this.loggingService = loggingService;
-    this.configService = theme;
+    this.settingsService = settingsService;
     this.dialog = dialog;
-    this.modelReadService = modelReadService;
+    this.modelService = modelService;
     this.snackBar = snackBar;
     this.translate = translate;
     this.overlayContainer = overlayContainer;
@@ -122,22 +122,22 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initTheme(): void {
-    this.configService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ConfigService.THEME_DEFAULT));
-    this.configService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
+    this.settingsService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
+    this.settingsService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
 
-    this.configService.getNightTheme().then(night => this.night = night);
+    this.settingsService.getNightTheme().then(night => this.night = night);
   }
 
   private initSheetChangeListener(): void {
-    this.modelReadService.modelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
+    this.modelService.modelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
   private setTheme(theme: string) {
-    if (theme === ConfigService.THEME_NIGHT || theme === ConfigService.THEME_DAY) {
+    if (theme === SettingsService.THEME_NIGHT || theme === SettingsService.THEME_DAY) {
       this.theme = theme;
       this.overlayContainer.themeClass = theme;
     } else {
-      this.theme = ConfigService.THEME_DEFAULT;
+      this.theme = SettingsService.THEME_DEFAULT;
       this.overlayContainer.themeClass = theme;
       this.loggingService.warn('Invalid theme stored in Local Storage: ' + theme);
     }

@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdDialogRef, MdCheckboxChange} from '@angular/material';
 import {StorageService} from '../../../services/storage-service/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
-import {ConfigService} from '../../../services/config-service/config.service';
+import {SettingsService} from '../../../services/settings-service/settings.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
 
 @Component({
@@ -21,36 +21,36 @@ export class SettingsDialogComponent implements OnInit {
   public serverUrl: string;
 
   private dialogRef: MdDialogRef<SettingsDialogComponent>;
-  private configService: ConfigService;
+  private settingsService: SettingsService;
   private storageService: StorageService;
   private sheetsToDelete: OutputSheet[] = [];
 
   @ViewChild(BooksConfigurationComponent)
   private bookConfigurationChild: BooksConfigurationComponent;
 
-  constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, configService: ConfigService, storage: StorageService) {
+  constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, configService: SettingsService, storage: StorageService) {
     this.dialogRef = dialogRef;
-    this.configService = configService;
+    this.settingsService = configService;
     this.storageService = storage;
 
     this.initPreviouslyOpenedSheetList();
   }
 
   public ngOnInit(): void {
-    this.configService.getServerUrl().then(serverUrl => this.serverUrl = serverUrl);
-    this.configService.getConfigObserver().subscribe(config => this.serverUrl = config.serverUrl);
+    this.settingsService.getServerUrl().then(serverUrl => this.serverUrl = serverUrl);
+    this.settingsService.getConfigObserver().subscribe(config => this.serverUrl = config.serverUrl);
 
     this.initTheme();
   }
 
   public onServerUrlChange(serverUrl: string): void {
-    this.configService.setServerUrl(serverUrl);
+    this.settingsService.setServerUrl(serverUrl);
   }
 
   public onThemeChange(): void {
-    const theme = this.nightTheme ? ConfigService.THEME_NIGHT : ConfigService.THEME_DAY;
+    const theme = this.nightTheme ? SettingsService.THEME_NIGHT : SettingsService.THEME_DAY;
     this.setTheme(theme);
-    this.configService.setTheme(theme);
+    this.settingsService.setTheme(theme);
   }
 
   public onSheetSelected(sheet: OutputSheet, event: MdCheckboxChange): void {
@@ -68,8 +68,6 @@ export class SettingsDialogComponent implements OnInit {
   public onPersistSettings(): void {
     this.bookConfigurationChild.storeBookConfigurations();
     this.dialogRef.close();
-
-    console.log('Persist all settings');
   }
 
   private initPreviouslyOpenedSheetList(): void {
@@ -108,15 +106,13 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   private initTheme(): void {
-    this.configService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(ConfigService.THEME_DEFAULT));
-    this.configService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
+    this.settingsService.getTheme()
+      .then(theme => this.setTheme(theme))
+      .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
+    this.settingsService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
   }
 
   private setTheme(theme: string) {
-    if (theme === ConfigService.THEME_NIGHT) {
-      this.nightTheme = true;
-    } else {
-      this.nightTheme = false;
-    }
+    this.nightTheme = theme === SettingsService.THEME_NIGHT;
   }
 }

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {ConfigService} from '../config-service/config.service';
+import {SettingsService} from '../settings-service/settings.service';
 
 @Injectable()
 export class SheetBodyService {
@@ -9,9 +9,9 @@ export class SheetBodyService {
   public sheetBodyChange$ = this.sheetBodyContentSource.asObservable();
 
   private bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
-  private configService: ConfigService;
+  private configService: SettingsService;
 
-  constructor(configService: ConfigService) {
+  constructor(configService: SettingsService) {
     this.configService = configService;
     this.initSheetBodyContent();
   }

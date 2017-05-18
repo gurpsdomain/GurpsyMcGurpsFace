@@ -6,11 +6,11 @@ import {SheetBodyContent} from '../sheet-body-service/sheet-body.service';
 import {BookConfiguration} from '../../models/book-configuration/book-configuration';
 
 @Injectable()
-export class ConfigService {
+export class SettingsService {
 
   public static THEME_DAY = 'day';
   public static THEME_NIGHT = 'night';
-  public static THEME_DEFAULT = ConfigService.THEME_DAY;
+  public static THEME_DEFAULT = SettingsService.THEME_DAY;
 
   private storageService: StorageService;
   private configChangeSource = new Subject<Config>();
@@ -100,7 +100,7 @@ export class ConfigService {
    * @return Promise<string>  A promise that resolves to the night theme
    */
   public getNightTheme(): Promise<string> {
-    return Promise.resolve(ConfigService.THEME_NIGHT);
+    return Promise.resolve(SettingsService.THEME_NIGHT);
   }
 
   /**

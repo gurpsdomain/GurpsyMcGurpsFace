@@ -10,7 +10,7 @@ import {SheetStorageDelegate} from '../../../../services/storage-service/delegat
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {Http, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
-import {ConfigService} from '../../../../services/config-service/config.service';
+import {SettingsService} from '../../../../services/settings-service/settings.service';
 
 describe('EquipmentComponent', () => {
   let component: EquipmentComponent;
@@ -34,7 +34,7 @@ describe('EquipmentComponent', () => {
         },
         MockBackend,
         BaseRequestOptions,
-        ConfigService,
+        SettingsService,
         ModelService,
         JsonService,
         StorageService,

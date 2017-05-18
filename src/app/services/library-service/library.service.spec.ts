@@ -1,6 +1,6 @@
 import {TestBed, inject} from '@angular/core/testing';
 import {LibraryService} from './library.service';
-import {ConfigService} from '../config-service/config.service';
+import {SettingsService} from '../settings-service/settings.service';
 import {StorageService} from '../storage-service/storage.service';
 import {SheetStorageDelegate} from '../storage-service/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {ConfigStorageDelegate} from '../storage-service/delegates/config-storage-delegate/config-storage-delegate';
@@ -11,7 +11,7 @@ describe('LibraryService', () => {
     TestBed.configureTestingModule({
       providers: [
         ConfigStorageDelegate,
-        ConfigService,
+        SettingsService,
         JsonService,
         LibraryService,
         StorageService,

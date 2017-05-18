@@ -17,7 +17,7 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {StorageService} from './services/storage-service/storage.service';
 import {LanguagesService} from './services/languages-service/languages.service';
-import {ConfigService} from './services/config-service/config.service';
+import {SettingsService} from './services/settings-service/settings.service';
 import {ModelService} from './services/model-service/model.service';
 import {JsonService} from './services/json-service/json.service';
 import {ConfigStorageDelegate} from './services/storage-service/delegates/config-storage-delegate/config-storage-delegate';
@@ -113,7 +113,7 @@ export function HttpLoaderFactory(http: Http) {
     })
   ],
   providers: [
-    ConfigService,
+    SettingsService,
     ConfigStorageDelegate,
     LanguagesService,
     LibraryService,

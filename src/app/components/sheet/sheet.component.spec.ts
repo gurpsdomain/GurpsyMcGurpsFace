@@ -27,7 +27,7 @@ import {HitLocationComponent} from './reusable/hit-location/hit-location.compone
 // tslint:disable-next-line max-line-length
 import {AdvantagesDisadvantagesComponent} from './structural/sheet-body/advantages-disadvantages/advantages-disadvantages.component';
 import {DisadvantagesComponent} from './reusable/disadvantages/disadvantages.component';
-import {ConfigService} from '../../services/config-service/config.service';
+import {SettingsService} from '../../services/settings-service/settings.service';
 import {FatigueHitComponent} from './reusable/fatigue-hit/fatigue-hit.component';
 import {LiftingMovingComponent} from './reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from './reusable/encumbrance/encumbrance.component';
@@ -80,7 +80,7 @@ describe('SheetComponent', function () {
         },
         MockBackend,
         BaseRequestOptions,
-        ConfigService,
+        SettingsService,
         ModelService,
         JsonService,
         StorageService,

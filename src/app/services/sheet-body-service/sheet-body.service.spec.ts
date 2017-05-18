@@ -1,13 +1,13 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed} from '@angular/core/testing';
 import {SheetBodyService} from './sheet-body.service';
-import {ConfigService} from '../config-service/config.service';
+import {SettingsService} from '../settings-service/settings.service';
 
 describe('SheetBodyService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        ConfigService,
+        SettingsService,
         SheetBodyService
       ]
     });

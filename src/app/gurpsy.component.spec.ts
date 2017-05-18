@@ -14,7 +14,7 @@ import {DescriptionComponent} from './components/sheet/reusable/description/desc
 import {PointsComponent} from './components/sheet/reusable/points/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {StorageService} from './services/storage-service/storage.service';
-import {ConfigService} from './services/config-service/config.service';
+import {SettingsService} from './services/settings-service/settings.service';
 import {LanguagesService} from './services/languages-service/languages.service';
 import {ModelService} from './services/model-service/model.service';
 import {JsonService} from './services/json-service/json.service';
@@ -93,7 +93,7 @@ describe('GurpsyComponent', () => {
         },
         MockBackend,
         BaseRequestOptions,
-        ConfigService,
+        SettingsService,
         ConfigStorageDelegate,
         LanguagesService,
         LoggingService,
