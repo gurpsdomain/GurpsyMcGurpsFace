@@ -35,6 +35,8 @@ import {EncumbranceComponent} from './reusable/encumbrance/encumbrance.component
 import {PageReferenceComponent} from '../generic/page-reference/page-reference.component';
 import {Http, BaseRequestOptions, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {LoggingService} from '../../services/back-end/logging/logging.service';
+import {ModelTransformerService} from '../../services/back-end/model-transformer/model-transformer.service';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -80,10 +82,12 @@ describe('SheetComponent', function () {
           deps: [MockBackend, BaseRequestOptions]
         },
         MockBackend,
+        ModelTransformerService,
         BaseRequestOptions,
         SettingsService,
         ModelService,
         JsonService,
+        LoggingService,
         StorageService,
         ConfigStorageDelegate,
         SheetStorageDelegate,
@@ -99,7 +103,7 @@ describe('SheetComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create a structural OutputSheet Component', () => expect(comp).toBeDefined());
+  it('should create a structural Sheet Component', () => expect(comp).toBeDefined());
 });
 
 

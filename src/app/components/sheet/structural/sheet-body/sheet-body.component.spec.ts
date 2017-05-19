@@ -29,6 +29,8 @@ import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-movi
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
+import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -71,7 +73,9 @@ describe('SheetBodyComponent', () => {
         SettingsService,
         ConfigStorageDelegate,
         JsonService,
+        LoggingService,
         ModelService,
+        ModelTransformerService,
         SheetBodyService,
         SheetStorageDelegate,
         StorageService

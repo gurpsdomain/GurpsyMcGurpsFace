@@ -11,6 +11,8 @@ import {TranslateModule} from '@ngx-translate/core';
 import {ConnectionBackend, Http, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 
 describe('AttributesComponent', () => {
   let component: AttributesComponent;
@@ -20,6 +22,7 @@ describe('AttributesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AttributesComponent],
       providers: [
+        BaseRequestOptions,
         {
           provide: Http, useFactory: (backend, options) => {
           return new Http(backend, options);
@@ -27,12 +30,13 @@ describe('AttributesComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         },
         MockBackend,
-        BaseRequestOptions,
+        ModelTransformerService,
         SettingsService,
         ConfigStorageDelegate,
         ConnectionBackend,
         Http,
         JsonService,
+        LoggingService,
         ModelService,
         SheetStorageDelegate,
         StorageService

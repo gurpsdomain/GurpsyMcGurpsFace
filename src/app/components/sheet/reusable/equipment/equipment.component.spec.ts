@@ -12,6 +12,8 @@ import {PageReferenceComponent} from '../../../generic/page-reference/page-refer
 import {Http, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
+import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 
 describe('EquipmentComponent', () => {
   let component: EquipmentComponent;
@@ -36,7 +38,9 @@ describe('EquipmentComponent', () => {
         MockBackend,
         BaseRequestOptions,
         SettingsService,
+        LoggingService,
         ModelService,
+        ModelTransformerService,
         JsonService,
         StorageService,
         ConfigStorageDelegate,

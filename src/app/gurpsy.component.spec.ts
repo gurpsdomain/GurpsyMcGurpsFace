@@ -45,6 +45,7 @@ import {FileInputComponent} from './components/generic/file-input/file-input.com
 import {GurpsyMaterialModule} from './gurpsy-material.module';
 import {Http, ConnectionBackend, RequestOptions, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -92,6 +93,7 @@ describe('GurpsyComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         },
         MockBackend,
+        ModelTransformerService,
         BaseRequestOptions,
         SettingsService,
         ConfigStorageDelegate,

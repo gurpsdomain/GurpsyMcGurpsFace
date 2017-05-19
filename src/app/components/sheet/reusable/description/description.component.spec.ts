@@ -13,6 +13,8 @@ import {SheetStorageDelegate} from '../../../../services/back-end/storage/delega
 import {ConnectionBackend, Http, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 
 describe('DescriptionComponent', function () {
   let de: DebugElement;
@@ -41,7 +43,9 @@ describe('DescriptionComponent', function () {
         ConfigStorageDelegate,
         ConnectionBackend,
         Http,
+        LoggingService,
         ModelService,
+        ModelTransformerService,
         JsonService,
         SheetStorageDelegate,
         StorageService

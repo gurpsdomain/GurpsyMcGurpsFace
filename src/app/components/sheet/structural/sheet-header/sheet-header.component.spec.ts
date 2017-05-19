@@ -18,6 +18,8 @@ import {SheetStorageDelegate} from '../../../../services/back-end/storage/delega
 import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
@@ -48,7 +50,9 @@ describe('SheetHeaderComponent', function () {
         MockBackend,
         BaseRequestOptions,
         SettingsService,
+        LoggingService,
         ModelService,
+        ModelTransformerService,
         JsonService,
         StorageService,
         ConfigStorageDelegate,
@@ -64,7 +68,7 @@ describe('SheetHeaderComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create structural OutputSheet Header Component', () => expect(comp).toBeDefined());
+  it('should create structural Header Component', () => expect(comp).toBeDefined());
 });
 
 

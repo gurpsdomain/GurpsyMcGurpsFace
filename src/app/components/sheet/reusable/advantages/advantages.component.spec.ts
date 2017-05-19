@@ -12,6 +12,8 @@ import {PageReferenceComponent} from '../../../generic/page-reference/page-refer
 import {Http, BaseRequestOptions, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 
 describe('AdvantagesComponent', () => {
   let component: AdvantagesComponent;
@@ -28,7 +30,8 @@ describe('AdvantagesComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        SettingsService,
+
+        BaseRequestOptions,
         ConfigStorageDelegate,
         {
           provide: Http, useFactory: (backend, options) => {
@@ -37,9 +40,11 @@ describe('AdvantagesComponent', () => {
           deps: [MockBackend, BaseRequestOptions]
         },
         MockBackend,
-        BaseRequestOptions,
+        ModelTransformerService,
         JsonService,
+        LoggingService,
         ModelService,
+        SettingsService,
         StorageService,
         SheetStorageDelegate
       ]

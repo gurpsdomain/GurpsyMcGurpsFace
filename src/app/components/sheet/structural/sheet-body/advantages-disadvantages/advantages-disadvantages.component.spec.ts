@@ -14,6 +14,8 @@ import {PageReferenceComponent} from '../../../../generic/page-reference/page-re
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
 import {SettingsService} from '../../../../../services/front-end/settings/settings.service';
+import {LoggingService} from '../../../../../services/back-end/logging/logging.service';
+import {ModelTransformerService} from '../../../../../services/back-end/model-transformer/model-transformer.service';
 
 describe('AdvantagesComponent', () => {
   let component: AdvantagesDisadvantagesComponent;
@@ -40,8 +42,10 @@ describe('AdvantagesComponent', () => {
         MockBackend,
         BaseRequestOptions,
         ModelService,
+        ModelTransformerService,
         SettingsService,
         JsonService,
+        LoggingService,
         StorageService,
         ConfigStorageDelegate,
         SheetStorageDelegate

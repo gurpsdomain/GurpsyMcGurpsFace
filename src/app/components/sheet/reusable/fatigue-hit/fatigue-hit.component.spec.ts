@@ -10,6 +10,8 @@ import {TranslateModule} from '@ngx-translate/core';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
+import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 
 describe('FatigueHitComponent', () => {
   let component: FatigueHitComponent;
@@ -28,7 +30,9 @@ describe('FatigueHitComponent', () => {
         MockBackend,
         BaseRequestOptions,
         SettingsService,
+        LoggingService,
         ModelService,
+        ModelTransformerService,
         JsonService,
         ConfigStorageDelegate,
         SheetStorageDelegate,
