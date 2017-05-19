@@ -18,7 +18,7 @@ import {SettingsService} from './services/front-end/settings/settings.service';
 import {LanguagesService} from './services/front-end/languages/languages.service';
 import {ModelService} from './services/front-end/model/model.service';
 import {JsonService} from './services/back-end/json/json.service';
-import {ConfigStorageDelegate} from './services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
@@ -96,7 +96,7 @@ describe('GurpsyComponent', () => {
         ModelTransformerService,
         BaseRequestOptions,
         SettingsService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         LanguagesService,
         LoggingService,
         StorageService,

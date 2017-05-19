@@ -4,7 +4,7 @@ import {AttributesComponent} from './attributes.component';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 // tslint:disable-next-line max-line-length
-import {ConfigStorageDelegate} from '../../../../services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {JsonService} from '../../../../services/back-end/json/json.service';
 import {ModelService} from '../../../../services/front-end/model/model.service';
 import {TranslateModule} from '@ngx-translate/core';
@@ -32,7 +32,7 @@ describe('AttributesComponent', () => {
         MockBackend,
         ModelTransformerService,
         SettingsService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         ConnectionBackend,
         Http,
         JsonService,

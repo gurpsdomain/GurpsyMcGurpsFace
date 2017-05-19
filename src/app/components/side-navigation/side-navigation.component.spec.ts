@@ -7,7 +7,7 @@ import {SideNavigationComponent} from './side-navigation.component';
 import {SheetBodyService} from '../../services/front-end/sheet-body/sheet-body.service';
 import {SettingsService} from '../../services/front-end/settings/settings.service';
 import {StorageService} from '../../services/back-end/storage/storage.service';
-import {ConfigStorageDelegate} from '../../services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {JsonService} from '../../services/back-end/json/json.service';
 import {SheetStorageDelegate} from '../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 
@@ -26,7 +26,7 @@ describe('SideNavigationComponent', () => {
         MaterialModule],
       providers: [
         SettingsService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         JsonService,
         SheetBodyService,
         SheetStorageDelegate,

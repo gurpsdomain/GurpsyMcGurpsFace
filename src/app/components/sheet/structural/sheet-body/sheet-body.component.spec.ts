@@ -13,7 +13,7 @@ import {ModelService} from '../../../../services/front-end/model/model.service';
 import {JsonService} from '../../../../services/back-end/json/json.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
-import {ConfigStorageDelegate} from '../../../../services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetBodyService} from '../../../../services/front-end/sheet-body/sheet-body.service';
 import {PointsComponent} from '../../reusable/points/points.component';
 import {PortraitComponent} from '../../reusable/portrait/portrait.component';
@@ -71,7 +71,7 @@ describe('SheetBodyComponent', () => {
         MockBackend,
         BaseRequestOptions,
         SettingsService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         JsonService,
         LoggingService,
         ModelService,

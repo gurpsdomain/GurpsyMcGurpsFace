@@ -9,7 +9,7 @@ import {ModelService} from '../../../../../services/front-end/model/model.servic
 import {JsonService} from '../../../../../services/back-end/json/json.service';
 import {StorageService} from '../../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
-import {ConfigStorageDelegate} from '../../../../../services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from '../../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {AttributesComponent} from '../../../reusable/attributes/attributes.component';
 import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.component';
@@ -57,7 +57,7 @@ describe('GeneralComponent', () => {
         JsonService,
         LoggingService,
         StorageService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         SheetStorageDelegate
       ]
     })

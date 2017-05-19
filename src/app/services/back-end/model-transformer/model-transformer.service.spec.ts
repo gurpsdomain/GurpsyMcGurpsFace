@@ -4,7 +4,7 @@ import {Http, BaseRequestOptions} from '@angular/http';
 import {SettingsService} from '../../front-end/settings/settings.service';
 import {MockBackend} from '@angular/http/testing';
 import {StorageService} from '../storage/storage.service';
-import {ConfigStorageDelegate} from '../storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from '../storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {JsonService} from '../json/json.service';
 
@@ -19,7 +19,7 @@ describe('ModelTransformerService', () => {
         ModelTransformerService,
         SettingsService,
         StorageService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         SheetStorageDelegate,
         {
           provide: Http, useFactory: (backend, options) => {

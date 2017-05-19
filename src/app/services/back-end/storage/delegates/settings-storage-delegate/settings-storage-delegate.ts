@@ -7,7 +7,7 @@ import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.serv
 import {BookConfiguration} from '../../../../../models/book-configuration/book-configuration';
 
 @Injectable()
-export class ConfigStorageDelegate {
+export class SettingsStorageDelegate {
 
   private static STORAGE_KEY = '.config';
 
@@ -165,7 +165,7 @@ export class ConfigStorageDelegate {
   }
 
   private getStorageKey(): string {
-    return StorageService.STORAGE_KEY + ConfigStorageDelegate.STORAGE_KEY;
+    return StorageService.STORAGE_KEY + SettingsStorageDelegate.STORAGE_KEY;
   }
 
   private handleStorageChange(event: StorageEvent): void {

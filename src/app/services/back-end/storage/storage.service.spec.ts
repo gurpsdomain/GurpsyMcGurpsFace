@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed, inject} from '@angular/core/testing';
 import {StorageService} from './storage.service';
-import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {JsonService} from '../json/json.service';
 
@@ -11,7 +11,7 @@ describe('StorageService', () => {
       providers: [
         StorageService,
         JsonService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         SheetStorageDelegate
       ]
     });

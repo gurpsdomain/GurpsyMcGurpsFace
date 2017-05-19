@@ -20,7 +20,7 @@ import {LanguagesService} from './services/front-end/languages/languages.service
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {ModelService} from './services/front-end/model/model.service';
 import {JsonService} from './services/back-end/json/json.service';
-import {ConfigStorageDelegate} from './services/back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
@@ -115,7 +115,7 @@ export function HttpLoaderFactory(http: Http) {
   ],
   providers: [
     SettingsService,
-    ConfigStorageDelegate,
+    SettingsStorageDelegate,
     LanguagesService,
     LibraryService,
     LoggingService,

@@ -2,7 +2,7 @@
 import {TestBed, inject} from '@angular/core/testing';
 import {SettingsService} from './settings.service';
 import {StorageService} from '../../back-end/storage/storage.service';
-import {ConfigStorageDelegate} from '../../back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from '../../back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../../back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {JsonService} from '../../back-end/json/json.service';
 
@@ -12,7 +12,7 @@ describe('SettingsService', () => {
       providers: [
         SettingsService,
         StorageService,
-        ConfigStorageDelegate,
+        SettingsStorageDelegate,
         SheetStorageDelegate,
         JsonService
       ]

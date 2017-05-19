@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
+import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {OutputSheet} from '../../../models/sheet/output';
 import {Observable} from 'rxjs';
@@ -14,9 +14,9 @@ export class StorageService {
   public static STORAGE_EVENT_LISTENER_KEY = 'storage';
 
   private sheetStorageDelegate: SheetStorageDelegate;
-  private configStorageDelegate: ConfigStorageDelegate;
+  private configStorageDelegate: SettingsStorageDelegate;
 
-  constructor(configStorageDelegate: ConfigStorageDelegate,
+  constructor(configStorageDelegate: SettingsStorageDelegate,
               sheetStorageDelegate: SheetStorageDelegate) {
     this.sheetStorageDelegate = sheetStorageDelegate;
     this.configStorageDelegate = configStorageDelegate;
