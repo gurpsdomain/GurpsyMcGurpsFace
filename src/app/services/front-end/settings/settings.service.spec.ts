@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {TestBed} from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 import {SettingsService} from './settings.service';
 import {StorageService} from '../../back-end/storage/storage.service';
 import {ConfigStorageDelegate} from '../../back-end/storage/delegates/config-storage-delegate/config-storage-delegate';
@@ -19,7 +19,7 @@ describe('SettingsService', () => {
     });
   });
 
-  // it('should ...', inject([SettingsService], (service: SettingsService) => {
-  //   expect(service).toBeTruthy();
-  // }));
+  it('should create a SettingsService', inject([SettingsService], (service: SettingsService) => {
+    expect(service).toBeTruthy();
+  }));
 });

@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {TestBed} from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 import {StorageService} from './storage.service';
 import {ConfigStorageDelegate} from './delegates/config-storage-delegate/config-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
@@ -17,7 +17,7 @@ describe('StorageService', () => {
     });
   });
 
-  // it('should ...', inject([StorageService], (service: StorageService) => {
-  //   expect(service).toBeTruthy();
-  // }));
+  it('should create a StorageService', inject([StorageService], (service: StorageService) => {
+    expect(service).toBeTruthy();
+  }));
 });

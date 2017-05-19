@@ -20,7 +20,7 @@ describe('LibraryService', () => {
     });
   });
 
-  it('should ...', inject([LibraryService], (service: LibraryService) => {
+  it('should create a LibraryService', inject([LibraryService], (service: LibraryService) => {
     expect(service).toBeTruthy();
   }));
 });

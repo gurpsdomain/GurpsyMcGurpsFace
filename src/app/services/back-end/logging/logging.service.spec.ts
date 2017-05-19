@@ -8,7 +8,7 @@ describe('LoggingService', () => {
     });
   });
 
-  it('should ...', inject([LoggingService], (service: LoggingService) => {
+  it('should create a LoggingService', inject([LoggingService], (service: LoggingService) => {
     expect(service).toBeTruthy();
   }));
 });

@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {TestBed} from '@angular/core/testing';
+import {TestBed, inject} from '@angular/core/testing';
 import {LanguagesService} from './languages.service';
 import {TranslateModule} from '@ngx-translate/core';
 
@@ -15,4 +15,8 @@ describe('LanguagesService', () => {
     })
       .compileComponents();
   });
+
+  it('should create a LanguagesService', inject([LanguagesService], (service: LanguagesService) => {
+    expect(service).toBeTruthy();
+  }));
 });
