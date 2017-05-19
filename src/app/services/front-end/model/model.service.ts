@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {JsonService} from '../../back-end/json/json.service';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../back-end/storage/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
@@ -7,7 +6,6 @@ import {SheetImpl} from '../../../models/sheet/output-impl';
 import {Http} from '@angular/http';
 import {InputSheet} from '../../../models/sheet/input';
 import {SheetValidator} from '../../../models/sheet/validators/sheet-validator';
-import {SettingsService} from '../settings/settings.service';
 import 'rxjs/add/operator/toPromise';
 import {ModelTransformerService} from '../../back-end/model-transformer/model-transformer.service';
 import {LoggingService} from '../../back-end/logging/logging.service';
@@ -60,7 +58,10 @@ export class ModelService {
             reject('Could not read file');
           }
         };
-        fileReader.readAsText(file);
+
+        if (file != null) {
+          fileReader.readAsText(file);
+        }
       }
     );
   }
