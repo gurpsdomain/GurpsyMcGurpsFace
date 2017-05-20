@@ -138,7 +138,7 @@ export class GurpsyComponent implements OnInit {
       this.overlayContainer.themeClass = theme;
     } else {
       this.theme = SettingsService.THEME_DEFAULT;
-      this.overlayContainer.themeClass = theme;
+      this.overlayContainer.themeClass = this.theme;
       this.loggingService.warn('Invalid theme stored in Local Storage: ' + theme);
     }
   }
