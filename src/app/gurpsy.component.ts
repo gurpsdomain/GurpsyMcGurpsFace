@@ -20,7 +20,6 @@ import {TranslateService} from '@ngx-translate/core';
 export class GurpsyComponent implements OnInit {
 
   private static DIALOG_WIDTH = '400px';
-  private static DIALOG_HEIGHT = '400px';
   private static SNACKBAR_DURATION_TIME = 4000;
 
   private static ICON_D6_NAME = 'd6';
@@ -45,7 +44,6 @@ export class GurpsyComponent implements OnInit {
 
   public dialog: MdDialog;
   public theme: string;
-  public night: string;
   public showLibrary: boolean;
 
   constructor(settingsService: SettingsService, languageService: LanguagesService, loggingService: LoggingService,
@@ -124,8 +122,6 @@ export class GurpsyComponent implements OnInit {
   private initTheme(): void {
     this.settingsService.getTheme().then(theme => this.setTheme(theme)).catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
     this.settingsService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
-
-    this.settingsService.getNightTheme().then(night => this.night = night);
   }
 
   private initSheetChangeListener(): void {
@@ -133,14 +129,13 @@ export class GurpsyComponent implements OnInit {
   }
 
   private setTheme(theme: string) {
-    if (theme === SettingsService.THEME_NIGHT || theme === SettingsService.THEME_DAY) {
-      this.theme = theme;
-      this.overlayContainer.themeClass = theme;
-    } else {
-      this.theme = SettingsService.THEME_DEFAULT;
-      this.overlayContainer.themeClass = this.theme;
+    if (theme !== SettingsService.THEME_NIGHT && theme !== SettingsService.THEME_DAY) {
       this.loggingService.warn('Invalid theme stored in Local Storage: ' + theme);
+      theme = SettingsService.THEME_DEFAULT
     }
+
+    this.theme = theme;
+    this.overlayContainer.themeClass = theme;
   }
 
   private showNewSheetLoadedMessage(sheet: OutputSheet): void {
