@@ -20,10 +20,12 @@
     "CLOSE": "Close",
     "SETTINGS": {
       "APPLICATION_SETTINGS": "Application Settings",
+      "KILL": "Kill all in Local Storage",
       "CLEANUP": "Cleanup",
       "DELETE": "Delete",
       "DELETE_SETTINGS": "Delete Settings",
       "HEADER": "Settings",
+      "KILL": "Kill all in Local Storage",
       "LIBRARY_SETTINGS": {
         "HEADER": "Library Settings",
         "BODY": "Configure your locally stored books to enable quick reference lookups. ",
