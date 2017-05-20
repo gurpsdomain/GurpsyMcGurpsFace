@@ -111,8 +111,8 @@ export class GurpsyComponent implements OnInit {
     );
   }
 
-  public onShowLibrary(agreed: boolean): void {
-    this.showLibrary = agreed;
+  public onShowLibrary(show: boolean): void {
+    this.showLibrary = show;
   }
 
   private initLibrary(): void {
@@ -130,7 +130,7 @@ export class GurpsyComponent implements OnInit {
 
   private setTheme(theme: string) {
     if (theme !== SettingsService.THEME_NIGHT && theme !== SettingsService.THEME_DAY) {
-      this.loggingService.warn('Invalid theme stored in Local Storage: ' + theme);
+      this.loggingService.warn('Invalid or no theme stored in Local Storage, using default.');
       theme = SettingsService.THEME_DEFAULT
     }
 

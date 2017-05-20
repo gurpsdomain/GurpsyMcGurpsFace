@@ -172,7 +172,7 @@ export class StorageService {
    * entries should be removed.
    */
   public kill(): void {
-    this.configStorageDelegate.kill();
+    this.configStorageDelegate.clear();
     this.sheetStorageDelegate.kill();
 
   }
