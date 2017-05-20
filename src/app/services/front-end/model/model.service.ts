@@ -13,19 +13,23 @@ import {LoggingService} from '../../back-end/logging/logging.service';
 @Injectable()
 export class ModelService {
 
-
   private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
 
+  private inputModel: InputSheet;
   private outputModel: OutputSheet;
   private sheetValidator: SheetValidator;
 
-  private modelTransformerService: ModelTransformerService;
-  private loggingService: LoggingService;
   private http: Http;
-  private storageService: StorageService;
-  private modelChangeSource = new Subject<OutputSheet>();
 
-  public modelChange$ = this.modelChangeSource.asObservable();
+  private loggingService: LoggingService;
+  private modelTransformerService: ModelTransformerService;
+  private storageService: StorageService;
+
+  private outputModelChangeSource = new Subject<OutputSheet>();
+  private inputModelChangeSource = new Subject<InputSheet>();
+
+  public outputModelChange$ = this.outputModelChangeSource.asObservable();
+  public inputModelChange$ = this.inputModelChangeSource.asObservable();
 
   constructor(loggingService: LoggingService,
               modelTransformerService: ModelTransformerService,
@@ -74,6 +78,8 @@ export class ModelService {
    * @param {InputSheet} sheet
    */
   public loadSheet(sheet: InputSheet): void {
+    this.setInputModel(sheet);
+
     this.modelTransformerService.transform(sheet)
       .then(outputSheet => this.setOutputModel(outputSheet)).catch(any => this.setFallbackOutputModel())
   }
@@ -95,11 +101,6 @@ export class ModelService {
     }
   }
 
-  private setOutputModel(outputSheet: OutputSheet): void {
-    this.outputModel = outputSheet;
-    this.modelChangeSource.next(outputSheet);
-  }
-
   private initSheet(): void {
     this.initEmptySheet();
     this.storageService.getCurrentSheet().then(sheet => this.handleStoredSheet(sheet)).catch(any => this.initEmptySheet());
@@ -108,6 +109,16 @@ export class ModelService {
   private initEmptySheet(): void {
     const emptySheet: OutputSheet = new SheetImpl();
     this.setOutputModel(emptySheet);
+  }
+
+  private setInputModel(inputSheet: InputSheet): void {
+    this.inputModel = inputSheet;
+    this.inputModelChangeSource.next(inputSheet);
+  }
+
+  private setOutputModel(outputSheet: OutputSheet): void {
+    this.outputModel = outputSheet;
+    this.outputModelChangeSource.next(outputSheet);
   }
 
   private setFallbackOutputModel(): void {

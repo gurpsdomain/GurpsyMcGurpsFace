@@ -19,6 +19,6 @@ export class LiftingMovingComponent implements OnInit {
 
   ngOnInit() {
     this.sheet = this.modelReadService.getSheet();
-    this.modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
+    this.modelReadService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

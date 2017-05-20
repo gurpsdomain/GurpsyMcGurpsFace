@@ -111,6 +111,14 @@ export class SheetStorageDelegate {
     this.persist(sheets);
   }
 
+  /**
+   * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
+   * entries should be removed.
+   */
+  public kill(): void {
+    localStorage.removeItem(this.getStorageKey())
+  }
+
   private persist(sheets: OutputSheets): void {
     const jsonSheets = JSON.stringify(sheets);
 

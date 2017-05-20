@@ -113,6 +113,16 @@ export class SettingsService {
     return this.configChange$;
   }
 
+  /**
+   * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
+   * entries should be removed.
+   */
+  public kill(): void {
+    this.storageService.kill();
+    this.storageService.kill();
+
+  }
+
   private initStorageChangeListener(): void {
     this.storageService.getConfigObserver().subscribe(config => this.handleStorageConfigChange(config));
   }

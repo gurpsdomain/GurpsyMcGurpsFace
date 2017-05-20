@@ -65,6 +65,9 @@ export class SettingsDialogComponent implements OnInit {
     this.storageService.clearStorage(this.clearSettings, this.sheetsToDelete);
   }
 
+  public onKillSettings(): void {
+    this.storageService.kill();
+  }
   public onPersistSettings(): void {
     this.bookConfigurationChild.storeBookConfigurations();
     this.dialogRef.close();

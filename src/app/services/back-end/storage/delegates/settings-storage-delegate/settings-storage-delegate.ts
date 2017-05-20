@@ -145,6 +145,14 @@ export class SettingsStorageDelegate {
     }
   }
 
+  /**
+   * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
+   * entries should be removed.
+   */
+  public kill(): void {
+    localStorage.removeItem(this.getStorageKey())
+  }
+
   private store(config: Config) {
     localStorage.setItem(this.getStorageKey(), JSON.stringify(config));
     this.change(config);

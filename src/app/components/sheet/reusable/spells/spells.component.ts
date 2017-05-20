@@ -21,6 +21,6 @@ export class SpellsComponent implements OnInit {
 
   ngOnInit(): void {
     this.sheet = this.modelReadService.getSheet();
-    this.modelReadService.modelChange$.subscribe(sheet => this.sheet = sheet);
+    this.modelReadService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

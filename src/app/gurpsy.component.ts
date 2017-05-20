@@ -129,7 +129,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initSheetChangeListener(): void {
-    this.modelService.modelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
+    this.modelService.outputModelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
   private setTheme(theme: string) {
