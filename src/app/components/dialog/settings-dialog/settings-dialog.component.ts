@@ -32,27 +32,38 @@ export class SettingsDialogComponent implements OnInit {
     this.dialogRef = dialogRef;
     this.settingsService = configService;
     this.storageService = storage;
-
-    this.initPreviouslyOpenedSheetList();
   }
 
   public ngOnInit(): void {
-    this.settingsService.getServerUrl().then(serverUrl => this.serverUrl = serverUrl);
-    this.settingsService.getConfigObserver().subscribe(config => this.serverUrl = config.serverUrl);
-
+    this.initPreviouslyOpenedSheetList();
+    this.initServerUrl();
     this.initTheme();
   }
 
+  /**
+   * Handle a Change of the serverUrl
+   *
+   * @param serverUrl
+   */
   public onServerUrlChange(serverUrl: string): void {
     this.settingsService.setServerUrl(serverUrl);
   }
 
+  /**
+   * Handle a Change of the selected theme
+   */
   public onThemeChange(): void {
     const theme = this.nightTheme ? SettingsService.THEME_NIGHT : SettingsService.THEME_DAY;
     this.setTheme(theme);
     this.settingsService.setTheme(theme);
   }
 
+  /**
+   * Handle a sheet selection
+   *
+   * @param sheet The sheet to be selected
+   * @param event The event that was triggered
+   */
   public onSheetSelected(sheet: OutputSheet, event: MdCheckboxChange): void {
     if (event.checked) {
       this.addToStoredSheets(sheet);
@@ -68,6 +79,7 @@ export class SettingsDialogComponent implements OnInit {
   public onKillSettings(): void {
     this.storageService.kill();
   }
+
   public onPersistSettings(): void {
     this.bookConfigurationChild.storeBookConfigurations();
     this.dialogRef.close();
@@ -108,11 +120,24 @@ export class SettingsDialogComponent implements OnInit {
     this.sheetsToDelete = newStoredSheets;
   }
 
+  private initServerUrl(): void {
+    this.settingsService.getServerUrl()
+      .then(serverUrl => this.serverUrl = serverUrl)
+      .catch(err => this.setServerUrl(''));
+    this.settingsService.getConfigObserver().subscribe(config => this.setServerUrl(config.serverUrl));
+  }
+
   private initTheme(): void {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
       .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
     this.settingsService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
+  }
+
+  private setServerUrl(url: string) {
+    if (url !== null) {
+      this.serverUrl = url
+    }
   }
 
   private setTheme(theme: string) {
