@@ -10,13 +10,15 @@ import {isUndefined} from 'util';
 })
 export class BookConfigurationComponent implements OnInit {
 
+  private static PDF_MATCHER = '(.*?)\.(PDF|pdf)$'
 
-  @Input() configuration: BookConfiguration;
-  @Input() availableBooks: Array<Book>;
-  @Output() deleteBookConfiguration: EventEmitter<any> = new EventEmitter();
-  @Output() changeBookConfiguration: EventEmitter<any> = new EventEmitter();
+  @Input() public configuration: BookConfiguration;
+  @Input() public availableBooks: Array<Book>;
+  @Output() public deleteBookConfiguration: EventEmitter<any> = new EventEmitter();
+  @Output() public changeBookConfiguration: EventEmitter<any> = new EventEmitter();
 
   public showDetails = false;
+  public deleteEnabled = false;
 
   public ngOnInit(): void {
     if (this.isBookConfigurationEmpty()) {
@@ -24,19 +26,53 @@ export class BookConfigurationComponent implements OnInit {
     }
   }
 
+  /**
+   * Handle a changed bookConfiguration. Should be called in any
+   * situation the configuration is changed.
+   */
   public onChangeBookConfiguration(): void {
-    this.changeBookConfiguration.next();
+    if (this.isValidBookConfiguration()) {
+      this.changeBookConfiguration.next();
+    }
   }
 
+  public focusOutFunction(): void {
+    this.deleteEnabled = false;
+  }
+
+  /**
+   * Handle the situation when this bookConfiguration is deleted.
+   *
+   * To ensure it is not accidentally deleted, the user will have to
+   * press it twice. The first time the button gets enabled. The second
+   * press could
+   *
+   */
   public onDeleteBookConfiguration(): void {
-    this.deleteBookConfiguration.next();
+
+
+    if (this.deleteEnabled) {
+      this.deleteBookConfiguration.next();
+    } else {
+      this.deleteEnabled = true;
+    }
   }
 
+  /**
+   * Hide/show the details.
+   */
   public onToggleDetails(): void {
     this.showDetails = !this.showDetails;
   }
 
   private isBookConfigurationEmpty(): boolean {
     return isUndefined(this.configuration.file);
+  }
+
+  private isValidBookConfiguration(): boolean {
+    const regexp = new RegExp(BookConfigurationComponent.PDF_MATCHER);
+    const isValidFile = regexp.test(this.configuration.file);
+
+    return isValidFile;
   }
 }
