@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {OutputSheet} from '../../../models/sheet/output';
 import {Observable} from 'rxjs';
 import {Config} from '../../../models/config/config';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
+import {InputSheet} from '../../../models/sheet/input';
 
 @Injectable()
 export class StorageService {
@@ -63,9 +63,9 @@ export class StorageService {
   /**
    * Store the given sheet in Local Storage;
    *
-   * @param Sheet
+   * @param InputSheet
    */
-  public storeSheet(sheet: OutputSheet): void {
+  public storeSheet(sheet: InputSheet): void {
     this.sheetStorageDelegate.setCurrent(sheet);
   }
 
@@ -106,30 +106,30 @@ export class StorageService {
   }
 
   /**
-   * Retrieve the Current OutputSheet for Local Storage.
+   * Retrieve the Current InputSheet for Local Storage.
    *
-   * @returns Promise<Sheet> or an empty promise if there is no current sheet.
+   * @returns Promise<InputSheet> or an empty promise if there is no current sheet.
    */
-  public getCurrentSheet(): Promise<OutputSheet> {
+  public getCurrentSheet(): Promise<InputSheet> {
     return this.sheetStorageDelegate.retrieveCurrent();
   }
 
   /**
    * Retrieve an array of Previously Opened Sheets from Local Storage.
    *
-   * @returns Promise<Sheet[]> or an empty promise if there are no previously opened sheets.
+   * @returns Promise<InputSheet[]> or an empty promise if there are no previously opened sheets.
    */
-  public getPreviouslyOpenedSheets(): Promise<OutputSheet[]> {
+  public getPreviouslyOpenedSheets(): Promise<InputSheet[]> {
     return this.sheetStorageDelegate.retrievePrevious();
   }
 
   /**
-   * Retrieve both the Current sheet and the Previously Opened sheet.
+   * Retrieve both the Current sheet and the previously opened sheet.
    *
-   * @returns Promise<Sheet[]> or an empty promise if there are no current and previously
+   * @returns Promise<InputSheet[]> or an empty promise if there are no current and previously
    *          opened sheets.
    */
-  public getSheets(): Promise<OutputSheet[]> {
+  public getSheets(): Promise<InputSheet[]> {
     return this.sheetStorageDelegate.retrieveAll();
   }
 
@@ -156,9 +156,9 @@ export class StorageService {
    * Clear the stored entries from Local Storage.
    *
    * @param clearConfig: boolean     Clear the config
-   * @param sheetsToDelete: OutputSheet[] An Array of Sheets that should be deleted.
+   * @param sheetsToDelete: InputSheet[] An Array of Sheets that should be deleted.
    */
-  public clearStorage(clearConfig: boolean, sheetsToDelete: OutputSheet[]): void {
+  public clearStorage(clearConfig: boolean, sheetsToDelete: InputSheet[]): void {
     if (clearConfig) {
       this.configStorageDelegate.clear();
     }
@@ -174,7 +174,6 @@ export class StorageService {
   public kill(): void {
     this.configStorageDelegate.clear();
     this.sheetStorageDelegate.kill();
-
   }
 }
 

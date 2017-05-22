@@ -61,5 +61,11 @@ export interface InputSheet {
   notes: Note[];
 }
 
+export interface InputSheets {
+  current: InputSheet;
+  previous: InputSheet[];
+}
+
+
 
 

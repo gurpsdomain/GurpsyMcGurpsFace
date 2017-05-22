@@ -1,9 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdDialogRef, MdCheckboxChange} from '@angular/material';
 import {StorageService} from '../../../services/back-end/storage/storage.service';
-import {OutputSheet} from '../../../models/sheet/output';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
+import {InputSheet} from '../../../models/sheet/input';
 
 @Component({
   selector: 'gurpsy-settings-dialog',
@@ -15,7 +15,7 @@ import {BooksConfigurationComponent} from '../../generic/books-configuration/boo
 })
 export class SettingsDialogComponent implements OnInit {
 
-  public storedSheets: OutputSheet[] = [];
+  public storedSheets: InputSheet[] = [];
   public clearSettings = true;
   public nightTheme = false;
   public serverUrl: string;
@@ -23,7 +23,7 @@ export class SettingsDialogComponent implements OnInit {
   private dialogRef: MdDialogRef<SettingsDialogComponent>;
   private settingsService: SettingsService;
   private storageService: StorageService;
-  private sheetsToDelete: OutputSheet[] = [];
+  private sheetsToDelete: InputSheet[] = [];
 
   @ViewChild(BooksConfigurationComponent)
   private bookConfigurationChild: BooksConfigurationComponent;
@@ -64,7 +64,7 @@ export class SettingsDialogComponent implements OnInit {
    * @param sheet The sheet to be selected
    * @param event The event that was triggered
    */
-  public onSheetSelected(sheet: OutputSheet, event: MdCheckboxChange): void {
+  public onSheetSelected(sheet: InputSheet, event: MdCheckboxChange): void {
     if (event.checked) {
       this.addToStoredSheets(sheet);
     } else {
@@ -90,15 +90,15 @@ export class SettingsDialogComponent implements OnInit {
       sheets => this.setStoredSheets(sheets));
   }
 
-  private setStoredSheets(sheets: OutputSheet[]): void {
+  private setStoredSheets(sheets: InputSheet[]): void {
     this.storedSheets = sheets;
   }
 
-  private addToStoredSheets(sheet: OutputSheet): void {
+  private addToStoredSheets(sheet: InputSheet): void {
     let add = true;
 
     for (const storedSheet of this.sheetsToDelete) {
-      if (storedSheet.metaData.identity.name === sheet.metaData.identity.name) {
+      if (storedSheet.name === sheet.name) {
         add = false;
       }
     }
@@ -108,11 +108,11 @@ export class SettingsDialogComponent implements OnInit {
     }
   }
 
-  private removeFromStoredSheets(sheet: OutputSheet): void {
-    const newStoredSheets: OutputSheet[] = [];
+  private removeFromStoredSheets(sheet: InputSheet): void {
+    const newStoredSheets: InputSheet[] = [];
 
     for (const storedSheet of this.sheetsToDelete) {
-      if (storedSheet.metaData.identity.name !== sheet.metaData.identity.name) {
+      if (storedSheet.name !== sheet.name) {
         newStoredSheets.push(storedSheet);
       }
     }

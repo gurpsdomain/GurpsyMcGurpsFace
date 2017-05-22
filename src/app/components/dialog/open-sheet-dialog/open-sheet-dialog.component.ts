@@ -20,9 +20,9 @@ export class OpenSheetDialogComponent {
   public showOk = false;
   public selectedFileName = '';
   public selectedSheet: InputSheet;
-  public previouslyOpenedSheets: OutputSheet[] = [];
+  public previouslyOpenedSheets: InputSheet[] = [];
 
-  private selectedPreviousSheet: OutputSheet = null;
+  private selectedPreviousSheet: InputSheet = null;
 
   private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private logginService: LoggingService;
@@ -45,7 +45,7 @@ export class OpenSheetDialogComponent {
   }
 
   public onOk(): void {
-    this.modelService.loadSheet(this.selectedSheet);
+    this.modelService.loadSheet(this.selectedSheet, true);
     this.dialogRef.close();
   }
 
@@ -55,7 +55,7 @@ export class OpenSheetDialogComponent {
       .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 
-  public onPreviousSheetSelected(sheet: OutputSheet) {
+  public onPreviousSheetSelected(sheet: InputSheet) {
     this.selectedPreviousSheet = sheet;
   }
 
@@ -64,7 +64,7 @@ export class OpenSheetDialogComponent {
       sheets => this.setPreviouslyOpenedSheets(sheets));
   }
 
-  private setPreviouslyOpenedSheets(sheets: OutputSheet[]): void {
+  private setPreviouslyOpenedSheets(sheets: InputSheet[]): void {
     this.previouslyOpenedSheets = sheets;
   }
 

@@ -14,35 +14,34 @@ import {
   Skill,
   Spell,
   Equipment,
-  Note,
   OutputSheet,
-  OutputSheets
+  Note
 } from './output';
 
 export class PlayerInformationImpl implements PlayerInformation {
-  player = '';
-  campaign = '';
-  createdOn = '';
+  player: string;
+  campaign: string;
+  createdOn: string;
 }
 
 export class IdentityImpl implements Identity {
-  name = '';
-  title = '';
-  religion = '';
+  name: string;
+  title: string;
+  religion: string;
 }
 
 export class DescriptionImpl implements Description {
-  race = '';
-  gender = '';
-  age = '';
-  birthday = '';
-  height = '';
-  weight = '';
-  TL = '';
-  hair = '';
-  eyes = '';
-  skin = '';
-  hand = '';
+  race: string;
+  gender: string;
+  age: string;
+  birthday: string;
+  height: string;
+  weight: string;
+  TL: string;
+  hair: string;
+  eyes: string;
+  skin: string;
+  hand: string;
 }
 
 export class MetaDataImpl implements MetaData {
@@ -52,116 +51,62 @@ export class MetaDataImpl implements MetaData {
 }
 
 export class PointsImpl implements Points {
-  total = 0;
-  advantages = 0;
-  disadvantages = 0;
-  skills = 0;
-  spells = 0;
-  unspent = 0;
+  total: number;
+  advantages: number;
+  disadvantages: number;
+  skills: number;
+  spells: number;
+  unspent: number;
 }
 
 export class AttributesImpl implements Attributes {
-  strength = 0;
-  dexterity = 0;
-  health = 0;
-  intelligence = 0;
+  strength: number;
+  dexterity: number;
+  health: number;
+  intelligence: number;
 }
 
 export class BasicLiftImpl implements BasicLift {
-  imperial = '';
-  realMetric = '';
-  gameMetric = '';
+  imperial: string;
+  realMetric: string;
+  gameMetric: string;
 }
 
 export class SecondaryCharacteristicsImpl implements SecondaryCharacteristics {
-  sizeModifier = 0;
-  will = 0;
-  perception = 0;
-  vision = 0;
-  hearing = 0;
-  tasteAndSmell = 0;
-  touch = 0;
+  sizeModifier: number;
+  will: number;
+  perception: number;
+  vision: number;
+  hearing: number;
+  tasteAndSmell: number;
+  touch: number;
   basicLift: BasicLift = new BasicLiftImpl();
-  hitPoints = 0;
-  fatiguePoints = 0;
-  basicSpeed = 0;
-  basicMove = 0;
-  damageSwinging = '';
-  damageThrusting = '';
-  frightCheck = 0;
+  hitPoints: number;
+  fatiguePoints: number;
+  basicSpeed: number;
+  basicMove: number;
+  damageSwinging: string;
+  damageThrusting: string;
+  frightCheck: number;
 }
 
 export class DamageResistancesImpl implements DamageResistances {
-  eye = 0;
-  skull = 0;
-  face = 0;
-  rightLeg = 0;
-  rightArm = 0;
-  torso = 0;
-  groin = 0;
-  leftArm = 0;
-  leftLeg = 0;
-  hand = 0;
-  foot = 0;
-  neck = 0;
-  vitals = 0;
+  eye: number;
+  skull: number;
+  face: number;
+  rightLeg: number;
+  rightArm: number;
+  torso: number;
+  groin: number;
+  leftArm: number;
+  leftLeg: number;
+  hand: number;
+  foot: number;
+  neck: number;
+  vitals: number;
 }
 
-export class ModifierImpl implements Modifier {
-  name = '';
-  pageReference = '';
-  note = '';
-}
-
-export class AdvantageImpl implements Advantage {
-  name = '';
-  points = 0;
-  pageReference = '';
-  modifiers: Modifier[] = [];
-  level? = 0;
-}
-
-export class DisadvantageImpl implements Disadvantage {
-  name = '';
-  points = 0;
-  pageReference = '';
-  modifiers: any[] = [];
-}
-
-export class SkillImpl implements Skill {
-  name = '';
-  points = 0;
-  level = 0;
-  pageReference = '';
-  controllingAttribute = '';
-  difficultyLevel = '';
-}
-
-export class SpellImpl implements Spell {
-  name = '';
-  points = 0;
-  level = 0;
-  difficultyLevel = '';
-  castingTime = '';
-  colleges = '';
-  powerSource = '';
-  duration = '';
-  maintenanceCost = '';
-  spellClasses = '';
-  pageReference = '';
-}
-
-export class EquipmentImpl implements Equipment {
-  name = '';
-  pageReference = '';
-}
-
-export class NoteImpl implements Note {
-  name = '';
-  note = '';
-}
-
-export class SheetImpl implements OutputSheet {
+export class OutputSheetImpl implements OutputSheet {
   metaData: MetaData = new MetaDataImpl();
   points: Points = new PointsImpl();
   attributes: Attributes = new AttributesImpl();
@@ -175,10 +120,9 @@ export class SheetImpl implements OutputSheet {
   notes: Note[] = [];
 }
 
-export class OutputSheetsImpl implements OutputSheets {
+export interface OutputSheets {
   current: OutputSheet;
-  previous: OutputSheet[] = [];
+  previous: OutputSheet[];
 }
-
 
 
