@@ -54,6 +54,7 @@
       fxFlex="100%">
       <input
         mdInput
+        pattern="(.*?)\.(PDF|pdf)$"
         placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.FILE_LOCATION'| translate}}"
         [(ngModel)]="configuration.file"
         (change)="onChangeBookConfiguration()">

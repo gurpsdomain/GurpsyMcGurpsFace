@@ -65,7 +65,7 @@ export class LibraryService {
    *
    * @returns {Array<Book>}
    */
-  public getBooks(): Book[] {
+  public getBooks(): Promise<Book[]> {
 
     const books: Book[] = [];
 
@@ -75,16 +75,7 @@ export class LibraryService {
     books.push(Book.POWERS);
     books.push(Book.PSIONICS);
 
-    return books;
-  }
-
-  /**
-   * Store an array of books
-   *
-   * @param books {BookConfiguration[]}
-   */
-  public storeBooks(books: BookConfiguration[]): void {
-
+    return Promise.resolve(books);
   }
 
   private parseReference(reference: string): Reference {

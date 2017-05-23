@@ -10,12 +10,13 @@ import {isUndefined} from 'util';
 })
 export class BookConfigurationComponent implements OnInit {
 
-  private static PDF_MATCHER = '(.*?)\.(PDF|pdf)$'
+  public static PDF_MATCHER = '(.*?)\.(PDF|pdf)$'
 
   @Input() public configuration: BookConfiguration;
   @Input() public availableBooks: Array<Book>;
   @Output() public deleteBookConfiguration: EventEmitter<any> = new EventEmitter();
   @Output() public changeBookConfiguration: EventEmitter<any> = new EventEmitter();
+  @Output() public invalidateBookConfiguration: EventEmitter<any> = new EventEmitter();
 
   public showDetails = false;
   public deleteEnabled = false;
@@ -33,6 +34,8 @@ export class BookConfigurationComponent implements OnInit {
   public onChangeBookConfiguration(): void {
     if (this.isValidBookConfiguration()) {
       this.changeBookConfiguration.next();
+    } else {
+      this.invalidateBookConfiguration.next();
     }
   }
 

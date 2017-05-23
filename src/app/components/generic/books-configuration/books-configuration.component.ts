@@ -35,43 +35,53 @@ export class BooksConfigurationComponent implements OnInit {
   private asyncInit(bookConfigurations: BookConfiguration[]): void {
     this.setBookConfigurations(bookConfigurations);
 
-    this.updateAvailableBooks();
+    this.reloadAvailableBooks(true);
+  }
 
-    this.updateValidity();
+  /**
+   * Called by one of the children if its bookConfiguration gets invalidated
+   */
+  public onInvalidateBookConfiguration(): void {
+    this.validConfigurations = false;
   }
 
   /**
    * Called when one of the underlying bookConfiguration changes due to user input
    */
   public onChangeBookConfiguration(): void {
-    this.updateAvailableBooks();
     this.changeBooksConfiguration.next();
-
-    this.updateValidity();
+    this.reloadAvailableBooks(true);
   }
 
   /**
    * Called when the user deletes one of tge underlying bookConfiguration
    */
   public onDeleteBookConfiguration(book: BookConfiguration): void {
-    const index = this.bookConfigurations.lastIndexOf(book);
-    this.bookConfigurations.splice(index, 1);
+    this.deleteBookConfiguration(book);
     this.changeBooksConfiguration.next();
-
-    this.updateAvailableBooks();
-    this.updateValidity();
+    this.reloadAvailableBooks(true);
   }
 
   /**
    * Called when the user creates a new bookConfiguration
    */
   public onNewBookConfiguration(): void {
+    this.validConfigurations = false;
+
+    this.bookConfigurations.push(this.createNewBookConfiguration());
+    this.reloadAvailableBooks(false);
+  }
+
+  private createNewBookConfiguration(): BookConfiguration {
     const bookConfiguration = new BookConfigurationImpl();
     bookConfiguration.book = this.availableBooks[0];
-    this.bookConfigurations.push(bookConfiguration);
 
-    this.updateAvailableBooks();
-    this.updateValidity();
+    return bookConfiguration;
+  }
+
+  private deleteBookConfiguration(book: BookConfiguration): void {
+    const index = this.bookConfigurations.lastIndexOf(book);
+    this.bookConfigurations.splice(index, 1);
   }
 
   private setBookConfigurations(bookConfigurations: BookConfiguration[]) {
@@ -82,15 +92,21 @@ export class BooksConfigurationComponent implements OnInit {
     }
   }
 
-  private updateAvailableBooks(): void {
-    const books = this.libraryService.getBooks();
+  private reloadAvailableBooks(updateValidity: boolean): void {
+    this.libraryService.getBooks().then(books => this.setAvailableBooks(books, updateValidity));
+  }
 
+  private setAvailableBooks(books: Book[], updateValidity: boolean): void {
     for (const bookConfig of this.bookConfigurations) {
       const index = books.lastIndexOf(bookConfig.book);
       books.splice(index, 1);
     }
 
     this.availableBooks = books;
+
+    if (updateValidity) {
+      this.updateValidity();
+    }
   }
 
   private updateValidity(): void {
