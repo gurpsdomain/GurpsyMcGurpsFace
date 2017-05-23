@@ -9,6 +9,8 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
+        "gurpsy-loader.js",
+        "gurpsy-loader.css",
         "assets",
         "assets/library",
         "assets/i18n",
