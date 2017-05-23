@@ -20,9 +20,10 @@ export class SettingsDialogComponent implements OnInit {
   public nightTheme = false;
   public serverUrl: string;
 
-  private dialogRef: MdDialogRef<SettingsDialogComponent>;
-  private settingsService: SettingsService;
   private sheetsToDelete: InputSheet[] = [];
+  private dialogRef: MdDialogRef<SettingsDialogComponent>;
+
+  private settingsService: SettingsService;
 
   @ViewChild(BooksConfigurationComponent)
   private bookConfigurationChild: BooksConfigurationComponent;
@@ -48,7 +49,7 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   /**
-   * Handle a Change of the selected theme
+   * Handle a change of the selected theme
    */
   public onThemeChange(): void {
     const theme = this.nightTheme ? SettingsService.THEME_NIGHT : SettingsService.THEME_DAY;
@@ -77,7 +78,10 @@ export class SettingsDialogComponent implements OnInit {
     this.storeBookConfigurations();
   }
 
-  public onKillSettings(): void {
+  /**
+   * Delete all stored settings.
+   */
+  public onDeleteSettings(): void {
     this.settingsService.kill();
   }
 

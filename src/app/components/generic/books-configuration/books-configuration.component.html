@@ -9,7 +9,7 @@
   <button
     md-raised-button
     color="primary"
-    [disabled]="availableBooks.length == 0"
+    [disabled]="!validConfigurations || availableBooks.length == 0"
     (click)="onNewBookConfiguration()">
     {{'BOOKS_CONFIGURATION.ADD_BOOK'| translate}}
   </button>
