@@ -22,7 +22,6 @@ export class SettingsDialogComponent implements OnInit {
 
   private dialogRef: MdDialogRef<SettingsDialogComponent>;
   private settingsService: SettingsService;
-  private storageService: StorageService;
   private sheetsToDelete: InputSheet[] = [];
 
   @ViewChild(BooksConfigurationComponent)
@@ -31,7 +30,6 @@ export class SettingsDialogComponent implements OnInit {
   constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, configService: SettingsService, storage: StorageService) {
     this.dialogRef = dialogRef;
     this.settingsService = configService;
-    this.storageService = storage;
   }
 
   public ngOnInit(): void {
@@ -72,21 +70,23 @@ export class SettingsDialogComponent implements OnInit {
     }
   }
 
-  public onDeleteSettings(): void {
-    this.storageService.clearStorage(this.clearSettings, this.sheetsToDelete);
+  /**
+   * Handle the situation where a BookConfiguration changes.
+   */
+  public onChangeBooksConfiguration(): void {
+    this.storeBookConfigurations();
   }
 
   public onKillSettings(): void {
-    this.storageService.kill();
+    this.settingsService.kill();
   }
 
-  public onPersistSettings(): void {
-    this.bookConfigurationChild.storeBookConfigurations();
-    this.dialogRef.close();
+  private storeBookConfigurations(): void {
+    this.settingsService.storeBookConfigurations(this.bookConfigurationChild.bookConfigurations);
   }
 
   private initPreviouslyOpenedSheetList(): void {
-    this.storageService.getPreviouslyOpenedSheets().then(
+    this.settingsService.getPreviouslyOpenedSheets().then(
       sheets => this.setStoredSheets(sheets));
   }
 

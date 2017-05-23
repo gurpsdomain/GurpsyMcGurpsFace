@@ -13,10 +13,10 @@ export class LibraryService {
 
   private referenceRequest = new Subject<Reference>();
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
-  private configService: SettingsService;
+  private settingsService: SettingsService;
 
   constructor(configService: SettingsService) {
-    this.configService = configService;
+    this.settingsService = configService;
   }
 
   /**
@@ -48,7 +48,7 @@ export class LibraryService {
    * @param BookConfiguration[]
    */
   public storeBookConfigurations(bookConfigurations: BookConfiguration[]) {
-    this.configService.storeBookConfigurations(bookConfigurations);
+    this.settingsService.storeBookConfigurations(bookConfigurations);
   }
 
   /**
@@ -57,7 +57,7 @@ export class LibraryService {
    * @returns Promise<BookConfiguration[]>
    */
   public getBookConfigurations(): Promise<BookConfiguration[]> {
-    return this.configService.getBookConfigurations();
+    return this.settingsService.getBookConfigurations();
   }
 
   /**

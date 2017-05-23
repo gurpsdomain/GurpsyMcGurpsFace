@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {LibraryService} from '../../../services/front-end/library/library.service';
 import {BookConfigurationImpl, Book} from '../../../models/book-configuration/book-configuration-implementation';
 import {isArray} from 'util';
+import {SettingsService} from '../../../services/front-end/settings/settings.service';
 
 @Component({
   selector: 'gurpsy-books-configuration',
@@ -14,13 +15,17 @@ export class BooksConfigurationComponent implements OnInit {
   public bookConfigurations: Array<BookConfiguration> = [];
   public availableBooks: Array<Book>;
   private libraryService: LibraryService;
+  private settingsService: SettingsService;
 
-  constructor(libraryService: LibraryService) {
+  @Output() public changeBooksConfiguration: EventEmitter<any> = new EventEmitter();
+
+  constructor(libraryService: LibraryService, settingsService: SettingsService) {
     this.libraryService = libraryService;
+    this.settingsService = settingsService;
   }
 
   public ngOnInit(): void {
-    this.libraryService.getBookConfigurations()
+    this.settingsService.getBookConfigurations()
       .then(bookConfigurations => this.setBookConfigurations(bookConfigurations))
       .catch(any => this.setBookConfigurations([]));
     this.updateAvailableBooks();
@@ -28,6 +33,7 @@ export class BooksConfigurationComponent implements OnInit {
 
   public onChangeBookConfiguration(): void {
     this.updateAvailableBooks();
+    this.changeBooksConfiguration.next();
   }
 
   public onDeleteBookConfiguration(book: BookConfiguration): void {
@@ -41,10 +47,6 @@ export class BooksConfigurationComponent implements OnInit {
     bookConfiguration.book = this.availableBooks[0];
     this.bookConfigurations.push(bookConfiguration);
     this.updateAvailableBooks();
-  }
-
-  public storeBookConfigurations(): void {
-    this.libraryService.storeBookConfigurations(this.bookConfigurations);
   }
 
   private setBookConfigurations(bookConfigurations: BookConfiguration[]) {

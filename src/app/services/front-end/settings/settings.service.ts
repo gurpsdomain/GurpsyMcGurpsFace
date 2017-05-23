@@ -4,6 +4,7 @@ import {Observable, Subject} from 'rxjs';
 import {Config, ConfigImpl} from '../../../models/config/config';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
+import {InputSheet} from '../../../models/sheet/input';
 
 @Injectable()
 export class SettingsService {
@@ -82,6 +83,15 @@ export class SettingsService {
    */
   public getServerUrl(): Promise<string> {
     return this.storageService.getServerUrl();
+  }
+
+  /**
+   * Retrieve an array of Previously Opened Sheets from Local Storage.
+   *
+   * @returns Promise<InputSheet[]> or an empty promise if there are no previously opened sheets.
+   */
+  public getPreviouslyOpenedSheets(): Promise<InputSheet[]> {
+    return this.storageService.getPreviouslyOpenedSheets();
   }
 
   /**

@@ -41,7 +41,9 @@
     <div class="settingsCardBody">
       {{'DIALOG.SETTINGS.LIBRARY_SETTINGS.BODY'| translate}}
     </div>
-    <gurpsy-books-configuration></gurpsy-books-configuration>
+    <gurpsy-books-configuration
+      (changeBooksConfiguration)="onChangeBooksConfiguration()">
+    </gurpsy-books-configuration>
   </md-card>
 
   <md-card>
@@ -61,9 +63,6 @@
     </div>
     <div class="deleteSettings">
       <button md-raised-button color="warn" (click)="onKillSettings()">
-        {{'DIALOG.SETTINGS.KILL'| translate}}
-      </button>
-      <button md-raised-button color="warn" (click)="onDeleteSettings()">
         {{'DIALOG.SETTINGS.DELETE'| translate}}
       </button>
     </div>
