@@ -9,7 +9,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "gurpsy-loader.js",
+        "scripts/gurpsy-loader.js",
         "gurpsy-loader.css",
         "assets",
         "assets/library",
