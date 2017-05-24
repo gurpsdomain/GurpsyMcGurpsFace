@@ -11,6 +11,7 @@
       "assets": [
         "gurpsy-loader.css",
         "assets",
+        "assets/covers",
         "assets/library",
         "assets/i18n",
         "assets/images",
