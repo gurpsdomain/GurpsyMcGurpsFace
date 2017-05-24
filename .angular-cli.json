@@ -9,7 +9,6 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "scripts/gurpsy-loader.js",
         "gurpsy-loader.css",
         "assets",
         "assets/library",
@@ -32,7 +31,7 @@
         "gurpsy-material-theme.scss",
         "gurpsy-styles.scss"
       ],
-      "scripts": [],
+      "scripts": ["scripts/gurpsy-loader.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
