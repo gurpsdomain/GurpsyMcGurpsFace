@@ -1,7 +1,6 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {Book} from '../../../models/book-configuration/book-configuration-implementation';
-import {isUndefined} from 'util';
 
 @Component({
   selector: 'gurpsy-book-configuration',
@@ -22,7 +21,7 @@ export class BookConfigurationComponent implements OnInit {
   public deleteEnabled = false;
 
   public ngOnInit(): void {
-    if (this.isBookConfigurationEmpty()) {
+    if (!this.isValidBookConfiguration()) {
       this.showDetails = true;
     }
   }
@@ -66,10 +65,6 @@ export class BookConfigurationComponent implements OnInit {
    */
   public onToggleDetails(): void {
     this.showDetails = !this.showDetails;
-  }
-
-  private isBookConfigurationEmpty(): boolean {
-    return isUndefined(this.configuration.file);
   }
 
   private isValidBookConfiguration(): boolean {

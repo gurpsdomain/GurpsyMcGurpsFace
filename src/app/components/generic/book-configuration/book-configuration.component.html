@@ -55,14 +55,14 @@
       <input
         mdInput
         pattern="(.*?)\.(PDF|pdf)$"
-        placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.FILE_LOCATION'| translate}}"
+        placeholder="{{'DIALOG.SETTINGS.REFERENCE_SETTINGS.FILE_LOCATION'| translate}}"
         [(ngModel)]="configuration.file"
         (change)="onChangeBookConfiguration()">
     </md-input-container>
     <md-input-container class="flex-item" class="offset">
       <input mdInput
              type="number"
-             placeholder="{{'DIALOG.SETTINGS.LIBRARY_SETTINGS.OFFSET'| translate}}"
+             placeholder="{{'DIALOG.SETTINGS.REFERENCE_SETTINGS.OFFSET'| translate}}"
              [(ngModel)]="configuration.offset"
              (change)="onChangeBookConfiguration()">
     </md-input-container>
