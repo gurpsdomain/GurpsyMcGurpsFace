@@ -1,5 +1,10 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BooksConfigurationComponent} from './books-configuration.component';
+import {LibraryService} from '../../../services/front-end/library/library.service';
+import {SettingsService} from '../../../services/front-end/settings/settings.service';
+import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {SheetStorageDelegate} from '../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {JsonService} from '../../../services/back-end/json/json.service';
 
 describe('BooksConfigurationComponent', () => {
   let component: BooksConfigurationComponent;
@@ -8,7 +13,14 @@ describe('BooksConfigurationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        BooksConfigurationComponent]
+        BooksConfigurationComponent],
+      providers: [
+        JsonService,
+        LibraryService,
+        SettingsService,
+        SettingsStorageDelegate,
+        SheetStorageDelegate
+      ]
     })
       .compileComponents();
   }));
