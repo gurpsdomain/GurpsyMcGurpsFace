@@ -30,6 +30,11 @@
           color: mat-color($primary);
         }
       }
+
+      .seperator {
+        border-top: solid mat-color($accent) 1px;
+        margin: 6px 0px 8px 0px;
+      }
     }
   }
 }
