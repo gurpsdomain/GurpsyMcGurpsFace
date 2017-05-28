@@ -1,11 +1,13 @@
 @import '~@angular/material/theming';
 
-@mixin gurpsy-component-theme($theme) {
+@mixin gurpsy-side-navigation-theme($theme) {
   $accent: map-get($theme, accent);
   $primary: map-get($theme, primary);
   $backgroundMap: map-get($theme, background);
+  $foregroundMap: map-get($theme, foreground);
   $background: map-get($backgroundMap, background);
   $selectedButton: map-get($backgroundMap, raised-button);
+  $hintText: map_get($foregroundMap, hint-text);
 
   .mat-sidenav-content {
     background: $background;
@@ -19,7 +21,7 @@
     .sideNavigationContent {
       button {
         md-icon {
-          color: mat-color($primary, default-contrast);
+          color: $hintText;
         }
       }
       button.selected {
@@ -31,4 +33,7 @@
     }
   }
 }
+
+
+
 

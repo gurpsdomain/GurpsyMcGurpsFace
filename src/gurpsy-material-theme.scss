@@ -4,9 +4,11 @@
 @import "app/components/dialog/about-dialog/about-dialog.component";
 @import "app/components/dialog/open-sheet-dialog/open-sheet-dialog.component";
 @import "app/components/sheet/sheet.component";
-@import "app/gurpsy.component";
+@import "app/components/side-navigation/side-navigation.component";
 
 @include mat-core();
+
+
 
 @function gurpsy-dark-theme($primary, $accent, $warn: mat-palette($mat-red)) {
   @return (
@@ -30,32 +32,30 @@
   );
 }
 
+$primary: mat-palette($gurpsy-green, 900);
+$accent: mat-palette($gurpsy-light-blue, 400);
+$warn: mat-palette($gurpsy-red, A700);
+$theme: gurpsy-light-theme($primary, $accent, $warn);
+
+$dark-primary: mat-palette($gurpsy-light-blue, 900);
+$dark-accent: mat-palette($gurpsy-light-blue, 600);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: gurpsy-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
 @mixin gurpsy-theme($theme) {
   @include angular-material-theme($theme);
 
   @include gurpsy-about-dialog-theme($theme);
-  @include gurpsy-component-theme($theme);
   @include gurpsy-dialog-theme($theme);
   @include gurpsy-open-sheet-dialog-theme($theme);
   @include gurpsy-sheet-theme($theme);
+  @include gurpsy-side-navigation-theme($theme);
 }
 
 .day {
-  $primary: mat-palette($gurpsy-green, 900);
-  $accent: mat-palette($gurpsy-light-blue, 400);
-  $warn: mat-palette($gurpsy-red, A700);
-
-  $theme: gurpsy-light-theme($primary, $accent, $warn);
-
   @include gurpsy-theme($theme);
 }
 
 .night {
-  $dark-primary: mat-palette($gurpsy-light-blue, 900);
-  $dark-accent: mat-palette($gurpsy-light-blue, 600);
-  $dark-warn: mat-palette($mat-deep-orange);
-
-  $dark-theme: gurpsy-dark-theme($dark-primary, $dark-accent, $dark-warn);
-
   @include gurpsy-theme($dark-theme);
 }

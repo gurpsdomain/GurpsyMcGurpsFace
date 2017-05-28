@@ -1,5 +1,3 @@
-//@import "../../../gurpsy-material-theme";
-
 .sideNavigation {
   .sideNavigationHeader {
     .closeButton {
@@ -21,15 +19,17 @@
     width: 100%;
     margin: 0px 0px 4px 0px;
 
-    .sideNavigationContentLine {
-      padding: 0px 8px 0px 8px;
+    .sideNavigationButton {
+      padding: 0px 8px 6px 8px;
       width: 100%;
+      font-weight: inherit;
 
       span {
         text-align: left;
       }
       md-icon {
         padding: 6px 0px 6px 0px;
+        margin-right: 20px;
       }
     }
   }
