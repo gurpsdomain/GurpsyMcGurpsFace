@@ -15,12 +15,12 @@ export class LibraryService {
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
   private settingsService: SettingsService;
 
-  constructor(configService: SettingsService) {
-    this.settingsService = configService;
+  constructor(settingsService: SettingsService) {
+    this.settingsService = settingsService;
   }
 
   /**
-   * Lookup a reference.
+   * Show a reference.
    *
    * This method will call next() on the "referenceRequest" Subject. A specific
    * component will register on this event to open the requested bookConfigurations in the
@@ -28,8 +28,9 @@ export class LibraryService {
    *
    * @param reference {string} of the form B37 or M42
    */
-  public lookupReference(reference: string): void {
+  public showReference(reference: string): void {
     const parsedReference = this.parseReference(reference)
+    console.log('Showing page reference: ', reference);
     this.referenceRequest.next(parsedReference);
   }
 

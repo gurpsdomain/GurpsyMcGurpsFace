@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {LibraryService} from '../../../services/front-end/library/library.service';
 
 @Component({
   selector: 'gurpsy-page-reference',
@@ -7,12 +8,15 @@ import {Component, Input} from '@angular/core';
 })
 export class PageReferenceComponent {
 
-  @Input() pageReference: String;
+  @Input() pageReference: string;
 
-  constructor() {
+  private pageReferenceService: LibraryService
+
+  constructor(pageReferenceService: LibraryService) {
+    this.pageReferenceService = pageReferenceService;
   }
 
   public onGotoReference(): void {
-    console.log('Go to reference: ', this.pageReference);
+    this.pageReferenceService.showReference(this.pageReference);
   }
 }
