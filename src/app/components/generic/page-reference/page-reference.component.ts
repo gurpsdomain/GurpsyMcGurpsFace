@@ -1,19 +1,18 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'gurpsy-page-reference',
   templateUrl: 'page-reference.component.html',
   styleUrls: ['page-reference.component.scss']
 })
-export class PageReferenceComponent implements OnInit {
+export class PageReferenceComponent {
 
   @Input() pageReference: String;
-  private book: String;
-  private page: number;
 
   constructor() {
   }
 
-  ngOnInit() {
+  public onGotoReference(): void {
+    console.log('Go to reference: ', this.pageReference);
   }
 }
