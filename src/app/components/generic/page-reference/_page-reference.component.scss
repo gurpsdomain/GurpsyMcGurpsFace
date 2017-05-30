@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@mixin gurpsy-page-reference-theme($theme) {
+
+  $foregroundMap: map-get($theme, foreground);
+  $hintText: map_get($foregroundMap, hint-text);
+
+  .pageReference button {
+    color: $hintText;
+  }
+}
