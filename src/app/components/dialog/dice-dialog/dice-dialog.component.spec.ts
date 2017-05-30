@@ -2,7 +2,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {DiceDialogComponent} from './dice-dialog.component';
 
-describe('AboutDialogComponent', () => {
+describe('DiceDialogComponent', () => {
   let component: DiceDialogComponent;
   let fixture: ComponentFixture<DiceDialogComponent>;
 

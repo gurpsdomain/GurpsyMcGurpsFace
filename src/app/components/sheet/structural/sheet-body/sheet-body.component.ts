@@ -20,5 +20,3 @@ export class SheetBodyComponent {
     this.sheetBodyService.sheetBodyChange$.subscribe(sheetBodyContent => this.bodyContent = sheetBodyContent);
   }
 }
-
-

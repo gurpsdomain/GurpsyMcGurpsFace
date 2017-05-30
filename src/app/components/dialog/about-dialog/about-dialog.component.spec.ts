@@ -1,25 +1,48 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, TestBed} from '@angular/core/testing';
 import {AboutDialogComponent} from './about-dialog.component';
+import {FormsModule} from '@angular/forms';
+import {TranslateModule} from '@ngx-translate/core';
+import {GurpsyMaterialModule} from '../../../gurpsy-material.module';
+import {MdDialogRef, MdDialog} from '@angular/material';
+import {NgModule} from '@angular/core';
+
+@NgModule({
+  declarations: [AboutDialogComponent],
+  entryComponents: [AboutDialogComponent],
+  exports: [AboutDialogComponent]
+})
+class TestAboutDialogModule {}
 
 describe('AboutDialogComponent', () => {
   let component: AboutDialogComponent;
-  let fixture: ComponentFixture<AboutDialogComponent>;
+  let dialog: MdDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AboutDialogComponent]
+      declarations: [
+        AboutDialogComponent
+      ],
+      imports: [
+        TestAboutDialogModule,
+        TranslateModule.forRoot(),
+        GurpsyMaterialModule
+      ],
+      providers: [
+        MdDialogRef
+      ]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AboutDialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    dialog = TestBed.get(MdDialog);
+    const dialogRef = dialog.open(AboutDialogComponent);
+
+    component = dialogRef.componentInstance;
   });
 
-  // it('should create', () => {
+  // it('should create an About Dialog Component', () => {
   //   expect(component).toBeTruthy();
   // });
 });

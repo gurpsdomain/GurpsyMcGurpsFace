@@ -1,6 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FileInputComponent} from './file-input.component';
-import {MaterialModule} from '@angular/material';
 import {GurpsyMaterialModule} from '../../../gurpsy-material.module';
 
 describe('FileInputComponent', () => {
@@ -25,7 +24,7 @@ describe('FileInputComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a reusable generic File Input Component', () => {
     expect(component).toBeTruthy();
   });
 });

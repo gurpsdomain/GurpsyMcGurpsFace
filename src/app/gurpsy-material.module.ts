@@ -1,3 +1,4 @@
+import 'hammerjs';
 import {NgModule} from '@angular/core';
 import {
   MdButtonModule,
