@@ -9,14 +9,25 @@ import {
 import {SettingsService} from '../settings/settings.service';
 
 @Injectable()
-export class LibraryService {
+export class PageReferenceService {
 
   private referenceRequest = new Subject<Reference>();
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
-  private settingsService: SettingsService;
 
-  constructor(settingsService: SettingsService) {
-    this.settingsService = settingsService;
+  constructor(private settingsService: SettingsService) {
+  }
+
+  /**
+   * Test whether a Reference has been configered for the given input.
+   * @param reference {string} of the form B37 or M42;
+   * @return {boolean}
+   */
+  public isReferenceAvailable(reference: string): boolean {
+    if (!!reference && reference.lastIndexOf('B') === 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
@@ -41,24 +52,6 @@ export class LibraryService {
    */
   public getReferenceChange(): Observable<Reference> {
     return this.referenceRequestedObservable$;
-  }
-
-  /**
-   * Set BookConfigurations;
-   *
-   * @param BookConfiguration[]
-   */
-  public storeBookConfigurations(bookConfigurations: BookConfiguration[]) {
-    this.settingsService.storeBookConfigurations(bookConfigurations);
-  }
-
-  /**
-   * Retrieve the given BookConfigurations;
-   *
-   * @returns Promise<BookConfiguration[]>
-   */
-  public getBookConfigurations(): Promise<BookConfiguration[]> {
-    return this.settingsService.getBookConfigurations();
   }
 
   /**

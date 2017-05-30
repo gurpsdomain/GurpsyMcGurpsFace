@@ -49,7 +49,7 @@ import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {BookConfigurationComponent} from './components/generic/book-configuration/book-configuration.component';
 import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';
-import {LibraryService} from './services/front-end/library/library.service';
+import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -117,7 +117,7 @@ export function HttpLoaderFactory(http: Http) {
     SettingsService,
     SettingsStorageDelegate,
     LanguagesService,
-    LibraryService,
+    PageReferenceService,
     LoggingService,
     StorageService,
     SheetStorageDelegate,

@@ -1,22 +1,30 @@
-import {Component, Input} from '@angular/core';
-import {LibraryService} from '../../../services/front-end/library/library.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
 
 @Component({
   selector: 'gurpsy-page-reference',
   templateUrl: 'page-reference.component.html',
   styleUrls: ['page-reference.component.scss']
 })
-export class PageReferenceComponent {
+export class PageReferenceComponent implements OnInit {
 
-  @Input() pageReference: string;
+  @Input()
+  public pageReference: string;
 
-  private pageReferenceService: LibraryService
+  public available = false;
 
-  constructor(pageReferenceService: LibraryService) {
-    this.pageReferenceService = pageReferenceService;
+  constructor(private pageReferenceService: PageReferenceService) {
+  }
+
+  ngOnInit(): void {
+    this.setAvailable(this.pageReferenceService.isReferenceAvailable(this.pageReference));
   }
 
   public onGotoReference(): void {
     this.pageReferenceService.showReference(this.pageReference);
+  }
+
+  private setAvailable(available: boolean): void {
+    this.available = available;
   }
 }

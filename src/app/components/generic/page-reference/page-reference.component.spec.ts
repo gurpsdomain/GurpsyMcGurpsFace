@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {PageReferenceComponent} from './page-reference.component';
-import {LibraryService} from '../../../services/front-end/library/library.service';
+import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {StorageService} from '../../../services/back-end/storage/storage.service';
 import {SheetStorageDelegate} from '../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
@@ -18,7 +18,7 @@ describe('PageReferenceComponent', () => {
       ],
       providers: [
         JsonService,
-        LibraryService,
+        PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,
         SheetStorageDelegate,

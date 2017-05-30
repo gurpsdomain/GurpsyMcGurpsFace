@@ -1,6 +1,6 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
-import {LibraryService} from '../../../services/front-end/library/library.service';
+import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
 import {BookConfigurationImpl, Book} from '../../../models/book-configuration/book-configuration-implementation';
 import {isArray} from 'util';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
@@ -16,13 +16,13 @@ export class BooksConfigurationComponent implements OnInit {
   public availableBooks: Array<Book> = [];
   public validConfigurations = true;
 
-  private libraryService: LibraryService;
+  private pageReferenceService: PageReferenceService;
   private settingsService: SettingsService;
 
   @Output() public changeBooksConfiguration: EventEmitter<any> = new EventEmitter();
 
-  constructor(libraryService: LibraryService, settingsService: SettingsService) {
-    this.libraryService = libraryService;
+  constructor(pageReferenceService: PageReferenceService, settingsService: SettingsService) {
+    this.pageReferenceService = pageReferenceService;
     this.settingsService = settingsService;
   }
 
@@ -93,7 +93,7 @@ export class BooksConfigurationComponent implements OnInit {
   }
 
   private reloadAvailableBooks(updateValidity: boolean): void {
-    this.libraryService.getBooks().then(books => this.setAvailableBooks(books, updateValidity));
+    this.pageReferenceService.getBooks().then(books => this.setAvailableBooks(books, updateValidity));
   }
 
   private setAvailableBooks(books: Book[], updateValidity: boolean): void {

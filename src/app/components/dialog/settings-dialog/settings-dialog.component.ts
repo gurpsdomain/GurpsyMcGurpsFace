@@ -75,7 +75,7 @@ export class SettingsDialogComponent implements OnInit {
    * Handle the situation where a BookConfiguration changes.
    */
   public onChangeBooksConfiguration(): void {
-    this.storeBookConfigurations();
+    this.settingsService.storeBookConfigurations(this.bookConfigurationChild.bookConfigurations);
   }
 
   /**
@@ -83,10 +83,6 @@ export class SettingsDialogComponent implements OnInit {
    */
   public onDeleteSettings(): void {
     this.settingsService.kill();
-  }
-
-  private storeBookConfigurations(): void {
-    this.settingsService.storeBookConfigurations(this.bookConfigurationChild.bookConfigurations);
   }
 
   private initPreviouslyOpenedSheetList(): void {

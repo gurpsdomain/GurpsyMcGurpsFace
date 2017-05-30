@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BooksConfigurationComponent} from './books-configuration.component';
-import {LibraryService} from '../../../services/front-end/library/library.service';
+import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
@@ -16,7 +16,7 @@ describe('BooksConfigurationComponent', () => {
         BooksConfigurationComponent],
       providers: [
         JsonService,
-        LibraryService,
+        PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,
         SheetStorageDelegate
