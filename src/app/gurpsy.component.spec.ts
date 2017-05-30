@@ -42,7 +42,7 @@ import {PageReferenceComponent} from './components/generic/page-reference/page-r
 import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
-import {GurpsyMaterialModule} from './gurpsy-material.module';
+import {GurpsyMaterialModule} from './modules/material.module';
 import {Http, ConnectionBackend, RequestOptions, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';

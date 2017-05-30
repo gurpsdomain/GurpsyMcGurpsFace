@@ -3,7 +3,7 @@ import {async, TestBed} from '@angular/core/testing';
 import {AboutDialogComponent} from './about-dialog.component';
 import {FormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
-import {GurpsyMaterialModule} from '../../../gurpsy-material.module';
+import {GurpsyMaterialModule} from '../../../modules/material.module';
 import {MdDialogRef, MdDialog} from '@angular/material';
 import {NgModule} from '@angular/core';
 

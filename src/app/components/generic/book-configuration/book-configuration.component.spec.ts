@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BookConfigurationComponent} from './book-configuration.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {GurpsyMaterialModule} from '../../../gurpsy-material.module';
+import {GurpsyMaterialModule} from '../../../modules/material.module';
 
 describe('BookConfigurationComponent', () => {
   let component: BookConfigurationComponent;

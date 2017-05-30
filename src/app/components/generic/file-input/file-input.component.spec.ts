@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FileInputComponent} from './file-input.component';
-import {GurpsyMaterialModule} from '../../../gurpsy-material.module';
+import {GurpsyMaterialModule} from '../../../modules/material.module';
 
 describe('FileInputComponent', () => {
   let component: FileInputComponent;

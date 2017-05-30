@@ -53,7 +53,7 @@ import {LibraryService} from './services/front-end/library/library.service';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {GurpsyMaterialModule} from './gurpsy-material.module';
+import {GurpsyMaterialModule} from './modules/material.module';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 
 export function HttpLoaderFactory(http: Http) {
