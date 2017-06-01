@@ -14,10 +14,10 @@ import {InputSheet} from '../../../models/sheet/input';
 })
 export class SettingsDialogComponent implements OnInit {
 
-  public storedSheets: InputSheet[] = [];
   public clearSettings = true;
   public nightTheme = false;
   public serverUrl: string;
+  public storedSheets: InputSheet[] = [];
 
   private sheetsToDelete: InputSheet[] = [];
 

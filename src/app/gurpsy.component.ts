@@ -33,7 +33,7 @@ export class GurpsyComponent implements OnInit {
   private aboutDialogRef: MdDialogRef<AboutDialogComponent>;
   private diceDialogRef: MdDialogRef<DiceDialogComponent>;
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
-  private deleteSettingsDialogRef: MdDialogRef<SettingsDialogComponent>;
+  private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
 
   public theme: string;
   public showLibrary: boolean;
@@ -59,6 +59,9 @@ export class GurpsyComponent implements OnInit {
     this.initTheme();
   }
 
+  /**
+   * Call when the TrowDice dialog should shown.
+   */
   public onOpenThrowDiceDialog(): void {
     this.diceDialogRef = this.dialog.open(DiceDialogComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,
@@ -70,6 +73,9 @@ export class GurpsyComponent implements OnInit {
     );
   }
 
+  /**
+   * Call when the AboutDialog should be shown.
+   */
   public onOpenAboutDialog(): void {
     this.aboutDialogRef = this.dialog.open(AboutDialogComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,
@@ -81,6 +87,9 @@ export class GurpsyComponent implements OnInit {
     );
   }
 
+  /**
+   * Call when the OpenSheet dialog should be shown.
+   */
   public onOpenSheetDialog(): void {
     this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,
@@ -92,17 +101,25 @@ export class GurpsyComponent implements OnInit {
     );
   }
 
-  public onOpenDeleteSettingsDialog(): void {
-    this.deleteSettingsDialogRef = this.dialog.open(SettingsDialogComponent, {
+  /**
+   * Call when the SettingsDialog should be shown.
+   */
+  public onOpenSettingsDialog(): void {
+    this.settingsDialogRef = this.dialog.open(SettingsDialogComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,
       disableClose: false
     });
 
-    this.deleteSettingsDialogRef.afterClosed().subscribe(
-      this.deleteSettingsDialogRef = null
+    this.settingsDialogRef.afterClosed().subscribe(
+      this.settingsDialogRef = null
     );
   }
 
+  /**
+   * Call when the library should be shown.
+   *
+   * @param {boolean} show
+   */
   public onShowLibrary(show: boolean): void {
     this.showLibrary = show;
   }
