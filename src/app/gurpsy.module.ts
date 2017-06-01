@@ -44,7 +44,7 @@ import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.c
 import {LoggingService} from './services/back-end/logging/logging.service';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
-import {LibraryComponent} from './components/library/library.component';
+import {LibraryComponent} from './components/book-viewer/book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {BookConfigurationComponent} from './components/generic/book-configuration/book-configuration.component';
 import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';

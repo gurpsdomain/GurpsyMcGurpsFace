@@ -1,5 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {LibraryComponent} from './library.component';
+import {LibraryComponent} from './book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {PageReferenceService} from '../../services/front-end/page-reference/page-reference.service';

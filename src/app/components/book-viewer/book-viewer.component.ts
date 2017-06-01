@@ -3,8 +3,8 @@ import {PageReferenceService} from '../../services/front-end/page-reference/page
 import {Reference} from '../../models/book-configuration/book-configuration-implementation';
 
 @Component({
-  selector: 'gurpsy-library',
-  templateUrl: 'library.component.html'
+  selector: 'gurpsy-book-viewer',
+  templateUrl: 'book-viewer.component.html'
 })
 export class LibraryComponent implements OnInit {
 
@@ -60,8 +60,6 @@ export class LibraryComponent implements OnInit {
   public onLast(): void {
     this.page = this.pdf.numPages;
   }
-
-
 
   /**
    * Call when the zoom level is incremented.
