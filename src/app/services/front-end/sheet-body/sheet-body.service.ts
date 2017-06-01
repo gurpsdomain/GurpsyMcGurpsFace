@@ -9,10 +9,8 @@ export class SheetBodyService {
   public sheetBodyChange$ = this.sheetBodyContentSource.asObservable();
 
   private bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
-  private configService: SettingsService;
 
-  constructor(configService: SettingsService) {
-    this.configService = configService;
+  constructor(private settingsService: SettingsService) {
     this.initSheetBodyContent();
   }
 
@@ -22,7 +20,7 @@ export class SheetBodyService {
    * @param sheetBodyContent
    */
   public setSheetBodyContent(sheetBodyContent: SheetBodyContent): void {
-    this.configService.setBodyContent(sheetBodyContent);
+    this.settingsService.setBodyContent(sheetBodyContent);
     this.handleSheetBodyChange(sheetBodyContent);
   }
 
@@ -38,10 +36,10 @@ export class SheetBodyService {
   }
 
   private initSheetBodyContent(): void {
-    this.configService.getBodyContent().then(bodyContent =>
+    this.settingsService.getBodyContent().then(bodyContent =>
       this.setSheetBodyContent(bodyContent)).catch(err =>
       this.setSheetBodyContent(SheetBodyContent.GENERAL));
-    this.configService.getConfigObserver().subscribe(config => this.handleSheetBodyChange(config.bodyContent.valueOf()));
+    this.settingsService.getConfigObserver().subscribe(config => this.handleSheetBodyChange(config.bodyContent.valueOf()));
   }
 
   private isSheetBodyContentInvalid(sheetBodyContent: SheetBodyContent): boolean {
