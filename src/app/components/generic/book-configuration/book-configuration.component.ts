@@ -1,6 +1,5 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
-import {Book} from '../../../models/book-configuration/book-configuration-implementation';
+import {Book, BookModel} from '../../../models/book-configuration/book-model';
 
 @Component({
   selector: 'gurpsy-book-configuration',
@@ -11,7 +10,7 @@ export class BookConfigurationComponent implements OnInit {
 
   public static PDF_MATCHER = '(.*?)\.(PDF|pdf)$'
 
-  @Input() public configuration: BookConfiguration;
+  @Input() public configuration: BookModel;
   @Input() public availableBooks: Array<Book>;
   @Output() public deleteBookConfiguration: EventEmitter<any> = new EventEmitter();
   @Output() public changeBookConfiguration: EventEmitter<any> = new EventEmitter();

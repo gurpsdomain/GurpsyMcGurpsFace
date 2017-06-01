@@ -3,8 +3,8 @@ import {StorageService} from '../../back-end/storage/storage.service';
 import {Observable, Subject} from 'rxjs';
 import {Config, ConfigImpl} from '../../../models/config/config';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
-import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {InputSheet} from '../../../models/sheet/input';
+import {BookModel} from '../../../models/book-configuration/book-model';
 
 @Injectable()
 export class SettingsService {
@@ -36,7 +36,7 @@ export class SettingsService {
    *
    * @param BookConfiguration[]
    */
-  public storeBookConfigurations(bookConfigurations: BookConfiguration[]) {
+  public storeBookConfigurations(bookConfigurations: BookModel[]) {
     this.storageService.storeBookConfigurations(bookConfigurations);
   }
 
@@ -70,9 +70,9 @@ export class SettingsService {
   /**
    * Retrieve the given BookConfigurations from Locale Storage.
    *
-   * @returns Promise<BookConfiguration[]>
+   * @returns Promise<BookModel[]>
    */
-  public getBookConfigurations(): Promise<BookConfiguration[]> {
+  public getBookConfigurations(): Promise<BookModel[]> {
     return this.storageService.getBookConfigurations();
   }
 

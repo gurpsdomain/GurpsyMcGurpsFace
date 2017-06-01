@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {ConfigImpl, Config} from '../../../../../models/config/config';
 import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
-import {BookConfiguration} from '../../../../../models/book-configuration/book-configuration';
+import {BookModel} from '../../../../../models/book-configuration/book-model';
 
 @Injectable()
 export class SettingsStorageDelegate {
@@ -38,7 +38,7 @@ export class SettingsStorageDelegate {
    *
    * @param BookConfiguration[]
    */
-  public storeBookConfigurations(bookConfigurations: BookConfiguration[]) {
+  public storeBookConfigurations(bookConfigurations: BookModel[]) {
     const config: Config = this.retrieve();
     config.books = bookConfigurations;
 
@@ -101,7 +101,7 @@ export class SettingsStorageDelegate {
    *
    * @returns Promise<BookConfiguration[]> the current BookConfigurations.
    */
-  public retrieveBookConfigurations(): Promise<BookConfiguration[]> {
+  public retrieveBookConfigurations(): Promise<BookModel[]> {
     const config: Config = this.retrieve();
 
     if (!config.books) {

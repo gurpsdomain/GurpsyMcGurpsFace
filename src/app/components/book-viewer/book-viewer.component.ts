@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PageReferenceService} from '../../services/front-end/page-reference/page-reference.service';
-import {Reference} from '../../models/book-configuration/book-configuration-implementation';
+import {Reference} from '../../models/book-configuration/reference-model';
 
 @Component({
   selector: 'gurpsy-book-viewer',

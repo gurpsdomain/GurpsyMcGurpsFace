@@ -1,10 +1,10 @@
-import {BookConfiguration} from '../book-configuration/book-configuration';
+import {BookModel} from '../book-configuration/book-model';
 
 export interface Config {
   bodyContent: Number;
   serverUrl: string;
   theme: string;
-  books: BookConfiguration[];
+  books: BookModel[];
 }
 
 export class ConfigImpl implements Config {

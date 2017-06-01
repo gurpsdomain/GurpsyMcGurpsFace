@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
 import {
-  Reference,
-  BookConfigurationImpl,
+  BookModel,
   Book
-} from '../../../models/book-configuration/book-configuration-implementation';
+} from '../../../models/book-configuration/book-model';
 import {SettingsService} from '../settings/settings.service';
+import {Reference} from '../../../models/book-configuration/reference-model';
 
 @Injectable()
 export class PageReferenceService {
@@ -71,7 +71,7 @@ export class PageReferenceService {
   }
 
   private parseReference(reference: string): Reference {
-    const book = new BookConfigurationImpl();
+    const book = new BookModel();
     book.book = Book.BASICS;
     book.file = '/gurpsbasics.pdf';
     book.offset = 0;

@@ -1,7 +1,6 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
-import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
-import {BookConfigurationImpl, Book} from '../../../models/book-configuration/book-configuration-implementation';
+import {BookModel, Book} from '../../../models/book-configuration/book-model';
 import {isArray} from 'util';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 
@@ -12,7 +11,7 @@ import {SettingsService} from '../../../services/front-end/settings/settings.ser
 })
 export class BooksConfigurationComponent implements OnInit {
 
-  public bookConfigurations: Array<BookConfiguration> = [];
+  public bookConfigurations: Array<BookModel> = [];
   public availableBooks: Array<Book> = [];
   public validConfigurations = true;
 
@@ -28,7 +27,7 @@ export class BooksConfigurationComponent implements OnInit {
       .catch(any => this.asyncInit([]));
   }
 
-  private asyncInit(bookConfigurations: BookConfiguration[]): void {
+  private asyncInit(bookConfigurations: BookModel[]): void {
     this.setBookConfigurations(bookConfigurations);
 
     this.reloadAvailableBooks(true);
@@ -52,7 +51,7 @@ export class BooksConfigurationComponent implements OnInit {
   /**
    * Called when the user deletes one of tge underlying bookConfiguration
    */
-  public onDeleteBookConfiguration(book: BookConfiguration): void {
+  public onDeleteBookConfiguration(book: BookModel): void {
     this.deleteBookConfiguration(book);
     this.changeBooksConfiguration.next();
     this.reloadAvailableBooks(true);
@@ -68,19 +67,19 @@ export class BooksConfigurationComponent implements OnInit {
     this.reloadAvailableBooks(false);
   }
 
-  private createNewBookConfiguration(): BookConfiguration {
-    const bookConfiguration = new BookConfigurationImpl();
+  private createNewBookConfiguration(): BookModel {
+    const bookConfiguration = new BookModel();
     bookConfiguration.book = this.availableBooks[0];
 
     return bookConfiguration;
   }
 
-  private deleteBookConfiguration(book: BookConfiguration): void {
+  private deleteBookConfiguration(book: BookModel): void {
     const index = this.bookConfigurations.lastIndexOf(book);
     this.bookConfigurations.splice(index, 1);
   }
 
-  private setBookConfigurations(bookConfigurations: BookConfiguration[]) {
+  private setBookConfigurations(bookConfigurations: BookModel[]) {
     if (isArray(bookConfigurations)) {
       this.bookConfigurations = bookConfigurations;
     } else {
