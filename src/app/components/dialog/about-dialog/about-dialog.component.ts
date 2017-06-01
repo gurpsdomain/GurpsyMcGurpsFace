@@ -6,7 +6,4 @@ import {Component} from '@angular/core';
   styleUrls: ['./about-dialog.component.scss']
 })
 export class AboutDialogComponent {
-
-  constructor() {
-  }
 }

@@ -6,7 +6,6 @@ import {PortraitComponent} from '../../../reusable/portrait/portrait.component';
 import {PointsComponent} from '../../../reusable/points/points.component';
 import {DescriptionComponent} from '../../../reusable/description/description.component';
 import {ModelService} from '../../../../../services/front-end/model/model.service';
-import {JsonService} from '../../../../../services/back-end/json/json.service';
 import {StorageService} from '../../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -54,7 +53,6 @@ describe('GeneralComponent', () => {
         ModelService,
         ModelTransformerService,
         SettingsService,
-        JsonService,
         LoggingService,
         StorageService,
         SettingsStorageDelegate,

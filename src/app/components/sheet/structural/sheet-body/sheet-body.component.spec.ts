@@ -10,7 +10,6 @@ import {SkillsComponent} from '../../reusable/skills/skills.component';
 import {GeneralComponent} from './general/general.component';
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {ModelService} from '../../../../services/front-end/model/model.service';
-import {JsonService} from '../../../../services/back-end/json/json.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -72,7 +71,6 @@ describe('SheetBodyComponent', () => {
         BaseRequestOptions,
         SettingsService,
         SettingsStorageDelegate,
-        JsonService,
         LoggingService,
         ModelService,
         ModelTransformerService,

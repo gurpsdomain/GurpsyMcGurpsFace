@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {JsonService} from '../../../json/json.service';
 import {InputSheet, InputSheets} from '../../../../../models/sheet/input';
 import {InputSheetsImpl} from '../../../../../models/sheet/input-impl';
 
@@ -9,8 +8,6 @@ import {InputSheetsImpl} from '../../../../../models/sheet/input-impl';
 export class SheetStorageDelegate {
 
   private static STORAGE_KEY = '.sheets';
-
-  private jsonService: JsonService;
 
   private subjectChangeSource = new Subject<string>();
 
@@ -22,10 +19,7 @@ export class SheetStorageDelegate {
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor(jsonService: JsonService) {
-
-    this.jsonService = jsonService;
-
+  constructor() {
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 

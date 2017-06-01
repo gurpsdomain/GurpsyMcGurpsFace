@@ -1,6 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {FatigueHitComponent} from './fatigue-hit.component';
-import {JsonService} from '../../../../services/back-end/json/json.service';
 import {ModelService} from '../../../../services/front-end/model/model.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -33,7 +32,6 @@ describe('FatigueHitComponent', () => {
         LoggingService,
         ModelService,
         ModelTransformerService,
-        JsonService,
         SettingsStorageDelegate,
         SheetStorageDelegate,
         StorageService

@@ -9,7 +9,6 @@ import {SheetStorageDelegate} from '../../back-end/storage/delegates/sheet-stora
 import {StorageService} from '../../back-end/storage/storage.service';
 import {SettingsStorageDelegate} from '../../back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SettingsService} from '../settings/settings.service';
-import {JsonService} from '../../back-end/json/json.service';
 
 describe('ModelService', () => {
   beforeEach(() => {
@@ -19,7 +18,6 @@ describe('ModelService', () => {
         SettingsStorageDelegate,
         Http,
         LoggingService,
-        JsonService,
         MockBackend,
         ModelService,
         ModelTransformerService,

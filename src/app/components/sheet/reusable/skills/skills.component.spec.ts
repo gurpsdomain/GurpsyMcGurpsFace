@@ -3,7 +3,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {SkillsComponent} from './skills.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {ModelService} from '../../../../services/front-end/model/model.service';
-import {JsonService} from '../../../../services/back-end/json/json.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -41,7 +40,6 @@ describe('SkillsComponent', () => {
         LoggingService,
         ModelService,
         ModelTransformerService,
-        JsonService,
         StorageService,
         SettingsStorageDelegate,
         SheetStorageDelegate

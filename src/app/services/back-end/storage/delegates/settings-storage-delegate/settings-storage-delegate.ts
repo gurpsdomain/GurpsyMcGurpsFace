@@ -2,7 +2,6 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {ConfigImpl, Config} from '../../../../../models/config/config';
-import {JsonService} from '../../../json/json.service';
 import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
 import {BookConfiguration} from '../../../../../models/book-configuration/book-configuration';
 
@@ -12,7 +11,6 @@ export class SettingsStorageDelegate {
   private static STORAGE_KEY = '.config';
 
   private subjectChangeSource = new Subject<Config>();
-  private jsonService: JsonService;
 
   /**
    * Register to this observable to be notified when the value is changed
@@ -22,9 +20,7 @@ export class SettingsStorageDelegate {
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor(jsonService: JsonService) {
-    this.jsonService = jsonService;
-
+  constructor() {
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
@@ -154,7 +150,7 @@ export class SettingsStorageDelegate {
     const config: string = localStorage.getItem(this.getStorageKey());
 
     if (config) {
-      return this.jsonService.parseJsonConfig(config);
+      return JSON.parse(config);
     } else {
       return new ConfigImpl();
     }
@@ -170,7 +166,7 @@ export class SettingsStorageDelegate {
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getStorageKey()) {
-      this.change(this.jsonService.parseJsonConfig(event.newValue));
+      this.change(JSON.parse(event.newValue));
     }
   }
 }

@@ -4,7 +4,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';
-// tslint:disable-next-line max-line-length
 import {SheetHeaderComponent} from './components/sheet/structural/sheet-header/sheet-header.component';
 import {PortraitComponent} from './components/sheet/reusable/portrait/portrait.component';
 import {IdentityComponent} from './components/sheet/reusable/identity/identity.component';
@@ -17,7 +16,6 @@ import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {LanguagesService} from './services/front-end/languages/languages.service';
 import {ModelService} from './services/front-end/model/model.service';
-import {JsonService} from './services/back-end/json/json.service';
 import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
@@ -27,7 +25,6 @@ import {EquipmentComponent} from './components/sheet/reusable/equipment/equipmen
 import {SpellsComponent} from './components/sheet/reusable/spells/spells.component';
 import {SkillsComponent} from './components/sheet/reusable/skills/skills.component';
 import {SheetBodyService} from './services/front-end/sheet-body/sheet-body.service';
-// tslint:disable-next-line max-line-length
 import {GeneralComponent} from './components/sheet/structural/sheet-body/general/general.component';
 import {AttributesComponent} from './components/sheet/reusable/attributes/attributes.component';
 import {HitLocationComponent} from './components/sheet/reusable/hit-location/hit-location.component';
@@ -43,7 +40,7 @@ import {LibraryComponent} from './components/library/library.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {GurpsyMaterialModule} from './modules/material.module';
-import {Http, ConnectionBackend, RequestOptions, HttpModule, BaseRequestOptions} from '@angular/http';
+import {Http, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
@@ -104,7 +101,6 @@ describe('GurpsyComponent', () => {
         StorageService,
         SheetStorageDelegate,
         ModelService,
-        JsonService,
         SheetBodyService
       ]
     });
