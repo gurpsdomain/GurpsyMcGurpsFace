@@ -16,14 +16,10 @@ export class BooksConfigurationComponent implements OnInit {
   public availableBooks: Array<Book> = [];
   public validConfigurations = true;
 
-  private pageReferenceService: PageReferenceService;
-  private settingsService: SettingsService;
-
   @Output() public changeBooksConfiguration: EventEmitter<any> = new EventEmitter();
 
-  constructor(pageReferenceService: PageReferenceService, settingsService: SettingsService) {
-    this.pageReferenceService = pageReferenceService;
-    this.settingsService = settingsService;
+  constructor(private pageReferenceService: PageReferenceService,
+              private settingsService: SettingsService) {
   }
 
   public ngOnInit(): void {

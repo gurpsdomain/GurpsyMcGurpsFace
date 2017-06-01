@@ -16,7 +16,7 @@ export class PageReferenceComponent implements OnInit {
   constructor(private pageReferenceService: PageReferenceService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.setAvailable(this.pageReferenceService.isReferenceAvailable(this.pageReference));
   }
 

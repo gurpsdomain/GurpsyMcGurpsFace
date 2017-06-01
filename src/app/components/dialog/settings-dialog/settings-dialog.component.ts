@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MdDialogRef, MdCheckboxChange} from '@angular/material';
-import {StorageService} from '../../../services/back-end/storage/storage.service';
+import {MdCheckboxChange} from '@angular/material';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
 import {InputSheet} from '../../../models/sheet/input';
@@ -21,16 +20,11 @@ export class SettingsDialogComponent implements OnInit {
   public serverUrl: string;
 
   private sheetsToDelete: InputSheet[] = [];
-  private dialogRef: MdDialogRef<SettingsDialogComponent>;
-
-  private settingsService: SettingsService;
 
   @ViewChild(BooksConfigurationComponent)
   private bookConfigurationChild: BooksConfigurationComponent;
 
-  constructor(dialogRef: MdDialogRef<SettingsDialogComponent>, configService: SettingsService, storage: StorageService) {
-    this.dialogRef = dialogRef;
-    this.settingsService = configService;
+  constructor(private settingsService: SettingsService) {
   }
 
   public ngOnInit(): void {

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SheetBodyService, SheetBodyContent} from '../../../../services/front-end/sheet-body/sheet-body.service';
 
 @Component({
@@ -6,17 +6,15 @@ import {SheetBodyService, SheetBodyContent} from '../../../../services/front-end
   templateUrl: 'sheet-body.component.html',
   styleUrls: ['../../sheet.component.scss']
 })
-export class SheetBodyComponent {
+export class SheetBodyComponent implements OnInit {
 
   public bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
-
   public sheetBodyComponents = SheetBodyContent;
 
-  private sheetBodyService: SheetBodyService;
+  constructor(private sheetBodyService: SheetBodyService) {
+  }
 
-  constructor(sheetBodyService: SheetBodyService) {
-    this.sheetBodyService = sheetBodyService;
-
+  public ngOnInit(): void {
     this.sheetBodyService.sheetBodyChange$.subscribe(sheetBodyContent => this.bodyContent = sheetBodyContent);
   }
 }

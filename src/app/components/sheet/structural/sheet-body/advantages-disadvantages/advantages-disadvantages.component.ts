@@ -6,5 +6,4 @@ import {Component} from '@angular/core';
   styleUrls: ['../../../sheet.component.scss']
 })
 export class AdvantagesDisadvantagesComponent {
-
 }

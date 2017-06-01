@@ -13,10 +13,7 @@ export class PortraitComponent implements OnInit {
 
   public sheet: OutputSheet;
 
-  private modelReadService: ModelService;
-
-  constructor(modelReadService: ModelService) {
-    this.modelReadService = modelReadService;
+  constructor(private modelReadService: ModelService) {
   }
 
   ngOnInit(): void {

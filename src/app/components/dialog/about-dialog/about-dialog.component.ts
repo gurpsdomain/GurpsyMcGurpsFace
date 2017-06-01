@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MdDialogRef} from '@angular/material';
 
 @Component({
   selector: 'gurpsy-delete-settings-dialog',
@@ -8,11 +7,6 @@ import {MdDialogRef} from '@angular/material';
 })
 export class AboutDialogComponent {
 
-
-  private dialogRef: MdDialogRef<AboutDialogComponent>;
-
-  constructor(dialogRef: MdDialogRef<AboutDialogComponent>) {
-    this.dialogRef = dialogRef;
-
+  constructor() {
   }
 }

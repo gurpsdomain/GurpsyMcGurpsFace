@@ -2,10 +2,7 @@ import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {ModelService} from '../../../services/front-end/model/model.service';
 import {StorageService} from '../../../services/back-end/storage/storage.service';
-import {OutputSheet} from '../../../models/sheet/output';
 import {InputSheet} from '../../../models/sheet/input';
-import {LoggingService} from '../../../services/back-end/logging/logging.service';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'gurpsy-open-sheet-dialog',
@@ -24,22 +21,9 @@ export class OpenSheetDialogComponent {
 
   private selectedPreviousSheet: InputSheet = null;
 
-  private dialogRef: MdDialogRef<OpenSheetDialogComponent>;
-  private logginService: LoggingService;
-  private modelService: ModelService;
-  private storageService: StorageService;
-  private translateService: TranslateService;
-
-  constructor(dialogRef: MdDialogRef<OpenSheetDialogComponent>,
-              loggingService: LoggingService,
-              modelService: ModelService,
-              storageService: StorageService,
-              translateService: TranslateService) {
-    this.dialogRef = dialogRef;
-    this.logginService = loggingService;
-    this.modelService = modelService;
-    this.storageService = storageService;
-    this.translateService = translateService;
+  constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
+              private modelService: ModelService,
+              private storageService: StorageService) {
 
     this.initPreviouslyOpenedSheetList();
   }
