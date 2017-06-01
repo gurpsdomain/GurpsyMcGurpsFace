@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry, OverlayContainer} from '@angular/material';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {LanguagesService} from './services/front-end/languages/languages.service';
 import {ModelService} from './services/front-end/model/model.service';
 import {OutputSheet} from './models/sheet/output';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
@@ -11,6 +10,8 @@ import {LoggingService} from './services/back-end/logging/logging.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
+import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
+import {LanguagesService} from './services/front-end/languages/languages.service';
 
 @Component({
   selector: 'gurpsy-root',
@@ -29,34 +30,25 @@ export class GurpsyComponent implements OnInit {
   private static ICON_LIBRARY_NAME = 'books';
   private static ICON_LIBRARY_URL = 'assets/icons/book-open-page-variant.svg';
 
-  private languageService: LanguagesService;
-  private loggingService: LoggingService;
-  private settingsService: SettingsService;
-  private modelService: ModelService;
-  private snackBar: MdSnackBar;
-  private translate: TranslateService;
-  private overlayContainer: OverlayContainer;
-
   private aboutDialogRef: MdDialogRef<AboutDialogComponent>;
   private diceDialogRef: MdDialogRef<DiceDialogComponent>;
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private deleteSettingsDialogRef: MdDialogRef<SettingsDialogComponent>;
 
-  public dialog: MdDialog;
   public theme: string;
   public showLibrary: boolean;
 
-  constructor(settingsService: SettingsService, languageService: LanguagesService, loggingService: LoggingService,
-              dialog: MdDialog, modelService: ModelService, snackBar: MdSnackBar,
-              translate: TranslateService, iconRegistry: MdIconRegistry, sanitizer: DomSanitizer, overlayContainer: OverlayContainer) {
-    this.languageService = languageService;
-    this.loggingService = loggingService;
-    this.settingsService = settingsService;
-    this.dialog = dialog;
-    this.modelService = modelService;
-    this.snackBar = snackBar;
-    this.translate = translate;
-    this.overlayContainer = overlayContainer;
+  constructor(public dialog: MdDialog,
+              private settingsService: SettingsService,
+              private languageService: LanguagesService,
+              private loggingService: LoggingService,
+              private modelService: ModelService,
+              private pageReferenceService: PageReferenceService,
+              private snackBar: MdSnackBar,
+              private translate: TranslateService,
+              private iconRegistry: MdIconRegistry,
+              private sanitizer: DomSanitizer,
+              private overlayContainer: OverlayContainer) {
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
@@ -116,6 +108,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initLibrary(): void {
+    this.pageReferenceService.getReferenceChange().subscribe(reference => this.showLibrary = true);
     this.showLibrary = false;
   }
 

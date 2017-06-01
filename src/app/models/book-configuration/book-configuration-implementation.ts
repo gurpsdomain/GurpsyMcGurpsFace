@@ -7,8 +7,18 @@ export class BookConfigurationImpl implements BookConfiguration {
 }
 
 export class Reference {
-  bookConfiguration: BookConfiguration;
-  page: number;
+
+  public bookConfiguration: BookConfiguration;
+  private _page: number;
+
+  get page(): number {
+    return this._page;
+  }
+
+  set page(value: number) {
+    this._page = value;
+  }
+
 }
 
 export enum Book {

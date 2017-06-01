@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
-import {BookConfiguration} from '../../../models/book-configuration/book-configuration';
 import {
   Reference,
   BookConfigurationImpl,
@@ -20,7 +19,7 @@ export class PageReferenceService {
   /**
    * Test whether a Reference has been configered for the given input.
    * @param reference {string} of the form B37 or M42;
-   * @return {boolean}
+   * @return {boolean} Whether there is a reference available.
    */
   public isReferenceAvailable(reference: string): boolean {
     if (!!reference && reference.lastIndexOf('B') === 0) {
@@ -37,11 +36,10 @@ export class PageReferenceService {
    * component will register on this event to open the requested bookConfigurations in the
    * appropriate pdf.
    *
-   * @param reference {string} of the form B37 or M42
+   * @param {string} reference  A reference of the form B37 or M42
    */
   public showReference(reference: string): void {
     const parsedReference = this.parseReference(reference)
-    console.log('Showing page reference: ', reference);
     this.referenceRequest.next(parsedReference);
   }
 
