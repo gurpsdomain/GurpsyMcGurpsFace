@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Observable} from 'rxjs';
-import {Config} from '../../../models/config/config';
+import {Config} from '../../../models/settings/settings.model';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {InputSheet} from '../../../models/sheet/input';
 import {BookModel} from '../../../models/book-configuration/book-model';

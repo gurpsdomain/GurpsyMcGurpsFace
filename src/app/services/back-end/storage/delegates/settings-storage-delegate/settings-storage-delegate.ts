@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {ConfigImpl, Config} from '../../../../../models/config/config';
+import {ConfigImpl, Config} from '../../../../../models/settings/settings.model';
 import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
 import {BookModel} from '../../../../../models/book-configuration/book-model';
 
