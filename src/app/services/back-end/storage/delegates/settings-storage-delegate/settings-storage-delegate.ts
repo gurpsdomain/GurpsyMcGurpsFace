@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {ConfigImpl, Config} from '../../../../../models/settings/settings.model';
+import {SettingsImpl, Settings} from '../../../../../models/settings/settings.model';
 import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
 import {BookModel} from '../../../../../models/book-configuration/book-model';
 
@@ -10,7 +10,7 @@ export class SettingsStorageDelegate {
 
   private static STORAGE_KEY = '.config';
 
-  private subjectChangeSource = new Subject<Config>();
+  private subjectChangeSource = new Subject<Settings>();
 
   /**
    * Register to this observable to be notified when the value is changed
@@ -25,7 +25,7 @@ export class SettingsStorageDelegate {
   }
 
   /**
-   * Remove the Config settings from Local Storage.
+   * Remove the Settings settings from Local Storage.
    *
    */
   public clear(): void {
@@ -39,7 +39,7 @@ export class SettingsStorageDelegate {
    * @param BookConfiguration[]
    */
   public storeBookConfigurations(bookConfigurations: BookModel[]) {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
     config.books = bookConfigurations;
 
     this.store(config);
@@ -51,7 +51,7 @@ export class SettingsStorageDelegate {
    * @param Array<Book
    */
   public storeBodyContent(bodyContent: SheetBodyContent) {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
     config.bodyContent = bodyContent;
 
     this.store(config);
@@ -63,7 +63,7 @@ export class SettingsStorageDelegate {
    * @param theme
    */
   public storeTheme(theme: string) {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
     config.theme = theme;
 
     this.store(config);
@@ -75,7 +75,7 @@ export class SettingsStorageDelegate {
    * @param server URL
    */
   public storeServerUrl(serverUrl: string) {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
     config.serverUrl = serverUrl;
 
     this.store(config);
@@ -87,7 +87,7 @@ export class SettingsStorageDelegate {
    * @returns Promise<string> the current theme.
    */
   public retrieveBodyContent(): Promise<SheetBodyContent> {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
 
     if (!config.bodyContent) {
       return Promise.reject('No BodyContent stored, use default.');
@@ -102,7 +102,7 @@ export class SettingsStorageDelegate {
    * @returns Promise<BookConfiguration[]> the current BookConfigurations.
    */
   public retrieveBookConfigurations(): Promise<BookModel[]> {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
 
     if (!config.books) {
       return Promise.reject('No BookConfigurations stored.');
@@ -117,7 +117,7 @@ export class SettingsStorageDelegate {
    * @returns Promise<string> the current serverUrl.
    */
   public retrieveServerUrl(): Promise<string> {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
 
     if (config.serverUrl === '') {
       return Promise.reject('No serverUrl stored, use default.');
@@ -132,7 +132,7 @@ export class SettingsStorageDelegate {
    * @returns Promise<string> the current theme.
    */
   public retrieveTheme(): Promise<string> {
-    const config: Config = this.retrieve();
+    const config: Settings = this.retrieve();
 
     if (config.theme === '') {
       return Promise.reject('No theme stored, use default.');
@@ -141,22 +141,22 @@ export class SettingsStorageDelegate {
     }
   }
 
-  private store(config: Config) {
+  private store(config: Settings) {
     localStorage.setItem(this.getStorageKey(), JSON.stringify(config));
     this.change(config);
   }
 
-  private retrieve(): Config {
+  private retrieve(): Settings {
     const config: string = localStorage.getItem(this.getStorageKey());
 
     if (config) {
       return JSON.parse(config);
     } else {
-      return new ConfigImpl();
+      return new SettingsImpl();
     }
   }
 
-  private change(config: Config) {
+  private change(config: Settings) {
     this.subjectChangeSource.next(config);
   }
 

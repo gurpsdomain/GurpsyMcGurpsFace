@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../../back-end/storage/storage.service';
 import {Observable, Subject} from 'rxjs';
-import {Config, ConfigImpl} from '../../../models/settings/settings.model';
+import {Settings, SettingsImpl} from '../../../models/settings/settings.model';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {InputSheet} from '../../../models/sheet/input';
 import {BookModel} from '../../../models/book-configuration/book-model';
@@ -14,7 +14,7 @@ export class SettingsService {
   public static THEME_DEFAULT = SettingsService.THEME_DAY;
 
   private storageService: StorageService;
-  private configChangeSource = new Subject<Config>();
+  private configChangeSource = new Subject<Settings>();
   private configChange$ = this.configChangeSource.asObservable();
 
   constructor(storage: StorageService) {
@@ -117,9 +117,9 @@ export class SettingsService {
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
    *
-   * @type Observable<Config>
+   * @type Observable<Settings>
    */
-  public getConfigObserver(): Observable<Config> {
+  public getConfigObserver(): Observable<Settings> {
     return this.configChange$;
   }
 
@@ -137,11 +137,11 @@ export class SettingsService {
     this.storageService.getConfigObserver().subscribe(config => this.handleStorageConfigChange(config));
   }
 
-  private handleStorageConfigChange(newConfig: Config): void {
+  private handleStorageConfigChange(newConfig: Settings): void {
     let config = newConfig;
 
     if (config === null) {
-      config = new ConfigImpl();
+      config = new SettingsImpl();
     }
     this.configChangeSource.next(config);
   }

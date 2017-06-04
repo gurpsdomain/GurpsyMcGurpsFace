@@ -1,13 +1,13 @@
 import {BookModel} from '../book-configuration/book-model';
 
-export interface Config {
+export interface Settings {
   bodyContent: Number;
   serverUrl: string;
   theme: string;
   books: BookModel[];
 }
 
-export class ConfigImpl implements Config {
+export class SettingsImpl implements Settings {
   bodyContent = 0;
   serverUrl = '';
   theme = '';
