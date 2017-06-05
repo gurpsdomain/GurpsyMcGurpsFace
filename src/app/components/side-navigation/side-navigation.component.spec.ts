@@ -10,6 +10,7 @@ import {StorageService} from '../../services/back-end/storage/storage.service';
 import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {GurpsyMaterialModule} from '../../modules/material.module';
+import {LoggingService} from '../../services/back-end/logging/logging.service';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -25,6 +26,7 @@ describe('SideNavigationComponent', () => {
         TranslateModule.forRoot(),
         GurpsyMaterialModule],
       providers: [
+        LoggingService,
         SettingsService,
         SettingsStorageDelegate,
         SheetBodyService,

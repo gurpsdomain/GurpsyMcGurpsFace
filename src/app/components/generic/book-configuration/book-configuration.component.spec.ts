@@ -25,7 +25,7 @@ describe('BookConfigurationComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create a reusable generic Book Configuration Component', () => {
+  // it('should create a reusable generic BookEnum Configuration Component', () => {
   //   expect(component).toBeTruthy();
   // });
 });

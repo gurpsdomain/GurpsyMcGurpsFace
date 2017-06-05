@@ -7,15 +7,15 @@ export class LoggingService {
   private static INFO = 'INFO - ';
   private static WARNING = 'WARNING - ';
 
-  public warn(message: string) {
-    console.log(LoggingService.WARNING + message);
+  public warn(message: string, object?: any) {
+    console.log(LoggingService.WARNING + message, object);
   }
 
-  public error(message: string) {
-    console.log(LoggingService.ERROR + message);
+  public error(message: string, object?: any) {
+    console.log(LoggingService.ERROR + message, object);
   }
 
-  public info(message: string) {
-    console.log(LoggingService.INFO + message);
+  public info(message: string, object?: any) {
+    console.log(LoggingService.INFO + message, object);
   }
 }

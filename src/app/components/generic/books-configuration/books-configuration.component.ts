@@ -1,8 +1,9 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
-import {BookModel, Book} from '../../../models/book-configuration/book-model';
+import {BookEnum} from '../../../models/book-configuration/book-model';
 import {isArray} from 'util';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
+import {Book} from '../../../models/settings/book.model';
 
 @Component({
   selector: 'gurpsy-books-configuration',
@@ -11,8 +12,8 @@ import {SettingsService} from '../../../services/front-end/settings/settings.ser
 })
 export class BooksConfigurationComponent implements OnInit {
 
-  public bookConfigurations: Array<BookModel> = [];
-  public availableBooks: Array<Book> = [];
+  public bookConfigurations: Array<Book> = [];
+  public availableBooks: Array<BookEnum> = [];
   public validConfigurations = true;
 
   @Output() public changeBooksConfiguration: EventEmitter<any> = new EventEmitter();
@@ -27,7 +28,7 @@ export class BooksConfigurationComponent implements OnInit {
       .catch(any => this.asyncInit([]));
   }
 
-  private asyncInit(bookConfigurations: BookModel[]): void {
+  private asyncInit(bookConfigurations: Book[]): void {
     this.setBookConfigurations(bookConfigurations);
 
     this.reloadAvailableBooks(true);
@@ -51,7 +52,7 @@ export class BooksConfigurationComponent implements OnInit {
   /**
    * Called when the user deletes one of tge underlying bookConfiguration
    */
-  public onDeleteBookConfiguration(book: BookModel): void {
+  public onDeleteBookConfiguration(book: Book): void {
     this.deleteBookConfiguration(book);
     this.changeBooksConfiguration.next();
     this.reloadAvailableBooks(true);
@@ -67,19 +68,19 @@ export class BooksConfigurationComponent implements OnInit {
     this.reloadAvailableBooks(false);
   }
 
-  private createNewBookConfiguration(): BookModel {
-    const bookConfiguration = new BookModel();
+  private createNewBookConfiguration(): Book {
+    const bookConfiguration = new Book();
     bookConfiguration.book = this.availableBooks[0];
 
     return bookConfiguration;
   }
 
-  private deleteBookConfiguration(book: BookModel): void {
+  private deleteBookConfiguration(book: Book): void {
     const index = this.bookConfigurations.lastIndexOf(book);
     this.bookConfigurations.splice(index, 1);
   }
 
-  private setBookConfigurations(bookConfigurations: BookModel[]) {
+  private setBookConfigurations(bookConfigurations: Book[]) {
     if (isArray(bookConfigurations)) {
       this.bookConfigurations = bookConfigurations;
     } else {
@@ -91,7 +92,7 @@ export class BooksConfigurationComponent implements OnInit {
     this.pageReferenceService.getBooks().then(books => this.setAvailableBooks(books, updateValidity));
   }
 
-  private setAvailableBooks(books: Book[], updateValidity: boolean): void {
+  private setAvailableBooks(books: BookEnum[], updateValidity: boolean): void {
     for (const bookConfig of this.bookConfigurations) {
       const index = books.lastIndexOf(bookConfig.book);
       books.splice(index, 1);

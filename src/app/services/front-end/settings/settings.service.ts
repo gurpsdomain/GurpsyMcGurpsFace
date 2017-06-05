@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../../back-end/storage/storage.service';
 import {Observable, Subject} from 'rxjs';
-import {Settings, SettingsImpl} from '../../../models/settings/settings.model';
+// import {Settings, SettingsImpl} from '../../../models/settings/settings.model';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {InputSheet} from '../../../models/sheet/input';
-import {BookModel} from '../../../models/book-configuration/book-model';
+import {Book} from '../../../models/settings/book.model';
+import {Settings} from '../../../models/settings/settings.model';
+
 
 @Injectable()
 export class SettingsService {
@@ -36,7 +38,7 @@ export class SettingsService {
    *
    * @param BookConfiguration[]
    */
-  public storeBookConfigurations(bookConfigurations: BookModel[]) {
+  public storeBookConfigurations(bookConfigurations: Book[]) {
     this.storageService.storeBookConfigurations(bookConfigurations);
   }
 
@@ -70,9 +72,9 @@ export class SettingsService {
   /**
    * Retrieve the given BookConfigurations from Locale Storage.
    *
-   * @returns Promise<BookModel[]>
+   * @returns Promise<Book[]>
    */
-  public getBookConfigurations(): Promise<BookModel[]> {
+  public getBookConfigurations(): Promise<Book[]> {
     return this.storageService.getBookConfigurations();
   }
 
@@ -102,7 +104,6 @@ export class SettingsService {
   public getTheme(): Promise<string> {
     return this.storageService.getTheme();
   }
-
 
   /**
    * Get the value of the night theme.
@@ -137,12 +138,10 @@ export class SettingsService {
     this.storageService.getConfigObserver().subscribe(config => this.handleStorageConfigChange(config));
   }
 
-  private handleStorageConfigChange(newConfig: Settings): void {
-    let config = newConfig;
-
-    if (config === null) {
-      config = new SettingsImpl();
+  private handleStorageConfigChange(settings: Settings): void {
+    if (settings === null) {
+      settings = new Settings();
     }
-    this.configChangeSource.next(config);
+    this.configChangeSource.next(settings);
   }
 }

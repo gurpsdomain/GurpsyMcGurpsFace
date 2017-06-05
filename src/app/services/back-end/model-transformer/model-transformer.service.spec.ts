@@ -6,6 +6,7 @@ import {MockBackend} from '@angular/http/testing';
 import {StorageService} from '../storage/storage.service';
 import {SettingsStorageDelegate} from '../storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {LoggingService} from '../logging/logging.service';
 
 describe('ModelTransformerService', () => {
   beforeEach(() => {
@@ -13,6 +14,7 @@ describe('ModelTransformerService', () => {
       providers: [
         BaseRequestOptions,
         Http,
+        LoggingService,
         MockBackend,
         ModelTransformerService,
         SettingsService,

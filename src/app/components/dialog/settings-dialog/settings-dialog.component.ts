@@ -3,8 +3,6 @@ import {MdCheckboxChange} from '@angular/material';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
 import {InputSheet} from '../../../models/sheet/input';
-import {serialize} from 'json-typescript-mapper';
-import {SettingsModel} from '../../../models/typed-settings/settings.model';
 
 @Component({
   selector: 'gurpsy-settings-dialog',

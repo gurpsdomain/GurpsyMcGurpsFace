@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Observable} from 'rxjs';
-import {Settings} from '../../../models/settings/settings.model';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {InputSheet} from '../../../models/sheet/input';
-import {BookModel} from '../../../models/book-configuration/book-model';
+import {Settings} from '../../../models/settings/settings.model';
+import {Book} from '../../../models/settings/book.model';
 
 @Injectable()
 export class StorageService {
@@ -56,7 +56,7 @@ export class StorageService {
    *
    * @param BookConfiguration[]
    */
-  public storeBookConfigurations(bookConfigurations: BookModel[]) {
+  public storeBookConfigurations(bookConfigurations: Book[]) {
     this.configStorageDelegate.storeBookConfigurations(bookConfigurations);
   }
 
@@ -101,7 +101,7 @@ export class StorageService {
    *
    * @returns Promise<BookConfiguration[]>
    */
-  public getBookConfigurations(): Promise<BookModel[]> {
+  public getBookConfigurations(): Promise<Book[]> {
     return this.configStorageDelegate.retrieveBookConfigurations();
   }
 

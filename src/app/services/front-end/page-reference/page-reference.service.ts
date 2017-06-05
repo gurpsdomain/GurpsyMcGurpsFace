@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
 import {
   BookModel,
-  Book
+  BookEnum
 } from '../../../models/book-configuration/book-model';
 import {SettingsService} from '../settings/settings.service';
 import {Reference} from '../../../models/book-configuration/reference-model';
@@ -55,24 +55,24 @@ export class PageReferenceService {
   /**
    * Return an array of Books that are available as references.
    *
-   * @returns {Array<Book>}
+   * @returns {Array<BookEnum>}
    */
-  public getBooks(): Promise<Book[]> {
+  public getBooks(): Promise<BookEnum[]> {
 
-    const books: Book[] = [];
+    const books: BookEnum[] = [];
 
-    books.push(Book.BASICS);
-    books.push(Book.MAGIC);
-    books.push(Book.MARTIAL_ARTS);
-    books.push(Book.POWERS);
-    books.push(Book.PSIONICS);
+    books.push(BookEnum.BASICS);
+    books.push(BookEnum.MAGIC);
+    books.push(BookEnum.MARTIAL_ARTS);
+    books.push(BookEnum.POWERS);
+    books.push(BookEnum.PSIONICS);
 
     return Promise.resolve(books);
   }
 
   private parseReference(reference: string): Reference {
     const book = new BookModel();
-    book.book = Book.BASICS;
+    book.book = BookEnum.BASICS;
     book.file = '/gurpsbasics.pdf';
     book.offset = 0;
 

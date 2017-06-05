@@ -14,7 +14,7 @@ export class BookModel {
     BookModel.GURPS_PSIONICS
   ];
 
-  public book: Book = -1;
+  public book: BookEnum = -1;
   public offset = 0;
   public file = 'file:///';
 
@@ -23,7 +23,7 @@ export class BookModel {
   }
 }
 
-export enum Book {
+export enum BookEnum {
   BASICS,
   MAGIC,
   POWERS,

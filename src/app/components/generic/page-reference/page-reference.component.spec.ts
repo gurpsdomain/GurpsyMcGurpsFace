@@ -5,6 +5,7 @@ import {SettingsService} from '../../../services/front-end/settings/settings.ser
 import {StorageService} from '../../../services/back-end/storage/storage.service';
 import {SheetStorageDelegate} from '../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {LoggingService} from '../../../services/back-end/logging/logging.service';
 
 describe('PageReferenceComponent', () => {
   let component: PageReferenceComponent;
@@ -16,6 +17,7 @@ describe('PageReferenceComponent', () => {
         PageReferenceComponent
       ],
       providers: [
+        LoggingService,
         PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,

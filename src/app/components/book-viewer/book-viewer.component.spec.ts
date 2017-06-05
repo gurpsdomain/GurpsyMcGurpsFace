@@ -7,6 +7,7 @@ import {SettingsService} from '../../services/front-end/settings/settings.servic
 import {StorageService} from '../../services/back-end/storage/storage.service';
 import {SheetStorageDelegate} from '../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {LoggingService} from '../../services/back-end/logging/logging.service';
 
 describe('LibraryComponent', () => {
   let component: LibraryComponent;
@@ -21,6 +22,7 @@ describe('LibraryComponent', () => {
         GurpsyMaterialModule
       ],
       providers: [
+        LoggingService,
         PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,
@@ -37,7 +39,7 @@ describe('LibraryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create an Reusable Library Component', () => {
+  it('should create an Reusable BookViewer Component', () => {
     expect(component).toBeTruthy();
   });
 });

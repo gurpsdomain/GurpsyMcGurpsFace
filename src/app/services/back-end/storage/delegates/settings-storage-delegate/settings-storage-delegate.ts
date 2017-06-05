@@ -1,9 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {SettingsImpl, Settings} from '../../../../../models/settings/settings.model';
+// import {SettingsImpl, Settings} from '../../../../../models/settings/settings.model';
 import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
-import {BookModel} from '../../../../../models/book-configuration/book-model';
+// import {Book} from '../../../../../models/book-configuration/book-model';
+import {JsonConvert} from 'json2typescript';
+import {Settings} from '../../../../../models/settings/settings.model';
+import {Book} from '../../../../../models/settings/book.model';
+import {logger} from 'codelyzer/util/logger';
+import {LoggingService} from '../../../logging/logging.service';
 
 @Injectable()
 export class SettingsStorageDelegate {
@@ -16,11 +21,11 @@ export class SettingsStorageDelegate {
    * Register to this observable to be notified when the value is changed
    * in Local Storage.
    *
-   * @type Observable<string>
+   * @type {Observable<string>}
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor() {
+  constructor(private loggingService: LoggingService) {
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
@@ -36,9 +41,9 @@ export class SettingsStorageDelegate {
   /**
    * Store the given BookConfigurations.
    *
-   * @param BookConfiguration[]
+   * @param {BookConfiguration[]}
    */
-  public storeBookConfigurations(bookConfigurations: BookModel[]) {
+  public storeBookConfigurations(bookConfigurations: Book[]) {
     const config: Settings = this.retrieve();
     config.books = bookConfigurations;
 
@@ -48,7 +53,7 @@ export class SettingsStorageDelegate {
   /**
    * Store the given BookConfigurations.
    *
-   * @param Array<Book
+   * @param {SheetBodyContent} An enumeration that represents the sheet body content
    */
   public storeBodyContent(bodyContent: SheetBodyContent) {
     const config: Settings = this.retrieve();
@@ -60,7 +65,7 @@ export class SettingsStorageDelegate {
   /**
    * Store the given theme.
    *
-   * @param theme
+   * @param {string} theme
    */
   public storeTheme(theme: string) {
     const config: Settings = this.retrieve();
@@ -72,19 +77,18 @@ export class SettingsStorageDelegate {
   /**
    * Store the given server URL.
    *
-   * @param server URL
+   * @param {string} server URL
    */
   public storeServerUrl(serverUrl: string) {
     const config: Settings = this.retrieve();
     config.serverUrl = serverUrl;
-
     this.store(config);
   }
 
   /**
    * Retrieve the currently stored theme.
    *
-   * @returns Promise<string> the current theme.
+   * @returns {Promise<string>} the current theme.
    */
   public retrieveBodyContent(): Promise<SheetBodyContent> {
     const config: Settings = this.retrieve();
@@ -99,9 +103,9 @@ export class SettingsStorageDelegate {
   /**
    * Retrieve the currently stored BookConfigurations.
    *
-   * @returns Promise<BookConfiguration[]> the current BookConfigurations.
+   * @returns {Promise<BookConfiguration[]>} the current BookConfigurations.
    */
-  public retrieveBookConfigurations(): Promise<BookModel[]> {
+  public retrieveBookConfigurations(): Promise<Book[]> {
     const config: Settings = this.retrieve();
 
     if (!config.books) {
@@ -114,7 +118,7 @@ export class SettingsStorageDelegate {
   /**
    * Retrieve the currently stored serverUrl.
    *
-   * @returns Promise<string> the current serverUrl.
+   * @returns {Promise<string>} the current serverUrl.
    */
   public retrieveServerUrl(): Promise<string> {
     const config: Settings = this.retrieve();
@@ -129,7 +133,7 @@ export class SettingsStorageDelegate {
   /**
    * Retrieve the currently stored theme.
    *
-   * @returns Promise<string> the current theme.
+   * @returns {Promise<string>} the current theme.
    */
   public retrieveTheme(): Promise<string> {
     const config: Settings = this.retrieve();
@@ -141,18 +145,23 @@ export class SettingsStorageDelegate {
     }
   }
 
-  private store(config: Settings) {
-    localStorage.setItem(this.getStorageKey(), JSON.stringify(config));
-    this.change(config);
+  private store(settings: Settings) {
+    const json = JsonConvert.serializeObject(settings);
+
+    this.loggingService.info('Serialized settings object for Local Storage: ', json);
+    localStorage.setItem(this.getStorageKey(), json);
+    this.change(settings);
   }
 
   private retrieve(): Settings {
-    const config: string = localStorage.getItem(this.getStorageKey());
+    const json: string = localStorage.getItem(this.getStorageKey());
 
-    if (config) {
-      return JSON.parse(config);
+    if (json) {
+      const settings = JsonConvert.deserializeString(json, Settings);
+      this.loggingService.info('Deserialized settings object from Local Storage: ', settings);
+      return settings;
     } else {
-      return new SettingsImpl();
+      return new Settings();
     }
   }
 
@@ -166,7 +175,8 @@ export class SettingsStorageDelegate {
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getStorageKey()) {
-      this.change(JSON.parse(event.newValue));
+      const settings = JsonConvert.deserializeString(event.newValue, Settings);
+      this.change(settings);
     }
   }
 }
