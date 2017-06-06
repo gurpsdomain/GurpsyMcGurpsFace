@@ -38,7 +38,7 @@ export class StorageService {
    *
    * @type Observable<Settings>
    */
-  public getConfigObserver(): Observable<Settings> {
+  public getSettingsObserver(): Observable<Settings> {
     return this.configStorageDelegate.valueChange$;
   }
 

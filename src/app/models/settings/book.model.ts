@@ -10,7 +10,7 @@ export class Book {
   private static GURPS_POWERS = 'gurps-powers';
   private static GURPS_PSIONICS = 'gurps-psionics';
 
-  public static _availableBooks: string[] = [
+  public static BOOK_TYPES: string[] = [
     Book.GURPS_BASIC,
     Book.GURPS_MAGIC,
     Book.GURPS_MARTIAL_ARTS,

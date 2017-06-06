@@ -16,8 +16,8 @@ export class SettingsService {
   public static THEME_DEFAULT = SettingsService.THEME_DAY;
 
   private storageService: StorageService;
-  private configChangeSource = new Subject<Settings>();
-  private configChange$ = this.configChangeSource.asObservable();
+  private settingsChangeSource = new Subject<Settings>();
+  private settingsChange$ = this.settingsChangeSource.asObservable();
 
   constructor(storage: StorageService) {
     this.storageService = storage;
@@ -120,8 +120,8 @@ export class SettingsService {
    *
    * @type Observable<Settings>
    */
-  public getConfigObserver(): Observable<Settings> {
-    return this.configChange$;
+  public getSettingsObserver(): Observable<Settings> {
+    return this.settingsChange$;
   }
 
   /**
@@ -135,13 +135,13 @@ export class SettingsService {
   }
 
   private initStorageChangeListener(): void {
-    this.storageService.getConfigObserver().subscribe(config => this.handleStorageConfigChange(config));
+    this.storageService.getSettingsObserver().subscribe(settings => this.handleStorageSettingsChange(settings));
   }
 
-  private handleStorageConfigChange(settings: Settings): void {
+  private handleStorageSettingsChange(settings: Settings): void {
     if (settings === null) {
       settings = new Settings();
     }
-    this.configChangeSource.next(settings);
+    this.settingsChangeSource.next(settings);
   }
 }

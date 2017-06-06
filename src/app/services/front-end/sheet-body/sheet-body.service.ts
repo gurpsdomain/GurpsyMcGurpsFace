@@ -39,7 +39,7 @@ export class SheetBodyService {
     this.settingsService.getBodyContent().then(bodyContent =>
       this.setSheetBodyContent(bodyContent)).catch(err =>
       this.setSheetBodyContent(SheetBodyContent.GENERAL));
-    this.settingsService.getConfigObserver().subscribe(config => this.handleSheetBodyChange(config.bodyContent.valueOf()));
+    this.settingsService.getSettingsObserver().subscribe(config => this.handleSheetBodyChange(config.bodyContent.valueOf()));
   }
 
   private isSheetBodyContentInvalid(sheetBodyContent: SheetBodyContent): boolean {

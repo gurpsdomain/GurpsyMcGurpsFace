@@ -1,19 +1,16 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-// import {SettingsImpl, Settings} from '../../../../../models/settings/settings.model';
 import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
-// import {Book} from '../../../../../models/book-configuration/book-model';
 import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../../../../models/settings/settings.model';
 import {Book} from '../../../../../models/settings/book.model';
-import {logger} from 'codelyzer/util/logger';
 import {LoggingService} from '../../../logging/logging.service';
 
 @Injectable()
 export class SettingsStorageDelegate {
 
-  private static STORAGE_KEY = '.config';
+  private static STORAGE_KEY = '.settings';
 
   private subjectChangeSource = new Subject<Settings>();
 
@@ -44,10 +41,10 @@ export class SettingsStorageDelegate {
    * @param {BookConfiguration[]}
    */
   public storeBookConfigurations(bookConfigurations: Book[]) {
-    const config: Settings = this.retrieve();
-    config.books = bookConfigurations;
+    const settings: Settings = this.retrieve();
+    settings.books = bookConfigurations;
 
-    this.store(config);
+    this.store(settings);
   }
 
   /**
@@ -56,10 +53,10 @@ export class SettingsStorageDelegate {
    * @param {SheetBodyContent} An enumeration that represents the sheet body content
    */
   public storeBodyContent(bodyContent: SheetBodyContent) {
-    const config: Settings = this.retrieve();
-    config.bodyContent = bodyContent;
+    const settings: Settings = this.retrieve();
+    settings.bodyContent = bodyContent;
 
-    this.store(config);
+    this.store(settings);
   }
 
   /**
@@ -68,10 +65,10 @@ export class SettingsStorageDelegate {
    * @param {string} theme
    */
   public storeTheme(theme: string) {
-    const config: Settings = this.retrieve();
-    config.theme = theme;
+    const settings: Settings = this.retrieve();
+    settings.theme = theme;
 
-    this.store(config);
+    this.store(settings);
   }
 
   /**
@@ -80,9 +77,9 @@ export class SettingsStorageDelegate {
    * @param {string} server URL
    */
   public storeServerUrl(serverUrl: string) {
-    const config: Settings = this.retrieve();
-    config.serverUrl = serverUrl;
-    this.store(config);
+    const settings: Settings = this.retrieve();
+    settings.serverUrl = serverUrl;
+    this.store(settings);
   }
 
   /**
@@ -91,12 +88,12 @@ export class SettingsStorageDelegate {
    * @returns {Promise<string>} the current theme.
    */
   public retrieveBodyContent(): Promise<SheetBodyContent> {
-    const config: Settings = this.retrieve();
+    const settings: Settings = this.retrieve();
 
-    if (!config.bodyContent) {
+    if (!settings.bodyContent) {
       return Promise.reject('No BodyContent stored, use default.');
     } else {
-      return Promise.resolve(config.bodyContent);
+      return Promise.resolve(settings.bodyContent);
     }
   }
 
@@ -106,12 +103,12 @@ export class SettingsStorageDelegate {
    * @returns {Promise<BookConfiguration[]>} the current BookConfigurations.
    */
   public retrieveBookConfigurations(): Promise<Book[]> {
-    const config: Settings = this.retrieve();
+    const settings: Settings = this.retrieve();
 
-    if (!config.books) {
+    if (!settings.books) {
       return Promise.reject('No BookConfigurations stored.');
     } else {
-      return Promise.resolve(config.books);
+      return Promise.resolve(settings.books);
     }
   }
 
@@ -121,12 +118,12 @@ export class SettingsStorageDelegate {
    * @returns {Promise<string>} the current serverUrl.
    */
   public retrieveServerUrl(): Promise<string> {
-    const config: Settings = this.retrieve();
+    const settings: Settings = this.retrieve();
 
-    if (config.serverUrl === '') {
+    if (settings.serverUrl === '') {
       return Promise.reject('No serverUrl stored, use default.');
     } else {
-      return Promise.resolve(config.serverUrl);
+      return Promise.resolve(settings.serverUrl);
     }
   }
 
@@ -136,12 +133,12 @@ export class SettingsStorageDelegate {
    * @returns {Promise<string>} the current theme.
    */
   public retrieveTheme(): Promise<string> {
-    const config: Settings = this.retrieve();
+    const settings: Settings = this.retrieve();
 
-    if (config.theme === '') {
+    if (settings.theme === '') {
       return Promise.reject('No theme stored, use default.');
     } else {
-      return Promise.resolve(config.theme);
+      return Promise.resolve(settings.theme);
     }
   }
 
@@ -165,8 +162,8 @@ export class SettingsStorageDelegate {
     }
   }
 
-  private change(config: Settings) {
-    this.subjectChangeSource.next(config);
+  private change(settings: Settings) {
+    this.subjectChangeSource.next(settings);
   }
 
   private getStorageKey(): string {

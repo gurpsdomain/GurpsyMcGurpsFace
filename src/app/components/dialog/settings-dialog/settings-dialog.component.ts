@@ -119,14 +119,14 @@ export class SettingsDialogComponent implements OnInit {
     this.settingsService.getServerUrl()
       .then(serverUrl => this.serverUrl = serverUrl)
       .catch(err => this.setServerUrl(''));
-    this.settingsService.getConfigObserver().subscribe(config => this.setServerUrl(config.serverUrl));
+    this.settingsService.getSettingsObserver().subscribe(config => this.setServerUrl(config.serverUrl));
   }
 
   private initTheme(): void {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
       .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
-    this.settingsService.getConfigObserver().subscribe(config => this.setTheme(config.theme));
+    this.settingsService.getSettingsObserver().subscribe(config => this.setTheme(config.theme));
   }
 
   private setServerUrl(url: string) {
