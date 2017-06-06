@@ -2,11 +2,11 @@
   "APPLICATION": "GurpsyMcGurpsFace",
   "VERSION": "0.1-SNAPSHOT",
   "BOOK": {
-    "BOOK_0": "Gurps Basics 4th Edition",
-    "BOOK_1": "Gurps Magic 4th Edition",
-    "BOOK_2": "Gurps Powers 4th Edition",
-    "BOOK_3": "Gurps Psionics 4th Edition",
-    "BOOK_4": "Gurps Martial Arts 4th Edition"
+    "BOOK_gurps-basic": "Gurps Basics 4th Edition",
+    "BOOK_gurps-magic": "Gurps Magic 4th Edition",
+    "BOOK_gurps-powers": "Gurps Powers 4th Edition",
+    "BOOK_gurps-psionics": "Gurps Psionics 4th Edition",
+    "BOOK_gurps-martial-arts": "Gurps Martial Arts 4th Edition"
   },
   "BOOKS_CONFIGURATION": {
     "ADD_BOOK": "Add Book"

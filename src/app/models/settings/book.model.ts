@@ -1,5 +1,4 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {BookEnum} from '../book-configuration/book-model';
 
 @JsonObject
 export class Book {
@@ -19,7 +18,7 @@ export class Book {
   ];
 
   @JsonProperty('book', Number)
-  public book: BookEnum;
+  public book: string;
 
   @JsonProperty('offset', Number)
   public offset: Number;
@@ -28,7 +27,7 @@ export class Book {
   public file: string;
 
   constructor() {
-    this.book = -1;
+    this.book = '';
     this.offset = 0;
     this.file = '';
   }

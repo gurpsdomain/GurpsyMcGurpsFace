@@ -1,6 +1,5 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
-import {BookEnum} from '../../../models/book-configuration/book-model';
 import {isArray} from 'util';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {Book} from '../../../models/settings/book.model';
@@ -13,7 +12,7 @@ import {Book} from '../../../models/settings/book.model';
 export class BooksConfigurationComponent implements OnInit {
 
   public bookConfigurations: Array<Book> = [];
-  public availableBooks: Array<BookEnum> = [];
+  public availableBooks: Array<string> = [];
   public validConfigurations = true;
 
   @Output() public changeBooksConfiguration: EventEmitter<any> = new EventEmitter();
@@ -92,7 +91,7 @@ export class BooksConfigurationComponent implements OnInit {
     this.pageReferenceService.getBooks().then(books => this.setAvailableBooks(books, updateValidity));
   }
 
-  private setAvailableBooks(books: BookEnum[], updateValidity: boolean): void {
+  private setAvailableBooks(books: string[], updateValidity: boolean): void {
     for (const bookConfig of this.bookConfigurations) {
       const index = books.lastIndexOf(bookConfig.book);
       books.splice(index, 1);

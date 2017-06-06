@@ -1,8 +1,8 @@
-import {BookModel} from './book-model';
+import {Book} from '../settings/book.model';
 
 export class Reference {
 
-  public bookConfiguration: BookModel;
+  public bookConfiguration: Book;
   private _page: number;
 
   get page(): number {

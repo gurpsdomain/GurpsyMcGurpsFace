@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
-import {BookEnum, BookModel} from '../../../models/book-configuration/book-model';
+import {Book} from '../../../models/settings/book.model';
 
 @Component({
   selector: 'gurpsy-book-configuration',
@@ -10,8 +10,8 @@ export class BookConfigurationComponent implements OnInit {
 
   public static PDF_MATCHER = '(.*?)\.(PDF|pdf)$'
 
-  @Input() public configuration: BookModel;
-  @Input() public availableBooks: Array<BookEnum>;
+  @Input() public configuration: Book;
+  @Input() public availableBooks: Array<string>;
   @Output() public deleteBookConfiguration: EventEmitter<any> = new EventEmitter();
   @Output() public changeBookConfiguration: EventEmitter<any> = new EventEmitter();
   @Output() public invalidateBookConfiguration: EventEmitter<any> = new EventEmitter();
@@ -36,6 +36,11 @@ export class BookConfigurationComponent implements OnInit {
       this.invalidateBookConfiguration.next();
     }
   }
+
+  /**
+   * Handle a focusOut event for the delete Button. This will ensure that the delete button gets re-disabled,
+   * and the user will have to apply two concecutive tabs to delete this BookConfiguration.
+   */
 
   public focusOutFunction(): void {
     this.deleteEnabled = false;

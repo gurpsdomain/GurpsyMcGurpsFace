@@ -29,7 +29,7 @@
       fxFlex="100%"
       (change)="onChangeBookConfiguration()"
       [(ngModel)]="configuration.book">
-      <md-option *ngIf="configuration.book > -1" [value]="configuration.book">
+      <md-option *ngIf="configuration.book !== ''" [value]="configuration.book">
         {{ 'BOOK.BOOK_' + configuration.book | translate }}
       </md-option>
       <md-option *ngFor="let book of availableBooks" [value]="book">
