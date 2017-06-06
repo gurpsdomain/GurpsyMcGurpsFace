@@ -49,7 +49,9 @@ export class BooksConfigurationComponent implements OnInit {
   }
 
   /**
-   * Called when the user deletes one of tge underlying bookConfiguration
+   * Called when the user deletes one of tge underlying bookConfiguration.
+   *
+   * @param {Book} The book that has been deleted.
    */
   public onDeleteBookConfiguration(book: Book): void {
     this.deleteBookConfiguration(book);
@@ -92,16 +94,41 @@ export class BooksConfigurationComponent implements OnInit {
   }
 
   private setAvailableBooks(books: string[], updateValidity: boolean): void {
-    for (const bookConfig of this.bookConfigurations) {
-      const index = books.lastIndexOf(bookConfig.book);
-      books.splice(index, 1);
-    }
-
-    this.availableBooks = books;
+    this.availableBooks = this.getAvailableBooks(books);
 
     if (updateValidity) {
       this.updateValidity();
     }
+  }
+
+  private getConfiguredBooks(): Array<string> {
+    const configuredBooks = [];
+
+    for (const bookConfig of this.bookConfigurations) {
+      configuredBooks.push(bookConfig.book);
+    }
+
+    return configuredBooks;
+  }
+
+  private getAvailableBooks(books: string[]): Array<string> {
+    const configuredBooks = this.getConfiguredBooks();
+    const availableBook = [];
+
+    for (const book of books) {
+      let isAvailable = true;
+      for (const configuredBook of configuredBooks) {
+        if (book === configuredBook) {
+          isAvailable = false;
+          break;
+        }
+      }
+      if (isAvailable) {
+        availableBook.push(book);
+      }
+    }
+
+    return availableBook;
   }
 
   private updateValidity(): void {

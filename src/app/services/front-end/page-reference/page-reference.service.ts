@@ -50,7 +50,7 @@ export class PageReferenceService {
   }
 
   /**
-   * Return an array of Books that are available as references.
+   * Return an array of all Books that are available as references.
    *
    * @returns {Array<string>}
    */

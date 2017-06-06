@@ -17,7 +17,7 @@ export class Book {
     Book.GURPS_PSIONICS
   ];
 
-  @JsonProperty('book', Number)
+  @JsonProperty('book', String)
   public book: string;
 
   @JsonProperty('offset', Number)

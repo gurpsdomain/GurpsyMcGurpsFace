@@ -5,7 +5,6 @@ import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.serv
 import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../../../../models/settings/settings.model';
 import {Book} from '../../../../../models/settings/book.model';
-import {LoggingService} from '../../../logging/logging.service';
 
 @Injectable()
 export class SettingsStorageDelegate {
@@ -22,7 +21,7 @@ export class SettingsStorageDelegate {
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor(private loggingService: LoggingService) {
+  constructor() {
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
@@ -145,7 +144,6 @@ export class SettingsStorageDelegate {
   private store(settings: Settings) {
     const json = JsonConvert.serializeObject(settings);
 
-    this.loggingService.info('Serialized settings object for Local Storage: ', json);
     localStorage.setItem(this.getStorageKey(), json);
     this.change(settings);
   }
@@ -155,7 +153,6 @@ export class SettingsStorageDelegate {
 
     if (json) {
       const settings = JsonConvert.deserializeString(json, Settings);
-      this.loggingService.info('Deserialized settings object from Local Storage: ', settings);
       return settings;
     } else {
       return new Settings();
