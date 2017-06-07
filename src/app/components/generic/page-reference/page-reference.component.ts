@@ -10,14 +10,15 @@ export class PageReferenceComponent implements OnInit {
 
   @Input()
   public pageReference: string;
-
   public available = false;
 
   constructor(private pageReferenceService: PageReferenceService) {
   }
 
   public ngOnInit(): void {
-    this.setAvailable(this.pageReferenceService.isReferenceAvailable(this.pageReference));
+    this.pageReferenceService.isReferenceAvailable(this.pageReference)
+      .then(isReferenced => this.setAvailable(isReferenced))
+      .catch(any => this.setAvailable(false));
   }
 
   public onGotoReference(): void {
