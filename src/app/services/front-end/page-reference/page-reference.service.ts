@@ -7,10 +7,14 @@ import {Book} from '../../../models/settings/book.model';
 @Injectable()
 export class PageReferenceService {
 
+
   private referenceRequest = new Subject<Reference>();
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
 
+  private _lastReference: Reference;
+
   constructor(private settingsService: SettingsService) {
+    this._lastReference = undefined;
   }
 
   /**
@@ -48,8 +52,9 @@ export class PageReferenceService {
    * @param {string} reference  A reference of the form B37 or M42
    */
   public showReference(reference: string): void {
-    const parsedReference = this.parseReference(reference)
-    this.referenceRequest.next(parsedReference);
+
+    this.settingsService.getBookConfigurations()
+      .then(books => this.handleReferenceRequest(reference, books));
   }
 
   /**
@@ -70,18 +75,29 @@ export class PageReferenceService {
     return Promise.resolve(Book.BOOK_TYPES);
   }
 
-  private parseReference(reference: string): Reference {
-    const book = new Book();
-    book.book = Book.BOOK_TYPES[0];
-    book.file = '/gurpsbasics.pdf';
-    book.offset = 0;
+  /**
+   *
+   * @return {Reference}
+   */
+  get lastReference(): Reference {
+    return this._lastReference;
+  }
 
-    book.isReferenced(reference);
+  private handleReferenceRequest(reference: string, books: Book[]): void {
+
+    let referencedBook: Book;
+
+    for (const book of books) {
+      if (book.isReferenced(reference)) {
+        referencedBook = book;
+      }
+    }
 
     const referenceModel = new Reference();
-    referenceModel.bookConfiguration = book;
-    referenceModel.page = 37;
+    referenceModel.bookConfiguration = referencedBook;
+    referenceModel.page = 9;
 
-    return referenceModel;
+    this._lastReference = referenceModel;
+    this.referenceRequest.next(referenceModel);
   }
 }

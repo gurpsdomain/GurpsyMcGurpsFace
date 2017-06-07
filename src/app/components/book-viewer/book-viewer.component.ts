@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {PageReferenceService} from '../../services/front-end/page-reference/page-reference.service';
-import {Reference} from '../../models/reference/reference-model';
 
 @Component({
   selector: 'gurpsy-book-viewer',
@@ -11,13 +10,14 @@ export class LibraryComponent implements OnInit {
   pdfSrc = 'assets/library/gurpslite.pdf';
   page = 1;
   zoom = 1;
-  pdf;
+
+  private pdf: PDFDocumentProxy;
 
   constructor(private pageReferenceService: PageReferenceService) {
   }
 
   public ngOnInit(): void {
-    this.pageReferenceService.getReferenceChange().subscribe(reference => this.handleNewReference(reference));
+    this.loadReference();
   }
 
   /**
@@ -75,7 +75,13 @@ export class LibraryComponent implements OnInit {
     this.zoom *= 1.2;
   }
 
-  private handleNewReference(reference: Reference): void {
-    console.log('Library component is going to new reference: ', reference);
+  private loadReference(): void {
+    const reference = this.pageReferenceService.lastReference;
+
+    if (reference) {
+      console.log('There is a last reference: ', reference);
+
+      this.page = reference.page;
+    }
   }
 }
