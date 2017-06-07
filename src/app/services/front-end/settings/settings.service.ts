@@ -16,7 +16,7 @@ export class SettingsService {
 
   private storageService: StorageService;
   private settingsChangeSource = new Subject<Settings>();
-  private settingsChange$ = this.settingsChangeSource.asObservable();
+  public settingsChange$ = this.settingsChangeSource.asObservable();
 
   constructor(storage: StorageService) {
     this.storageService = storage;
@@ -120,7 +120,7 @@ export class SettingsService {
    * @type Observable<Settings>
    */
   public getSettingsObserver(): Observable<Settings> {
-    return this.settingsChange$;
+    return this.storageService.getSettingsObserver();
   }
 
   /**
@@ -128,8 +128,8 @@ export class SettingsService {
    * entries should be removed.
    */
   public kill(): void {
-    this.storageService.kill();
-    this.storageService.kill();
+    this.storageService.clearStorage();
+    this.storageService.clearStorage();
 
   }
 

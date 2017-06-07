@@ -13,13 +13,8 @@ export class StorageService {
   public static STORAGE_KEY = 'gurpsy-mc-gurps-face';
   public static STORAGE_EVENT_LISTENER_KEY = 'storage';
 
-  private sheetStorageDelegate: SheetStorageDelegate;
-  private configStorageDelegate: SettingsStorageDelegate;
-
-  constructor(configStorageDelegate: SettingsStorageDelegate,
-              sheetStorageDelegate: SheetStorageDelegate) {
-    this.sheetStorageDelegate = sheetStorageDelegate;
-    this.configStorageDelegate = configStorageDelegate;
+  constructor(private settingsStorageDelegate: SettingsStorageDelegate,
+              private sheetStorageDelegate: SheetStorageDelegate) {
   }
 
   /**
@@ -39,7 +34,7 @@ export class StorageService {
    * @type Observable<Settings>
    */
   public getSettingsObserver(): Observable<Settings> {
-    return this.configStorageDelegate.valueChange$;
+    return this.settingsStorageDelegate.valueChange$;
   }
 
   /**
@@ -48,7 +43,7 @@ export class StorageService {
    * @param SheetBodyContent
    */
   public storeBodyContent(bodyContent: SheetBodyContent) {
-    this.configStorageDelegate.storeBodyContent(bodyContent);
+    this.settingsStorageDelegate.storeBodyContent(bodyContent);
   }
 
   /**
@@ -57,7 +52,7 @@ export class StorageService {
    * @param BookConfiguration[]
    */
   public storeBookConfigurations(bookConfigurations: Book[]) {
-    this.configStorageDelegate.storeBookConfigurations(bookConfigurations);
+    this.settingsStorageDelegate.storeBookConfigurations(bookConfigurations);
   }
 
   /**
@@ -75,7 +70,7 @@ export class StorageService {
    * @param String
    */
   public storeServerUrl(serverUrl: string) {
-    this.configStorageDelegate.storeServerUrl(serverUrl);
+    this.settingsStorageDelegate.storeServerUrl(serverUrl);
   }
 
   /**
@@ -84,7 +79,7 @@ export class StorageService {
    * @param String
    */
   public storeTheme(theme: string) {
-    this.configStorageDelegate.storeTheme(theme);
+    this.settingsStorageDelegate.storeTheme(theme);
   }
 
   /**
@@ -93,7 +88,7 @@ export class StorageService {
    * @returns Promise<SheetBodyContent>
    */
   public getBodyContent(): Promise<SheetBodyContent> {
-    return this.configStorageDelegate.retrieveBodyContent();
+    return this.settingsStorageDelegate.retrieveBodyContent();
   }
 
   /**
@@ -102,7 +97,7 @@ export class StorageService {
    * @returns Promise<BookConfiguration[]>
    */
   public getBookConfigurations(): Promise<Book[]> {
-    return this.configStorageDelegate.retrieveBookConfigurations();
+    return this.settingsStorageDelegate.retrieveBookConfigurations();
   }
 
   /**
@@ -139,7 +134,7 @@ export class StorageService {
    * @returns serverUrl: Promise<String>
    */
   public getServerUrl(): Promise<string> {
-    return this.configStorageDelegate.retrieveServerUrl();
+    return this.settingsStorageDelegate.retrieveServerUrl();
   }
 
 
@@ -149,30 +144,15 @@ export class StorageService {
    * @returns theme: Promise<String>
    */
   public getTheme(): Promise<string> {
-    return this.configStorageDelegate.retrieveTheme();
-  }
-
-  /**
-   * Clear the stored entries from Local Storage.
-   *
-   * @param clearConfig: boolean     Clear the config
-   * @param sheetsToDelete: InputSheet[] An Array of Sheets that should be deleted.
-   */
-  public clearStorage(clearConfig: boolean, sheetsToDelete: InputSheet[]): void {
-    if (clearConfig) {
-      this.configStorageDelegate.clear();
-    }
-    if (sheetsToDelete.length > 0) {
-      this.sheetStorageDelegate.remove(sheetsToDelete);
-    }
+    return this.settingsStorageDelegate.retrieveTheme();
   }
 
   /**
    * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
    * entries should be removed.
    */
-  public kill(): void {
-    this.configStorageDelegate.clear();
+  public clearStorage(): void {
+    this.settingsStorageDelegate.clear();
     this.sheetStorageDelegate.kill();
   }
 }

@@ -1,27 +1,16 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
 import {SettingsService} from '../settings/settings.service';
 import {Reference} from '../../../models/reference/reference-model';
 import {Book} from '../../../models/settings/book.model';
-import {isArray} from 'util';
 
 @Injectable()
-export class PageReferenceService implements OnInit {
+export class PageReferenceService {
 
   private referenceRequest = new Subject<Reference>();
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
 
-  public bookConfigurations: Array<Book> = [];
-
   constructor(private settingsService: SettingsService) {
-  }
-
-  ngOnInit(): void {
-    this.settingsService.getBookConfigurations()
-      .then(bookConfigurations => this.setBookConfigurations(bookConfigurations))
-      .catch(any => this.setBookConfigurations(any));
-
-    this.settingsService.getSettingsObserver().subscribe(settings => this.setBookConfigurations(settings.books));
   }
 
   /**
@@ -31,8 +20,8 @@ export class PageReferenceService implements OnInit {
    */
   public isReferenceAvailable(reference: string): Promise<boolean> {
 
-    return this.settingsService.getBookConfigurations().
-      then(bookConfigurations => Promise.resolve(this.isReferenced(bookConfigurations, reference)))
+    return this.settingsService.getBookConfigurations()
+      .then(bookConfigurations => Promise.resolve(this.isReferenced(bookConfigurations, reference)))
       .catch(any => Promise.reject(false));
   }
 
@@ -78,16 +67,7 @@ export class PageReferenceService implements OnInit {
    * @returns {Array<string>}
    */
   public getBooks(): Promise < string[] > {
-
     return Promise.resolve(Book.BOOK_TYPES);
-  }
-
-  private setBookConfigurations(bookConfigurations: Book[]) {
-    if (isArray(bookConfigurations)) {
-      this.bookConfigurations = bookConfigurations;
-    } else {
-      this.bookConfigurations = [];
-    }
   }
 
   private parseReference(reference: string): Reference {
