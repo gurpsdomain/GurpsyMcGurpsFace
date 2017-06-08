@@ -11,10 +11,10 @@ export class PageReferenceService {
   private referenceRequest = new Subject<Reference>();
   private referenceRequestedObservable$ = this.referenceRequest.asObservable();
 
-  private _lastReference: Reference;
+  private _currentReference: Reference;
 
   constructor(private settingsService: SettingsService) {
-    this._lastReference = undefined;
+    this._currentReference = undefined;
   }
 
   /**
@@ -29,18 +29,6 @@ export class PageReferenceService {
       .catch(any => Promise.reject(false));
   }
 
-  private isReferenced(bookConfigurations: Book[], reference: string): boolean {
-    let isReferenced = false;
-
-    for (const book of bookConfigurations) {
-      if (book.isReferenced(reference)) {
-        isReferenced = true;
-        break;
-      }
-    }
-
-    return isReferenced;
-  }
 
   /**
    * Show a reference.
@@ -71,20 +59,20 @@ export class PageReferenceService {
    *
    * @returns {Array<string>}
    */
-  public getBooks(): Promise < string[] > {
+  public getBookTypes(): Promise < string[] > {
     return Promise.resolve(Book.BOOK_TYPES);
   }
 
   /**
+   * Return the current reference.
    *
    * @return {Reference}
    */
-  get lastReference(): Reference {
-    return this._lastReference;
+  get currentReference(): Reference {
+    return this._currentReference;
   }
 
-  private handleReferenceRequest(reference: string, books: Book[]): void {
-
+  private findReferencedBook(reference: string, books: Book[]): Book {
     let referencedBook: Book;
 
     for (const book of books) {
@@ -93,11 +81,31 @@ export class PageReferenceService {
       }
     }
 
+    return referencedBook;
+  }
+
+  private handleReferenceRequest(reference: string, books: Book[]): void {
+
+    const referencedBook = this.findReferencedBook(reference, books);
+
     const referenceModel = new Reference();
     referenceModel.bookConfiguration = referencedBook;
     referenceModel.page = 9;
 
-    this._lastReference = referenceModel;
+    this._currentReference = referenceModel;
     this.referenceRequest.next(referenceModel);
+  }
+
+  private isReferenced(bookConfigurations: Book[], reference: string): boolean {
+    let isReferenced = false;
+
+    for (const book of bookConfigurations) {
+      if (book.isReferenced(reference)) {
+        isReferenced = true;
+        break;
+      }
+    }
+
+    return isReferenced;
   }
 }

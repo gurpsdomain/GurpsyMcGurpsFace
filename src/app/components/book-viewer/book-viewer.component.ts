@@ -76,7 +76,7 @@ export class LibraryComponent implements OnInit {
   }
 
   private loadReference(): void {
-    const reference = this.pageReferenceService.lastReference;
+    const reference = this.pageReferenceService.currentReference;
 
     if (reference) {
       console.log('There is a last reference: ', reference);

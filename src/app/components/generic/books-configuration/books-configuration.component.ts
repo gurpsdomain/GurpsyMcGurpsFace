@@ -90,7 +90,7 @@ export class BooksConfigurationComponent implements OnInit {
   }
 
   private reloadAvailableBooks(updateValidity: boolean): void {
-    this.pageReferenceService.getBooks().then(books => this.setAvailableBooks(books, updateValidity));
+    this.pageReferenceService.getBookTypes().then(books => this.setAvailableBooks(books, updateValidity));
   }
 
   private setAvailableBooks(books: string[], updateValidity: boolean): void {
