@@ -9,7 +9,7 @@ import {SheetStorageDelegate} from '../../services/back-end/storage/delegates/sh
 import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 
-describe('LibraryComponent', () => {
+describe('BookViewerComponent', () => {
   let component: LibraryComponent;
   let fixture: ComponentFixture<LibraryComponent>;
 
