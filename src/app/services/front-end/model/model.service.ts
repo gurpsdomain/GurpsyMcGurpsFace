@@ -3,12 +3,12 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../../back-end/storage/storage.service';
 import {OutputSheet} from '../../../models/sheet/output';
 import {Http} from '@angular/http';
-import {InputSheet} from '../../../models/sheet/input';
-import {SheetValidator} from '../../../models/sheet/validators/sheet-validator';
 import 'rxjs/add/operator/toPromise';
 import {ModelTransformerService} from '../../back-end/model-transformer/model-transformer.service';
 import {LoggingService} from '../../back-end/logging/logging.service';
 import {OutputSheetImpl} from '../../../models/sheet/output-impl';
+import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {JsonConvert} from 'json2typescript';
 
 @Injectable()
 export class ModelService {
@@ -17,7 +17,6 @@ export class ModelService {
 
   private inputModel: InputSheet;
   private outputModel: OutputSheet = new OutputSheetImpl();
-  private sheetValidator: SheetValidator;
 
   private http: Http;
 
@@ -40,8 +39,6 @@ export class ModelService {
     this.storageService = storageService;
     this.http = http;
 
-    this.sheetValidator = new SheetValidator();
-
     this.initSheet();
   }
 
@@ -56,7 +53,7 @@ export class ModelService {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            const sheet: InputSheet = JSON.parse(fileReader.result);
+            const sheet: InputSheet = JsonConvert.deserializeString(fileReader.result, InputSheet) ;
             resolve(sheet);
           } else {
             reject('Could not read file');
@@ -100,11 +97,7 @@ export class ModelService {
   }
 
   private handleStoredSheet(sheet: InputSheet): void {
-    if (this.sheetValidator.isValidInputSheet(sheet)) {
       this.loadSheet(sheet, false);
-    } else {
-      this.initEmptyOutputSheet();
-    }
   }
 
   private initSheet(): void {

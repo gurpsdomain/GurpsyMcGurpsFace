@@ -3,9 +3,9 @@ import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/set
 import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {Observable} from 'rxjs';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
-import {InputSheet} from '../../../models/sheet/input';
 import {Settings} from '../../../models/settings/settings.model';
 import {Book} from '../../../models/settings/book.model';
+import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 
 @Injectable()
 export class StorageService {

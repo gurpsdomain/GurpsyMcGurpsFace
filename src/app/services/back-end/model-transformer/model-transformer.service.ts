@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {SettingsService} from '../../front-end/settings/settings.service';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {InputSheet} from '../../../models/sheet/input';
 import {OutputSheet} from '../../../models/sheet/output';
+import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 
 @Injectable()
 export class ModelTransformerService {

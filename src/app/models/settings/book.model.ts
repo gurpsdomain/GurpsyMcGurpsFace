@@ -90,6 +90,4 @@ export class Book {
 
     return (referencedBook && referencedBook === this.book);
   }
-
-
 }

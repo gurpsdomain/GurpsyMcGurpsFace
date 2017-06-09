@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {InputSheet, InputSheets} from '../../../../../models/sheet/input';
-import {InputSheetsImpl} from '../../../../../models/sheet/input-impl';
+import {InputSheet} from '../../../../../models/sheet/input/input.sheet.model';
+import {Sheets} from '../../../../../models/sheet/sheets.model';
 
 @Injectable()
 export class SheetStorageDelegate {
@@ -29,7 +29,7 @@ export class SheetStorageDelegate {
    * @param sheet: OutputSheet
    */
   public setCurrent(sheet: InputSheet): void {
-    const sheets: InputSheets = this.getSheets();
+    const sheets: Sheets = this.getSheets();
 
     if (!this.isCurrent(sheets, sheet)) {
       this.addCurrentAsPrevious(sheets);
@@ -99,7 +99,7 @@ export class SheetStorageDelegate {
       }
     }
 
-    const sheets: InputSheets = this.getSheets();
+    const sheets: Sheets = this.getSheets();
     sheets.previous = newSheetList;
 
     this.persist(sheets);
@@ -113,13 +113,13 @@ export class SheetStorageDelegate {
     localStorage.removeItem(this.getStorageKey())
   }
 
-  private persist(sheets: InputSheets): void {
+  private persist(sheets: Sheets): void {
     const jsonSheets = JSON.stringify(sheets);
 
     localStorage.setItem(this.getStorageKey(), jsonSheets);
   }
 
-  private removeFromPrevious(sheets: InputSheets, sheet: InputSheet): InputSheets {
+  private removeFromPrevious(sheets: Sheets, sheet: InputSheet): Sheets {
     const newSheets: InputSheet[] = [];
 
     for (const sheetIterator of sheets.previous) {
@@ -132,22 +132,22 @@ export class SheetStorageDelegate {
     return sheets;
   }
 
-  private isCurrent(sheets: InputSheets, sheet: InputSheet): boolean {
+  private isCurrent(sheets: Sheets, sheet: InputSheet): boolean {
     return sheets.current && sheets.current.name === sheet.name;
   }
 
-  private addCurrentAsPrevious(sheets: InputSheets): void {
+  private addCurrentAsPrevious(sheets: Sheets): void {
     sheets.previous.push(sheets.current);
   }
 
-  private getSheets(): InputSheets {
+  private getSheets(): Sheets {
     const sheets: string = localStorage.getItem(this.getStorageKey());
 
     if (sheets) {
 
       return JSON.parse(sheets)
     } else {
-      return new InputSheetsImpl();
+      return new Sheets();
     }
   }
 

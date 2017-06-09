@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {ModelService} from '../../../services/front-end/model/model.service';
 import {StorageService} from '../../../services/back-end/storage/storage.service';
-import {InputSheet} from '../../../models/sheet/input';
+import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 
 @Component({
   selector: 'gurpsy-open-sheet-dialog',
