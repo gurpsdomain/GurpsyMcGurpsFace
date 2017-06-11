@@ -7,10 +7,14 @@ import {StorageService} from '../storage/storage.service';
 import {SettingsStorageDelegate} from '../storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {LoggingService} from '../logging/logging.service';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('ModelTransformerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        TranslateModule.forRoot()
+      ],
       providers: [
         BaseRequestOptions,
         Http,

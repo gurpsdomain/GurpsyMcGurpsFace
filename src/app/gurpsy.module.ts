@@ -16,7 +16,6 @@ import {IdentityComponent} from './components/sheet/reusable/identity/identity.c
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
 import {StorageService} from './services/back-end/storage/storage.service';
-import {LanguagesService} from './services/front-end/languages/languages.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {ModelService} from './services/front-end/model/model.service';
 import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -115,7 +114,6 @@ export function HttpLoaderFactory(http: Http) {
   providers: [
     SettingsService,
     SettingsStorageDelegate,
-    LanguagesService,
     PageReferenceService,
     LoggingService,
     StorageService,

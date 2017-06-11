@@ -9,10 +9,14 @@ import {SheetStorageDelegate} from '../../back-end/storage/delegates/sheet-stora
 import {StorageService} from '../../back-end/storage/storage.service';
 import {SettingsStorageDelegate} from '../../back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SettingsService} from '../settings/settings.service';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('ModelService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        TranslateModule.forRoot()
+      ],
       providers: [
         BaseRequestOptions,
         SettingsStorageDelegate,

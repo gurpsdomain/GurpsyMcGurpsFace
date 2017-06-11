@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {TestBed, async} from '@angular/core/testing';
-import {TranslateModule} from '@ngx-translate/core';
+import {TranslateService, TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';
@@ -14,7 +14,6 @@ import {PointsComponent} from './components/sheet/reusable/points/points.compone
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {LanguagesService} from './services/front-end/languages/languages.service';
 import {ModelService} from './services/front-end/model/model.service';
 import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
@@ -95,7 +94,7 @@ describe('GurpsyComponent', () => {
         BaseRequestOptions,
         SettingsService,
         SettingsStorageDelegate,
-        LanguagesService,
+        TranslateService,
         LoggingService,
         PageReferenceService,
         StorageService,

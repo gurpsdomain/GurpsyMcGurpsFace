@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../../back-end/storage/storage.service';
-import {Observable, Subject} from 'rxjs';
+import {Observable} from 'rxjs';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {Book} from '../../../models/settings/book.model';
 import {Settings} from '../../../models/settings/settings.model';
 import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Injectable()
@@ -14,13 +15,14 @@ export class SettingsService {
   public static THEME_NIGHT = 'night';
   public static THEME_DEFAULT = SettingsService.THEME_DAY;
 
-  private storageService: StorageService;
-  private settingsChangeSource = new Subject<Settings>();
-  public settingsChange$ = this.settingsChangeSource.asObservable();
+  private static ENGLISH = 'en';
+  private static DEFAULT: string = SettingsService.ENGLISH;
+  private static AVAILABLE_LANGUAGES: string[] = [SettingsService.ENGLISH];
 
-  constructor(storage: StorageService) {
-    this.storageService = storage;
-    this.initStorageChangeListener();
+  constructor(private storageService: StorageService,
+              private translateService: TranslateService) {
+
+    this.initTranslateService();
   }
 
   /**
@@ -105,15 +107,6 @@ export class SettingsService {
   }
 
   /**
-   * Get the value of the night theme.
-   *
-   * @return Promise<string>  A promise that resolves to the night theme
-   */
-  public getNightTheme(): Promise<string> {
-    return Promise.resolve(SettingsService.THEME_NIGHT);
-  }
-
-  /**
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
    *
@@ -130,17 +123,11 @@ export class SettingsService {
   public kill(): void {
     this.storageService.clearStorage();
     this.storageService.clearStorage();
-
   }
 
-  private initStorageChangeListener(): void {
-    this.storageService.getSettingsObserver().subscribe(settings => this.handleStorageSettingsChange(settings));
-  }
-
-  private handleStorageSettingsChange(settings: Settings): void {
-    if (settings === null) {
-      settings = new Settings();
-    }
-    this.settingsChangeSource.next(settings);
+  private initTranslateService(): void {
+    this.translateService.addLangs(SettingsService.AVAILABLE_LANGUAGES);
+    this.translateService.setDefaultLang(SettingsService.DEFAULT);
+    this.translateService.use(SettingsService.DEFAULT);
   }
 }

@@ -10,7 +10,6 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
-import {LanguagesService} from './services/front-end/languages/languages.service';
 import {OutputSheet} from './models/sheet/output/output.sheet.model';
 
 @Component({
@@ -40,7 +39,6 @@ export class GurpsyComponent implements OnInit {
 
   constructor(public dialog: MdDialog,
               private settingsService: SettingsService,
-              private languageService: LanguagesService,
               private loggingService: LoggingService,
               private modelService: ModelService,
               private pageReferenceService: PageReferenceService,

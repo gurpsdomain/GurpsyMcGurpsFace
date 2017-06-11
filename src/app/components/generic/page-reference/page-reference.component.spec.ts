@@ -6,6 +6,7 @@ import {StorageService} from '../../../services/back-end/storage/storage.service
 import {SheetStorageDelegate} from '../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {LoggingService} from '../../../services/back-end/logging/logging.service';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('PageReferenceComponent', () => {
   let component: PageReferenceComponent;
@@ -13,6 +14,9 @@ describe('PageReferenceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        TranslateModule.forRoot()
+      ],
       declarations: [
         PageReferenceComponent
       ],
@@ -22,7 +26,7 @@ describe('PageReferenceComponent', () => {
         SettingsService,
         SettingsStorageDelegate,
         SheetStorageDelegate,
-        StorageService,
+        StorageService
       ]
     })
       .compileComponents();
