@@ -1,14 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../back-end/storage/storage.service';
-import {OutputSheet} from '../../../models/sheet/output';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {ModelTransformerService} from '../../back-end/model-transformer/model-transformer.service';
 import {LoggingService} from '../../back-end/logging/logging.service';
-import {OutputSheetImpl} from '../../../models/sheet/output-impl';
 import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 import {JsonConvert} from 'json2typescript';
+import {OutputSheet} from '../../../models/sheet/output/output.sheet.model';
 
 @Injectable()
 export class ModelService {
@@ -16,7 +15,7 @@ export class ModelService {
   private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
 
   private inputModel: InputSheet;
-  private outputModel: OutputSheet = new OutputSheetImpl();
+  private outputModel: OutputSheet = new OutputSheet();
 
   private http: Http;
 
@@ -53,7 +52,7 @@ export class ModelService {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            const sheet: InputSheet = JsonConvert.deserializeString(fileReader.result, InputSheet) ;
+            const sheet: InputSheet = JsonConvert.deserializeString(fileReader.result, InputSheet);
             resolve(sheet);
           } else {
             reject('Could not read file');
@@ -97,7 +96,7 @@ export class ModelService {
   }
 
   private handleStoredSheet(sheet: InputSheet): void {
-      this.loadSheet(sheet, false);
+    this.loadSheet(sheet, false);
   }
 
   private initSheet(): void {
@@ -105,7 +104,7 @@ export class ModelService {
   }
 
   private initEmptyOutputSheet(): void {
-    const emptySheet: OutputSheet = new OutputSheetImpl();
+    const emptySheet: OutputSheet = new OutputSheet();
     this.setOutputModel(emptySheet);
   }
 

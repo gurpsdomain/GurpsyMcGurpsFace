@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MdCheckboxChange} from '@angular/material';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
-import {InputSheet} from '../../../models/sheet/input';
+import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 
 @Component({
   selector: 'gurpsy-settings-dialog',

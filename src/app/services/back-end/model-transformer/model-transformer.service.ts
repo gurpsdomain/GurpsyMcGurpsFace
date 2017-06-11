@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {SettingsService} from '../../front-end/settings/settings.service';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {OutputSheet} from '../../../models/sheet/output';
 import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {JsonConvert} from 'json2typescript';
+import {OutputSheet} from '../../../models/sheet/output/output.sheet.model';
 
 @Injectable()
 export class ModelTransformerService {
@@ -42,7 +43,8 @@ export class ModelTransformerService {
   }
 
   private extractData(res: any): Promise<OutputSheet> {
-    return Promise.resolve(res.json());
+    const outputSheet = JsonConvert.deserializeString(res.json(), OutputSheet)
+    return Promise.resolve(outputSheet);
   }
 
   private handleRequestError(error: any): Promise<OutputSheet> {
