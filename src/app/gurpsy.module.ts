@@ -1,9 +1,5 @@
-
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule, Http} from '@angular/http';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {Http} from '@angular/http';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';
 import {SheetHeaderComponent} from './components/sheet/structural/sheet-header/sheet-header.component';
@@ -37,7 +33,6 @@ import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/
 import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/back-end/logging/logging.service';
@@ -53,6 +48,8 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './modules/material.module';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
+import {GurpsySheetModule} from './modules/sheet.module';
+import {GurpsyAngularModule} from './modules/angular.module';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -97,12 +94,9 @@ export function HttpLoaderFactory(http: Http) {
     FileInputComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    GurpsyAngularModule,
     GurpsyMaterialModule,
-    FormsModule,
-    HttpModule,
-    FlexLayoutModule,
+    GurpsySheetModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

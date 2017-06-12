@@ -40,7 +40,7 @@ import {
     MdSidenavModule,
     MdSnackBarModule,
     MdToolbarModule
-  ],
+  ]
 })
 export class GurpsyMaterialModule {
 }
