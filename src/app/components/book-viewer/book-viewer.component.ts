@@ -5,7 +5,7 @@ import {PageReferenceService} from '../../services/front-end/page-reference/page
   selector: 'gurpsy-book-viewer',
   templateUrl: 'book-viewer.component.html'
 })
-export class LibraryComponent implements OnInit {
+export class BookViewerComponent implements OnInit {
 
   pdfSrc = 'assets/library/gurpslite.pdf';
   page = 1;

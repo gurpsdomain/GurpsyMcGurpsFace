@@ -38,7 +38,7 @@ import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.c
 import {LoggingService} from './services/back-end/logging/logging.service';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
-import {LibraryComponent} from './components/book-viewer/book-viewer.component';
+import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {BookConfigurationComponent} from './components/generic/book-configuration/book-configuration.component';
 import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';
@@ -48,7 +48,6 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './modules/material.module';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
-import {GurpsySheetModule} from './modules/sheet.module';
 import {GurpsyAngularModule} from './modules/angular.module';
 
 export function HttpLoaderFactory(http: Http) {
@@ -61,42 +60,40 @@ export function HttpLoaderFactory(http: Http) {
     AdvantagesComponent,
     AdvantagesDisadvantagesComponent,
     AttributesComponent,
+    BookConfigurationComponent,
+    BooksConfigurationComponent,
+    BookViewerComponent,
     DescriptionComponent,
     DiceDialogComponent,
     DisadvantagesComponent,
     EncumbranceComponent,
     EquipmentComponent,
     FatigueHitComponent,
+    FileInputComponent,
     GeneralComponent,
     GurpsyComponent,
-    SheetComponent,
-    SheetHeaderComponent,
+    HitLocationComponent,
+    IdentityComponent,
+    LiftingMovingComponent,
+    LiftingMovingComponent,
+    NotesComponent,
+    OpenSheetDialogComponent,
+    PageReferenceComponent,
+    PdfViewerComponent,
     PortraitComponent,
     PlayerInformationComponent,
     PointsComponent,
-    IdentityComponent,
-    SideNavigationComponent,
-    SettingsDialogComponent,
-    OpenSheetDialogComponent,
-    NotesComponent,
     SheetBodyComponent,
+    SheetComponent,
+    SheetHeaderComponent,
+    SettingsDialogComponent,
+    SideNavigationComponent,
     SkillsComponent,
     SpellsComponent,
-    HitLocationComponent,
-    EncumbranceComponent,
-    LibraryComponent,
-    LiftingMovingComponent,
-    LiftingMovingComponent,
-    PageReferenceComponent,
-    PdfViewerComponent,
-    BookConfigurationComponent,
-    BooksConfigurationComponent,
-    FileInputComponent
   ],
   imports: [
     GurpsyAngularModule,
     GurpsyMaterialModule,
-    GurpsySheetModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

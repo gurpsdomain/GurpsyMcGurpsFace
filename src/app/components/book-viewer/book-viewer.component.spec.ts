@@ -1,5 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {LibraryComponent} from './book-viewer.component';
+import {BookViewerComponent} from './book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {PageReferenceService} from '../../services/front-end/page-reference/page-reference.service';
@@ -11,13 +11,13 @@ import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {TranslateModule} from '@ngx-translate/core';
 
 describe('BookViewerComponent', () => {
-  let component: LibraryComponent;
-  let fixture: ComponentFixture<LibraryComponent>;
+  let component: BookViewerComponent;
+  let fixture: ComponentFixture<BookViewerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        LibraryComponent,
+        BookViewerComponent,
         PdfViewerComponent],
       imports: [
         GurpsyMaterialModule,
@@ -36,7 +36,7 @@ describe('BookViewerComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LibraryComponent);
+    fixture = TestBed.createComponent(BookViewerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

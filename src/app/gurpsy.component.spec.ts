@@ -35,7 +35,7 @@ import {LoggingService} from './services/back-end/logging/logging.service';
 import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
-import {LibraryComponent} from './components/book-viewer/book-viewer.component';
+import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {GurpsyMaterialModule} from './modules/material.module';
@@ -60,7 +60,7 @@ describe('GurpsyComponent', () => {
         GurpsyComponent,
         HitLocationComponent,
         IdentityComponent,
-        LibraryComponent,
+        BookViewerComponent,
         LiftingMovingComponent,
         NotesComponent,
         PageReferenceComponent,
