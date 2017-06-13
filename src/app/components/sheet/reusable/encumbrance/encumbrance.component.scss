@@ -1,16 +1,20 @@
-//@import "../../../../../gurpsy-material-theme";
 
 .sheetComponent .sheetComponentBody {
   padding: 0px 0px 2px 0px;
 
   table {
 
+    tr.headerRow {
+      td {
+        border-right: none;
+      }
+    }
+
     td {
       text-align: right;
     }
     td:first-child {
       padding-left: 4px;
-      border-right: solid black 1px;
     }
     td:first-child, td:nth-child(2), td:nth-child(3) {
       text-align: center;
