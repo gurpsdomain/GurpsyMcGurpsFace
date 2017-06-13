@@ -14,12 +14,8 @@ import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 })
 export class SettingsDialogComponent implements OnInit {
 
-  public clearSettings = true;
   public nightTheme = false;
   public serverUrl: string;
-  public storedSheets: InputSheet[] = [];
-
-  private sheetsToDelete: InputSheet[] = [];
 
   @ViewChild(BooksConfigurationComponent)
   private bookConfigurationChild: BooksConfigurationComponent;
@@ -28,7 +24,6 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.initPreviouslyOpenedSheetList();
     this.initServerUrl();
     this.initTheme();
   }
@@ -53,20 +48,6 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   /**
-   * Handle a sheet selection
-   *
-   * @param sheet The sheet to be selected
-   * @param event The event that was triggered
-   */
-  public onSheetSelected(sheet: InputSheet, event: MdCheckboxChange): void {
-    if (event.checked) {
-      this.addToStoredSheets(sheet);
-    } else {
-      this.removeFromStoredSheets(sheet);
-    }
-  }
-
-  /**
    * Handle the situation where a BookConfiguration changes.
    */
   public onChangeBooksConfiguration(): void {
@@ -78,41 +59,6 @@ export class SettingsDialogComponent implements OnInit {
    */
   public onDeleteSettings(): void {
     this.settingsService.kill();
-  }
-
-  private initPreviouslyOpenedSheetList(): void {
-    this.settingsService.getPreviouslyOpenedSheets().then(
-      sheets => this.setStoredSheets(sheets));
-  }
-
-  private setStoredSheets(sheets: InputSheet[]): void {
-    this.storedSheets = sheets;
-  }
-
-  private addToStoredSheets(sheet: InputSheet): void {
-    let add = true;
-
-    for (const storedSheet of this.sheetsToDelete) {
-      if (storedSheet.name === sheet.name) {
-        add = false;
-      }
-    }
-
-    if (add) {
-      this.sheetsToDelete.push(sheet);
-    }
-  }
-
-  private removeFromStoredSheets(sheet: InputSheet): void {
-    const newStoredSheets: InputSheet[] = [];
-
-    for (const storedSheet of this.sheetsToDelete) {
-      if (storedSheet.name !== sheet.name) {
-        newStoredSheets.push(storedSheet);
-      }
-    }
-
-    this.sheetsToDelete = newStoredSheets;
   }
 
   private initServerUrl(): void {

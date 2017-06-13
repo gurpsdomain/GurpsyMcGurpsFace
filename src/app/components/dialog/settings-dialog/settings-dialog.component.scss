@@ -4,25 +4,6 @@ md-dialog-content {
     .settingsCardBody {
       font-size: smaller;
     }
-
-    .deleteSettings {
-      width: 100%;
-      text-align: right;
-      margin-top: 8px;
-    }
-
-  }
-  .sheets {
-    margin-top: 16px;
-
-    md-checkbox {
-      display: block;
-    }
-
-    .sheetPoints {
-      font-size: small;
-      color: grey;
-    }
   }
 }
 

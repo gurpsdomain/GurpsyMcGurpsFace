@@ -44,29 +44,13 @@
     </gurpsy-books-configuration>
   </md-card>
 
-  <md-card>
-    <div class="dialogCardHeader warning">
-      {{'DIALOG.SETTINGS.CLEANUP'| translate}}
-    </div>
-    <md-checkbox [(ngModel)]="clearSettings">
-      {{'DIALOG.SETTINGS.DELETE_SETTINGS'| translate}}
-    </md-checkbox>
-
-    <div *ngIf="storedSheets.length > 0" class="sheets">
-      {{'DIALOG.SETTINGS.SHEETS' | translate}}
-      <md-checkbox *ngFor="let sheet of storedSheets;" (change)="onSheetSelected(sheet, $event)">
-        <span class="sheetName">{{sheet.metaData.identity.name}}</span>
-        <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
-      </md-checkbox>
-    </div>
-    <div class="deleteSettings">
-      <button md-raised-button color="warn" (click)="onDeleteSettings()">
-        {{'DIALOG.SETTINGS.DELETE'| translate}}
-      </button>
-    </div>
-  </md-card>
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button color="primary" md-dialog-close> {{'DIALOG.CLOSE'| translate}}</button>
+  <button md-raised-button color="warn" (click)="onDeleteSettings()">
+    {{'DIALOG.SETTINGS.DELETE'| translate}}
+  </button>
+  <button md-button color="primary" md-dialog-close>
+    {{'DIALOG.CLOSE'| translate}}
+  </button>
 </md-dialog-actions>
