@@ -20,20 +20,15 @@
     "CLOSE": "Close",
     "SETTINGS": {
       "APPLICATION_SETTINGS": "Application Settings",
-      "KILL": "Kill all in Local Storage",
-      "CLEANUP": "Cleanup",
-      "DELETE": "Delete",
-      "DELETE_SETTINGS": "Delete Settings",
+      "DELETE": "Delete all",
       "HEADER": "Settings",
-      "KILL": "Kill all in Local Storage",
       "REFERENCE_SETTINGS": {
         "HEADER": "Library Settings",
         "FILE_LOCATION": "File location",
         "OFFSET": "Offset"
       },
       "NIGHT_THEME": "Night mode",
-      "SERVER_URL": "Server url",
-      "SHEETS": "Stored Character Sheets"
+      "SERVER_URL": "Server url"
     },
     "DICE": {
       "RETHROW": "Throw again"
