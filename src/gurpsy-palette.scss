@@ -153,7 +153,7 @@ $gurpsy-day-theme-foreground: (
 );
 
 $gurpsy-day-theme-background: (
-  status-bar:               map_get($gurpsy-green, 300),
+  status-bar:               black,
   app-bar:                  map_get($gurpsy-green, 300),
   background:               map_get($gurpsy-green, 0),
   hover:                    map_get($gurpsy-green, 50),
@@ -184,7 +184,7 @@ $gurpsy-night-theme-foreground: (
 );
 
 $gurpsy-night-theme-background: (
-  status-bar:               black,
+  status-bar:               map_get($gurpsy-dark-blue, 900),
   app-bar:                  map_get($gurpsy-dark-blue, 500),
   background:               map-get($gurpsy-dark-blue, 800),
   hover:                    rgba(white, 0.04),

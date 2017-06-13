@@ -8,19 +8,6 @@ body {
   font-family: Roboto;
 }
 
-md-sidenav {
-  width: 200px;
-
-  .sideNavigationContent .sideNavigationButton md-icon {
-    margin-right: 16px;
-
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-  }
-}
-
 md-sidenav-container {
   height: 100%;
 
