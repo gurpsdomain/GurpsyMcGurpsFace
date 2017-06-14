@@ -1,5 +1,8 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
 import {BasicLift} from './basic-lift.model';
+import {Dodge} from './dodge.model';
+import {Move} from './move.model';
+import {MaxLoad} from './max-load.model';
 
 @JsonObject
 export class SecondaryCharacteristics {
@@ -40,6 +43,15 @@ export class SecondaryCharacteristics {
   @JsonProperty('basicMove', Number)
   basicMove: number;
 
+  @JsonProperty('maxLoad', MaxLoad)
+  maxLoad: MaxLoad;
+
+  @JsonProperty('move', Move)
+  move: Move;
+
+  @JsonProperty('dodge', Dodge)
+  dodge: Dodge;
+
   @JsonProperty('damageSwinging', Number)
   damageSwinging: number;
 
@@ -62,6 +74,9 @@ export class SecondaryCharacteristics {
     this.fatiguePoints = undefined;
     this.basicSpeed = undefined;
     this.basicMove = undefined;
+    this.maxLoad = new MaxLoad();
+    this.move = new Move();
+    this.dodge = new Dodge();
     this.damageSwinging = undefined;
     this.damageThrusting = undefined;
     this.frightCheck = undefined;

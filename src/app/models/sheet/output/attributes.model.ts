@@ -4,16 +4,16 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 export class Attributes {
 
   @JsonProperty('strength', Number)
-  strength: string;
+  strength: number;
 
   @JsonProperty('dexterity', Number)
-  dexterity: string;
+  dexterity: number;
 
   @JsonProperty('health', Number)
-  health: string;
+  health: number;
 
   @JsonProperty('intelligence', Number)
-  intelligence: string;
+  intelligence: number;
 
   constructor() {
     this.strength = undefined;
