@@ -49,7 +49,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './modules/material.module';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 import {GurpsyAngularModule} from './modules/angular.module';
-import { WeightComponent } from './components/generic/weight/weight.component';
+import {WeightPipe} from './pipes/weight.pipe';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -91,7 +91,7 @@ export function HttpLoaderFactory(http: Http) {
     SideNavigationComponent,
     SkillsComponent,
     SpellsComponent,
-    WeightComponent,
+    WeightPipe,
   ],
   imports: [
     GurpsyAngularModule,

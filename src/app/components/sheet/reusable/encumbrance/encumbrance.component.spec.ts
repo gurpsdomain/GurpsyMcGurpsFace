@@ -11,7 +11,7 @@ import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
-import {WeightComponent} from '../../../generic/weight/weight.component';
+import {WeightPipe} from '../../../../pipes/weight.pipe';
 
 describe('EncumbranceComponent', () => {
   let component: EncumbranceComponent;
@@ -21,7 +21,7 @@ describe('EncumbranceComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         EncumbranceComponent,
-        WeightComponent
+        WeightPipe
       ],
       imports: [
         HttpModule,
