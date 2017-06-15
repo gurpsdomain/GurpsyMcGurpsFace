@@ -43,6 +43,7 @@ import {Http, HttpModule, BaseRequestOptions} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
+import {WeightComponent} from './components/generic/weight/weight.component';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -74,7 +75,8 @@ describe('GurpsyComponent', () => {
         SpellsComponent,
         SkillsComponent,
         PdfViewerComponent,
-        FileInputComponent
+        FileInputComponent,
+        WeightComponent
       ],
       imports: [
         FormsModule,

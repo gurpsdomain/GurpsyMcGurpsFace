@@ -36,6 +36,7 @@ import {Http, BaseRequestOptions, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../services/back-end/model-transformer/model-transformer.service';
+import {WeightComponent} from '../generic/weight/weight.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -67,7 +68,9 @@ describe('SheetComponent', function () {
         PointsComponent,
         NotesComponent,
         AttributesComponent,
-        HitLocationComponent
+        HitLocationComponent,
+        WeightComponent
+
       ],
       imports: [
         HttpModule,

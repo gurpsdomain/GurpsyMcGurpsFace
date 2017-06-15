@@ -3,7 +3,7 @@ import {Component, Input, Output, ElementRef, ViewChild, EventEmitter} from '@an
 @Component({
   selector: 'gurpsy-file-input',
   templateUrl: './file-input.component.html',
-  styleUrls: ['./file-input.component.css']
+  styleUrls: ['file-input.component.scss']
 })
 export class FileInputComponent {
 

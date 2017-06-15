@@ -11,6 +11,7 @@ import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {WeightComponent} from '../../../generic/weight/weight.component';
 
 describe('EncumbranceComponent', () => {
   let component: EncumbranceComponent;
@@ -18,7 +19,10 @@ describe('EncumbranceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EncumbranceComponent],
+      declarations: [
+        EncumbranceComponent,
+        WeightComponent
+      ],
       imports: [
         HttpModule,
         TranslateModule.forRoot()

@@ -20,6 +20,7 @@ import {BaseRequestOptions, Http} from '@angular/http';
 import {SettingsService} from '../../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../../services/back-end/model-transformer/model-transformer.service';
+import {WeightComponent} from '../../../../generic/weight/weight.component';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -36,7 +37,8 @@ describe('GeneralComponent', () => {
         HitLocationComponent,
         LiftingMovingComponent,
         PortraitComponent,
-        PointsComponent
+        PointsComponent,
+        WeightComponent
       ],
       imports: [
         TranslateModule.forRoot()

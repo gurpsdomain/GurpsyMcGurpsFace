@@ -30,6 +30,7 @@ import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
+import {WeightComponent} from '../../../generic/weight/weight.component';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -55,7 +56,8 @@ describe('SheetBodyComponent', () => {
         PortraitComponent,
         DescriptionComponent,
         AttributesComponent,
-        HitLocationComponent
+        HitLocationComponent,
+        WeightComponent
       ],
       imports: [
         TranslateModule.forRoot()
