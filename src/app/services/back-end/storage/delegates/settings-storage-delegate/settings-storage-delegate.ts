@@ -59,6 +59,18 @@ export class SettingsStorageDelegate {
   }
 
   /**
+   * Store the given metrics.
+   *
+   * @param {string} metrics
+   */
+  public storeMetrics(metrics: string) {
+    const settings: Settings = this.retrieve();
+    settings.metrics = metrics;
+
+    this.store(settings);
+  }
+
+  /**
    * Store the given theme.
    *
    * @param {string} theme
@@ -108,6 +120,21 @@ export class SettingsStorageDelegate {
       return Promise.reject('No BookConfigurations stored.');
     } else {
       return Promise.resolve(settings.books);
+    }
+  }
+
+  /**
+   * Retrieve the currently stored metrics.
+   *
+   * @returns {Promise<string>} the current metrics.
+   */
+  public retrieveMetrics(): Promise<string> {
+    const settings: Settings = this.retrieve();
+
+    if (settings.metrics === '') {
+      return Promise.reject('No metrics stored, use default.');
+    } else {
+      return Promise.resolve(settings.metrics);
     }
   }
 

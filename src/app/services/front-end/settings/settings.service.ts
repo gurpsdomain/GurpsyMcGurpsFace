@@ -15,6 +15,9 @@ export class SettingsService {
   public static THEME_NIGHT = 'night';
   public static THEME_DEFAULT = SettingsService.THEME_DAY;
 
+  public static METRICS_SI = 'si';
+  public static METRICS_DEFAULT = 'default';
+
   private static ENGLISH = 'en';
   private static DEFAULT: string = SettingsService.ENGLISH;
   private static AVAILABLE_LANGUAGES: string[] = [SettingsService.ENGLISH];
@@ -32,6 +35,15 @@ export class SettingsService {
    */
   public setBodyContent(bodyContent: SheetBodyContent) {
     this.storageService.storeBodyContent(bodyContent);
+  }
+
+  /**
+   * Set metrics.
+   *
+   * @param metrics : string
+   */
+  public setMetrics(metrics: string) {
+    this.storageService.storeMetrics(metrics);
   }
 
   /**
@@ -77,6 +89,15 @@ export class SettingsService {
    */
   public getBookConfigurations(): Promise<Book[]> {
     return this.storageService.getBookConfigurations();
+  }
+
+  /**
+   * Get metrics.
+   *
+   * @return Promise<string>  A promise that resolves to the current metrics
+   */
+  public getMetrics(): Promise<string> {
+    return this.storageService.getMetrics();
   }
 
   /**

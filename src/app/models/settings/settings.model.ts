@@ -10,6 +10,9 @@ export class Settings {
   @JsonProperty('serverUrl', String)
   serverUrl: string;
 
+  @JsonProperty('metrics', String)
+  metrics: string;
+
   @JsonProperty('theme', String)
   theme: string;
 
@@ -20,6 +23,7 @@ export class Settings {
     this.bodyContent = 0;
     this.serverUrl = '';
     this.theme = '';
+    this.metrics = '';
     this.books = [];
   }
 }

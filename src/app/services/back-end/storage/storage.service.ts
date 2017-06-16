@@ -55,6 +55,16 @@ export class StorageService {
     this.settingsStorageDelegate.storeBookConfigurations(bookConfigurations);
   }
 
+
+  /**
+   * Store the given metrics in Local Storage;
+   *
+   * @param String
+   */
+  public storeMetrics(metrics: string) {
+    this.settingsStorageDelegate.storeMetrics(metrics);
+  }
+
   /**
    * Store the given sheet in Local Storage;
    *
@@ -98,6 +108,15 @@ export class StorageService {
    */
   public getBookConfigurations(): Promise<Book[]> {
     return this.settingsStorageDelegate.retrieveBookConfigurations();
+  }
+
+  /**
+   * Retrieve the given metrics from Locale Storage.
+   *
+   * @returns metrics: Promise<String>
+   */
+  public getMetrics(): Promise<string> {
+    return this.settingsStorageDelegate.retrieveMetrics();
   }
 
   /**

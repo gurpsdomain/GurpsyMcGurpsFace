@@ -1,8 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MdCheckboxChange} from '@angular/material';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
-import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 
 @Component({
   selector: 'gurpsy-settings-dialog',
@@ -15,6 +13,7 @@ import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
 export class SettingsDialogComponent implements OnInit {
 
   public nightTheme = false;
+  public siMetrics = false;
   public serverUrl: string;
 
   @ViewChild(BooksConfigurationComponent)
@@ -24,6 +23,7 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.initMetrics();
     this.initServerUrl();
     this.initTheme();
   }
@@ -47,6 +47,13 @@ export class SettingsDialogComponent implements OnInit {
     this.settingsService.setTheme(theme);
   }
 
+  public onMetricsChange(): void {
+    const metrics = this.siMetrics ? SettingsService.METRICS_SI : SettingsService.METRICS_DEFAULT;
+    this.setMetrics(metrics)
+
+    this.settingsService.setMetrics(metrics);
+  }
+
   /**
    * Handle the situation where a BookConfiguration changes.
    */
@@ -61,18 +68,25 @@ export class SettingsDialogComponent implements OnInit {
     this.settingsService.kill();
   }
 
+  private initMetrics(): void {
+    this.settingsService.getMetrics()
+      .then(metrics => this.setMetrics(metrics))
+      .catch(err => this.setMetrics(SettingsService.METRICS_DEFAULT));
+    this.settingsService.getSettingsObserver().subscribe(settings => this.setMetrics(settings.metrics));
+  }
+
   private initServerUrl(): void {
     this.settingsService.getServerUrl()
       .then(serverUrl => this.serverUrl = serverUrl)
       .catch(err => this.setServerUrl(''));
-    this.settingsService.getSettingsObserver().subscribe(config => this.setServerUrl(config.serverUrl));
+    this.settingsService.getSettingsObserver().subscribe(settings => this.setServerUrl(settings.serverUrl));
   }
 
   private initTheme(): void {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
       .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
-    this.settingsService.getSettingsObserver().subscribe(config => this.setTheme(config.theme));
+    this.settingsService.getSettingsObserver().subscribe(settings => this.setTheme(settings.theme));
   }
 
   private setServerUrl(url: string) {
@@ -83,5 +97,9 @@ export class SettingsDialogComponent implements OnInit {
 
   private setTheme(theme: string) {
     this.nightTheme = theme === SettingsService.THEME_NIGHT;
+  }
+
+  private setMetrics(metrics: string) {
+    this.siMetrics = metrics === SettingsService.METRICS_SI;
   }
 }
