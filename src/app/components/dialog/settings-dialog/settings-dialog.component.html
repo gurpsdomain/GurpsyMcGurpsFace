@@ -25,19 +25,34 @@
         <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
                (change)="onServerUrlChange(serverUrl)">
       </md-input-container>
-      <md-slide-toggle
-        cdk-focus-region-start
-        class="flex-item"
-        (change)="onThemeChange()"
-        [(ngModel)]="nightTheme">
-        {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
-      </md-slide-toggle>
-      <md-slide-toggle
-        class="flex-item"
-        (change)="onMetricsChange()"
-        [(ngModel)]="siMetrics">
-        {{'DIALOG.SETTINGS.SI_METRICS'| translate}}
-      </md-slide-toggle>
+
+      <div class="flex-item flex-container"
+           fxLayout="row"
+           fxLayoutAlign="space-between stretch"
+           fxLayoutWrap="nowrap">
+        <div class="flex-item">
+          {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
+        </div>
+        <md-slide-toggle
+          cdk-focus-region-start
+          class="flex-item"
+          (change)="onThemeChange()"
+          [(ngModel)]="nightTheme">
+        </md-slide-toggle>
+      </div>
+      <div class="flex-item flex-container"
+           fxLayout="row"
+           fxLayoutAlign="space-between stretch"
+           fxLayoutWrap="nowrap">
+        <div class="flex-item">
+          {{'DIALOG.SETTINGS.SI_METRICS'| translate}}
+        </div>
+        <md-slide-toggle
+          class="flex-item"
+          (change)="onMetricsChange()"
+          [(ngModel)]="siMetrics">
+        </md-slide-toggle>
+      </div>
     </div>
   </md-card>
 
