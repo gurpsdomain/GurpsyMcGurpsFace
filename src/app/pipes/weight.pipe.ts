@@ -8,7 +8,7 @@ import {SettingsService} from '../services/front-end/settings/settings.service';
 export class WeightPipe implements PipeTransform {
 
   private static WEIGHT_CONVERSION_FACTOR = 2.20462262185;
-  private static LBS = 'lbs';
+  private static LB = 'lb';
   private static KG = 'kg';
 
   private metrics: string;
@@ -35,7 +35,7 @@ export class WeightPipe implements PipeTransform {
       case SettingsService.METRICS_SI:
         return WeightPipe.KG;
       default :
-        return WeightPipe.LBS;
+        return WeightPipe.LB;
     }
   }
 
