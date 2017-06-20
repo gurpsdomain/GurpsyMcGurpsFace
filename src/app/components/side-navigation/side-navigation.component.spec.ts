@@ -1,6 +1,5 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {MaterialModule} from '@angular/material';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
@@ -43,7 +42,7 @@ describe('SideNavigationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a SideNavigationComponent', () => {
     expect(component).toBeTruthy();
   });
 });
