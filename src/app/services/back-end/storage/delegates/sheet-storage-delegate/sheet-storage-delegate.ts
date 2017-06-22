@@ -3,6 +3,8 @@ import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {InputSheet} from '../../../../../models/sheet/input/input.sheet.model';
 import {Sheets} from '../../../../../models/sheet/sheets.model';
+import {LoggingService} from '../../../logging/logging.service';
+import {JsonConvert} from 'json2typescript';
 
 @Injectable()
 export class SheetStorageDelegate {
@@ -19,7 +21,7 @@ export class SheetStorageDelegate {
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor() {
+  constructor(private loggingService: LoggingService) {
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
@@ -141,14 +143,19 @@ export class SheetStorageDelegate {
   }
 
   private getSheets(): Sheets {
-    const sheets: string = localStorage.getItem(this.getStorageKey());
+    const json: string = localStorage.getItem(this.getStorageKey());
 
-    if (sheets) {
+    let sheets: Sheets = new Sheets();
 
-      return JSON.parse(sheets)
-    } else {
-      return new Sheets();
+    if (json) {
+      try {
+        sheets = JsonConvert.deserializeString(json, Sheets);
+      } catch (ex) {
+        this.loggingService.error('Unable to retrieve Sheets from Local Storage.', ex)
+      }
     }
+
+    return sheets;
   }
 
   private getCurrentSheet(): InputSheet {

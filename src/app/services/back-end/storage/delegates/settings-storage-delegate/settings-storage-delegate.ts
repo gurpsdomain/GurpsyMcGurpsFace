@@ -179,21 +179,13 @@ export class SettingsStorageDelegate {
   private retrieve(): Settings {
     const json: string = localStorage.getItem(this.getStorageKey());
 
+    let settings: Settings = new Settings();
+
     if (json) {
-
-      let settings: Settings;
-
-      try {
-        settings = JsonConvert.deserializeString(json, Settings);
-      } catch (ex) {
-        this.loggingService.error('Unable to retrieve Settings from Local Storage. Using default.', ex)
-        settings = new Settings();
-      }
-
-      return settings;
-    } else {
-      return new Settings();
+      settings = this.deserialize(json);
     }
+
+    return settings;
   }
 
   private change(settings: Settings) {
@@ -206,8 +198,20 @@ export class SettingsStorageDelegate {
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getStorageKey()) {
-      const settings = JsonConvert.deserializeString(event.newValue, Settings);
+      const settings = this.deserialize(event.newValue);
       this.change(settings);
     }
+  }
+
+  private deserialize(json): Settings {
+    let settings: Settings = new Settings();
+
+    try {
+      settings = JsonConvert.deserializeString(json, Settings);
+    } catch (ex) {
+      this.loggingService.error('Unable to retrieve Settings from Local Storage. Using default.', ex)
+    }
+
+    return settings;
   }
 }
