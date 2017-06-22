@@ -1,8 +1,35 @@
-// import { WeightPipe } from './weight.pipe';
-//
-// describe('WeightPipe', () => {
-//   it('create an instance', () => {
-//     const pipe = new WeightPipe();
-//     expect(pipe).toBeTruthy();
-//   });
-// });
+import {TestBed, inject} from '@angular/core/testing';
+import {WeightPipe} from './weight.pipe';
+import {SettingsService} from '../services/front-end/settings/settings.service';
+import {StorageService} from '../services/back-end/storage/storage.service';
+import {SettingsStorageDelegate} from '../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {SheetStorageDelegate} from '../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TranslateModule} from '@ngx-translate/core';
+
+describe('WeightPipe', () => {
+  let pipe;
+
+  beforeEach(() => TestBed.configureTestingModule({
+    providers: [
+      WeightPipe,
+      SettingsService,
+      StorageService,
+      SettingsStorageDelegate,
+      SheetStorageDelegate],
+    imports: [
+      TranslateModule.forRoot()
+    ],
+  }));
+
+  beforeEach(inject([WeightPipe], p => {
+    pipe = p;
+  }));
+
+  it('should create an instance', () => {
+    expect(pipe).toBeTruthy();
+  });
+
+  it('should work with an empty string', () => {
+    expect(pipe.transform('')).toEqual('');
+  });
+})
