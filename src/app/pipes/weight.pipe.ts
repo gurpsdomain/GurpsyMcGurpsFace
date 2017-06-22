@@ -44,7 +44,9 @@ export class WeightPipe implements PipeTransform {
   }
 
   private initUnit(): void {
-    this.settingsService.getMetrics().then(metrics => this.metrics = metrics);
+    this.settingsService.getMetrics()
+      .then(metrics => this.metrics = metrics)
+      .catch(err => this.metrics = SettingsService.METRICS_DEFAULT);
     this.settingsService.getSettingsObserver()
       .subscribe(settings => this.metrics = settings.metrics);
   }

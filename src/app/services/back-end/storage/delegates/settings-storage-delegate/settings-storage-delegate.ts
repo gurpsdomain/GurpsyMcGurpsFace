@@ -5,6 +5,7 @@ import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.serv
 import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../../../../models/settings/settings.model';
 import {Book} from '../../../../../models/settings/book.model';
+import {LoggingService} from '../../../logging/logging.service';
 
 @Injectable()
 export class SettingsStorageDelegate {
@@ -21,7 +22,7 @@ export class SettingsStorageDelegate {
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 
-  constructor() {
+  constructor(private loggingService: LoggingService) {
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
@@ -179,7 +180,16 @@ export class SettingsStorageDelegate {
     const json: string = localStorage.getItem(this.getStorageKey());
 
     if (json) {
-      const settings = JsonConvert.deserializeString(json, Settings);
+
+      let settings: Settings;
+
+      try {
+        settings = JsonConvert.deserializeString(json, Settings);
+      } catch (ex) {
+        this.loggingService.error('Unable to retrieve Settings from Local Storage. Using default.', ex)
+        settings = new Settings();
+      }
+
       return settings;
     } else {
       return new Settings();

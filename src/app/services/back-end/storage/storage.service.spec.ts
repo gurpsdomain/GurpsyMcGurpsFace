@@ -9,6 +9,7 @@ describe('StorageService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
+        LoggingService,
         StorageService,
         SettingsStorageDelegate,
         SheetStorageDelegate
