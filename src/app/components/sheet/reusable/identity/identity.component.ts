@@ -11,11 +11,11 @@ export class IdentityComponent implements OnInit {
 
   public sheet: OutputSheet;
 
-  constructor(private modelReadService: ModelService) {
+  constructor(private modelService: ModelService) {
   }
 
   ngOnInit(): void {
-    this.sheet = this.modelReadService.getSheet();
-    this.modelReadService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
+    this.sheet = this.modelService.getSheet();
+    this.modelService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

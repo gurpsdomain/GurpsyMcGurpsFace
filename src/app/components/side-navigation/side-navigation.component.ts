@@ -1,5 +1,7 @@
 import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import {SheetBodyService, SheetBodyContent} from '../../services/front-end/sheet-body/sheet-body.service';
+import {ModelService} from '../../services/front-end/model/model.service';
+import {OutputSheet} from '../../models/sheet/output/output.sheet.model';
 
 @Component({
   selector: 'gurpsy-side-navigation',
@@ -15,11 +17,16 @@ export class SideNavigationComponent implements OnInit {
   public sheetBodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
   public showLibrary = false;
 
-  constructor(private sheetBodyService: SheetBodyService) {
+  public sheet: OutputSheet;
+
+  constructor(private sheetBodyService: SheetBodyService, private modelService: ModelService) {
   }
 
   ngOnInit(): void {
     this.sheetBodyService.sheetBodyChange$.subscribe(sheetBodyContent => this.sheetBodyContent = sheetBodyContent);
+
+    this.sheet = this.modelService.getSheet();
+    this.modelService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 
   public onCloseSideNav(): void {

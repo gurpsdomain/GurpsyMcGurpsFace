@@ -1,15 +1,28 @@
-<div class="sideNavigation">
-  <div class="sideNavigationHeader">
-    <div class="closeButton">
+<div class="sideNavigation flex-container"
+     fxLayout="column"
+     fxLayoutAlign="start stretch">
+  <div class="sideNavigationHeader flex-item flex-container"
+       fxLayout="column"
+       fxLayoutAlign="start stretch">
+    <div class="close flex-item">
       <button md-icon-button (click)="onCloseSideNav()">
         <md-icon>keyboard_arrow_left</md-icon>
       </button>
     </div>
-    <div class="avatar">
-      <img src="assets/images/empty-portrait.png">
+    <div class="flex-item">
+      <div class="avatar">
+        <img src="assets/images/empty-portrait.png">
+      </div>
+    </div>
+    <div class="flex-item player">
+      {{sheet.metaData.playerInformation.player}}
+    </div>
+    <div class="flex-item name">
+      {{sheet.metaData.identity.name}}
     </div>
   </div>
-  <div class="sideNavigationContent">
+  <div class="sideNavigationContent flex-item"
+       fxFlex="100%">
     <button md-button
             (click)="onSheetBodyClick(sheetBodyComponents.GENERAL)"
             [class.selected]="sheetBodyContent === sheetBodyComponents.GENERAL"

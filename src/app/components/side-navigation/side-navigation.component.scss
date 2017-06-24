@@ -1,17 +1,25 @@
 .sideNavigation {
   .sideNavigationHeader {
-    .closeButton {
-      float: right;
+    width: 100%;
+    .close {
+      text-align: end;
     }
     .avatar {
-      position: relative;
-      left: 8px;
-      top: 32px;
-
+      padding-left: 8px;
       img {
         width: 48px;
         height: 48px;
       }
+    }
+    .player {
+      font-size: x-small;
+      font-weight: 100;
+      padding: 10px 0px 0px 8px;
+    }
+    .name {
+      font-size: small;
+      font-weight: 100;
+      padding: 2px 0px 0px 8px;
     }
   }
 
