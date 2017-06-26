@@ -15,14 +15,14 @@
 <md-dialog-content>
   <md-card>
     <div class="dialogCardHeader">
-      {{'DIALOG.SETTINGS.APPLICATION_SETTINGS'| translate}}
+      {{'DIALOG.SETTINGS.APPLICATION_SETTINGS.HEADER'| translate}}
     </div>
     <div class="flex-container"
          fxLayout="column"
          fxLayoutAlign="space-between stretch"
          fxLayoutWrap="nowrap">
       <md-input-container class="flex-item">
-        <input mdInput placeholder="{{'DIALOG.SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
+        <input mdInput placeholder="{{'DIALOG.SETTINGS.APPLICATION_SETTINGS.SERVER_URL'| translate}}" [(ngModel)]="serverUrl"
                (change)="onServerUrlChange(serverUrl)">
       </md-input-container>
 
@@ -31,7 +31,7 @@
            fxLayoutAlign="space-between stretch"
            fxLayoutWrap="nowrap">
         <div class="flex-item">
-          {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
+          {{'DIALOG.SETTINGS.APPLICATION_SETTINGS.NIGHT_THEME'| translate}}
         </div>
         <md-slide-toggle
           cdk-focus-region-start
@@ -45,7 +45,7 @@
            fxLayoutAlign="space-between stretch"
            fxLayoutWrap="nowrap">
         <div class="flex-item">
-          {{'DIALOG.SETTINGS.SI_METRICS'| translate}}
+          {{'DIALOG.SETTINGS.APPLICATION_SETTINGS.SI_METRICS'| translate}}
         </div>
         <md-slide-toggle
           class="flex-item"
