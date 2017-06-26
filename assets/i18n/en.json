@@ -8,9 +8,6 @@
     "BOOK_gurps-psionics": "Gurps Psionics 4th Edition",
     "BOOK_gurps-martial-arts": "Gurps Martial Arts 4th Edition"
   },
-  "BOOKS_CONFIGURATION": {
-    "ADD_BOOK": "Add Book"
-  },
   "DIALOG": {
     "ABOUT": {
       "ABOUT": "This application is for study purposes only. It is not affiliated to Steve Jackson Games. At this moment it does not aim to become a fully functional GURPS Character sheet editor/viewer. But then again, it is possible that it will be so one day. If that day comes we will contact Steve Jackson Games to figure out if this is legal, or how to make it so."
@@ -19,17 +16,19 @@
     "CANCEL": "Cancel",
     "CLOSE": "Close",
     "SETTINGS": {
-      "APPLICATION_SETTINGS": "Application Settings",
       "DELETE": "Delete all",
       "HEADER": "Settings",
+      "APPLICATION_SETTINGS": {
+        "HEADER": "Application Settings",
+        "SI_METRICS": "Use SI Metrics",
+        "NIGHT_THEME": "Night mode",
+        "SERVER_URL": "Server url"
+      },
       "REFERENCE_SETTINGS": {
         "HEADER": "Library Settings",
         "FILE_LOCATION": "File location",
         "OFFSET": "Offset"
-      },
-      "SI_METRICS": "Use SI Metrics",
-      "NIGHT_THEME": "Night mode",
-      "SERVER_URL": "Server url"
+      }
     },
     "DICE": {
       "RETHROW": "Throw again"
@@ -197,7 +196,7 @@
       "REF": "Ref"
     }
   },
-  "SUBJECT": {
+  "SIDE_NAVIGATION": {
     "DIS_ADVANTAGES": "(Dis)Advantages",
     "EQUIPMENT": "Equipment",
     "GENERAL": "General",
