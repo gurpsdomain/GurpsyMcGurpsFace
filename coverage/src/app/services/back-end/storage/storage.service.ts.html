@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/services/back-end/storage/storage.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/services/back-end/storage</a> storage.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>35/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">47.37% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>33/44</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Injectable} from '@angular/core';
+import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
+import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {Observable} from 'rxjs';
+import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
+import {Settings} from '../../../models/settings/settings.model';
+import {Book} from '../../../models/settings/book.model';
+import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+&nbsp;
+@Injectable()
+export class StorageService {
+&nbsp;
+  public static STORAGE_KEY = 'gurpsy-mc-gurps-face';
+  public static STORAGE_EVENT_LISTENER_KEY = 'storage';
+&nbsp;
+  constructor(private settingsStorageDelegate: SettingsStorageDelegate<span class="branch-1 cbranch-no" title="branch not covered" >,</span>
+              private sheetStorageDelegate: SheetStorageDelegate<span class="branch-2 cbranch-no" title="branch not covered" >) {</span>
+  }
+&nbsp;
+  /**
+   * Acquire the Observer on which you can register yourself to be notified when the value is changed
+   * in Local Storage.
+   *
+   * @type Observable&lt;string&gt;
+   */
+<span class="fstat-no" title="function not covered" >  public getSheetObserver() {</span>
+<span class="cstat-no" title="statement not covered" >    return this.sheetStorageDelegate.valueChange$;</span>
+  }
+&nbsp;
+  /**
+   * Acquire the Observer on which you can register yourself to be notified when the value is changed
+   * in Local Storage.
+   *
+   * @type Observable&lt;Settings&gt;
+   */
+  public getSettingsObserver(): Observable&lt;Settings&gt; {
+    return this.settingsStorageDelegate.valueChange$;
+  }
+&nbsp;
+  /**
+   * Store the given BodyContent in Local Storage;
+   *
+   * @param SheetBodyContent
+   */
+  public storeBodyContent(bodyContent: SheetBodyContent) {
+    this.settingsStorageDelegate.storeBodyContent(bodyContent);
+  }
+&nbsp;
+  /**
+   * Store the given BookConfigurations in Local Storage;
+   *
+   * @param BookConfiguration[]
+   */
+<span class="fstat-no" title="function not covered" >  public storeBookConfigurations(</span>bookConfigurations: Book[]) {
+<span class="cstat-no" title="statement not covered" >    this.settingsStorageDelegate.storeBookConfigurations(bookConfigurations);</span>
+  }
+&nbsp;
+&nbsp;
+  /**
+   * Store the given metrics in Local Storage;
+   *
+   * @param String
+   */
+<span class="fstat-no" title="function not covered" >  public storeMetrics(</span>metrics: string) {
+<span class="cstat-no" title="statement not covered" >    this.settingsStorageDelegate.storeMetrics(metrics);</span>
+  }
+&nbsp;
+  /**
+   * Store the given sheet in Local Storage;
+   *
+   * @param InputSheet
+   */
+<span class="fstat-no" title="function not covered" >  public storeSheet(</span>sheet: InputSheet): void {
+<span class="cstat-no" title="statement not covered" >    this.sheetStorageDelegate.setCurrent(sheet);</span>
+  }
+&nbsp;
+  /**
+   * Store the given serverUrl in Local Storage;
+   *
+   * @param String
+   */
+<span class="fstat-no" title="function not covered" >  public storeServerUrl(</span>serverUrl: string) {
+<span class="cstat-no" title="statement not covered" >    this.settingsStorageDelegate.storeServerUrl(serverUrl);</span>
+  }
+&nbsp;
+  /**
+   * Store the given theme in Local Storage;
+   *
+   * @param String
+   */
+<span class="fstat-no" title="function not covered" >  public storeTheme(</span>theme: string) {
+<span class="cstat-no" title="statement not covered" >    this.settingsStorageDelegate.storeTheme(theme);</span>
+  }
+&nbsp;
+  /**
+   * Retrieve the given BodyContent from Locale Storage.
+   *
+   * @returns Promise&lt;SheetBodyContent&gt;
+   */
+  public getBodyContent(): Promise&lt;SheetBodyContent&gt; {
+    return this.settingsStorageDelegate.retrieveBodyContent();
+  }
+&nbsp;
+  /**
+   * Retrieve the given BookConfigurations from Locale Storage.
+   *
+   * @returns Promise&lt;BookConfiguration[]&gt;
+   */
+  public getBookConfigurations(): Promise&lt;Book[]&gt; {
+    return this.settingsStorageDelegate.retrieveBookConfigurations();
+  }
+&nbsp;
+  /**
+   * Retrieve the given metrics from Locale Storage.
+   *
+   * @returns metrics: Promise&lt;String&gt;
+   */
+  public getMetrics(): Promise&lt;string&gt; {
+    return this.settingsStorageDelegate.retrieveMetrics();
+  }
+&nbsp;
+  /**
+   * Retrieve the Current InputSheet for Local Storage.
+   *
+   * @returns Promise&lt;InputSheet&gt; or an empty promise if there is no current sheet.
+   */
+  public getCurrentSheet(): Promise&lt;InputSheet&gt; {
+    return this.sheetStorageDelegate.retrieveCurrent();
+  }
+&nbsp;
+  /**
+   * Retrieve an array of Previously Opened Sheets from Local Storage.
+   *
+   * @returns Promise&lt;InputSheet[]&gt; or an empty promise if there are no previously opened sheets.
+   */
+<span class="fstat-no" title="function not covered" >  public getPreviouslyOpenedSheets(): Promise&lt;InputSheet[]&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return this.sheetStorageDelegate.retrievePrevious();</span>
+  }
+&nbsp;
+  /**
+   * Retrieve both the Current sheet and the previously opened sheet.
+   *
+   * @returns Promise&lt;InputSheet[]&gt; or an empty promise if there are no current and previously
+   *          opened sheets.
+   */
+<span class="fstat-no" title="function not covered" >  public getSheets(): Promise&lt;InputSheet[]&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return this.sheetStorageDelegate.retrieveAll();</span>
+  }
+&nbsp;
+  /**
+   * Retrieve the given serverUrl from Locale Storage.
+   *
+   * @returns serverUrl: Promise&lt;String&gt;
+   */
+  public getServerUrl(): Promise&lt;string&gt; {
+    return this.settingsStorageDelegate.retrieveServerUrl();
+  }
+&nbsp;
+&nbsp;
+  /**
+   * Retrieve the given theme from Locale Storage.
+   *
+   * @returns theme: Promise&lt;String&gt;
+   */
+<span class="fstat-no" title="function not covered" >  public getTheme(): Promise&lt;string&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return this.settingsStorageDelegate.retrieveTheme();</span>
+  }
+&nbsp;
+  /**
+   * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
+   * entries should be removed.
+   */
+<span class="fstat-no" title="function not covered" >  public clearStorage(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.settingsStorageDelegate.clear();</span>
+<span class="cstat-no" title="statement not covered" >    this.sheetStorageDelegate.kill();</span>
+  }
+}
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 26 2017 09:42:23 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

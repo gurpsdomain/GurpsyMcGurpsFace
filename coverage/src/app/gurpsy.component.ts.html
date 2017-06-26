@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/gurpsy.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/app</a> gurpsy.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60.24% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>50/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.08% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>38/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>48/74</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Component, OnInit} from '@angular/core';
+import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry, OverlayContainer} from '@angular/material';
+import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
+import {SettingsService} from './services/front-end/settings/settings.service';
+import {ModelService} from './services/front-end/model/model.service';
+import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
+import {LoggingService} from './services/back-end/logging/logging.service';
+import {DomSanitizer} from '@angular/platform-browser';
+import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
+import {TranslateService} from '@ngx-translate/core';
+import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
+import {OutputSheet} from './models/sheet/output/output.sheet.model';
+&nbsp;
+@Component({
+  selector: 'gurpsy-root',
+  templateUrl: './gurpsy.component.html',
+  styleUrls: ['./gurpsy.component.scss']
+})
+export class GurpsyComponent implements OnInit {
+&nbsp;
+  private static DIALOG_WIDTH = '400px';
+  private static SNACKBAR_DURATION_TIME = 4000;
+&nbsp;
+  private static ICON_D6_NAME = 'd6';
+  private static ICON_D6_URL = 'assets/icons/dice-6.svg';
+  private static ICON_LOGO_NAME = 'gurpsy-face';
+  private static ICON_LOGO_URL = 'assets/icons/gurpsy-face.svg';
+  private static ICON_LIBRARY_NAME = 'books';
+  private static ICON_LIBRARY_URL = 'assets/icons/book-open-page-variant.svg';
+&nbsp;
+  private aboutDialogRef: MdDialogRef&lt;AboutDialogComponent&gt;;
+  private diceDialogRef: MdDialogRef&lt;DiceDialogComponent&gt;;
+  private openSheetDialogRef: MdDialogRef&lt;OpenSheetDialogComponent&gt;;
+  private settingsDialogRef: MdDialogRef&lt;SettingsDialogComponent&gt;;
+&nbsp;
+  public theme: string;
+  public showLibrary: boolean;
+&nbsp;
+  constructor(public dialog: MdDialog<span class="branch-1 cbranch-no" title="branch not covered" >,</span>
+              private settingsService: SettingsService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private loggingService: LoggingService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private modelService: ModelService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private pageReferenceService: PageReferenceService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private snackBar: MdSnackBar<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private translate: TranslateService<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private iconRegistry: MdIconRegistry<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private sanitizer: DomSanitizer<span class="branch-2 cbranch-no" title="branch not covered" >,</span>
+              private overlayContainer: OverlayContainer<span class="branch-2 cbranch-no" title="branch not covered" >) {</span>
+&nbsp;
+    this.registerCustomIcons(iconRegistry, sanitizer);
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  public ngOnInit(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.initLibrary();</span>
+<span class="cstat-no" title="statement not covered" >    this.initSheetChangeListener();</span>
+<span class="cstat-no" title="statement not covered" >    this.initTheme();</span>
+  }
+&nbsp;
+  /**
+   * Call when the TrowDice dialog should shown.
+   */
+<span class="fstat-no" title="function not covered" >  public onOpenThrowDiceDialog(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.diceDialogRef = this.dialog.open(DiceDialogComponent, {</span>
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.diceDialogRef.afterClosed().subscribe(</span>
+      this.diceDialogRef = null
+    );
+  }
+&nbsp;
+  /**
+   * Call when the AboutDialog should be shown.
+   */
+<span class="fstat-no" title="function not covered" >  public onOpenAboutDialog(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.aboutDialogRef = this.dialog.open(AboutDialogComponent, {</span>
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.aboutDialogRef.afterClosed().subscribe(</span>
+      this.aboutDialogRef = null
+    );
+  }
+&nbsp;
+  /**
+   * Call when the OpenSheet dialog should be shown.
+   */
+<span class="fstat-no" title="function not covered" >  public onOpenSheetDialog(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {</span>
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.openSheetDialogRef.afterClosed().subscribe(</span>
+      this.openSheetDialogRef = null
+    );
+  }
+&nbsp;
+  /**
+   * Call when the SettingsDialog should be shown.
+   */
+<span class="fstat-no" title="function not covered" >  public onOpenSettingsDialog(): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.settingsDialogRef = this.dialog.open(SettingsDialogComponent, {</span>
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.settingsDialogRef.afterClosed().subscribe(</span>
+      this.settingsDialogRef = null
+    );
+  }
+&nbsp;
+  /**
+   * Call when the library should be shown.
+   *
+   * @param {boolean} show
+   */
+<span class="fstat-no" title="function not covered" >  public onShowLibrary(</span>show: boolean): void {
+<span class="cstat-no" title="statement not covered" >    this.showLibrary = show;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  private initLibrary(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.pageReferenceService.getReferenceChange().subscribe(<span class="fstat-no" title="function not covered" ></span>reference =&gt; <span class="cstat-no" title="statement not covered" >this.showLibrary = true)</span>;</span>
+<span class="cstat-no" title="statement not covered" >    this.showLibrary = false;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  private initTheme(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.settingsService.getTheme()</span>
+      .then(<span class="fstat-no" title="function not covered" ></span>theme =&gt; <span class="cstat-no" title="statement not covered" >this.setTheme(theme))</span>
+      .catch(<span class="fstat-no" title="function not covered" ></span>err =&gt; <span class="cstat-no" title="statement not covered" >this.setTheme(SettingsService.THEME_DEFAULT))</span>;
+<span class="cstat-no" title="statement not covered" >    this.settingsService.getSettingsObserver().subscribe(<span class="fstat-no" title="function not covered" ></span>config =&gt; <span class="cstat-no" title="statement not covered" >this.setTheme(config.theme))</span>;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  private initSheetChangeListener(): void {</span></span>
+<span class="cstat-no" title="statement not covered" >    this.modelService.outputModelChange$.subscribe(<span class="fstat-no" title="function not covered" ></span>sheet =&gt; <span class="cstat-no" title="statement not covered" >this.showNewSheetLoadedMessage(sheet))</span>;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  private setTheme(</span>theme: string) {
+<span class="cstat-no" title="statement not covered" >    if (theme !== SettingsService.THEME_NIGHT &amp;&amp; theme !== SettingsService.THEME_DAY) {</span>
+<span class="cstat-no" title="statement not covered" >      this.loggingService.warn('Invalid or no theme stored in Local Storage, using default.');</span>
+<span class="cstat-no" title="statement not covered" >      theme = SettingsService.THEME_DEFAULT</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.theme = theme;</span>
+<span class="cstat-no" title="statement not covered" >    this.overlayContainer.themeClass = theme;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  private showNewSheetLoadedMessage(</span>sheet: OutputSheet): void {</span>
+<span class="cstat-no" title="statement not covered" >    this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe(<span class="fstat-no" title="function not covered" >(</span>res: string) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      this.snackBar.open(res, '', {</span>
+        duration: GurpsyComponent.SNACKBAR_DURATION_TIME,
+      });
+    });
+  }
+&nbsp;
+  private registerCustomIcons(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer): void {
+    iconRegistry.addSvgIcon(
+      GurpsyComponent.ICON_D6_NAME,
+      sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_D6_URL));
+    iconRegistry.addSvgIcon(
+      GurpsyComponent.ICON_LOGO_NAME,
+      sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_LOGO_URL));
+    iconRegistry.addSvgIcon(
+      GurpsyComponent.ICON_LIBRARY_NAME,
+      sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_LIBRARY_URL));
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 26 2017 09:42:23 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

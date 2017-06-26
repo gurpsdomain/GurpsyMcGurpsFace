@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/services/front-end/page-reference/page-reference.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">All files</a> / <a href="index.html">src/app/services/front-end/page-reference</a> page-reference.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.14% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>28/49</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.15% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">58.14% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Injectable} from '@angular/core';
+import {Subject, Observable} from 'rxjs';
+import {SettingsService} from '../settings/settings.service';
+import {Reference} from '../../../models/reference/reference-model';
+import {Book} from '../../../models/settings/book.model';
+&nbsp;
+@Injectable()
+export class PageReferenceService {
+&nbsp;
+&nbsp;
+  private referenceRequest = new Subject&lt;Reference&gt;();
+  private referenceRequestedObservable$ = this.referenceRequest.asObservable();
+&nbsp;
+  private _currentReference: Reference;
+&nbsp;
+  constructor(private settingsService: SettingsService<span class="branch-1 cbranch-no" title="branch not covered" >) {</span>
+    this._currentReference = undefined;
+  }
+&nbsp;
+  /**
+   * Test whether a Reference has been configured for the given input.
+   * @param reference {string} of the form B37 or M42;
+   * @return {Promise&lt;boolean&gt;} Whether there is a reference available.
+   */
+  public isReferenceAvailable(reference: string): Promise&lt;boolean&gt; {
+&nbsp;
+    return this.settingsService.getBookConfigurations()
+      .then(bookConfigurations =&gt; Promise.resolve(this.isReferenced(bookConfigurations, reference)))
+      .catch(<span class="fstat-no" title="function not covered" ></span>any =&gt; <span class="cstat-no" title="statement not covered" >Promise.reject(false))</span>;
+  }
+&nbsp;
+&nbsp;
+  /**
+   * Show a reference.
+   *
+   * This method will call next() on the "referenceRequest" Subject. A specific
+   * component will register on this event to open the requested bookConfigurations in the
+   * appropriate pdf.
+   *
+   * @param {string} reference  A reference of the form B37 or M42
+   */
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  public showReference(</span>reference: string): void {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.settingsService.getBookConfigurations()</span>
+      .then(<span class="fstat-no" title="function not covered" ></span>books =&gt; <span class="cstat-no" title="statement not covered" >this.handleReferenceRequest(reference, books))</span>;
+  }
+&nbsp;
+  /**
+   * Return an Observable that will notify you when a reference is requested.
+   *
+   * @returns {Observable&lt;Reference&gt;}
+   */
+<span class="fstat-no" title="function not covered" >  public getReferenceChange(): Observable &lt; Reference &gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return this.referenceRequestedObservable$;</span>
+  }
+&nbsp;
+  /**
+   * Return an array of all Books that are available as references.
+   *
+   * @returns {Array&lt;string&gt;}
+   */
+<span class="fstat-no" title="function not covered" >  public getBookTypes(): Promise &lt; string[] &gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return Promise.resolve(Book.BOOK_TYPES);</span>
+  }
+&nbsp;
+  /**
+   * Return the current reference.
+   *
+   * @return {Reference}
+   */
+  get currentReference(): Reference {
+    return this._currentReference;
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  private findReferencedBook(</span>reference: string, books: Book[]): Book {
+    let referencedBook: Book;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (const book<span class="cstat-no" title="statement not covered" ></span> of books) {</span>
+<span class="cstat-no" title="statement not covered" >      if (book.isReferenced(reference)) {</span>
+<span class="cstat-no" title="statement not covered" >        referencedBook = book;</span>
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return referencedBook;</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  private handleReferenceRequest(</span>reference: string, books: Book[]): void {
+&nbsp;
+    const referencedBook = <span class="cstat-no" title="statement not covered" >this.findReferencedBook(reference, books);</span>
+&nbsp;
+    const referenceModel = <span class="cstat-no" title="statement not covered" >new Reference();</span>
+<span class="cstat-no" title="statement not covered" >    referenceModel.bookConfiguration = referencedBook;</span>
+<span class="cstat-no" title="statement not covered" >    referenceModel.page = 9;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._currentReference = referenceModel;</span>
+<span class="cstat-no" title="statement not covered" >    this.referenceRequest.next(referenceModel);</span>
+  }
+&nbsp;
+  private isReferenced(bookConfigurations: Book[], reference: string): boolean {
+    let isReferenced = false;
+&nbsp;
+    for (const book<span class="cstat-no" title="statement not covered" ></span> of bookConfigurations) {
+<span class="cstat-no" title="statement not covered" >      if (book.isReferenced(reference)) {</span>
+<span class="cstat-no" title="statement not covered" >        isReferenced = true;</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      }
+    }
+&nbsp;
+    return isReferenced;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 26 2017 09:42:23 GMT+0200 (CEST)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>
