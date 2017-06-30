@@ -2,18 +2,37 @@
   <md-sidenav #sidenav>
     <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"
                             (onShowLibrary)="onShowLibrary($event)">
-
     </gurpsy-side-navigation>
   </md-sidenav>
 
   <md-toolbar class="flex-container">
-    <button class="flex-item" md-icon-button (click)="sidenav.toggle()">
+    <button md-icon-button
+            class="flex-item"
+            (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
     </button>
 
-    <span class="flex-item" fxFlex>
+    <span class="flex-item"
+          fxFlex>
       {{'APPLICATION'| translate}}
     </span>
+
+    <button md-icon-button
+            class="flex-item"
+            fxShow="true"
+            fxShow.xs="false"
+            *ngIf="!editMode"
+            (click)="onEdit()">
+      <md-icon>lock</md-icon>
+    </button>
+    <button md-icon-button
+            class="flex-item"
+            fxShow="true"
+            fxShow.xs="false"
+            *ngIf="editMode"
+            (click)="onLock()">
+      <md-icon>lock_open</md-icon>
+    </button>
 
     <div fxShow="false" fxShow.xs class="avatar flex-item">
       <img src="assets/images/empty-portrait.png">
@@ -27,6 +46,22 @@
         <button md-menu-item (click)="onOpenSheetDialog()">
           <md-icon>account_box</md-icon>
           <span>{{ 'MENU.OPEN' | translate }}</span>
+        </button>
+        <button
+          md-menu-item
+          fxShow="false"
+          fxShow.xs *ngIf="!editMode"
+          (click)="onEdit()">
+          <md-icon>lock</md-icon>
+          <span>{{ 'MENU.EDIT' | translate }}</span>
+        </button>
+        <button
+          md-menu-item
+          fxShow="false"
+          fxShow.xs *ngIf="editMode"
+          (click)="onLock()">
+          <md-icon>lock_open</md-icon>
+          <span>{{ 'MENU.LOCK' | translate }}</span>
         </button>
         <button md-menu-item (click)="onOpenThrowDiceDialog()">
           <md-icon svgIcon="d6"></md-icon>

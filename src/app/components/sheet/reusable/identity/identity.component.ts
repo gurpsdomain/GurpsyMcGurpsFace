@@ -15,7 +15,7 @@ export class IdentityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sheet = this.modelService.getSheet();
+    this.sheet = this.modelService.getOutputModel();
     this.modelService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

@@ -25,7 +25,7 @@ export class SideNavigationComponent implements OnInit {
   ngOnInit(): void {
     this.sheetBodyService.sheetBodyChange$.subscribe(sheetBodyContent => this.sheetBodyContent = sheetBodyContent);
 
-    this.sheet = this.modelService.getSheet();
+    this.sheet = this.modelService.getOutputModel();
     this.modelService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 

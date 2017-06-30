@@ -15,7 +15,7 @@ export class PlayerInformationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sheet = this.modelReadService.getSheet();
+    this.sheet = this.modelReadService.getOutputModel();
     this.modelReadService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

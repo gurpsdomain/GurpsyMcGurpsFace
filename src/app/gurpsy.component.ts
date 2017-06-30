@@ -34,6 +34,8 @@ export class GurpsyComponent implements OnInit {
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
 
+  private editMode: boolean;
+
   public theme: string;
   public showLibrary: boolean;
 
@@ -54,7 +56,22 @@ export class GurpsyComponent implements OnInit {
   public ngOnInit(): void {
     this.initLibrary();
     this.initSheetChangeListener();
+    this.initEditMode();
     this.initTheme();
+  }
+
+  /**
+   * Switch to edit mode
+   */
+  public onEdit(): void {
+    this.editMode = true;
+  }
+
+  /**
+   * Lock sheet. The sheet is no longer editable;
+   */
+  public onLock(): void {
+    this.editMode = false;
   }
 
   /**
@@ -120,6 +137,11 @@ export class GurpsyComponent implements OnInit {
    */
   public onShowLibrary(show: boolean): void {
     this.showLibrary = show;
+  }
+
+  private initEditMode(): void {
+    this.editMode = this.modelService.editMode;
+    this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
   }
 
   private initLibrary(): void {

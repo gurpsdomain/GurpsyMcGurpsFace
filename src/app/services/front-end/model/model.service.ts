@@ -17,26 +17,20 @@ export class ModelService {
   private inputModel: InputSheet;
   private outputModel: OutputSheet = new OutputSheet();
 
-  private http: Http;
+  private _editMode = false;
 
-  private loggingService: LoggingService;
-  private modelTransformerService: ModelTransformerService;
-  private storageService: StorageService;
-
+  private editModeChangeSource = new Subject<boolean>();
   private outputModelChangeSource = new Subject<OutputSheet>();
   private inputModelChangeSource = new Subject<InputSheet>();
 
+  public editModeChange$ = this.editModeChangeSource.asObservable();
   public outputModelChange$ = this.outputModelChangeSource.asObservable();
   public inputModelChange$ = this.inputModelChangeSource.asObservable();
 
-  constructor(loggingService: LoggingService,
-              modelTransformerService: ModelTransformerService,
-              storageService: StorageService,
-              http: Http) {
-    this.loggingService = loggingService;
-    this.modelTransformerService = modelTransformerService;
-    this.storageService = storageService;
-    this.http = http;
+  constructor(private loggingService: LoggingService,
+              private modelTransformerService: ModelTransformerService,
+              private storageService: StorageService,
+              private http: Http) {
 
     this.initSheet();
   }
@@ -76,10 +70,10 @@ export class ModelService {
    */
   public loadSheet(sheet: InputSheet, isNew: boolean): void {
 
-    this.setInputModel(sheet);
+    this.changeInputModel(sheet);
 
     this.modelTransformerService.transform(sheet)
-      .then(outputSheet => this.setOutputModel(outputSheet)).catch(any => this.setFallbackOutputModel())
+      .then(outputSheet => this.changeOutputModel(outputSheet)).catch(any => this.setFallbackOutputModel())
 
     if (isNew) {
       this.storageService.storeSheet(sheet);
@@ -91,8 +85,30 @@ export class ModelService {
    *
    * @returns {OutputSheet}
    */
-  public getSheet(): OutputSheet {
+  public getOutputModel(): OutputSheet {
     return this.outputModel;
+  }
+
+  /**
+   * If the model is currently in edit mode. If so, it is possible
+   * to edit the InputSheet. Concequently, this will lead to a new
+   * OutputSheet.
+   *
+   * @param {boolean}
+   */
+  public set editMode(value: boolean) {
+    this._editMode = value;
+  }
+
+  /**
+   * If the model is currently in edit mode. If so, it is possible
+   * to edit the InputSheet. Concequently, this will lead to a new
+   * OutputSheet.
+   *
+   * @return {boolean}
+   */
+  public get editMode(): boolean {
+    return this._editMode;
   }
 
   private handleStoredSheet(sheet: InputSheet): void {
@@ -105,22 +121,24 @@ export class ModelService {
 
   private initEmptyOutputSheet(): void {
     const emptySheet: OutputSheet = new OutputSheet();
-    this.setOutputModel(emptySheet);
+    this.changeOutputModel(emptySheet);
   }
 
-  private setInputModel(inputSheet: InputSheet): void {
+  private changeInputModel(inputSheet: InputSheet): void {
     this.inputModel = inputSheet;
     this.inputModelChangeSource.next(inputSheet);
   }
 
-  private setOutputModel(outputSheet: OutputSheet): void {
+  private changeOutputModel(outputSheet: OutputSheet): void {
     this.outputModel = outputSheet;
     this.outputModelChangeSource.next(outputSheet);
   }
 
   private setFallbackOutputModel(): void {
     this.http.get(ModelService.FALLBACK_MODEL).toPromise()
-      .then(response => this.setOutputModel(response.json()))
+      .then(response => this.changeOutputModel(response.json()))
       .catch(error => this.loggingService.error('Unable to fetch fallback sheet. ' + error))
   }
+
+
 }
