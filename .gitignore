@@ -14,3 +14,6 @@ out/
 # OSX
 .DS_Store
 /npm-debug.log
+
+# Code coverage
+coverage/
