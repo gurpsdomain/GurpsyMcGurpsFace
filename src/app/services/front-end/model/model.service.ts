@@ -98,6 +98,7 @@ export class ModelService {
    */
   public set editMode(value: boolean) {
     this._editMode = value;
+    this.editModeChangeSource.next(value);
   }
 
   /**

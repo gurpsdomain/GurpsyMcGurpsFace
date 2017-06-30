@@ -12,12 +12,23 @@ import {OutputSheet} from '../../../../models/sheet/output/output.sheet.model';
 export class PortraitComponent implements OnInit {
 
   public sheet: OutputSheet;
+  public editMode: boolean;
 
-  constructor(private modelReadService: ModelService) {
+  constructor(private modelService: ModelService) {
   }
 
   ngOnInit(): void {
-    this.sheet = this.modelReadService.getOutputModel();
-    this.modelReadService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
+    this.initModel();
+    this.initEditMode();
+  }
+
+  private initEditMode(): void {
+    this.editMode = this.modelService.editMode;
+    this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
+  }
+
+  private initModel(): void {
+    this.sheet = this.modelService.getOutputModel();
+    this.modelService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 }

@@ -1,16 +1,18 @@
-//@import "../../../../../gurpsy-material-theme";
-
 .portrait {
-    height: calc(100% - 8px);
+  height: calc(100% - 8px);
 }
 
 .portrait .sheetComponentBody {
-    padding: 2px 2px 3px 2px;
+  padding: 2px 2px 3px 2px;
+}
+
+.portrait.editable .sheetComponentBody {
+  cursor: pointer;
 }
 
 .portrait .sheetComponentBody img {
-    width: 100px;
-    padding: 0px 0px 0px 0px;
-    vertical-align: middle;
-    -webkit-clip-path: inset(1% 1% 1% 1%);
+  width: 100px;
+  padding: 0px 0px 0px 0px;
+  vertical-align: middle;
+  -webkit-clip-path: inset(1% 1% 1% 1%);
 }

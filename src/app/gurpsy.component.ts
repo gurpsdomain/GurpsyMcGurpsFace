@@ -65,6 +65,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onEdit(): void {
     this.editMode = true;
+    this.modelService.editMode = true;
   }
 
   /**
@@ -72,6 +73,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onLock(): void {
     this.editMode = false;
+    this.modelService.editMode = false;
   }
 
   /**
