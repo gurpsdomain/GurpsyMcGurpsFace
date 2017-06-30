@@ -34,10 +34,9 @@ export class GurpsyComponent implements OnInit {
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
 
-  private editMode: boolean;
-
-  public theme: string;
+  public editMode: boolean;
   public showLibrary: boolean;
+  public theme: string;
 
   constructor(public dialog: MdDialog,
               private settingsService: SettingsService,
