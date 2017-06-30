@@ -42,6 +42,8 @@
   },
   "MENU": {
     "ABOUT": "About",
+    "EDIT" : "Edit sheet",
+    "LOCK" : "Lock sheet",
     "OPEN": "Open sheet",
     "SETTINGS": "Settings",
     "THROW_DICE": "Throw dice"
