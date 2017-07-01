@@ -19,6 +19,7 @@ import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
+import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
@@ -36,6 +37,7 @@ describe('SheetHeaderComponent', function () {
         DescriptionComponent,
         PointsComponent],
       imports: [
+        GurpsyMaterialModule,
         HttpModule,
         TranslateModule.forRoot()
       ],

@@ -14,6 +14,13 @@ import {BaseRequestOptions, Http} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
+import {
+  MdDialog, Overlay, ScrollStrategyOptions, ScrollDispatcher, Platform, ViewportRuler,
+  OverlayContainer
+} from '@angular/material';
+import {PortraitSelectorDialogComponent} from '../../../dialog/portrait-selector-dialog/portrait-selector-dialog.component';
+import {OverlayPositionBuilder} from '@angular/material/typings/core/overlay/position/overlay-position-builder';
+import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
 ////////  SPECS  /////////////
 describe('PortraitComponent', function () {
@@ -27,7 +34,9 @@ describe('PortraitComponent', function () {
         PortraitComponent
       ],
       imports: [
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
+
       ],
       providers: [
         {

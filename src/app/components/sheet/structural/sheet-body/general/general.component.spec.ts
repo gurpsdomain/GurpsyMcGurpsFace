@@ -21,6 +21,7 @@ import {SettingsService} from '../../../../../services/front-end/settings/settin
 import {LoggingService} from '../../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../../services/back-end/model-transformer/model-transformer.service';
 import {WeightPipe} from '../../../../../pipes/weight.pipe';
+import {GurpsyMaterialModule} from '../../../../../modules/material.module';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -41,6 +42,7 @@ describe('GeneralComponent', () => {
         WeightPipe
       ],
       imports: [
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [

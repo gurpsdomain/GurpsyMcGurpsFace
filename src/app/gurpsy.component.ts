@@ -19,8 +19,8 @@ import {OutputSheet} from './models/sheet/output/output.sheet.model';
 })
 export class GurpsyComponent implements OnInit {
 
-  private static DIALOG_WIDTH = '400px';
-  private static SNACKBAR_DURATION_TIME = 4000;
+  public static DIALOG_WIDTH = '400px';
+  public static SNACKBAR_DURATION_TIME = 4000;
 
   private static ICON_D6_NAME = 'd6';
   private static ICON_D6_URL = 'assets/icons/dice-6.svg';

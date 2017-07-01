@@ -37,6 +37,8 @@ import {MockBackend} from '@angular/http/testing';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../services/back-end/model-transformer/model-transformer.service';
 import {WeightPipe} from '../../pipes/weight.pipe';
+import {MdDialog} from '@angular/material';
+import {GurpsyMaterialModule} from '../../modules/material.module';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -72,6 +74,7 @@ describe('SheetComponent', function () {
         WeightPipe
       ],
       imports: [
+        GurpsyMaterialModule,
         HttpModule,
         TranslateModule.forRoot()
       ],

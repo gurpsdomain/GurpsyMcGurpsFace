@@ -31,6 +31,7 @@ import {BaseRequestOptions, Http} from '@angular/http';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 import {WeightPipe} from '../../../../pipes/weight.pipe';
+import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -60,6 +61,7 @@ describe('SheetBodyComponent', () => {
         WeightPipe
       ],
       imports: [
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [
