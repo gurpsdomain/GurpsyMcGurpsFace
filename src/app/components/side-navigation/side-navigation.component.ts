@@ -1,14 +1,14 @@
 import {Component, Output, EventEmitter, OnInit} from '@angular/core';
 import {SheetBodyService, SheetBodyContent} from '../../services/front-end/sheet-body/sheet-body.service';
 import {ModelService} from '../../services/front-end/model/model.service';
-import {OutputSheet} from '../../models/sheet/output/output.sheet.model';
+import {ModelReadingComponent} from '../model-reading.component';
 
 @Component({
   selector: 'gurpsy-side-navigation',
   templateUrl: './side-navigation.component.html',
   styleUrls: ['./side-navigation.component.scss']
 })
-export class SideNavigationComponent implements OnInit {
+export class SideNavigationComponent extends ModelReadingComponent implements OnInit {
 
   @Output() onShowLibrary: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();
@@ -17,16 +17,14 @@ export class SideNavigationComponent implements OnInit {
   public sheetBodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
   public showLibrary = false;
 
-  public sheet: OutputSheet;
-
-  constructor(private sheetBodyService: SheetBodyService, private modelService: ModelService) {
+  constructor(private sheetBodyService: SheetBodyService, modelService: ModelService) {
+    super(modelService);
   }
 
   ngOnInit(): void {
-    this.sheetBodyService.sheetBodyChange$.subscribe(sheetBodyContent => this.sheetBodyContent = sheetBodyContent);
+    super.ngOnInit();
 
-    this.sheet = this.modelService.getOutputModel();
-    this.modelService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
+    this.sheetBodyService.sheetBodyChange$.subscribe(sheetBodyContent => this.sheetBodyContent = sheetBodyContent);
   }
 
   public onCloseSideNav(): void {

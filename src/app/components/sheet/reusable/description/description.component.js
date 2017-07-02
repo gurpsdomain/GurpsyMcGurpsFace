@@ -15,9 +15,9 @@ var DescriptionComponent = (function () {
     DescriptionComponent = __decorate([
         core_1.Component({
             selector: 'gurpsy-description-component',
-            templateUrl: 'app/sheet/sheetheader/components/description.component.html',
-            styleUrls: ['app/sheet/sheet.component.css',
-                'app/sheet/sheetheader/components/description.component.scss']
+            templateUrl: 'app/readSheet/sheetheader/components/description.component.html',
+            styleUrls: ['app/readSheet/readSheet.component.css',
+                'app/readSheet/sheetheader/components/description.component.scss']
         }),
         __metadata('design:paramtypes', [])
     ], DescriptionComponent);

@@ -4,7 +4,7 @@
   </div>
   <div class="sheetComponentBody">
     <table class="headerRowTable">
-      <tr *ngFor="let equipment of sheet.equipments;">
+      <tr *ngFor="let equipment of readSheet.equipments;">
         <td>{{equipment.name}}</td>
         <td>
           <gurpsy-page-reference [pageReference]="equipment.pageReference"></gurpsy-page-reference>

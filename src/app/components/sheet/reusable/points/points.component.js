@@ -16,9 +16,9 @@ var PointsComponent = (function () {
     PointsComponent = __decorate([
         core_1.Component({
             selector: 'gurpsy-points-component',
-            templateUrl: 'app/sheet/sheetheader/components/points.component.html',
-            styleUrls: ['app/sheet/sheet.component.css',
-                'app/sheet/sheetheader/components/points.component.scss'
+            templateUrl: 'app/readSheet/sheetheader/components/points.component.html',
+            styleUrls: ['app/readSheet/readSheet.component.css',
+                'app/readSheet/sheetheader/components/points.component.scss'
             ]
         }),
         __metadata('design:paramtypes', [])

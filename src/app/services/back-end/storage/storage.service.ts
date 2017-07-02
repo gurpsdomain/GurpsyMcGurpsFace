@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {Settings} from '../../../models/settings/settings.model';
 import {Book} from '../../../models/settings/book.model';
-import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
 
 @Injectable()
 export class StorageService {
@@ -66,11 +66,11 @@ export class StorageService {
   }
 
   /**
-   * Store the given sheet in Local Storage;
+   * Store the given readSheet in Local Storage;
    *
    * @param InputSheet
    */
-  public storeSheet(sheet: InputSheet): void {
+  public storeSheet(sheet: UpdateSheet): void {
     this.sheetStorageDelegate.setCurrent(sheet);
   }
 
@@ -120,30 +120,30 @@ export class StorageService {
   }
 
   /**
-   * Retrieve the Current InputSheet for Local Storage.
+   * Retrieve the Current UpdateSheet for Local Storage.
    *
-   * @returns Promise<InputSheet> or an empty promise if there is no current sheet.
+   * @returns Promise<UpdateSheet> or an empty promise if there is no current readSheet.
    */
-  public getCurrentSheet(): Promise<InputSheet> {
+  public getCurrentSheet(): Promise<UpdateSheet> {
     return this.sheetStorageDelegate.retrieveCurrent();
   }
 
   /**
    * Retrieve an array of Previously Opened Sheets from Local Storage.
    *
-   * @returns Promise<InputSheet[]> or an empty promise if there are no previously opened sheets.
+   * @returns Promise<UpdateSheet[]> or an empty promise if there are no previously opened sheets.
    */
-  public getPreviouslyOpenedSheets(): Promise<InputSheet[]> {
+  public getPreviouslyOpenedSheets(): Promise<UpdateSheet[]> {
     return this.sheetStorageDelegate.retrievePrevious();
   }
 
   /**
-   * Retrieve both the Current sheet and the previously opened sheet.
+   * Retrieve both the Current readSheet and the previously opened readSheet.
    *
-   * @returns Promise<InputSheet[]> or an empty promise if there are no current and previously
+   * @returns Promise<UpdateSheet[]> or an empty promise if there are no current and previously
    *          opened sheets.
    */
-  public getSheets(): Promise<InputSheet[]> {
+  public getSheets(): Promise<UpdateSheet[]> {
     return this.sheetStorageDelegate.retrieveAll();
   }
 

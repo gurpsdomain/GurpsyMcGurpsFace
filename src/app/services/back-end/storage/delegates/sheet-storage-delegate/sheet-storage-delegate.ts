@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
-import {InputSheet} from '../../../../../models/sheet/input/input.sheet.model';
+import {UpdateSheet} from '../../../../../models/sheet/update/update-sheet.model';
 import {Sheets} from '../../../../../models/sheet/sheets.model';
 import {LoggingService} from '../../../logging/logging.service';
 import {JsonConvert} from 'json2typescript';
@@ -26,11 +26,11 @@ export class SheetStorageDelegate {
   }
 
   /**
-   * Set the given sheet as the Current sheet in Local Storage.
+   * Set the given readSheet as the Current readSheet in Local Storage.
    *
-   * @param sheet: OutputSheet
+   * @param sheet: ReadSheet
    */
-  public setCurrent(sheet: InputSheet): void {
+  public setCurrent(sheet: UpdateSheet): void {
     const sheets: Sheets = this.getSheets();
 
     if (!this.isCurrent(sheets, sheet)) {
@@ -44,12 +44,12 @@ export class SheetStorageDelegate {
   }
 
   /**
-   * Retrieve the Current OutputSheet for Local Storage.
+   * Retrieve the Current ReadSheet for Local Storage.
    *
-   * @returns Promise<OutputSheet> or an empty promise if there is no current sheet.
+   * @returns Promise<ReadSheet> or an empty promise if there is no current readSheet.
    */
-  public retrieveCurrent(): Promise<InputSheet> {
-    const current: InputSheet = this.getCurrentSheet();
+  public retrieveCurrent(): Promise<UpdateSheet> {
+    const current: UpdateSheet = this.getCurrentSheet();
 
     return Promise.resolve(current);
   }
@@ -57,36 +57,36 @@ export class SheetStorageDelegate {
   /**
    * Retrieve an array of Previously Opened Sheets from Local Storage.
    *
-   * @returns Promise<OutputSheet[]> or an empty promise if there are no previously opened sheets.
+   * @returns Promise<ReadSheet[]> or an empty promise if there are no previously opened sheets.
    */
-  public retrievePrevious(): Promise<InputSheet[]> {
-    const previous: InputSheet[] = this.getPreviouslyOpenedSheets();
+  public retrievePrevious(): Promise<UpdateSheet[]> {
+    const previous: UpdateSheet[] = this.getPreviouslyOpenedSheets();
 
     return Promise.resolve(previous);
   }
 
   /**
-   * Retrieve both the Current sheet and the Previously Opened sheet.
+   * Retrieve both the Current readSheet and the Previously Opened readSheet.
    *
-   * @returns Promise<OutputSheet[]> or an empty promise if there are no current and previously
+   * @returns Promise<ReadSheet[]> or an empty promise if there are no current and previously
    *          opened sheets.
    */
-  public retrieveAll(): Promise<InputSheet[]> {
-    const current: InputSheet = this.getCurrentSheet();
-    const all: InputSheet[] = this.getPreviouslyOpenedSheets();
+  public retrieveAll(): Promise<UpdateSheet[]> {
+    const current: UpdateSheet = this.getCurrentSheet();
+    const all: UpdateSheet[] = this.getPreviouslyOpenedSheets();
     all.push(current);
 
     return Promise.resolve(all);
   }
 
   /**
-   * Remove the given sheet from the list of Previously Opened sheets in Local Storage.
-   * @param sheetsToRemove : OutputSheet[]
+   * Remove the given readSheet from the list of Previously Opened sheets in Local Storage.
+   * @param sheetsToRemove : ReadSheet[]
    */
-  public remove(sheetsToRemove: InputSheet[]): void {
+  public remove(sheetsToRemove: UpdateSheet[]): void {
     const previouslyOpenedSheets = this.getPreviouslyOpenedSheets();
 
-    const newSheetList: InputSheet[] = [];
+    const newSheetList: UpdateSheet[] = [];
 
     for (const sheet of previouslyOpenedSheets) {
       let remove = false;
@@ -121,8 +121,8 @@ export class SheetStorageDelegate {
     localStorage.setItem(this.getStorageKey(), jsonSheets);
   }
 
-  private removeFromPrevious(sheets: Sheets, sheet: InputSheet): Sheets {
-    const newSheets: InputSheet[] = [];
+  private removeFromPrevious(sheets: Sheets, sheet: UpdateSheet): Sheets {
+    const newSheets: UpdateSheet[] = [];
 
     for (const sheetIterator of sheets.previous) {
       if (sheetIterator && sheetIterator.name !== sheet.name) {
@@ -134,7 +134,7 @@ export class SheetStorageDelegate {
     return sheets;
   }
 
-  private isCurrent(sheets: Sheets, sheet: InputSheet): boolean {
+  private isCurrent(sheets: Sheets, sheet: UpdateSheet): boolean {
     return sheets.current && sheets.current.name === sheet.name;
   }
 
@@ -158,11 +158,11 @@ export class SheetStorageDelegate {
     return sheets;
   }
 
-  private getCurrentSheet(): InputSheet {
+  private getCurrentSheet(): UpdateSheet {
     return this.getSheets().current;
   }
 
-  private getPreviouslyOpenedSheets(): InputSheet[] {
+  private getPreviouslyOpenedSheets(): UpdateSheet[] {
     return this.getSheets().previous;
   }
 

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {ModelService} from '../../../services/front-end/model/model.service';
 import {StorageService} from '../../../services/back-end/storage/storage.service';
-import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
 
 @Component({
   selector: 'gurpsy-open-sheet-dialog',
@@ -16,10 +16,10 @@ export class OpenSheetDialogComponent {
 
   public showOk = false;
   public selectedFileName = '';
-  public selectedSheet: InputSheet;
-  public previouslyOpenedSheets: InputSheet[] = [];
+  public selectedSheet: UpdateSheet;
+  public previouslyOpenedSheets: UpdateSheet[] = [];
 
-  private selectedPreviousSheet: InputSheet = null;
+  private selectedPreviousSheet: UpdateSheet = null;
 
   constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
               private modelService: ModelService,
@@ -39,7 +39,7 @@ export class OpenSheetDialogComponent {
       .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 
-  public onPreviousSheetSelected(sheet: InputSheet) {
+  public onPreviousSheetSelected(sheet: UpdateSheet) {
     this.selectedPreviousSheet = sheet;
   }
 
@@ -48,11 +48,11 @@ export class OpenSheetDialogComponent {
       sheets => this.setPreviouslyOpenedSheets(sheets));
   }
 
-  private setPreviouslyOpenedSheets(sheets: InputSheet[]): void {
+  private setPreviouslyOpenedSheets(sheets: UpdateSheet[]): void {
     this.previouslyOpenedSheets = sheets;
   }
 
-  private setSelectedSheet(sheet: InputSheet, fileName: string): void {
+  private setSelectedSheet(sheet: UpdateSheet, fileName: string): void {
     this.selectedSheet = sheet;
     this.selectedFileName = fileName;
     this.showOk = true;

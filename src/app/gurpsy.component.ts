@@ -10,7 +10,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
-import {OutputSheet} from './models/sheet/output/output.sheet.model';
+import {ReadSheet} from './models/sheet/read/read-sheet.model';
 
 @Component({
   selector: 'gurpsy-root',
@@ -68,7 +68,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Lock sheet. The sheet is no longer editable;
+   * Lock readSheet. The readSheet is no longer editable;
    */
   public onLock(): void {
     this.editMode = false;
@@ -171,7 +171,7 @@ export class GurpsyComponent implements OnInit {
     this.overlayContainer.themeClass = theme;
   }
 
-  private showNewSheetLoadedMessage(sheet: OutputSheet): void {
+  private showNewSheetLoadedMessage(sheet: ReadSheet): void {
     this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
       this.snackBar.open(res, '', {
         duration: GurpsyComponent.SNACKBAR_DURATION_TIME,

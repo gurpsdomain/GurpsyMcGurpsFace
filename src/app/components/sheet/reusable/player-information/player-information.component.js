@@ -15,8 +15,8 @@ var PlayerInformationComponent = (function () {
     PlayerInformationComponent = __decorate([
         core_1.Component({
             selector: 'gurpsy-player-information-component',
-            templateUrl: 'app/sheet/sheetheader/components/player-information.component.html',
-            styleUrls: ['app/sheet/sheet.component.css']
+            templateUrl: 'app/readSheet/sheetheader/components/player-information.component.html',
+            styleUrls: ['app/readSheet/readSheet.component.css']
         }),
         __metadata('design:paramtypes', [])
     ], PlayerInformationComponent);

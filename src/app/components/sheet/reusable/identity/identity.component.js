@@ -15,8 +15,8 @@ var IdentityComponent = (function () {
     IdentityComponent = __decorate([
         core_1.Component({
             selector: 'gurpsy-identity-component',
-            templateUrl: 'app/sheet/sheetheader/components/identity.component.html',
-            styleUrls: ['app/sheet/sheet.component.css']
+            templateUrl: 'app/readSheet/sheetheader/components/identity.component.html',
+            styleUrls: ['app/readSheet/readSheet.component.css']
         }),
         __metadata('design:paramtypes', [])
     ], IdentityComponent);

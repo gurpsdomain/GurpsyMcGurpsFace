@@ -12,7 +12,7 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 import {DamageResistance} from './damage-resistance.model';
 
 @JsonObject
-export class OutputSheet {
+export class ReadSheet {
 
   @JsonProperty('metaData', MetaData)
   metaData: MetaData;

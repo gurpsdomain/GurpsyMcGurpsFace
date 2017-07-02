@@ -1,6 +1,6 @@
 "use strict";
 /* tslint:disable:no-unused-variable */
-var sheet_header_component_1 = require('./sheet-header.component');
+var sheet_header_component_1 = require('./readSheet-header.component');
 var testing_1 = require('@angular/core/testing');
 var platform_browser_1 = require('@angular/platform-browser');
 ////////  SPECS  /////////////
@@ -21,4 +21,4 @@ describe('SheetHeaderComponent', function () {
     });
     it('should create SheetHeader component', function () { return expect(comp).toBeDefined(); });
 });
-//# sourceMappingURL=sheet-header.component.spec.js.map
+//# sourceMappingURL=readSheet-header.component.spec.js.map

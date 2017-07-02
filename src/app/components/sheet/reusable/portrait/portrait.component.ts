@@ -1,9 +1,9 @@
-import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ModelService} from '../../../../services/front-end/model/model.service';
-import {OutputSheet} from '../../../../models/sheet/output/output.sheet.model';
 import {MdDialogRef, MdDialog} from '@angular/material';
 import {PortraitSelectorDialogComponent} from '../../../dialog/portrait-selector-dialog/portrait-selector-dialog.component';
 import {GurpsyComponent} from '../../../../gurpsy.component';
+import {ModelUpdatingComponent} from '../../../model-updating.component';
 
 @Component({
   selector: 'gurpsy-portrait',
@@ -12,22 +12,14 @@ import {GurpsyComponent} from '../../../../gurpsy.component';
     'portrait.component.scss'
   ]
 })
-export class PortraitComponent implements OnInit {
+export class PortraitComponent extends ModelUpdatingComponent {
 
   @ViewChild('inputFile') nativeInputFile: ElementRef;
 
   private portraitDialogRef: MdDialogRef<PortraitSelectorDialogComponent>;
 
-  public sheet: OutputSheet;
-  public editMode: boolean;
-
-  constructor(private dialog: MdDialog,
-              private modelService: ModelService) {
-  }
-
-  ngOnInit(): void {
-    this.initModel();
-    this.initEditMode();
+  constructor(private dialog: MdDialog, modelService: ModelService) {
+    super(modelService);
   }
 
   public selectPortrait(): void {
@@ -40,16 +32,6 @@ export class PortraitComponent implements OnInit {
     const file = $event.srcElement.files[0];
 
     this.onOpenPortraitDialog(file);
-  }
-
-  private initEditMode(): void {
-    this.editMode = this.modelService.editMode;
-    this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
-  }
-
-  private initModel(): void {
-    this.sheet = this.modelService.getOutputModel();
-    this.modelService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
   }
 
   /**
@@ -67,6 +49,4 @@ export class PortraitComponent implements OnInit {
       this.portraitDialogRef = null
     );
   }
-
-
 }

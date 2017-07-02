@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ModelService} from '../../../../services/front-end/model/model.service';
-import {OutputSheet} from '../../../../models/sheet/output/output.sheet.model';
+import {Component} from '@angular/core';
+import {ModelReadingComponent} from '../../../model-reading.component';
 
 @Component({
   selector: 'gurpsy-equipment',
@@ -8,15 +7,5 @@ import {OutputSheet} from '../../../../models/sheet/output/output.sheet.model';
   styleUrls: ['./equipment.component.scss',
     '/../../sheet.component.scss']
 })
-export class EquipmentComponent implements OnInit {
-
-  public sheet: OutputSheet;
-
-  constructor(private modelReadService: ModelService) {
-  }
-
-  ngOnInit(): void {
-    this.sheet = this.modelReadService.getOutputModel();
-    this.modelReadService.outputModelChange$.subscribe(sheet => this.sheet = sheet);
-  }
+export class EquipmentComponent extends ModelReadingComponent {
 }

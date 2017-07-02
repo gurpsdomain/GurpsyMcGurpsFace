@@ -1,6 +1,6 @@
 "use strict";
 /* tslint:disable:no-unused-variable */
-var sheet_component_1 = require('./sheet.component');
+var sheet_component_1 = require('./readSheet.component');
 var testing_1 = require('@angular/core/testing');
 var platform_browser_1 = require('@angular/platform-browser');
 ////////  SPECS  /////////////
@@ -19,6 +19,6 @@ describe('SheetComponent', function () {
         comp = fixture.componentInstance;
         de = fixture.debugElement.query(platform_browser_1.By.css('h1'));
     });
-    it('should create a OutputSheet component', function () { return expect(comp).toBeDefined(); });
+    it('should create a ReadSheet component', function () { return expect(comp).toBeDefined(); });
 });
-//# sourceMappingURL=sheet.component.spec.js.map
+//# sourceMappingURL=readSheet.component.spec.js.map

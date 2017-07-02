@@ -15,9 +15,9 @@ var SheetHeaderComponent = (function () {
     SheetHeaderComponent = __decorate([
         core_1.Component({
             selector: 'sheet-header',
-            templateUrl: 'app/sheet/sheetheader/sheet-header.component.html',
-            styleUrls: ['app/sheet/sheet.component.css',
-                'app/sheet/sheetheader/sheet-header.component.css'
+            templateUrl: 'app/readSheet/sheetheader/readSheet-header.component.html',
+            styleUrls: ['app/readSheet/readSheet.component.css',
+                'app/readSheet/sheetheader/readSheet-header.component.css'
             ]
         }),
         __metadata('design:paramtypes', [])
@@ -25,4 +25,4 @@ var SheetHeaderComponent = (function () {
     return SheetHeaderComponent;
 }());
 exports.SheetHeaderComponent = SheetHeaderComponent;
-//# sourceMappingURL=sheet-header.component.js.map
+//# sourceMappingURL=readSheet-header.component.js.map

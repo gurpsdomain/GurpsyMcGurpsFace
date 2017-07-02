@@ -1,6 +1,6 @@
 <div class="sheetComponent points">
   <div class="sheetComponentHeader gurpsyThemeHeader">
-    <span *ngIf="sheet.points.total">{{sheet.points.total + ' '}}</span>{{ 'SHEET.POINTS.POINTS' | translate }}
+    <span *ngIf="readSheet.points.total">{{readSheet.points.total + ' '}}</span>{{ 'SHEET.POINTS.POINTS' | translate }}
   </div>
   <div class="sheetComponentBody">
     <table>
@@ -14,11 +14,11 @@
       </tr>
       <tr>
         <td>{{ 'SHEET.POINTS.ADVANTAGES' | translate }}</td>
-        <td>{{sheet.points.advantages}}</td>
+        <td>{{readSheet.points.advantages}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.POINTS.DISADVANTAGES' | translate }}</td>
-        <td>{{sheet.points.disadvantages}}</td>
+        <td>{{readSheet.points.disadvantages}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.POINTS.QUIRKS' | translate }}</td>
@@ -26,15 +26,15 @@
       </tr>
       <tr>
         <td>{{ 'SHEET.POINTS.SKILLS' | translate }}</td>
-        <td>{{sheet.points.skills}}</td>
+        <td>{{readSheet.points.skills}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.POINTS.SPELLS' | translate }}</td>
-        <td>{{sheet.points.spells}}</td>
+        <td>{{readSheet.points.spells}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.POINTS.EARNED' | translate }}</td>
-        <td>{{sheet.points.unspent}}</td>
+        <td>{{readSheet.points.unspent}}</td>
       </tr>
     </table>
   </div>

@@ -5,23 +5,23 @@ import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {ModelTransformerService} from '../../back-end/model-transformer/model-transformer.service';
 import {LoggingService} from '../../back-end/logging/logging.service';
-import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
 import {JsonConvert} from 'json2typescript';
-import {OutputSheet} from '../../../models/sheet/output/output.sheet.model';
+import {ReadSheet} from '../../../models/sheet/read/read-sheet.model';
 
 @Injectable()
 export class ModelService {
 
   private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
 
-  private inputModel: InputSheet;
-  private outputModel: OutputSheet = new OutputSheet();
+  private inputModel: UpdateSheet;
+  private outputModel: ReadSheet = new ReadSheet();
 
   private _editMode = false;
 
   private editModeChangeSource = new Subject<boolean>();
-  private outputModelChangeSource = new Subject<OutputSheet>();
-  private inputModelChangeSource = new Subject<InputSheet>();
+  private outputModelChangeSource = new Subject<ReadSheet>();
+  private inputModelChangeSource = new Subject<UpdateSheet>();
 
   public editModeChange$ = this.editModeChangeSource.asObservable();
   public outputModelChange$ = this.outputModelChangeSource.asObservable();
@@ -36,17 +36,17 @@ export class ModelService {
   }
 
   /**
-   * Load a sheet from file. A json file is expected and it should abide to the interface
-   * as defined in ../../model/sheet/input.
+   * Load a readSheet from file. A json file is expected and it should abide to the interface
+   * as defined in ../../model/readSheet/input.
    *
    * @param file
    */
-  public loadSheetFromFile(file: File): Promise<InputSheet> {
+  public loadSheetFromFile(file: File): Promise<UpdateSheet> {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            const sheet: InputSheet = JsonConvert.deserializeString(fileReader.result, InputSheet);
+            const sheet: UpdateSheet = JsonConvert.deserializeString(fileReader.result, UpdateSheet);
             resolve(sheet);
           } else {
             reject('Could not read file');
@@ -61,14 +61,14 @@ export class ModelService {
   }
 
   /**
-   * Load a sheet. This method should be used to load a new sheet into
-   * this application. It will both load the new sheet and persist
+   * Load a readSheet. This method should be used to load a new readSheet into
+   * this application. It will both load the new readSheet and persist
    * in local storage.
    *
-   * @param {InputSheet} sheet
-   * @param {Boolean} true if this is a new sheet, false if it comes from local storage
+   * @param {UpdateSheet} sheet
+   * @param {Boolean} true if this is a new readSheet, false if it comes from local storage
    */
-  public loadSheet(sheet: InputSheet, isNew: boolean): void {
+  public loadSheet(sheet: UpdateSheet, isNew: boolean): void {
 
     this.changeInputModel(sheet);
 
@@ -83,16 +83,16 @@ export class ModelService {
   /**
    * Return the current outputSheet.
    *
-   * @returns {OutputSheet}
+   * @returns {ReadSheet}
    */
-  public getOutputModel(): OutputSheet {
+  public getOutputModel(): ReadSheet {
     return this.outputModel;
   }
 
   /**
    * If the model is currently in edit mode. If so, it is possible
-   * to edit the InputSheet. Concequently, this will lead to a new
-   * OutputSheet.
+   * to edit the UpdateSheet. Concequently, this will lead to a new
+   * ReadSheet.
    *
    * @param {boolean}
    */
@@ -103,8 +103,8 @@ export class ModelService {
 
   /**
    * If the model is currently in edit mode. If so, it is possible
-   * to edit the InputSheet. Concequently, this will lead to a new
-   * OutputSheet.
+   * to edit the UpdateSheet. Concequently, this will lead to a new
+   * ReadSheet.
    *
    * @return {boolean}
    */
@@ -112,7 +112,7 @@ export class ModelService {
     return this._editMode;
   }
 
-  private handleStoredSheet(sheet: InputSheet): void {
+  private handleStoredSheet(sheet: UpdateSheet): void {
     this.loadSheet(sheet, false);
   }
 
@@ -121,16 +121,16 @@ export class ModelService {
   }
 
   private initEmptyOutputSheet(): void {
-    const emptySheet: OutputSheet = new OutputSheet();
+    const emptySheet: ReadSheet = new ReadSheet();
     this.changeOutputModel(emptySheet);
   }
 
-  private changeInputModel(inputSheet: InputSheet): void {
+  private changeInputModel(inputSheet: UpdateSheet): void {
     this.inputModel = inputSheet;
     this.inputModelChangeSource.next(inputSheet);
   }
 
-  private changeOutputModel(outputSheet: OutputSheet): void {
+  private changeOutputModel(outputSheet: ReadSheet): void {
     this.outputModel = outputSheet;
     this.outputModelChangeSource.next(outputSheet);
   }
@@ -138,7 +138,7 @@ export class ModelService {
   private setFallbackOutputModel(): void {
     this.http.get(ModelService.FALLBACK_MODEL).toPromise()
       .then(response => this.changeOutputModel(response.json()))
-      .catch(error => this.loggingService.error('Unable to fetch fallback sheet. ' + error))
+      .catch(error => this.loggingService.error('Unable to fetch fallback readSheet. ' + error))
   }
 
 

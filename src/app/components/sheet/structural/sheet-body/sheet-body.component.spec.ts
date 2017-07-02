@@ -92,7 +92,7 @@ describe('SheetBodyComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a structural OutputSheet Body Component', () => {
+  it('should create a structural ReadSheet Body Component', () => {
     expect(component).toBeTruthy();
   });
 });

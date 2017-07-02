@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {SettingsService} from '../../front-end/settings/settings.service';
 import {Http, RequestOptions, Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
 import {JsonConvert} from 'json2typescript';
-import {OutputSheet} from '../../../models/sheet/output/output.sheet.model';
+import {ReadSheet} from '../../../models/sheet/read/read-sheet.model';
 
 @Injectable()
 export class ModelTransformerService {
@@ -20,17 +20,17 @@ export class ModelTransformerService {
   }
 
   /**
-   * Transform an InputSheet into an OutputSheet
+   * Transform an UpdateSheet into an ReadSheet
    *
-   * @param  InputSheet
-   * @return OutputSheet
+   * @param  UpdateSheet
+   * @return ReadSheet
    */
-  public transform(inputSheet: InputSheet): Promise<OutputSheet> {
+  public transform(inputSheet: UpdateSheet): Promise<ReadSheet> {
     return this.settingsService.getServerUrl()
       .then(url => this.sendConvertRequest(inputSheet, url));
   }
 
-  private sendConvertRequest(sheet: InputSheet, serverUrl: string): Promise<OutputSheet> {
+  private sendConvertRequest(sheet: UpdateSheet, serverUrl: string): Promise<ReadSheet> {
     const endpoint = this.constructEndpointUrl(serverUrl);
 
     const headers = new Headers({'Content-Type': 'application/json'});
@@ -42,12 +42,12 @@ export class ModelTransformerService {
       .catch(this.handleRequestError)
   }
 
-  private extractData(res: any): Promise<OutputSheet> {
-    const outputSheet = JsonConvert.deserializeString(res.json(), OutputSheet)
+  private extractData(res: any): Promise<ReadSheet> {
+    const outputSheet = JsonConvert.deserializeString(res.json(), ReadSheet)
     return Promise.resolve(outputSheet);
   }
 
-  private handleRequestError(error: any): Promise<OutputSheet> {
+  private handleRequestError(error: any): Promise<ReadSheet> {
     return Promise.reject(error.message || error);
   }
 

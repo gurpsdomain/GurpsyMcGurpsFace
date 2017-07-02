@@ -50,7 +50,9 @@ import {GurpsyMaterialModule} from './modules/material.module';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 import {GurpsyAngularModule} from './modules/angular.module';
 import {WeightPipe} from './pipes/weight.pipe';
-import { PortraitSelectorDialogComponent } from './components/dialog/portrait-selector-dialog/portrait-selector-dialog.component';
+import {PortraitSelectorDialogComponent} from './components/dialog/portrait-selector-dialog/portrait-selector-dialog.component';
+import {ModelReadingComponent} from './components/model-reading.component';
+import {ModelUpdatingComponent} from './components/model-updating.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -78,6 +80,8 @@ export function HttpLoaderFactory(http: Http) {
     IdentityComponent,
     LiftingMovingComponent,
     LiftingMovingComponent,
+    ModelReadingComponent,
+    ModelUpdatingComponent,
     NotesComponent,
     OpenSheetDialogComponent,
     PageReferenceComponent,

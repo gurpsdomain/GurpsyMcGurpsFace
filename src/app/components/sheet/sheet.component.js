@@ -15,12 +15,12 @@ var SheetComponent = (function () {
     SheetComponent = __decorate([
         core_1.Component({
             selector: 'sheet',
-            templateUrl: 'app/sheet/sheet.component.html',
-            styleUrls: ['app/sheet/sheet.component.css']
+            templateUrl: 'app/readSheet/readSheet.component.html',
+            styleUrls: ['app/readSheet/readSheet.component.css']
         }),
         __metadata('design:paramtypes', [])
     ], SheetComponent);
     return SheetComponent;
 }());
 exports.SheetComponent = SheetComponent;
-//# sourceMappingURL=sheet.component.js.map
+//# sourceMappingURL=readSheet.component.js.map

@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {Book} from '../../../models/settings/book.model';
 import {Settings} from '../../../models/settings/settings.model';
-import {InputSheet} from '../../../models/sheet/input/input.sheet.model';
+import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
 import {TranslateService} from '@ngx-translate/core';
 
 
@@ -112,9 +112,9 @@ export class SettingsService {
   /**
    * Retrieve an array of Previously Opened Sheets from Local Storage.
    *
-   * @returns Promise<InputSheet[]> or an empty promise if there are no previously opened sheets.
+   * @returns Promise<UpdateSheet[]> or an empty promise if there are no previously opened sheets.
    */
-  public getPreviouslyOpenedSheets(): Promise<InputSheet[]> {
+  public getPreviouslyOpenedSheets(): Promise<UpdateSheet[]> {
     return this.storageService.getPreviouslyOpenedSheets();
   }
 

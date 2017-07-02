@@ -15,9 +15,9 @@ var PortraitComponent = (function () {
     PortraitComponent = __decorate([
         core_1.Component({
             selector: 'gurpsy-portrait-component',
-            templateUrl: 'app/sheet/sheetheader/components/portrait.component.html',
-            styleUrls: ['app/sheet/sheet.component.css',
-                'app/sheet/sheetheader/components/portrait.component.scss'
+            templateUrl: 'app/readSheet/sheetheader/components/portrait.component.html',
+            styleUrls: ['app/readSheet/readSheet.component.css',
+                'app/readSheet/sheetheader/components/portrait.component.scss'
             ]
         }),
         __metadata('design:paramtypes', [])

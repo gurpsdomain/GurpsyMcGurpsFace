@@ -7,7 +7,7 @@ import {Disadvantage} from './disadvantage.model';
 import {Advantage} from './advantage.model';
 
 @JsonObject
-export class InputSheet {
+export class UpdateSheet {
 
   @JsonProperty('player', String)
   player: string;
