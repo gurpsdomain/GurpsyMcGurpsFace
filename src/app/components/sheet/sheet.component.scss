@@ -5,59 +5,62 @@
   font-size: 13px;
   font-family: 'Abel', sans-serif !important;
   height: calc(100% - 8px);
-}
 
-.sheetComponentHeader {
-  text-align: center;
-  font-size: small;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  .sheetComponentHeader {
+    text-align: center;
+    font-size: small;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-.sheetComponentBody {
-  padding: 4px 4px 2px 4px;
+  .sheetComponentBody {
+    padding: 4px 4px 2px 4px;
 
-  table {
-    border-spacing: 0px;
-    table-layout: auto;
-    width: 100%;
+    table {
+      border-spacing: 0px;
+      table-layout: auto;
+      width: 100%;
 
-    tr {
-      line-height: 13px;
+      tr {
+        line-height: 13px;
 
-      td {
-        white-space: nowrap;
+        td {
+          white-space: nowrap;
+        }
+
+        td:last-child {
+          max-width: 1px;
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+        td:first-child:not(.singleColumn) {
+          padding-right: 10px;
+        }
       }
-
-      td:last-child {
-        max-width: 1px;
-        width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-
-      td:first-child:not(.singleColumn) {
-        padding-right: 10px;
+      tr.last {
+        border-bottom: 1pt solid black;
       }
     }
-    tr.last {
-      border-bottom: 1pt solid black;
+    table.headerRowTable {
+      tr:first-child {
+        td {
+          padding-bottom: 2px;
+          padding-top: 2px;
+        }
+      }
+      tr:nth-child(2) {
+        td {
+          padding-top: 6px;
+        }
+      }
     }
   }
-  table.headerRowTable {
-    tr:first-child {
-      td {
-        padding-bottom: 2px;
-        padding-top: 2px;
-      }
-    }
-    tr:nth-child(2) {
-      td {
-        padding-top: 6px;
-      }
-    }
-  }
 }
 
+.sheetComponent.editable .sheetComponentBody {
+  cursor: pointer;
+}
