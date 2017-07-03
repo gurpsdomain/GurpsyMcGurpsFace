@@ -80,8 +80,6 @@ export function HttpLoaderFactory(http: Http) {
     IdentityComponent,
     LiftingMovingComponent,
     LiftingMovingComponent,
-    ModelReadingComponent,
-    ModelUpdatingComponent,
     NotesComponent,
     OpenSheetDialogComponent,
     PageReferenceComponent,
@@ -98,6 +96,8 @@ export function HttpLoaderFactory(http: Http) {
     SpellsComponent,
     WeightPipe,
     PortraitSelectorDialogComponent,
+    ModelReadingComponent,
+    ModelUpdatingComponent
   ],
   imports: [
     GurpsyAngularModule,

@@ -3,8 +3,8 @@
   <div class="sheetComponentHeader">
     {{ 'SHEET.PORTRAIT.PORTRAIT' | translate }}
   </div>
-  <div class="sheetComponentBody" (click)="selectPortrait()">
-    <input accept="image/png" type="file" (change)="onNativeInputFileSelect($event)" #inputFile hidden/>
+  <div class="sheetComponentBody" (click)="onRequestUpdate()">
+    <input accept="image/png, image/jpeg, image/jpg, image/gif" type="file" (change)="onNativeInputFileSelect($event)" #inputFile hidden/>
     <img src="assets/images/empty-portrait.png" alt="portrait">
   </div>
 </div>
