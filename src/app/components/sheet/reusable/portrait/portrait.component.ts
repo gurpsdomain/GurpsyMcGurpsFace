@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {PortraitSelectorDialogComponent} from '../../../dialog/portrait-selector-dialog/portrait-selector-dialog.component';
+import {PortraitUpdaterDialogComponent} from '../../../dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
 import {ModelUpdatingComponent} from '../../../model-updating.component';
 import {MdDialogRef, MdDialog} from '@angular/material';
 import {GurpsyComponent} from '../../../../gurpsy.component';
@@ -16,7 +16,7 @@ export class PortraitComponent extends ModelUpdatingComponent {
 
   @ViewChild('inputFile') nativeInputFile: ElementRef;
 
-  private portraitDialogRef: MdDialogRef<PortraitSelectorDialogComponent>;
+  private portraitDialogRef: MdDialogRef<PortraitUpdaterDialogComponent>;
 
   public updateRequested(): void {
     this.nativeInputFile.nativeElement.click();
@@ -29,7 +29,7 @@ export class PortraitComponent extends ModelUpdatingComponent {
   }
 
   public openDialog(file: File): void {
-    this.portraitDialogRef = this.dialog.open(PortraitSelectorDialogComponent, {
+    this.portraitDialogRef = this.dialog.open(PortraitUpdaterDialogComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,
       disableClose: false
     });

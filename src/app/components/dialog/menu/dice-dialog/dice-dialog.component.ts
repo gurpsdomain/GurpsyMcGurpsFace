@@ -1,13 +1,12 @@
 import {Component, ViewChild, AfterViewInit, ElementRef} from '@angular/core';
 import * as THREE from 'three';
-import {Die} from '../../../models/3d/die';
-import {Table} from '../../../models/3d/table';
-import {Camera} from '../../../models/3d/camera';
+import {Die} from '../../../../models/3d/die';
+import {Table} from '../../../../models/3d/table';
+import {Camera} from '../../../../models/3d/camera';
 
 @Component({
-  selector: 'gurpsy-dice-dialog',
-  templateUrl: './dice-dialog.component.html',
-  styleUrls: ['./dice-dialog.component.scss']
+  templateUrl: 'dice-dialog.component.html',
+  styleUrls: ['dice-dialog.component.scss']
 })
 export class DiceDialogComponent implements AfterViewInit {
 

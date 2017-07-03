@@ -18,7 +18,7 @@ import {
   MdDialog, Overlay, ScrollStrategyOptions, ScrollDispatcher, Platform, ViewportRuler,
   OverlayContainer
 } from '@angular/material';
-import {PortraitSelectorDialogComponent} from '../../../dialog/portrait-selector-dialog/portrait-selector-dialog.component';
+import {PortraitUpdaterDialogComponent} from '../../../dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
 import {OverlayPositionBuilder} from '@angular/material/typings/core/overlay/position/overlay-position-builder';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 

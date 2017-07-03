@@ -1,13 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {SettingsService} from '../../../services/front-end/settings/settings.service';
-import {BooksConfigurationComponent} from '../../generic/books-configuration/books-configuration.component';
+import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {BooksConfigurationComponent} from '../../../generic/books-configuration/books-configuration.component';
 
 @Component({
-  selector: 'gurpsy-settings-dialog',
-  templateUrl: './settings-dialog.component.html',
-  styleUrls: [
-    '../dialog.component.scss',
-    './settings-dialog.component.scss'
+  templateUrl: 'settings-dialog.component.html',
+  styleUrls: ['../../dialog.component.scss',
+              'settings-dialog.component.scss'
   ]
 })
 export class SettingsDialogComponent implements OnInit {

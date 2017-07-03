@@ -1,15 +1,13 @@
 import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
-import {ModelService} from '../../../services/front-end/model/model.service';
-import {StorageService} from '../../../services/back-end/storage/storage.service';
-import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
+import {ModelService} from '../../../../services/front-end/model/model.service';
+import {StorageService} from '../../../../services/back-end/storage/storage.service';
+import {UpdateSheet} from '../../../../models/sheet/update/update-sheet.model';
 
 @Component({
-  selector: 'gurpsy-open-sheet-dialog',
   templateUrl: './open-sheet-dialog.component.html',
-  styleUrls: [
-    '../dialog.component.scss',
-    './open-sheet-dialog.component.scss'
+  styleUrls: ['../../dialog.component.scss',
+              './open-sheet-dialog.component.scss'
   ]
 })
 export class OpenSheetDialogComponent {

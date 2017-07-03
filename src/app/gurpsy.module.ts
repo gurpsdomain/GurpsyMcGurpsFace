@@ -10,7 +10,7 @@ import {DescriptionComponent} from './components/sheet/reusable/description/desc
 import {PointsComponent} from './components/sheet/reusable/points/points.component';
 import {IdentityComponent} from './components/sheet/reusable/identity/identity.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
-import {OpenSheetDialogComponent} from './components/dialog/open-sheet-dialog/open-sheet-dialog.component';
+import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
 import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {ModelService} from './services/front-end/model/model.service';
@@ -33,10 +33,10 @@ import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/
 import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
-import {AboutDialogComponent} from './components/dialog/about-dialog/about-dialog.component';
-import {DiceDialogComponent} from './components/dialog/dice-dialog/dice-dialog.component';
+import {AboutDialogComponent} from './components/dialog/menu/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './components/dialog/menu/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/back-end/logging/logging.service';
-import {SettingsDialogComponent} from './components/dialog/settings-dialog/settings-dialog.component';
+import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/settings-dialog.component';
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
 import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
@@ -50,7 +50,7 @@ import {GurpsyMaterialModule} from './modules/material.module';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 import {GurpsyAngularModule} from './modules/angular.module';
 import {WeightPipe} from './pipes/weight.pipe';
-import {PortraitSelectorDialogComponent} from './components/dialog/portrait-selector-dialog/portrait-selector-dialog.component';
+import {PortraitUpdaterDialogComponent} from './components/dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
 import {ModelReadingComponent} from './components/model-reading.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
 
@@ -95,7 +95,7 @@ export function HttpLoaderFactory(http: Http) {
     SkillsComponent,
     SpellsComponent,
     WeightPipe,
-    PortraitSelectorDialogComponent,
+    PortraitUpdaterDialogComponent,
     ModelReadingComponent,
     ModelUpdatingComponent
   ],
@@ -126,7 +126,7 @@ export function HttpLoaderFactory(http: Http) {
     DiceDialogComponent,
     OpenSheetDialogComponent,
     SettingsDialogComponent,
-    PortraitSelectorDialogComponent
+    PortraitUpdaterDialogComponent
   ],
   bootstrap: [GurpsyComponent]
 })

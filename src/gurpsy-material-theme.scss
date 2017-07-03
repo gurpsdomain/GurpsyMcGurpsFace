@@ -1,8 +1,8 @@
 @import '~@angular/material/theming';
 @import 'gurpsy-palette';
 @import "app/components/dialog/dialog.component";
-@import "app/components/dialog/about-dialog/about-dialog.component";
-@import "app/components/dialog/open-sheet-dialog/open-sheet-dialog.component";
+@import "app/components/dialog/menu/about-dialog/about-dialog.component";
+@import "app/components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component";
 @import "app/components/generic/page-reference/page-reference.component";
 @import "app/components/sheet/sheet.component";
 @import "app/components/side-navigation/side-navigation.component";
