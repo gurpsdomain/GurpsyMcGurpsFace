@@ -8,6 +8,13 @@ import {MdDialogRef} from '@angular/material';
 })
 export class PortraitUpdaterDialogComponent implements OnInit {
 
+  private static CANVAS_WIDTH = 352;
+  private static CANVAS_HEIGHT = 300;
+  private static CROPPER_WIDTH = 104;
+  private static CROPPER_HEIGHT = 138;
+  private static CROPPER_MIN_WIDTH = 25;
+  private static CROPPER_MIN_HEIGHT = 30;
+
   data: any;
   cropperSettings: CropperSettings;
 
@@ -20,30 +27,23 @@ export class PortraitUpdaterDialogComponent implements OnInit {
     this.initImageCropper();
   }
 
-  fileChangeListener($event) {
-    const file: File = $event.target.files[0];
-
-    this.setFile(file);
-  }
-
   public onOk(): void {
-    console.log('New portrait selected: ', this.data.image);
-    this.dialogRef.close();
+    this.dialogRef.close(this.data.image);
   }
 
   private initImageCropper(): void {
     this.cropperSettings = new CropperSettings();
-    this.cropperSettings.width = 104;
-    this.cropperSettings.height = 138;
+    this.cropperSettings.width = PortraitUpdaterDialogComponent.CROPPER_WIDTH;
+    this.cropperSettings.height = PortraitUpdaterDialogComponent.CROPPER_HEIGHT;
 
-    this.cropperSettings.croppedWidth = 104;
-    this.cropperSettings.croppedHeight = 138;
+    this.cropperSettings.croppedWidth = PortraitUpdaterDialogComponent.CROPPER_WIDTH;
+    this.cropperSettings.croppedHeight = PortraitUpdaterDialogComponent.CROPPER_HEIGHT;
 
-    this.cropperSettings.canvasWidth = 352;
-    this.cropperSettings.canvasHeight = 300;
+    this.cropperSettings.canvasWidth = PortraitUpdaterDialogComponent.CANVAS_WIDTH;
+    this.cropperSettings.canvasHeight = PortraitUpdaterDialogComponent.CANVAS_HEIGHT;
 
-    this.cropperSettings.minWidth = 10;
-    this.cropperSettings.minHeight = 10;
+    this.cropperSettings.minWidth = PortraitUpdaterDialogComponent.CROPPER_MIN_WIDTH;
+    this.cropperSettings.minHeight = PortraitUpdaterDialogComponent.CROPPER_MIN_HEIGHT;
 
     this.cropperSettings.rounded = false;
     this.cropperSettings.keepAspect = true;
@@ -51,23 +51,21 @@ export class PortraitUpdaterDialogComponent implements OnInit {
 
     this.cropperSettings.cropperDrawSettings.strokeColor = 'rgba(255,255,255,1)';
     this.cropperSettings.cropperDrawSettings.strokeWidth = 1;
+    this.cropperSettings.noFileInput = true;
     this.cropperSettings.fileType = 'image/png';
     this.data = {};
   }
 
   public setFile(file: File): void {
 
-    if (this.cropper) {
-      const myReader: FileReader = new FileReader();
-      const that = this;
-      myReader.onloadend = function (loadEvent: any) {
-        const image: any = new Image();
-        image.src = loadEvent.target.result;
-        that.cropper.setImage(image);
+    const myReader: FileReader = new FileReader();
+    const that = this;
+    myReader.onloadend = function (loadEvent: any) {
+      const image: any = new Image();
+      image.src = loadEvent.target.result;
+      that.cropper.setImage(image);
+    };
 
-      };
-
-      myReader.readAsDataURL(file);
-    }
+    myReader.readAsDataURL(file);
   }
 }

@@ -24,7 +24,9 @@ export class PortraitComponent extends ModelUpdatingComponent {
   public onNativeInputFileSelect($event): void {
     const file = $event.srcElement.files[0];
 
-    this.openDialog(file);
+    if (this.isValid(file)) {
+      this.openDialog(file);
+    }
   }
 
   public openDialog(file: File): void {
@@ -35,8 +37,18 @@ export class PortraitComponent extends ModelUpdatingComponent {
 
     this.portraitDialogRef.componentInstance.setFile(file);
 
-    this.portraitDialogRef.afterClosed().subscribe(
-      this.portraitDialogRef = null
+    this.portraitDialogRef.afterClosed().subscribe(result => {
+        this.updateModel(result);
+        this.portraitDialogRef = null
+      }
     );
+  }
+
+  private updateModel(portrait: string): void {
+    console.log('New portait selected: ', portrait);
+  }
+
+  private isValid(file: File): boolean {
+    return true;
   }
 }

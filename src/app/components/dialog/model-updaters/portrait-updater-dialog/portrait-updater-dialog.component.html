@@ -1,8 +1,8 @@
 <md-dialog-content>
-  <img-cropper [image]="data"
+  <img-cropper #cropper
+               [image]="data"
                [settings]="cropperSettings">
   </img-cropper>
-
   <div class="result" *ngIf="data.image">
     <img [src]="data.image">
   </div>
