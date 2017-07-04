@@ -1,6 +1,16 @@
-<p>
-  portrait-selector-dialog works!
-</p>
 <p *ngIf="data">
   found file {{data.name}}
 </p>
+
+<img-cropper [image]="data1"
+             [settings]="cropperSettings">
+
+</img-cropper>
+<div class="result" *ngIf="data1.image">
+  <img [src]="data1.image">
+</div>
+
+<md-dialog-actions align="end">
+  <button md-button color="primary" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
+</md-dialog-actions>

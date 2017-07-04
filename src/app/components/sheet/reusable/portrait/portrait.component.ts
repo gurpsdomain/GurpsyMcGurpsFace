@@ -1,9 +1,8 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {PortraitUpdaterDialogComponent} from '../../../dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
 import {ModelUpdatingComponent} from '../../../model-updating.component';
-import {MdDialogRef, MdDialog} from '@angular/material';
+import {MdDialogRef} from '@angular/material';
 import {GurpsyComponent} from '../../../../gurpsy.component';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 
 @Component({
   selector: 'gurpsy-portrait',
@@ -30,11 +29,11 @@ export class PortraitComponent extends ModelUpdatingComponent {
 
   public openDialog(file: File): void {
     this.portraitDialogRef = this.dialog.open(PortraitUpdaterDialogComponent, {
-      width: GurpsyComponent.DIALOG_WIDTH,
-      disableClose: false
+      disableClose: false,
+      width: GurpsyComponent.DIALOG_WIDTH
     });
 
-    this.portraitDialogRef.componentInstance.data = file;
+    this.portraitDialogRef.componentInstance.setFile(file);
 
     this.portraitDialogRef.afterClosed().subscribe(
       this.portraitDialogRef = null

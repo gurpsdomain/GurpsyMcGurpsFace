@@ -1,0 +1,8 @@
+@mixin gurpsy-portrait-updater-dialog-theme($theme) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+
+  .result img {
+    border: 1px solid mat-color($accent);
+  }
+}

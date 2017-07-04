@@ -65,5 +65,5 @@ describe('PortraitComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create a reuable Portrait Component', () => expect(comp).toBeDefined());
+  it('should create a reusable Portrait Component', () => expect(comp).toBeDefined());
 });

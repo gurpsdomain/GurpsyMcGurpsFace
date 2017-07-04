@@ -1,5 +1,3 @@
-@import '../../../../../../node_modules/@angular/material/theming';
-
 @mixin gurpsy-about-dialog-theme($theme) {
   $accent: map-get($theme, accent);
   $primary: map-get($theme, primary);
