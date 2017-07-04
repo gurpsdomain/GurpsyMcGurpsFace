@@ -9,7 +9,6 @@ import {MdDialogRef} from '@angular/material';
 export class PortraitUpdaterDialogComponent implements OnInit {
 
   data: any;
-  data1: any;
   cropperSettings: CropperSettings;
 
   @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
@@ -28,7 +27,7 @@ export class PortraitUpdaterDialogComponent implements OnInit {
   }
 
   public onOk(): void {
-    console.log('New portrait selected: ', this.data1.image);
+    console.log('New portrait selected: ', this.data.image);
     this.dialogRef.close();
   }
 
@@ -51,9 +50,9 @@ export class PortraitUpdaterDialogComponent implements OnInit {
     this.cropperSettings.preserveSize = true;
 
     this.cropperSettings.cropperDrawSettings.strokeColor = 'rgba(255,255,255,1)';
-    this.cropperSettings.cropperDrawSettings.strokeWidth = 2;
+    this.cropperSettings.cropperDrawSettings.strokeWidth = 1;
     this.cropperSettings.fileType = 'image/png';
-    this.data1 = {};
+    this.data = {};
   }
 
   public setFile(file: File): void {

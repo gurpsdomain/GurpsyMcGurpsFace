@@ -1,10 +1,18 @@
-.result {
-  position: relative;
-  bottom: 298px;
-  left: 292px;
+md-dialog-content {
 
-  img {
+  position: relative;
+
+  .result {
+    position: absolute;
+    right: 32px;
+    top: 28px;
     width: 52px;
-    height: 69px;
+
+    img {
+      width: 52px;
+      height: 69px;
+    }
   }
 }
+
+
