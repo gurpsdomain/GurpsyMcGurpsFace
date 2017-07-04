@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+@mixin gurpsy-component-theme($theme) {
+  $accent: map-get($theme, accent);
+
+  .editable md-icon{
+    color: mat-color($accent);
+  }
+}
