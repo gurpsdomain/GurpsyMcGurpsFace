@@ -14,7 +14,11 @@ export class ModelReadingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.modelService.getReadtModel().then(readModel => this.readSheet = readModel);
-    this.modelService.readModelChange$.subscribe(readSheet => this.readSheet = readSheet);
+    this.fetchReadModel()
+    this.modelService.modelChange$.subscribe(readModel => this.fetchReadModel());
+  }
+
+  private fetchReadModel() {
+    this.modelService.getReadModel().then(readModel => this.readSheet = readModel);
   }
 }

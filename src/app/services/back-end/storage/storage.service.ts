@@ -21,16 +21,6 @@ export class StorageService {
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
    *
-   * @type Observable<string>
-   */
-  public getSheetObserver() {
-    return this.sheetStorageDelegate.valueChange$;
-  }
-
-  /**
-   * Acquire the Observer on which you can register yourself to be notified when the value is changed
-   * in Local Storage.
-   *
    * @type Observable<Settings>
    */
   public getSettingsObserver(): Observable<Settings> {

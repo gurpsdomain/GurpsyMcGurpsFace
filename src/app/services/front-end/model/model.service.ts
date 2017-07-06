@@ -18,14 +18,22 @@ export class ModelService {
   private readModel: ReadSheet;
 
   private _editMode = false;
-
   private editModeChangeSource = new Subject<boolean>();
-  private readModelChangeSource = new Subject<ReadSheet>();
-  private updateModelChangeSource = new Subject<UpdateSheet>();
+  private modelChangeSource = new Subject<ReadSheet>();
 
+  /**
+   * Register to this observable to be notified when the model has changed.
+   *
+   * @type Observable
+   */
+  public modelChange$ = this.modelChangeSource.asObservable();
+
+  /**
+   * Register to this observable to be notified when the edit mode has changed.
+   *
+   * @type Observable
+   */
   public editModeChange$ = this.editModeChangeSource.asObservable();
-  public readModelChange$ = this.readModelChangeSource.asObservable();
-  public updateModelChange$ = this.updateModelChangeSource.asObservable();
 
   constructor(private loggingService: LoggingService,
               private modelTransformerService: ModelTransformerService,
@@ -50,13 +58,11 @@ export class ModelService {
    * @param {UpdateSheet} updateModel
    */
   updateCurrentModel(updateModel: UpdateSheet): void {
-    console.log('Model gets updated: ', updateModel);
     this.loadSheet(updateModel, true);
   }
 
   /**
-   * Load a readSheet from file. A json file is expected and it should abide to the interface
-   * as defined in ../../model/readSheet/input.
+   * Load a readSheet from file.
    *
    * @param file
    */
@@ -93,7 +99,7 @@ export class ModelService {
 
     this.modelTransformerService.transform(sheet)
       .then(outputSheet => this.changeReadModel(outputSheet))
-      .catch(any => this.setFallbackOutputModel());
+      // .catch(any => this.setFallbackOutputModel());
 
     if (isNew) {
       this.storageService.storeSheet(sheet);
@@ -114,7 +120,7 @@ export class ModelService {
    *
    * @returns {Promise<ReadSheet>}
    */
-  public getReadtModel(): Promise<ReadSheet> {
+  public getReadModel(): Promise<ReadSheet> {
     return Promise.resolve(this.readModel);
   }
 
@@ -147,9 +153,11 @@ export class ModelService {
   }
 
   private initSheet(): void {
-    this.readModel = new ReadSheet();
+    this.changeReadModel(new ReadSheet());
 
-    this.storageService.getCurrentSheet().then(sheet => this.loadStoredSheet(sheet)).catch(any => this.initEmptyOutputSheet());
+    this.storageService.getCurrentSheet()
+      .then(sheet => this.loadStoredSheet(sheet))
+      .catch(any => this.initEmptyOutputSheet());
   }
 
   private initEmptyOutputSheet(): void {
@@ -159,17 +167,21 @@ export class ModelService {
 
   private changeUpdateModel(updateSheet: UpdateSheet): void {
     this.updateModel = updateSheet;
-    this.updateModelChangeSource.next(updateSheet);
   }
 
   private changeReadModel(readSheet: ReadSheet): void {
     this.readModel = readSheet;
-    this.readModelChangeSource.next(readSheet);
+    this.notifyListeners();
   }
 
   private setFallbackOutputModel(): void {
+    this.loggingService.error('Loading fallback sheet.')
     this.http.get(ModelService.FALLBACK_MODEL).toPromise()
       .then(response => this.changeReadModel(response.json()))
       .catch(error => this.loggingService.error('Unable to fetch fallback readSheet. ' + error))
+  }
+
+  private notifyListeners(): void {
+    this.modelChangeSource.next(this.readModel);
   }
 }

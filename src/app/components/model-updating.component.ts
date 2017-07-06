@@ -23,11 +23,8 @@ export class ModelUpdatingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.modelService.getReadtModel().then(readModel => this.readSheet = readModel);
-    this.modelService.readModelChange$.subscribe(readSheet => this.readSheet = readSheet);
-
-    this.modelService.getUpdateModel().then(updateModel => this.updateSheet = updateModel);
-    this.modelService.updateModelChange$.subscribe(updateSheet => this.updateSheet = updateSheet);
+    this.fetchModels();
+    this.modelService.modelChange$.subscribe(any => this.fetchModels());
 
     this.modelService.getEditMode().then(editMode => this.editMode = editMode);
     this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
@@ -58,7 +55,8 @@ export class ModelUpdatingComponent implements OnInit {
    * @param {any} Data that should be passed to the dialog
    */
   protected openDialog(data?: any): void {
-    this.loggingService.info('Open dialog called on a ModelUpdatingComponent.')
+    this.loggingService.info('Open dialog called on a ModelUpdatingComponent, ' +
+      'but no specific Dialog has been created.')
   }
 
   /**
@@ -66,5 +64,18 @@ export class ModelUpdatingComponent implements OnInit {
    */
   protected updateModel(): void {
     this.modelService.updateCurrentModel(this.updateSheet);
+  }
+
+  private fetchModels(): void {
+    this.modelService.getReadModel().then(readModel => this.setReadModel(readModel));
+    this.modelService.getUpdateModel().then(updateModel => this.setUpdateModel(updateModel));
+  }
+
+  private setReadModel(readModel: ReadSheet): void {
+    this.readSheet = readModel;
+  }
+
+  private setUpdateModel(updateModel: UpdateSheet): void {
+    this.updateSheet = updateModel;
   }
 }

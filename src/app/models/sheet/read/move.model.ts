@@ -1,21 +1,9 @@
-import {JsonObject, JsonProperty} from 'json2typescript';
-
-@JsonObject
 export class Move {
 
-  @JsonProperty('none', Number)
   none: number;
-
-  @JsonProperty('light', Number)
   light: number;
-
-  @JsonProperty('medium', Number)
   medium: number;
-
-  @JsonProperty('heavy', Number)
   heavy: number;
-
-  @JsonProperty('xHeavy', Number)
   xHeavy: number;
 
   constructor() {

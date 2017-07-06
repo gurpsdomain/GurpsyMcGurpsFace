@@ -1,45 +1,17 @@
-import {JsonObject, JsonProperty} from 'json2typescript';
-
-@JsonObject
 export class DamageResistance {
 
-  @JsonProperty('eye', Number)
   eye: string;
-
-  @JsonProperty('skull', Number)
   skull: string;
-
-  @JsonProperty('face', Number)
   face: string;
-
-  @JsonProperty('rightLeg', Number)
   rightLeg: string;
-
-  @JsonProperty('rightArm', Number)
   rightArm: string;
-
-  @JsonProperty('torso', Number)
   torso: string;
-
-  @JsonProperty('groin', Number)
   groin: string;
-
-  @JsonProperty('leftArm', Number)
   leftArm: string;
-
-  @JsonProperty('leftLeg', Number)
   leftLeg: string;
-
-  @JsonProperty('hand', Number)
   hand: string;
-
-  @JsonProperty('foot', Number)
   foot: string;
-
-  @JsonProperty('neck', Number)
   neck: string;
-
-  @JsonProperty('vitals', Number)
   vitals: string;
 
   constructor() {

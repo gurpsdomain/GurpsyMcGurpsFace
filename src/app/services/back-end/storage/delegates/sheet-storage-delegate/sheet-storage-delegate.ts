@@ -11,18 +11,7 @@ export class SheetStorageDelegate {
 
   private static STORAGE_KEY = '.sheets';
 
-  private subjectChangeSource = new Subject<string>();
-
-  /**
-   * Register to this observable to be notified when the value is changed
-   * in Local Storage.
-   *
-   * @type Observable<string>
-   */
-  public valueChange$ = this.subjectChangeSource.asObservable();
-
   constructor(private loggingService: LoggingService) {
-    window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   /**
@@ -168,15 +157,5 @@ export class SheetStorageDelegate {
 
   private getStorageKey(): string {
     return StorageService.STORAGE_KEY + SheetStorageDelegate.STORAGE_KEY;
-  }
-
-  private handleStorageChange(event: StorageEvent): void {
-    if (event.key.includes(this.getStorageKey())) {
-      this.change(event.newValue);
-    }
-  }
-
-  private change(theme: string) {
-    this.subjectChangeSource.next(theme);
   }
 }
