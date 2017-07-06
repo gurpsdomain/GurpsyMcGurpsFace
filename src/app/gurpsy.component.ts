@@ -60,19 +60,13 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Switch to edit mode
+   * Switch edit mode.
+   *
+   * @param {boolean} If true, the sheet is editable, if false it is in read only mode
    */
-  public onEdit(): void {
-    this.editMode = true;
-    this.modelService.editMode = true;
-  }
-
-  /**
-   * Lock readSheet. The readSheet is no longer editable;
-   */
-  public onLock(): void {
-    this.editMode = false;
-    this.modelService.editMode = false;
+  public onEdit(edit: boolean): void {
+    this.editMode = edit;
+    this.modelService.setEditMode(edit);
   }
 
   /**
@@ -141,7 +135,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initEditMode(): void {
-    this.editMode = this.modelService.editMode;
+    this.modelService.getEditMode().then(editMode => this.editMode = editMode);
     this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
   }
 
@@ -158,7 +152,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initSheetChangeListener(): void {
-    this.modelService.outputModelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
+    this.modelService.readModelChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
   private setTheme(theme: string) {

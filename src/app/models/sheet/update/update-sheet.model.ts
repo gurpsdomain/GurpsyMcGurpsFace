@@ -9,6 +9,9 @@ import {Advantage} from './advantage.model';
 @JsonObject
 export class UpdateSheet {
 
+  @JsonProperty('portrait', String)
+  portrait: string;
+
   @JsonProperty('player', String)
   player: string;
 

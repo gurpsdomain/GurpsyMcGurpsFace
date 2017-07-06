@@ -38,14 +38,15 @@ export class PortraitComponent extends ModelUpdatingComponent {
     this.portraitDialogRef.componentInstance.setFile(file);
 
     this.portraitDialogRef.afterClosed().subscribe(result => {
-        this.updateModel(result);
+        this.updatePortrait(result);
         this.portraitDialogRef = null
       }
     );
   }
 
-  private updateModel(portrait: string): void {
-    console.log('New portait selected: ', portrait);
+  private updatePortrait(portrait: string): void {
+    this.updateSheet.portrait = portrait;
+    this.updateModel();
   }
 
   private isValid(file: File): boolean {

@@ -10,10 +10,11 @@ export class ModelReadingComponent implements OnInit {
   public readSheet: ReadSheet;
 
   constructor(protected modelService: ModelService) {
+    this.readSheet = new ReadSheet();
   }
 
   ngOnInit(): void {
-    this.readSheet = this.modelService.getOutputModel();
-    this.modelService.outputModelChange$.subscribe(readSheet => this.readSheet = readSheet);
+    this.modelService.getReadtModel().then(readModel => this.readSheet = readModel);
+    this.modelService.readModelChange$.subscribe(readSheet => this.readSheet = readSheet);
   }
 }

@@ -25,9 +25,10 @@ export class ModelTransformerService {
    * @param  UpdateSheet
    * @return ReadSheet
    */
-  public transform(inputSheet: UpdateSheet): Promise<ReadSheet> {
+  public transform(updateSheet: UpdateSheet): Promise<ReadSheet> {
+    console.log('Requesting transformation of model: ', updateSheet);
     return this.settingsService.getServerUrl()
-      .then(url => this.sendConvertRequest(inputSheet, url));
+      .then(url => this.sendConvertRequest(updateSheet, url));
   }
 
   private sendConvertRequest(sheet: UpdateSheet, serverUrl: string): Promise<ReadSheet> {

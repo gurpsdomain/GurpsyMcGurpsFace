@@ -14,18 +14,18 @@ export class ModelService {
 
   private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
 
-  private inputModel: UpdateSheet;
-  private outputModel: ReadSheet = new ReadSheet();
+  private updateModel: UpdateSheet;
+  private readModel: ReadSheet;
 
   private _editMode = false;
 
   private editModeChangeSource = new Subject<boolean>();
-  private outputModelChangeSource = new Subject<ReadSheet>();
-  private inputModelChangeSource = new Subject<UpdateSheet>();
+  private readModelChangeSource = new Subject<ReadSheet>();
+  private updateModelChangeSource = new Subject<UpdateSheet>();
 
   public editModeChange$ = this.editModeChangeSource.asObservable();
-  public outputModelChange$ = this.outputModelChangeSource.asObservable();
-  public inputModelChange$ = this.inputModelChangeSource.asObservable();
+  public readModelChange$ = this.readModelChangeSource.asObservable();
+  public updateModelChange$ = this.updateModelChangeSource.asObservable();
 
   constructor(private loggingService: LoggingService,
               private modelTransformerService: ModelTransformerService,
@@ -70,10 +70,10 @@ export class ModelService {
    */
   public loadSheet(sheet: UpdateSheet, isNew: boolean): void {
 
-    this.changeInputModel(sheet);
+    this.changeUpdateModel(sheet);
 
     this.modelTransformerService.transform(sheet)
-      .then(outputSheet => this.changeOutputModel(outputSheet)).catch(any => this.setFallbackOutputModel())
+      .then(outputSheet => this.changeReadModel(outputSheet)).catch(any => this.setFallbackOutputModel())
 
     if (isNew) {
       this.storageService.storeSheet(sheet);
@@ -81,12 +81,21 @@ export class ModelService {
   }
 
   /**
-   * Return the current outputSheet.
+   * Return the current UpdateModel.
    *
-   * @returns {ReadSheet}
+   * @returns {Promise<UpdateSheet>}
    */
-  public getOutputModel(): ReadSheet {
-    return this.outputModel;
+  public getUpdateModel(): Promise<UpdateSheet> {
+    return Promise.resolve(this.updateModel);
+  }
+
+  /**
+   * Return the current ReadModel.
+   *
+   * @returns {Promise<ReadSheet>}
+   */
+  public getReadtModel(): Promise<ReadSheet> {
+    return Promise.resolve(this.readModel);
   }
 
   /**
@@ -96,7 +105,7 @@ export class ModelService {
    *
    * @param {boolean}
    */
-  public set editMode(value: boolean) {
+  public setEditMode(value: boolean) {
     this._editMode = value;
     this.editModeChangeSource.next(value);
   }
@@ -106,40 +115,41 @@ export class ModelService {
    * to edit the UpdateSheet. Concequently, this will lead to a new
    * ReadSheet.
    *
-   * @return {boolean}
+   * @return {Promise<boolean>} A Promise that resolves to boolean. True
+   *          if this service is currently in edit mode, f¬alse otherwise.
    */
-  public get editMode(): boolean {
-    return this._editMode;
+  public getEditMode(): Promise<boolean> {
+    return Promise.resolve(this._editMode);
   }
 
-  private handleStoredSheet(sheet: UpdateSheet): void {
+  private loadStoredSheet(sheet: UpdateSheet): void {
     this.loadSheet(sheet, false);
   }
 
   private initSheet(): void {
-    this.storageService.getCurrentSheet().then(sheet => this.handleStoredSheet(sheet)).catch(any => this.initEmptyOutputSheet());
+    this.readModel = new ReadSheet();
+
+    this.storageService.getCurrentSheet().then(sheet => this.loadStoredSheet(sheet)).catch(any => this.initEmptyOutputSheet());
   }
 
   private initEmptyOutputSheet(): void {
     const emptySheet: ReadSheet = new ReadSheet();
-    this.changeOutputModel(emptySheet);
+    this.changeReadModel(emptySheet);
   }
 
-  private changeInputModel(inputSheet: UpdateSheet): void {
-    this.inputModel = inputSheet;
-    this.inputModelChangeSource.next(inputSheet);
+  private changeUpdateModel(updateSheet: UpdateSheet): void {
+    this.updateModel = updateSheet;
+    this.updateModelChangeSource.next(updateSheet);
   }
 
-  private changeOutputModel(outputSheet: ReadSheet): void {
-    this.outputModel = outputSheet;
-    this.outputModelChangeSource.next(outputSheet);
+  private changeReadModel(readSheet: ReadSheet): void {
+    this.readModel = readSheet;
+    this.readModelChangeSource.next(readSheet);
   }
 
   private setFallbackOutputModel(): void {
     this.http.get(ModelService.FALLBACK_MODEL).toPromise()
-      .then(response => this.changeOutputModel(response.json()))
+      .then(response => this.changeReadModel(response.json()))
       .catch(error => this.loggingService.error('Unable to fetch fallback readSheet. ' + error))
   }
-
-
 }

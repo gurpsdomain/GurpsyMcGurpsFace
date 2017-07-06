@@ -8,7 +8,7 @@ export class Advantage {
   name: string;
 
   @JsonProperty('levels', Number)
-  levels: string;
+  levels?: number;
 
   @JsonProperty('modifiers', [Modifier])
   modifiers: Modifier[];

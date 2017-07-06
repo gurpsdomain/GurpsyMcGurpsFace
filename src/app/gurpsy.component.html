@@ -22,7 +22,7 @@
             fxShow="true"
             fxShow.xs="false"
             *ngIf="!editMode"
-            (click)="onEdit()">
+            (click)="onEdit(true)">
       <md-icon>lock</md-icon>
     </button>
     <button md-icon-button
@@ -30,7 +30,7 @@
             fxShow="true"
             fxShow.xs="false"
             *ngIf="editMode"
-            (click)="onLock()">
+            (click)="onEdit(false)">
       <md-icon>lock_open</md-icon>
     </button>
 
@@ -51,7 +51,7 @@
           md-menu-item
           fxShow="false"
           fxShow.xs *ngIf="!editMode"
-          (click)="onEdit()">
+          (click)="onEdit(true)">
           <md-icon>lock</md-icon>
           <span>{{ 'MENU.EDIT' | translate }}</span>
         </button>
@@ -59,7 +59,7 @@
           md-menu-item
           fxShow="false"
           fxShow.xs *ngIf="editMode"
-          (click)="onLock()">
+          (click)="onEdit(false)">
           <md-icon>lock_open</md-icon>
           <span>{{ 'MENU.LOCK' | translate }}</span>
         </button>
