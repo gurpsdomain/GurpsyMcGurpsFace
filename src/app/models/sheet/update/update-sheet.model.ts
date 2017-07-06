@@ -9,64 +9,64 @@ import {Advantage} from './advantage.model';
 @JsonObject
 export class UpdateSheet {
 
-  @JsonProperty('portrait', String)
+  @JsonProperty('portrait', String, true)
   portrait: string;
 
-  @JsonProperty('player', String)
+  @JsonProperty('player', String, true)
   player: string;
 
-  @JsonProperty('campaign', String)
+  @JsonProperty('campaign', String, true)
   campaign: string;
 
-  @JsonProperty('createdOn', String)
+  @JsonProperty('createdOn', String, true)
   createdOn: string;
 
-  @JsonProperty('name', String)
+  @JsonProperty('name', String, true)
   name: string;
 
-  @JsonProperty('title', String)
+  @JsonProperty('title', String, true)
   title: string;
 
-  @JsonProperty('religion', String)
+  @JsonProperty('religion', String, true)
   religion: string;
 
-  @JsonProperty('race', String)
+  @JsonProperty('race', String, true)
   race: string;
 
-  @JsonProperty('gender', String)
+  @JsonProperty('gender', String, true)
   gender: string;
 
-  @JsonProperty('age', Number)
+  @JsonProperty('age', Number, true)
   age: number;
 
-  @JsonProperty('birthday', String)
+  @JsonProperty('birthday', String, true)
   birthday: string;
 
-  @JsonProperty('height', String)
+  @JsonProperty('height', String, true)
   height: string;
 
-  @JsonProperty('weight', String)
+  @JsonProperty('weight', String, true)
   weight: string;
 
-  @JsonProperty('size', String)
+  @JsonProperty('size', String, true)
   size: string;
 
-  @JsonProperty('TL', Number)
+  @JsonProperty('TL', Number, true)
   TL: number;
 
-  @JsonProperty('hair', String)
+  @JsonProperty('hair', String, true)
   hair: string;
 
-  @JsonProperty('eyes', String)
+  @JsonProperty('eyes', String, true)
   eyes: string;
 
-  @JsonProperty('skin', String)
+  @JsonProperty('skin', String, true)
   skin: string;
 
-  @JsonProperty('hand', String)
+  @JsonProperty('hand', String, true)
   hand: string;
 
-  @JsonProperty('basepoints', Number)
+  @JsonProperty('basepoints', Number, true)
   basepoints: number;
 
   @JsonProperty('rewards', [Number])
@@ -89,4 +89,34 @@ export class UpdateSheet {
 
   @JsonProperty('notes', [Note])
   notes: Note[];
+
+  constructor() {
+    this.portrait = undefined;
+    this.player = undefined;
+    this.campaign = undefined;
+    this.createdOn = undefined;
+    this.name = undefined;
+    this.title = undefined;
+    this.religion = undefined;
+    this.race = undefined;
+    this.gender = undefined;
+    this.age = undefined;
+    this.birthday = undefined;
+    this.height = undefined;
+    this.weight = undefined;
+    this.size = undefined;
+    this.TL = undefined;
+    this.hair = undefined;
+    this.eyes = undefined;
+    this.skin = undefined;
+    this.hand = undefined;
+    this.basepoints = undefined;
+    this.rewards = [];
+    this.advantages = [];
+    this.disadvantages = [];
+    this.skills = [];
+    this.spells = [];
+    this.equipments = [];
+    this.notes = [];
+  }
 }

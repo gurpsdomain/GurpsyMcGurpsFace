@@ -5,14 +5,13 @@ import {BooksConfigurationComponent} from '../../../generic/books-configuration/
 @Component({
   templateUrl: 'settings-dialog.component.html',
   styleUrls: ['../../dialog.component.scss',
-              'settings-dialog.component.scss'
+    'settings-dialog.component.scss'
   ]
 })
 export class SettingsDialogComponent implements OnInit {
 
   public nightTheme = false;
   public siMetrics = false;
-  public serverUrl: string;
 
   @ViewChild(BooksConfigurationComponent)
   private bookConfigurationChild: BooksConfigurationComponent;
@@ -22,17 +21,7 @@ export class SettingsDialogComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initMetrics();
-    this.initServerUrl();
     this.initTheme();
-  }
-
-  /**
-   * Handle a Change of the serverUrl
-   *
-   * @param serverUrl
-   */
-  public onServerUrlChange(serverUrl: string): void {
-    this.settingsService.setServerUrl(serverUrl);
   }
 
   /**
@@ -73,24 +62,11 @@ export class SettingsDialogComponent implements OnInit {
     this.settingsService.getSettingsObserver().subscribe(settings => this.setMetrics(settings.metrics));
   }
 
-  private initServerUrl(): void {
-    this.settingsService.getServerUrl()
-      .then(serverUrl => this.serverUrl = serverUrl)
-      .catch(err => this.setServerUrl(''));
-    this.settingsService.getSettingsObserver().subscribe(settings => this.setServerUrl(settings.serverUrl));
-  }
-
   private initTheme(): void {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
       .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
     this.settingsService.getSettingsObserver().subscribe(settings => this.setTheme(settings.theme));
-  }
-
-  private setServerUrl(url: string) {
-    if (url !== null) {
-      this.serverUrl = url
-    }
   }
 
   private setTheme(theme: string) {

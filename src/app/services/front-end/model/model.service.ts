@@ -36,6 +36,16 @@ export class ModelService {
   }
 
   /**
+   * Create a new and empty sheet.
+   */
+  public createUpdateModel(): void {
+    const newUpdateModel: UpdateSheet = new UpdateSheet();
+    this.loadSheet(newUpdateModel, true);
+    console.log('Created the following updateModel: ', newUpdateModel);
+
+  }
+
+  /**
    * Load a readSheet from file. A json file is expected and it should abide to the interface
    * as defined in ../../model/readSheet/input.
    *

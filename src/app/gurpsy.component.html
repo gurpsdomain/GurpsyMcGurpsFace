@@ -43,6 +43,10 @@
         <md-icon>more_vert</md-icon>
       </button>
       <md-menu x-position="before" y-position="below" #settings="mdMenu">
+        <button md-menu-item (click)="onNewUpdateModel()">
+          <md-icon>portrait</md-icon>
+          <span>{{ 'MENU.NEW' | translate }}</span>
+        </button>
         <button md-menu-item (click)="onOpenSheetDialog()">
           <md-icon>account_box</md-icon>
           <span>{{ 'MENU.OPEN' | translate }}</span>

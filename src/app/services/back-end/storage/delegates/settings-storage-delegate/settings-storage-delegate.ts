@@ -84,17 +84,6 @@ export class SettingsStorageDelegate {
   }
 
   /**
-   * Store the given server URL.
-   *
-   * @param {string} server URL
-   */
-  public storeServerUrl(serverUrl: string) {
-    const settings: Settings = this.retrieve();
-    settings.serverUrl = serverUrl;
-    this.store(settings);
-  }
-
-  /**
    * Retrieve the currently stored theme.
    *
    * @returns {Promise<string>} the current theme.
@@ -136,21 +125,6 @@ export class SettingsStorageDelegate {
       return Promise.reject('No metrics stored, use default.');
     } else {
       return Promise.resolve(settings.metrics);
-    }
-  }
-
-  /**
-   * Retrieve the currently stored serverUrl.
-   *
-   * @returns {Promise<string>} the current serverUrl.
-   */
-  public retrieveServerUrl(): Promise<string> {
-    const settings: Settings = this.retrieve();
-
-    if (settings.serverUrl === '') {
-      return Promise.reject('No serverUrl stored, use default.');
-    } else {
-      return Promise.resolve(settings.serverUrl);
     }
   }
 

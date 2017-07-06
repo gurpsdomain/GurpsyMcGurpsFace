@@ -60,6 +60,13 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
+   * Create a new updateModel.
+   */
+  public onNewUpdateModel(): void {
+    this.modelService.createUpdateModel();
+  }
+
+  /**
    * Switch edit mode.
    *
    * @param {boolean} If true, the sheet is editable, if false it is in read only mode

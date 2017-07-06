@@ -56,15 +56,6 @@ export class SettingsService {
   }
 
   /**
-   * Set serverUrl.
-   *
-   * @param serverUrl : string
-   */
-  public setServerUrl(serverUrl: string) {
-    this.storageService.storeServerUrl(serverUrl);
-  }
-
-  /**
    * Set theme.
    *
    * @param theme : string
@@ -98,15 +89,6 @@ export class SettingsService {
    */
   public getMetrics(): Promise<string> {
     return this.storageService.getMetrics();
-  }
-
-  /**
-   * Get serverUrl.
-   *
-   * @return Promise<string>  A promise that resolves to the current serverUrl
-   */
-  public getServerUrl(): Promise<string> {
-    return this.storageService.getServerUrl();
   }
 
   /**

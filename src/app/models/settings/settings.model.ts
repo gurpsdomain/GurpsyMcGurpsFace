@@ -7,9 +7,6 @@ export class Settings {
   @JsonProperty('bodyContent', Number)
   bodyContent: Number;
 
-  @JsonProperty('serverUrl', String)
-  serverUrl: string;
-
   @JsonProperty('metrics', String)
   metrics: string;
 
@@ -21,7 +18,6 @@ export class Settings {
 
   constructor() {
     this.bodyContent = 0;
-    this.serverUrl = '';
     this.theme = '';
     this.metrics = '';
     this.books = [];
