@@ -45,6 +45,8 @@ export class PortraitComponent extends ModelUpdatingComponent {
   }
 
   private updatePortrait(portrait: string): void {
+    console.log('Updating portrait: ', portrait);
+    console.log('On model: ', this.updateSheet);
     this.updateSheet.portrait = portrait;
     this.updateModel();
   }

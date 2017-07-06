@@ -41,8 +41,17 @@ export class ModelService {
   public createUpdateModel(): void {
     const newUpdateModel: UpdateSheet = new UpdateSheet();
     this.loadSheet(newUpdateModel, true);
-    console.log('Created the following updateModel: ', newUpdateModel);
 
+  }
+
+  /**
+   * Update the current UpdateModel.
+   *
+   * @param {UpdateSheet} updateModel
+   */
+  updateCurrentModel(updateModel: UpdateSheet): void {
+    console.log('Model gets updated: ', updateModel);
+    this.loadSheet(updateModel, true);
   }
 
   /**
@@ -83,7 +92,8 @@ export class ModelService {
     this.changeUpdateModel(sheet);
 
     this.modelTransformerService.transform(sheet)
-      .then(outputSheet => this.changeReadModel(outputSheet)).catch(any => this.setFallbackOutputModel())
+      .then(outputSheet => this.changeReadModel(outputSheet))
+      .catch(any => this.setFallbackOutputModel());
 
     if (isNew) {
       this.storageService.storeSheet(sheet);

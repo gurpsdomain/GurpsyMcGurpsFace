@@ -37,7 +37,7 @@ export class ModelUpdatingComponent implements OnInit {
    * A component has received a click event and requests an update. If we are currently
    * in update mode, updateRequested() is being called.
    */
-  protected onRequestUpdate(): void {
+  public onRequestUpdate(): void {
     if (this.editMode) {
       this.updateRequested();
     }
@@ -65,6 +65,6 @@ export class ModelUpdatingComponent implements OnInit {
    * Update the model with the current updateModel.
    */
   protected updateModel(): void {
-    console.log('Model gets updated: ', this.updateSheet);
+    this.modelService.updateCurrentModel(this.updateSheet);
   }
 }

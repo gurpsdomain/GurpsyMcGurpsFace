@@ -12,6 +12,8 @@ export class ModelTransformerService {
    * @return ReadSheet
    */
   public transform(updateSheet: UpdateSheet): Promise<ReadSheet> {
+    const readModel: ReadSheet = new ReadSheet();
+    readModel.metaData.identity.portrait = updateSheet.portrait;
     return Promise.resolve(new ReadSheet());
   }
 }
