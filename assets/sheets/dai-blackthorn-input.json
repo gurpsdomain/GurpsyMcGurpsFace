@@ -1,0 +1,127 @@
+{
+  "player": "Daan van Berkel",
+  "campaign": "Paul's Total Party Kill",
+  "createdOn": "Oct 13, 2015",
+  "portrait": "",
+  "name": "Dai Blackthorn",
+  "title": "Sergeant",
+  "religion": "K-theorist",
+  "race": "Human",
+  "gender": "Male",
+  "age": 35,
+  "birthday": "February 12",
+  "height": "5' 9''",
+  "weight": "154 lb",
+  "size": "+0",
+  "TL": 4,
+  "hair": "Brown, wavy, long",
+  "eyes": "Green",
+  "skin": "Pale",
+  "hand": "Right",
+  "basepoints": 250,
+  "rewards": [
+    3,
+    5
+  ],
+  "advantages": [
+    {
+      "name": "Absolute Direction",
+      "modifiers": [
+        {
+          "name": "3D Spatial Sense"
+        }
+      ]
+    },
+    {
+      "name": "Speak With Animals",
+      "modifiers": [
+        {
+          "name": "Specialized"
+        },
+        {
+          "variation": "All aquatic animals"
+        }
+      ]
+    },
+    {
+      "name": "Flexibility"
+    },
+    {
+      "name": "Power Investiture",
+      "levels": 3
+    },
+    {
+      "name": "Increased Will",
+      "levels": 2
+    },
+    {
+      "name": "Acute Hearing",
+      "levels": 4
+    },
+    {
+      "name": "Claws, Hooves"
+    },
+    {
+      "name": "Damage Resistance",
+      "levels": 3
+    },
+    {
+      "name": "Magery",
+      "levels": 3
+    }
+  ],
+  "disadvantages": [
+    {
+      "name": "Indecisive"
+    },
+    {
+      "name": "Dwarfism"
+    },
+    {
+      "name": "Stuttering"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Alchemy",
+      "points": 3
+    },
+    {
+      "name": "Stealth",
+      "points": 2
+    },
+    {
+      "name": "Singing",
+      "points": 1
+    }
+  ],
+  "spells": [
+    {
+      "name": "Gift of Letters",
+      "points": 1
+    },
+    {
+      "name": "Mind-Sending",
+      "points": 2
+    },
+    {
+      "name": "Spell-with-a-typo",
+      "points": 2
+    }
+  ],
+  "equipments": [
+    {
+      "name": "Leather Pants"
+    }
+  ],
+  "notes": [
+    {
+      "name": "general note",
+      "note": "This is a very important note that I would like to have on my sheet"
+    },
+    {
+      "name": "combat",
+      "note": "Do extra damage by going all out!"
+    }
+  ]
+}
