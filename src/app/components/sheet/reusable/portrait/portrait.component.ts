@@ -3,7 +3,6 @@ import {PortraitUpdaterDialogComponent} from '../../../dialog/model-updaters/por
 import {ModelUpdatingComponent} from '../../../model-updating.component';
 import {MdDialogRef} from '@angular/material';
 import {GurpsyComponent} from '../../../../gurpsy.component';
-import {ReadSheet} from '../../../../models/sheet/read/read-sheet.model';
 
 @Component({
   selector: 'gurpsy-portrait',
@@ -16,16 +15,7 @@ export class PortraitComponent extends ModelUpdatingComponent {
 
   @ViewChild('inputFile') nativeInputFile: ElementRef;
 
-  // readSheet: ReadSheet;
-
   private portraitDialogRef: MdDialogRef<PortraitUpdaterDialogComponent>;
-
-  // ngOnInit(): void {
-  //   super.ngOnInit();
-  //
-  //   this.modelService.getReadModel().then(readModel => this.readSheet = readModel);
-  //   this.modelService.modelChange$.subscribe(readModel => this.readSheet = readModel);
-  // }
 
   public updateRequested(): void {
     this.nativeInputFile.nativeElement.click();
@@ -60,6 +50,10 @@ export class PortraitComponent extends ModelUpdatingComponent {
   }
 
   private isValid(file: File): boolean {
-    return true;
+    if (file) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

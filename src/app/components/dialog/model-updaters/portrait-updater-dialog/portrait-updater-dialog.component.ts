@@ -10,8 +10,8 @@ export class PortraitUpdaterDialogComponent implements OnInit {
 
   private static CANVAS_WIDTH = 352;
   private static CANVAS_HEIGHT = 300;
-  private static CROPPER_WIDTH = 104;
-  private static CROPPER_HEIGHT = 138;
+  private static CROPPER_WIDTH = 196;
+  private static CROPPER_HEIGHT = 276;
   private static CROPPER_MIN_WIDTH = 25;
   private static CROPPER_MIN_HEIGHT = 30;
 

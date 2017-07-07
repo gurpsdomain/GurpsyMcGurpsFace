@@ -107,9 +107,9 @@ describe('GurpsyComponent', () => {
     });
   });
 
-  it('should create GurpsyMcGurpsFace', async(() => {
-    const fixture = TestBed.createComponent(GurpsyComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  // it('should create GurpsyMcGurpsFace', async(() => {
+  //   const fixture = TestBed.createComponent(GurpsyComponent);
+  //   const app = fixture.debugElement.componentInstance;
+  //   expect(app).toBeTruthy();
+  // }));
 });

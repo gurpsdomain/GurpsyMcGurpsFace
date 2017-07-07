@@ -14,7 +14,6 @@ export class ModelTransformerService {
   public transform(updateSheet: UpdateSheet): Promise<ReadSheet> {
     const readModel: ReadSheet = new ReadSheet();
     readModel.metaData.identity.portrait = updateSheet.portrait;
-    readModel.metaData.identity.name = 'Golan';
     return Promise.resolve(readModel);
   }
 }

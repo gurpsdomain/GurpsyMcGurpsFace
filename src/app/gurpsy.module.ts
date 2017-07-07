@@ -54,6 +54,7 @@ import {PortraitUpdaterDialogComponent} from './components/dialog/model-updaters
 import {ModelReadingComponent} from './components/model-reading.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
+import { AvatarComponent } from './components/generic/avatar/avatar.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -98,7 +99,8 @@ export function HttpLoaderFactory(http: Http) {
     WeightPipe,
     PortraitUpdaterDialogComponent,
     ModelReadingComponent,
-    ModelUpdatingComponent],
+    ModelUpdatingComponent,
+    AvatarComponent],
   imports: [
     ImageCropperModule,
     GurpsyAngularModule,
