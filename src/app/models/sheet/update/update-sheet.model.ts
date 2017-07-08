@@ -91,26 +91,26 @@ export class UpdateSheet {
   notes: Note[];
 
   constructor() {
-    this.portrait = '';
+    this.portrait = 'assets/images/empty-portrait.png';
     this.player = '';
     this.campaign = '';
     this.createdOn = '';
-    this.name = undefined;
-    this.title = undefined;
-    this.religion = undefined;
-    this.race = undefined;
-    this.gender = undefined;
+    this.name = '';
+    this.title = '';
+    this.religion = '';
+    this.race = '';
+    this.gender = '';
     this.age = undefined;
     this.birthday = undefined;
     this.height = undefined;
     this.weight = undefined;
     this.size = undefined;
     this.TL = undefined;
-    this.hair = undefined;
-    this.eyes = undefined;
-    this.skin = undefined;
-    this.hand = undefined;
-    this.basepoints = undefined;
+    this.hair = '';
+    this.eyes = '';
+    this.skin = '';
+    this.hand = '';
+    this.basepoints = 100;
     this.rewards = [];
     this.advantages = [];
     this.disadvantages = [];

@@ -31,10 +31,37 @@ export class ReadSheet {
     this.attributes = new Attributes(updateSheet);
     this.secondaryCharacteristics = new SecondaryCharacteristics(updateSheet);
     this.damageResistances = new DamageResistance(updateSheet);
-    this.advantages = [];
-    this.skills = [];
-    this.spells = [];
-    this.equipments = [];
-    this.notes = [];
+    this.advantages = this.enrichAdvantages(updateSheet);
+    this.skills = this.enrichSkills(updateSheet);
+    this.spells = this.enrichSpells(updateSheet);
+    this.equipments = this.enrichEquipment(updateSheet);
+    this.notes = this.enrichNotes(updateSheet);
+  }
+
+  private enrichAdvantages(updateSheet: UpdateSheet): Advantage[] {
+    return [];
+  }
+
+  private enrichSkills(updateSheet: UpdateSheet): Skill[] {
+    return [];
+  }
+
+  private enrichSpells(updateSheet: UpdateSheet): Spell[] {
+    return [];
+  }
+
+  private enrichEquipment(updateSheet: UpdateSheet): Equipment[] {
+    return [];
+  }
+
+  private enrichNotes(updateSheet: UpdateSheet): Note[] {
+    const notes: Note[] = [];
+
+    for (const note of updateSheet.notes) {
+      const enrichedNote = new Note(note.name, note.note);
+      notes.push(enrichedNote);
+    }
+
+    return notes;
   }
 }

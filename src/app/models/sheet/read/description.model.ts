@@ -3,27 +3,27 @@ export class Description {
 
   race: string;
   gender: string;
-  age: string;
+  age: number;
   birthday: string;
   height: number;
   weight: number;
-  TL: string;
+  TL: number;
   hair: string;
   eyes: string;
   skin: string;
   hand: string;
 
   constructor(updateSheet: UpdateSheet) {
-    this.race = undefined;
-    this.gender = undefined;
-    this.age = undefined;
-    this.birthday = undefined;
-    this.height = undefined;
-    this.weight = undefined;
-    this.TL = undefined;
-    this.hair = undefined;
-    this.eyes = undefined;
-    this.skin = undefined;
-    this.hand = undefined;
+    this.race = updateSheet.race;
+    this.gender = updateSheet.gender;
+    this.age = updateSheet.age;
+    this.birthday = updateSheet.birthday;
+    this.height = updateSheet.height;
+    this.weight = updateSheet.weight;
+    this.TL = updateSheet.TL;
+    this.hair = updateSheet.hair;
+    this.eyes = updateSheet.eyes;
+    this.skin = updateSheet.skin;
+    this.hand = updateSheet.hand;
   }
 }

@@ -8,8 +8,8 @@ export class Identity {
 
   constructor(updateSheet: UpdateSheet) {
     this.portrait = updateSheet.portrait;
-    this.name = '';
-    this.title = '';
-    this.religion = '';
+    this.name = updateSheet.name;
+    this.title = updateSheet.title;
+    this.religion = updateSheet.religion;
   }
 }
