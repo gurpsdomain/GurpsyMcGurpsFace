@@ -44,6 +44,7 @@ import {MockBackend} from '@angular/http/testing';
 import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {WeightPipe} from './pipes/weight.pipe';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('GurpsyComponent', () => {
   beforeEach(() => {
@@ -103,13 +104,16 @@ describe('GurpsyComponent', () => {
         SheetStorageDelegate,
         ModelService,
         SheetBodyService
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
       ]
     });
   });
 
-  // it('should create GurpsyMcGurpsFace', async(() => {
-  //   const fixture = TestBed.createComponent(GurpsyComponent);
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app).toBeTruthy();
-  // }));
+  it('should create GurpsyMcGurpsFace', async(() => {
+    const fixture = TestBed.createComponent(GurpsyComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
 });

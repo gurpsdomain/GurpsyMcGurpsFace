@@ -14,6 +14,7 @@ import {ModelService} from '../../services/front-end/model/model.service';
 import {ModelTransformerService} from '../../services/back-end/model-transformer/model-transformer.service';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -46,6 +47,9 @@ describe('SideNavigationComponent', () => {
         SheetBodyService,
         SheetStorageDelegate,
         StorageService
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
       ]
     })
       .compileComponents();
@@ -54,10 +58,11 @@ describe('SideNavigationComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SideNavigationComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
-  // it('should create a SideNavigationComponent', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create a SideNavigationComponent', () => {
+    expect(component).toBeTruthy();
+  });
 });

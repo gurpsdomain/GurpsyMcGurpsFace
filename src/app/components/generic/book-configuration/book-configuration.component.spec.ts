@@ -2,6 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {BookConfigurationComponent} from './book-configuration.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {GurpsyMaterialModule} from '../../../modules/material.module';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('BookConfigurationComponent', () => {
   let component: BookConfigurationComponent;
@@ -14,6 +15,9 @@ describe('BookConfigurationComponent', () => {
       imports: [
         GurpsyMaterialModule,
         TranslateModule.forRoot()
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
       ]
     })
       .compileComponents();
@@ -25,7 +29,7 @@ describe('BookConfigurationComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create a reusable generic BookEnum Configuration Component', () => {
+  // it('should create a generic BookConfiguration Component', () => {
   //   expect(component).toBeTruthy();
   // });
 });

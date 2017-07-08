@@ -4,6 +4,10 @@ import {PageReferenceService} from '../../../services/front-end/page-reference/p
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {StorageService} from '../../../services/back-end/storage/storage.service';
+import {LoggingService} from '../../../services/back-end/logging/logging.service';
+import {TranslateModule} from '@ngx-translate/core';
 
 describe('BooksConfigurationComponent', () => {
   let component: BooksConfigurationComponent;
@@ -13,11 +17,19 @@ describe('BooksConfigurationComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         BooksConfigurationComponent],
+      imports: [
+        TranslateModule.forRoot()
+      ],
       providers: [
+        LoggingService,
         PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,
-        SheetStorageDelegate
+        SheetStorageDelegate,
+        StorageService
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
       ]
     })
       .compileComponents();
@@ -29,7 +41,7 @@ describe('BooksConfigurationComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create a reusable generic Books Configuration Component', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create a generic Books Configuration Component', () => {
+    expect(component).toBeTruthy();
+  });
 });
