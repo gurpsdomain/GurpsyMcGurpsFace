@@ -14,6 +14,12 @@
   }
 
   .sideNavigation {
+    .sideNavigationHeader {
+      .player {
+        color: $hintText;
+      }
+    }
+
     .sideNavigationContent {
       button {
         md-icon {
@@ -22,13 +28,10 @@
       }
       button.selected {
         background: $selectedButton;
-        md-icon {
-          color: mat-color($primary);
-        }
-      }
 
-      .seperator {
-        border-top: solid $statusBar 1px;
+        .seperator {
+          border-top: solid $statusBar 1px;
+        }
       }
     }
   }

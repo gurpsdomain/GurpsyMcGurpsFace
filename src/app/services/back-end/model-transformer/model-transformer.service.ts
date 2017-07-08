@@ -14,6 +14,8 @@ export class ModelTransformerService {
   public transform(updateSheet: UpdateSheet): Promise<ReadSheet> {
     const readModel: ReadSheet = new ReadSheet();
     readModel.metaData.identity.portrait = updateSheet.portrait;
+    readModel.metaData.identity.name = 'Golan the Blacksword';
+    readModel.metaData.playerInformation.player = 'Meron Brouwer';
     return Promise.resolve(readModel);
   }
 }
