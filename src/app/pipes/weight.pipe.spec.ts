@@ -39,4 +39,8 @@ describe('WeightPipe', () => {
   it('should default to pounds', () => {
     expect(pipe.transform(37)).toEqual('37 lb');
   });
+
+  it('should return an empty string in case of an undefined input', () =>{
+    expect(pipe.transform()).toEqual('');
+  })
 })
