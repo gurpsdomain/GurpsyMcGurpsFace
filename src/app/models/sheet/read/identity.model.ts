@@ -1,3 +1,4 @@
+import {UpdateSheet} from '../update/update-sheet.model';
 export class Identity {
 
   portrait: string;
@@ -5,8 +6,8 @@ export class Identity {
   title: string;
   religion: string;
 
-  constructor() {
-    this.portrait = '';
+  constructor(updateSheet: UpdateSheet) {
+    this.portrait = updateSheet.portrait;
     this.name = '';
     this.title = '';
     this.religion = '';

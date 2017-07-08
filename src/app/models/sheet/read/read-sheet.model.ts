@@ -9,6 +9,7 @@ import {Points} from './points.model';
 import {Attributes} from './attributes.model';
 import {SecondaryCharacteristics} from './secondary-characteristics.model';
 import {DamageResistance} from './damage-resistance.model';
+import {UpdateSheet} from '../update/update-sheet.model';
 
 export class ReadSheet {
 
@@ -24,12 +25,12 @@ export class ReadSheet {
   equipments: Equipment[];
   notes: Note[];
 
-  constructor() {
-    this.metaData = new MetaData();
-    this.points = new Points();
-    this.attributes = new Attributes();
-    this.secondaryCharacteristics = new SecondaryCharacteristics();
-    this.damageResistances = new DamageResistance();
+  constructor(updateSheet: UpdateSheet) {
+    this.metaData = new MetaData(updateSheet);
+    this.points = new Points(updateSheet);
+    this.attributes = new Attributes(updateSheet);
+    this.secondaryCharacteristics = new SecondaryCharacteristics(updateSheet);
+    this.damageResistances = new DamageResistance(updateSheet);
     this.advantages = [];
     this.skills = [];
     this.spells = [];

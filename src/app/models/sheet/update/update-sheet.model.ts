@@ -91,10 +91,10 @@ export class UpdateSheet {
   notes: Note[];
 
   constructor() {
-    this.portrait = undefined;
-    this.player = undefined;
-    this.campaign = undefined;
-    this.createdOn = undefined;
+    this.portrait = '';
+    this.player = '';
+    this.campaign = '';
+    this.createdOn = '';
     this.name = undefined;
     this.title = undefined;
     this.religion = undefined;

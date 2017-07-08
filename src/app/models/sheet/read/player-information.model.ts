@@ -1,4 +1,5 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
+import {UpdateSheet} from '../update/update-sheet.model';
 
 export class PlayerInformation {
 
@@ -6,7 +7,7 @@ export class PlayerInformation {
   campaign: string;
   createdOn: string;
 
-  constructor() {
+  constructor(updateSheet: UpdateSheet) {
     this.player = undefined;
     this.campaign = undefined;
     this.createdOn = undefined;

@@ -1,3 +1,4 @@
+import {UpdateSheet} from '../update/update-sheet.model';
 export class DamageResistance {
 
   eye: string;
@@ -14,7 +15,7 @@ export class DamageResistance {
   neck: string;
   vitals: string;
 
-  constructor() {
+  constructor(updateSheet: UpdateSheet) {
     this.eye = undefined;
     this.skull = undefined;
     this.face = undefined;

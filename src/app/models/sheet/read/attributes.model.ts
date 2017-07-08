@@ -1,3 +1,4 @@
+import {UpdateSheet} from '../update/update-sheet.model';
 export class Attributes {
 
   strength: number;
@@ -5,10 +6,10 @@ export class Attributes {
   health: number;
   intelligence: number;
 
-  constructor() {
-    this.strength = undefined;
-    this.dexterity = undefined;
-    this.health = undefined;
-    this.intelligence = undefined;
+  constructor(updateSheet: UpdateSheet) {
+    this.strength = 10;
+    this.dexterity = 10;
+    this.health = 10;
+    this.intelligence = 10;
   }
 }

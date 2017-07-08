@@ -1,3 +1,4 @@
+import {UpdateSheet} from '../update/update-sheet.model';
 export class Points {
 
   total: number;
@@ -7,7 +8,7 @@ export class Points {
   spells: number;
   unspent: number;
 
-  constructor() {
+  constructor(updateSheet: UpdateSheet) {
     this.total = undefined;
     this.advantages = undefined;
     this.disadvantages = undefined;

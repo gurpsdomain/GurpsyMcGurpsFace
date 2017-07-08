@@ -18,8 +18,9 @@ export class ModelUpdatingComponent implements OnInit {
               protected modelService: ModelService,
               protected loggingService: LoggingService) {
 
-    this.readSheet = new ReadSheet()
     this.updateSheet = new UpdateSheet();
+    this.readSheet = new ReadSheet(this.updateSheet)
+
   }
 
   ngOnInit(): void {

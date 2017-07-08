@@ -12,8 +12,7 @@ export class ModelTransformerService {
    * @return ReadSheet
    */
   public transform(updateSheet: UpdateSheet): Promise<ReadSheet> {
-    const readModel: ReadSheet = new ReadSheet();
-    readModel.metaData.identity.portrait = updateSheet.portrait;
+    const readModel: ReadSheet = new ReadSheet(updateSheet);
     readModel.metaData.identity.name = 'Golan the Blacksword';
     readModel.metaData.playerInformation.player = 'Meron Brouwer';
     readModel.metaData.description.weight = 37;

@@ -1,3 +1,4 @@
+import {UpdateSheet} from '../update/update-sheet.model';
 export class Description {
 
   race: string;
@@ -12,7 +13,7 @@ export class Description {
   skin: string;
   hand: string;
 
-  constructor() {
+  constructor(updateSheet: UpdateSheet) {
     this.race = undefined;
     this.gender = undefined;
     this.age = undefined;
