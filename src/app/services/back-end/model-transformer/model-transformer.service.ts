@@ -17,6 +17,7 @@ export class ModelTransformerService {
     readModel.metaData.identity.name = 'Golan the Blacksword';
     readModel.metaData.playerInformation.player = 'Meron Brouwer';
     readModel.metaData.description.weight = 37;
+    readModel.secondaryCharacteristics.dodge.medium = 4;
     return Promise.resolve(readModel);
   }
 }
