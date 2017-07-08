@@ -28,10 +28,9 @@
       }
       button.selected {
         background: $selectedButton;
-
-        .seperator {
-          border-top: solid $statusBar 1px;
-        }
+      }
+      .separator {
+        border-top: solid $statusBar 1px;
       }
     }
   }
