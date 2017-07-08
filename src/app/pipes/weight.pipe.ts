@@ -18,8 +18,8 @@ export class WeightPipe implements PipeTransform {
   }
 
   transform(value: any, args?: any): any {
-    if (value === '') {
-      return value;
+    if (!!!value) {
+      return '';
     }
 
     return this.transformValue(value) + ' ' + this.getUnit();
