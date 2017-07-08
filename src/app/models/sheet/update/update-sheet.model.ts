@@ -42,11 +42,11 @@ export class UpdateSheet {
   @JsonProperty('birthday', String, true)
   birthday: string;
 
-  @JsonProperty('height', String, true)
-  height: string;
+  @JsonProperty('height', Number, true)
+  height: number;
 
-  @JsonProperty('weight', String, true)
-  weight: string;
+  @JsonProperty('weight', Number, true)
+  weight: number;
 
   @JsonProperty('size', String, true)
   size: string;

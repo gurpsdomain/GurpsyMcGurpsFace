@@ -4,8 +4,8 @@ export class Description {
   gender: string;
   age: string;
   birthday: string;
-  height: string;
-  weight: string;
+  height: number;
+  weight: number;
   TL: string;
   hair: string;
   eyes: string;

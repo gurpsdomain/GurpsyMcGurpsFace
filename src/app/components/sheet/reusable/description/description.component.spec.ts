@@ -14,6 +14,7 @@ import {MockBackend} from '@angular/http/testing';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
+import {WeightPipe} from '../../../../pipes/weight.pipe';
 
 describe('DescriptionComponent', function () {
   let de: DebugElement;
@@ -23,7 +24,8 @@ describe('DescriptionComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DescriptionComponent
+        DescriptionComponent,
+        WeightPipe
       ],
       imports: [
         HttpModule,

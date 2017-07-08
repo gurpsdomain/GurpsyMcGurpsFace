@@ -20,6 +20,7 @@ import {SettingsService} from '../../../../services/front-end/settings/settings.
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
+import {WeightPipe} from '../../../../pipes/weight.pipe';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
@@ -35,7 +36,8 @@ describe('SheetHeaderComponent', function () {
         IdentityComponent,
         PlayerInformationComponent,
         DescriptionComponent,
-        PointsComponent],
+        PointsComponent,
+        WeightPipe],
       imports: [
         GurpsyMaterialModule,
         HttpModule,
