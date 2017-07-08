@@ -15,6 +15,7 @@ export class PortraitComponent extends ModelUpdatingComponent {
 
   @ViewChild('inputFile') nativeInputFile: ElementRef;
 
+  private ALLOWED_FILE_EXTENSIONS = /(\.jpg|\.jpeg|\.gif|\.png)$/i;
   private portraitDialogRef: MdDialogRef<PortraitUpdaterDialogComponent>;
 
   public updateRequested(): void {
@@ -45,15 +46,20 @@ export class PortraitComponent extends ModelUpdatingComponent {
   }
 
   private updatePortrait(portrait: string): void {
-    this.updateSheet.portrait = portrait;
-    this.updateModel();
+    if (portrait.indexOf('data:image/png;base64,') === 0) {
+      this.updateSheet.portrait = portrait;
+      this.updateModel();
+    }
   }
 
   private isValid(file: File): boolean {
-    if (file) {
-      return true;
-    } else {
-      return false;
-    }
+    return file && this.isValidExtension(file)
+  }
+
+  private isValidExtension(file: File): boolean {
+    const matchArray: RegExpMatchArray = file.name.match(this.ALLOWED_FILE_EXTENSIONS);
+    const isMatch = matchArray.index !== -1;
+
+    return isMatch
   }
 }
