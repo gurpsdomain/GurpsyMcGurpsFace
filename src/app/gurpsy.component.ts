@@ -155,7 +155,7 @@ export class GurpsyComponent implements OnInit {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
       .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
-    this.settingsService.getSettingsObserver().subscribe(config => this.setTheme(config.theme));
+    this.settingsService.settingsChange$.subscribe(config => this.setTheme(config.theme));
   }
 
   private initSheetChangeListener(): void {

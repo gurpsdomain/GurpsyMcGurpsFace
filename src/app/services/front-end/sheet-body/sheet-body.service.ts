@@ -1,14 +1,26 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {SettingsService} from '../../front-end/settings/settings.service';
+import {Settings} from '../../../models/settings/settings.model';
+
+export enum SheetBodyContent {
+  GENERAL,
+  ADVANTAGES,
+  SKILLS,
+  MAGIC,
+  EQUIPMENT,
+  NOTES
+}
 
 @Injectable()
 export class SheetBodyService {
 
-  private sheetBodyContentSource = new Subject<SheetBodyContent>();
-  public sheetBodyChange$ = this.sheetBodyContentSource.asObservable();
+  private static DEFAULT_BODY_CONTENT = SheetBodyContent.GENERAL
 
-  private bodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
+  private sheetBodyContentSource = new Subject<SheetBodyContent>();
+  private bodyContent: SheetBodyContent = SheetBodyService.DEFAULT_BODY_CONTENT;
+
+  public sheetBodyChange$ = this.sheetBodyContentSource.asObservable();
 
   constructor(private settingsService: SettingsService) {
     this.initSheetBodyContent();
@@ -38,20 +50,22 @@ export class SheetBodyService {
   private initSheetBodyContent(): void {
     this.settingsService.getBodyContent().then(bodyContent =>
       this.setSheetBodyContent(bodyContent)).catch(err =>
-      this.setSheetBodyContent(SheetBodyContent.GENERAL));
-    this.settingsService.getSettingsObserver().subscribe(config => this.handleSheetBodyChange(config.bodyContent.valueOf()));
+      this.setSheetBodyContent(SheetBodyService.DEFAULT_BODY_CONTENT));
+    this.settingsService.settingsChange$
+      .subscribe(settings => this.handleSheetBodyChange(this.getValueOfBodyContent(settings)));
   }
 
   private isSheetBodyContentInvalid(sheetBodyContent: SheetBodyContent): boolean {
     return typeof SheetBodyContent[sheetBodyContent] === 'undefined';
   }
+
+  private getValueOfBodyContent(settings: Settings): SheetBodyContent {
+    if (settings && settings.bodyContent) {
+      return settings.bodyContent.valueOf();
+    } else {
+      return SheetBodyService.DEFAULT_BODY_CONTENT;
+    }
+  }
 }
 
-export enum SheetBodyContent {
-  GENERAL,
-  ADVANTAGES,
-  SKILLS,
-  MAGIC,
-  EQUIPMENT,
-  NOTES
-}
+

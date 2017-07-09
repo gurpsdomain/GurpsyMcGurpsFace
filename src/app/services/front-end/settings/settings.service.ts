@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {StorageService} from '../../back-end/storage/storage.service';
-import {Observable} from 'rxjs';
+import {Subject} from 'rxjs';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {Book} from '../../../models/settings/book.model';
 import {Settings} from '../../../models/settings/settings.model';
@@ -11,6 +11,10 @@ import {TranslateService} from '@ngx-translate/core';
 @Injectable()
 export class SettingsService {
 
+  private static ENGLISH = 'en';
+  private static DEFAULT: string = SettingsService.ENGLISH;
+  private static AVAILABLE_LANGUAGES: string[] = [SettingsService.ENGLISH];
+
   public static THEME_DAY = 'day';
   public static THEME_NIGHT = 'night';
   public static THEME_DEFAULT = SettingsService.THEME_DAY;
@@ -18,13 +22,13 @@ export class SettingsService {
   public static METRICS_SI = 'si';
   public static METRICS_DEFAULT = 'default';
 
-  private static ENGLISH = 'en';
-  private static DEFAULT: string = SettingsService.ENGLISH;
-  private static AVAILABLE_LANGUAGES: string[] = [SettingsService.ENGLISH];
+  private settingsSource = new Subject<Settings>();
+  public settingsChange$ = this.settingsSource.asObservable();
 
   constructor(private storageService: StorageService,
               private translateService: TranslateService) {
 
+    this.initObservable();
     this.initTranslateService();
   }
 
@@ -110,21 +114,10 @@ export class SettingsService {
   }
 
   /**
-   * Acquire the Observer on which you can register yourself to be notified when the value is changed
-   * in Local Storage.
-   *
-   * @type Observable<Settings>
-   */
-  public getSettingsObserver(): Observable<Settings> {
-    return this.storageService.getSettingsObserver();
-  }
-
-  /**
    * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
    * entries should be removed.
    */
-  public kill(): void {
-    this.storageService.clearStorage();
+  public clearStorage(): void {
     this.storageService.clearStorage();
   }
 
@@ -132,5 +125,16 @@ export class SettingsService {
     this.translateService.addLangs(SettingsService.AVAILABLE_LANGUAGES);
     this.translateService.setDefaultLang(SettingsService.DEFAULT);
     this.translateService.use(SettingsService.DEFAULT);
+  }
+
+  private initObservable(): void {
+    this.storageService.getSettingsObserver().subscribe(settings => this.notifyListeners(settings));
+  }
+
+  private notifyListeners(settings: Settings): void {
+    if (!settings) {
+      settings = new Settings();
+    }
+    this.settingsSource.next(settings);
   }
 }

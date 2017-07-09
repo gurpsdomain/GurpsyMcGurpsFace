@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {BooksConfigurationComponent} from '../../../generic/books-configuration/books-configuration.component';
+import {Settings} from '../../../../models/settings/settings.model';
 
 @Component({
   templateUrl: 'settings-dialog.component.html',
@@ -22,6 +23,7 @@ export class SettingsDialogComponent implements OnInit {
   public ngOnInit(): void {
     this.initMetrics();
     this.initTheme();
+    this.initSettingsListener();
   }
 
   /**
@@ -52,21 +54,28 @@ export class SettingsDialogComponent implements OnInit {
    * Delete all stored settings.
    */
   public onDeleteSettings(): void {
-    this.settingsService.kill();
+    this.settingsService.clearStorage();
   }
 
   private initMetrics(): void {
     this.settingsService.getMetrics()
       .then(metrics => this.setMetrics(metrics))
       .catch(err => this.setMetrics(SettingsService.METRICS_DEFAULT));
-    this.settingsService.getSettingsObserver().subscribe(settings => this.setMetrics(settings.metrics));
   }
 
   private initTheme(): void {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
       .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
-    this.settingsService.getSettingsObserver().subscribe(settings => this.setTheme(settings.theme));
+  }
+
+  private initSettingsListener(): void {
+    this.settingsService.settingsChange$.subscribe(settings => this.updateSettings(settings));
+  }
+
+  private updateSettings(settings: Settings): void {
+    this.setMetrics(settings.metrics);
+    this.setTheme(settings.theme);
   }
 
   private setTheme(theme: string) {
