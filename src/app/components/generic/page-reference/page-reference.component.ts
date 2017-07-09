@@ -18,7 +18,7 @@ export class PageReferenceComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initializeAvailability();
-    this.settingsService.getSettingsObserver()
+    this.settingsService.settingsChange$
       .subscribe(settings => this.initializeAvailability());
   }
 
