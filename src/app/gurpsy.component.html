@@ -7,6 +7,7 @@
 
   <md-toolbar class="flex-container">
     <button md-icon-button
+            [disabled]="!readSheet"
             class="flex-item"
             (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
@@ -85,9 +86,14 @@
     <gurpsy-book-viewer></gurpsy-book-viewer>
   </div>
   <ng-template #elseBlock>
-    <md-card>
-      <gurpsy-sheet></gurpsy-sheet>
-    </md-card>
+    <div *ngIf="readSheet; else noSheet">
+      <md-card>
+        <gurpsy-sheet></gurpsy-sheet>
+      </md-card>
+    </div>
+    <ng-template #noSheet>
+      No Sheet has been loaded
+    </ng-template>
   </ng-template>
 </md-sidenav-container>
 

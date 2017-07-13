@@ -98,8 +98,7 @@ export class ModelService {
     this.changeUpdateModel(sheet);
 
     this.modelTransformerService.transform(sheet)
-      .then(outputSheet => this.changeReadModel(outputSheet))
-    // .catch(any => this.setFallbackOutputModel());
+      .then(outputSheet => this.changeReadModel(outputSheet));
 
     if (isNew) {
       this.storageService.storeSheet(sheet);
@@ -161,8 +160,8 @@ export class ModelService {
   }
 
   private initEmptyOutputSheet(): void {
-    const emptySheet: ReadSheet = new ReadSheet(new UpdateSheet());
-    this.changeReadModel(emptySheet);
+    // const emptySheet: ReadSheet = new ReadSheet(new UpdateSheet());
+    this.changeReadModel(undefined);
   }
 
   private changeUpdateModel(updateSheet: UpdateSheet): void {

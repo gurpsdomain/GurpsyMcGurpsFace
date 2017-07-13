@@ -11,13 +11,14 @@ import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {ReadSheet} from './models/sheet/read/read-sheet.model';
+import {ModelReadingComponent} from './components/model-reading.component';
 
 @Component({
   selector: 'gurpsy-root',
   templateUrl: './gurpsy.component.html',
   styleUrls: ['./gurpsy.component.scss']
 })
-export class GurpsyComponent implements OnInit {
+export class GurpsyComponent extends ModelReadingComponent implements OnInit {
 
   public static DIALOG_WIDTH = '400px';
   public static SNACKBAR_DURATION_TIME = 4000;
@@ -41,7 +42,7 @@ export class GurpsyComponent implements OnInit {
   constructor(public dialog: MdDialog,
               private settingsService: SettingsService,
               private loggingService: LoggingService,
-              private modelService: ModelService,
+              modelService: ModelService,
               private pageReferenceService: PageReferenceService,
               private snackBar: MdSnackBar,
               private translate: TranslateService,
@@ -49,10 +50,14 @@ export class GurpsyComponent implements OnInit {
               private sanitizer: DomSanitizer,
               private overlayContainer: OverlayContainer) {
 
+    super(modelService);
+
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
 
   public ngOnInit(): void {
+    super.ngOnInit();
+
     this.initLibrary();
     this.initSheetChangeListener();
     this.initEditMode();
@@ -173,11 +178,13 @@ export class GurpsyComponent implements OnInit {
   }
 
   private showNewSheetLoadedMessage(sheet: ReadSheet): void {
-    this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
-      this.snackBar.open(res, '', {
-        duration: GurpsyComponent.SNACKBAR_DURATION_TIME,
+    if (sheet) {
+      this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
+        this.snackBar.open(res, '', {
+          duration: GurpsyComponent.SNACKBAR_DURATION_TIME,
+        });
       });
-    });
+    }
   }
 
   private registerCustomIcons(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer): void {
