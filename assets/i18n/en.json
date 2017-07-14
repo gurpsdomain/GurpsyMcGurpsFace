@@ -50,6 +50,7 @@
     "THROW_DICE": "Throw dice"
   },
   "MESSAGE": {
+    "NO_SHEET_LOADED": "No sheet loaded. Please use the menu to create or load a sheet.",
     "SHEET_LOADED": "Loaded Character Sheet: {{value}}"
   },
   "SHEET": {
