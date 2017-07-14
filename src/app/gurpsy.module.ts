@@ -55,6 +55,7 @@ import {ModelReadingComponent} from './components/model-reading.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
 import { AvatarComponent } from './components/generic/avatar/avatar.component';
+import { NoSheetLoadedComponent } from './components/no-sheet-loaded/no-sheet-loaded.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -100,7 +101,8 @@ export function HttpLoaderFactory(http: Http) {
     PortraitUpdaterDialogComponent,
     ModelReadingComponent,
     ModelUpdatingComponent,
-    AvatarComponent],
+    AvatarComponent,
+    NoSheetLoadedComponent],
   imports: [
     ImageCropperModule,
     GurpsyAngularModule,
