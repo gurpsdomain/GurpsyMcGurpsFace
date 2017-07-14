@@ -6,6 +6,7 @@ import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {Settings} from '../../../models/settings/settings.model';
 import {Book} from '../../../models/settings/book.model';
 import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
+import {Sheets} from '../../../models/sheet/sheets.model';
 
 @Injectable()
 export class StorageService {
@@ -25,6 +26,16 @@ export class StorageService {
    */
   public getSettingsObserver(): Observable<Settings> {
     return this.settingsStorageDelegate.valueChange$;
+  }
+
+  /**
+   * Acquire the Observer on which you can register yourself to be notified when the value is changed
+   * in Local Storage.
+   *
+   * @type Observable<Sheets>
+   */
+  public getSheetObserver(): Observable<Sheets> {
+    return this.sheetStorageDelegate.valueChange$;
   }
 
   /**
@@ -143,7 +154,7 @@ export class StorageService {
    */
   public clearStorage(): void {
     this.settingsStorageDelegate.clear();
-    this.sheetStorageDelegate.kill();
+    this.sheetStorageDelegate.clear();
   }
 }
 

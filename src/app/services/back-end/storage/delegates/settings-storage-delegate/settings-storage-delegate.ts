@@ -18,7 +18,7 @@ export class SettingsStorageDelegate {
    * Register to this observable to be notified when the value is changed
    * in Local Storage.
    *
-   * @type {Observable<string>}
+   * @type {Observable<Settings>}
    */
   public valueChange$ = this.subjectChangeSource.asObservable();
 

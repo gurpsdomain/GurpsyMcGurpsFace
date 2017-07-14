@@ -152,15 +152,20 @@ export class ModelService {
   }
 
   private initSheet(): void {
-    this.changeReadModel(new ReadSheet(new UpdateSheet()));
+    this.loadSheetFromStorage();
+
+    this.storageService.getSheetObserver().subscribe(sheets => this.loadSheetFromStorage());
+  }
+
+  private loadSheetFromStorage(): void {
+    console.log('Loading sheet from local storage');
 
     this.storageService.getCurrentSheet()
       .then(sheet => this.loadStoredSheet(sheet))
-      .catch(any => this.initEmptyOutputSheet());
+      .catch(any => this.clearReadModel());
   }
 
-  private initEmptyOutputSheet(): void {
-    // const emptySheet: ReadSheet = new ReadSheet(new UpdateSheet());
+  private clearReadModel(): void {
     this.changeReadModel(undefined);
   }
 
@@ -171,13 +176,6 @@ export class ModelService {
   private changeReadModel(readSheet: ReadSheet): void {
     this.readModel = readSheet;
     this.notifyListeners();
-  }
-
-  private setFallbackOutputModel(): void {
-    this.loggingService.error('Loading fallback sheet.')
-    this.http.get(ModelService.FALLBACK_MODEL).toPromise()
-      .then(response => this.changeReadModel(response.json()))
-      .catch(error => this.loggingService.error('Unable to fetch fallback readSheet. ' + error))
   }
 
   private notifyListeners(): void {

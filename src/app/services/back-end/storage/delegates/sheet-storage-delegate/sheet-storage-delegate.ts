@@ -11,7 +11,18 @@ export class SheetStorageDelegate {
 
   private static STORAGE_KEY = '.sheets';
 
+  private subjectChangeSource = new Subject<Sheets>();
+
+  /**
+   * Register to this observable to be notified when the value is changed
+   * in Local Storage.
+   *
+   * @type {Observable<Sheets>}
+   */
+  public valueChange$ = this.subjectChangeSource.asObservable();
+
   constructor(private loggingService: LoggingService) {
+    window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   /**
@@ -100,8 +111,9 @@ export class SheetStorageDelegate {
    * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
    * entries should be removed.
    */
-  public kill(): void {
+  public clear(): void {
     localStorage.removeItem(this.getStorageKey())
+    this.change(undefined);
   }
 
   private persist(sheets: Sheets): void {
@@ -134,6 +146,11 @@ export class SheetStorageDelegate {
   private getSheets(): Sheets {
     const json: string = localStorage.getItem(this.getStorageKey());
 
+    return this.deserialize(json);
+  }
+
+
+  private deserialize(json): Sheets {
     let sheets: Sheets = new Sheets();
 
     if (json) {
@@ -157,5 +174,16 @@ export class SheetStorageDelegate {
 
   private getStorageKey(): string {
     return StorageService.STORAGE_KEY + SheetStorageDelegate.STORAGE_KEY;
+  }
+
+  private handleStorageChange(event: StorageEvent): void {
+    if (event.key === this.getStorageKey()) {
+      const sheets = this.deserialize(event.newValue);
+      this.change(sheets);
+    }
+  }
+
+  private change(sheet: Sheets) {
+    this.subjectChangeSource.next(sheet);
   }
 }
