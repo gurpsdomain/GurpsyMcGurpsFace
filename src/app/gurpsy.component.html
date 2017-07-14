@@ -92,7 +92,11 @@
       </md-card>
     </div>
     <ng-template #noSheet>
-      <gurpsy-no-sheet-loaded></gurpsy-no-sheet-loaded>
+      <div class="noSheet flex-container"
+           fxLayout="column"
+           fxLayoutAlign="center">
+        <gurpsy-no-sheet-loaded class="flex-item"></gurpsy-no-sheet-loaded>
+      </div>
     </ng-template>
   </ng-template>
 </md-sidenav-container>

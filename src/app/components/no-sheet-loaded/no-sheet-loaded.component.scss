@@ -1,5 +1,8 @@
 md-card {
-  width: 400px;
-  top: 100px;
+  width: 300px;
+  
+  md-card-content {
+    text-align: center;
+  }
 }
 
