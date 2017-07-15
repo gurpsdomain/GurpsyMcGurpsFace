@@ -211,7 +211,7 @@ $gurpsy-night-theme-foreground: (
   disabled-button:    rgba(white, 0.3),
   disabled-text:      rgba(white, 0.3),
   hint-text:          map_get($gurpsy-dark-blue, 400),
-  secondary-text:     rgba(white, 0.4),
+  secondary-text:     map_get($gurpsy-yellow, 400),
   icon:               white,
   icons:              white,
   text:               white,
