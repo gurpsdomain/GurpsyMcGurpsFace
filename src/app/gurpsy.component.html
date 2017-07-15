@@ -20,6 +20,7 @@
 
     <button md-icon-button
             class="flex-item"
+            [disabled]="!readSheet"
             fxShow="true"
             fxShow.xs="false"
             *ngIf="!editMode"
@@ -28,6 +29,7 @@
     </button>
     <button md-icon-button
             class="flex-item editable"
+            [disabled]="!readSheet"
             fxShow="true"
             fxShow.xs="false"
             *ngIf="editMode"
