@@ -69,6 +69,42 @@ $gurpsy-light-blue: (
   )
 );
 
+
+$gurpsy-yellow: (
+  0: #FFFFFF,
+  50: #FBF7E9,
+  100: #F6EAC8,
+  200: #F0DDA3,
+  300: #E9CF7E,
+  400: #E5C462,
+  500: #E0BA46,
+  600: #DCB33F,
+  700: #D8AB37,
+  800: #D3A32F,
+  900: #CB9420,
+  A100: #FAFFFF,
+  A200: #FFEFD0,
+  A400: #FFDD9D,
+  A700: #FFD584,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: $black-87-opacity,
+    600: $black-87-opacity,
+    700: $black-87-opacity,
+    800: $black-87-opacity,
+    900: $black-87-opacity,
+    A100: $black-87-opacity,
+    A200: $black-87-opacity,
+    A400: $black-87-opacity,
+    A700: $black-87-opacity,
+  )
+);
+
+
 $gurpsy-green: (
   0: #FFFFFF,
   50: #F3FAE9,
