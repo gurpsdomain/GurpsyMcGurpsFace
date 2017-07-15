@@ -54,8 +54,10 @@ import {PortraitUpdaterDialogComponent} from './components/dialog/model-updaters
 import {ModelReadingComponent} from './components/model-reading.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
-import { AvatarComponent } from './components/generic/avatar/avatar.component';
-import { NoSheetLoadedComponent } from './components/no-sheet-loaded/no-sheet-loaded.component';
+import {AvatarComponent} from './components/generic/avatar/avatar.component';
+import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-loaded.component';
+import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
+import {FormsModule} from '@angular/forms';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -102,7 +104,8 @@ export function HttpLoaderFactory(http: Http) {
     ModelReadingComponent,
     ModelUpdatingComponent,
     AvatarComponent,
-    NoSheetLoadedComponent],
+    NoSheetLoadedComponent,
+    NewSheetComponent],
   imports: [
     ImageCropperModule,
     GurpsyAngularModule,
@@ -129,6 +132,7 @@ export function HttpLoaderFactory(http: Http) {
   entryComponents: [
     AboutDialogComponent,
     DiceDialogComponent,
+    NewSheetComponent,
     OpenSheetDialogComponent,
     SettingsDialogComponent,
     PortraitUpdaterDialogComponent

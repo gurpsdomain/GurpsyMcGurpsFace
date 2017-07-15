@@ -44,11 +44,12 @@ export class ModelService {
   }
 
   /**
-   * Create a new and empty sheet.
+   * Set a new UpdateModel.
+   *
+   * @param {UpdateSheet} The new UpdateSheet to set
    */
-  public createUpdateModel(): void {
-    const newUpdateModel: UpdateSheet = new UpdateSheet();
-    this.loadSheet(newUpdateModel, true);
+  public setNewModel(updateModel: UpdateSheet): void {
+    this.loadSheet(updateModel, true);
 
   }
 

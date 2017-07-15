@@ -12,6 +12,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {ReadSheet} from './models/sheet/read/read-sheet.model';
 import {ModelReadingComponent} from './components/model-reading.component';
+import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
 
 @Component({
   selector: 'gurpsy-root',
@@ -34,15 +35,15 @@ export class GurpsyComponent extends ModelReadingComponent implements OnInit {
   private diceDialogRef: MdDialogRef<DiceDialogComponent>;
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
-
+  private newSheetDialogRef: MdDialogRef<NewSheetComponent>;
   public editMode: boolean;
   public showLibrary: boolean;
   public theme: string;
 
-  constructor(public dialog: MdDialog,
+  constructor(modelService: ModelService,
+              public dialog: MdDialog,
               private settingsService: SettingsService,
               private loggingService: LoggingService,
-              modelService: ModelService,
               private pageReferenceService: PageReferenceService,
               private snackBar: MdSnackBar,
               private translate: TranslateService,
@@ -68,7 +69,18 @@ export class GurpsyComponent extends ModelReadingComponent implements OnInit {
    * Create a new updateModel.
    */
   public onNewUpdateModel(): void {
-    this.modelService.createUpdateModel();
+    this.newSheetDialogRef = this.dialog.open(NewSheetComponent, {
+      width: GurpsyComponent.DIALOG_WIDTH,
+      disableClose: false
+    });
+
+    this.newSheetDialogRef.afterClosed().subscribe(sheet => {
+        if (sheet) {
+          this.modelService.setNewModel(sheet);
+        }
+        this.newSheetDialogRef = null
+      }
+    );
   }
 
   /**

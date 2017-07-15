@@ -42,16 +42,20 @@
   },
   "MENU": {
     "ABOUT": "About",
-    "EDIT" : "Edit sheet",
-    "LOCK" : "Lock sheet",
-    "NEW" : "New sheet",
+    "EDIT": "Edit sheet",
+    "LOCK": "Lock sheet",
+    "NEW": "New sheet",
     "OPEN": "Open sheet",
     "SETTINGS": "Settings",
     "THROW_DICE": "Throw dice"
   },
   "MESSAGE": {
     "NO_SHEET_LOADED": "No sheet loaded. Please use the menu to create or load a sheet.",
-    "SHEET_LOADED": "Loaded Character Sheet: {{value}}"
+    "SHEET_LOADED": "Loaded Character Sheet: {{value}}",
+    "ERROR": {
+      "REQUIRED_NAME": "Please provide a name for this character",
+      "REQUIRED_PLAYER": "Please provide a player for this character"
+    }
   },
   "SHEET": {
     "ADVANTAGES": {

@@ -1,0 +1,19 @@
+<md-dialog-content class="flex-container"
+                   fxLayout="column"
+                   fxLayoutAlign="space-between stretch">
+  <md-input-container class="flex-item">
+    <input mdInput placeholder="Character name" [(ngModel)]="name" required>
+    <md-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</md-error>
+  </md-input-container>
+  <md-input-container class="flex-item">
+    <input mdInput placeholder="Player name" [(ngModel)]="player" required>
+    <md-error>{{'MESSAGE.ERROR.REQUIRED_PLAYER'| translate}}</md-error>
+  </md-input-container>
+</md-dialog-content>
+
+<md-dialog-actions align="end">
+  <button md-button color="primary" [disabled]="!player || player.trim() === '' || !name || name.trim() === ''" (click)="onOk()">
+    {{'DIALOG.OK'| translate}}
+  </button>
+  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
+</md-dialog-actions>
