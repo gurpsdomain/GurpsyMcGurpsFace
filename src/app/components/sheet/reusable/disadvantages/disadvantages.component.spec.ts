@@ -57,7 +57,7 @@ describe('DisadvantagesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a reusable Disadvantage Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -28,7 +28,7 @@ describe('WeightPipe', () => {
     pipe = p;
   }));
 
-  it('should create an instance', () => {
+  it('should be created', () => {
     expect(pipe).toBeTruthy();
   });
 

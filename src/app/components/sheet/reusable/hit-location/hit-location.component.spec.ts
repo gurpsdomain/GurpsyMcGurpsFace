@@ -50,7 +50,7 @@ describe('HitLocationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a reusable Hit Location Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

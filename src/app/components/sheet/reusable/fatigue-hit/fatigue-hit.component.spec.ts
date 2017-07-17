@@ -49,7 +49,7 @@ describe('FatigueHitComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create  a reusable Fatigue/Hit Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

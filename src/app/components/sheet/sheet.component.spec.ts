@@ -106,7 +106,7 @@ describe('SheetComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create a structural Sheet Component', () => expect(comp).toBeDefined());
+  it('should be created', () => expect(comp).toBeDefined());
 });
 
 

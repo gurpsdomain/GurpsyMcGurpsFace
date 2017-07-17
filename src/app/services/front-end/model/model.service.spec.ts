@@ -38,7 +38,7 @@ describe('ModelService', () => {
     });
   });
 
-  it('should create a ModelService', inject([ModelService], (service: ModelService) => {
+  it('should be created', inject([ModelService], (service: ModelService) => {
     expect(service).toBeTruthy();
   }));
 });

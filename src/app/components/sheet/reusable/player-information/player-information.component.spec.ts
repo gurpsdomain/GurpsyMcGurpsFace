@@ -17,8 +17,7 @@ import {ModelTransformerService} from '../../../../services/back-end/model-trans
 
 ////////  SPECS  /////////////
 describe('PlayerInformationComponent', function () {
-  let de: DebugElement;
-  let comp: PlayerInformationComponent;
+  let component: PlayerInformationComponent;
   let fixture: ComponentFixture<PlayerInformationComponent>;
 
   beforeEach(async(() => {
@@ -52,9 +51,10 @@ describe('PlayerInformationComponent', function () {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PlayerInformationComponent);
-    comp = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('h1'));
+    component = fixture.componentInstance;
   });
 
-  it('should create a reusable Player Information Component', () => expect(comp).toBeDefined());
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -54,7 +54,7 @@ describe('SpellsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a reusabale Spells Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

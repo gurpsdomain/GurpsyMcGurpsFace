@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {TestBed, async} from '@angular/core/testing';
+import {TestBed, ComponentFixture} from '@angular/core/testing';
 import {TranslateService, TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
@@ -47,6 +47,9 @@ import {WeightPipe} from './pipes/weight.pipe';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('GurpsyComponent', () => {
+  let component: EquipmentComponent;
+  let fixture: ComponentFixture<GurpsyComponent>;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -111,9 +114,13 @@ describe('GurpsyComponent', () => {
     });
   });
 
-  it('should create GurpsyMcGurpsFace', async(() => {
-    const fixture = TestBed.createComponent(GurpsyComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  beforeEach(() => {
+    fixture = TestBed.createComponent(GurpsyComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 });

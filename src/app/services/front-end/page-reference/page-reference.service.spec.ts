@@ -24,7 +24,7 @@ describe('PageReferenceService', () => {
     });
   });
 
-  it('should create a PageReferenceService', inject([PageReferenceService], (service: PageReferenceService) => {
+  it('should be created', inject([PageReferenceService], (service: PageReferenceService) => {
     expect(service).toBeTruthy();
   }));
 });

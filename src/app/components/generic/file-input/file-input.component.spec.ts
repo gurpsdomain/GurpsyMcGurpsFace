@@ -24,7 +24,7 @@ describe('FileInputComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a reusable generic File Input Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

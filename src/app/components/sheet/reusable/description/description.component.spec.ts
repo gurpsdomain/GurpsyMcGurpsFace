@@ -1,8 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {DescriptionComponent} from './description.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
@@ -17,8 +15,7 @@ import {ModelTransformerService} from '../../../../services/back-end/model-trans
 import {WeightPipe} from '../../../../pipes/weight.pipe';
 
 describe('DescriptionComponent', function () {
-  let de: DebugElement;
-  let comp: DescriptionComponent;
+  let component: DescriptionComponent;
   let fixture: ComponentFixture<DescriptionComponent>;
 
   beforeEach(async(() => {
@@ -56,9 +53,10 @@ describe('DescriptionComponent', function () {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DescriptionComponent);
-    comp = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('h1'));
+    component = fixture.componentInstance;
   });
 
-  it('should create a reusable Description Component', () => expect(comp).toBeDefined());
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 });

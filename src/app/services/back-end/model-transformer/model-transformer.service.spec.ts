@@ -22,7 +22,7 @@ describe('ModelTransformerService', () => {
     });
   });
 
-  it('should be created a ModelTransformerService', inject([ModelTransformerService], (service: ModelTransformerService) => {
+  it('should be created', inject([ModelTransformerService], (service: ModelTransformerService) => {
     expect(service).toBeTruthy();
   }));
 });

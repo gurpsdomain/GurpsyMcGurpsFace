@@ -38,7 +38,7 @@ describe('PageReferenceComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a reusable generic Page Reference Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

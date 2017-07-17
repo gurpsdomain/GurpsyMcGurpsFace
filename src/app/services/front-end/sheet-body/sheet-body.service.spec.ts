@@ -25,7 +25,7 @@ describe('SheetBodyService', () => {
     });
   });
 
-  it('should create a SheetBodyService', inject([SheetBodyService], (service: SheetBodyService) => {
+  it('should be created', inject([SheetBodyService], (service: SheetBodyService) => {
     expect(service).toBeTruthy();
   }));
 });

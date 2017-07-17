@@ -16,8 +16,7 @@ import {LoggingService} from '../../../../services/back-end/logging/logging.serv
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 
 describe('IdentityComponent', function () {
-  let de: DebugElement;
-  let comp: IdentityComponent;
+  let component: IdentityComponent;
   let fixture: ComponentFixture<IdentityComponent>;
 
   beforeEach(async(() => {
@@ -51,9 +50,10 @@ describe('IdentityComponent', function () {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(IdentityComponent);
-    comp = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('h1'));
+    component = fixture.componentInstance;
   });
 
-  it('should create a reusable Identity Component', () => expect(comp).toBeDefined());
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 });

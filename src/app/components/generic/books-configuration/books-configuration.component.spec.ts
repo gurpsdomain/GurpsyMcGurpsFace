@@ -41,7 +41,7 @@ describe('BooksConfigurationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a generic Books Configuration Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

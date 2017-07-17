@@ -29,7 +29,7 @@ describe('BookConfigurationComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create a generic BookConfiguration Component', () => {
+  // it('should be created', () => {
   //   expect(component).toBeTruthy();
   // });
 });

@@ -58,7 +58,7 @@ describe('AdvantagesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a structural Advantages/Disadvantages Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

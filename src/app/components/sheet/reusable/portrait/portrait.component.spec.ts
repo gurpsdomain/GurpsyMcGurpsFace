@@ -1,8 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {PortraitComponent} from './portrait.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
@@ -14,18 +12,11 @@ import {BaseRequestOptions, Http} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
-import {
-  MdDialog, Overlay, ScrollStrategyOptions, ScrollDispatcher, Platform, ViewportRuler,
-  OverlayContainer
-} from '@angular/material';
-import {PortraitUpdaterDialogComponent} from '../../../dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
-import {OverlayPositionBuilder} from '@angular/material/typings/core/overlay/position/overlay-position-builder';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
 ////////  SPECS  /////////////
 describe('PortraitComponent', function () {
-  let de: DebugElement;
-  let comp: PortraitComponent;
+  let component: PortraitComponent;
   let fixture: ComponentFixture<PortraitComponent>;
 
   beforeEach(async(() => {
@@ -61,9 +52,10 @@ describe('PortraitComponent', function () {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PortraitComponent);
-    comp = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('h1'));
+    component = fixture.componentInstance;
   });
 
-  it('should create a reusable Portrait Component', () => expect(comp).toBeDefined());
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 });

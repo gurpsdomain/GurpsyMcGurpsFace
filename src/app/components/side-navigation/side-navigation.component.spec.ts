@@ -62,7 +62,7 @@ describe('SideNavigationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create a SideNavigationComponent', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

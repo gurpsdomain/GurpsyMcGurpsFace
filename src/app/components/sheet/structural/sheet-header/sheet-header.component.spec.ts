@@ -70,7 +70,7 @@ describe('SheetHeaderComponent', function () {
     de = fixture.debugElement.query(By.css('h1'));
   });
 
-  it('should create structural Header Component', () => expect(comp).toBeDefined());
+  it('should be created', () => expect(comp).toBeDefined());
 });
 
 

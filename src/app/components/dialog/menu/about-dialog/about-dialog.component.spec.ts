@@ -3,15 +3,16 @@ import {async, TestBed} from '@angular/core/testing';
 import {AboutDialogComponent} from './about-dialog.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
-import {MdDialogRef, MdDialog} from '@angular/material';
+import {MdDialog} from '@angular/material';
+import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {NgModule} from '@angular/core';
 
 @NgModule({
-  declarations: [AboutDialogComponent],
-  entryComponents: [AboutDialogComponent],
-  exports: [AboutDialogComponent]
+  entryComponents: [
+    AboutDialogComponent
+  ],
 })
-class TestAboutDialogModule {
+export class TestModule {
 }
 
 describe('AboutDialogComponent', () => {
@@ -24,12 +25,10 @@ describe('AboutDialogComponent', () => {
         AboutDialogComponent
       ],
       imports: [
-        TestAboutDialogModule,
+        TestModule,
         TranslateModule.forRoot(),
+        GurpsyAngularModule,
         GurpsyMaterialModule
-      ],
-      providers: [
-        MdDialogRef
       ]
     })
       .compileComponents();
@@ -38,11 +37,10 @@ describe('AboutDialogComponent', () => {
   beforeEach(() => {
     dialog = TestBed.get(MdDialog);
     const dialogRef = dialog.open(AboutDialogComponent);
-
     component = dialogRef.componentInstance;
   });
 
-  // it('should create an About Dialog Component', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 });

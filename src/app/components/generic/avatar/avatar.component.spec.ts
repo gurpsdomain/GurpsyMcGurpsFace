@@ -44,7 +44,7 @@ describe('AvatarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created a generic Avatar component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,13 +1,23 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, TestBed} from '@angular/core/testing';
 import {PortraitUpdaterDialogComponent} from './portrait-updater-dialog.component';
 import {ImageCropperComponent} from 'ng2-img-cropper';
 import {TranslateModule} from '@ngx-translate/core';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
-import {MdDialogRef} from '@angular/material';
+import {MdDialog} from '@angular/material';
+import {GurpsyAngularModule} from '../../../../modules/angular.module';
+import {NgModule} from '@angular/core';
+
+@NgModule({
+  entryComponents: [
+    PortraitUpdaterDialogComponent
+  ],
+})
+export class TestModule {
+}
 
 describe('PortraitUpdaterDialogComponent', () => {
   let component: PortraitUpdaterDialogComponent;
-  let fixture: ComponentFixture<PortraitUpdaterDialogComponent>;
+  let dialog: MdDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -15,7 +25,9 @@ describe('PortraitUpdaterDialogComponent', () => {
         ImageCropperComponent,
         PortraitUpdaterDialogComponent],
       imports: [
+        GurpsyAngularModule,
         GurpsyMaterialModule,
+        TestModule,
         TranslateModule.forRoot()
       ]
     })
@@ -23,12 +35,12 @@ describe('PortraitUpdaterDialogComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PortraitUpdaterDialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    dialog = TestBed.get(MdDialog);
+    const dialogRef = dialog.open(PortraitUpdaterDialogComponent);
+    component = dialogRef.componentInstance;
   });
 
-  // it('should be created', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
 });

@@ -41,7 +41,7 @@ describe('BookViewerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create an Reusable BookViewer Component', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });
