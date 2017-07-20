@@ -1,4 +1,4 @@
-# GurpsyMcGurpsFace [![Build Status](https://travis-ci.org/gurpsdomain/GurpsyMcGurpsFace.svg?branch=master)](https://travis-ci.org/gurpsdomain/GurpsyMcGurpsFace)
+# GurpsyMcGurpsFace [![Build Status](https://travis-ci.org/gurpsdomain/GurpsyMcGurpsFace.svg?branch=master)](https://travis-ci.org/gurpsdomain/GurpsyMcGurpsFace) [![Coverage Status](https://coveralls.io/repos/github/gurpsdomain/GurpsyMcGurpsFace/badge.svg?branch=master)](https://coveralls.io/github/gurpsdomain/GurpsyMcGurpsFace?branch=master)
 
 This application is for study purposes only. It is not affiliated to Steve Jackson Games. At this moment it does not aim to become a fully functional GURPS Character sheet editor/viewer. But then again, it is possible that it will be so one day. If that day comes we will contact Steve Jackson Games to figure out if this is legal, or how to make it so.
 
