@@ -13,3 +13,9 @@ export class Identity {
     this.religion = updateSheet.religion;
   }
 }
+
+export class IdentityDTO {
+  name: string;
+  title: string;
+  religion: string;
+}

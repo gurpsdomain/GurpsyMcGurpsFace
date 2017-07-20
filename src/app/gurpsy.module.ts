@@ -57,7 +57,7 @@ import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './components/generic/avatar/avatar.component';
 import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-loaded.component';
 import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
-import {FormsModule} from '@angular/forms';
+import {IdentityUpdaterComponent} from './components/dialog/model-updaters/identity-updater/identity-updater.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -83,6 +83,7 @@ export function HttpLoaderFactory(http: Http) {
     GurpsyComponent,
     HitLocationComponent,
     IdentityComponent,
+    IdentityUpdaterComponent,
     LiftingMovingComponent,
     LiftingMovingComponent,
     NotesComponent,
@@ -132,6 +133,7 @@ export function HttpLoaderFactory(http: Http) {
   entryComponents: [
     AboutDialogComponent,
     DiceDialogComponent,
+    IdentityUpdaterComponent,
     NewSheetComponent,
     OpenSheetDialogComponent,
     SettingsDialogComponent,

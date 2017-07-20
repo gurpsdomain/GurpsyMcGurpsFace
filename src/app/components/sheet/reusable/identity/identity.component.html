@@ -1,8 +1,9 @@
-<div class="sheetComponent identity">
+<div class="sheetComponent identity"
+     [ngClass]="{'editable': editMode}">
   <div class="sheetComponentHeader">
     {{ 'SHEET.IDENTITY.IDENTITY' | translate }}
   </div>
-  <div class="sheetComponentBody">
+  <div class="sheetComponentBody" (click)="onRequestUpdate()">
     <table>
       <tr>
         <td>{{ 'SHEET.IDENTITY.NAME' | translate }}</td>
