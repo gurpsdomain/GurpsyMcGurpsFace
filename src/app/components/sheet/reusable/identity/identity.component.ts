@@ -13,17 +13,20 @@ import {MdDialogRef} from '@angular/material';
 })
 export class IdentityComponent extends ModelUpdatingComponent {
 
-  private portraitDialogRef: MdDialogRef<IdentityUpdaterComponent>;
+  private identityDialogRef: MdDialogRef<IdentityUpdaterComponent>;
 
-  public openDialog(file: File): void {
-    this.portraitDialogRef = this.dialog.open(IdentityUpdaterComponent, {
+  public openDialog(): void {
+    this.identityDialogRef = this.dialog.open(IdentityUpdaterComponent, {
       disableClose: false,
       width: GurpsyComponent.DIALOG_WIDTH
     });
 
-    this.portraitDialogRef.afterClosed().subscribe(result => {
-        console.log(result);
-        this.portraitDialogRef = null
+    this.identityDialogRef.componentInstance.model = this.updateSheet;
+
+    this.identityDialogRef.afterClosed().subscribe(result => {
+        this.updateSheet = result;
+        this.updateModel();
+        this.identityDialogRef = null
       }
     );
   }

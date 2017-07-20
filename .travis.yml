@@ -23,10 +23,9 @@ script:
   - npm run test-coverage
   - ng build --target production --base-href "/GurpsyMcGurpsFace/"
 
-after_success: |
+after_success:
   npm run coveralls
-  [ $TRAVIS_BRANCH = master ] &&
-  bash deploy.sh
+  [ $TRAVIS_BRANCH = master ] && bash deploy.sh
 
 env:
   global:

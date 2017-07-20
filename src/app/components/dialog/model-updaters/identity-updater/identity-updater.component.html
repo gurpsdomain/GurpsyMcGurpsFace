@@ -1,20 +1,21 @@
-<md-dialog-content class="flex-container"
+<md-dialog-content *ngIf="model"
+                   class="flex-container"
                    fxLayout="column"
                    fxLayoutAlign="space-between stretch">
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Character name" [(ngModel)]="name" required>
+    <input mdInput placeholder="Character name" [(ngModel)]="model.name" required>
     <md-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</md-error>
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Title" [(ngModel)]="title">
+    <input mdInput placeholder="Title" [(ngModel)]="model.title">
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Religion" [(ngModel)]="religion">
+    <input mdInput placeholder="Religion" [(ngModel)]="model.religion">
   </md-input-container>
 </md-dialog-content>
 
-<md-dialog-actions align="end">
-  <button md-button color="primary" [disabled]="!name || name.trim() === ''" (click)="onOk()">
+<md-dialog-actions *ngIf="model" align="end">
+  <button md-button color="primary" [disabled]="!model.name || model.name.trim() === ''" (click)="onOk()">
     {{'DIALOG.OK'| translate}}
   </button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
