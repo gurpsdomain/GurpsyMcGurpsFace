@@ -159,8 +159,6 @@ export class ModelService {
   }
 
   private loadSheetFromStorage(): void {
-    console.log('Loading sheet from local storage');
-
     this.storageService.getCurrentSheet()
       .then(sheet => this.loadStoredSheet(sheet))
       .catch(any => this.clearReadModel());

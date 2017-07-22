@@ -4,7 +4,7 @@ import {UpdateSheet} from '../../models/sheet/update/update-sheet.model';
 @Injectable()
 export class ModelFactoryService {
 
-  public getInstance(): UpdateSheet {
+  public createModel(): UpdateSheet {
     return new UpdateSheet();
   }
 }

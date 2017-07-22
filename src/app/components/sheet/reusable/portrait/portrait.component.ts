@@ -36,20 +36,17 @@ export class PortraitComponent extends ModelUpdatingComponent {
       width: GurpsyComponent.DIALOG_WIDTH
     });
 
+    this.portraitDialogRef.componentInstance.model = this.updateSheet;
     this.portraitDialogRef.componentInstance.setFile(file);
 
-    this.portraitDialogRef.afterClosed().subscribe(result => {
-        this.updatePortrait(result);
+    this.portraitDialogRef.afterClosed().subscribe(model => {
+        if (model) {
+          this.updateSheet = model;
+          this.updateModel();
+        }
         this.portraitDialogRef = null
       }
     );
-  }
-
-  private updatePortrait(portrait: string): void {
-    if (portrait.indexOf('data:image/png;base64,') === 0) {
-      this.updateSheet.portrait = portrait;
-      this.updateModel();
-    }
   }
 
   private isValid(file: File): boolean {

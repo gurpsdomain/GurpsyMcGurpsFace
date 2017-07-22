@@ -23,9 +23,9 @@ export class IdentityComponent extends ModelUpdatingComponent {
 
     this.identityDialogRef.componentInstance.model = this.updateSheet;
 
-    this.identityDialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          this.updateSheet = result;
+    this.identityDialogRef.afterClosed().subscribe(model => {
+        if (model) {
+          this.updateSheet = model;
           this.updateModel();
         }
         this.identityDialogRef = null

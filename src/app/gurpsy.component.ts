@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MdDialog, MdDialogRef, MdSnackBar, MdIconRegistry, OverlayContainer} from '@angular/material';
+import {MdDialog, MdDialogRef, MdIconRegistry, MdSnackBar, OverlayContainer} from '@angular/material';
 import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {ModelService} from './services/front-end/model/model.service';
@@ -11,15 +11,17 @@ import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {ReadSheet} from './models/sheet/read/read-sheet.model';
-import {ModelReadingComponent} from './components/model-reading.component';
 import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
+import {ModelUpdatingComponent} from './components/model-updating.component';
+import {ModelFactoryService} from './factories/model/model-factory.service';
 
 @Component({
   selector: 'gurpsy-root',
   templateUrl: './gurpsy.component.html',
-  styleUrls: ['./gurpsy.component.scss']
+  styleUrls: ['./gurpsy.component.scss'],
+  providers: [ModelFactoryService]
 })
-export class GurpsyComponent extends ModelReadingComponent implements OnInit {
+export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
 
   public static DIALOG_WIDTH = '400px';
   public static SNACKBAR_DURATION_TIME = 4000;
@@ -41,18 +43,19 @@ export class GurpsyComponent extends ModelReadingComponent implements OnInit {
   public showLibrary: boolean;
   public theme: string;
 
-  constructor(modelService: ModelService,
+  constructor(protected modelService: ModelService,
               public dialog: MdDialog,
               private settingsService: SettingsService,
-              private loggingService: LoggingService,
+              public loggingService: LoggingService,
               private pageReferenceService: PageReferenceService,
               private snackBar: MdSnackBar,
               private translate: TranslateService,
               private iconRegistry: MdIconRegistry,
               private sanitizer: DomSanitizer,
-              private overlayContainer: OverlayContainer) {
+              private overlayContainer: OverlayContainer,
+              private modelFactoryService: ModelFactoryService) {
 
-    super(modelService);
+    super(dialog, modelService, loggingService);
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
@@ -75,9 +78,12 @@ export class GurpsyComponent extends ModelReadingComponent implements OnInit {
       disableClose: false
     });
 
-    this.newSheetDialogRef.afterClosed().subscribe(sheet => {
-        if (sheet) {
-          this.modelService.setNewModel(sheet);
+    this.newSheetDialogRef.componentInstance.model = this.modelFactoryService.createModel();
+
+    this.newSheetDialogRef.afterClosed().subscribe(model => {
+        if (model) {
+          this.updateSheet = model;
+          this.updateModel();
         }
         this.newSheetDialogRef = null
       }

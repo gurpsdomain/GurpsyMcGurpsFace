@@ -2,17 +2,19 @@
                    fxLayout="column"
                    fxLayoutAlign="space-between stretch">
   <md-input-container class="flex-item">
-    <input mdInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="name" required>
+    <input mdInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="model.name" required>
     <md-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</md-error>
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.PLAYER'| translate}}" [(ngModel)]="player" required>
+    <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.PLAYER'| translate}}" [(ngModel)]="model.player" required>
     <md-error>{{'MESSAGE.ERROR.REQUIRED_PLAYER'| translate}}</md-error>
   </md-input-container>
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button color="primary" [disabled]="!player || player.trim() === '' || !name || name.trim() === ''" (click)="onOk()">
+  <button md-button color="primary"
+          [disabled]="!model.player || model.player.trim() === '' || !model.name || model.name.trim() === ''"
+          (click)="onOk()">
     {{'DIALOG.OK'| translate}}
   </button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>

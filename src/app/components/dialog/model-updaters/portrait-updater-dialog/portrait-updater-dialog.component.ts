@@ -1,12 +1,13 @@
 import {Component, ViewChild, OnInit} from '@angular/core';
 import {CropperSettings, ImageCropperComponent} from 'ng2-img-cropper';
 import {MdDialogRef} from '@angular/material';
+import {ModelUpdaterDialogComponent} from '../model-updater-dialog.component';
 
 @Component({
   templateUrl: 'portrait-updater-dialog.component.html',
   styleUrls: ['portrait-updater-dialog.component.scss']
 })
-export class PortraitUpdaterDialogComponent implements OnInit {
+export class PortraitUpdaterDialogComponent extends ModelUpdaterDialogComponent implements OnInit {
 
   private static CANVAS_WIDTH = 352;
   private static CANVAS_HEIGHT = 300;
@@ -20,15 +21,13 @@ export class PortraitUpdaterDialogComponent implements OnInit {
 
   @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
 
-  constructor(private dialogRef: MdDialogRef<PortraitUpdaterDialogComponent>) {
-  }
-
   ngOnInit(): void {
     this.initImageCropper();
   }
 
   public onOk(): void {
-    this.dialogRef.close(this.data.image);
+    this.model.portrait = this.data.image;
+    super.onOk();
   }
 
   private initImageCropper(): void {

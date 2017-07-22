@@ -47,7 +47,7 @@ import {WeightPipe} from './pipes/weight.pipe';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 
 describe('GurpsyComponent', () => {
-  let component: EquipmentComponent;
+  let component: GurpsyComponent;
   let fixture: ComponentFixture<GurpsyComponent>;
 
   beforeEach(() => {
