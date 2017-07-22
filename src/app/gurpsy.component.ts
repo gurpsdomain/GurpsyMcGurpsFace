@@ -36,6 +36,7 @@ export class GurpsyComponent extends ModelReadingComponent implements OnInit {
   private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
   private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
   private newSheetDialogRef: MdDialogRef<NewSheetComponent>;
+
   public editMode: boolean;
   public showLibrary: boolean;
   public theme: string;

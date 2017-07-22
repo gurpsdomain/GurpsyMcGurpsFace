@@ -58,6 +58,7 @@ import {AvatarComponent} from './components/generic/avatar/avatar.component';
 import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-loaded.component';
 import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
 import {IdentityUpdaterComponent} from './components/dialog/model-updaters/identity-updater/identity-updater.component';
+import {ModelUpdaterDialogComponent} from './components/dialog/model-updaters/model-updater-dialog.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -104,6 +105,7 @@ export function HttpLoaderFactory(http: Http) {
     PortraitUpdaterDialogComponent,
     ModelReadingComponent,
     ModelUpdatingComponent,
+    ModelUpdaterDialogComponent,
     AvatarComponent,
     NoSheetLoadedComponent,
     NewSheetComponent],
