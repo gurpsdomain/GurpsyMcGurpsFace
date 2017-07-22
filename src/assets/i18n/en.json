@@ -84,19 +84,19 @@
       "SW": "sw"
     },
     "DESCRIPTION": {
-      "AGE": "Age:",
-      "BIRTHDAY": "Birthday:",
+      "AGE": "Age",
+      "BIRTHDAY": "Birthday",
       "DESCRIPTION": "Description",
-      "EYES": "Eyes:",
-      "GENDER": "Gender:",
-      "HAIR": "Hair:",
-      "HAND": "Hand:",
-      "HEIGHT": "Height:",
-      "RACE": "Race:",
-      "SIZE": "Size:",
-      "SKIN": "Skin:",
-      "TL": "TL:",
-      "WEIGHT": "Weight:"
+      "EYES": "Eyes",
+      "GENDER": "Gender",
+      "HAIR": "Hair",
+      "HAND": "Hand",
+      "HEIGHT": "Height",
+      "RACE": "Race",
+      "SIZE": "Size",
+      "SKIN": "Skin",
+      "TL": "TL",
+      "WEIGHT": "Weight"
     },
     "DISADVANTAGES": "Disadvantages",
     "EQUIPMENT": "Equipment",
@@ -114,14 +114,14 @@
     },
     "LIFTING_MOVING": {
       "HEADER": "Lifting & Moving Things",
-      "BASIC_LIFT": "Basic Lift:",
-      "ONE_HANDED_LIFT": "One-Handed Lift:",
-      "TWO_HANDED_LIFT": "Two-Handed Lift:",
-      "LIFTING_MOVING": "Lifting & Moving Things:",
-      "SHOVE_KNOCK_OVER": "Shove & Knock Over:",
-      "RUNNING_SHOVE_KNOCK_OVER": "Running Shove & Knock Over:",
-      "CARRY_ON_BACK": "Carry on Back:",
-      "SHIFT_SLIGHTLY": "Shift Slightly:"
+      "BASIC_LIFT": "Basic Lift",
+      "ONE_HANDED_LIFT": "One-Handed Lift",
+      "TWO_HANDED_LIFT": "Two-Handed Lift",
+      "LIFTING_MOVING": "Lifting & Moving Things",
+      "SHOVE_KNOCK_OVER": "Shove & Knock Over",
+      "RUNNING_SHOVE_KNOCK_OVER": "Running Shove & Knock Over",
+      "CARRY_ON_BACK": "Carry on Back",
+      "SHIFT_SLIGHTLY": "Shift Slightly"
     },
     "FATIGUE-HIT": {
       "BASIC_FP": "Basic FP",
@@ -138,9 +138,9 @@
     },
     "IDENTITY": {
       "IDENTITY": "Identity",
-      "NAME": "Name:",
-      "TITLE": "Title:",
-      "RELIGION": "Religion:"
+      "NAME": "Name",
+      "TITLE": "Title",
+      "RELIGION": "Religion"
     },
     "HIT_LOCATION": {
       "HIT_LOCATION": "Hit location",
@@ -177,20 +177,20 @@
     "NOTES": "Notes",
     "PLAYER_INFORMATION": {
       "PLAYER_INFORMATION": "Player Information",
-      "PLAYER": "Player:",
-      "CAMPAIGN": "Campaign:",
-      "CREATED_ON": "Created on:"
+      "PLAYER": "Player",
+      "CAMPAIGN": "Campaign",
+      "CREATED_ON": "Created on"
     },
     "POINTS": {
       "POINTS": "Points",
-      "RACE": "Race:",
-      "ATTRIBUTES": "Attributes:",
-      "ADVANTAGES": "Advantages:",
-      "DISADVANTAGES": "Disadvantages:",
-      "QUIRKS": "Quirks:",
-      "SKILLS": "Skills:",
-      "SPELLS": "Spells:",
-      "EARNED": "Earned:"
+      "RACE": "Race",
+      "ATTRIBUTES": "Attributes",
+      "ADVANTAGES": "Advantages",
+      "DISADVANTAGES": "Disadvantages",
+      "QUIRKS": "Quirks",
+      "SKILLS": "Skills",
+      "SPELLS": "Spells",
+      "EARNED": "Earned"
     },
     "PORTRAIT": {
       "PORTRAIT": "Portrait"

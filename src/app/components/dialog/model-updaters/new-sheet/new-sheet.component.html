@@ -2,11 +2,11 @@
                    fxLayout="column"
                    fxLayoutAlign="space-between stretch">
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Character name" [(ngModel)]="name" required>
+    <input mdInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="name" required>
     <md-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</md-error>
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Player name" [(ngModel)]="player" required>
+    <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.PLAYER'| translate}}" [(ngModel)]="player" required>
     <md-error>{{'MESSAGE.ERROR.REQUIRED_PLAYER'| translate}}</md-error>
   </md-input-container>
 </md-dialog-content>

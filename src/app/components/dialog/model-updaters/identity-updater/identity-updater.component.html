@@ -3,14 +3,14 @@
                    fxLayout="column"
                    fxLayoutAlign="space-between stretch">
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Character name" [(ngModel)]="model.name" required>
+    <input mdInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="model.name" required>
     <md-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</md-error>
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Title" [(ngModel)]="model.title">
+    <input mdInput placeholder="{{'SHEET.IDENTITY.TITLE'| translate}}" [(ngModel)]="model.title">
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="Religion" [(ngModel)]="model.religion">
+    <input mdInput placeholder="{{'SHEET.IDENTITY.RELIGION'| translate}}" [(ngModel)]="model.religion">
   </md-input-container>
 </md-dialog-content>
 
