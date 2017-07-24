@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ReadSheet} from '../models/sheet/read/read-sheet.model';
+import {Sheet} from '../models/sheet/model/sheet.model';
 import {ModelService} from '../services/front-end/model/model.service';
 import {MdDialog} from '@angular/material';
 import {LoggingService} from '../services/back-end/logging/logging.service';
-import {UpdateSheet} from '../models/sheet/update/update-sheet.model';
+import {Template} from '../models/sheet/template/template.model';
 
 @Component({
   template: ''
@@ -11,14 +11,14 @@ import {UpdateSheet} from '../models/sheet/update/update-sheet.model';
 export class ModelUpdatingComponent implements OnInit {
 
   editMode: boolean;
-  readSheet: ReadSheet;
-  updateSheet: UpdateSheet;
+  model: Sheet;
+  template: Template;
 
   constructor(protected dialog: MdDialog,
               protected modelService: ModelService,
               protected loggingService: LoggingService) {
 
-    this.readSheet = new ReadSheet(new UpdateSheet());
+    this.model = new Sheet(new Template());
 
   }
 
@@ -63,19 +63,19 @@ export class ModelUpdatingComponent implements OnInit {
    * Update the model with the current updateModel.
    */
   protected updateModel(): void {
-    this.modelService.updateCurrentModel(this.updateSheet);
+    this.modelService.updateCurrentModel(this.template);
   }
 
   private fetchModels(): void {
-    this.modelService.getReadModel().then(readModel => this.setReadModel(readModel));
-    this.modelService.getUpdateModel().then(updateModel => this.setUpdateModel(updateModel));
+    this.modelService.getModel().then(sheet => this.setModel(sheet));
+    this.modelService.getTemplate().then(template => this.setTemplate(template));
   }
 
-  private setReadModel(readModel: ReadSheet): void {
-    this.readSheet = readModel;
+  private setModel(readModel: Sheet): void {
+    this.model = readModel;
   }
 
-  private setUpdateModel(updateModel: UpdateSheet): void {
-    this.updateSheet = updateModel;
+  private setTemplate(template: Template): void {
+    this.template = template;
   }
 }

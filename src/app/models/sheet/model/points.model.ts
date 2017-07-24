@@ -1,4 +1,4 @@
-import {UpdateSheet} from '../update/update-sheet.model';
+import {Template} from '../template/template.model';
 export class Points {
 
   total: number;
@@ -8,7 +8,7 @@ export class Points {
   spells: number;
   unspent: number;
 
-  constructor(updateSheet: UpdateSheet) {
+  constructor(updateSheet: Template) {
     this.total = undefined;
     this.advantages = undefined;
     this.disadvantages = undefined;

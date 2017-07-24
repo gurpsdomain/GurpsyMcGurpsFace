@@ -7,11 +7,9 @@ import {StorageService} from '../../../../services/back-end/storage/storage.serv
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {ConnectionBackend, Http, HttpModule, BaseRequestOptions} from '@angular/http';
-import {MockBackend} from '@angular/http/testing';
+import {HttpModule} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
-import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 import {WeightPipe} from '../../../../pipes/weight.pipe';
 
 describe('DescriptionComponent', function () {
@@ -29,21 +27,10 @@ describe('DescriptionComponent', function () {
         TranslateModule.forRoot()
       ],
       providers: [
-        {
-          provide: Http, useFactory: (backend, options) => {
-          return new Http(backend, options);
-        },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
-        BaseRequestOptions,
         SettingsService,
         SettingsStorageDelegate,
-        ConnectionBackend,
-        Http,
         LoggingService,
         ModelService,
-        ModelTransformerService,
         SheetStorageDelegate,
         StorageService
       ]

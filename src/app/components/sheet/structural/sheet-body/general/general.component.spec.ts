@@ -15,11 +15,8 @@ import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.
 import {FatigueHitComponent} from '../../../reusable/fatigue-hit/fatigue-hit.component';
 import {LiftingMovingComponent} from '../../../reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from '../../../reusable/encumbrance/encumbrance.component';
-import {MockBackend} from '@angular/http/testing';
-import {BaseRequestOptions, Http} from '@angular/http';
 import {SettingsService} from '../../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../../services/back-end/logging/logging.service';
-import {ModelTransformerService} from '../../../../../services/back-end/model-transformer/model-transformer.service';
 import {WeightPipe} from '../../../../../pipes/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../../modules/material.module';
 
@@ -46,16 +43,7 @@ describe('GeneralComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        {
-          provide: Http, useFactory: (backend, options) => {
-          return new Http(backend, options);
-        },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
-        BaseRequestOptions,
         ModelService,
-        ModelTransformerService,
         SettingsService,
         LoggingService,
         StorageService,

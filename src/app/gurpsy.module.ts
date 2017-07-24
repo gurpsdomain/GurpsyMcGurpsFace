@@ -47,7 +47,6 @@ import {FileInputComponent} from './components/generic/file-input/file-input.com
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './modules/material.module';
-import {ModelTransformerService} from './services/back-end/model-transformer/model-transformer.service';
 import {GurpsyAngularModule} from './modules/angular.module';
 import {WeightPipe} from './pipes/weight.pipe';
 import {PortraitUpdaterDialogComponent} from './components/dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
@@ -129,7 +128,6 @@ export function HttpLoaderFactory(http: Http) {
     StorageService,
     SheetStorageDelegate,
     ModelService,
-    ModelTransformerService,
     SheetBodyService
   ],
   entryComponents: [

@@ -1,4 +1,4 @@
-import {UpdateSheet} from '../update/update-sheet.model';
+import {Template} from '../template/template.model';
 export class Identity {
 
   portrait: string;
@@ -6,7 +6,7 @@ export class Identity {
   title: string;
   religion: string;
 
-  constructor(updateSheet: UpdateSheet) {
+  constructor(updateSheet: Template) {
     this.portrait = updateSheet.portrait;
     this.name = updateSheet.name;
     this.title = updateSheet.title;

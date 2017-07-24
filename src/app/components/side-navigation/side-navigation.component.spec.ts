@@ -11,7 +11,6 @@ import {SheetStorageDelegate} from '../../services/back-end/storage/delegates/sh
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {ModelService} from '../../services/front-end/model/model.service';
-import {ModelTransformerService} from '../../services/back-end/model-transformer/model-transformer.service';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
@@ -30,18 +29,9 @@ describe('SideNavigationComponent', () => {
         TranslateModule.forRoot(),
         GurpsyMaterialModule],
       providers: [
-        BaseRequestOptions,
         SettingsStorageDelegate,
-        {
-          provide: Http, useFactory: (backend, options) => {
-          return new Http(backend, options);
-        },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
         LoggingService,
         ModelService,
-        ModelTransformerService,
         SettingsService,
         SettingsStorageDelegate,
         SheetBodyService,

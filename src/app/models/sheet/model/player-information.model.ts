@@ -1,4 +1,4 @@
-import {UpdateSheet} from '../update/update-sheet.model';
+import {Template} from '../template/template.model';
 
 export class PlayerInformation {
 
@@ -6,7 +6,7 @@ export class PlayerInformation {
   campaign: string;
   createdOn: string;
 
-  constructor(updateSheet: UpdateSheet) {
+  constructor(updateSheet: Template) {
     this.player = updateSheet.player;
     this.campaign = updateSheet.campaign;
     this.createdOn = updateSheet.createdOn;

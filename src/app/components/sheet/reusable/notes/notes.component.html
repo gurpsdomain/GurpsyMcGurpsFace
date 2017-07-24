@@ -4,7 +4,7 @@
     {{ 'SHEET.NOTES' | translate }}
   </div>
   <div class="sheetComponentBody" (click)="onRequestUpdate()">
-    <div *ngFor="let note of readSheet.notes;" class="note">
+    <div *ngFor="let note of model.notes;" class="note">
       <div class="noteHeader">{{note.name}}</div>
       <div class="noteBody">{{note.note}}</div>
     </div>

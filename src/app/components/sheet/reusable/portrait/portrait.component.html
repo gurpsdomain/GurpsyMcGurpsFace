@@ -6,7 +6,7 @@
   <div class="sheetComponentBody" (click)="onRequestUpdate()">
     <input accept="image/png, image/jpeg, image/jpg, image/gif" type="file" (change)="onNativeInputFileSelect($event)"
            #inputFile hidden/>
-    <img [src]="readSheet.metaData.identity.portrait"
+    <img [src]="model.metaData.identity.portrait"
          alt="portrait">
   </div>
 </div>

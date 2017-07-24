@@ -7,7 +7,7 @@ import {Disadvantage} from './disadvantage.model';
 import {Advantage} from './advantage.model';
 
 @JsonObject
-export class UpdateSheet {
+export class Template {
 
   @JsonProperty('portrait', String, true)
   portrait: string;

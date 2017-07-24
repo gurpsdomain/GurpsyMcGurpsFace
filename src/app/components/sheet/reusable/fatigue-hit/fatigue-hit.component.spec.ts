@@ -6,10 +6,7 @@ import {SettingsStorageDelegate} from '../../../../services/back-end/storage/del
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 import {TranslateModule} from '@ngx-translate/core';
-import {MockBackend} from '@angular/http/testing';
-import {BaseRequestOptions, Http} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
-import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 
 describe('FatigueHitComponent', () => {
@@ -20,18 +17,9 @@ describe('FatigueHitComponent', () => {
     TestBed.configureTestingModule({
       declarations: [FatigueHitComponent],
       providers: [
-        {
-          provide: Http, useFactory: (backend, options) => {
-          return new Http(backend, options);
-        },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
-        BaseRequestOptions,
         SettingsService,
         LoggingService,
         ModelService,
-        ModelTransformerService,
         SettingsStorageDelegate,
         SheetStorageDelegate,
         StorageService

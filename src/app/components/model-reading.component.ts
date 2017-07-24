@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {ModelService} from '../services/front-end/model/model.service';
-import {ReadSheet} from '../models/sheet/read/read-sheet.model';
-import {UpdateSheet} from '../models/sheet/update/update-sheet.model';
+import {Sheet} from '../models/sheet/model/sheet.model';
+import {Template} from '../models/sheet/template/template.model';
 
 @Component({
   template: ''
 })
 export class ModelReadingComponent implements OnInit {
 
-  public readSheet: ReadSheet;
+  public model: Sheet;
 
   constructor(protected modelService: ModelService) {
-    this.readSheet = new ReadSheet(new UpdateSheet());
+    this.model = new Sheet(new Template());
   }
 
   ngOnInit(): void {
@@ -20,6 +20,6 @@ export class ModelReadingComponent implements OnInit {
   }
 
   private fetchReadModel() {
-    this.modelService.getReadModel().then(readModel => this.readSheet = readModel);
+    this.modelService.getModel().then(sheet => this.model = sheet);
   }
 }

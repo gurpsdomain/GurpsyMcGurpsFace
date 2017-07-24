@@ -2,7 +2,7 @@ import {BasicLift} from './basic-lift.model';
 import {Dodge} from './dodge.model';
 import {Move} from './move.model';
 import {MaxLoad} from './max-load.model';
-import {UpdateSheet} from '../update/update-sheet.model';
+import {Template} from '../template/template.model';
 
 export class SecondaryCharacteristics {
 
@@ -25,7 +25,7 @@ export class SecondaryCharacteristics {
   damageThrusting: number;
   frightCheck: number;
 
-  constructor(updateSheet: UpdateSheet) {
+  constructor(updateSheet: Template) {
     this.sizeModifier = undefined;
     this.will = undefined;
     this.perception = undefined;

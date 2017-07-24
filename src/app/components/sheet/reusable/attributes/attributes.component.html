@@ -6,55 +6,55 @@
     <table>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.STRENGTH' | translate }}</td>
-        <td>{{readSheet.attributes.strength}}</td>
+        <td>{{model.attributes.strength}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.DEXTERITY' | translate }}</td>
-        <td>{{readSheet.attributes.dexterity}}</td>
+        <td>{{model.attributes.dexterity}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.INTELLIGENCE' | translate }}</td>
-        <td>{{readSheet.attributes.intelligence}}</td>
+        <td>{{model.attributes.intelligence}}</td>
       </tr>
       <tr class="last">
         <td>{{ 'SHEET.ATTRIBUTES.HEALTH' | translate }}</td>
-        <td>{{readSheet.attributes.health}}</td>
+        <td>{{model.attributes.health}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.WILL' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.will}}</td>
+        <td>{{model.secondaryCharacteristics.will}}</td>
       </tr>
       <tr class="last">
         <td>{{ 'SHEET.ATTRIBUTES.FRIGHT' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.frightCheck}}</td>
+        <td>{{model.secondaryCharacteristics.frightCheck}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.SPEED' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.basicSpeed}}</td>
+        <td>{{model.secondaryCharacteristics.basicSpeed}}</td>
       </tr>
       <tr class="last">
         <td>{{ 'SHEET.ATTRIBUTES.MOVE' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.basicMove}}</td>
+        <td>{{model.secondaryCharacteristics.basicMove}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.PERCEPTION' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.perception}}</td>
+        <td>{{model.secondaryCharacteristics.perception}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.VISION' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.vision}}</td>
+        <td>{{model.secondaryCharacteristics.vision}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.HEARING' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.hearing}}</td>
+        <td>{{model.secondaryCharacteristics.hearing}}</td>
       </tr>
       <tr>
         <td>{{ 'SHEET.ATTRIBUTES.TASTE' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.tasteAndSmell}}</td>
+        <td>{{model.secondaryCharacteristics.tasteAndSmell}}</td>
       </tr>
       <tr class="last">
         <td>{{ 'SHEET.ATTRIBUTES.TOUCH' | translate }}</td>
-        <td>{{readSheet.secondaryCharacteristics.touch}}</td>
+        <td>{{model.secondaryCharacteristics.touch}}</td>
       </tr>
       <tr>
         <td class="singleColumn" colspan="2">
@@ -67,14 +67,14 @@
                  fxLayoutWrap="nowrap"
                  fxLayoutGap="8px">
               <div class="flex-item">{{ 'SHEET.ATTRIBUTES.THR' | translate }}</div>
-              <div class="flex-item">{{readSheet.secondaryCharacteristics.damageThrusting}}</div>
+              <div class="flex-item">{{model.secondaryCharacteristics.damageThrusting}}</div>
             </div>
             <div class="flex-item flex-container"
                  fxLayout="row"
                  fxLayoutWrap="nowrap"
                  fxLayoutGap="8px">
               <div class="flex-item">{{ 'SHEET.ATTRIBUTES.SW' | translate }}</div>
-              <div class="flex-item">{{readSheet.secondaryCharacteristics.damageSwinging}}</div>
+              <div class="flex-item">{{model.secondaryCharacteristics.damageSwinging}}</div>
             </div>
           </div>
         </td>

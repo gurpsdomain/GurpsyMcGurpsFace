@@ -26,10 +26,7 @@ import {FatigueHitComponent} from '../../reusable/fatigue-hit/fatigue-hit.compon
 import {EncumbranceComponent} from '../../reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
-import {MockBackend} from '@angular/http/testing';
-import {BaseRequestOptions, Http} from '@angular/http';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
-import {ModelTransformerService} from '../../../../services/back-end/model-transformer/model-transformer.service';
 import {WeightPipe} from '../../../../pipes/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
@@ -65,19 +62,10 @@ describe('SheetBodyComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        {
-          provide: Http, useFactory: (backend, options) => {
-          return new Http(backend, options);
-        },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
-        BaseRequestOptions,
         SettingsService,
         SettingsStorageDelegate,
         LoggingService,
         ModelService,
-        ModelTransformerService,
         SheetBodyService,
         SheetStorageDelegate,
         StorageService

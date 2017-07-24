@@ -9,9 +9,9 @@ import {Points} from './points.model';
 import {Attributes} from './attributes.model';
 import {SecondaryCharacteristics} from './secondary-characteristics.model';
 import {DamageResistance} from './damage-resistance.model';
-import {UpdateSheet} from '../update/update-sheet.model';
+import {Template} from '../template/template.model';
 
-export class ReadSheet {
+export class Sheet {
 
   metaData: MetaData;
   points: Points;
@@ -25,39 +25,39 @@ export class ReadSheet {
   equipments: Equipment[];
   notes: Note[];
 
-  constructor(updateSheet: UpdateSheet) {
-    this.metaData = new MetaData(updateSheet);
-    this.points = new Points(updateSheet);
-    this.attributes = new Attributes(updateSheet);
-    this.secondaryCharacteristics = new SecondaryCharacteristics(updateSheet);
-    this.damageResistances = new DamageResistance(updateSheet);
-    this.advantages = this.enrichAdvantages(updateSheet);
-    this.skills = this.enrichSkills(updateSheet);
-    this.spells = this.enrichSpells(updateSheet);
-    this.equipments = this.enrichEquipment(updateSheet);
-    this.notes = this.enrichNotes(updateSheet);
+  constructor(template: Template) {
+    this.metaData = new MetaData(template);
+    this.points = new Points(template);
+    this.attributes = new Attributes(template);
+    this.secondaryCharacteristics = new SecondaryCharacteristics(template);
+    this.damageResistances = new DamageResistance(template);
+    this.advantages = this.enrichAdvantages(template);
+    this.skills = this.enrichSkills(template);
+    this.spells = this.enrichSpells(template);
+    this.equipments = this.enrichEquipment(template);
+    this.notes = this.enrichNotes(template);
   }
 
-  private enrichAdvantages(updateSheet: UpdateSheet): Advantage[] {
+  private enrichAdvantages(template: Template): Advantage[] {
     return [];
   }
 
-  private enrichSkills(updateSheet: UpdateSheet): Skill[] {
+  private enrichSkills(template: Template): Skill[] {
     return [];
   }
 
-  private enrichSpells(updateSheet: UpdateSheet): Spell[] {
+  private enrichSpells(template: Template): Spell[] {
     return [];
   }
 
-  private enrichEquipment(updateSheet: UpdateSheet): Equipment[] {
+  private enrichEquipment(template: Template): Equipment[] {
     return [];
   }
 
-  private enrichNotes(updateSheet: UpdateSheet): Note[] {
+  private enrichNotes(template: Template): Note[] {
     const notes: Note[] = [];
 
-    for (const note of updateSheet.notes) {
+    for (const note of template.notes) {
       const enrichedNote = new Note(note.name, note.note);
       notes.push(enrichedNote);
     }

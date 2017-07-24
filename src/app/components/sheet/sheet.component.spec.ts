@@ -32,12 +32,9 @@ import {FatigueHitComponent} from './reusable/fatigue-hit/fatigue-hit.component'
 import {LiftingMovingComponent} from './reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from './reusable/encumbrance/encumbrance.component';
 import {PageReferenceComponent} from '../generic/page-reference/page-reference.component';
-import {Http, BaseRequestOptions, HttpModule} from '@angular/http';
-import {MockBackend} from '@angular/http/testing';
+import {HttpModule} from '@angular/http';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
-import {ModelTransformerService} from '../../services/back-end/model-transformer/model-transformer.service';
 import {WeightPipe} from '../../pipes/weight.pipe';
-import {MdDialog} from '@angular/material';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 
 ////////  SPECS  /////////////
@@ -79,15 +76,6 @@ describe('SheetComponent', function () {
         TranslateModule.forRoot()
       ],
       providers: [
-        {
-          provide: Http, useFactory: (backend, options) => {
-          return new Http(backend, options);
-        },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
-        ModelTransformerService,
-        BaseRequestOptions,
         SettingsService,
         ModelService,
         LoggingService,

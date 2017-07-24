@@ -1,25 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../back-end/storage/storage.service';
-import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {ModelTransformerService} from '../../back-end/model-transformer/model-transformer.service';
-import {LoggingService} from '../../back-end/logging/logging.service';
-import {UpdateSheet} from '../../../models/sheet/update/update-sheet.model';
+import {Template} from '../../../models/sheet/template/template.model';
 import {JsonConvert} from 'json2typescript';
-import {ReadSheet} from '../../../models/sheet/read/read-sheet.model';
+import {Sheet} from '../../../models/sheet/model/sheet.model';
 
 @Injectable()
 export class ModelService {
-
-  private static FALLBACK_MODEL = './assets/sheets/dai-blackthorn-output.json';
-
-  private updateModel: UpdateSheet;
-  private readModel: ReadSheet;
+  private template: Template;
+  private model: Sheet;
 
   private _editMode = false;
   private editModeChangeSource = new Subject<boolean>();
-  private modelChangeSource = new Subject<ReadSheet>();
+  private modelChangeSource = new Subject<Sheet>();
 
   /**
    * Register to this observable to be notified when the model has changed.
@@ -35,45 +29,41 @@ export class ModelService {
    */
   public editModeChange$ = this.editModeChangeSource.asObservable();
 
-  constructor(private loggingService: LoggingService,
-              private modelTransformerService: ModelTransformerService,
-              private storageService: StorageService,
-              private http: Http) {
-
+  constructor(private storageService: StorageService) {
     this.initSheet();
   }
 
   /**
-   * Set a new UpdateModel.
+   * Set a new Template.
    *
-   * @param {UpdateSheet} The new UpdateSheet to set
+   * @param {Template} The new Template to set
    */
-  public setNewModel(updateModel: UpdateSheet): void {
-    this.loadSheet(updateModel, true);
+  public setNewTemplate(template: Template): void {
+    this.loadTemplate(template, true);
 
   }
 
   /**
-   * Update the current UpdateModel.
+   * Update the current Template.
    *
-   * @param {UpdateSheet} updateModel
+   * @param {Template} template
    */
-  updateCurrentModel(updateModel: UpdateSheet): void {
-    this.loadSheet(updateModel, true);
+  updateCurrentModel(template: Template): void {
+    this.loadTemplate(template, true);
   }
 
   /**
-   * Load a readSheet from file.
+   * Load a model from file.
    *
    * @param file
    */
-  public loadSheetFromFile(file: File): Promise<UpdateSheet> {
+  public loadSheetFromFile(file: File): Promise<Template> {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            const sheet: UpdateSheet = JsonConvert.deserializeString(fileReader.result, UpdateSheet);
-            resolve(sheet);
+            const template: Template = JsonConvert.deserializeString(fileReader.result, Template);
+            resolve(template);
           } else {
             reject('Could not read file');
           }
@@ -87,47 +77,43 @@ export class ModelService {
   }
 
   /**
-   * Load a readSheet. This method should be used to load a new readSheet into
-   * this application. It will both load the new readSheet and persist
-   * in local storage.
    *
-   * @param {UpdateSheet} sheet
-   * @param {Boolean} true if this is a new readSheet, false if it comes from local storage
+   * @param {Template} template
+   * @param {Boolean} true if this is a new model, false if it comes from local storage
    */
-  public loadSheet(sheet: UpdateSheet, isNew: boolean): void {
+  public loadTemplate(template: Template, isNew: boolean): void {
 
-    this.changeUpdateModel(sheet);
+    this.changeUpdateModel(template);
 
-    this.modelTransformerService.transform(sheet)
-      .then(outputSheet => this.changeReadModel(outputSheet));
+    this.changeModel(this.transform(template))
 
     if (isNew) {
-      this.storageService.storeSheet(sheet);
+      this.storageService.storeTemplate(template);
     }
   }
 
   /**
-   * Return the current UpdateModel.
+   * Return the current template.
    *
-   * @returns {Promise<UpdateSheet>}
+   * @returns {Promise<Template>}
    */
-  public getUpdateModel(): Promise<UpdateSheet> {
-    return Promise.resolve(this.updateModel);
+  public getTemplate(): Promise<Template> {
+    return Promise.resolve(this.template);
   }
 
   /**
-   * Return the current ReadModel.
+   * Return the current Model.
    *
-   * @returns {Promise<ReadSheet>}
+   * @returns {Promise<Sheet>}
    */
-  public getReadModel(): Promise<ReadSheet> {
-    return Promise.resolve(this.readModel);
+  public getModel(): Promise<Sheet> {
+    return Promise.resolve(this.model);
   }
 
   /**
    * If the model is currently in edit mode. If so, it is possible
-   * to edit the UpdateSheet. Concequently, this will lead to a new
-   * ReadSheet.
+   * to edit the Template. Concequently, this will lead to a new
+   * Sheet.
    *
    * @param {boolean}
    */
@@ -138,18 +124,18 @@ export class ModelService {
 
   /**
    * If the model is currently in edit mode. If so, it is possible
-   * to edit the UpdateSheet. Concequently, this will lead to a new
-   * ReadSheet.
+   * to edit the Template. Consequently, this will lead to a new
+   * model.
    *
-   * @return {Promise<boolean>} A Promise that resolves to boolean. True
-   *          if this service is currently in edit mode, f¬alse otherwise.
+   * @return {Promise<boolean>} A Promise that resolves to a boolean. True
+   *          if this service is currently in edit mode, false otherwise.
    */
   public getEditMode(): Promise<boolean> {
     return Promise.resolve(this._editMode);
   }
 
-  private loadStoredSheet(sheet: UpdateSheet): void {
-    this.loadSheet(sheet, false);
+  private loadStoredSheet(template: Template): void {
+    this.loadTemplate(template, false);
   }
 
   private initSheet(): void {
@@ -161,23 +147,28 @@ export class ModelService {
   private loadSheetFromStorage(): void {
     this.storageService.getCurrentSheet()
       .then(sheet => this.loadStoredSheet(sheet))
-      .catch(any => this.clearReadModel());
+      .catch(any => this.clearModel());
   }
 
-  private clearReadModel(): void {
-    this.changeReadModel(undefined);
+  private clearModel(): void {
+    this.changeModel(undefined);
   }
 
-  private changeUpdateModel(updateSheet: UpdateSheet): void {
-    this.updateModel = updateSheet;
+  private changeUpdateModel(template: Template): void {
+    this.template = template;
   }
 
-  private changeReadModel(readSheet: ReadSheet): void {
-    this.readModel = readSheet;
+  private changeModel(sheet: Sheet): void {
+    this.model = sheet;
     this.notifyListeners();
   }
 
   private notifyListeners(): void {
-    this.modelChangeSource.next(this.readModel);
+    this.modelChangeSource.next(this.model);
+  }
+
+  private transform(template: Template): Sheet {
+    const sheet: Sheet = new Sheet(template);
+    return sheet;
   }
 }

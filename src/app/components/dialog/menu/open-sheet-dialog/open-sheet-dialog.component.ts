@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
-import {UpdateSheet} from '../../../../models/sheet/update/update-sheet.model';
+import {Template} from '../../../../models/sheet/template/template.model';
 
 @Component({
   templateUrl: './open-sheet-dialog.component.html',
@@ -14,10 +14,10 @@ export class OpenSheetDialogComponent {
 
   public showOk = false;
   public selectedFileName = '';
-  public selectedSheet: UpdateSheet;
-  public previouslyOpenedSheets: UpdateSheet[] = [];
+  public selectedSheet: Template;
+  public previouslyOpenedSheets: Template[] = [];
 
-  private selectedPreviousSheet: UpdateSheet = null;
+  private selectedPreviousSheet: Template = null;
 
   constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
               private modelService: ModelService,
@@ -27,7 +27,7 @@ export class OpenSheetDialogComponent {
   }
 
   public onOk(): void {
-    this.modelService.loadSheet(this.selectedSheet, true);
+    this.modelService.loadTemplate(this.selectedSheet, true);
     this.dialogRef.close();
   }
 
@@ -37,7 +37,7 @@ export class OpenSheetDialogComponent {
       .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 
-  public onPreviousSheetSelected(sheet: UpdateSheet) {
+  public onPreviousSheetSelected(sheet: Template) {
     this.selectedPreviousSheet = sheet;
   }
 
@@ -46,11 +46,11 @@ export class OpenSheetDialogComponent {
       sheets => this.setPreviouslyOpenedSheets(sheets));
   }
 
-  private setPreviouslyOpenedSheets(sheets: UpdateSheet[]): void {
+  private setPreviouslyOpenedSheets(sheets: Template[]): void {
     this.previouslyOpenedSheets = sheets;
   }
 
-  private setSelectedSheet(sheet: UpdateSheet, fileName: string): void {
+  private setSelectedSheet(sheet: Template, fileName: string): void {
     this.selectedSheet = sheet;
     this.selectedFileName = fileName;
     this.showOk = true;

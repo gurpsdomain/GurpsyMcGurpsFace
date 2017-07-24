@@ -18,7 +18,7 @@
         <td>{{ 'SHEET.MAGIC.SPELL_CLASSES' | translate }}</td>
         <td>{{ 'SHEET.MAGIC.PAGE_REFERENCE' | translate }}</td>
       </tr>
-      <tr *ngFor="let spell of readSheet.spells;">
+      <tr *ngFor="let spell of model.spells;">
         <td>{{spell.name}}</td>
         <td>{{spell.points}}</td>
         <td>{{spell.level}}</td>

@@ -1,14 +1,14 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {UpdateSheet} from './update/update-sheet.model';
+import {Template} from './template/template.model';
 
 @JsonObject
 export class Sheets {
 
-  @JsonProperty('current', UpdateSheet)
-  current: UpdateSheet;
+  @JsonProperty('current', Template)
+  current: Template;
 
-  @JsonProperty('previous', [UpdateSheet])
-  previous: UpdateSheet[];
+  @JsonProperty('previous', [Template])
+  previous: Template[];
 
   constructor() {
     this.current = undefined;

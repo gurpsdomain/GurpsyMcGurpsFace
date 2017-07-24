@@ -10,7 +10,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
-import {ReadSheet} from './models/sheet/read/read-sheet.model';
+import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
 import {ModelFactoryService} from './factories/model/model-factory.service';
@@ -82,7 +82,7 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
 
     this.newSheetDialogRef.afterClosed().subscribe(model => {
         if (model) {
-          this.updateSheet = model;
+          this.template = model;
           this.updateModel();
         }
         this.newSheetDialogRef = null
@@ -196,7 +196,7 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
     this.overlayContainer.themeClass = theme;
   }
 
-  private showNewSheetLoadedMessage(sheet: ReadSheet): void {
+  private showNewSheetLoadedMessage(sheet: Sheet): void {
     if (sheet) {
       this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
         this.snackBar.open(res, '', {

@@ -1,4 +1,4 @@
-import {UpdateSheet} from '../update/update-sheet.model';
+import {Template} from '../template/template.model';
 export class Description {
 
   race: string;
@@ -13,7 +13,7 @@ export class Description {
   skin: string;
   hand: string;
 
-  constructor(updateSheet: UpdateSheet) {
+  constructor(updateSheet: Template) {
     this.race = updateSheet.race;
     this.gender = updateSheet.gender;
     this.age = updateSheet.age;
