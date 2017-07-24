@@ -21,13 +21,10 @@ export class IdentityComponent extends ModelUpdatingComponent {
       width: GurpsyComponent.DIALOG_WIDTH
     });
 
-    this.identityDialogRef.componentInstance.model = this.template;
+    this.identityDialogRef.componentInstance.template = this.template;
 
     this.identityDialogRef.afterClosed().subscribe(template => {
-        if (template) {
-          this.template = template;
-          this.updateModel();
-        }
+        this.updateModel(template);
         this.identityDialogRef = null
       }
     );

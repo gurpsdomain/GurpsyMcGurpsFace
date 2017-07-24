@@ -16,7 +16,7 @@ export class ModelService {
   private modelChangeSource = new Subject<Sheet>();
 
   /**
-   * Register to this observable to be notified when the model has changed.
+   * Register to this observable to be notified when the template has changed.
    *
    * @type Observable
    */
@@ -53,7 +53,7 @@ export class ModelService {
   }
 
   /**
-   * Load a model from file.
+   * Load a template from file.
    *
    * @param file
    */
@@ -79,7 +79,7 @@ export class ModelService {
   /**
    *
    * @param {Template} template
-   * @param {Boolean} true if this is a new model, false if it comes from local storage
+   * @param {Boolean} true if this is a new template, false if it comes from local storage
    */
   public loadTemplate(template: Template, isNew: boolean): void {
 
@@ -111,7 +111,7 @@ export class ModelService {
   }
 
   /**
-   * If the model is currently in edit mode. If so, it is possible
+   * If the template is currently in edit mode. If so, it is possible
    * to edit the Template. Concequently, this will lead to a new
    * Sheet.
    *
@@ -123,9 +123,9 @@ export class ModelService {
   }
 
   /**
-   * If the model is currently in edit mode. If so, it is possible
+   * If the template is currently in edit mode. If so, it is possible
    * to edit the Template. Consequently, this will lead to a new
-   * model.
+   * template.
    *
    * @return {Promise<boolean>} A Promise that resolves to a boolean. True
    *          if this service is currently in edit mode, false otherwise.

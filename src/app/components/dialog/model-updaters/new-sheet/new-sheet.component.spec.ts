@@ -1,6 +1,6 @@
 import {async, TestBed} from '@angular/core/testing';
 import {NewSheetComponent} from './new-sheet.component';
-import {ModelFactoryService} from '../../../../factories/model/model-factory.service';
+import {TemplateFactoryService} from '../../../../factories/model/template-factory.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
@@ -30,7 +30,7 @@ describe('NewSheetComponent', () => {
         FormsModule,
         TestModule
       ],
-      providers: [ModelFactoryService],
+      providers: [TemplateFactoryService],
 
     })
       .compileComponents();

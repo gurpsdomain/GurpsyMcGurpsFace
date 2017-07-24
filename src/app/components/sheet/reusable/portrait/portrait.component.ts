@@ -36,14 +36,11 @@ export class PortraitComponent extends ModelUpdatingComponent {
       width: GurpsyComponent.DIALOG_WIDTH
     });
 
-    this.portraitDialogRef.componentInstance.model = this.template;
+    this.portraitDialogRef.componentInstance.template = this.template;
     this.portraitDialogRef.componentInstance.setFile(file);
 
     this.portraitDialogRef.afterClosed().subscribe(template => {
-        if (template) {
-          this.template = template;
-          this.updateModel();
-        }
+        this.updateModel(template);
         this.portraitDialogRef = null
       }
     );

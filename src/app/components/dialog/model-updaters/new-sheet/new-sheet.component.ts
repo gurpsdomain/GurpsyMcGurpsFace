@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {ModelFactoryService} from '../../../../factories/model/model-factory.service';
+import {TemplateFactoryService} from '../../../../factories/model/template-factory.service';
 import {ModelUpdaterDialogComponent} from '../model-updater-dialog.component';
 
 @Component({
   templateUrl: './new-sheet.component.html',
   styleUrls: ['new-sheet.component.scss'],
-  providers: [ModelFactoryService]
+  providers: [TemplateFactoryService]
 })
 export class NewSheetComponent extends ModelUpdaterDialogComponent {
 }

@@ -26,7 +26,7 @@ export class SheetStorageDelegate {
   }
 
   /**
-   * Set the given model as the Current model in Local Storage.
+   * Set the given template as the Current template in Local Storage.
    *
    * @param sheet: Sheet
    */
@@ -46,7 +46,7 @@ export class SheetStorageDelegate {
   /**
    * Retrieve the Current Sheet for Local Storage.
    *
-   * @returns Promise<Sheet> or an empty promise if there is no current model.
+   * @returns Promise<Sheet> or an empty promise if there is no current template.
    */
   public retrieveCurrent(): Promise<Template> {
     const current: Template = this.getCurrentSheet();
@@ -66,7 +66,7 @@ export class SheetStorageDelegate {
   }
 
   /**
-   * Retrieve both the Current model and the Previously Opened model.
+   * Retrieve both the Current template and the Previously Opened template.
    *
    * @returns Promise<Sheet[]> or an empty promise if there are no current and previously
    *          opened sheets.
@@ -80,7 +80,7 @@ export class SheetStorageDelegate {
   }
 
   /**
-   * Remove the given model from the list of Previously Opened sheets in Local Storage.
+   * Remove the given template from the list of Previously Opened sheets in Local Storage.
    * @param sheetsToRemove : Sheet[]
    */
   public remove(sheetsToRemove: Template[]): void {

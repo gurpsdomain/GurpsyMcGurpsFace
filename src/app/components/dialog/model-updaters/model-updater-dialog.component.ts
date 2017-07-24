@@ -7,12 +7,12 @@ import {Template} from '../../../models/sheet/template/template.model';
 })
 export class ModelUpdaterDialogComponent {
 
-  model: Template;
+  template: Template;
 
   constructor(private dialogRef: MdDialogRef<ModelUpdaterDialogComponent>) {
   }
 
   public onOk(): void {
-    this.dialogRef.close(this.model);
+    this.dialogRef.close(this.template);
   }
 }

@@ -13,13 +13,13 @@ import {PageReferenceService} from './services/front-end/page-reference/page-ref
 import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
-import {ModelFactoryService} from './factories/model/model-factory.service';
+import {TemplateFactoryService} from './factories/model/template-factory.service';
 
 @Component({
   selector: 'gurpsy-root',
   templateUrl: './gurpsy.component.html',
   styleUrls: ['./gurpsy.component.scss'],
-  providers: [ModelFactoryService]
+  providers: [TemplateFactoryService]
 })
 export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
 
@@ -53,7 +53,7 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
               private iconRegistry: MdIconRegistry,
               private sanitizer: DomSanitizer,
               private overlayContainer: OverlayContainer,
-              private modelFactoryService: ModelFactoryService) {
+              private modelFactoryService: TemplateFactoryService) {
 
     super(dialog, modelService, loggingService);
 
@@ -78,13 +78,10 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
       disableClose: false
     });
 
-    this.newSheetDialogRef.componentInstance.model = this.modelFactoryService.createModel();
+    this.newSheetDialogRef.componentInstance.template = this.modelFactoryService.createTemplate();
 
-    this.newSheetDialogRef.afterClosed().subscribe(model => {
-        if (model) {
-          this.template = model;
-          this.updateModel();
-        }
+    this.newSheetDialogRef.afterClosed().subscribe(template => {
+        this.updateModel(template);
         this.newSheetDialogRef = null
       }
     );

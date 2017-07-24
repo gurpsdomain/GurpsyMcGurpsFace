@@ -67,7 +67,7 @@ export class StorageService {
   }
 
   /**
-   * Store the given model in Local Storage;
+   * Store the given template in Local Storage;
    *
    * @param InputSheet
    */
@@ -114,7 +114,7 @@ export class StorageService {
   /**
    * Retrieve the Current Template for Local Storage.
    *
-   * @returns Promise<Template> or an empty promise if there is no current model.
+   * @returns Promise<Template> or an empty promise if there is no current template.
    */
   public getCurrentSheet(): Promise<Template> {
     return this.sheetStorageDelegate.retrieveCurrent();
@@ -130,7 +130,7 @@ export class StorageService {
   }
 
   /**
-   * Retrieve both the Current model and the previously opened model.
+   * Retrieve both the Current template and the previously opened template.
    *
    * @returns Promise<Template[]> or an empty promise if there are no current and previously
    *          opened sheets.

@@ -50,7 +50,7 @@ export class SettingsStorageDelegate {
   /**
    * Store the given BookConfigurations.
    *
-   * @param {SheetBodyContent} An enumeration that represents the model body content
+   * @param {SheetBodyContent} An enumeration that represents the template body content
    */
   public storeBodyContent(bodyContent: SheetBodyContent) {
     const settings: Settings = this.retrieve();

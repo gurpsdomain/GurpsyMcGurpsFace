@@ -60,10 +60,15 @@ export class ModelUpdatingComponent implements OnInit {
   }
 
   /**
-   * Update the model with the current updateModel.
+   * Create a new template, based on the latest template.
+   *
+   * @param {Template} The template that should be used to create a new template.
    */
-  protected updateModel(): void {
-    this.modelService.updateCurrentModel(this.template);
+  protected updateModel(template: Template): void {
+    if (template) {
+      this.template = template;
+      this.modelService.updateCurrentModel(this.template);
+    }
   }
 
   private fetchModels(): void {

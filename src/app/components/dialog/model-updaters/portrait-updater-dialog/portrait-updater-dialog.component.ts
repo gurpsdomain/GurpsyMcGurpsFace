@@ -26,7 +26,7 @@ export class PortraitUpdaterDialogComponent extends ModelUpdaterDialogComponent 
   }
 
   public onOk(): void {
-    this.model.portrait = this.data.image;
+    this.template.portrait = this.data.image;
     super.onOk();
   }
 
