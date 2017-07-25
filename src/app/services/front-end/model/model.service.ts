@@ -41,21 +41,13 @@ export class ModelService {
     this.initSheet();
   }
 
-  /**
-   * Update the current Template.
-   *
-   * @param {Template} template
-   */
-  updateCurrentModel(template: Template): void {
-    this.loadTemplate(template, true);
-  }
 
   /**
-   * Load a template from file.
+   * Create a template from file.
    *
-   * @param file
+   * @param {File} A json representative of a template
    */
-  public loadSheetFromFile(file: File): Promise<Template> {
+  public createTemplateFromFile(file: File): Promise<Template> {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
@@ -80,16 +72,27 @@ export class ModelService {
    * @param {Boolean} true if this is a new template, false if it comes from local storage or is
    * reload of the current template/model.
    */
-  public loadTemplate(template: Template, isNew: boolean): void {
+  public loadTemplate(template: Template, store?: boolean, isFromStorage?: boolean): void {
 
     this.setTemplate(template);
+    const model = this.createModel(template);
+    this.setModel(model)
 
-    this.setModel(this.createModel(template))
-
-    if (isNew) {
+    if (store || isFromStorage) {
       this.newModelLoadedChangeSource.next(this.model);
-      this.storageService.storeTemplate(template);
+      if (store) {
+        this.storageService.storeTemplate(template);
+      }
     }
+  }
+
+  /**
+   * Update the current Model.
+   *
+   * @param {Template} The current template.
+   */
+  public updateCurrentTemplate(template: Template): void {
+    this.loadTemplate(template, true);
   }
 
   /**
@@ -135,13 +138,14 @@ export class ModelService {
   }
 
   private loadStoredSheet(template: Template): void {
-    this.loadTemplate(template, false);
+    this.loadTemplate(template, false, true);
   }
 
   private initSheet(): void {
     this.loadSheetFromStorage();
 
-    this.storageService.getSheetObserver().subscribe(sheets => this.loadSheetFromStorage());
+    this.storageService.getSheetObserver()
+      .subscribe(sheets => this.loadSheetFromStorage());
   }
 
   private loadSheetFromStorage(): void {

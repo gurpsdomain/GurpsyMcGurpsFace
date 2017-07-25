@@ -1,12 +1,12 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CropperSettings, ImageCropperComponent} from 'ng2-img-cropper';
-import {ModelUpdaterDialogComponent} from '../model-updater-dialog.component';
+import {TemplateUpdaterDialogComponent} from '../template-updater-dialog.component';
 
 @Component({
   templateUrl: 'portrait-updater-dialog.component.html',
   styleUrls: ['portrait-updater-dialog.component.scss']
 })
-export class PortraitUpdaterDialogComponent extends ModelUpdaterDialogComponent implements OnInit {
+export class PortraitUpdaterDialogComponent extends TemplateUpdaterDialogComponent implements OnInit {
 
   private static CANVAS_WIDTH = 352;
   private static CANVAS_HEIGHT = 300;

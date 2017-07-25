@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {ModelUpdatingComponent} from '../../../model-updating.component';
-import {IdentityUpdaterComponent} from '../../../dialog/model-updaters/identity-updater/identity-updater.component';
+import {IdentityUpdaterComponent} from '../../../dialog/template-updaters/identity-updater/identity-updater.component';
 import {GurpsyComponent} from '../../../../gurpsy.component';
 import {MdDialogRef} from '@angular/material';
 
@@ -24,7 +24,7 @@ export class IdentityComponent extends ModelUpdatingComponent {
     this.identityDialogRef.componentInstance.template = this.template;
 
     this.identityDialogRef.afterClosed().subscribe(template => {
-        this.updateModel(template);
+        this.updateTemplate(template);
         this.identityDialogRef = null
       }
     );

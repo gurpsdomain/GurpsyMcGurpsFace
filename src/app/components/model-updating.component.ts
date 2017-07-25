@@ -23,11 +23,8 @@ export class ModelUpdatingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchModels();
-    this.modelService.modelChange$.subscribe(any => this.fetchModels());
-
-    this.modelService.getEditMode().then(editMode => this.editMode = editMode);
-    this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
+    this.initModelAndTemplate();
+    this.initEditMode();
   }
 
   /**
@@ -43,7 +40,6 @@ export class ModelUpdatingComponent implements OnInit {
   /**
    * An update is requested. In general this means that OpenDialog is being
    * called.
-   *
    */
   protected updateRequested(): void {
     this.openDialog();
@@ -60,18 +56,28 @@ export class ModelUpdatingComponent implements OnInit {
   }
 
   /**
-   * Create a new template, based on the latest template.
+   * Update the current template.
    *
-   * @param {Template} The template that should be used to create a new template.
+   * @param {Template} The template that should be used for updating.
    */
-  protected updateModel(template: Template): void {
+  protected updateTemplate(template: Template): void {
     if (template) {
       this.template = template;
-      this.modelService.updateCurrentModel(this.template);
+      this.modelService.updateCurrentTemplate(this.template);
     }
   }
 
-  private fetchModels(): void {
+  private initModelAndTemplate(): void {
+    this.fetchModelAndTemplate();
+    this.modelService.modelChange$.subscribe(any => this.fetchModelAndTemplate());
+  }
+
+  private initEditMode(): void {
+    this.modelService.getEditMode().then(editMode => this.editMode = editMode);
+    this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
+  }
+
+  private fetchModelAndTemplate(): void {
     this.modelService.getModel().then(sheet => this.setModel(sheet));
     this.modelService.getTemplate().then(template => this.setTemplate(template));
   }

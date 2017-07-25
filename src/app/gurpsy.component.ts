@@ -11,7 +11,7 @@ import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/model/sheet.model';
-import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
+import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
 import {TemplateFactoryService} from './factories/model/template-factory.service';
 
@@ -70,7 +70,7 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
   }
 
   /**
-   * Create a new updateModel.
+   * Create a new updateTemplate.
    */
   public onNewUpdateModel(): void {
     this.newSheetDialogRef = this.dialog.open(NewSheetComponent, {
@@ -81,7 +81,7 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
     this.newSheetDialogRef.componentInstance.template = this.modelFactoryService.createTemplate();
 
     this.newSheetDialogRef.afterClosed().subscribe(template => {
-        this.updateModel(template);
+        this.updateTemplate(template);
         this.newSheetDialogRef = null
       }
     );

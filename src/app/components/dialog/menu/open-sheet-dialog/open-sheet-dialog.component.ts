@@ -33,7 +33,7 @@ export class OpenSheetDialogComponent {
 
   public onFileSelect(fileInput: Array<File>) {
     const file = fileInput[0];
-    this.modelService.loadSheetFromFile(file)
+    this.modelService.createTemplateFromFile(file)
       .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 

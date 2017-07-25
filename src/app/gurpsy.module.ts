@@ -44,20 +44,21 @@ import {BookConfigurationComponent} from './components/generic/book-configuratio
 import {BooksConfigurationComponent} from './components/generic/books-configuration/books-configuration.component';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './modules/material.module';
 import {GurpsyAngularModule} from './modules/angular.module';
 import {WeightPipe} from './pipes/weight.pipe';
-import {PortraitUpdaterDialogComponent} from './components/dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
+// tslint:disable-next-line max-line-length
+import {PortraitUpdaterDialogComponent} from './components/dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
 import {ModelReadingComponent} from './components/model-reading.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './components/generic/avatar/avatar.component';
 import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-loaded.component';
-import {NewSheetComponent} from './components/dialog/model-updaters/new-sheet/new-sheet.component';
-import {IdentityUpdaterComponent} from './components/dialog/model-updaters/identity-updater/identity-updater.component';
-import {ModelUpdaterDialogComponent} from './components/dialog/model-updaters/model-updater-dialog.component';
+import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
+import {IdentityUpdaterComponent} from './components/dialog/template-updaters/identity-updater/identity-updater.component';
+import {TemplateUpdaterDialogComponent} from './components/dialog/template-updaters/template-updater-dialog.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -104,7 +105,7 @@ export function HttpLoaderFactory(http: Http) {
     PortraitUpdaterDialogComponent,
     ModelReadingComponent,
     ModelUpdatingComponent,
-    ModelUpdaterDialogComponent,
+    TemplateUpdaterDialogComponent,
     AvatarComponent,
     NoSheetLoadedComponent,
     NewSheetComponent],

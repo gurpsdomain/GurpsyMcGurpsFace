@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {PortraitUpdaterDialogComponent} from '../../../dialog/model-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
+import {PortraitUpdaterDialogComponent} from '../../../dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
 import {ModelUpdatingComponent} from '../../../model-updating.component';
 import {MdDialogRef} from '@angular/material';
 import {GurpsyComponent} from '../../../../gurpsy.component';
@@ -40,7 +40,7 @@ export class PortraitComponent extends ModelUpdatingComponent {
     this.portraitDialogRef.componentInstance.setFile(file);
 
     this.portraitDialogRef.afterClosed().subscribe(template => {
-        this.updateModel(template);
+        this.updateTemplate(template);
         this.portraitDialogRef = null
       }
     );

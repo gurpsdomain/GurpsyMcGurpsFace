@@ -5,11 +5,11 @@ import {Template} from '../../../models/sheet/template/template.model';
 @Component({
   template: ''
 })
-export class ModelUpdaterDialogComponent {
+export class TemplateUpdaterDialogComponent {
 
   template: Template;
 
-  constructor(private dialogRef: MdDialogRef<ModelUpdaterDialogComponent>) {
+  constructor(private dialogRef: MdDialogRef<TemplateUpdaterDialogComponent>) {
   }
 
   public onOk(): void {
