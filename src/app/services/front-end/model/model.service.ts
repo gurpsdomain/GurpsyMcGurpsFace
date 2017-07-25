@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../back-end/storage/storage.service';
-import 'rxjs/add/operator/toPromise';
 import {Template} from '../../../models/sheet/template/template.model';
 import {JsonConvert} from 'json2typescript';
 import {Sheet} from '../../../models/sheet/model/sheet.model';
@@ -14,13 +13,22 @@ export class ModelService {
   private _editMode = false;
   private editModeChangeSource = new Subject<boolean>();
   private modelChangeSource = new Subject<Sheet>();
+  private newModelLoadedChangeSource = new Subject<Sheet>();
 
   /**
-   * Register to this observable to be notified when the template has changed.
+   * Register to this observable to be notified when the model has changed. This is most
+   * likely due to a change of the template, and consequently update of the model.
    *
    * @type Observable
    */
   public modelChange$ = this.modelChangeSource.asObservable();
+
+  /**
+   * Register to this observable to be notified when a new model has been loaded.
+   *
+   * @type Observable
+   */
+  public newModelLoadedChange$ = this.newModelLoadedChangeSource.asObservable();
 
   /**
    * Register to this observable to be notified when the edit mode has changed.
@@ -31,16 +39,6 @@ export class ModelService {
 
   constructor(private storageService: StorageService) {
     this.initSheet();
-  }
-
-  /**
-   * Set a new Template.
-   *
-   * @param {Template} The new Template to set
-   */
-  public setNewTemplate(template: Template): void {
-    this.loadTemplate(template, true);
-
   }
 
   /**
@@ -79,15 +77,17 @@ export class ModelService {
   /**
    *
    * @param {Template} template
-   * @param {Boolean} true if this is a new template, false if it comes from local storage
+   * @param {Boolean} true if this is a new template, false if it comes from local storage or is
+   * reload of the current template/model.
    */
   public loadTemplate(template: Template, isNew: boolean): void {
 
-    this.changeUpdateModel(template);
+    this.setTemplate(template);
 
-    this.changeModel(this.transform(template))
+    this.setModel(this.createModel(template))
 
     if (isNew) {
+      this.newModelLoadedChangeSource.next(this.model);
       this.storageService.storeTemplate(template);
     }
   }
@@ -147,28 +147,19 @@ export class ModelService {
   private loadSheetFromStorage(): void {
     this.storageService.getCurrentSheet()
       .then(sheet => this.loadStoredSheet(sheet))
-      .catch(any => this.clearModel());
+      .catch(any => this.setModel(undefined));
   }
 
-  private clearModel(): void {
-    this.changeModel(undefined);
-  }
-
-  private changeUpdateModel(template: Template): void {
+  private setTemplate(template: Template): void {
     this.template = template;
   }
 
-  private changeModel(sheet: Sheet): void {
-    this.model = sheet;
-    this.notifyListeners();
-  }
-
-  private notifyListeners(): void {
+  private setModel(model: Sheet): void {
+    this.model = model;
     this.modelChangeSource.next(this.model);
   }
 
-  private transform(template: Template): Sheet {
-    const sheet: Sheet = new Sheet(template);
-    return sheet;
+  private createModel(template: Template): Sheet {
+    return new Sheet(template);
   }
 }

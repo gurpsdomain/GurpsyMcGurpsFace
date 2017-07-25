@@ -1,21 +1,21 @@
-<md-dialog-content *ngIf="model"
+<md-dialog-content *ngIf="template"
                    class="flex-container"
                    fxLayout="column"
                    fxLayoutAlign="space-between stretch">
   <md-input-container class="flex-item">
-    <input mdInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="model.name" required>
+    <input mdInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="template.name" required>
     <md-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</md-error>
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="{{'SHEET.IDENTITY.TITLE'| translate}}" [(ngModel)]="model.title">
+    <input mdInput placeholder="{{'SHEET.IDENTITY.TITLE'| translate}}" [(ngModel)]="template.title">
   </md-input-container>
   <md-input-container class="flex-item">
-    <input mdInput placeholder="{{'SHEET.IDENTITY.RELIGION'| translate}}" [(ngModel)]="model.religion">
+    <input mdInput placeholder="{{'SHEET.IDENTITY.RELIGION'| translate}}" [(ngModel)]="template.religion">
   </md-input-container>
 </md-dialog-content>
 
-<md-dialog-actions *ngIf="model" align="end">
-  <button md-button color="primary" [disabled]="!model.name || model.name.trim() === ''" (click)="onOk()">
+<md-dialog-actions *ngIf="template" align="end">
+  <button md-button color="primary" [disabled]="!template.name || template.name.trim() === ''" (click)="onOk()">
     {{'DIALOG.OK'| translate}}
   </button>
   <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>

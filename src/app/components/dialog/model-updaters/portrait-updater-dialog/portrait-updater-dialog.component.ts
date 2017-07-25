@@ -1,6 +1,5 @@
-import {Component, ViewChild, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CropperSettings, ImageCropperComponent} from 'ng2-img-cropper';
-import {MdDialogRef} from '@angular/material';
 import {ModelUpdaterDialogComponent} from '../model-updater-dialog.component';
 
 @Component({
