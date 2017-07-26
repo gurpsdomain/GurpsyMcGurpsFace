@@ -65,7 +65,6 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
 
     this.initLibrary();
     this.initSheetChangeListener();
-    this.initEditMode();
     this.initTheme();
   }
 
@@ -160,11 +159,6 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
    */
   public onShowLibrary(show: boolean): void {
     this.showLibrary = show;
-  }
-
-  private initEditMode(): void {
-    this.modelService.getEditMode().then(editMode => this.editMode = editMode);
-    this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
   }
 
   private initLibrary(): void {

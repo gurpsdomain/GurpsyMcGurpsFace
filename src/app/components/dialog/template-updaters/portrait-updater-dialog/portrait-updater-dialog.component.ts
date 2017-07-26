@@ -56,14 +56,14 @@ export class PortraitUpdaterDialogComponent extends TemplateUpdaterDialogCompone
 
   public setFile(file: File): void {
 
-    const myReader: FileReader = new FileReader();
+    const fileReader: FileReader = new FileReader();
     const that = this;
-    myReader.onloadend = function (loadEvent: any) {
+    fileReader.onloadend = function (loadEvent: any) {
       const image: any = new Image();
       image.src = loadEvent.target.result;
       that.cropper.setImage(image);
     };
 
-    myReader.readAsDataURL(file);
+    fileReader.readAsDataURL(file);
   }
 }

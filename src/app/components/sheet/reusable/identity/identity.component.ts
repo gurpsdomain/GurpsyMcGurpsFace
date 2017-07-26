@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
-import {ModelUpdatingComponent} from '../../../model-updating.component';
 import {IdentityUpdaterComponent} from '../../../dialog/template-updaters/identity-updater/identity-updater.component';
-import {GurpsyComponent} from '../../../../gurpsy.component';
-import {MdDialogRef} from '@angular/material';
+import {TemplateUpdatingComponent} from '../../../template-updating.component';
 
 @Component({
   selector: 'gurpsy-identity',
@@ -11,22 +9,9 @@ import {MdDialogRef} from '@angular/material';
     '../../sheet.component.scss'
   ]
 })
-export class IdentityComponent extends ModelUpdatingComponent {
+export class IdentityComponent extends TemplateUpdatingComponent<IdentityUpdaterComponent> {
 
-  private identityDialogRef: MdDialogRef<IdentityUpdaterComponent>;
-
-  public openDialog(): void {
-    this.identityDialogRef = this.dialog.open(IdentityUpdaterComponent, {
-      disableClose: false,
-      width: GurpsyComponent.DIALOG_WIDTH
-    });
-
-    this.identityDialogRef.componentInstance.template = this.template;
-
-    this.identityDialogRef.afterClosed().subscribe(template => {
-        this.updateTemplate(template);
-        this.identityDialogRef = null
-      }
-    );
+  protected setComponentType(): void {
+    this.dialogType = IdentityUpdaterComponent;
   }
 }

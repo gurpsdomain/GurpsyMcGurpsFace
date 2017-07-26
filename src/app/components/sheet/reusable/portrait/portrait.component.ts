@@ -1,8 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {PortraitUpdaterDialogComponent} from '../../../dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
-import {ModelUpdatingComponent} from '../../../model-updating.component';
-import {MdDialogRef} from '@angular/material';
-import {GurpsyComponent} from '../../../../gurpsy.component';
+import {TemplateUpdatingComponent} from '../../../template-updating.component';
 
 @Component({
   selector: 'gurpsy-portrait',
@@ -11,12 +9,11 @@ import {GurpsyComponent} from '../../../../gurpsy.component';
     'portrait.component.scss'
   ]
 })
-export class PortraitComponent extends ModelUpdatingComponent {
+export class PortraitComponent extends TemplateUpdatingComponent<PortraitUpdaterDialogComponent> {
 
   @ViewChild('inputFile') nativeInputFile: ElementRef;
 
   private ALLOWED_FILE_EXTENSIONS = /(\.jpg|\.jpeg|\.gif|\.png)$/i;
-  private portraitDialogRef: MdDialogRef<PortraitUpdaterDialogComponent>;
 
   public updateRequested(): void {
     this.nativeInputFile.nativeElement.click();
@@ -30,20 +27,13 @@ export class PortraitComponent extends ModelUpdatingComponent {
     }
   }
 
-  public openDialog(file: File): void {
-    this.portraitDialogRef = this.dialog.open(PortraitUpdaterDialogComponent, {
-      disableClose: false,
-      width: GurpsyComponent.DIALOG_WIDTH
-    });
+  protected addDataToDialog(data?: any) {
+    this.dialogRef.componentInstance.setFile(data);
+    super.addDataToDialog();
+  }
 
-    this.portraitDialogRef.componentInstance.template = this.template;
-    this.portraitDialogRef.componentInstance.setFile(file);
-
-    this.portraitDialogRef.afterClosed().subscribe(template => {
-        this.updateTemplate(template);
-        this.portraitDialogRef = null
-      }
-    );
+  protected setComponentType(): void {
+    this.dialogType = PortraitUpdaterDialogComponent;
   }
 
   private isValid(file: File): boolean {

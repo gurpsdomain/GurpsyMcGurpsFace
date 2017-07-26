@@ -59,6 +59,7 @@ import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-load
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
 import {IdentityUpdaterComponent} from './components/dialog/template-updaters/identity-updater/identity-updater.component';
 import {TemplateUpdaterDialogComponent} from './components/dialog/template-updaters/template-updater-dialog.component';
+import {TemplateUpdatingComponent} from './components/template-updating.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -101,6 +102,7 @@ export function HttpLoaderFactory(http: Http) {
     SideNavigationComponent,
     SkillsComponent,
     SpellsComponent,
+    TemplateUpdatingComponent,
     WeightPipe,
     PortraitUpdaterDialogComponent,
     ModelReadingComponent,

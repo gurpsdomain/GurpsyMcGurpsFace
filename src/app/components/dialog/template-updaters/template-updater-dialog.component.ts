@@ -8,6 +8,7 @@ import {Template} from '../../../models/sheet/template/template.model';
 export class TemplateUpdaterDialogComponent {
 
   template: Template;
+  data: any;
 
   constructor(private dialogRef: MdDialogRef<TemplateUpdaterDialogComponent>) {
   }
