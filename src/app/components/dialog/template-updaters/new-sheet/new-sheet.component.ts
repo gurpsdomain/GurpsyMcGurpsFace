@@ -4,8 +4,7 @@ import {TemplateUpdaterDialogComponent} from '../template-updater-dialog.compone
 
 @Component({
   templateUrl: './new-sheet.component.html',
-  styleUrls: ['new-sheet.component.scss'],
-  providers: [TemplateFactoryService]
+  styleUrls: []
 })
 export class NewSheetComponent extends TemplateUpdaterDialogComponent {
 }

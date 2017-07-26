@@ -60,6 +60,8 @@ import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet
 import {IdentityUpdaterComponent} from './components/dialog/template-updaters/identity-updater/identity-updater.component';
 import {TemplateUpdaterDialogComponent} from './components/dialog/template-updaters/template-updater-dialog.component';
 import {TemplateUpdatingComponent} from './components/template-updating.component';
+// tslint:disable-next-line max-line-length
+import {PlayerInformationUpdaterComponent} from './components/dialog/template-updaters/player-information-updater/player-information-updater.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -94,6 +96,7 @@ export function HttpLoaderFactory(http: Http) {
     PdfViewerComponent,
     PortraitComponent,
     PlayerInformationComponent,
+    PlayerInformationUpdaterComponent,
     PointsComponent,
     SheetBodyComponent,
     SheetComponent,
@@ -140,6 +143,7 @@ export function HttpLoaderFactory(http: Http) {
     NewSheetComponent,
     OpenSheetDialogComponent,
     SettingsDialogComponent,
+    PlayerInformationUpdaterComponent,
     PortraitUpdaterDialogComponent
   ],
   bootstrap: [GurpsyComponent]

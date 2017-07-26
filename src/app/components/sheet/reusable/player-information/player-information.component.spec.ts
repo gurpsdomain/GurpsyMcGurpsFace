@@ -9,6 +9,7 @@ import {SettingsStorageDelegate} from '../../../../services/back-end/storage/del
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
 ////////  SPECS  /////////////
 describe('PlayerInformationComponent', function () {
@@ -21,6 +22,7 @@ describe('PlayerInformationComponent', function () {
         PlayerInformationComponent
       ],
       imports: [
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [

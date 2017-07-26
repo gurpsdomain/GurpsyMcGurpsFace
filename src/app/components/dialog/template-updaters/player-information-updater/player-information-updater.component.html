@@ -1,0 +1,23 @@
+<md-dialog-content *ngIf="template"
+                   class="flex-container"
+                   fxLayout="column"
+                   fxLayoutAlign="space-between stretch">
+  <md-input-container class="flex-item">
+    <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.PLAYER'| translate}}" [(ngModel)]="template.player"
+           required>
+    <md-error>{{'MESSAGE.ERROR.REQUIRED_PLAYER'| translate}}</md-error>
+  </md-input-container>
+  <md-input-container class="flex-item">
+    <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.CAMPAIGN'| translate}}" [(ngModel)]="template.campaign">
+  </md-input-container>
+  <md-input-container class="flex-item">
+    <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.CREATED_ON'| translate}}" [(ngModel)]="template.createdOn">
+  </md-input-container>
+</md-dialog-content>
+
+<md-dialog-actions *ngIf="template" align="end">
+  <button md-button color="primary" [disabled]="!template.player || template.player.trim() === ''" (click)="onOk()">
+    {{'DIALOG.OK'| translate}}
+  </button>
+  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
+</md-dialog-actions>
