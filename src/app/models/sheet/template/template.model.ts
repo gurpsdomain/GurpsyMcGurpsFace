@@ -9,6 +9,8 @@ import {Advantage} from './advantage.model';
 @JsonObject
 export class Template {
 
+  id: string;
+
   @JsonProperty('portrait', String, true)
   portrait: string;
 
