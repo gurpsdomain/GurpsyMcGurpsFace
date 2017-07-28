@@ -1,5 +1,5 @@
-import {PlayerInformation} from './player-information.model';
-import {Identity} from './identity.model';
+import {PlayerInformation} from './player-information/player-information.model';
+import {Identity} from './identity/identity.model';
 import {Description} from './description.model';
 import {Template} from '../template/template.model';
 
