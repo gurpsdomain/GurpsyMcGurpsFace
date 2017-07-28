@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {Identity} from './identity.model';
-import {Template} from '../../template/template.model';
+import {Template} from '../../../template/template.model';
 
 
 describe('Model Object Identity', () => {

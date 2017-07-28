@@ -1,4 +1,4 @@
-import {Template} from '../../template/template.model';
+import {Template} from '../../../template/template.model';
 
 export class Identity {
 

@@ -1,9 +1,9 @@
 import {TestBed} from '@angular/core/testing';
-import {Template} from '../../template/template.model';
+import {Template} from '../../../template/template.model';
 import {PlayerInformation} from './player-information.model';
 
 
-describe('Model Object Player Information', () => {
+describe('Model Object PlayerInformation', () => {
 
   const PLAYER_INFORMATION_PLAYER = 'Daan van Berkel';
   const PLAYER_INFORMATION_CAMPAIGN = 'Paul\'s total party kill';

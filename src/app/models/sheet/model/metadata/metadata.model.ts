@@ -1,7 +1,7 @@
 import {PlayerInformation} from './player-information/player-information.model';
 import {Identity} from './identity/identity.model';
-import {Description} from './description.model';
-import {Template} from '../template/template.model';
+import {Description} from './description/description.model';
+import {Template} from '../../template/template.model';
 
 export class MetaData {
 

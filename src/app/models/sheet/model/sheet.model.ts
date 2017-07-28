@@ -4,7 +4,7 @@ import {Skill} from './skill.model';
 import {Spell} from './spell.model';
 import {Equipment} from './equipment.model';
 import {Note} from './note.model';
-import {MetaData} from './metadata.model';
+import {MetaData} from './metadata/metadata.model';
 import {Points} from './points.model';
 import {Attributes} from './attributes.model';
 import {SecondaryCharacteristics} from './secondary-characteristics.model';
