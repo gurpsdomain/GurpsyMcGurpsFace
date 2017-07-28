@@ -13,7 +13,7 @@ import {PageReferenceService} from './services/front-end/page-reference/page-ref
 import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
 import {ModelUpdatingComponent} from './components/model-updating.component';
-import {TemplateFactoryService} from './factories/model/template-factory.service';
+import {TemplateFactoryService} from './factories/template/template-factory.service';
 
 @Component({
   selector: 'gurpsy-root',
