@@ -15,7 +15,7 @@ export class DamageResistance {
   neck: string;
   vitals: string;
 
-  constructor(updateSheet: Template) {
+  constructor(template: Template) {
     this.eye = undefined;
     this.skull = undefined;
     this.face = undefined;

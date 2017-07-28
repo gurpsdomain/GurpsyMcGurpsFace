@@ -8,7 +8,7 @@ export class Points {
   spells: number;
   unspent: number;
 
-  constructor(updateSheet: Template) {
+  constructor(template: Template) {
     this.total = undefined;
     this.advantages = undefined;
     this.disadvantages = undefined;

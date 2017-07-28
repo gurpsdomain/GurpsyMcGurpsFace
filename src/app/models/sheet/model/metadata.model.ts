@@ -9,9 +9,9 @@ export class MetaData {
   identity: Identity;
   description: Description;
 
-  constructor(updateSheet: Template) {
-    this.playerInformation = new PlayerInformation(updateSheet);
-    this.identity = new Identity(updateSheet);
-    this.description = new Description(updateSheet);
+  constructor(template: Template) {
+    this.playerInformation = new PlayerInformation(template);
+    this.identity = new Identity(template);
+    this.description = new Description(template);
   }
 }

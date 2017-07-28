@@ -6,7 +6,7 @@ export class Attributes {
   health: number;
   intelligence: number;
 
-  constructor(updateSheet: Template) {
+  constructor(template: Template) {
     this.strength = 10;
     this.dexterity = 10;
     this.health = 10;

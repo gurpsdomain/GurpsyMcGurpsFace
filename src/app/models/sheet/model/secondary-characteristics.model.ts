@@ -25,7 +25,7 @@ export class SecondaryCharacteristics {
   damageThrusting: number;
   frightCheck: number;
 
-  constructor(updateSheet: Template) {
+  constructor(template: Template) {
     this.sizeModifier = undefined;
     this.will = undefined;
     this.perception = undefined;
