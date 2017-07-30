@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ModelUpdatingComponent} from '../../../model-updating.component';
+import {ModelReadingComponent} from '../../../model-reading.component';
 
 @Component({
   selector: 'gurpsy-notes',
@@ -9,5 +9,5 @@ import {ModelUpdatingComponent} from '../../../model-updating.component';
     '../../sheet.component.scss'
   ]
 })
-export class NotesComponent extends ModelUpdatingComponent {
+export class NotesComponent extends ModelReadingComponent {
 }
