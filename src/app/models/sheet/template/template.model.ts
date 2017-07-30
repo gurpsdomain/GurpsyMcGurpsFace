@@ -9,6 +9,7 @@ import {Advantage} from './advantage.model';
 @JsonObject
 export class Template {
 
+  @JsonProperty('id', String, true)
   id: string;
 
   @JsonProperty('portrait', String, true)
@@ -93,6 +94,7 @@ export class Template {
   notes: Note[];
 
   constructor() {
+    this.id = undefined;
     this.portrait = 'assets/images/empty-portrait.png';
     this.player = '';
     this.campaign = '';
