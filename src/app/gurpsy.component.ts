@@ -166,6 +166,11 @@ export class GurpsyComponent implements OnInit {
     this.showLibrary = show;
   }
 
+  private initModelAndTemplate(): void {
+    this.fetchModelAndTemplate();
+    this.modelService.modelChange$.subscribe(any => this.fetchModelAndTemplate());
+  }
+
   private initLibrary(): void {
     this.pageReferenceService.getReferenceChange().subscribe(reference => this.showLibrary = true);
     this.showLibrary = false;
@@ -214,23 +219,29 @@ export class GurpsyComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_LIBRARY_URL));
   }
 
-  private initModelAndTemplate(): void {
-    this.fetchModelAndTemplate();
-    this.modelService.modelChange$.subscribe(any => this.fetchModelAndTemplate());
-  }
 
   private fetchModelAndTemplate(): void {
     this.modelService.getModel().then(sheet => this.setModel(sheet));
     this.modelService.getTemplate().then(template => this.setTemplate(template));
   }
 
-
   private setModel(sheet: Sheet): void {
     this.model = sheet;
-    this.titleService.setTitle(sheet.metaData.identity.name);
+
+    this.setTitle(sheet);
   }
 
   private setTemplate(template: Template): void {
     this.template = template;
+  }
+
+  private setTitle(sheet: Sheet): void {
+    if (sheet) {
+      this.titleService.setTitle(sheet.metaData.identity.name);
+    } else {
+      this.translate.get('APPLICATION').subscribe((res: string) => {
+        this.titleService.setTitle(res);
+      });
+    }
   }
 }
