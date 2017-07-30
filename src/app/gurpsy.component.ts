@@ -6,14 +6,14 @@ import {ModelService} from './services/front-end/model/model.service';
 import {AboutDialogComponent} from './components/dialog/menu/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/menu/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/back-end/logging/logging.service';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, Title} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
-import {ModelUpdatingComponent} from './components/model-updating.component';
 import {TemplateFactoryService} from './factories/template/template-factory.service';
+import {Template} from './models/sheet/template/template.model';
 
 @Component({
   selector: 'gurpsy-root',
@@ -21,7 +21,7 @@ import {TemplateFactoryService} from './factories/template/template-factory.serv
   styleUrls: ['./gurpsy.component.scss'],
   providers: [TemplateFactoryService]
 })
-export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
+export class GurpsyComponent implements OnInit {
 
   public static DIALOG_WIDTH = '400px';
   public static SNACKBAR_DURATION_TIME = 4000;
@@ -39,6 +39,8 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
   private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
   private newSheetDialogRef: MdDialogRef<NewSheetComponent>;
 
+  public model: Sheet;
+  public template: Template;
   public editMode: boolean;
   public showLibrary: boolean;
   public theme: string;
@@ -53,16 +55,16 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
               private iconRegistry: MdIconRegistry,
               private sanitizer: DomSanitizer,
               private overlayContainer: OverlayContainer,
-              private modelFactoryService: TemplateFactoryService) {
+              private modelFactoryService: TemplateFactoryService,
+              private titleService: Title) {
 
-    super(dialog, modelService, loggingService);
+    this.model = new Sheet(new Template());
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
 
   public ngOnInit(): void {
-    super.ngOnInit();
-
+    this.initModelAndTemplate();
     this.initLibrary();
     this.initSheetChangeListener();
     this.initTheme();
@@ -80,7 +82,10 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
     this.newSheetDialogRef.componentInstance.template = this.modelFactoryService.createTemplate();
 
     this.newSheetDialogRef.afterClosed().subscribe(template => {
-        this.updateTemplate(template);
+        if (template) {
+          this.template = template;
+          this.modelService.updateCurrentTemplate(this.template);
+        }
         this.newSheetDialogRef = null
       }
     );
@@ -207,5 +212,25 @@ export class GurpsyComponent extends ModelUpdatingComponent implements OnInit {
     iconRegistry.addSvgIcon(
       GurpsyComponent.ICON_LIBRARY_NAME,
       sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_LIBRARY_URL));
+  }
+
+  private initModelAndTemplate(): void {
+    this.fetchModelAndTemplate();
+    this.modelService.modelChange$.subscribe(any => this.fetchModelAndTemplate());
+  }
+
+  private fetchModelAndTemplate(): void {
+    this.modelService.getModel().then(sheet => this.setModel(sheet));
+    this.modelService.getTemplate().then(template => this.setTemplate(template));
+  }
+
+
+  private setModel(sheet: Sheet): void {
+    this.model = sheet;
+    this.titleService.setTitle(sheet.metaData.identity.name);
+  }
+
+  private setTemplate(template: Template): void {
+    this.template = template;
   }
 }

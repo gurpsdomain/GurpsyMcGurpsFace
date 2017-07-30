@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
-import {TestBed, ComponentFixture} from '@angular/core/testing';
-import {TranslateService, TranslateModule} from '@ngx-translate/core';
+import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';
@@ -39,17 +39,28 @@ import {BookViewerComponent} from './components/book-viewer/book-viewer.componen
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileInputComponent} from './components/generic/file-input/file-input.component';
 import {GurpsyMaterialModule} from './modules/material.module';
-import {Http, HttpModule, BaseRequestOptions} from '@angular/http';
+import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {WeightPipe} from './pipes/weight.pipe';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {Template} from './models/sheet/template/template.model';
+import {Sheet} from './models/sheet/model/sheet.model';
+import {Title} from '@angular/platform-browser';
 
 describe('GurpsyComponent', () => {
   let component: GurpsyComponent;
   let fixture: ComponentFixture<GurpsyComponent>;
 
-  beforeEach(() => {
+  let modelService: ModelService;
+  let titleService: Title;
+
+  const CHARACTER_NAME = 'Dai Blackthorn';
+
+  let template: Template;
+  let sheet: Sheet;
+
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AdvantagesDisadvantagesComponent,
@@ -109,16 +120,50 @@ describe('GurpsyComponent', () => {
       schemas: [
         NO_ERRORS_SCHEMA
       ]
-    });
-  });
+    })
+      .compileComponents();
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(GurpsyComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    modelService = fixture.debugElement.injector.get(ModelService);
+    titleService = fixture.debugElement.injector.get(Title);
+
+    template = new Template();
+    sheet = new Sheet(template);
+    sheet.metaData.identity.name = CHARACTER_NAME;
+
+    spyOn(modelService, 'getModel')
+      .and.returnValue(Promise.resolve(sheet));
+    spyOn(modelService, 'getTemplate')
+      .and.returnValue(Promise.resolve(template));
+    spyOn(titleService, 'setTitle');
   });
 
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a template set after component is initialized', fakeAsync(() => {
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(component.template).toBe(template);
+  }));
+
+  it('should have a model set after component is initialised', fakeAsync(() => {
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(component.model).toBe(sheet);
+  }));
+
+  it('should have called setTitle() on the TitleService after the Sheet has been set on ngOnInit', fakeAsync(() => {
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(titleService.setTitle).toHaveBeenCalledWith(CHARACTER_NAME);
+  }));
 });
