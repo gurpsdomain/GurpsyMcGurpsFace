@@ -8,6 +8,7 @@ describe('Model Object PlayerInformation', () => {
   const PLAYER_INFORMATION_PLAYER = 'Daan van Berkel';
   const PLAYER_INFORMATION_CAMPAIGN = 'Paul\'s total party kill';
   const PLAYER_INFORMATION_CREATED_ON = new Date();
+  const PLAYER_INFORMATION_LAST_MODIFED = new Date();
 
   let template: Template;
 
@@ -43,6 +44,14 @@ describe('Model Object PlayerInformation', () => {
     const playerInformation = new PlayerInformation(template);
 
     expect(playerInformation.createdOn).toEqual(PLAYER_INFORMATION_CREATED_ON);
+  });
+
+  it('should contain the lastModified date from the template', () => {
+    template.lastModified = PLAYER_INFORMATION_LAST_MODIFED;
+
+    const playerInformation = new PlayerInformation(template);
+
+    expect(playerInformation.lastModified).toEqual(PLAYER_INFORMATION_LAST_MODIFED);
   });
 
 })

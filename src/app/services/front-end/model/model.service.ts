@@ -93,6 +93,7 @@ export class ModelService {
    * @param {Template} The current template.
    */
   public updateCurrentTemplate(template: Template): void {
+    template.lastModified = new Date();
     this.loadTemplate(template, true);
   }
 

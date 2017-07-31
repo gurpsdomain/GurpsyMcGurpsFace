@@ -25,6 +25,9 @@ export class Template {
   @JsonProperty('createdOn', DateConverter, true)
   createdOn: Date;
 
+  @JsonProperty('lastModified', DateConverter, true)
+  lastModified: Date;
+
   @JsonProperty('name', String, true)
   name: string;
 
@@ -100,6 +103,7 @@ export class Template {
     this.player = '';
     this.campaign = '';
     this.createdOn = undefined;
+    this.lastModified = undefined;
     this.name = '';
     this.title = '';
     this.religion = '';
