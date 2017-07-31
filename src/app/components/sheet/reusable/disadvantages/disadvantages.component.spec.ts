@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {DisadvantagesComponent} from './disadvantages.component';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -11,6 +10,7 @@ import {PageReferenceComponent} from '../../../generic/page-reference/page-refer
 import {HttpModule} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 describe('DisadvantagesComponent', () => {
   let component: DisadvantagesComponent;
@@ -30,7 +30,7 @@ describe('DisadvantagesComponent', () => {
         SettingsService,
         SettingsStorageDelegate,
         LoggingService,
-        ModelService,
+        SheetService,
         StorageService,
         SheetStorageDelegate
       ]

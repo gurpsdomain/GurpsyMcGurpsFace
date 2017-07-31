@@ -8,7 +8,7 @@
         <td>{{ 'SHEET.SKILLS.PTS' | translate }}</td>
         <td>{{ 'SHEET.SKILLS.REF' | translate }}</td>
       </tr>
-      <tr *ngFor="let skill of model.skills;">
+      <tr *ngFor="let skill of sheet.skills;">
         <td>{{skill.name}}</td>
         <td>{{skill.points}}</td>
         <td>{{skill.controllingAttribute}}{{skill.level}}</td>

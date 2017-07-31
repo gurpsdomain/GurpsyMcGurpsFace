@@ -14,7 +14,6 @@ import {PointsComponent} from './components/sheet/reusable/points/points.compone
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {ModelService} from './services/front-end/model/model.service';
 import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
@@ -47,12 +46,13 @@ import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {Template} from './models/sheet/template/template.model';
 import {Sheet} from './models/sheet/model/sheet.model';
 import {Title} from '@angular/platform-browser';
+import {SheetService} from './services/front-end/sheet/sheet.service';
 
 describe('GurpsyComponent', () => {
   let component: GurpsyComponent;
   let fixture: ComponentFixture<GurpsyComponent>;
 
-  let modelService: ModelService;
+  let modelService: SheetService;
   let titleService: Title;
 
   const CHARACTER_NAME = 'Dai Blackthorn';
@@ -114,7 +114,7 @@ describe('GurpsyComponent', () => {
         PageReferenceService,
         StorageService,
         SheetStorageDelegate,
-        ModelService,
+        SheetService,
         SheetBodyService
       ],
       schemas: [
@@ -128,14 +128,14 @@ describe('GurpsyComponent', () => {
     fixture = TestBed.createComponent(GurpsyComponent);
     component = fixture.componentInstance;
 
-    modelService = fixture.debugElement.injector.get(ModelService);
+    modelService = fixture.debugElement.injector.get(SheetService);
     titleService = fixture.debugElement.injector.get(Title);
 
     template = new Template();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;
 
-    spyOn(modelService, 'getModel')
+    spyOn(modelService, 'getSheet')
       .and.returnValue(Promise.resolve(sheet));
     spyOn(modelService, 'getTemplate')
       .and.returnValue(Promise.resolve(template));

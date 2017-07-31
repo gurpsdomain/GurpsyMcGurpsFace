@@ -5,7 +5,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {PortraitComponent} from '../../../reusable/portrait/portrait.component';
 import {PointsComponent} from '../../../reusable/points/points.component';
 import {DescriptionComponent} from '../../../reusable/description/description.component';
-import {ModelService} from '../../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -19,6 +18,7 @@ import {SettingsService} from '../../../../../services/front-end/settings/settin
 import {LoggingService} from '../../../../../services/back-end/logging/logging.service';
 import {WeightPipe} from '../../../../../pipes/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../../modules/material.module';
+import {SheetService} from '../../../../../services/front-end/sheet/sheet.service';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -43,7 +43,7 @@ describe('GeneralComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        ModelService,
+        SheetService,
         SettingsService,
         LoggingService,
         StorageService,

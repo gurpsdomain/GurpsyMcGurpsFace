@@ -10,10 +10,8 @@ import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates
 import {SheetStorageDelegate} from '../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
-import {ModelService} from '../../services/front-end/model/model.service';
-import {MockBackend} from '@angular/http/testing';
-import {BaseRequestOptions, Http} from '@angular/http';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
+import {SheetService} from '../../services/front-end/sheet/sheet.service';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -31,7 +29,7 @@ describe('SideNavigationComponent', () => {
       providers: [
         SettingsStorageDelegate,
         LoggingService,
-        ModelService,
+        SheetService,
         SettingsService,
         SettingsStorageDelegate,
         SheetBodyService,

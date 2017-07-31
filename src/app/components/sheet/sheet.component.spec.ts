@@ -9,7 +9,6 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
-import {ModelService} from '../../services/front-end/model/model.service';
 import {StorageService} from '../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -36,6 +35,7 @@ import {HttpModule} from '@angular/http';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {WeightPipe} from '../../pipes/weight.pipe';
 import {GurpsyMaterialModule} from '../../modules/material.module';
+import {SheetService} from '../../services/front-end/sheet/sheet.service';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -77,7 +77,7 @@ describe('SheetComponent', function () {
       ],
       providers: [
         SettingsService,
-        ModelService,
+        SheetService,
         LoggingService,
         StorageService,
         SettingsStorageDelegate,

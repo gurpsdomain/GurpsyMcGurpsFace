@@ -6,7 +6,7 @@
         <td>{{ 'SHEET.ADVANTAGES.PTS' | translate }}</td>
         <td>{{ 'SHEET.ADVANTAGES.REF' | translate }}</td>
       </tr>
-      <tr *ngFor="let disadvantage of model.disadvantages;">
+      <tr *ngFor="let disadvantage of sheet.disadvantages;">
         <td>{{disadvantage.name}}</td>
         <td>{{disadvantage.points}}</td>
         <td>

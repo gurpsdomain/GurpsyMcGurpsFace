@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ModelReadingComponent} from '../../../model-reading.component';
+import {SheetReadingComponent} from '../../../sheet-reading.component';
 
 @Component({
   selector: 'gurpsy-disadvantages',
@@ -8,5 +8,5 @@ import {ModelReadingComponent} from '../../../model-reading.component';
     '../../sheet.component.scss'
   ]
 })
-export class DisadvantagesComponent extends ModelReadingComponent {
+export class DisadvantagesComponent extends SheetReadingComponent {
 }

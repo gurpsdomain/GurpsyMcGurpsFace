@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../models/sheet/model/sheet.model';
-import {ModelService} from '../services/front-end/model/model.service';
 import {ComponentType, MdDialog, MdDialogRef} from '@angular/material';
 import {Template} from '../models/sheet/template/template.model';
 import {TemplateUpdaterDialogComponent} from './dialog/template-updaters/template-updater-dialog.component';
 import {GurpsyComponent} from '../gurpsy.component';
+import {SheetService} from '../services/front-end/sheet/sheet.service';
 
 @Component({
   template: ''
@@ -15,17 +15,17 @@ export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent>
   protected dialogType: ComponentType<T>;
 
   editMode: boolean;
-  model: Sheet;
+  sheet: Sheet;
   template: Template;
 
   constructor(protected dialog: MdDialog,
-              protected modelService: ModelService) {
+              protected sheetService: SheetService) {
 
-    this.model = new Sheet(new Template());
+    this.sheet = new Sheet(new Template());
   }
 
   ngOnInit(): void {
-    this.initModelAndTemplate();
+    this.initSheetAndTemplate();
     this.initEditMode();
     this.setComponentType();
   }
@@ -96,27 +96,27 @@ export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent>
   protected updateTemplate(template: Template): void {
     if (template) {
       this.template = template;
-      this.modelService.updateCurrentTemplate(this.template);
+      this.sheetService.updateTemplate(this.template);
     }
   }
 
-  private initModelAndTemplate(): void {
-    this.fetchModelAndTemplate();
-    this.modelService.modelChange$.subscribe(any => this.fetchModelAndTemplate());
+  private initSheetAndTemplate(): void {
+    this.fetchSheetAndTemplate();
+    this.sheetService.sheetUpdated$.subscribe(any => this.fetchSheetAndTemplate());
   }
 
   private initEditMode(): void {
-    this.modelService.getEditMode().then(editMode => this.editMode = editMode);
-    this.modelService.editModeChange$.subscribe(editMode => this.editMode = editMode);
+    this.sheetService.getEditMode().then(editMode => this.editMode = editMode);
+    this.sheetService.editModeChange$.subscribe(editMode => this.editMode = editMode);
   }
 
-  private fetchModelAndTemplate(): void {
-    this.modelService.getModel().then(sheet => this.setModel(sheet));
-    this.modelService.getTemplate().then(template => this.setTemplate(template));
+  private fetchSheetAndTemplate(): void {
+    this.sheetService.getSheet().then(sheet => this.setModel(sheet));
+    this.sheetService.getTemplate().then(template => this.setTemplate(template));
   }
 
   private setModel(readModel: Sheet): void {
-    this.model = readModel;
+    this.sheet = readModel;
   }
 
   private setTemplate(template: Template): void {

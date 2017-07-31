@@ -9,7 +9,6 @@ import {SpellsComponent} from '../../reusable/spells/spells.component';
 import {SkillsComponent} from '../../reusable/skills/skills.component';
 import {GeneralComponent} from './general/general.component';
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -29,6 +28,7 @@ import {PageReferenceComponent} from '../../../generic/page-reference/page-refer
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {WeightPipe} from '../../../../pipes/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
+import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -65,7 +65,7 @@ describe('SheetBodyComponent', () => {
         SettingsService,
         SettingsStorageDelegate,
         LoggingService,
-        ModelService,
+        SheetService,
         SheetBodyService,
         SheetStorageDelegate,
         StorageService

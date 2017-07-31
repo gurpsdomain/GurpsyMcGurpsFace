@@ -4,7 +4,6 @@ import {AdvantagesDisadvantagesComponent} from './advantages-disadvantages.compo
 import {TranslateModule} from '@ngx-translate/core';
 import {AdvantagesComponent} from '../../../reusable/advantages/advantages.component';
 import {DisadvantagesComponent} from '../../../reusable/disadvantages/disadvantages.component';
-import {ModelService} from '../../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -12,6 +11,7 @@ import {SheetStorageDelegate} from '../../../../../services/back-end/storage/del
 import {PageReferenceComponent} from '../../../../generic/page-reference/page-reference.component';
 import {SettingsService} from '../../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../../services/back-end/logging/logging.service';
+import {SheetService} from '../../../../../services/front-end/sheet/sheet.service';
 
 describe('AdvantagesComponent', () => {
   let component: AdvantagesDisadvantagesComponent;
@@ -29,7 +29,7 @@ describe('AdvantagesComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        ModelService,
+        SheetService,
         SettingsService,
         LoggingService,
         StorageService,

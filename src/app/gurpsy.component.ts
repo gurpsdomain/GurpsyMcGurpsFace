@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {MdDialog, MdDialogRef, MdIconRegistry, MdSnackBar, OverlayContainer} from '@angular/material';
 import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {ModelService} from './services/front-end/model/model.service';
 import {AboutDialogComponent} from './components/dialog/menu/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './components/dialog/menu/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/back-end/logging/logging.service';
@@ -14,6 +13,7 @@ import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
 import {TemplateFactoryService} from './factories/template/template-factory.service';
 import {Template} from './models/sheet/template/template.model';
+import {SheetService} from './services/front-end/sheet/sheet.service';
 
 @Component({
   selector: 'gurpsy-root',
@@ -45,7 +45,7 @@ export class GurpsyComponent implements OnInit {
   public showLibrary: boolean;
   public theme: string;
 
-  constructor(protected modelService: ModelService,
+  constructor(protected sheetService: SheetService,
               public dialog: MdDialog,
               private settingsService: SettingsService,
               public loggingService: LoggingService,
@@ -84,7 +84,7 @@ export class GurpsyComponent implements OnInit {
     this.newSheetDialogRef.afterClosed().subscribe(template => {
         if (template) {
           this.template = template;
-          this.modelService.updateCurrentTemplate(this.template);
+          this.sheetService.updateTemplate(this.template);
         }
         this.newSheetDialogRef = null
       }
@@ -98,7 +98,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onEdit(edit: boolean): void {
     this.editMode = edit;
-    this.modelService.setEditMode(edit);
+    this.sheetService.setEditMode(edit);
   }
 
   /**
@@ -168,7 +168,7 @@ export class GurpsyComponent implements OnInit {
 
   private initSheetAndTemplate(): void {
     this.fetchSheetAndTemplate();
-    this.modelService.modelChange$.subscribe(any => this.fetchSheetAndTemplate());
+    this.sheetService.sheetUpdated$.subscribe(any => this.fetchSheetAndTemplate());
   }
 
   private initLibrary(): void {
@@ -184,7 +184,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initNewSheetLoadedListener(): void {
-    this.modelService.newModelLoadedChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
+    this.sheetService.newSheetLoaded$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
   private setTheme(theme: string) {
@@ -221,8 +221,8 @@ export class GurpsyComponent implements OnInit {
 
 
   private fetchSheetAndTemplate(): void {
-    this.modelService.getModel().then(sheet => this.setSheet(sheet));
-    this.modelService.getTemplate().then(template => this.setTemplate(template));
+    this.sheetService.getSheet().then(sheet => this.setSheet(sheet));
+    this.sheetService.getTemplate().then(template => this.setTemplate(template));
   }
 
   private setSheet(sheet: Sheet): void {

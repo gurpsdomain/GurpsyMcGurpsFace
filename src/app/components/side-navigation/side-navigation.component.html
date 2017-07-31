@@ -12,11 +12,11 @@
     <div class="flex-item avatar-item">
       <gurpsy-avatar [width]="'48px'" [height]="'48px'"></gurpsy-avatar>
     </div>
-    <div *ngIf="model" class="flex-item player">
-      {{model.metaData.playerInformation.player}}
+    <div *ngIf="sheet" class="flex-item player">
+      {{sheet.metaData.playerInformation.player}}
     </div>
-    <div *ngIf="model" class="flex-item name">
-      {{model.metaData.identity.name}}
+    <div *ngIf="sheet" class="flex-item name">
+      {{sheet.metaData.identity.name}}
     </div>
   </div>
   <div class="sideNavigationContent flex-item"

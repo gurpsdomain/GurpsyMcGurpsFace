@@ -13,7 +13,6 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
 import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
 import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {ModelService} from './services/front-end/model/model.service';
 import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
@@ -51,7 +50,7 @@ import {GurpsyAngularModule} from './modules/angular.module';
 import {WeightPipe} from './pipes/weight.pipe';
 // tslint:disable-next-line max-line-length
 import {PortraitUpdaterDialogComponent} from './components/dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
-import {ModelReadingComponent} from './components/model-reading.component';
+import {SheetReadingComponent} from './components/sheet-reading.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './components/generic/avatar/avatar.component';
 import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-loaded.component';
@@ -61,6 +60,7 @@ import {TemplateUpdaterDialogComponent} from './components/dialog/template-updat
 import {TemplateUpdatingComponent} from './components/template-updating.component';
 // tslint:disable-next-line max-line-length
 import {PlayerInformationUpdaterComponent} from './components/dialog/template-updaters/player-information-updater/player-information-updater.component';
+import {SheetService} from './services/front-end/sheet/sheet.service';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -107,7 +107,7 @@ export function HttpLoaderFactory(http: Http) {
     TemplateUpdatingComponent,
     WeightPipe,
     PortraitUpdaterDialogComponent,
-    ModelReadingComponent,
+    SheetReadingComponent,
     TemplateUpdaterDialogComponent,
     AvatarComponent,
     NoSheetLoadedComponent,
@@ -131,7 +131,7 @@ export function HttpLoaderFactory(http: Http) {
     LoggingService,
     StorageService,
     SheetStorageDelegate,
-    ModelService,
+    SheetService,
     SheetBodyService
   ],
   entryComponents: [

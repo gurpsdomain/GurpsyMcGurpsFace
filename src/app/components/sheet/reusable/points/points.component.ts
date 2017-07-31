@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ModelReadingComponent} from '../../../model-reading.component';
+import {SheetReadingComponent} from '../../../sheet-reading.component';
 
 @Component({
   selector: 'gurpsy-points',
@@ -8,5 +8,5 @@ import {ModelReadingComponent} from '../../../model-reading.component';
     'points.component.scss'
   ]
 })
-export class PointsComponent extends ModelReadingComponent {
+export class PointsComponent extends SheetReadingComponent {
 }

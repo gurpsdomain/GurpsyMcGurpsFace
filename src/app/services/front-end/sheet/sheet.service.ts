@@ -6,29 +6,29 @@ import {JsonConvert} from 'json2typescript';
 import {Sheet} from '../../../models/sheet/model/sheet.model';
 
 @Injectable()
-export class ModelService {
+export class SheetService {
   private template: Template;
-  private model: Sheet;
+  private sheet: Sheet;
 
   private _editMode = false;
   private editModeChangeSource = new Subject<boolean>();
-  private modelChangeSource = new Subject<Sheet>();
-  private newModelLoadedChangeSource = new Subject<Sheet>();
+  private sheetUpdatedSource = new Subject<Sheet>();
+  private newSheetLoadedSource = new Subject<Sheet>();
 
   /**
-   * Register to this observable to be notified when the sheet has changed. This is most
+   * Register to this observable to be notified when the sheet has been updated. This is most
    * likely due to a change of the template, and consequently update of the sheet.
    *
    * @type Observable
    */
-  public modelChange$ = this.modelChangeSource.asObservable();
+  public sheetUpdated$ = this.sheetUpdatedSource.asObservable();
 
   /**
    * Register to this observable to be notified when a new sheet has been loaded.
    *
    * @type Observable
    */
-  public newModelLoadedChange$ = this.newModelLoadedChangeSource.asObservable();
+  public newSheetLoaded$ = this.newSheetLoadedSource.asObservable();
 
   /**
    * Register to this observable to be notified when the edit mode has changed.
@@ -76,11 +76,11 @@ export class ModelService {
   public loadTemplate(template: Template, store?: boolean, isFromStorage?: boolean): void {
 
     this.setTemplate(template);
-    const model = this.createModel(template);
-    this.setModel(model)
+    const sheet = this.createSheet(template);
+    this.setSheet(sheet)
 
     if (store || isFromStorage) {
-      this.newModelLoadedChangeSource.next(this.model);
+      this.newSheetLoadedSource.next(this.sheet);
       if (store) {
         this.storageService.storeTemplate(template);
       }
@@ -88,17 +88,17 @@ export class ModelService {
   }
 
   /**
-   * Update the current Model.
+   * Update the template.
    *
-   * @param {Template} The current template.
+   * @param {Template} The updated template.
    */
-  public updateCurrentTemplate(template: Template): void {
+  public updateTemplate(template: Template): void {
     template.lastModified = new Date();
     this.loadTemplate(template, true);
   }
 
   /**
-   * Return the current template.
+   * Return the template.
    *
    * @returns {Promise<Template>}
    */
@@ -107,17 +107,17 @@ export class ModelService {
   }
 
   /**
-   * Return the current Model.
+   * Return the Sheet.
    *
    * @returns {Promise<Sheet>}
    */
-  public getModel(): Promise<Sheet> {
-    return Promise.resolve(this.model);
+  public getSheet(): Promise<Sheet> {
+    return Promise.resolve(this.sheet);
   }
 
   /**
-   * If the template is currently in edit mode. If so, it is possible
-   * to edit the Template. Concequently, this will lead to a new
+   * If the application is currently in edit mode. If so, it is possible
+   * to edit the Template. Consequently, this will lead to a new
    * Sheet.
    *
    * @param {boolean}
@@ -153,19 +153,19 @@ export class ModelService {
   private loadSheetFromStorage(): void {
     this.storageService.getCurrentSheet()
       .then(sheet => this.loadStoredSheet(sheet))
-      .catch(any => this.setModel(undefined));
+      .catch(any => this.setSheet(undefined));
   }
 
   private setTemplate(template: Template): void {
     this.template = template;
   }
 
-  private setModel(model: Sheet): void {
-    this.model = model;
-    this.modelChangeSource.next(this.model);
+  private setSheet(sheet: Sheet): void {
+    this.sheet = sheet;
+    this.sheetUpdatedSource.next(this.sheet);
   }
 
-  private createModel(template: Template): Sheet {
+  private createSheet(template: Template): Sheet {
     return new Sheet(template);
   }
 }

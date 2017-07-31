@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 import {Template} from '../../../../models/sheet/template/template.model';
+import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 @Component({
   templateUrl: './open-sheet-dialog.component.html',
   styleUrls: ['../../dialog.component.scss',
-              './open-sheet-dialog.component.scss'
+    './open-sheet-dialog.component.scss'
   ]
 })
 export class OpenSheetDialogComponent {
@@ -20,7 +20,7 @@ export class OpenSheetDialogComponent {
   private selectedPreviousSheet: Template = null;
 
   constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
-              private modelService: ModelService,
+              private modelService: SheetService,
               private storageService: StorageService) {
 
     this.initPreviouslyOpenedSheetList();

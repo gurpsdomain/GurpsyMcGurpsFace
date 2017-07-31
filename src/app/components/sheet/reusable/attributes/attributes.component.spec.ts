@@ -5,11 +5,11 @@ import {StorageService} from '../../../../services/back-end/storage/storage.serv
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpModule} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
+import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 describe('AttributesComponent', () => {
   let component: AttributesComponent;
@@ -22,7 +22,7 @@ describe('AttributesComponent', () => {
         SettingsService,
         SettingsStorageDelegate,
         LoggingService,
-        ModelService,
+        SheetService,
         SheetStorageDelegate,
         StorageService
       ],

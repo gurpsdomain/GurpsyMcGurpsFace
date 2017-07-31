@@ -2,7 +2,6 @@
 import {PlayerInformationComponent} from './player-information.component';
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {TranslateModule} from '@ngx-translate/core';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -13,13 +12,14 @@ import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {Sheet} from '../../../../models/sheet/model/sheet.model';
 import {Template} from '../../../../models/sheet/template/template.model';
 import {By} from '@angular/platform-browser';
+import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 ////////  SPECS  /////////////
 describe('PlayerInformationComponent', function () {
   let component: PlayerInformationComponent;
   let fixture: ComponentFixture<PlayerInformationComponent>;
 
-  let modelService: ModelService;
+  let modelService: SheetService;
 
   let template: Template;
   let sheet: Sheet;
@@ -43,7 +43,7 @@ describe('PlayerInformationComponent', function () {
       providers: [
         SettingsService,
         LoggingService,
-        ModelService,
+        SheetService,
         SettingsStorageDelegate,
         SheetStorageDelegate,
         StorageService
@@ -56,7 +56,7 @@ describe('PlayerInformationComponent', function () {
     fixture = TestBed.createComponent(PlayerInformationComponent);
     component = fixture.componentInstance;
 
-    modelService = fixture.debugElement.injector.get(ModelService);
+    modelService = fixture.debugElement.injector.get(SheetService);
 
     template = new Template();
     sheet = new Sheet(template);
@@ -64,7 +64,7 @@ describe('PlayerInformationComponent', function () {
     sheet.metaData.playerInformation.campaign = CAMPAIGN;
     sheet.metaData.playerInformation.createdOn = CREATED_ON;
 
-    spyOn(modelService, 'getModel')
+    spyOn(modelService, 'getSheet')
       .and.returnValue(Promise.resolve(sheet));
     spyOn(modelService, 'getTemplate')
       .and.returnValue(Promise.resolve(template));
@@ -78,7 +78,7 @@ describe('PlayerInformationComponent', function () {
     const de = fixture.debugElement.query(By.css(PLAYER_SELECTOR));
     const el = de.nativeElement;
 
-    component.model = sheet;
+    component.sheet = sheet;
 
     fixture.detectChanges();
     expect(el.textContent.trim()).toBe(PLAYER);
@@ -88,7 +88,7 @@ describe('PlayerInformationComponent', function () {
     const de = fixture.debugElement.query(By.css(CAMPAIGN_SELECTOR));
     const el = de.nativeElement;
 
-    component.model = sheet;
+    component.sheet = sheet;
 
     fixture.detectChanges();
     expect(el.textContent.trim()).toBe(CAMPAIGN);
@@ -98,7 +98,7 @@ describe('PlayerInformationComponent', function () {
     const de = fixture.debugElement.query(By.css(CREATED_ON_SELECTOR));
     const el = de.nativeElement;
 
-    component.model = sheet;
+    component.sheet = sheet;
 
     fixture.detectChanges();
 
@@ -116,6 +116,6 @@ describe('PlayerInformationComponent', function () {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    expect(component.model).toBe(sheet);
+    expect(component.sheet).toBe(sheet);
   }));
 });

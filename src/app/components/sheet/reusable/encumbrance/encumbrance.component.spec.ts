@@ -1,7 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {EncumbranceComponent} from './encumbrance.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
@@ -10,6 +9,7 @@ import {HttpModule} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {WeightPipe} from '../../../../pipes/weight.pipe';
+import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 describe('EncumbranceComponent', () => {
   let component: EncumbranceComponent;
@@ -28,7 +28,7 @@ describe('EncumbranceComponent', () => {
       providers: [
         SettingsService,
         LoggingService,
-        ModelService,
+        SheetService,
         StorageService,
         SettingsStorageDelegate,
         SheetStorageDelegate

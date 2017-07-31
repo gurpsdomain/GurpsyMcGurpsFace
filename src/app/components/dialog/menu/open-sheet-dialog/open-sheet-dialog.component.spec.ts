@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {async, TestBed} from '@angular/core/testing';
 import {OpenSheetDialogComponent} from './open-sheet-dialog.component';
-import {ModelService} from '../../../../services/front-end/model/model.service';
 import {FileInputComponent} from '../../../generic/file-input/file-input.component';
 import {MdDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
@@ -12,6 +11,7 @@ import {StorageService} from '../../../../services/back-end/storage/storage.serv
 import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {NgModule} from '@angular/core';
+import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 @NgModule({
   entryComponents: [
@@ -39,7 +39,7 @@ describe('OpenSheetDialogComponent', () => {
       ],
       providers: [
         LoggingService,
-        ModelService,
+        SheetService,
         StorageService,
         SheetStorageDelegate,
         SettingsStorageDelegate
