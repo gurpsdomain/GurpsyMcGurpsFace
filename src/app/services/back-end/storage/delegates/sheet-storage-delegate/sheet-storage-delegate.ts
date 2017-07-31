@@ -117,7 +117,8 @@ export class SheetStorageDelegate {
   }
 
   private persist(sheets: Sheets): void {
-    const jsonSheets = JSON.stringify(sheets);
+    const jsonConvert = new JsonConvert();
+    const jsonSheets = JSON.stringify(jsonConvert.serialize(sheets));
 
     localStorage.setItem(this.getStorageKey(), jsonSheets);
   }
@@ -150,12 +151,14 @@ export class SheetStorageDelegate {
   }
 
 
-  private deserialize(json): Sheets {
+  private deserialize(json: string): Sheets {
     let sheets: Sheets = new Sheets();
 
     if (json) {
       try {
-        sheets = JsonConvert.deserializeString(json, Sheets);
+        const jsonConvert = new JsonConvert();
+        const jsonObject = JSON.parse(json);
+        sheets = jsonConvert.deserializeObject(jsonObject, Sheets);
       } catch (ex) {
         this.loggingService.error('Unable to retrieve Sheets from Local Storage.', ex)
       }

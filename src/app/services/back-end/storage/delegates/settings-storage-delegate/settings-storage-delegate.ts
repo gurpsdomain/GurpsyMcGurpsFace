@@ -144,7 +144,9 @@ export class SettingsStorageDelegate {
   }
 
   private store(settings: Settings) {
-    const json = JsonConvert.serializeObject(settings);
+
+    const jsonConvert = new JsonConvert();
+    const json = JSON.stringify(jsonConvert.serialize(settings));
 
     localStorage.setItem(this.getStorageKey(), json);
     this.change(settings);
@@ -181,7 +183,8 @@ export class SettingsStorageDelegate {
     let settings: Settings = new Settings();
 
     try {
-      settings = JsonConvert.deserializeString(json, Settings);
+      const jsonConvert = new JsonConvert();
+      settings = jsonConvert.deserialize(JSON.parse(json), Settings);
     } catch (ex) {
       this.loggingService.error('Unable to retrieve Settings from Local Storage. Using default.', ex)
     }

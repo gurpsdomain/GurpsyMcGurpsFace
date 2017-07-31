@@ -52,7 +52,8 @@ export class ModelService {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
-            const template: Template = JsonConvert.deserializeString(fileReader.result, Template);
+            const jsonConvert = new JsonConvert();
+            const template: Template = jsonConvert.deserialize(JSON.parse(fileReader.result), Template);
             resolve(template);
           } else {
             reject('Could not read file');
