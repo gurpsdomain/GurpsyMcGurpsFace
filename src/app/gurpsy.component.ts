@@ -39,7 +39,7 @@ export class GurpsyComponent implements OnInit {
   private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
   private newSheetDialogRef: MdDialogRef<NewSheetComponent>;
 
-  public model: Sheet;
+  public sheet: Sheet;
   public template: Template;
   public editMode: boolean;
   public showLibrary: boolean;
@@ -58,22 +58,22 @@ export class GurpsyComponent implements OnInit {
               private modelFactoryService: TemplateFactoryService,
               private titleService: Title) {
 
-    this.model = new Sheet(new Template());
+    this.sheet = new Sheet(new Template());
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
 
   public ngOnInit(): void {
-    this.initModelAndTemplate();
+    this.initSheetAndTemplate();
+    this.initNewSheetLoadedListener();
     this.initLibrary();
-    this.initSheetChangeListener();
     this.initTheme();
   }
 
   /**
-   * Create a new updateTemplate.
+   * Create a new Sheet..
    */
-  public onNewUpdateModel(): void {
+  public onNewSheet(): void {
     this.newSheetDialogRef = this.dialog.open(NewSheetComponent, {
       width: GurpsyComponent.DIALOG_WIDTH,
       disableClose: false
@@ -102,7 +102,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Call when the TrowDice dialog should shown.
+   * Open a ThrowDice dialog.
    */
   public onOpenThrowDiceDialog(): void {
     this.diceDialogRef = this.dialog.open(DiceDialogComponent, {
@@ -116,7 +116,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Call when the AboutDialog should be shown.
+   * Open an About dialog.
    */
   public onOpenAboutDialog(): void {
     this.aboutDialogRef = this.dialog.open(AboutDialogComponent, {
@@ -130,7 +130,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Call when the OpenSheet dialog should be shown.
+   * Open the OpenSheet dialog.
    */
   public onOpenSheetDialog(): void {
     this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
@@ -144,7 +144,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Call when the SettingsDialog should be shown.
+   * Open the Settings dialog.
    */
   public onOpenSettingsDialog(): void {
     this.settingsDialogRef = this.dialog.open(SettingsDialogComponent, {
@@ -158,17 +158,17 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Call when the library should be shown.
+   * Open or close the library.
    *
-   * @param {boolean} show
+   * @param {boolean} If true, the Library is shown. Otherwise it is hidden.
    */
   public onShowLibrary(show: boolean): void {
     this.showLibrary = show;
   }
 
-  private initModelAndTemplate(): void {
-    this.fetchModelAndTemplate();
-    this.modelService.modelChange$.subscribe(any => this.fetchModelAndTemplate());
+  private initSheetAndTemplate(): void {
+    this.fetchSheetAndTemplate();
+    this.modelService.modelChange$.subscribe(any => this.fetchSheetAndTemplate());
   }
 
   private initLibrary(): void {
@@ -183,7 +183,7 @@ export class GurpsyComponent implements OnInit {
     this.settingsService.settingsChange$.subscribe(config => this.setTheme(config.theme));
   }
 
-  private initSheetChangeListener(): void {
+  private initNewSheetLoadedListener(): void {
     this.modelService.newModelLoadedChange$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
@@ -220,13 +220,13 @@ export class GurpsyComponent implements OnInit {
   }
 
 
-  private fetchModelAndTemplate(): void {
-    this.modelService.getModel().then(sheet => this.setModel(sheet));
+  private fetchSheetAndTemplate(): void {
+    this.modelService.getModel().then(sheet => this.setSheet(sheet));
     this.modelService.getTemplate().then(template => this.setTemplate(template));
   }
 
-  private setModel(sheet: Sheet): void {
-    this.model = sheet;
+  private setSheet(sheet: Sheet): void {
+    this.sheet = sheet;
 
     this.setTitle(sheet);
   }

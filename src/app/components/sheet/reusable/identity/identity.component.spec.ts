@@ -73,7 +73,7 @@ describe('IdentityComponent', function () {
     expect(component).toBeTruthy();
   });
 
-  it('should show the correct name from the sheet model', () => {
+  it('should show the correct name from the sheet sheet', () => {
     const de = fixture.debugElement.query(By.css(CHARACTER_NAME_SELECTOR));
     const el = de.nativeElement;
 
@@ -83,7 +83,7 @@ describe('IdentityComponent', function () {
     expect(el.textContent.trim()).toBe(CHARACTER_NAME);
   });
 
-  it('should show the correct title from the sheet model', () => {
+  it('should show the correct title from the sheet sheet', () => {
     const de = fixture.debugElement.query(By.css(CHARACTER_TITLE_SELECTOR));
     const el = de.nativeElement;
 
@@ -93,7 +93,7 @@ describe('IdentityComponent', function () {
     expect(el.textContent.trim()).toBe(CHARACTER_TITLE);
   });
 
-  it('should show the correct religion from the sheet model', () => {
+  it('should show the correct religion from the sheet sheet', () => {
     const de = fixture.debugElement.query(By.css(CHARACTER_RELIGION_SELECTOR));
     const el = de.nativeElement;
 
@@ -110,7 +110,7 @@ describe('IdentityComponent', function () {
     expect(component.template).toBe(template);
   }));
 
-  it('should have a model set after component is initialised', fakeAsync(() => {
+  it('should have a sheet set after component is initialised', fakeAsync(() => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();

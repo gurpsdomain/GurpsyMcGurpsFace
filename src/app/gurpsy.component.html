@@ -7,7 +7,7 @@
 
   <md-toolbar class="flex-container">
     <button md-icon-button
-            [disabled]="!model"
+            [disabled]="!sheet"
             class="flex-item"
             (click)="sidenav.toggle()">
       <md-icon>menu</md-icon>
@@ -20,7 +20,7 @@
 
     <button md-icon-button
             class="flex-item"
-            [disabled]="!model"
+            [disabled]="!sheet"
             fxShow="true"
             fxShow.xs="false"
             *ngIf="!editMode"
@@ -29,7 +29,7 @@
     </button>
     <button md-icon-button
             class="flex-item editable"
-            [disabled]="!model"
+            [disabled]="!sheet"
             fxShow="true"
             fxShow.xs="false"
             *ngIf="editMode"
@@ -44,7 +44,7 @@
         <md-icon>more_vert</md-icon>
       </button>
       <md-menu x-position="before" y-position="below" #settings="mdMenu">
-        <button md-menu-item (click)="onNewUpdateModel()">
+        <button md-menu-item (click)="onNewSheet()">
           <md-icon>portrait</md-icon>
           <span>{{ 'MENU.NEW' | translate }}</span>
         </button>
@@ -88,7 +88,7 @@
     <gurpsy-book-viewer></gurpsy-book-viewer>
   </div>
   <ng-template #elseBlock>
-    <div *ngIf="model; else noSheet">
+    <div *ngIf="sheet; else noSheet">
       <md-card>
         <gurpsy-sheet></gurpsy-sheet>
       </md-card>

@@ -16,15 +16,15 @@ export class ModelService {
   private newModelLoadedChangeSource = new Subject<Sheet>();
 
   /**
-   * Register to this observable to be notified when the model has changed. This is most
-   * likely due to a change of the template, and consequently update of the model.
+   * Register to this observable to be notified when the sheet has changed. This is most
+   * likely due to a change of the template, and consequently update of the sheet.
    *
    * @type Observable
    */
   public modelChange$ = this.modelChangeSource.asObservable();
 
   /**
-   * Register to this observable to be notified when a new model has been loaded.
+   * Register to this observable to be notified when a new sheet has been loaded.
    *
    * @type Observable
    */
@@ -70,7 +70,7 @@ export class ModelService {
    *
    * @param {Template} template
    * @param {Boolean} true if this is a new template, false if it comes from local storage or is
-   * reload of the current template/model.
+   * reload of the current template/sheet.
    */
   public loadTemplate(template: Template, store?: boolean, isFromStorage?: boolean): void {
 

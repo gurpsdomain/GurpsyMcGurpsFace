@@ -153,11 +153,11 @@ describe('GurpsyComponent', () => {
     expect(component.template).toBe(template);
   }));
 
-  it('should have a model set after component is initialised', fakeAsync(() => {
+  it('should have a sheet set after component is initialised', fakeAsync(() => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    expect(component.model).toBe(sheet);
+    expect(component.sheet).toBe(sheet);
   }));
 
   it('should have called setTitle() on the TitleService after the Sheet has been set on ngOnInit', fakeAsync(() => {

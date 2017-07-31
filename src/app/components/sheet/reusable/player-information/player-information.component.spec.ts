@@ -74,7 +74,7 @@ describe('PlayerInformationComponent', function () {
     expect(component).toBeTruthy();
   });
 
-  it('should show the correct player from the sheet model', () => {
+  it('should show the correct player from the sheet sheet', () => {
     const de = fixture.debugElement.query(By.css(PLAYER_SELECTOR));
     const el = de.nativeElement;
 
@@ -84,7 +84,7 @@ describe('PlayerInformationComponent', function () {
     expect(el.textContent.trim()).toBe(PLAYER);
   });
 
-  it('should show the correct campaign from the sheet model', () => {
+  it('should show the correct campaign from the sheet sheet', () => {
     const de = fixture.debugElement.query(By.css(CAMPAIGN_SELECTOR));
     const el = de.nativeElement;
 
@@ -94,7 +94,7 @@ describe('PlayerInformationComponent', function () {
     expect(el.textContent.trim()).toBe(CAMPAIGN);
   });
 
-  it('should show the correct createdOn from the sheet model', () => {
+  it('should show the correct createdOn from the sheet sheet', () => {
     const de = fixture.debugElement.query(By.css(CREATED_ON_SELECTOR));
     const el = de.nativeElement;
 
@@ -111,7 +111,7 @@ describe('PlayerInformationComponent', function () {
     expect(component.template).toBe(template);
   }));
 
-  it('should have a model set after component is initialized', fakeAsync(() => {
+  it('should have a sheet set after component is initialized', fakeAsync(() => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
