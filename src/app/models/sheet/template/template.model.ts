@@ -5,6 +5,7 @@ import {Spell} from './spell.model';
 import {Skill} from './skill.model';
 import {Disadvantage} from './disadvantage.model';
 import {Advantage} from './advantage.model';
+import {DateConverter} from '../../../converters/date.converter';
 
 @JsonObject
 export class Template {
@@ -21,8 +22,8 @@ export class Template {
   @JsonProperty('campaign', String, true)
   campaign: string;
 
-  @JsonProperty('createdOn', String, true)
-  createdOn: string;
+  @JsonProperty('createdOn', DateConverter, true)
+  createdOn: Date;
 
   @JsonProperty('name', String, true)
   name: string;
@@ -98,7 +99,7 @@ export class Template {
     this.portrait = 'assets/images/empty-portrait.png';
     this.player = '';
     this.campaign = '';
-    this.createdOn = '';
+    this.createdOn = undefined;
     this.name = '';
     this.title = '';
     this.religion = '';

@@ -24,4 +24,10 @@ describe('TemplateFactoryService', () => {
 
     expect(template.id).toBeDefined();
   }));
+
+  it('should set a creation date for the created template', inject([TemplateFactoryService], (service: TemplateFactoryService) => {
+    const template = service.createTemplate();
+
+    expect(template.createdOn).toBeDefined();
+  }));
 });

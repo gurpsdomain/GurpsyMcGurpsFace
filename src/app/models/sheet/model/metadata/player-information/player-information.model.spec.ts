@@ -7,7 +7,7 @@ describe('Model Object PlayerInformation', () => {
 
   const PLAYER_INFORMATION_PLAYER = 'Daan van Berkel';
   const PLAYER_INFORMATION_CAMPAIGN = 'Paul\'s total party kill';
-  const PLAYER_INFORMATION_CREATED_ON = '01-01-2001';
+  const PLAYER_INFORMATION_CREATED_ON = new Date();
 
   let template: Template;
 

@@ -4,7 +4,7 @@ export class PlayerInformation {
 
   player: string;
   campaign: string;
-  createdOn: string;
+  createdOn: Date;
 
   constructor(updateSheet: Template) {
     this.player = updateSheet.player;

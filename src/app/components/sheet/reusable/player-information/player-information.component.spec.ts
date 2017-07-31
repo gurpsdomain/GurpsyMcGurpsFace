@@ -28,7 +28,7 @@ describe('PlayerInformationComponent', function () {
   const PLAYER_SELECTOR = '.player';
   const CAMPAIGN = 'Paul\'s total party kill';
   const CAMPAIGN_SELECTOR = '.campaign';
-  const CREATED_ON = '01-01-2001';
+  const CREATED_ON = new Date();
   const CREATED_ON_SELECTOR = '.createdOn';
 
   beforeEach(async(() => {
@@ -101,7 +101,8 @@ describe('PlayerInformationComponent', function () {
     component.model = sheet;
 
     fixture.detectChanges();
-    expect(el.textContent.trim()).toBe(CREATED_ON);
+
+    expect(new Date(el.textContent.trim()).getDate()).toBe(CREATED_ON.getDate());
   });
 
   it('should have a template set after component is initialized', fakeAsync(() => {
