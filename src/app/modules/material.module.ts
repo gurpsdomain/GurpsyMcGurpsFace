@@ -10,9 +10,10 @@ import {
   MdMenuModule,
   MdSelectModule,
   MdSidenavModule,
+  MdSlideToggleModule,
   MdSnackBarModule,
   MdToolbarModule,
-  MdSlideToggleModule
+  MdTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -28,7 +29,8 @@ import {
     MdSelectModule,
     MdSidenavModule,
     MdSnackBarModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdTooltipModule
   ],
   exports: [
     MdButtonModule,
@@ -42,7 +44,8 @@ import {
     MdSelectModule,
     MdSidenavModule,
     MdSnackBarModule,
-    MdToolbarModule
+    MdToolbarModule,
+    MdTooltipModule
   ]
 })
 export class GurpsyMaterialModule {

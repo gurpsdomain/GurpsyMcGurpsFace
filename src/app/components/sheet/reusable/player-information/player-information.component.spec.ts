@@ -22,7 +22,8 @@ describe('PlayerInformationComponent', function () {
   let modelService: SheetService;
 
   let template: Template;
-  let sheet: Sheet;
+  let initialSheet: Sheet;
+  let modifiedSheet: Sheet;
 
   const PLAYER = 'Daan van Berkel';
   const PLAYER_SELECTOR = '.player';
@@ -30,6 +31,8 @@ describe('PlayerInformationComponent', function () {
   const CAMPAIGN_SELECTOR = '.campaign';
   const CREATED_ON = new Date();
   const CREATED_ON_SELECTOR = '.createdOn';
+  const LAST_MODIFIED = new Date();
+  const LAST_MODIFIED_SELECTOR = '.lastModified';
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -59,13 +62,21 @@ describe('PlayerInformationComponent', function () {
     modelService = fixture.debugElement.injector.get(SheetService);
 
     template = new Template();
-    sheet = new Sheet(template);
-    sheet.metaData.playerInformation.player = PLAYER;
-    sheet.metaData.playerInformation.campaign = CAMPAIGN;
-    sheet.metaData.playerInformation.createdOn = CREATED_ON;
+    initialSheet = new Sheet(template);
+    initialSheet.metaData.playerInformation.player = PLAYER;
+    initialSheet.metaData.playerInformation.campaign = CAMPAIGN;
+    initialSheet.metaData.playerInformation.createdOn = CREATED_ON;
+    initialSheet.metaData.playerInformation.lastModified = undefined;
+
+    template = new Template();
+    modifiedSheet = new Sheet(template);
+    modifiedSheet.metaData.playerInformation.player = PLAYER;
+    modifiedSheet.metaData.playerInformation.campaign = CAMPAIGN;
+    modifiedSheet.metaData.playerInformation.createdOn = CREATED_ON;
+    modifiedSheet.metaData.playerInformation.lastModified = LAST_MODIFIED;
 
     spyOn(modelService, 'getSheet')
-      .and.returnValue(Promise.resolve(sheet));
+      .and.returnValue(Promise.resolve(initialSheet));
     spyOn(modelService, 'getTemplate')
       .and.returnValue(Promise.resolve(template));
   });
@@ -74,35 +85,47 @@ describe('PlayerInformationComponent', function () {
     expect(component).toBeTruthy();
   });
 
-  it('should show the correct player from the sheet sheet', () => {
+  it('should show the correct player from the sheet', () => {
     const de = fixture.debugElement.query(By.css(PLAYER_SELECTOR));
     const el = de.nativeElement;
 
-    component.sheet = sheet;
+    component.sheet = initialSheet;
 
     fixture.detectChanges();
     expect(el.textContent.trim()).toBe(PLAYER);
   });
 
-  it('should show the correct campaign from the sheet sheet', () => {
+  it('should show the correct campaign from the sheet', () => {
     const de = fixture.debugElement.query(By.css(CAMPAIGN_SELECTOR));
     const el = de.nativeElement;
 
-    component.sheet = sheet;
+    component.sheet = initialSheet;
 
     fixture.detectChanges();
     expect(el.textContent.trim()).toBe(CAMPAIGN);
   });
 
-  it('should show the correct createdOn from the sheet sheet', () => {
+  it('should show the correct createdOn from the sheet', () => {
+    fixture.detectChanges();
+
     const de = fixture.debugElement.query(By.css(CREATED_ON_SELECTOR));
     const el = de.nativeElement;
 
-    component.sheet = sheet;
+    component.sheet = initialSheet;
 
     fixture.detectChanges();
 
     expect(new Date(el.textContent.trim()).getDate()).toBe(CREATED_ON.getDate());
+  });
+
+  it('should show the correct lastModified from the sheet', () => {
+    component.sheet = modifiedSheet;
+    fixture.detectChanges();
+
+    const de = fixture.debugElement.query(By.css(LAST_MODIFIED_SELECTOR));
+    const el = de.nativeElement;
+
+    expect(new Date(el.textContent.trim()).getDate()).toBe(LAST_MODIFIED.getDate());
   });
 
   it('should have a template set after component is initialized', fakeAsync(() => {
@@ -112,10 +135,10 @@ describe('PlayerInformationComponent', function () {
     expect(component.template).toBe(template);
   }));
 
-  it('should have a sheet set after component is initialized', fakeAsync(() => {
+  it('should have an initialSheet set after component is initialized', fakeAsync(() => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
-    expect(component.sheet).toBe(sheet);
+    expect(component.sheet).toBe(initialSheet);
   }));
 });

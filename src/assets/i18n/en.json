@@ -179,7 +179,8 @@
       "PLAYER_INFORMATION": "Player Information",
       "PLAYER": "Player",
       "CAMPAIGN": "Campaign",
-      "CREATED_ON": "Created on"
+      "CREATED_ON": "Created on",
+      "LAST_MODIFIED": "Last modified"
     },
     "POINTS": {
       "POINTS": "Points",
