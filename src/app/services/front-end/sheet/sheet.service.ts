@@ -68,24 +68,14 @@ export class SheetService {
   }
 
   /**
+   * Load a new template.
    *
-   * @param {Template} template
-   * @param {Boolean} true if this is a new template, false if it comes from local storage or is
-   * reload of the current template/sheet.
+   * @param {Template} The updated template.
    */
-  public loadTemplate(template: Template, store?: boolean, isFromStorage?: boolean): void {
-
-    this.setTemplate(template);
-    const sheet = this.createSheet(template);
-    this.setSheet(sheet)
-
-    if (store || isFromStorage) {
-      this.newSheetLoadedSource.next(this.sheet);
-      if (store) {
-        this.storageService.storeTemplate(template);
-      }
-    }
+  public loadNewTemplate(template: Template): void {
+    this.loadTemplate(template, true);
   }
+
 
   /**
    * Update the template.
@@ -137,6 +127,20 @@ export class SheetService {
    */
   public getEditMode(): Promise<boolean> {
     return Promise.resolve(this._editMode);
+  }
+
+  private loadTemplate(template: Template, store?: boolean, isFromStorage?: boolean): void {
+
+    this.setTemplate(template);
+    const sheet = this.createSheet(template);
+    this.setSheet(sheet)
+
+    if (store || isFromStorage) {
+      this.newSheetLoadedSource.next(this.sheet);
+      if (store) {
+        this.storageService.storeTemplate(template);
+      }
+    }
   }
 
   private loadStoredSheet(template: Template): void {

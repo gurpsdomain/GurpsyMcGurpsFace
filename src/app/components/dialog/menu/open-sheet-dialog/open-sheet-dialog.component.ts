@@ -27,7 +27,7 @@ export class OpenSheetDialogComponent {
   }
 
   public onOk(): void {
-    this.modelService.loadTemplate(this.selectedSheet, true);
+    this.modelService.loadNewTemplate(this.selectedSheet);
     this.dialogRef.close();
   }
 

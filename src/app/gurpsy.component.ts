@@ -84,7 +84,7 @@ export class GurpsyComponent implements OnInit {
     this.newSheetDialogRef.afterClosed().subscribe(template => {
         if (template) {
           this.template = template;
-          this.sheetService.updateTemplate(this.template);
+          this.sheetService.loadNewTemplate(this.template);
         }
         this.newSheetDialogRef = null
       }
