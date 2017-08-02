@@ -9,7 +9,6 @@ export class TemplateFactoryService {
 
     const template = new Template();
     template.id = UUID.UUID();
-    template.createdOn = new Date();
 
     return template;
   }

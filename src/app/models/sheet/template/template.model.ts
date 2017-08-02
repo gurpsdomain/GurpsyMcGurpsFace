@@ -102,7 +102,7 @@ export class Template {
     this.portrait = 'assets/images/empty-portrait.png';
     this.player = '';
     this.campaign = '';
-    this.createdOn = undefined;
+    this.createdOn = new Date();
     this.lastModified = undefined;
     this.name = '';
     this.title = '';
