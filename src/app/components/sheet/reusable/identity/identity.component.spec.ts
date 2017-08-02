@@ -55,7 +55,7 @@ describe('IdentityComponent', function () {
     fixture = TestBed.createComponent(IdentityComponent);
     component = fixture.componentInstance;
 
-    modelService = fixture.debugElement.injector.get(SheetService);
+    modelService = TestBed.get(SheetService);
 
     template = new Template();
     sheet = new Sheet(template);

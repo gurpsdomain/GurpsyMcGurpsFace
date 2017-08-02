@@ -128,8 +128,8 @@ describe('GurpsyComponent', () => {
     fixture = TestBed.createComponent(GurpsyComponent);
     component = fixture.componentInstance;
 
-    modelService = fixture.debugElement.injector.get(SheetService);
-    titleService = fixture.debugElement.injector.get(Title);
+    modelService = TestBed.get(SheetService);
+    titleService = TestBed.get(Title);
 
     template = new Template();
     sheet = new Sheet(template);

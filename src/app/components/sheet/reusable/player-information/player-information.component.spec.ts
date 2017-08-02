@@ -59,7 +59,7 @@ describe('PlayerInformationComponent', function () {
     fixture = TestBed.createComponent(PlayerInformationComponent);
     component = fixture.componentInstance;
 
-    modelService = fixture.debugElement.injector.get(SheetService);
+    modelService = TestBed.get(SheetService);
 
     template = new Template();
     initialSheet = new Sheet(template);
