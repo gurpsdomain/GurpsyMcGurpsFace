@@ -6,7 +6,7 @@ import {SheetService} from '../services/front-end/sheet/sheet.service';
 @Component({
   template: ''
 })
-export class SheetReadingComponent implements OnInit {
+export class SheetViewingComponent implements OnInit {
 
   public sheet: Sheet;
 

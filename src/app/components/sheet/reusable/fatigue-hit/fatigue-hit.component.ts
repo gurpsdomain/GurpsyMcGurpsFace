@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {SheetReadingComponent} from '../../../sheet-reading.component';
+import {SheetViewingComponent} from '../../../sheet-viewing.component';
 
 @Component({
   selector: 'gurpsy-fatigue-hit',
@@ -8,5 +8,5 @@ import {SheetReadingComponent} from '../../../sheet-reading.component';
     '../../sheet.component.scss',
     './fatigue-hit.component.scss']
 })
-export class FatigueHitComponent extends SheetReadingComponent {
+export class FatigueHitComponent extends SheetViewingComponent {
 }

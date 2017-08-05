@@ -1,6 +1,7 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {PortraitUpdaterDialogComponent} from '../../../dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
-import {TemplateUpdatingComponent} from '../../../template-updating.component';
+import {SheetUpdatingComponent} from '../../../sheet-updating.component';
+import {CustomDialogInitiatingComponent} from '../../../custom-dialog-initiating.component';
 
 @Component({
   selector: 'gurpsy-portrait',
@@ -9,7 +10,7 @@ import {TemplateUpdatingComponent} from '../../../template-updating.component';
     'portrait.component.scss'
   ]
 })
-export class PortraitComponent extends TemplateUpdatingComponent<PortraitUpdaterDialogComponent> {
+export class PortraitComponent extends SheetUpdatingComponent<PortraitUpdaterDialogComponent> implements CustomDialogInitiatingComponent {
 
   @ViewChild('inputFile') nativeInputFile: ElementRef;
 
@@ -27,13 +28,13 @@ export class PortraitComponent extends TemplateUpdatingComponent<PortraitUpdater
     }
   }
 
+  public setComponentType(): void {
+    this.dialogType = PortraitUpdaterDialogComponent;
+  }
+
   protected addDataToDialog(data?: any) {
     this.dialogRef.componentInstance.setFile(data);
     super.addDataToDialog();
-  }
-
-  protected setComponentType(): void {
-    this.dialogType = PortraitUpdaterDialogComponent;
   }
 
   private isValid(file: File): boolean {

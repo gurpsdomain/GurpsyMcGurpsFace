@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {SheetReadingComponent} from '../../../sheet-reading.component';
+import {SheetViewingComponent} from '../../../sheet-viewing.component';
 
 @Component({
   selector: 'gurpsy-hit-location',
@@ -9,5 +9,5 @@ import {SheetReadingComponent} from '../../../sheet-reading.component';
     '../../sheet.component.scss'
   ]
 })
-export class HitLocationComponent extends SheetReadingComponent {
+export class HitLocationComponent extends SheetViewingComponent {
 }

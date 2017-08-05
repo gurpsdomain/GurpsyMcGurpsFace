@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SheetBodyContent, SheetBodyService} from '../../services/front-end/sheet-body/sheet-body.service';
-import {SheetReadingComponent} from '../sheet-reading.component';
+import {SheetViewingComponent} from '../sheet-viewing.component';
 import {SheetService} from '../../services/front-end/sheet/sheet.service';
 
 @Component({
@@ -8,7 +8,7 @@ import {SheetService} from '../../services/front-end/sheet/sheet.service';
   templateUrl: './side-navigation.component.html',
   styleUrls: ['./side-navigation.component.scss']
 })
-export class SideNavigationComponent extends SheetReadingComponent implements OnInit {
+export class SideNavigationComponent extends SheetViewingComponent implements OnInit {
 
   @Output() onShowLibrary: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onCloseSideNavigation: EventEmitter<any> = new EventEmitter();

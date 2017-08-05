@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {SheetReadingComponent} from '../../../sheet-reading.component';
+import {SheetViewingComponent} from '../../../sheet-viewing.component';
 
 @Component({
   selector: 'gurpsy-lifting-moving',
   templateUrl: './lifting-moving.component.html',
   styleUrls: ['../../sheet.component.scss']
 })
-export class LiftingMovingComponent extends SheetReadingComponent {
+export class LiftingMovingComponent extends SheetViewingComponent {
 }

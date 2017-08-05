@@ -1,16 +1,18 @@
 import {Component} from '@angular/core';
-import {TemplateUpdatingComponent} from '../../../template-updating.component';
 // tslint:disable-next-line max-line-length
 import {PlayerInformationUpdaterComponent} from '../../../dialog/template-updaters/player-information-updater/player-information-updater.component';
+import {SheetUpdatingComponent} from '../../../sheet-updating.component';
+import {CustomDialogInitiatingComponent} from '../../../custom-dialog-initiating.component';
 
 @Component({
   selector: 'gurpsy-player-information',
   templateUrl: 'player-information.component.html',
   styleUrls: ['../../sheet.component.scss']
 })
-export class PlayerInformationComponent extends TemplateUpdatingComponent<PlayerInformationUpdaterComponent> {
+export class PlayerInformationComponent extends SheetUpdatingComponent<PlayerInformationUpdaterComponent>
+  implements CustomDialogInitiatingComponent {
 
-  protected setComponentType(): void {
+  public setComponentType(): void {
     this.dialogType = PlayerInformationUpdaterComponent;
   }
 }

@@ -50,17 +50,17 @@ import {GurpsyAngularModule} from './modules/angular.module';
 import {WeightPipe} from './pipes/weight.pipe';
 // tslint:disable-next-line max-line-length
 import {PortraitUpdaterDialogComponent} from './components/dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
-import {SheetReadingComponent} from './components/sheet-reading.component';
+import {SheetViewingComponent} from './components/sheet-viewing.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './components/generic/avatar/avatar.component';
 import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-loaded.component';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
 import {IdentityUpdaterComponent} from './components/dialog/template-updaters/identity-updater/identity-updater.component';
 import {TemplateUpdaterDialogComponent} from './components/dialog/template-updaters/template-updater-dialog.component';
-import {TemplateUpdatingComponent} from './components/template-updating.component';
 // tslint:disable-next-line max-line-length
 import {PlayerInformationUpdaterComponent} from './components/dialog/template-updaters/player-information-updater/player-information-updater.component';
 import {SheetService} from './services/front-end/sheet/sheet.service';
+import {SheetUpdatingComponent} from './components/sheet-updating.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -104,10 +104,10 @@ export function HttpLoaderFactory(http: Http) {
     SideNavigationComponent,
     SkillsComponent,
     SpellsComponent,
-    TemplateUpdatingComponent,
     WeightPipe,
     PortraitUpdaterDialogComponent,
-    SheetReadingComponent,
+    SheetViewingComponent,
+    SheetUpdatingComponent,
     TemplateUpdaterDialogComponent,
     AvatarComponent,
     NoSheetLoadedComponent,

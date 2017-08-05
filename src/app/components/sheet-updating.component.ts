@@ -1,15 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../models/sheet/model/sheet.model';
-import {ComponentType, MdDialog, MdDialogRef} from '@angular/material';
 import {Template} from '../models/sheet/template/template.model';
 import {TemplateUpdaterDialogComponent} from './dialog/template-updaters/template-updater-dialog.component';
 import {GurpsyComponent} from '../gurpsy.component';
 import {SheetService} from '../services/front-end/sheet/sheet.service';
+import {SheetViewingComponent} from './sheet-viewing.component';
+import {MdDialog, MdDialogRef} from '@angular/material';
+import {ComponentType} from '@angular/cdk';
 
 @Component({
   template: ''
 })
-export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent> implements OnInit {
+export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> extends SheetViewingComponent implements OnInit {
 
   protected dialogRef: MdDialogRef<T>;
   protected dialogType: ComponentType<T>;
@@ -18,16 +20,19 @@ export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent>
   sheet: Sheet;
   template: Template;
 
-  constructor(protected dialog: MdDialog,
-              protected sheetService: SheetService) {
+  /**
+   * Create a new SheetUpdatingComponent that will open a Dialog of type T.
+   *
+   * @param {MdDialog} dialog
+   * @param {SheetService} sheetService
+   * @param {ComponentType<T extends TemplateUpdaterDialogComponent>} dialogType
+   */
+  constructor(private dialog: MdDialog,
+              sheetService: SheetService) {
 
+    super(sheetService);
     this.sheet = new Sheet(new Template());
-  }
-
-  ngOnInit(): void {
-    this.initSheetAndTemplate();
-    this.initEditMode();
-    this.setComponentType();
+    this.setComponentType()
   }
 
   /**
@@ -35,6 +40,13 @@ export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent>
    */
   protected setComponentType(): void {
     this.dialogType = undefined;
+  }
+
+  ngOnInit(): void {
+    super.ngOnInit();
+
+    this.initSheetAndTemplate();
+    this.initEditMode();
   }
 
   /**
@@ -78,6 +90,18 @@ export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent>
     this.dialogRef.componentInstance.template = this.template;
   }
 
+  /**
+   * Update the template with the new template.
+   *
+   * @param {Template} The new template
+   */
+  protected updateTemplate(template: Template): void {
+    if (template) {
+      this.setTemplate(template)
+      this.sheetService.updateTemplate(this.template);
+    }
+  }
+
   private setupDialog() {
     this.dialogRef = this.dialog.open(this.dialogType, {
       disableClose: false,
@@ -93,16 +117,9 @@ export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent>
     );
   }
 
-  protected updateTemplate(template: Template): void {
-    if (template) {
-      this.template = template;
-      this.sheetService.updateTemplate(this.template);
-    }
-  }
-
   private initSheetAndTemplate(): void {
-    this.fetchSheetAndTemplate();
-    this.sheetService.sheetUpdated$.subscribe(any => this.fetchSheetAndTemplate());
+    this.fetchTemplate();
+    this.sheetService.sheetUpdated$.subscribe(any => this.fetchTemplate());
   }
 
   private initEditMode(): void {
@@ -110,13 +127,8 @@ export class TemplateUpdatingComponent<T extends TemplateUpdaterDialogComponent>
     this.sheetService.editModeChange$.subscribe(editMode => this.editMode = editMode);
   }
 
-  private fetchSheetAndTemplate(): void {
-    this.sheetService.getSheet().then(sheet => this.setModel(sheet));
+  private fetchTemplate(): void {
     this.sheetService.getTemplate().then(template => this.setTemplate(template));
-  }
-
-  private setModel(readModel: Sheet): void {
-    this.sheet = readModel;
   }
 
   private setTemplate(template: Template): void {
