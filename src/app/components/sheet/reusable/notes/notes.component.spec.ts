@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {NotesComponent} from './notes.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
@@ -10,10 +10,16 @@ import {SettingsService} from '../../../../services/front-end/settings/settings.
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
+import {Sheet} from '../../../../models/sheet/model/sheet.model';
+import {Template} from '../../../../models/sheet/template/template.model';
 
 describe('NotesComponent', () => {
   let component: NotesComponent;
   let fixture: ComponentFixture<NotesComponent>;
+
+  let modelService: SheetService;
+
+  let sheet: Sheet;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -39,10 +45,24 @@ describe('NotesComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NotesComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
+    modelService = TestBed.get(SheetService);
+
+    const template = new Template();
+    sheet = new Sheet(template);
+
+    spyOn(modelService, 'getSheet')
+      .and.returnValue(Promise.resolve(sheet));
   });
 
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a sheet set after component is initialized', fakeAsync(() => {
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(component.sheet).toBe(sheet);
+  }));
 });

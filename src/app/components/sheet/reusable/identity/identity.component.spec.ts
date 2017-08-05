@@ -20,8 +20,9 @@ describe('IdentityComponent', function () {
 
   let modelService: SheetService;
 
-  let template: Template;
   let sheet: Sheet;
+  let template: Template;
+
 
   const CHARACTER_NAME = 'Dai Blackthorn';
   const CHARACTER_NAME_SELECTOR = '.name';
@@ -110,7 +111,7 @@ describe('IdentityComponent', function () {
     expect(component.template).toBe(template);
   }));
 
-  it('should have a sheet set after component is initialised', fakeAsync(() => {
+  it('should have a sheet set after component is initialized', fakeAsync(() => {
     fixture.detectChanges();
     tick();
     fixture.detectChanges();
