@@ -1,6 +1,6 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {AvatarComponent} from './avatar.component';
-import {SheetStorageDelegate} from '../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from '../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {LoggingService} from '../../../services/back-end/logging/logging.service';
@@ -26,7 +26,7 @@ describe('AvatarComponent', () => {
         SheetService,
         SettingsService,
         StorageService,
-        SheetStorageDelegate
+        TemplateStorageDelegate
       ]
     })
       .compileComponents();

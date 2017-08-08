@@ -3,7 +3,7 @@ import {TestBed, inject} from '@angular/core/testing';
 import {SettingsService} from './settings.service';
 import {StorageService} from '../../back-end/storage/storage.service';
 import {SettingsStorageDelegate} from '../../back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {SheetStorageDelegate} from '../../back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from '../../back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
 import {LoggingService} from '../../back-end/logging/logging.service';
 import {TranslateModule} from '@ngx-translate/core';
 
@@ -18,7 +18,7 @@ describe('SettingsService', () => {
         SettingsService,
         StorageService,
         SettingsStorageDelegate,
-        SheetStorageDelegate
+        TemplateStorageDelegate
       ]
     });
   });

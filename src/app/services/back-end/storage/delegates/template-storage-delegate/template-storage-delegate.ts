@@ -7,7 +7,7 @@ import {LoggingService} from '../../../logging/logging.service';
 import {JsonConvert} from 'json2typescript';
 
 @Injectable()
-export class SheetStorageDelegate {
+export class TemplateStorageDelegate {
 
   private static STORAGE_KEY = '.sheets';
 
@@ -28,19 +28,19 @@ export class SheetStorageDelegate {
   /**
    * Set the given template as the Current template in Local Storage.
    *
-   * @param sheet: Sheet
+   * @param {Template}
    */
-  public setCurrent(sheet: Template): void {
-    const sheets: Sheets = this.getSheets();
+  public setCurrent(template: Template): void {
+    const templates: Sheets = this.getSheets();
 
-    if (!this.isCurrent(sheets, sheet)) {
-      this.addCurrentAsPrevious(sheets);
+    if (!this.isCurrent(templates, template)) {
+      this.addCurrentAsPrevious(templates);
     }
 
-    this.removeFromPrevious(sheets, sheet);
-    sheets.current = sheet;
+    this.removeFromPrevious(templates, template);
+    templates.current = template;
 
-    this.persist(sheets);
+    this.persist(templates);
   }
 
   /**
@@ -116,9 +116,9 @@ export class SheetStorageDelegate {
     this.change(undefined);
   }
 
-  private persist(sheets: Sheets): void {
+  private persist(templates: Sheets): void {
     const jsonConvert = new JsonConvert();
-    const jsonSheets = JSON.stringify(jsonConvert.serialize(sheets));
+    const jsonSheets = JSON.stringify(jsonConvert.serialize(templates));
 
     localStorage.setItem(this.getStorageKey(), jsonSheets);
   }
@@ -176,7 +176,7 @@ export class SheetStorageDelegate {
   }
 
   private getStorageKey(): string {
-    return StorageService.STORAGE_KEY + SheetStorageDelegate.STORAGE_KEY;
+    return StorageService.STORAGE_KEY + TemplateStorageDelegate.STORAGE_KEY;
   }
 
   private handleStorageChange(event: StorageEvent): void {

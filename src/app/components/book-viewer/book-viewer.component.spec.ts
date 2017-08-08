@@ -5,7 +5,7 @@ import {GurpsyMaterialModule} from '../../modules/material.module';
 import {PageReferenceService} from '../../services/front-end/page-reference/page-reference.service';
 import {SettingsService} from '../../services/front-end/settings/settings.service';
 import {StorageService} from '../../services/back-end/storage/storage.service';
-import {SheetStorageDelegate} from '../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from '../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
 import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {TranslateModule} from '@ngx-translate/core';
@@ -28,7 +28,7 @@ describe('BookViewerComponent', () => {
         PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,
-        SheetStorageDelegate,
+        TemplateStorageDelegate,
         StorageService
       ]
     })

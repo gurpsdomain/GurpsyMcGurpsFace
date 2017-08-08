@@ -3,7 +3,7 @@ import {WeightPipe} from './weight.pipe';
 import {SettingsService} from '../services/front-end/settings/settings.service';
 import {StorageService} from '../services/back-end/storage/storage.service';
 import {SettingsStorageDelegate} from '../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {SheetStorageDelegate} from '../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from '../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
 import {TranslateModule} from '@ngx-translate/core';
 import {LoggingService} from '../services/back-end/logging/logging.service';
 
@@ -16,7 +16,7 @@ describe('WeightPipe', () => {
       SettingsService,
       StorageService,
       SettingsStorageDelegate,
-      SheetStorageDelegate,
+      TemplateStorageDelegate,
       WeightPipe
     ],
     imports: [

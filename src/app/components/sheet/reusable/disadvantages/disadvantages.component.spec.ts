@@ -4,7 +4,7 @@ import {DisadvantagesComponent} from './disadvantages.component';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from '../../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
 import {TranslateModule} from '@ngx-translate/core';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {HttpModule} from '@angular/http';
@@ -38,7 +38,7 @@ describe('DisadvantagesComponent', () => {
         LoggingService,
         SheetService,
         StorageService,
-        SheetStorageDelegate
+        TemplateStorageDelegate
       ]
     })
       .compileComponents();

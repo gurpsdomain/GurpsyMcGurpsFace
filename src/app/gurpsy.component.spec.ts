@@ -15,7 +15,7 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
 import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {SheetStorageDelegate} from './services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from './services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
 import {AdvantagesComponent} from './components/sheet/reusable/advantages/advantages.component';
@@ -113,7 +113,7 @@ describe('GurpsyComponent', () => {
         LoggingService,
         PageReferenceService,
         StorageService,
-        SheetStorageDelegate,
+        TemplateStorageDelegate,
         SheetService,
         SheetBodyService
       ],

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
-import {SheetStorageDelegate} from './delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from './delegates/template-storage-delegate/template-storage-delegate';
 import {Observable} from 'rxjs';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {Settings} from '../../../models/settings/settings.model';
@@ -15,7 +15,7 @@ export class StorageService {
   public static STORAGE_EVENT_LISTENER_KEY = 'storage';
 
   constructor(private settingsStorageDelegate: SettingsStorageDelegate,
-              private sheetStorageDelegate: SheetStorageDelegate) {
+              private templateStorageDelegate: TemplateStorageDelegate) {
   }
 
   /**
@@ -35,7 +35,7 @@ export class StorageService {
    * @type Observable<Sheets>
    */
   public getSheetObserver(): Observable<Sheets> {
-    return this.sheetStorageDelegate.valueChange$;
+    return this.templateStorageDelegate.valueChange$;
   }
 
   /**
@@ -69,10 +69,10 @@ export class StorageService {
   /**
    * Store the given template in Local Storage;
    *
-   * @param InputSheet
+   * @param {Template}
    */
-  public storeTemplate(sheet: Template): void {
-    this.sheetStorageDelegate.setCurrent(sheet);
+  public storeTemplate(template: Template): void {
+    this.templateStorageDelegate.setCurrent(template);
   }
 
   /**
@@ -117,26 +117,25 @@ export class StorageService {
    * @returns Promise<Template> or an empty promise if there is no current template.
    */
   public getCurrentSheet(): Promise<Template> {
-    return this.sheetStorageDelegate.retrieveCurrent();
+    return this.templateStorageDelegate.retrieveCurrent();
   }
 
   /**
    * Retrieve an array of Previously Opened Sheets from Local Storage.
    *
-   * @returns Promise<Template[]> or an empty promise if there are no previously opened sheets.
+   * @returns Promise<Template[]> or an empty promise if there are no previously opened templates.
    */
   public getPreviouslyOpenedSheets(): Promise<Template[]> {
-    return this.sheetStorageDelegate.retrievePrevious();
+    return this.templateStorageDelegate.retrievePrevious();
   }
 
   /**
-   * Retrieve both the Current template and the previously opened template.
+   * Retrieve all Templates from Local Storage.
    *
-   * @returns Promise<Template[]> or an empty promise if there are no current and previously
-   *          opened sheets.
+   * @returns Promise<Template[]> or an empty Promise if there are no templates.
    */
-  public getSheets(): Promise<Template[]> {
-    return this.sheetStorageDelegate.retrieveAll();
+  public getTemplates(): Promise<Template[]> {
+    return this.templateStorageDelegate.retrieveAll();
   }
 
   /**
@@ -154,7 +153,7 @@ export class StorageService {
    */
   public clearStorage(): void {
     this.settingsStorageDelegate.clear();
-    this.sheetStorageDelegate.clear();
+    this.templateStorageDelegate.clear();
   }
 }
 

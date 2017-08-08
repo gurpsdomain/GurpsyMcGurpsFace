@@ -2,7 +2,7 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 import {FatigueHitComponent} from './fatigue-hit.component';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {SheetStorageDelegate} from '../../../../services/back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
+import {TemplateStorageDelegate} from '../../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
@@ -27,7 +27,7 @@ describe('FatigueHitComponent', () => {
         LoggingService,
         SheetService,
         SettingsStorageDelegate,
-        SheetStorageDelegate,
+        TemplateStorageDelegate,
         StorageService
       ],
       imports: [
