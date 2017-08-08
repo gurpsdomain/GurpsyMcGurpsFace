@@ -6,6 +6,7 @@ import {Skill} from './skill.model';
 import {Disadvantage} from './disadvantage.model';
 import {Advantage} from './advantage.model';
 import {DateConverter} from '../../../converters/date.converter';
+import {UUID} from 'angular2-uuid';
 
 @JsonObject
 export class Template {
@@ -98,7 +99,7 @@ export class Template {
   notes: Note[];
 
   constructor() {
-    this.id = undefined;
+    this.id = UUID.UUID();
     this.portrait = 'assets/images/empty-portrait.png';
     this.player = '';
     this.campaign = '';

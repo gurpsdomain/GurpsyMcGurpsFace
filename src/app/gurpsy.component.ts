@@ -11,15 +11,13 @@ import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
-import {TemplateFactoryService} from './factories/template/template-factory.service';
 import {Template} from './models/sheet/template/template.model';
 import {SheetService} from './services/front-end/sheet/sheet.service';
 
 @Component({
   selector: 'gurpsy-root',
   templateUrl: './gurpsy.component.html',
-  styleUrls: ['./gurpsy.component.scss'],
-  providers: [TemplateFactoryService]
+  styleUrls: ['./gurpsy.component.scss']
 })
 export class GurpsyComponent implements OnInit {
 
@@ -55,7 +53,6 @@ export class GurpsyComponent implements OnInit {
               private iconRegistry: MdIconRegistry,
               private sanitizer: DomSanitizer,
               private overlayContainer: OverlayContainer,
-              private modelFactoryService: TemplateFactoryService,
               private titleService: Title) {
 
     this.sheet = new Sheet(new Template());
@@ -79,7 +76,7 @@ export class GurpsyComponent implements OnInit {
       disableClose: false
     });
 
-    this.newSheetDialogRef.componentInstance.template = this.modelFactoryService.createTemplate();
+    this.newSheetDialogRef.componentInstance.template = new Template();
 
     this.newSheetDialogRef.afterClosed().subscribe(template => {
         if (template) {

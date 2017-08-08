@@ -1,5 +1,4 @@
 import {async, TestBed} from '@angular/core/testing';
-import {TemplateFactoryService} from '../../../../factories/template/template-factory.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
@@ -29,9 +28,7 @@ describe('IdentityUpdaterComponent', () => {
         TranslateModule.forRoot(),
         FormsModule,
         TestModule
-      ],
-      providers: [TemplateFactoryService],
-
+      ]
     })
       .compileComponents();
   }));
