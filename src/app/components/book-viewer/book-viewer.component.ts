@@ -3,7 +3,8 @@ import {PageReferenceService} from '../../services/front-end/page-reference/page
 
 @Component({
   selector: 'gurpsy-book-viewer',
-  templateUrl: 'book-viewer.component.html'
+  templateUrl: 'book-viewer.component.html',
+  styleUrls: ['book-viewer.component.scss']
 })
 export class BookViewerComponent implements OnInit {
 
