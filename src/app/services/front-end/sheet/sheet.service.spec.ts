@@ -1,4 +1,3 @@
-/* tslint:disable:no-unused-variable */
 import {inject, TestBed} from '@angular/core/testing';
 import {SheetStorageDelegate} from '../../back-end/storage/delegates/sheet-storage-delegate/sheet-storage-delegate';
 import {StorageService} from '../../back-end/storage/storage.service';
@@ -14,7 +13,6 @@ describe('SheetService', () => {
   let storageService: StorageService;
 
   beforeEach(() => {
-
 
     TestBed.configureTestingModule({
       imports: [
@@ -38,7 +36,7 @@ describe('SheetService', () => {
   }));
 
   it('should store a template with the current date when updateTemplate() is called', inject([SheetService], (service: SheetService) => {
-    spyOn(storageService, 'storeTemplate');
+    const spy = spyOn(storageService, 'storeTemplate');
 
     const today = new Date();
     const yesterday = new Date();
@@ -52,7 +50,18 @@ describe('SheetService', () => {
 
     service.updateTemplate(yesterdaysTemplate);
 
-    // The following line needs a matcher, since we are only interested in the date of lastModified
-    // expect(storageService.storeTemplate).toHaveBeenCalledWith(todaysTemplate);
+    const args = spy.calls.mostRecent().args;
+    expect(args[0].lastModified.toDateString()).toBe(today.toDateString());
+  }));
+
+  it('should store the template when loadNewTemplate() is called', inject([SheetService], (service: SheetService) => {
+    const spy = spyOn(storageService, 'storeTemplate');
+
+    const template = new Template();
+
+    service.loadNewTemplate(template);
+
+    const args = spy.calls.mostRecent().args;
+    expect(args[0]).toBe(template);
   }));
 });
