@@ -15,7 +15,7 @@ import {SideNavigationComponent} from './components/side-navigation/side-navigat
 import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageDelegate} from './services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from './services/back-end/storage/delegates/template-storage/template-storage.service';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
 import {AdvantagesComponent} from './components/sheet/reusable/advantages/advantages.component';
@@ -43,7 +43,7 @@ import {MockBackend} from '@angular/http/testing';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {WeightPipe} from './pipes/weight.pipe';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {Template} from './models/sheet/template/template.model';
+import {TemplateDM} from './models/sheet/template/template.model';
 import {Sheet} from './models/sheet/model/sheet.model';
 import {Title} from '@angular/platform-browser';
 import {SheetService} from './services/front-end/sheet/sheet.service';
@@ -57,7 +57,7 @@ describe('GurpsyComponent', () => {
 
   const CHARACTER_NAME = 'Dai Blackthorn';
 
-  let template: Template;
+  let template: TemplateDM;
   let sheet: Sheet;
 
   beforeEach(async(() => {
@@ -113,7 +113,7 @@ describe('GurpsyComponent', () => {
         LoggingService,
         PageReferenceService,
         StorageService,
-        TemplateStorageDelegate,
+        TemplateStorageService,
         SheetService,
         SheetBodyService
       ],
@@ -131,7 +131,7 @@ describe('GurpsyComponent', () => {
     modelService = TestBed.get(SheetService);
     titleService = TestBed.get(Title);
 
-    template = new Template();
+    template = new TemplateDM();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;
 

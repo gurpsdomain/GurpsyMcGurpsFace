@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {Template} from '../../../template/template.model';
+import {TemplateDM} from '../../../template/template.model';
 import {Description} from './description.model';
 
 
@@ -17,11 +17,11 @@ describe('Model Object Description', () => {
   const DESCRIPTION_SKIN = 'White';
   const DESCRIPTION_HAND = 'Right';
 
-  let template: Template;
+  let template: TemplateDM;
 
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  beforeEach(() => template = new Template());
+  beforeEach(() => template = new TemplateDM());
 
   it('should be created', () => {
     const description = new Description(template)

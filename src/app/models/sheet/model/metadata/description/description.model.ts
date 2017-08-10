@@ -1,4 +1,4 @@
-import {Template} from '../../../template/template.model';
+import {TemplateDM} from '../../../template/template.model';
 export class Description {
 
   race: string;
@@ -13,7 +13,7 @@ export class Description {
   skin: string;
   hand: string;
 
-  constructor(template: Template) {
+  constructor(template: TemplateDM) {
     this.race = template.race;
     this.gender = template.gender;
     this.age = template.age;

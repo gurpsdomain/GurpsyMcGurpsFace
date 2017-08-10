@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../models/sheet/model/sheet.model';
-import {Template} from '../models/sheet/template/template.model';
+import {TemplateDM} from '../models/sheet/template/template.model';
 import {TemplateUpdaterDialogComponent} from './dialog/template-updaters/template-updater-dialog.component';
 import {GurpsyComponent} from '../gurpsy.component';
 import {SheetService} from '../services/front-end/sheet/sheet.service';
@@ -18,7 +18,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
 
   editMode: boolean;
   sheet: Sheet;
-  template: Template;
+  template: TemplateDM;
 
   /**
    * Create a new SheetUpdatingComponent that will open a Dialog of type T.
@@ -31,7 +31,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
               sheetService: SheetService) {
 
     super(sheetService);
-    this.sheet = new Sheet(new Template());
+    this.sheet = new Sheet(new TemplateDM());
     this.setComponentType()
   }
 
@@ -93,9 +93,9 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
   /**
    * Update the template with the new template.
    *
-   * @param {Template} The new template
+   * @param {TemplateDM} The new template
    */
-  protected updateTemplate(template: Template): void {
+  protected updateTemplate(template: TemplateDM): void {
     if (template) {
       this.setTemplate(template)
       this.sheetService.updateTemplate(this.template);
@@ -131,7 +131,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
     this.sheetService.getTemplate().then(template => this.setTemplate(template));
   }
 
-  private setTemplate(template: Template): void {
+  private setTemplate(template: TemplateDM): void {
     this.template = template;
   }
 }

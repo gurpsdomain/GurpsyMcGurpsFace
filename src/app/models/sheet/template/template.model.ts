@@ -9,7 +9,7 @@ import {DateConverter} from '../../../converters/date.converter';
 import {UUID} from 'angular2-uuid';
 
 @JsonObject
-export class Template {
+export class TemplateDM {
 
   @JsonProperty('id', String, true)
   id: string;

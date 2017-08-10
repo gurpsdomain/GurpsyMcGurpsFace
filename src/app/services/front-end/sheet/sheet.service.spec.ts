@@ -1,16 +1,14 @@
 import {inject, TestBed} from '@angular/core/testing';
-import {TemplateStorageDelegate} from '../../back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
-import {StorageService} from '../../back-end/storage/storage.service';
-import {SettingsStorageDelegate} from '../../back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {TemplateStorageService} from '../../back-end/storage/delegates/template-storage/template-storage.service';
 import {SettingsService} from '../settings/settings.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {LoggingService} from '../../back-end/logging/logging.service';
 import {SheetService} from './sheet.service';
-import {Template} from '../../../models/sheet/template/template.model';
+import {TemplateDM} from '../../../models/sheet/template/template.model';
 
 describe('SheetService', () => {
 
-  let storageService: StorageService;
+  let templateStorageService: TemplateStorageService;
 
   beforeEach(() => {
 
@@ -22,13 +20,11 @@ describe('SheetService', () => {
         LoggingService,
         SheetService,
         SettingsService,
-        SettingsStorageDelegate,
-        TemplateStorageDelegate,
-        StorageService
+        TemplateStorageService
       ]
     });
 
-    storageService = TestBed.get(StorageService);
+    templateStorageService = TestBed.get(TemplateStorageService);
   });
 
   it('should be created', inject([SheetService], (service: SheetService) => {
@@ -36,16 +32,16 @@ describe('SheetService', () => {
   }));
 
   it('should store a template with the current date when updateTemplate() is called', inject([SheetService], (service: SheetService) => {
-    const spy = spyOn(storageService, 'storeTemplate');
+    const spy = spyOn(templateStorageService, 'updateTemplate');
 
     const today = new Date();
     const yesterday = new Date();
     yesterday.setDate(today.getDate() - 1);
 
-    const yesterdaysTemplate = new Template();
+    const yesterdaysTemplate = new TemplateDM();
     yesterdaysTemplate.lastModified = yesterday;
 
-    const todaysTemplate = new Template();
+    const todaysTemplate = new TemplateDM();
     todaysTemplate.lastModified = today;
 
     service.updateTemplate(yesterdaysTemplate);
@@ -55,13 +51,24 @@ describe('SheetService', () => {
   }));
 
   it('should store the template when loadNewTemplate() is called', inject([SheetService], (service: SheetService) => {
-    const spy = spyOn(storageService, 'storeTemplate');
+    const spy = spyOn(templateStorageService, 'addTemplate');
 
-    const template = new Template();
+    const template = new TemplateDM();
 
     service.loadNewTemplate(template);
 
     const args = spy.calls.mostRecent().args;
     expect(args[0]).toBe(template);
   }));
+
+  it('should call selectTemplate() on TemplateStorageService when loadNewTemplate() is called',
+    inject([SheetService], (service: SheetService) => {
+      const spy = spyOn(templateStorageService, 'selectTemplate');
+
+      const template = new TemplateDM();
+
+      service.loadNewTemplate(template);
+
+      expect(spy).toHaveBeenCalled();
+    }));
 });

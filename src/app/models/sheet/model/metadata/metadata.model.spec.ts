@@ -1,14 +1,14 @@
 import {TestBed} from '@angular/core/testing';
 import {MetaData} from './metadata.model';
-import {Template} from '../../template/template.model';
+import {TemplateDM} from '../../template/template.model';
 
 
 describe('Model Object MetaData', () => {
-  let template: Template;
+  let template: TemplateDM;
 
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  beforeEach(() => template = new Template());
+  beforeEach(() => template = new TemplateDM());
 
   it('should be created', () => {
     const metadata = new MetaData(template)

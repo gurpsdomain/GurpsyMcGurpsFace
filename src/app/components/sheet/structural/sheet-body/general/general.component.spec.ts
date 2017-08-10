@@ -8,7 +8,7 @@ import {DescriptionComponent} from '../../../reusable/description/description.co
 import {StorageService} from '../../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageDelegate} from '../../../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from '../../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
 import {AttributesComponent} from '../../../reusable/attributes/attributes.component';
 import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.component';
 import {FatigueHitComponent} from '../../../reusable/fatigue-hit/fatigue-hit.component';
@@ -48,7 +48,7 @@ describe('GeneralComponent', () => {
         LoggingService,
         StorageService,
         SettingsStorageDelegate,
-        TemplateStorageDelegate
+        TemplateStorageService
       ]
     })
       .compileComponents();

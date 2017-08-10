@@ -4,7 +4,7 @@ import {Subject} from 'rxjs';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {Book} from '../../../models/settings/book.model';
 import {Settings} from '../../../models/settings/settings.model';
-import {Template} from '../../../models/sheet/template/template.model';
+import {TemplateDM} from '../../../models/sheet/template/template.model';
 import {TranslateService} from '@ngx-translate/core';
 
 
@@ -96,11 +96,11 @@ export class SettingsService {
   }
 
   /**
-   * Retrieve an array of Previously Opened Templates from Local Storage.
+   * Retrieve an array of Previously Opened TemplatesDM from Local Storage.
    *
-   * @returns Promise<Template[]> or an empty promise if there are no previously opened sheets.
+   * @returns Promise<TemplateDM[]> or an empty promise if there are no previously opened sheets.
    */
-  public getPreviouslyOpenedSheets(): Promise<Template[]> {
+  public getPreviouslyOpenedSheets(): Promise<TemplateDM[]> {
     return this.storageService.getPreviouslyOpenedSheets();
   }
 

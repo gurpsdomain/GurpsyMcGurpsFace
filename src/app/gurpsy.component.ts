@@ -11,7 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
-import {Template} from './models/sheet/template/template.model';
+import {TemplateDM} from './models/sheet/template/template.model';
 import {SheetService} from './services/front-end/sheet/sheet.service';
 
 @Component({
@@ -38,7 +38,7 @@ export class GurpsyComponent implements OnInit {
   private newSheetDialogRef: MdDialogRef<NewSheetComponent>;
 
   public sheet: Sheet;
-  public template: Template;
+  public template: TemplateDM;
   public editMode: boolean;
   public showLibrary: boolean;
   public theme: string;
@@ -55,7 +55,7 @@ export class GurpsyComponent implements OnInit {
               private overlayContainer: OverlayContainer,
               private titleService: Title) {
 
-    this.sheet = new Sheet(new Template());
+    this.sheet = new Sheet(new TemplateDM());
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
@@ -76,7 +76,7 @@ export class GurpsyComponent implements OnInit {
       disableClose: false
     });
 
-    this.newSheetDialogRef.componentInstance.template = new Template();
+    this.newSheetDialogRef.componentInstance.template = new TemplateDM();
 
     this.newSheetDialogRef.afterClosed().subscribe(template => {
         if (template) {
@@ -228,7 +228,7 @@ export class GurpsyComponent implements OnInit {
     this.setTitle(sheet);
   }
 
-  private setTemplate(template: Template): void {
+  private setTemplate(template: TemplateDM): void {
     this.template = template;
   }
 

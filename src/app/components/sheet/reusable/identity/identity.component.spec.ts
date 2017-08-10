@@ -5,12 +5,12 @@ import {TranslateModule} from '@ngx-translate/core';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageDelegate} from '../../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from '../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {By} from '@angular/platform-browser';
-import {Template} from '../../../../models/sheet/template/template.model';
+import {TemplateDM} from '../../../../models/sheet/template/template.model';
 import {Sheet} from '../../../../models/sheet/model/sheet.model';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
@@ -21,7 +21,7 @@ describe('IdentityComponent', function () {
   let modelService: SheetService;
 
   let sheet: Sheet;
-  let template: Template;
+  let template: TemplateDM;
 
 
   const CHARACTER_NAME = 'Dai Blackthorn';
@@ -45,7 +45,7 @@ describe('IdentityComponent', function () {
         LoggingService,
         SheetService,
         SettingsStorageDelegate,
-        TemplateStorageDelegate,
+        TemplateStorageService,
         StorageService
       ]
     })
@@ -58,7 +58,7 @@ describe('IdentityComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    template = new Template();
+    template = new TemplateDM();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;
     sheet.metaData.identity.title = CHARACTER_TITLE;

@@ -3,7 +3,7 @@ import {async, TestBed} from '@angular/core/testing';
 import {SettingsDialogComponent} from './settings-dialog.component';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageDelegate} from '../../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from '../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {MdDialog} from '@angular/material';
@@ -45,7 +45,7 @@ describe('SettingsDialogComponent', () => {
         PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,
-        TemplateStorageDelegate,
+        TemplateStorageService,
         StorageService
       ]
     })

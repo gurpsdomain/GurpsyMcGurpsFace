@@ -1,4 +1,4 @@
-import {Template} from '../template/template.model';
+import {TemplateDM} from '../template/template.model';
 export class Attributes {
 
   strength: number;
@@ -6,7 +6,7 @@ export class Attributes {
   health: number;
   intelligence: number;
 
-  constructor(template: Template) {
+  constructor(template: TemplateDM) {
     this.strength = 10;
     this.dexterity = 10;
     this.health = 10;

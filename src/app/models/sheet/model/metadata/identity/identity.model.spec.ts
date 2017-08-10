@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {Identity} from './identity.model';
-import {Template} from '../../../template/template.model';
+import {TemplateDM} from '../../../template/template.model';
 
 
 describe('Model Object Identity', () => {
@@ -10,11 +10,11 @@ describe('Model Object Identity', () => {
   const IDENTITY_RELIGION = 'Atheist';
   const IDENTITY_PORTRAIT = 'Base64EncodedImageString';
 
-  let template: Template;
+  let template: TemplateDM;
 
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  beforeEach(() => template = new Template());
+  beforeEach(() => template = new TemplateDM());
 
   it('should be created', () => {
     const identity = new Identity(template)

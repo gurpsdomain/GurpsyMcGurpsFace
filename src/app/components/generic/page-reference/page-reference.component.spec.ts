@@ -3,7 +3,7 @@ import {PageReferenceComponent} from './page-reference.component';
 import {PageReferenceService} from '../../../services/front-end/page-reference/page-reference.service';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
 import {StorageService} from '../../../services/back-end/storage/storage.service';
-import {TemplateStorageDelegate} from '../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from '../../../services/back-end/storage/delegates/template-storage/template-storage.service';
 import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
 import {LoggingService} from '../../../services/back-end/logging/logging.service';
 import {TranslateModule} from '@ngx-translate/core';
@@ -25,7 +25,7 @@ describe('PageReferenceComponent', () => {
         PageReferenceService,
         SettingsService,
         SettingsStorageDelegate,
-        TemplateStorageDelegate,
+        TemplateStorageService,
         StorageService
       ]
     })

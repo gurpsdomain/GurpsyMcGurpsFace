@@ -1,4 +1,4 @@
-import {Template} from '../../../template/template.model';
+import {TemplateDM} from '../../../template/template.model';
 
 export class Identity {
 
@@ -7,7 +7,7 @@ export class Identity {
   title: string;
   religion: string;
 
-  constructor(template: Template) {
+  constructor(template: TemplateDM) {
     this.portrait = template.portrait;
     this.name = template.name;
     this.title = template.title;

@@ -5,12 +5,12 @@ import {TranslateModule} from '@ngx-translate/core';
 import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageDelegate} from '../../../../services/back-end/storage/delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from '../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {Sheet} from '../../../../models/sheet/model/sheet.model';
-import {Template} from '../../../../models/sheet/template/template.model';
+import {TemplateDM} from '../../../../models/sheet/template/template.model';
 import {By} from '@angular/platform-browser';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
@@ -21,7 +21,7 @@ describe('PlayerInformationComponent', function () {
 
   let modelService: SheetService;
 
-  let template: Template;
+  let template: TemplateDM;
   let initialSheet: Sheet;
   let modifiedSheet: Sheet;
 
@@ -48,7 +48,7 @@ describe('PlayerInformationComponent', function () {
         LoggingService,
         SheetService,
         SettingsStorageDelegate,
-        TemplateStorageDelegate,
+        TemplateStorageService,
         StorageService
       ]
     })
@@ -61,14 +61,14 @@ describe('PlayerInformationComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    template = new Template();
+    template = new TemplateDM();
     initialSheet = new Sheet(template);
     initialSheet.metaData.playerInformation.player = PLAYER;
     initialSheet.metaData.playerInformation.campaign = CAMPAIGN;
     initialSheet.metaData.playerInformation.createdOn = CREATED_ON;
     initialSheet.metaData.playerInformation.lastModified = undefined;
 
-    template = new Template();
+    template = new TemplateDM();
     modifiedSheet = new Sheet(template);
     modifiedSheet.metaData.playerInformation.player = PLAYER;
     modifiedSheet.metaData.playerInformation.campaign = CAMPAIGN;

@@ -2,7 +2,7 @@
 import {TestBed, inject} from '@angular/core/testing';
 import {StorageService} from './storage.service';
 import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageDelegate} from './delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from './delegates/template-storage/template-storage.service';
 import {LoggingService} from '../logging/logging.service';
 
 describe('StorageService', () => {
@@ -12,7 +12,7 @@ describe('StorageService', () => {
         LoggingService,
         StorageService,
         SettingsStorageDelegate,
-        TemplateStorageDelegate
+        TemplateStorageService
       ]
     });
   });

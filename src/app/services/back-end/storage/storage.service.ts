@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {SettingsStorageDelegate} from './delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageDelegate} from './delegates/template-storage-delegate/template-storage-delegate';
+import {TemplateStorageService} from './delegates/template-storage/template-storage.service';
 import {Observable} from 'rxjs';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {Settings} from '../../../models/settings/settings.model';
 import {Book} from '../../../models/settings/book.model';
-import {Template} from '../../../models/sheet/template/template.model';
-import {Templates} from '../../../models/sheet/templates.model';
+import {TemplateDM} from '../../../models/sheet/template/template.model';
+import {TemplatesDM} from '../../../models/templates/templates.model';
 
 @Injectable()
 export class StorageService {
@@ -15,7 +15,7 @@ export class StorageService {
   public static STORAGE_EVENT_LISTENER_KEY = 'storage';
 
   constructor(private settingsStorageDelegate: SettingsStorageDelegate,
-              private templateStorageDelegate: TemplateStorageDelegate) {
+              private templateStorageDelegate: TemplateStorageService) {
   }
 
   /**
@@ -32,10 +32,10 @@ export class StorageService {
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
    *
-   * @type Observable<Templates>
+   * @type Observable<TemplatesDM>
    */
-  public getSheetObserver(): Observable<Templates> {
-    return this.templateStorageDelegate.valueChange$;
+  public getSheetObserver(): Observable<TemplatesDM> {
+    return this.templateStorageDelegate.templatesUpdated$;
   }
 
   /**
@@ -69,9 +69,9 @@ export class StorageService {
   /**
    * Store the given template in Local Storage;
    *
-   * @param {Template}
+   * @param {TemplateDM}
    */
-  public storeTemplate(template: Template): void {
+  public storeTemplate(template: TemplateDM): void {
     this.templateStorageDelegate.setCurrent(template);
   }
 
@@ -112,29 +112,29 @@ export class StorageService {
   }
 
   /**
-   * Retrieve the Current Template for Local Storage.
+   * Retrieve the Current TemplateDM for Local Storage.
    *
-   * @returns Promise<Template> or an empty promise if there is no current template.
+   * @returns Promise<TemplateDM> or an empty promise if there is no current template.
    */
-  public getCurrentSheet(): Promise<Template> {
+  public getCurrentSheet(): Promise<TemplateDM> {
     return this.templateStorageDelegate.retrieveCurrent();
   }
 
   /**
-   * Retrieve an array of Previously Opened Templates from Local Storage.
+   * Retrieve an array of Previously Opened TemplatesDM from Local Storage.
    *
-   * @returns Promise<Template[]> or an empty promise if there are no previously opened templates.
+   * @returns Promise<TemplateDM[]> or an empty promise if there are no previously opened templates.
    */
-  public getPreviouslyOpenedSheets(): Promise<Template[]> {
+  public getPreviouslyOpenedSheets(): Promise<TemplateDM[]> {
     return this.templateStorageDelegate.retrievePrevious();
   }
 
   /**
-   * Retrieve all Templates from Local Storage.
+   * Retrieve all TemplatesDM from Local Storage.
    *
-   * @returns Promise<Template[]> or an empty Promise if there are no templates.
+   * @returns Promise<TemplateDM[]> or an empty Promise if there are no templates.
    */
-  public getTemplates(): Promise<Template[]> {
+  public getTemplates(): Promise<TemplateDM[]> {
     return this.templateStorageDelegate.retrieveAll();
   }
 
