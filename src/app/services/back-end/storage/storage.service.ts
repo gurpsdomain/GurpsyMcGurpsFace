@@ -6,7 +6,7 @@ import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {Settings} from '../../../models/settings/settings.model';
 import {Book} from '../../../models/settings/book.model';
 import {Template} from '../../../models/sheet/template/template.model';
-import {Sheets} from '../../../models/sheet/sheets.model';
+import {Templates} from '../../../models/sheet/templates.model';
 
 @Injectable()
 export class StorageService {
@@ -32,9 +32,9 @@ export class StorageService {
    * Acquire the Observer on which you can register yourself to be notified when the value is changed
    * in Local Storage.
    *
-   * @type Observable<Sheets>
+   * @type Observable<Templates>
    */
-  public getSheetObserver(): Observable<Sheets> {
+  public getSheetObserver(): Observable<Templates> {
     return this.templateStorageDelegate.valueChange$;
   }
 
@@ -121,7 +121,7 @@ export class StorageService {
   }
 
   /**
-   * Retrieve an array of Previously Opened Sheets from Local Storage.
+   * Retrieve an array of Previously Opened Templates from Local Storage.
    *
    * @returns Promise<Template[]> or an empty promise if there are no previously opened templates.
    */

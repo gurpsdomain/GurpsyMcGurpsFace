@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 import {StorageService} from '../../storage.service';
 import {Template} from '../../../../../models/sheet/template/template.model';
-import {Sheets} from '../../../../../models/sheet/sheets.model';
+import {Templates} from '../../../../../models/sheet/templates.model';
 import {LoggingService} from '../../../logging/logging.service';
 import {JsonConvert} from 'json2typescript';
 
@@ -11,15 +11,15 @@ export class TemplateStorageDelegate {
 
   private static STORAGE_KEY = '.sheets';
 
-  private subjectChangeSource = new Subject<Sheets>();
+  private templateChangeSource = new Subject<Templates>();
 
   /**
    * Register to this observable to be notified when the value is changed
    * in Local Storage.
    *
-   * @type {Observable<Sheets>}
+   * @type {Observable<Templates>}
    */
-  public valueChange$ = this.subjectChangeSource.asObservable();
+  public valueChange$ = this.templateChangeSource.asObservable();
 
   constructor(private loggingService: LoggingService) {
     window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
@@ -31,7 +31,7 @@ export class TemplateStorageDelegate {
    * @param {Template}
    */
   public setCurrent(template: Template): void {
-    const templates: Sheets = this.getSheets();
+    const templates: Templates = this.getTemplates();
 
     if (!this.isCurrent(templates, template)) {
       this.addCurrentAsPrevious(templates);
@@ -55,9 +55,9 @@ export class TemplateStorageDelegate {
   }
 
   /**
-   * Retrieve an array of Previously Opened Sheets from Local Storage.
+   * Retrieve an array of Previously Opened Templates from Local Storage.
    *
-   * @returns Promise<Sheet[]> or an empty promise if there are no previously opened sheets.
+   * @returns Promise<Sheet[]> or an empty promise if there are no previously stored templates.
    */
   public retrievePrevious(): Promise<Template[]> {
     const previous: Template[] = this.getPreviouslyOpenedSheets();
@@ -69,7 +69,7 @@ export class TemplateStorageDelegate {
    * Retrieve both the Current template and the Previously Opened template.
    *
    * @returns Promise<Sheet[]> or an empty promise if there are no current and previously
-   *          opened sheets.
+   *          stored templates.
    */
   public retrieveAll(): Promise<Template[]> {
     const current: Template = this.getCurrentSheet();
@@ -80,31 +80,31 @@ export class TemplateStorageDelegate {
   }
 
   /**
-   * Remove the given template from the list of Previously Opened sheets in Local Storage.
-   * @param sheetsToRemove : Sheet[]
+   * Remove the given template from the list of Previously stored templates in Local Storage.
+   * @param templatesToRemove : Sheet[]
    */
-  public remove(sheetsToRemove: Template[]): void {
+  public remove(templatesToRemove: Template[]): void {
     const previouslyOpenedSheets = this.getPreviouslyOpenedSheets();
 
-    const newSheetList: Template[] = [];
+    const newTemplateList: Template[] = [];
 
-    for (const sheet of previouslyOpenedSheets) {
+    for (const template of previouslyOpenedSheets) {
       let remove = false;
-      for (const sheetToRemove of sheetsToRemove) {
-        if (sheet.name === sheetToRemove.name) {
+      for (const templateToRemove of templatesToRemove) {
+        if (template.name === templateToRemove.name) {
           remove = true;
         }
       }
 
       if (!remove) {
-        newSheetList.push(sheet);
+        newTemplateList.push(template);
       }
     }
 
-    const sheets: Sheets = this.getSheets();
-    sheets.previous = newSheetList;
+    const templates: Templates = this.getTemplates();
+    templates.previous = newTemplateList;
 
-    this.persist(sheets);
+    this.persist(templates);
   }
 
   /**
@@ -116,63 +116,63 @@ export class TemplateStorageDelegate {
     this.change(undefined);
   }
 
-  private persist(templates: Sheets): void {
+  private persist(templates: Templates): void {
     const jsonConvert = new JsonConvert();
     const jsonSheets = JSON.stringify(jsonConvert.serialize(templates));
 
     localStorage.setItem(this.getStorageKey(), jsonSheets);
   }
 
-  private removeFromPrevious(sheets: Sheets, sheet: Template): Sheets {
-    const newSheets: Template[] = [];
+  private removeFromPrevious(templates: Templates, template: Template): Templates {
+    const newTemplates: Template[] = [];
 
-    for (const sheetIterator of sheets.previous) {
-      if (sheetIterator && sheetIterator.name !== sheet.name) {
-        newSheets.push(sheetIterator);
+    for (const templateIterator of templates.previous) {
+      if (templateIterator && templateIterator.name !== template.name) {
+        newTemplates.push(templateIterator);
       }
     }
 
-    sheets.previous = newSheets;
-    return sheets;
+    templates.previous = newTemplates;
+    return templates;
   }
 
-  private isCurrent(sheets: Sheets, sheet: Template): boolean {
-    return sheets.current && sheets.current.name === sheet.name;
+  private isCurrent(templates: Templates, template: Template): boolean {
+    return templates.current && templates.current.name === template.name;
   }
 
-  private addCurrentAsPrevious(sheets: Sheets): void {
-    sheets.previous.push(sheets.current);
+  private addCurrentAsPrevious(templates: Templates): void {
+    templates.previous.push(templates.current);
   }
 
-  private getSheets(): Sheets {
+  private getTemplates(): Templates {
     const json: string = localStorage.getItem(this.getStorageKey());
 
     return this.deserialize(json);
   }
 
 
-  private deserialize(json: string): Sheets {
-    let sheets: Sheets = new Sheets();
+  private deserialize(json: string): Templates {
+    let templates: Templates = new Templates();
 
     if (json) {
       try {
         const jsonConvert = new JsonConvert();
         const jsonObject = JSON.parse(json);
-        sheets = jsonConvert.deserializeObject(jsonObject, Sheets);
+        templates = jsonConvert.deserializeObject(jsonObject, Templates);
       } catch (ex) {
-        this.loggingService.error('Unable to retrieve Sheets from Local Storage.', ex)
+        this.loggingService.error('Unable to retrieve Templates from Local Storage.', ex)
       }
     }
 
-    return sheets;
+    return templates;
   }
 
   private getCurrentSheet(): Template {
-    return this.getSheets().current;
+    return this.getTemplates().current;
   }
 
   private getPreviouslyOpenedSheets(): Template[] {
-    return this.getSheets().previous;
+    return this.getTemplates().previous;
   }
 
   private getStorageKey(): string {
@@ -181,12 +181,12 @@ export class TemplateStorageDelegate {
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getStorageKey()) {
-      const sheets = this.deserialize(event.newValue);
-      this.change(sheets);
+      const templates = this.deserialize(event.newValue);
+      this.change(templates);
     }
   }
 
-  private change(sheet: Sheets) {
-    this.subjectChangeSource.next(sheet);
+  private change(templates: Templates) {
+    this.templateChangeSource.next(templates);
   }
 }

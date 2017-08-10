@@ -2,7 +2,7 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 import {Template} from './template/template.model';
 
 @JsonObject
-export class Sheets {
+export class Templates {
 
   @JsonProperty('current', Template)
   current: Template;

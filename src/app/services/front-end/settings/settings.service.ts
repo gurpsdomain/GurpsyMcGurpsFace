@@ -96,7 +96,7 @@ export class SettingsService {
   }
 
   /**
-   * Retrieve an array of Previously Opened Sheets from Local Storage.
+   * Retrieve an array of Previously Opened Templates from Local Storage.
    *
    * @returns Promise<Template[]> or an empty promise if there are no previously opened sheets.
    */
