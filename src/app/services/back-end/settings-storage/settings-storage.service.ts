@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {StorageService} from '../../storage.service';
-import {SheetBodyContent} from '../../../../front-end/sheet-body/sheet-body.service';
+import {StorageService} from '../storage/storage.service';
+import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {JsonConvert} from 'json2typescript';
-import {Settings} from '../../../../../models/settings/settings.model';
-import {Book} from '../../../../../models/settings/book.model';
-import {LoggingService} from '../../../logging/logging.service';
+import {Settings} from '../../../models/settings/settings.model';
+import {Book} from '../../../models/settings/book.model';
+import {LoggingService} from '../logging/logging.service';
 
 @Injectable()
 export class SettingsStorageDelegate {

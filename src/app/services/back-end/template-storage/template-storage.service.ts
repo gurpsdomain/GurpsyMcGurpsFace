@@ -150,21 +150,4 @@ export class TemplateStorageService {
   private getSelectedTemplateStorageKey(): string {
     return StorageService.STORAGE_KEY + TemplateStorageService.STORAGE_KEY_SELECTED;
   }
-
-
-  //  DEPRECATED HEREAFTER
-  public setCurrent(template: TemplateDM): void {
-  }
-
-  public retrieveCurrent(): Promise<TemplateDM> {
-    return Promise.resolve(null);
-  }
-
-  public retrievePrevious(): Promise<TemplateDM[]> {
-    return Promise.resolve(null);
-  }
-
-  public retrieveAll(): Promise<TemplateDM[]> {
-    return Promise.resolve(null);
-  }
 }
