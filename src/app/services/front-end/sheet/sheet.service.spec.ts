@@ -31,37 +31,39 @@ describe('SheetService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should store a template with the current date when updateTemplate() is called', inject([SheetService], (service: SheetService) => {
-    const spy = spyOn(templateStorageService, 'updateTemplate');
+  it('[updateTemplate()] should store a template with the current date when updateTemplate() is called',
+    inject([SheetService], (service: SheetService) => {
+      const spy = spyOn(templateStorageService, 'updateTemplate');
 
-    const today = new Date();
-    const yesterday = new Date();
-    yesterday.setDate(today.getDate() - 1);
+      const today = new Date();
+      const yesterday = new Date();
+      yesterday.setDate(today.getDate() - 1);
 
-    const yesterdaysTemplate = new TemplateDM();
-    yesterdaysTemplate.lastModified = yesterday;
+      const yesterdaysTemplate = new TemplateDM();
+      yesterdaysTemplate.lastModified = yesterday;
 
-    const todaysTemplate = new TemplateDM();
-    todaysTemplate.lastModified = today;
+      const todaysTemplate = new TemplateDM();
+      todaysTemplate.lastModified = today;
 
-    service.updateTemplate(yesterdaysTemplate);
+      service.updateTemplate(yesterdaysTemplate);
 
-    const args = spy.calls.mostRecent().args;
-    expect(args[0].lastModified.toDateString()).toBe(today.toDateString());
-  }));
+      const args = spy.calls.mostRecent().args;
+      expect(args[0].lastModified.toDateString()).toBe(today.toDateString());
+    }));
 
-  it('should store the template when loadNewTemplate() is called', inject([SheetService], (service: SheetService) => {
-    const spy = spyOn(templateStorageService, 'addTemplate');
+  it('[loadNewTemplate()] should store the template when loadNewTemplate() is called',
+    inject([SheetService], (service: SheetService) => {
+      const spy = spyOn(templateStorageService, 'addTemplate');
 
-    const template = new TemplateDM();
+      const template = new TemplateDM();
 
-    service.loadNewTemplate(template);
+      service.loadNewTemplate(template);
 
-    const args = spy.calls.mostRecent().args;
-    expect(args[0]).toBe(template);
-  }));
+      const args = spy.calls.mostRecent().args;
+      expect(args[0]).toBe(template);
+    }));
 
-  it('should call selectTemplate() on TemplateStorageService when loadNewTemplate() is called',
+  it('[loadNewTemplate()] should call selectTemplate() on TemplateStorageService when loadNewTemplate() is called',
     inject([SheetService], (service: SheetService) => {
       const spy = spyOn(templateStorageService, 'selectTemplate');
 

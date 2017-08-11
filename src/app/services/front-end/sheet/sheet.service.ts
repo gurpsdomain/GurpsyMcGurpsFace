@@ -69,11 +69,21 @@ export class SheetService {
   /**
    * Load a new template.
    *
-   * @param {TemplateDM} The updated template.
+   * @param {TemplateDM} The new template.
    */
   public loadNewTemplate(template: TemplateDM): void {
     this.loadTemplate(template);
     this.templateStorageService.addTemplate(template);
+    this.templateStorageService.selectTemplate(template);
+  }
+
+  /**
+   * Load an existing template.
+   *
+   * @param {TemplateDM} The template.
+   */
+  public loadExistingTemplate(template: TemplateDM): void {
+    this.loadTemplate(template);
     this.templateStorageService.selectTemplate(template);
   }
 
@@ -96,6 +106,15 @@ export class SheetService {
    */
   public getTemplate(): Promise<TemplateDM> {
     return Promise.resolve(this.template);
+  }
+
+  /**
+   * Return the templates.
+   *
+   * @returns {Promise<TemplateDM[]>}
+   */
+  public getTemplates(): Promise<TemplateDM[]> {
+    return this.templateStorageService.getTemplates();
   }
 
   /**

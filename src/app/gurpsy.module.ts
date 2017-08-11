@@ -52,7 +52,6 @@ import {PortraitUpdaterDialogComponent} from './components/dialog/template-updat
 import {SheetViewingComponent} from './components/sheet-viewing.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './components/generic/avatar/avatar.component';
-import {NoSheetLoadedComponent} from './components/no-sheet-loaded/no-sheet-loaded.component';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
 import {IdentityUpdaterComponent} from './components/dialog/template-updaters/identity-updater/identity-updater.component';
 import {TemplateUpdaterDialogComponent} from './components/dialog/template-updaters/template-updater-dialog.component';
@@ -60,6 +59,7 @@ import {TemplateUpdaterDialogComponent} from './components/dialog/template-updat
 import {PlayerInformationUpdaterComponent} from './components/dialog/template-updaters/player-information-updater/player-information-updater.component';
 import {SheetService} from './services/front-end/sheet/sheet.service';
 import {SheetUpdatingComponent} from './components/sheet-updating.component';
+import {SelectSheetComponent} from './components/select-sheet/select-sheet.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -109,8 +109,8 @@ export function HttpLoaderFactory(http: Http) {
     SheetUpdatingComponent,
     TemplateUpdaterDialogComponent,
     AvatarComponent,
-    NoSheetLoadedComponent,
-    NewSheetComponent],
+    NewSheetComponent,
+    SelectSheetComponent],
   imports: [
     ImageCropperModule,
     GurpsyAngularModule,

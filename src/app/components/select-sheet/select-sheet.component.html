@@ -1,0 +1,12 @@
+<md-card>
+  <md-card-content>
+    {{ 'MESSAGE.NO_SHEET_LOADED' | translate }}
+  </md-card-content>
+</md-card>
+<md-card>
+  <div *ngFor="let template of templates"
+       class="clickable"
+       (click)="onTemplateSelected(template)">
+    {{template.name}}
+  </div>
+</md-card>
