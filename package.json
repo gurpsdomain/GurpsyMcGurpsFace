@@ -36,7 +36,7 @@
     "@types/hammerjs": "2.0.34",
     "@types/three": "0.84.3",
     "angular2-uuid": "1.1.1",
-    "core-js": "2.4.1",
+    "core-js": "2.5.0",
     "hammerjs": "2.0.8",
     "json2typescript": "1.0.2",
     "ng2-img-cropper": "0.9.0",
