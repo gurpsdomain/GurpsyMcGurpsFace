@@ -9,10 +9,9 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
-import {StorageService} from '../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
-import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageService} from '../../services/back-end/storage/delegates/template-storage/template-storage.service';
+import {SettingsStorageService} from '../../services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from '../../services/back-end/template-storage/template-storage.service';
 import {SheetBodyComponent} from './structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './reusable/notes/notes.component';
 import {AdvantagesComponent} from './reusable/advantages/advantages.component';
@@ -76,13 +75,12 @@ describe('SheetComponent', function () {
         TranslateModule.forRoot()
       ],
       providers: [
-        SettingsService,
-        SheetService,
         LoggingService,
-        StorageService,
-        SettingsStorageDelegate,
+        SettingsStorageService,
         TemplateStorageService,
-        SheetBodyService
+        SheetBodyService,
+        SettingsService,
+        SheetService
       ]
     })
       .compileComponents();

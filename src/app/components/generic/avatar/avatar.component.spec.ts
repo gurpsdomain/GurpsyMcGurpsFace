@@ -1,10 +1,9 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {AvatarComponent} from './avatar.component';
-import {TemplateStorageService} from '../../../services/back-end/storage/delegates/template-storage/template-storage.service';
+import {TemplateStorageService} from '../../../services/back-end/template-storage/template-storage.service';
 import {SettingsService} from '../../../services/front-end/settings/settings.service';
-import {SettingsStorageDelegate} from '../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {SettingsStorageService} from '../../../services/back-end/settings-storage/settings-storage.service';
 import {LoggingService} from '../../../services/back-end/logging/logging.service';
-import {StorageService} from '../../../services/back-end/storage/storage.service';
 import {SheetService} from '../../../services/front-end/sheet/sheet.service';
 import {Sheet} from '../../../models/sheet/model/sheet.model';
 import {TemplateDM} from '../../../models/sheet/template/template.model';
@@ -21,11 +20,10 @@ describe('AvatarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AvatarComponent],
       providers: [
-        SettingsStorageDelegate,
+        SettingsStorageService,
         LoggingService,
         SheetService,
         SettingsService,
-        StorageService,
         TemplateStorageService
       ]
     })

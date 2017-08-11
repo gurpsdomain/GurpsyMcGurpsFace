@@ -5,9 +5,8 @@ import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
 import {SheetBodyService} from '../../services/front-end/sheet-body/sheet-body.service';
 import {SettingsService} from '../../services/front-end/settings/settings.service';
-import {StorageService} from '../../services/back-end/storage/storage.service';
-import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageService} from '../../services/back-end/storage/delegates/template-storage/template-storage.service';
+import {SettingsStorageService} from '../../services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from '../../services/back-end/template-storage/template-storage.service';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
@@ -27,14 +26,13 @@ describe('SideNavigationComponent', () => {
         TranslateModule.forRoot(),
         GurpsyMaterialModule],
       providers: [
-        SettingsStorageDelegate,
+        SettingsStorageService,
         LoggingService,
         SheetService,
         SettingsService,
-        SettingsStorageDelegate,
+        SettingsStorageService,
         SheetBodyService,
-        TemplateStorageService,
-        StorageService
+        TemplateStorageService
       ],
       schemas: [
         NO_ERRORS_SCHEMA

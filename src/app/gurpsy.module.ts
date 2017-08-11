@@ -11,10 +11,9 @@ import {PointsComponent} from './components/sheet/reusable/points/points.compone
 import {IdentityComponent} from './components/sheet/reusable/identity/identity.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
 import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
-import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageService} from './services/back-end/storage/delegates/template-storage/template-storage.service';
+import {SettingsStorageService} from './services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from './services/back-end/template-storage/template-storage.service';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
 import {SkillsComponent} from './components/sheet/reusable/skills/skills.component';
@@ -125,14 +124,13 @@ export function HttpLoaderFactory(http: Http) {
     })
   ],
   providers: [
-    SettingsService,
-    SettingsStorageDelegate,
-    PageReferenceService,
     LoggingService,
-    StorageService,
     TemplateStorageService,
     SheetService,
-    SheetBodyService
+    SheetBodyService,
+    SettingsService,
+    SettingsStorageService,
+    PageReferenceService
   ],
   entryComponents: [
     AboutDialogComponent,

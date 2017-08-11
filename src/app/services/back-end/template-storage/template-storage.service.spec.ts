@@ -1,10 +1,9 @@
-///<reference path="template-storage.service.ts"/>
 /* tslint:disable:no-unused-variable */
 import {inject, TestBed} from '@angular/core/testing';
 import {TemplateStorageService} from './template-storage.service';
-import {LoggingService} from '../../../logging/logging.service';
-import {TemplateDM} from '../../../../../models/sheet/template/template.model';
-import {TemplatesDM} from '../../../../../models/templates/templates.model';
+import {LoggingService} from '../logging/logging.service';
+import {TemplateDM} from '../../../models/sheet/template/template.model';
+import {TemplatesDM} from '../../../models/templates/templates.model';
 import {JsonConvert} from 'json2typescript';
 
 describe('TemplateStorageService', () => {

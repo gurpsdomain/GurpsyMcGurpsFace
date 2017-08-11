@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../models/sheet/model/sheet.model';
 import {TemplateDM} from '../models/sheet/template/template.model';
 import {TemplateUpdaterDialogComponent} from './dialog/template-updaters/template-updater-dialog.component';
-import {GurpsyComponent} from '../gurpsy.component';
 import {SheetService} from '../services/front-end/sheet/sheet.service';
 import {SheetViewingComponent} from './sheet-viewing.component';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {ComponentType} from '@angular/cdk';
+import {GurpsyConstants} from '../gurpsy.constants';
 
 @Component({
   template: ''
@@ -105,7 +105,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
   private setupDialog() {
     this.dialogRef = this.dialog.open(this.dialogType, {
       disableClose: false,
-      width: GurpsyComponent.DIALOG_WIDTH
+      width: GurpsyConstants.DIALOG_WIDTH
     });
   }
 

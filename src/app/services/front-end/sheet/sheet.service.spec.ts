@@ -1,5 +1,5 @@
 import {inject, TestBed} from '@angular/core/testing';
-import {TemplateStorageService} from '../../back-end/storage/delegates/template-storage/template-storage.service';
+import {TemplateStorageService} from '../../back-end/template-storage/template-storage.service';
 import {SettingsService} from '../settings/settings.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {LoggingService} from '../../back-end/logging/logging.service';

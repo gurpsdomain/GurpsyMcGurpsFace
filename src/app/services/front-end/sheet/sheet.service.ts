@@ -3,7 +3,7 @@ import {Subject} from 'rxjs';
 import {TemplateDM} from '../../../models/sheet/template/template.model';
 import {JsonConvert} from 'json2typescript';
 import {Sheet} from '../../../models/sheet/model/sheet.model';
-import {TemplateStorageService} from '../../back-end/storage/delegates/template-storage/template-storage.service';
+import {TemplateStorageService} from '../../back-end/template-storage/template-storage.service';
 
 @Injectable()
 export class SheetService {
@@ -40,7 +40,6 @@ export class SheetService {
   constructor(private templateStorageService: TemplateStorageService) {
     this.initSheet();
   }
-
 
   /**
    * Create a template from file.

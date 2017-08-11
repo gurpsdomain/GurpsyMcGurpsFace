@@ -8,10 +8,9 @@ import {EquipmentComponent} from '../../reusable/equipment/equipment.component';
 import {SpellsComponent} from '../../reusable/spells/spells.component';
 import {SkillsComponent} from '../../reusable/skills/skills.component';
 import {GeneralComponent} from './general/general.component';
-import {TemplateStorageService} from '../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
-import {StorageService} from '../../../../services/back-end/storage/storage.service';
+import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 // tslint:disable-next-line max-line-length
-import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
 import {SheetBodyService} from '../../../../services/front-end/sheet-body/sheet-body.service';
 import {PointsComponent} from '../../reusable/points/points.component';
 import {PortraitComponent} from '../../reusable/portrait/portrait.component';
@@ -63,12 +62,11 @@ describe('SheetBodyComponent', () => {
       ],
       providers: [
         SettingsService,
-        SettingsStorageDelegate,
+        SettingsStorageService,
         LoggingService,
         SheetService,
         SheetBodyService,
-        TemplateStorageService,
-        StorageService
+        TemplateStorageService
       ]
     })
       .compileComponents();

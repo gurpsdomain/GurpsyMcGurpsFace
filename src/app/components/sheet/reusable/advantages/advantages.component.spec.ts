@@ -2,10 +2,9 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {AdvantagesComponent} from './advantages.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {StorageService} from '../../../../services/back-end/storage/storage.service';
 // tslint:disable-next-line max-line-length
-import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageService} from '../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
+import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {HttpModule} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
@@ -33,11 +32,10 @@ describe('AdvantagesComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        SettingsStorageDelegate,
+        SettingsStorageService,
         LoggingService,
         SheetService,
         SettingsService,
-        StorageService,
         TemplateStorageService
       ]
     })

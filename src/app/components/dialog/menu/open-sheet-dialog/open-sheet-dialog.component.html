@@ -35,26 +35,6 @@
       </gurpsy-file-input>
     </div>
   </md-card>
-  <md-card *ngIf="previouslyOpenedSheets && previouslyOpenedSheets.length > 0">
-    <div class="dialogCardHeader">
-      {{'DIALOG.OPEN_SHEET.PREVIOUSLY'| translate}}
-    </div>
-    <div>
-      <button md-button *ngFor="let sheet of previouslyOpenedSheets;" (click)="onPreviousSheetSelected(sheet)">
-        <div class="sheetRow flex-container"
-             fxLayout="row"
-             fxLayoutAlign="start stretch">
-          <div class="avatar flex-item">
-            <img src="assets/images/empty-portrait.png">
-          </div>
-          <div class="sheetInfo">
-            <span class="sheetName">{{sheet.metaData.identity.name}}</span>
-            <span class="sheetPoints"> ({{sheet.points.total}} {{'SHEET.POINTS.POINTS'| translate}})</span>
-          </div>
-        </div>
-      </button>
-    </div>
-  </md-card>
 </md-dialog-content>
 
 <md-dialog-actions align="end">

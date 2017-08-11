@@ -1,18 +1,19 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {StorageService} from '../storage/storage.service';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../../models/settings/settings.model';
 import {Book} from '../../../models/settings/book.model';
 import {LoggingService} from '../logging/logging.service';
+import {GurpsyConstants} from '../../../gurpsy.constants';
 
 @Injectable()
-export class SettingsStorageDelegate {
+export class SettingsStorageService {
+
 
   private static STORAGE_KEY = '.settings';
 
-  private subjectChangeSource = new Subject<Settings>();
+  private settingsChanged = new Subject<Settings>();
 
   /**
    * Register to this observable to be notified when the value is changed
@@ -20,10 +21,10 @@ export class SettingsStorageDelegate {
    *
    * @type {Observable<Settings>}
    */
-  public valueChange$ = this.subjectChangeSource.asObservable();
+  public settingsChanged$ = this.settingsChanged.asObservable();
 
   constructor(private loggingService: LoggingService) {
-    window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
+    window.addEventListener(GurpsyConstants.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   /**
@@ -32,7 +33,7 @@ export class SettingsStorageDelegate {
    */
   public clear(): void {
     localStorage.removeItem(this.getStorageKey());
-    this.change(null);
+    this.settingsChanged.next(null);
   }
 
   /**
@@ -149,7 +150,7 @@ export class SettingsStorageDelegate {
     const json = JSON.stringify(jsonConvert.serialize(settings));
 
     localStorage.setItem(this.getStorageKey(), json);
-    this.change(settings);
+    this.settingsChanged.next(settings);
   }
 
   private retrieve(): Settings {
@@ -164,18 +165,14 @@ export class SettingsStorageDelegate {
     return settings;
   }
 
-  private change(settings: Settings) {
-    this.subjectChangeSource.next(settings);
-  }
-
   private getStorageKey(): string {
-    return StorageService.STORAGE_KEY + SettingsStorageDelegate.STORAGE_KEY;
+    return GurpsyConstants.GURPSY_STORAGE_KEY + SettingsStorageService.STORAGE_KEY;
   }
 
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getStorageKey()) {
       const settings = this.deserialize(event.newValue);
-      this.change(settings);
+      this.settingsChanged.next(settings);
     }
   }
 

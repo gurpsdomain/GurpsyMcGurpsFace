@@ -4,9 +4,8 @@ import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {PageReferenceService} from '../../services/front-end/page-reference/page-reference.service';
 import {SettingsService} from '../../services/front-end/settings/settings.service';
-import {StorageService} from '../../services/back-end/storage/storage.service';
-import {TemplateStorageService} from '../../services/back-end/storage/delegates/template-storage/template-storage.service';
-import {SettingsStorageDelegate} from '../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {TemplateStorageService} from '../../services/back-end/template-storage/template-storage.service';
+import {SettingsStorageService} from '../../services/back-end/settings-storage/settings-storage.service';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {TranslateModule} from '@ngx-translate/core';
 
@@ -27,9 +26,8 @@ describe('BookViewerComponent', () => {
         LoggingService,
         PageReferenceService,
         SettingsService,
-        SettingsStorageDelegate,
-        TemplateStorageService,
-        StorageService
+        SettingsStorageService,
+        TemplateStorageService
       ]
     })
       .compileComponents();

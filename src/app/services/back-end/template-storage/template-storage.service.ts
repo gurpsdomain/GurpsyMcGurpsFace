@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {StorageService} from '../../storage.service';
-import {TemplateDM} from '../../../../../models/sheet/template/template.model';
-import {TemplatesDM} from '../../../../../models/templates/templates.model';
-import {LoggingService} from '../../../logging/logging.service';
+import {TemplateDM} from '../../../models/sheet/template/template.model';
+import {TemplatesDM} from '../../../models/templates/templates.model';
+import {LoggingService} from '../logging/logging.service';
 import {JsonConvert} from 'json2typescript';
+import {GurpsyConstants} from '../../../gurpsy.constants';
 
 @Injectable()
 export class TemplateStorageService {
@@ -32,7 +32,7 @@ export class TemplateStorageService {
   public selectedTemplateChanged$ = this.selectedTemplateChanged.asObservable();
 
   constructor(private loggingService: LoggingService) {
-    window.addEventListener(StorageService.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
+    window.addEventListener(GurpsyConstants.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   /**
@@ -144,10 +144,10 @@ export class TemplateStorageService {
   }
 
   private getAllTemplatesStorageKey(): string {
-    return StorageService.STORAGE_KEY + TemplateStorageService.STORAGE_KEY;
+    return GurpsyConstants.GURPSY_STORAGE_KEY + TemplateStorageService.STORAGE_KEY;
   }
 
   private getSelectedTemplateStorageKey(): string {
-    return StorageService.STORAGE_KEY + TemplateStorageService.STORAGE_KEY_SELECTED;
+    return GurpsyConstants.GURPSY_STORAGE_KEY + TemplateStorageService.STORAGE_KEY_SELECTED;
   }
 }

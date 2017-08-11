@@ -2,18 +2,17 @@
 import {async, TestBed} from '@angular/core/testing';
 import {SettingsDialogComponent} from './settings-dialog.component';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
-import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageService} from '../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
+import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {MdDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {BookConfigurationComponent} from '../../../generic/book-configuration/book-configuration.component';
 import {BooksConfigurationComponent} from '../../../generic/books-configuration/books-configuration.component';
-import {StorageService} from '../../../../services/back-end/storage/storage.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {PageReferenceService} from '../../../../services/front-end/page-reference/page-reference.service';
-import {NgModule} from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 @NgModule({
   entryComponents: [
@@ -41,12 +40,14 @@ describe('SettingsDialogComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
+        SettingsService,
+        SettingsStorageService,
+        TemplateStorageService,
         LoggingService,
         PageReferenceService,
-        SettingsService,
-        SettingsStorageDelegate,
-        TemplateStorageService,
-        StorageService
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
       ]
     })
       .compileComponents();

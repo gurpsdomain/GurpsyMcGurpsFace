@@ -13,6 +13,7 @@ import {Sheet} from './models/sheet/model/sheet.model';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
 import {TemplateDM} from './models/sheet/template/template.model';
 import {SheetService} from './services/front-end/sheet/sheet.service';
+import {GurpsyConstants} from './gurpsy.constants';
 
 @Component({
   selector: 'gurpsy-root',
@@ -21,8 +22,6 @@ import {SheetService} from './services/front-end/sheet/sheet.service';
 })
 export class GurpsyComponent implements OnInit {
 
-  public static DIALOG_WIDTH = '400px';
-  public static SNACKBAR_DURATION_TIME = 4000;
 
   private static ICON_D6_NAME = 'd6';
   private static ICON_D6_URL = 'assets/icons/dice-6.svg';
@@ -72,7 +71,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onNewSheet(): void {
     this.newSheetDialogRef = this.dialog.open(NewSheetComponent, {
-      width: GurpsyComponent.DIALOG_WIDTH,
+      width: GurpsyConstants.DIALOG_WIDTH,
       disableClose: false
     });
 
@@ -103,7 +102,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onOpenThrowDiceDialog(): void {
     this.diceDialogRef = this.dialog.open(DiceDialogComponent, {
-      width: GurpsyComponent.DIALOG_WIDTH,
+      width: GurpsyConstants.DIALOG_WIDTH,
       disableClose: false
     });
 
@@ -117,7 +116,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onOpenAboutDialog(): void {
     this.aboutDialogRef = this.dialog.open(AboutDialogComponent, {
-      width: GurpsyComponent.DIALOG_WIDTH,
+      width: GurpsyConstants.DIALOG_WIDTH,
       disableClose: false
     });
 
@@ -131,7 +130,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onOpenSheetDialog(): void {
     this.openSheetDialogRef = this.dialog.open(OpenSheetDialogComponent, {
-      width: GurpsyComponent.DIALOG_WIDTH,
+      width: GurpsyConstants.DIALOG_WIDTH,
       disableClose: false
     });
 
@@ -145,7 +144,7 @@ export class GurpsyComponent implements OnInit {
    */
   public onOpenSettingsDialog(): void {
     this.settingsDialogRef = this.dialog.open(SettingsDialogComponent, {
-      width: GurpsyComponent.DIALOG_WIDTH,
+      width: GurpsyConstants.DIALOG_WIDTH,
       disableClose: false
     });
 
@@ -198,7 +197,7 @@ export class GurpsyComponent implements OnInit {
     if (sheet) {
       this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
         this.snackBar.open(res, '', {
-          duration: GurpsyComponent.SNACKBAR_DURATION_TIME,
+          duration: GurpsyConstants.SNACKBAR_DURATION_TIME,
         });
       });
     }

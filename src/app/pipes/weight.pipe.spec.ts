@@ -1,9 +1,8 @@
-import {TestBed, inject} from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 import {WeightPipe} from './weight.pipe';
 import {SettingsService} from '../services/front-end/settings/settings.service';
-import {StorageService} from '../services/back-end/storage/storage.service';
-import {SettingsStorageDelegate} from '../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageService} from '../services/back-end/storage/delegates/template-storage/template-storage.service';
+import {SettingsStorageService} from '../services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from '../services/back-end/template-storage/template-storage.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {LoggingService} from '../services/back-end/logging/logging.service';
 
@@ -14,8 +13,7 @@ describe('WeightPipe', () => {
     providers: [
       LoggingService,
       SettingsService,
-      StorageService,
-      SettingsStorageDelegate,
+      SettingsStorageService,
       TemplateStorageService,
       WeightPipe
     ],

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {StorageService} from '../../back-end/storage/storage.service';
 import {Subject} from 'rxjs';
 import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {Book} from '../../../models/settings/book.model';
 import {Settings} from '../../../models/settings/settings.model';
-import {TemplateDM} from '../../../models/sheet/template/template.model';
 import {TranslateService} from '@ngx-translate/core';
+import {SettingsStorageService} from '../../back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from '../../back-end/template-storage/template-storage.service';
 
 
 @Injectable()
@@ -25,7 +25,8 @@ export class SettingsService {
   private settingsSource = new Subject<Settings>();
   public settingsChange$ = this.settingsSource.asObservable();
 
-  constructor(private storageService: StorageService,
+  constructor(private settingsStorageService: SettingsStorageService,
+              private templateStorageService: TemplateStorageService,
               private translateService: TranslateService) {
 
     this.initObservable();
@@ -38,7 +39,7 @@ export class SettingsService {
    * @param bodyContent : SheetBodyContent
    */
   public setBodyContent(bodyContent: SheetBodyContent) {
-    this.storageService.storeBodyContent(bodyContent);
+    this.settingsStorageService.storeBodyContent(bodyContent);
   }
 
   /**
@@ -47,7 +48,7 @@ export class SettingsService {
    * @param metrics : string
    */
   public setMetrics(metrics: string) {
-    this.storageService.storeMetrics(metrics);
+    this.settingsStorageService.storeMetrics(metrics);
   }
 
   /**
@@ -56,7 +57,7 @@ export class SettingsService {
    * @param BookConfiguration[]
    */
   public storeBookConfigurations(bookConfigurations: Book[]) {
-    this.storageService.storeBookConfigurations(bookConfigurations);
+    this.settingsStorageService.storeBookConfigurations(bookConfigurations);
   }
 
   /**
@@ -65,7 +66,7 @@ export class SettingsService {
    * @param theme : string
    */
   public setTheme(theme: string) {
-    this.storageService.storeTheme(theme);
+    this.settingsStorageService.storeTheme(theme);
   }
 
   /**
@@ -74,7 +75,7 @@ export class SettingsService {
    * @return Promise<SheetBodyContent>  A promise that resolves to the current BodyContent
    */
   public getBodyContent(): Promise<SheetBodyContent> {
-    return this.storageService.getBodyContent();
+    return this.settingsStorageService.retrieveBodyContent();
   }
 
   /**
@@ -83,7 +84,7 @@ export class SettingsService {
    * @returns Promise<Book[]>
    */
   public getBookConfigurations(): Promise<Book[]> {
-    return this.storageService.getBookConfigurations();
+    return this.settingsStorageService.retrieveBookConfigurations();
   }
 
   /**
@@ -92,17 +93,9 @@ export class SettingsService {
    * @return Promise<string>  A promise that resolves to the current metrics
    */
   public getMetrics(): Promise<string> {
-    return this.storageService.getMetrics();
+    return this.settingsStorageService.retrieveMetrics();
   }
 
-  /**
-   * Retrieve an array of Previously Opened TemplatesDM from Local Storage.
-   *
-   * @returns Promise<TemplateDM[]> or an empty promise if there are no previously opened sheets.
-   */
-  public getPreviouslyOpenedSheets(): Promise<TemplateDM[]> {
-    return this.storageService.getPreviouslyOpenedSheets();
-  }
 
   /**
    * Get theme.
@@ -110,7 +103,7 @@ export class SettingsService {
    * @return Promise<string>  A promise that resolves to the current theme
    */
   public getTheme(): Promise<string> {
-    return this.storageService.getTheme();
+    return this.settingsStorageService.retrieveTheme();
   }
 
   /**
@@ -118,7 +111,8 @@ export class SettingsService {
    * entries should be removed.
    */
   public clearStorage(): void {
-    this.storageService.clearStorage();
+    this.settingsStorageService.clear();
+    this.templateStorageService.clear();
   }
 
   private initTranslateService(): void {
@@ -128,7 +122,7 @@ export class SettingsService {
   }
 
   private initObservable(): void {
-    this.storageService.getSettingsObserver().subscribe(settings => this.notifyListeners(settings));
+    this.settingsStorageService.settingsChanged$.subscribe(settings => this.notifyListeners(settings));
   }
 
   private notifyListeners(settings: Settings): void {

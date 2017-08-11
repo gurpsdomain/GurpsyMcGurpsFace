@@ -7,9 +7,8 @@ import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
-import {StorageService} from '../../../../services/back-end/storage/storage.service';
-import {TemplateStorageService} from '../../../../services/back-end/storage/delegates/template-storage/template-storage.service';
-import {SettingsStorageDelegate} from '../../../../services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
+import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
+import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
 import {NgModule} from '@angular/core';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
@@ -40,9 +39,8 @@ describe('OpenSheetDialogComponent', () => {
       providers: [
         LoggingService,
         SheetService,
-        StorageService,
         TemplateStorageService,
-        SettingsStorageDelegate
+        SettingsStorageService
       ]
     })
       .compileComponents();

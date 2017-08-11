@@ -12,10 +12,9 @@ import {PlayerInformationComponent} from './components/sheet/reusable/player-inf
 import {DescriptionComponent} from './components/sheet/reusable/description/description.component';
 import {PointsComponent} from './components/sheet/reusable/points/points.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
-import {StorageService} from './services/back-end/storage/storage.service';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {SettingsStorageDelegate} from './services/back-end/storage/delegates/settings-storage-delegate/settings-storage-delegate';
-import {TemplateStorageService} from './services/back-end/storage/delegates/template-storage/template-storage.service';
+import {SettingsStorageService} from './services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from './services/back-end/template-storage/template-storage.service';
 import {SheetBodyComponent} from './components/sheet/structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './components/sheet/reusable/notes/notes.component';
 import {AdvantagesComponent} from './components/sheet/reusable/advantages/advantages.component';
@@ -108,11 +107,10 @@ describe('GurpsyComponent', () => {
         MockBackend,
         BaseRequestOptions,
         SettingsService,
-        SettingsStorageDelegate,
+        SettingsStorageService,
         TranslateService,
         LoggingService,
         PageReferenceService,
-        StorageService,
         TemplateStorageService,
         SheetService,
         SheetBodyService
