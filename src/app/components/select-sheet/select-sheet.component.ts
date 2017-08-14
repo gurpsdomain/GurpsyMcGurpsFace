@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SheetService} from '../../services/front-end/sheet/sheet.service';
 import {TemplateDM} from '../../models/sheet/template/template.model';
 
@@ -11,6 +11,8 @@ export class SelectSheetComponent implements OnInit {
 
   public templates: TemplateDM[] = [];
 
+  @Output() public createTemplate: EventEmitter<any> = new EventEmitter();
+
   constructor(private sheetService: SheetService) {
   }
 
@@ -19,8 +21,20 @@ export class SelectSheetComponent implements OnInit {
     this.sheetService.templatesUpdated$.subscribe(templates => this.setTemplates(templates));
   }
 
+  /**
+   * Select the given template
+   *
+   * @param {TemplateDM} template
+   */
   public onTemplateSelected(template: TemplateDM): void {
     this.sheetService.loadExistingTemplate(template);
+  }
+
+  /**
+   * Create and load a new Template
+   */
+  public onCreateTemplate(): void {
+    this.createTemplate.next();
   }
 
   private setTemplates(templates: TemplateDM[]): void {

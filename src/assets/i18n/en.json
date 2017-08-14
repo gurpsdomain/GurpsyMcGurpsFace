@@ -50,12 +50,14 @@
     "THROW_DICE": "Throw dice"
   },
   "MESSAGE": {
-    "NO_SHEET_LOADED": "No sheet loaded. Please use the menu to create or load a sheet.",
     "SHEET_LOADED": "Loaded Character Sheet: {{value}}",
     "ERROR": {
       "REQUIRED_NAME": "Please provide a name for this character",
       "REQUIRED_PLAYER": "Please provide a player for this character"
     }
+  },
+  "SELECT_SHEET": {
+    "CREATE_NEW" : "Create a new Character sheet"
   },
   "SHEET": {
     "ADVANTAGES": {

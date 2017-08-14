@@ -1,9 +1,12 @@
 <div class="selectSheet">
-  <md-card *ngIf="templates.length > 0">
-    <md-card-content>
-      {{ 'MESSAGE.NO_SHEET_LOADED' | translate }}
-    </md-card-content>
+
+  <md-card>
+    <button md-button
+            (click)="onCreateTemplate()">
+      {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
+    </button>
   </md-card>
+
   <md-card>
     <button
       md-button
@@ -56,7 +59,6 @@
           </div>
         </div>
       </div>
-
     </button>
   </md-card>
 </div>
