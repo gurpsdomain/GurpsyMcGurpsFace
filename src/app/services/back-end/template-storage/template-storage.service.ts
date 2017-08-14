@@ -12,7 +12,7 @@ export class TemplateStorageService {
   private static STORAGE_KEY = '.templates';
   private static STORAGE_KEY_SELECTED = '.template';
 
-  private templatesUpdated = new Subject<TemplatesDM>();
+  private templatesUpdated = new Subject<TemplateDM[]>();
   private selectedTemplateChanged = new Subject<TemplateDM>();
 
   /**
@@ -52,7 +52,7 @@ export class TemplateStorageService {
    */
   public clear(): void {
     localStorage.removeItem(this.getAllTemplatesStorageKey());
-    this.templatesUpdated.next(undefined);
+    this.templatesUpdated.next([]);
     sessionStorage.removeItem(this.getSelectedTemplateStorageKey());
     this.selectedTemplateChanged.next();
   }
@@ -137,7 +137,7 @@ export class TemplateStorageService {
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getAllTemplatesStorageKey()) {
       const templates = this.deserialize(event.newValue);
-      this.templatesUpdated.next(templates)
+      this.templatesUpdated.next(templates.templates)
     } else if (event.key === this.getSelectedTemplateStorageKey()) {
       this.selectedTemplateChanged.next()
     }

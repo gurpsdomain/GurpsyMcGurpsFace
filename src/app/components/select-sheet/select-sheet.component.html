@@ -1,12 +1,62 @@
-<md-card>
-  <md-card-content>
-    {{ 'MESSAGE.NO_SHEET_LOADED' | translate }}
-  </md-card-content>
-</md-card>
-<md-card>
-  <div *ngFor="let template of templates"
-       class="clickable"
-       (click)="onTemplateSelected(template)">
-    {{template.name}}
-  </div>
-</md-card>
+<div class="selectSheet">
+  <md-card *ngIf="templates.length > 0">
+    <md-card-content>
+      {{ 'MESSAGE.NO_SHEET_LOADED' | translate }}
+    </md-card-content>
+  </md-card>
+  <md-card>
+    <button
+      md-button
+      *ngFor="let template of templates"
+      (click)="onTemplateSelected(template)">
+      <div class="flex-container"
+           fxLayout="row"
+           fxLayoutAlign="space-between stretch"
+           fxLayoutWrap="nowrap">
+        <div class="flex-item flex-container"
+             fxLayoutAlign="space-between center">
+          <img [src]="template.portrait"
+               class="flex-item"
+               alt="portrait">
+        </div>
+        <div class="flex-container flex-item"
+             fxLayout="column"
+             fxLayoutAlign="space-between stretch"
+             fxLayoutWrap="nowrap"
+             fxFlex="100%">
+          <div class="flex-item player"
+               fxFlex="100%">
+            {{template.player}}
+          </div>
+          <div class="flex-item name"
+               fxFlex="100%">
+            {{template.name}}
+          </div>
+        </div>
+        <div class="flex-container flex-item"
+             fxLayout="column"
+             fxLayoutAlign="space-between stretch"
+             fxLayoutWrap="nowrap">
+          <div class="flex-item">
+            <div class="dateLabel">
+              {{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}
+            </div>
+            <div class="date">
+              {{template.createdOn | date}}
+            </div>
+          </div>
+          <div *ngIf="template.lastModified"
+               class="flex-item">
+            <div class="dateLabel">
+              {{ 'SHEET.PLAYER_INFORMATION.LAST_MODIFIED' | translate }}
+            </div>
+            <div class="date">
+              {{template.lastModified | date}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </button>
+  </md-card>
+</div>

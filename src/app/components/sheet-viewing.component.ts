@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Sheet} from '../models/sheet/model/sheet.model';
 import {TemplateDM} from '../models/sheet/template/template.model';
 import {SheetService} from '../services/front-end/sheet/sheet.service';

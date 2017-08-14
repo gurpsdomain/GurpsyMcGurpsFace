@@ -12,8 +12,9 @@ export class SheetService {
 
   private _editMode = false;
   private editModeChangeSource = new Subject<boolean>();
-  private sheetUpdatedSource = new Subject<Sheet>();
   private newSheetLoadedSource = new Subject<Sheet>();
+  private sheetUpdatedSource = new Subject<Sheet>();
+  private templatesUpdatedSource = new Subject<TemplateDM[]>();
 
   /**
    * Register to this observable to be notified when the sheet has been updated. This is most
@@ -36,6 +37,13 @@ export class SheetService {
    * @type Observable
    */
   public editModeChange$ = this.editModeChangeSource.asObservable();
+
+  /**
+   * Register to this observable to be notified when the templates are updated.
+   *
+   * @type Observable
+   */
+  public templatesUpdated$ = this.templatesUpdatedSource.asObservable();
 
   constructor(private templateStorageService: TemplateStorageService) {
     this.initSheet();
@@ -160,7 +168,8 @@ export class SheetService {
   private initSheet(): void {
     this.loadSelectedTemplate();
 
-    this.templateStorageService.templatesUpdated$.subscribe(templateDM => this.loadSelectedTemplate());
+    this.templateStorageService.templatesUpdated$.subscribe(templates => this.loadSelectedTemplate());
+    this.templateStorageService.templatesUpdated$.subscribe(templates => this.templatesUpdatedSource.next(templates));
   }
 
   private loadSelectedTemplate(): void {

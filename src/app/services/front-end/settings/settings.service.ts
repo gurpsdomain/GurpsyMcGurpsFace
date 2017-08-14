@@ -17,7 +17,7 @@ export class SettingsService {
 
   public static THEME_DAY = 'day';
   public static THEME_NIGHT = 'night';
-  public static THEME_DEFAULT = SettingsService.THEME_DAY;
+  public static THEME_DEFAULT = SettingsService.THEME_NIGHT;
 
   public static METRICS_SI = 'si';
   public static METRICS_DEFAULT = 'default';

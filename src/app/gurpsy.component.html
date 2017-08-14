@@ -23,7 +23,7 @@
             [disabled]="!sheet"
             fxShow="true"
             fxShow.xs="false"
-            *ngIf="!editMode"
+            *ngIf="!editMode && sheet"
             (click)="onEdit(true)">
       <md-icon>lock</md-icon>
     </button>
@@ -32,7 +32,7 @@
             [disabled]="!sheet"
             fxShow="true"
             fxShow.xs="false"
-            *ngIf="editMode"
+            *ngIf="editMode && sheet"
             (click)="onEdit(false)">
       <md-icon>lock_open</md-icon>
     </button>
@@ -55,7 +55,8 @@
         <button
           md-menu-item
           fxShow="false"
-          fxShow.xs *ngIf="!editMode"
+          fxShow.xs
+          *ngIf="!editMode && sheet"
           (click)="onEdit(true)">
           <md-icon>lock</md-icon>
           <span>{{ 'MENU.EDIT' | translate }}</span>
@@ -63,7 +64,8 @@
         <button
           md-menu-item
           fxShow="false"
-          fxShow.xs *ngIf="editMode"
+          fxShow.xs
+          *ngIf="editMode && sheet"
           (click)="onEdit(false)">
           <md-icon>lock_open</md-icon>
           <span>{{ 'MENU.LOCK' | translate }}</span>

@@ -16,13 +16,14 @@ export class SelectSheetComponent implements OnInit {
 
   ngOnInit() {
     this.sheetService.getTemplates().then(templates => this.setTemplates(templates));
+    this.sheetService.templatesUpdated$.subscribe(templates => this.setTemplates(templates));
   }
 
   public onTemplateSelected(template: TemplateDM): void {
     this.sheetService.loadExistingTemplate(template);
   }
 
-  private setTemplates(templates: TemplateDM[]) {
+  private setTemplates(templates: TemplateDM[]): void {
     this.templates = templates;
   }
 }

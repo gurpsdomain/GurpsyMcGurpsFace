@@ -1,12 +1,48 @@
-md-card {
-  width: 300px;
+.selectSheet {
+  md-card {
+    width: 300px;
 
-  md-card-content {
-    text-align: center;
-  }
+    button {
+      width: 100%;
+      padding-bottom: 8px;
+      padding-top: 8px;
 
-  .clickable {
-    cursor: pointer;
+      img {
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top;
+        width: 48px;
+        height: 48px;
+        margin-right: 12px;
+      }
+
+      div {
+        text-align: left;
+        line-height: 20px;
+
+        .dateLabel {
+          font-size: xx-small;
+          font-weight: 100;
+          line-height: 10px;
+        }
+
+        .date {
+          font-size: xx-small;
+          line-height: 10px;
+        }
+      }
+    }
+
+    .player {
+      font-size: x-small;
+      font-weight: 100;
+    }
+    .name {
+      font-size: small;
+    }
+
+    md-card-content {
+      text-align: center;
+    }
   }
 }
-

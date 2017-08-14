@@ -17,7 +17,7 @@ describe('AdvantagesComponent', () => {
   let component: AdvantagesComponent;
   let fixture: ComponentFixture<AdvantagesComponent>;
 
-  let modelService: SheetService;
+  let sheetService: SheetService;
 
   let sheet: Sheet;
 
@@ -46,12 +46,12 @@ describe('AdvantagesComponent', () => {
     fixture = TestBed.createComponent(AdvantagesComponent);
     component = fixture.componentInstance;
 
-    modelService = TestBed.get(SheetService);
+    sheetService = TestBed.get(SheetService);
 
     const template = new TemplateDM();
     sheet = new Sheet(template);
 
-    spyOn(modelService, 'getSheet')
+    spyOn(sheetService, 'getSheet')
       .and.returnValue(Promise.resolve(sheet));
   });
 

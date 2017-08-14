@@ -1,0 +1,25 @@
+@mixin gurpsy-select-sheet-theme($theme) {
+  $backgroundMap: map-get($theme, background);
+  $foregroundMap: map-get($theme, foreground);
+  $statusBar: map-get($backgroundMap, status-bar);
+  $hintText: map_get($foregroundMap, hint-text);
+
+  .selectSheet {
+    md-card {
+      width: 300px;
+
+      button:not(:last-child) {
+        border-bottom: solid 1px $statusBar;
+      }
+
+      button {
+        .player, .dateLabel {
+          color: $hintText;
+        }
+      }
+    }
+  }
+}
+
+
+
