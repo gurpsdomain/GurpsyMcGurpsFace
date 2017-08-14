@@ -3,7 +3,18 @@
   <md-card>
     <button md-button
             (click)="onCreateTemplate()">
-      {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
+      <div class="flex-container"
+           fxLayout="row">
+        <div class="flex-item icon"
+             fxFlexAlign="center">
+          <md-icon>add_circle</md-icon>
+        </div>
+        <div class="flex-item"
+             fxFlexAlign="center"
+             fxFlex="100%">
+          {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
+        </div>
+      </div>
     </button>
   </md-card>
 
