@@ -8,8 +8,8 @@ import {TemplateStorageService} from '../../../../services/back-end/template-sto
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
-import {Sheet} from '../../../../models/sheet/model/sheet.model';
-import {TemplateDM} from '../../../../models/sheet/template/template.model';
+import {Sheet} from '../../../../models/sheet/sheet.model';
+import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
 import {By} from '@angular/platform-browser';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
@@ -20,7 +20,7 @@ describe('PlayerInformationComponent', function () {
 
   let modelService: SheetService;
 
-  let template: TemplateDM;
+  let template: SheetTemplate;
   let initialSheet: Sheet;
   let modifiedSheet: Sheet;
 
@@ -59,14 +59,14 @@ describe('PlayerInformationComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    template = new TemplateDM();
+    template = new SheetTemplate();
     initialSheet = new Sheet(template);
     initialSheet.metaData.playerInformation.player = PLAYER;
     initialSheet.metaData.playerInformation.campaign = CAMPAIGN;
     initialSheet.metaData.playerInformation.createdOn = CREATED_ON;
     initialSheet.metaData.playerInformation.lastModified = undefined;
 
-    template = new TemplateDM();
+    template = new SheetTemplate();
     modifiedSheet = new Sheet(template);
     modifiedSheet.metaData.playerInformation.player = PLAYER;
     modifiedSheet.metaData.playerInformation.campaign = CAMPAIGN;

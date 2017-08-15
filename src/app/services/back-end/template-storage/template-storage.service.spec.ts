@@ -2,8 +2,8 @@
 import {inject, TestBed} from '@angular/core/testing';
 import {TemplateStorageService} from './template-storage.service';
 import {LoggingService} from '../logging/logging.service';
-import {TemplateDM} from '../../../models/sheet/template/template.model';
-import {TemplatesDM} from '../../../models/templates/templates.model';
+import {SheetTemplate} from '../../../models/sheet-template/sheet-template.model';
+import {TemplateStore} from '../../../models/template-store/template-store.model';
 import {JsonConvert} from 'json2typescript';
 
 describe('TemplateStorageService', () => {
@@ -27,7 +27,7 @@ describe('TemplateStorageService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should return an empty TemplateDM[] when getTemplates() is called, but Local Storage is empty',
+  it('should return an empty SheetTemplate[] when getTemplates() is called, but Local Storage is empty',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
       service.getTemplates().then(templates => expect(templates.length).toBe(0));
     }));
@@ -35,7 +35,7 @@ describe('TemplateStorageService', () => {
 
   it('should create a new entry in LocalStorage, when addTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.addTemplate(template);
 
@@ -44,17 +44,17 @@ describe('TemplateStorageService', () => {
       expect(retrievedTemplates).toBeTruthy();
     }));
 
-  it('should store a TemplatesDM Object with the given TemplateDM in LocalStorage, when addTemplate() is called',
+  it('should store a TemplateStore Object with the given SheetTemplate in LocalStorage, when addTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.addTemplate(template);
 
       const json = localStorage.getItem(LOCAL_STORAGE_TEMPLATES_KEY);
       const jsonConvert = new JsonConvert();
       const jsonObject = JSON.parse(json);
-      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplatesDM);
+      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplateStore);
 
 
       let found = false;
@@ -68,11 +68,11 @@ describe('TemplateStorageService', () => {
       expect(found).toBeTruthy();
     }));
 
-  it('should not store a TemplatesDM Object with the given TemplateDM in LocalStorage, when addTemplate() is ' +
-    'called and a TemplateDM with the same id has already been stored',
+  it('should not store a TemplateStore Object with the given SheetTemplate in LocalStorage, when addTemplate() is ' +
+    'called and a SheetTemplate with the same id has already been stored',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.addTemplate(template);
       service.addTemplate(template);
@@ -80,15 +80,15 @@ describe('TemplateStorageService', () => {
       const json = localStorage.getItem(LOCAL_STORAGE_TEMPLATES_KEY);
       const jsonConvert = new JsonConvert();
       const jsonObject = JSON.parse(json);
-      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplatesDM);
+      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplateStore);
 
       expect(retrievedTemplates.templates.length).toBe(1);
     }));
 
 
-  it('should set the id of the given TemplateDM in Session Storage when selectTemplate() is called',
+  it('should set the id of the given SheetTemplate in Session Storage when selectTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.selectTemplate(template);
 
@@ -99,14 +99,14 @@ describe('TemplateStorageService', () => {
 
   it('should add the template to Local Storage, if it is not yet added, when selectTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.selectTemplate(template);
 
       const json = localStorage.getItem(LOCAL_STORAGE_TEMPLATES_KEY);
       const jsonConvert = new JsonConvert();
       const jsonObject = JSON.parse(json);
-      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplatesDM);
+      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplateStore);
 
       let found = false;
       for (const storedTemplate of retrievedTemplates.templates) {
@@ -129,23 +129,23 @@ describe('TemplateStorageService', () => {
       })
     }));
 
-  it('should return the selected TemplateDM when getSelectedTemplate() is called',
+  it('should return the selected SheetTemplate when getSelectedTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.selectTemplate(template);
       service.getSelectedTemplate().then(selectedTemplate => expect(selectedTemplate.id).toBe(template.id));
     }));
 
-  it('should update the TemplateDM when updateTemplate() is called',
+  it('should update the SheetTemplate when updateTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
-      const originalTemplate = new TemplateDM();
+      const originalTemplate = new SheetTemplate();
       service.addTemplate(originalTemplate);
       service.selectTemplate(originalTemplate);
 
-      const updatedTemplate = new TemplateDM();
+      const updatedTemplate = new SheetTemplate();
       updatedTemplate.id = originalTemplate.id;
       updatedTemplate.name = 'Dai Blackthorn';
 

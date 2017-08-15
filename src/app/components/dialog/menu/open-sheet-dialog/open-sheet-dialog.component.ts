@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
-import {TemplateDM} from '../../../../models/sheet/template/template.model';
+import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 
@@ -14,8 +14,8 @@ export class OpenSheetDialogComponent {
 
   public showOk = false;
   public selectedFileName = '';
-  public selectedSheet: TemplateDM;
-  public previouslyOpenedSheets: TemplateDM[] = [];
+  public selectedSheet: SheetTemplate;
+  public previouslyOpenedSheets: SheetTemplate[] = [];
 
   constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
               private modelService: SheetService) {
@@ -32,7 +32,7 @@ export class OpenSheetDialogComponent {
       .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 
-  private setSelectedSheet(sheet: TemplateDM, fileName: string): void {
+  private setSelectedSheet(sheet: SheetTemplate, fileName: string): void {
     this.selectedSheet = sheet;
     this.selectedFileName = fileName;
     this.showOk = true;

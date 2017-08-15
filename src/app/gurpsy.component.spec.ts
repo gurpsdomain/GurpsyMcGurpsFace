@@ -42,8 +42,8 @@ import {MockBackend} from '@angular/http/testing';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {WeightPipe} from './pipes/weight.pipe';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {TemplateDM} from './models/sheet/template/template.model';
-import {Sheet} from './models/sheet/model/sheet.model';
+import {SheetTemplate} from './models/sheet-template/sheet-template.model';
+import {Sheet} from './models/sheet/sheet.model';
 import {Title} from '@angular/platform-browser';
 import {SheetService} from './services/front-end/sheet/sheet.service';
 
@@ -56,7 +56,7 @@ describe('GurpsyComponent', () => {
 
   const CHARACTER_NAME = 'Dai Blackthorn';
 
-  let template: TemplateDM;
+  let template: SheetTemplate;
   let sheet: Sheet;
 
   beforeEach(async(() => {
@@ -129,7 +129,7 @@ describe('GurpsyComponent', () => {
     modelService = TestBed.get(SheetService);
     titleService = TestBed.get(Title);
 
-    template = new TemplateDM();
+    template = new SheetTemplate();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;
 

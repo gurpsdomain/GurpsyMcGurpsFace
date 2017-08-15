@@ -1,20 +1,20 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {TemplateDM} from '../../../models/sheet/template/template.model';
+import {SheetTemplate} from '../../../models/sheet-template/sheet-template.model';
 import {JsonConvert} from 'json2typescript';
-import {Sheet} from '../../../models/sheet/model/sheet.model';
+import {Sheet} from '../../../models/sheet/sheet.model';
 import {TemplateStorageService} from '../../back-end/template-storage/template-storage.service';
 
 @Injectable()
 export class SheetService {
-  private template: TemplateDM;
+  private template: SheetTemplate;
   private sheet: Sheet;
 
   private _editMode = false;
   private editModeChangeSource = new Subject<boolean>();
   private newSheetLoadedSource = new Subject<Sheet>();
   private sheetUpdatedSource = new Subject<Sheet>();
-  private templatesUpdatedSource = new Subject<TemplateDM[]>();
+  private templatesUpdatedSource = new Subject<SheetTemplate[]>();
 
   /**
    * Register to this observable to be notified when the sheet has been updated. This is most
@@ -54,13 +54,13 @@ export class SheetService {
    *
    * @param {File} A json representative of a template
    */
-  public createTemplateFromFile(file: File): Promise<TemplateDM> {
+  public createTemplateFromFile(file: File): Promise<SheetTemplate> {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
             const jsonConvert = new JsonConvert();
-            const template: TemplateDM = jsonConvert.deserialize(JSON.parse(fileReader.result), TemplateDM);
+            const template: SheetTemplate = jsonConvert.deserialize(JSON.parse(fileReader.result), SheetTemplate);
             resolve(template);
           } else {
             reject('Could not read file');
@@ -77,9 +77,9 @@ export class SheetService {
   /**
    * Load a new template.
    *
-   * @param {TemplateDM} The new template.
+   * @param {SheetTemplate} The new template.
    */
-  public loadNewTemplate(template: TemplateDM): void {
+  public loadNewTemplate(template: SheetTemplate): void {
     this.loadTemplate(template);
     this.templateStorageService.addTemplate(template);
     this.templateStorageService.selectTemplate(template);
@@ -88,9 +88,9 @@ export class SheetService {
   /**
    * Load an existing template.
    *
-   * @param {TemplateDM} The template.
+   * @param {SheetTemplate} The template.
    */
-  public loadExistingTemplate(template: TemplateDM): void {
+  public loadExistingTemplate(template: SheetTemplate): void {
     this.loadTemplate(template);
     this.templateStorageService.selectTemplate(template);
   }
@@ -99,9 +99,9 @@ export class SheetService {
   /**
    * Update the template.
    *
-   * @param {TemplateDM} The updated template.
+   * @param {SheetTemplate} The updated template.
    */
-  public updateTemplate(template: TemplateDM): void {
+  public updateTemplate(template: SheetTemplate): void {
     template.lastModified = new Date();
     this.loadTemplate(template);
     this.templateStorageService.updateTemplate(template);
@@ -110,18 +110,18 @@ export class SheetService {
   /**
    * Return the template.
    *
-   * @returns {Promise<TemplateDM>}
+   * @returns {Promise<SheetTemplate>}
    */
-  public getTemplate(): Promise<TemplateDM> {
+  public getTemplate(): Promise<SheetTemplate> {
     return Promise.resolve(this.template);
   }
 
   /**
    * Return the templates.
    *
-   * @returns {Promise<TemplateDM[]>}
+   * @returns {Promise<SheetTemplate[]>}
    */
-  public getTemplates(): Promise<TemplateDM[]> {
+  public getTemplates(): Promise<SheetTemplate[]> {
     return this.templateStorageService.getTemplates();
   }
 
@@ -136,7 +136,7 @@ export class SheetService {
 
   /**
    * If the application is currently in edit mode. If so, it is possible
-   * to edit the TemplateDM. Consequently, this will lead to a new
+   * to edit the SheetTemplate. Consequently, this will lead to a new
    * Sheet.
    *
    * @param {boolean}
@@ -148,7 +148,7 @@ export class SheetService {
 
   /**
    * If the template is currently in edit mode. If so, it is possible
-   * to edit the TemplateDM. Consequently, this will lead to a new
+   * to edit the SheetTemplate. Consequently, this will lead to a new
    * template.
    *
    * @return {Promise<boolean>} A Promise that resolves to a boolean. True
@@ -158,7 +158,7 @@ export class SheetService {
     return Promise.resolve(this._editMode);
   }
 
-  private loadTemplate(template: TemplateDM): void {
+  private loadTemplate(template: SheetTemplate): void {
     this.setTemplate(template);
     const sheet = this.createSheet(template);
     this.setSheet(sheet)
@@ -178,7 +178,7 @@ export class SheetService {
       .catch(any => this.setSheet(undefined));
   }
 
-  private setTemplate(template: TemplateDM): void {
+  private setTemplate(template: SheetTemplate): void {
     this.template = template;
   }
 
@@ -187,7 +187,7 @@ export class SheetService {
     this.sheetUpdatedSource.next(this.sheet);
   }
 
-  private createSheet(template: TemplateDM): Sheet {
+  private createSheet(template: SheetTemplate): Sheet {
     return new Sheet(template);
   }
 }

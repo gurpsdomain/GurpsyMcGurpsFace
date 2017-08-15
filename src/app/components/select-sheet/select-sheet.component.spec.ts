@@ -6,14 +6,14 @@ import {GurpsyMaterialModule} from '../../modules/material.module';
 import {SheetService} from '../../services/front-end/sheet/sheet.service';
 import {TemplateStorageService} from '../../services/back-end/template-storage/template-storage.service';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
-import {TemplateDM} from '../../models/sheet/template/template.model';
+import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
 
 describe('SelectSheetComponent', () => {
   let component: SelectSheetComponent;
   let fixture: ComponentFixture<SelectSheetComponent>;
 
   let sheetService: SheetService;
-  const templates: TemplateDM[] = [];
+  const templates: SheetTemplate[] = [];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -36,7 +36,7 @@ describe('SelectSheetComponent', () => {
 
     sheetService = TestBed.get(SheetService);
 
-    this.templates = [new TemplateDM(), new TemplateDM()];
+    this.templates = [new SheetTemplate(), new SheetTemplate()];
 
     spyOn(sheetService, 'getTemplates')
       .and.returnValue(Promise.resolve(templates));

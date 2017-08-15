@@ -9,8 +9,8 @@ import {SettingsService} from '../../../../services/front-end/settings/settings.
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {By} from '@angular/platform-browser';
-import {TemplateDM} from '../../../../models/sheet/template/template.model';
-import {Sheet} from '../../../../models/sheet/model/sheet.model';
+import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Sheet} from '../../../../models/sheet/sheet.model';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 describe('IdentityComponent', function () {
@@ -20,7 +20,7 @@ describe('IdentityComponent', function () {
   let modelService: SheetService;
 
   let sheet: Sheet;
-  let template: TemplateDM;
+  let template: SheetTemplate;
 
   const CHARACTER_NAME = 'Dai Blackthorn';
   const CHARACTER_NAME_SELECTOR = '.name';
@@ -55,7 +55,7 @@ describe('IdentityComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    template = new TemplateDM();
+    template = new SheetTemplate();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;
     sheet.metaData.identity.title = CHARACTER_TITLE;

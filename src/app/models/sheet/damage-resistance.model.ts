@@ -1,4 +1,4 @@
-import {TemplateDM} from '../template/template.model';
+import {SheetTemplate} from '../sheet-template/sheet-template.model';
 export class DamageResistance {
 
   eye: string;
@@ -15,7 +15,7 @@ export class DamageResistance {
   neck: string;
   vitals: string;
 
-  constructor(template: TemplateDM) {
+  constructor(template: SheetTemplate) {
     this.eye = undefined;
     this.skull = undefined;
     this.face = undefined;

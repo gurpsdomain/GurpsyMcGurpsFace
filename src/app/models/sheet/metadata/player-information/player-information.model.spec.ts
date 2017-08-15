@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {TemplateDM} from '../../../template/template.model';
+import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
 import {PlayerInformation} from './player-information.model';
 
 
@@ -10,11 +10,11 @@ describe('Model Object PlayerInformation', () => {
   const PLAYER_INFORMATION_CREATED_ON = new Date();
   const PLAYER_INFORMATION_LAST_MODIFED = new Date();
 
-  let template: TemplateDM;
+  let template: SheetTemplate;
 
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  beforeEach(() => template = new TemplateDM());
+  beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
     const playerInformation = new PlayerInformation(template)

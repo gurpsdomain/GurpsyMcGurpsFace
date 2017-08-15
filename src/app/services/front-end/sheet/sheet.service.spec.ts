@@ -4,7 +4,7 @@ import {SettingsService} from '../settings/settings.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {LoggingService} from '../../back-end/logging/logging.service';
 import {SheetService} from './sheet.service';
-import {TemplateDM} from '../../../models/sheet/template/template.model';
+import {SheetTemplate} from '../../../models/sheet-template/sheet-template.model';
 
 describe('SheetService', () => {
 
@@ -39,10 +39,10 @@ describe('SheetService', () => {
       const yesterday = new Date();
       yesterday.setDate(today.getDate() - 1);
 
-      const yesterdaysTemplate = new TemplateDM();
+      const yesterdaysTemplate = new SheetTemplate();
       yesterdaysTemplate.lastModified = yesterday;
 
-      const todaysTemplate = new TemplateDM();
+      const todaysTemplate = new SheetTemplate();
       todaysTemplate.lastModified = today;
 
       service.updateTemplate(yesterdaysTemplate);
@@ -55,7 +55,7 @@ describe('SheetService', () => {
     inject([SheetService], (service: SheetService) => {
       const spy = spyOn(templateStorageService, 'addTemplate');
 
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.loadNewTemplate(template);
 
@@ -67,7 +67,7 @@ describe('SheetService', () => {
     inject([SheetService], (service: SheetService) => {
       const spy = spyOn(templateStorageService, 'selectTemplate');
 
-      const template = new TemplateDM();
+      const template = new SheetTemplate();
 
       service.loadNewTemplate(template);
 

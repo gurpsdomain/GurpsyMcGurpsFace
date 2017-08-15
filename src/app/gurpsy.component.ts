@@ -9,9 +9,9 @@ import {DomSanitizer, Title} from '@angular/platform-browser';
 import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
-import {Sheet} from './models/sheet/model/sheet.model';
+import {Sheet} from './models/sheet/sheet.model';
 import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
-import {TemplateDM} from './models/sheet/template/template.model';
+import {SheetTemplate} from './models/sheet-template/sheet-template.model';
 import {SheetService} from './services/front-end/sheet/sheet.service';
 import {GurpsyConstants} from './gurpsy.constants';
 
@@ -37,7 +37,7 @@ export class GurpsyComponent implements OnInit {
   private newSheetDialogRef: MdDialogRef<NewSheetComponent>;
 
   public sheet: Sheet;
-  public template: TemplateDM;
+  public template: SheetTemplate;
   public editMode: boolean;
   public showLibrary: boolean;
   public theme: string;
@@ -54,7 +54,7 @@ export class GurpsyComponent implements OnInit {
               private overlayContainer: OverlayContainer,
               private titleService: Title) {
 
-    this.sheet = new Sheet(new TemplateDM());
+    this.sheet = new Sheet(new SheetTemplate());
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
@@ -75,7 +75,7 @@ export class GurpsyComponent implements OnInit {
       disableClose: false
     });
 
-    this.newSheetDialogRef.componentInstance.template = new TemplateDM();
+    this.newSheetDialogRef.componentInstance.template = new SheetTemplate();
 
     this.newSheetDialogRef.afterClosed().subscribe(template => {
         if (template) {
@@ -227,7 +227,7 @@ export class GurpsyComponent implements OnInit {
     this.setTitle(sheet);
   }
 
-  private setTemplate(template: TemplateDM): void {
+  private setTemplate(template: SheetTemplate): void {
     this.template = template;
   }
 

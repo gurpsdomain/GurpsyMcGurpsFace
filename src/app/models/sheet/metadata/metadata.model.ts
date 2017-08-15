@@ -1,7 +1,7 @@
 import {PlayerInformation} from './player-information/player-information.model';
 import {Identity} from './identity/identity.model';
 import {Description} from './description/description.model';
-import {TemplateDM} from '../../template/template.model';
+import {SheetTemplate} from '../../sheet-template/sheet-template.model';
 
 export class MetaData {
 
@@ -9,7 +9,7 @@ export class MetaData {
   identity: Identity;
   description: Description;
 
-  constructor(template: TemplateDM) {
+  constructor(template: SheetTemplate) {
     this.playerInformation = new PlayerInformation(template);
     this.identity = new Identity(template);
     this.description = new Description(template);

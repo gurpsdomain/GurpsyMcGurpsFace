@@ -1,4 +1,4 @@
-import {TemplateDM} from '../template/template.model';
+import {SheetTemplate} from '../sheet-template/sheet-template.model';
 export class Attributes {
 
   strength: number;
@@ -6,7 +6,7 @@ export class Attributes {
   health: number;
   intelligence: number;
 
-  constructor(template: TemplateDM) {
+  constructor(template: SheetTemplate) {
     this.strength = 10;
     this.dexterity = 10;
     this.health = 10;

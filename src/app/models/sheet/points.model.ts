@@ -1,4 +1,4 @@
-import {TemplateDM} from '../template/template.model';
+import {SheetTemplate} from '../sheet-template/sheet-template.model';
 export class Points {
 
   total: number;
@@ -8,7 +8,7 @@ export class Points {
   spells: number;
   unspent: number;
 
-  constructor(template: TemplateDM) {
+  constructor(template: SheetTemplate) {
     this.total = undefined;
     this.advantages = undefined;
     this.disadvantages = undefined;

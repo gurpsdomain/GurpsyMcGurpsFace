@@ -5,11 +5,11 @@ import {Spell} from './spell.model';
 import {Skill} from './skill.model';
 import {Disadvantage} from './disadvantage.model';
 import {Advantage} from './advantage.model';
-import {DateConverter} from '../../../converters/date.converter';
+import {DateConverter} from '../../converters/date.converter';
 import {UUID} from 'angular2-uuid';
 
 @JsonObject
-export class TemplateDM {
+export class SheetTemplate {
 
   @JsonProperty('id', String, true)
   id: string;

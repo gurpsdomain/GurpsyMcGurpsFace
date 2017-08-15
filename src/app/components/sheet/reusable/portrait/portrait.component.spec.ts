@@ -9,8 +9,8 @@ import {SettingsService} from '../../../../services/front-end/settings/settings.
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
-import {Sheet} from '../../../../models/sheet/model/sheet.model';
-import {TemplateDM} from '../../../../models/sheet/template/template.model';
+import {Sheet} from '../../../../models/sheet/sheet.model';
+import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
 
 ////////  SPECS  /////////////
 describe('PortraitComponent', function () {
@@ -48,7 +48,7 @@ describe('PortraitComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    const template = new TemplateDM();
+    const template = new SheetTemplate();
     sheet = new Sheet(template);
 
     spyOn(modelService, 'getSheet')
