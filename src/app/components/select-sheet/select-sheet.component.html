@@ -7,12 +7,30 @@
            fxLayout="row">
         <div class="flex-item icon"
              fxFlexAlign="center">
-          <md-icon>add_circle</md-icon>
+          <md-icon>portrait</md-icon>
         </div>
         <div class="flex-item"
              fxFlexAlign="center"
              fxFlex="100%">
           {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
+        </div>
+      </div>
+    </button>
+  </md-card>
+
+  <md-card>
+    <button md-button
+            (click)="onLoadTemplateFromFile()">
+      <div class="flex-container"
+           fxLayout="row">
+        <div class="flex-item icon"
+             fxFlexAlign="center">
+          <md-icon>account_box</md-icon>
+        </div>
+        <div class="flex-item"
+             fxFlexAlign="center"
+             fxFlex="100%">
+          {{ 'SELECT_SHEET.LOAD_FROM_FILE' | translate }}
         </div>
       </div>
     </button>

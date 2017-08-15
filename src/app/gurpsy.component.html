@@ -102,6 +102,7 @@
     <gurpsy-select-sheet *ngIf="!sheet"
                          class="flex-item"
                          fxFlexAlign="center"
+                         (loadTemplateFromFile)="onOpenSheetDialog()"
                          (createTemplate)=onNewSheet()>
     </gurpsy-select-sheet>
   </div>

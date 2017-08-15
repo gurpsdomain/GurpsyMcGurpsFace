@@ -11,6 +11,7 @@ export class SelectSheetComponent implements OnInit {
 
   public templates: SheetTemplate[] = [];
 
+  @Output() public loadTemplateFromFile: EventEmitter<any> = new EventEmitter();
   @Output() public createTemplate: EventEmitter<any> = new EventEmitter();
 
   constructor(private sheetService: SheetService) {
@@ -22,19 +23,26 @@ export class SelectSheetComponent implements OnInit {
   }
 
   /**
+   * Create and load a new Template
+   */
+  public onCreateTemplate(): void {
+    this.createTemplate.next();
+  }
+
+  /**
+   * Load a Template from file
+   */
+  public onLoadTemplateFromFile(): void {
+    this.loadTemplateFromFile.next();
+  }
+
+  /**
    * Select the given template
    *
    * @param {SheetTemplate} template
    */
   public onTemplateSelected(template: SheetTemplate): void {
     this.sheetService.loadExistingTemplate(template);
-  }
-
-  /**
-   * Create and load a new Template
-   */
-  public onCreateTemplate(): void {
-    this.createTemplate.next();
   }
 
   private setTemplates(templates: SheetTemplate[]): void {
