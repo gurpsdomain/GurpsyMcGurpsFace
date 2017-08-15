@@ -57,7 +57,8 @@
     }
   },
   "SELECT_SHEET": {
-    "CREATE_NEW" : "Create a new Character sheet"
+    "CREATE_NEW" : "Create a new Character sheet",
+    "LOAD_FROM_FILE" : "Load a sheet from local file system"
   },
   "SHEET": {
     "ADVANTAGES": {
