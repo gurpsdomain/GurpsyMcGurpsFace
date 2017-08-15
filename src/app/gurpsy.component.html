@@ -86,26 +86,25 @@
     </div>
   </md-toolbar>
 
-  <div *ngIf="showLibrary; else elseBlock">
-    <gurpsy-book-viewer></gurpsy-book-viewer>
+  <div class="gurpsyBody flex-container"
+       fxLayout="row"
+       fxLayoutAlign="center">
+    <gurpsy-book-viewer
+      class="flex-item"
+      fxFlexAlign="start"
+      *ngIf="showLibrary">
+    </gurpsy-book-viewer>
+    <gurpsy-sheet
+      class="flex-item"
+      fxFlexAlign="start"
+      *ngIf="sheet && !showLibrary">
+    </gurpsy-sheet>
+    <gurpsy-select-sheet *ngIf="!sheet"
+                         class="flex-item"
+                         fxFlexAlign="center"
+                         (createTemplate)=onNewSheet()>
+    </gurpsy-select-sheet>
   </div>
-  <ng-template #elseBlock>
-    <div *ngIf="sheet; else noSheet">
-      <md-card>
-        <gurpsy-sheet></gurpsy-sheet>
-      </md-card>
-    </div>
-    <ng-template #noSheet>
-      <div class="noSheet flex-container"
-           fxLayout="column"
-           fxLayoutAlign="center">
-        <gurpsy-select-sheet
-          class="flex-item"
-          (createTemplate)=onNewSheet()>
-        </gurpsy-select-sheet>
-      </div>
-    </ng-template>
-  </ng-template>
 </md-sidenav-container>
 
 

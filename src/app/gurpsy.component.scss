@@ -10,20 +10,12 @@ md-toolbar {
 
 md-sidenav {
   width: 240px;
+}
 
-  .sideNavigationContent .sideNavigationButton md-icon {
-    margin-right: 16px;
-
-    svg {
-      width: 24px;
-      height: 24px;
-    }
+md-sidenav-container {
+  .gurpsyBody {
+    height: calc(100% - 76px);
   }
 }
-
-.noSheet {
-  height: calc(100% - 70px);
-}
-
 
 
