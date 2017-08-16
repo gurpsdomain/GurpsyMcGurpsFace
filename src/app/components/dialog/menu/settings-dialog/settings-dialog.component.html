@@ -1,52 +1,26 @@
-<h1 md-dialog-title
-    class="header flex-container"
-    fxLayout="row"
-    fxLayoutAlign="space-between stretch"
-    fxLayoutWrap="nowrap">
-  <md-icon
-    class="flex-item">
-    settings
-  </md-icon>
-  <span class="flex-item"
-        fxFlex="100%">
+<h1 md-dialog-title>
     {{'DIALOG.SETTINGS.HEADER'| translate}}
-  </span>
 </h1>
+
 <md-dialog-content>
-  <md-card>
-    <div class="dialogCardHeader">
-      {{'DIALOG.SETTINGS.APPLICATION_SETTINGS.HEADER'| translate}}
-    </div>
     <div class="flex-container"
          fxLayout="column"
          fxLayoutAlign="space-between stretch"
          fxLayoutWrap="nowrap">
-
       <md-slide-toggle
         cdk-focus-region-start
         class="flex-item"
         (change)="onThemeChange()"
         [(ngModel)]="nightTheme">
-        {{'DIALOG.SETTINGS.APPLICATION_SETTINGS.NIGHT_THEME'| translate}}
+        {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
       </md-slide-toggle>
       <md-slide-toggle
         class="flex-item"
         (change)="onMetricsChange()"
         [(ngModel)]="siMetrics">
-        {{'DIALOG.SETTINGS.APPLICATION_SETTINGS.SI_METRICS'| translate}}
+        {{'DIALOG.SETTINGS.SI_METRICS'| translate}}
       </md-slide-toggle>
     </div>
-  </md-card>
-
-  <md-card>
-    <div class="dialogCardHeader">
-      {{'DIALOG.SETTINGS.REFERENCE_SETTINGS.HEADER'| translate}}
-    </div>
-    <gurpsy-books-configuration
-      (changeBooksConfiguration)="onChangeBooksConfiguration()">
-    </gurpsy-books-configuration>
-  </md-card>
-
 </md-dialog-content>
 
 <md-dialog-actions align="end">

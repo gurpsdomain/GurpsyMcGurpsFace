@@ -52,15 +52,6 @@ export class SettingsService {
   }
 
   /**
-   * Set BookConfigurations;
-   *
-   * @param BookConfiguration[]
-   */
-  public storeBookConfigurations(bookConfigurations: Book[]) {
-    this.settingsStorageService.storeBookConfigurations(bookConfigurations);
-  }
-
-  /**
    * Set theme.
    *
    * @param theme : string
@@ -79,15 +70,6 @@ export class SettingsService {
   }
 
   /**
-   * Retrieve the given BookConfigurations from Locale Storage.
-   *
-   * @returns Promise<Book[]>
-   */
-  public getBookConfigurations(): Promise<Book[]> {
-    return this.settingsStorageService.retrieveBookConfigurations();
-  }
-
-  /**
    * Get metrics.
    *
    * @return Promise<string>  A promise that resolves to the current metrics
@@ -95,7 +77,6 @@ export class SettingsService {
   public getMetrics(): Promise<string> {
     return this.settingsStorageService.retrieveMetrics();
   }
-
 
   /**
    * Get theme.

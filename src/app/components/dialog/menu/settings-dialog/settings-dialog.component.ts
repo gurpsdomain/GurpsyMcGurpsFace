@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
-import {BooksConfigurationComponent} from '../../../generic/books-configuration/books-configuration.component';
 import {Settings} from '../../../../models/settings/settings.model';
 
 @Component({
@@ -14,8 +13,6 @@ export class SettingsDialogComponent implements OnInit {
   public nightTheme = false;
   public siMetrics = false;
 
-  @ViewChild(BooksConfigurationComponent)
-  private bookConfigurationChild: BooksConfigurationComponent;
 
   constructor(private settingsService: SettingsService) {
   }
@@ -41,13 +38,6 @@ export class SettingsDialogComponent implements OnInit {
     this.setMetrics(metrics)
 
     this.settingsService.setMetrics(metrics);
-  }
-
-  /**
-   * Handle the situation where a BookConfiguration changes.
-   */
-  public onChangeBooksConfiguration(): void {
-    this.settingsService.storeBookConfigurations(this.bookConfigurationChild.bookConfigurations);
   }
 
   /**

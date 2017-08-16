@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject, Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {SettingsService} from '../settings/settings.service';
 import {Reference} from '../../../models/reference/reference-model';
 import {Book} from '../../../models/settings/book.model';
@@ -24,9 +24,7 @@ export class PageReferenceService {
    */
   public isReferenceAvailable(reference: string): Promise<boolean> {
 
-    return this.settingsService.getBookConfigurations()
-      .then(bookConfigurations => Promise.resolve(this.isReferenced(bookConfigurations, reference)))
-      .catch(any => Promise.reject(false));
+    return Promise.resolve(false);
   }
 
 
@@ -41,8 +39,7 @@ export class PageReferenceService {
    */
   public showReference(reference: string): void {
 
-    this.settingsService.getBookConfigurations()
-      .then(books => this.handleReferenceRequest(reference, books));
+    this.handleReferenceRequest(reference, []);
   }
 
   /**
@@ -50,7 +47,7 @@ export class PageReferenceService {
    *
    * @returns {Observable<Reference>}
    */
-  public getReferenceChange(): Observable < Reference > {
+  public getReferenceChange(): Observable<Reference> {
     return this.referenceRequestedObservable$;
   }
 
@@ -59,7 +56,7 @@ export class PageReferenceService {
    *
    * @returns {Array<string>}
    */
-  public getBookTypes(): Promise < string[] > {
+  public getBookTypes(): Promise<string[]> {
     return Promise.resolve(Book.BOOK_TYPES);
   }
 

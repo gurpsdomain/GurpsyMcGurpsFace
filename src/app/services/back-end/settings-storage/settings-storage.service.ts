@@ -37,19 +37,7 @@ export class SettingsStorageService {
   }
 
   /**
-   * Store the given BookConfigurations.
-   *
-   * @param {BookConfiguration[]}
-   */
-  public storeBookConfigurations(bookConfigurations: Book[]) {
-    const settings: Settings = this.retrieve();
-    settings.books = bookConfigurations;
-
-    this.store(settings);
-  }
-
-  /**
-   * Store the given BookConfigurations.
+   * Store the given BodyContent.
    *
    * @param {SheetBodyContent} An enumeration that represents the template body content
    */
@@ -96,21 +84,6 @@ export class SettingsStorageService {
       return Promise.reject('No BodyContent stored, use default.');
     } else {
       return Promise.resolve(settings.bodyContent);
-    }
-  }
-
-  /**
-   * Retrieve the currently stored BookConfigurations.
-   *
-   * @returns {Promise<BookConfiguration[]>} the current BookConfigurations.
-   */
-  public retrieveBookConfigurations(): Promise<Book[]> {
-    const settings: Settings = this.retrieve();
-
-    if (!settings.books) {
-      return Promise.reject('No BookConfigurations stored.');
-    } else {
-      return Promise.resolve(settings.books);
     }
   }
 

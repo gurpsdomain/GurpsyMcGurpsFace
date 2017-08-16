@@ -1,13 +1,6 @@
 {
   "APPLICATION": "GurpsyMcGurpsFace",
   "VERSION": "0.1-SNAPSHOT",
-  "BOOK": {
-    "BOOK_gurps-basic": "Gurps Basics 4th Edition",
-    "BOOK_gurps-magic": "Gurps Magic 4th Edition",
-    "BOOK_gurps-powers": "Gurps Powers 4th Edition",
-    "BOOK_gurps-psionics": "Gurps Psionics 4th Edition",
-    "BOOK_gurps-martial-arts": "Gurps Martial Arts 4th Edition"
-  },
   "DIALOG": {
     "ABOUT": {
       "ABOUT": "This application is for study purposes only. It is not affiliated to Steve Jackson Games. At this moment it does not aim to become a fully functional GURPS Character sheet editor/viewer. But then again, it is possible that it will be so one day. If that day comes we will contact Steve Jackson Games to figure out if this is legal, or how to make it so."
@@ -18,17 +11,8 @@
     "SETTINGS": {
       "DELETE": "Delete all",
       "HEADER": "Settings",
-      "APPLICATION_SETTINGS": {
-        "HEADER": "Application Settings",
-        "SI_METRICS": "Use SI Metrics",
-        "NIGHT_THEME": "Night mode",
-        "SERVER_URL": "Server url"
-      },
-      "REFERENCE_SETTINGS": {
-        "HEADER": "Library Settings",
-        "FILE_LOCATION": "File location",
-        "OFFSET": "Offset"
-      }
+      "SI_METRICS": "Use SI Metrics",
+      "NIGHT_THEME": "Night mode"
     },
     "DICE": {
       "RETHROW": "Throw again"
@@ -57,8 +41,8 @@
     }
   },
   "SELECT_SHEET": {
-    "CREATE_NEW" : "Create a new Character sheet",
-    "LOAD_FROM_FILE" : "Load a sheet from local file system"
+    "CREATE_NEW": "Create a new Character sheet",
+    "LOAD_FROM_FILE": "Load a sheet from local file system"
   },
   "SHEET": {
     "ADVANTAGES": {

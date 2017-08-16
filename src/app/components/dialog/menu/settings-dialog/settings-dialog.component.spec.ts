@@ -8,10 +8,7 @@ import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {MdDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
-import {BookConfigurationComponent} from '../../../generic/book-configuration/book-configuration.component';
-import {BooksConfigurationComponent} from '../../../generic/books-configuration/books-configuration.component';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
-import {PageReferenceService} from '../../../../services/front-end/page-reference/page-reference.service';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 @NgModule({
@@ -29,8 +26,6 @@ describe('SettingsDialogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        BookConfigurationComponent,
-        BooksConfigurationComponent,
         SettingsDialogComponent
       ],
       imports: [
@@ -43,8 +38,7 @@ describe('SettingsDialogComponent', () => {
         SettingsService,
         SettingsStorageService,
         TemplateStorageService,
-        LoggingService,
-        PageReferenceService,
+        LoggingService
       ],
       schemas: [
         NO_ERRORS_SCHEMA

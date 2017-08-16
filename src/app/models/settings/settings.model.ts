@@ -13,14 +13,10 @@ export class Settings {
   @JsonProperty('theme', String)
   theme: string;
 
-  @JsonProperty('books', [Book])
-  books: Book[];
-
   constructor() {
     this.bodyContent = 0;
     this.theme = '';
     this.metrics = '';
-    this.books = [];
   }
 }
 
