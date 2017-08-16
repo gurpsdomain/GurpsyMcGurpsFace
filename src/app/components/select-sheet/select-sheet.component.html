@@ -36,7 +36,7 @@
     </button>
   </md-card>
 
-  <md-card>
+  <md-card *ngIf="templates.length > 0">
     <button
       md-button
       *ngFor="let template of templates"
