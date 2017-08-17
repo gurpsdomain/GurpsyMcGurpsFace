@@ -168,7 +168,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private initLibrary(): void {
-    this.pageReferenceService.getReferenceChange().subscribe(reference => this.showLibrary = true);
+    this.pageReferenceService.referenceRequested$.subscribe(pageNumber => this.showLibrary = true);
     this.showLibrary = false;
   }
 

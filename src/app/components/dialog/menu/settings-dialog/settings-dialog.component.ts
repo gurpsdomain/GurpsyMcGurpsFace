@@ -4,15 +4,12 @@ import {Settings} from '../../../../models/settings/settings.model';
 
 @Component({
   templateUrl: 'settings-dialog.component.html',
-  styleUrls: ['../../dialog.component.scss',
-    'settings-dialog.component.scss'
-  ]
+  styleUrls: ['../../dialog.component.scss']
 })
 export class SettingsDialogComponent implements OnInit {
 
   public nightTheme = false;
   public siMetrics = false;
-
 
   constructor(private settingsService: SettingsService) {
   }

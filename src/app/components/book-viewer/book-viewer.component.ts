@@ -77,12 +77,6 @@ export class BookViewerComponent implements OnInit {
   }
 
   private loadReference(): void {
-    const reference = this.pageReferenceService.currentReference;
-
-    if (reference) {
-      console.log('There is a last reference: ', reference);
-
-      this.page = reference.page;
-    }
+    this.page = this.pageReferenceService.currentReference;
   }
 }

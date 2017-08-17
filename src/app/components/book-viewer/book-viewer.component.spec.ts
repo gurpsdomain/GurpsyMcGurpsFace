@@ -3,10 +3,6 @@ import {BookViewerComponent} from './book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {PageReferenceService} from '../../services/front-end/page-reference/page-reference.service';
-import {SettingsService} from '../../services/front-end/settings/settings.service';
-import {TemplateStorageService} from '../../services/back-end/template-storage/template-storage.service';
-import {SettingsStorageService} from '../../services/back-end/settings-storage/settings-storage.service';
-import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {TranslateModule} from '@ngx-translate/core';
 
 describe('BookViewerComponent', () => {
@@ -23,11 +19,7 @@ describe('BookViewerComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        LoggingService,
-        PageReferenceService,
-        SettingsService,
-        SettingsStorageService,
-        TemplateStorageService
+        PageReferenceService
       ]
     })
       .compileComponents();

@@ -1,32 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {SettingsService} from '../settings/settings.service';
-import {Reference} from '../../../models/reference/reference-model';
-import {Book} from '../../../models/settings/book.model';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class PageReferenceService {
 
 
-  private referenceRequest = new Subject<Reference>();
-  private referenceRequestedObservable$ = this.referenceRequest.asObservable();
+  private referenceRequest = new Subject<number>();
+  public referenceRequested$ = this.referenceRequest.asObservable();
 
-  private _currentReference: Reference;
+  private _currentReference: number;
 
-  constructor(private settingsService: SettingsService) {
-    this._currentReference = undefined;
+  constructor() {
+    this._currentReference = 0;
   }
-
-  /**
-   * Test whether a Reference has been configured for the given input.
-   * @param reference {string} of the form B37 or M42;
-   * @return {Promise<boolean>} Whether there is a reference available.
-   */
-  public isReferenceAvailable(reference: string): Promise<boolean> {
-
-    return Promise.resolve(false);
-  }
-
 
   /**
    * Show a reference.
@@ -35,74 +21,26 @@ export class PageReferenceService {
    * component will register on this event to open the requested bookConfigurations in the
    * appropriate pdf.
    *
-   * @param {string} reference  A reference of the form B37 or M42
+   * @param {string} reference  A reference containing only a number
    */
   public showReference(reference: string): void {
 
-    this.handleReferenceRequest(reference, []);
-  }
-
-  /**
-   * Return an Observable that will notify you when a reference is requested.
-   *
-   * @returns {Observable<Reference>}
-   */
-  public getReferenceChange(): Observable<Reference> {
-    return this.referenceRequestedObservable$;
-  }
-
-  /**
-   * Return an array of all Books that are available as references.
-   *
-   * @returns {Array<string>}
-   */
-  public getBookTypes(): Promise<string[]> {
-    return Promise.resolve(Book.BOOK_TYPES);
+    this.handleReferenceRequest(reference);
   }
 
   /**
    * Return the current reference.
    *
-   * @return {Reference}
+   * @return {number}
    */
-  get currentReference(): Reference {
+  get currentReference(): number {
     return this._currentReference;
   }
 
-  private findReferencedBook(reference: string, books: Book[]): Book {
-    let referencedBook: Book;
+  private handleReferenceRequest(reference: string): void {
+    const pageNumber = Number.parseInt(reference);
+    this._currentReference = pageNumber;
 
-    for (const book of books) {
-      if (book.isReferenced(reference)) {
-        referencedBook = book;
-      }
-    }
-
-    return referencedBook;
-  }
-
-  private handleReferenceRequest(reference: string, books: Book[]): void {
-
-    const referencedBook = this.findReferencedBook(reference, books);
-
-    const referenceModel = new Reference();
-    referenceModel.bookConfiguration = referencedBook;
-    referenceModel.page = 9;
-
-    this._currentReference = referenceModel;
-    this.referenceRequest.next(referenceModel);
-  }
-
-  private isReferenced(bookConfigurations: Book[], reference: string): boolean {
-    let isReferenced = false;
-
-    for (const book of bookConfigurations) {
-      if (book.isReferenced(reference)) {
-        isReferenced = true;
-        break;
-      }
-    }
-
-    return isReferenced;
+    this.referenceRequest.next(pageNumber);
   }
 }
