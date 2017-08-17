@@ -8,20 +8,24 @@
     "OK": "Ok",
     "CANCEL": "Cancel",
     "CLOSE": "Close",
-    "SETTINGS": {
-      "DELETE": "Delete all",
-      "HEADER": "Settings",
-      "SI_METRICS": "Use SI Metrics",
-      "NIGHT_THEME": "Night mode"
-    },
+
     "DICE": {
       "RETHROW": "Throw again"
+    },
+    "NEW_SHEET": {
+      "HEADER" : "Create a new Character Sheet"
     },
     "OPEN_SHEET": {
       "HEADER": "Open Character Sheet",
       "INVALID_SHEET": "Invalid sheet",
       "PREVIOUSLY": "Previously opened",
       "SELECT_FROM_FILE": "Select a sheet"
+    },
+    "SETTINGS": {
+      "DELETE": "Delete all",
+      "HEADER": "Settings",
+      "SI_METRICS": "Use SI Metrics",
+      "NIGHT_THEME": "Night mode"
     }
   },
   "MENU": {
