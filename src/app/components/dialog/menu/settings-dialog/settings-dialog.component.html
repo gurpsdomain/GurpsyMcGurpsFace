@@ -1,32 +1,37 @@
 <h1 md-dialog-title>
-    {{'DIALOG.SETTINGS.HEADER'| translate}}
+  {{'DIALOG.SETTINGS.HEADER'| translate}}
 </h1>
 
 <md-dialog-content>
-    <div class="flex-container"
-         fxLayout="column"
-         fxLayoutAlign="space-between stretch"
-         fxLayoutWrap="nowrap">
+  <div class="flex-container"
+       fxLayout="row"
+       fxLayoutAlign="space-between stretch"
+       fxLayoutWrap="nowrap">
+    <div class="flex-item">
       <md-slide-toggle
         cdk-focus-region-start
-        class="flex-item"
         (change)="onThemeChange()"
         [(ngModel)]="nightTheme">
         {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
       </md-slide-toggle>
+      <br>
       <md-slide-toggle
-        class="flex-item"
         (change)="onMetricsChange()"
         [(ngModel)]="siMetrics">
         {{'DIALOG.SETTINGS.SI_METRICS'| translate}}
       </md-slide-toggle>
     </div>
+    <div class="flex-item">
+      <button md-mini-fab color="warn" (click)="onDeleteSettings()">
+        <md-icon>delete</md-icon>
+      </button>
+    </div>
+  </div>
+
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-raised-button color="warn" (click)="onDeleteSettings()">
-    {{'DIALOG.SETTINGS.DELETE'| translate}}
-  </button>
+
   <button md-button color="primary" md-dialog-close>
     {{'DIALOG.CLOSE'| translate}}
   </button>
