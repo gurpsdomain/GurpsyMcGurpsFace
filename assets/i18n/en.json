@@ -22,7 +22,6 @@
       "SELECT_FROM_FILE": "Select a sheet"
     },
     "SETTINGS": {
-      "DELETE": "Delete all",
       "HEADER": "Settings",
       "SI_METRICS": "Use SI Metrics",
       "NIGHT_THEME": "Night mode"
