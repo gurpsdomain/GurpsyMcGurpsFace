@@ -1,10 +1,8 @@
 import {NgModule} from '@angular/core';
-import {Http} from '@angular/http';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';
 import {SheetHeaderComponent} from './components/sheet/structural/sheet-header/sheet-header.component';
 import {PortraitComponent} from './components/sheet/reusable/portrait/portrait.component';
-// tslint:disable-next-line max-line-length
 import {PlayerInformationComponent} from './components/sheet/reusable/player-information/player-information.component';
 import {DescriptionComponent} from './components/sheet/reusable/description/description.component';
 import {PointsComponent} from './components/sheet/reusable/points/points.component';
@@ -58,8 +56,9 @@ import {PlayerInformationUpdaterComponent} from './components/dialog/template-up
 import {SheetService} from './services/front-end/sheet/sheet.service';
 import {SheetUpdatingComponent} from './components/sheet-updating.component';
 import {SelectSheetComponent} from './components/select-sheet/select-sheet.component';
+import {HttpClient} from '@angular/common/http';
 
-export function HttpLoaderFactory(http: Http) {
+export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -115,7 +114,7 @@ export function HttpLoaderFactory(http: Http) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [Http]
+        deps: [HttpClient]
       }
     })
   ],

@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import {HttpModule} from '@angular/http';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
+    HttpClientModule,
     HttpModule
   ],
   exports: [
@@ -21,6 +23,7 @@ import {HttpModule} from '@angular/http';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
+    HttpClientModule,
     HttpModule
   ]
 })
