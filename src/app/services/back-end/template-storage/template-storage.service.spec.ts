@@ -27,13 +27,14 @@ describe('TemplateStorageService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should return an empty SheetTemplate[] when getTemplates() is called, but Local Storage is empty',
+  it('[getTemplates()] should return an empty SheetTemplate[] when getTemplates() is called, but ' +
+    'Local Storage is empty',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
       service.getTemplates().then(templates => expect(templates.length).toBe(0));
     }));
 
 
-  it('should create a new entry in LocalStorage, when addTemplate() is called',
+  it('[addTemplate()] should create a new entry in LocalStorage, when addTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
       const template = new SheetTemplate();
 
@@ -44,7 +45,8 @@ describe('TemplateStorageService', () => {
       expect(retrievedTemplates).toBeTruthy();
     }));
 
-  it('should store a TemplateStore Object with the given SheetTemplate in LocalStorage, when addTemplate() is called',
+  it('[addTemplate()] should store a TemplateStore Object with the given SheetTemplate in LocalStorage, ' +
+    'when addTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
       const template = new SheetTemplate();
@@ -68,8 +70,8 @@ describe('TemplateStorageService', () => {
       expect(found).toBeTruthy();
     }));
 
-  it('should not store a TemplateStore Object with the given SheetTemplate in LocalStorage, when addTemplate() is ' +
-    'called and a SheetTemplate with the same id has already been stored',
+  it('[addTemplate()] should not store a TemplateStore Object with the given SheetTemplate in ' +
+    'LocalStorage, when addTemplate() is called and a SheetTemplate with the same id has already been stored',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
       const template = new SheetTemplate();
@@ -86,7 +88,8 @@ describe('TemplateStorageService', () => {
     }));
 
 
-  it('should set the id of the given SheetTemplate in Session Storage when selectTemplate() is called',
+  it('[selectTemplate()] should set the id of the given SheetTemplate in Session Storage when ' +
+    'selectTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
       const template = new SheetTemplate();
 
@@ -97,7 +100,8 @@ describe('TemplateStorageService', () => {
       expect(retrievedTemplateId).toBe(template.id);
     }));
 
-  it('should add the template to Local Storage, if it is not yet added, when selectTemplate() is called',
+  it('[selectTemplate()] should add the template to Local Storage, if it is not yet added, ' +
+    'when selectTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
       const template = new SheetTemplate();
 
@@ -119,7 +123,8 @@ describe('TemplateStorageService', () => {
       expect(found).toBeTruthy();
     }));
 
-  it('should return a rejected Promise when getSelectedTemplate() is called, but none was selected',
+  it('[getSelectedTemplate()] should return a rejected Promise when getSelectedTemplate() ' +
+    'is called, but none was selected',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
       let rejected = false;
@@ -129,7 +134,7 @@ describe('TemplateStorageService', () => {
       })
     }));
 
-  it('should return the selected SheetTemplate when getSelectedTemplate() is called',
+  it('[getSelectedTemplate()] should return the selected SheetTemplate when getSelectedTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
       const template = new SheetTemplate();
@@ -138,7 +143,7 @@ describe('TemplateStorageService', () => {
       service.getSelectedTemplate().then(selectedTemplate => expect(selectedTemplate.id).toBe(template.id));
     }));
 
-  it('should update the SheetTemplate when updateTemplate() is called',
+  it('[updateTemplate()] should update the SheetTemplate when updateTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
 
       const originalTemplate = new SheetTemplate();
