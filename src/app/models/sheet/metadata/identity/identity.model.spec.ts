@@ -1,7 +1,5 @@
-import {TestBed} from '@angular/core/testing';
 import {Identity} from './identity.model';
 import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
-
 
 describe('Model Object Identity', () => {
 
@@ -11,8 +9,6 @@ describe('Model Object Identity', () => {
   const IDENTITY_PORTRAIT = 'Base64EncodedImageString';
 
   let template: SheetTemplate;
-
-  beforeEach(() => TestBed.configureTestingModule({}));
 
   beforeEach(() => template = new SheetTemplate());
 

@@ -1,7 +1,5 @@
-import {TestBed} from '@angular/core/testing';
 import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
 import {PlayerInformation} from './player-information.model';
-
 
 describe('Model Object PlayerInformation', () => {
 
@@ -11,8 +9,6 @@ describe('Model Object PlayerInformation', () => {
   const PLAYER_INFORMATION_LAST_MODIFED = new Date();
 
   let template: SheetTemplate;
-
-  beforeEach(() => TestBed.configureTestingModule({}));
 
   beforeEach(() => template = new SheetTemplate());
 

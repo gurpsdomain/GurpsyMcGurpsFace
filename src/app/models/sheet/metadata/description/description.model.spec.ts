@@ -1,7 +1,5 @@
-import {TestBed} from '@angular/core/testing';
 import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
 import {Description} from './description.model';
-
 
 describe('Model Object Description', () => {
 
@@ -18,8 +16,6 @@ describe('Model Object Description', () => {
   const DESCRIPTION_HAND = 'Right';
 
   let template: SheetTemplate;
-
-  beforeEach(() => TestBed.configureTestingModule({}));
 
   beforeEach(() => template = new SheetTemplate());
 
@@ -109,7 +105,6 @@ describe('Model Object Description', () => {
     expect(description.skin).toEqual(DESCRIPTION_SKIN);
   });
 
-
   it('should contain the hand from the template', () => {
     template.hand = DESCRIPTION_HAND;
 
@@ -117,5 +112,4 @@ describe('Model Object Description', () => {
 
     expect(description.hand).toEqual(DESCRIPTION_HAND);
   });
-
 })

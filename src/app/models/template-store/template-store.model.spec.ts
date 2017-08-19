@@ -1,12 +1,8 @@
-import {TestBed} from '@angular/core/testing';
 import {TemplateStore} from './template-store.model';
 import {SheetTemplate} from '../sheet-template/sheet-template.model';
 
-
 describe('Model Object TemplateStore', () => {
   let templates: TemplateStore;
-
-  beforeEach(() => TestBed.configureTestingModule({}));
 
   beforeEach(() => templates = new TemplateStore());
 

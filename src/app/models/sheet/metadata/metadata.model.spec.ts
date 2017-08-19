@@ -1,12 +1,9 @@
-import {TestBed} from '@angular/core/testing';
 import {MetaData} from './metadata.model';
 import {SheetTemplate} from '../../sheet-template/sheet-template.model';
 
 
 describe('Model Object MetaData', () => {
   let template: SheetTemplate;
-
-  beforeEach(() => TestBed.configureTestingModule({}));
 
   beforeEach(() => template = new SheetTemplate());
 
