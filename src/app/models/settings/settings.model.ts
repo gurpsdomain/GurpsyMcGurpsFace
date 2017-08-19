@@ -1,5 +1,4 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {Book} from './book.model';
 
 @JsonObject
 export class Settings {

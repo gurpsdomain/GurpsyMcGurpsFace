@@ -3,7 +3,6 @@ import {Subject} from 'rxjs';
 import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../../models/settings/settings.model';
-import {Book} from '../../../models/settings/book.model';
 import {LoggingService} from '../logging/logging.service';
 import {GurpsyConstants} from '../../../gurpsy.constants';
 
