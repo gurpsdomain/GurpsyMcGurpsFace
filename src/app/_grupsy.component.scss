@@ -2,8 +2,14 @@
 
 @mixin gurpsy-component-theme($theme) {
   $accent: map-get($theme, accent);
+  $backgroundMap: map-get($theme, background);
+  $background: map-get($backgroundMap, background);
 
   .editable md-icon{
     color: mat-color($accent);
+  }
+
+  .mat-drawer-content {
+    background-color: $background;
   }
 }

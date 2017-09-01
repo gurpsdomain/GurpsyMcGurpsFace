@@ -1,5 +1,6 @@
 md-toolbar {
   margin-bottom: 12px;
+  flex: none;
 }
 
 md-toolbar {
@@ -12,5 +13,7 @@ md-sidenav {
   width: 240px;
 }
 
-
+.gurpsyBody {
+  flex: 1 1 auto;
+}
 

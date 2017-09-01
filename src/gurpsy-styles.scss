@@ -15,6 +15,12 @@ md-sidenav-container {
     height: 140px;
     background: url(assets/images/day.png);
   }
+
+  .mat-drawer-content {
+
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 md-sidenav-container.night {
