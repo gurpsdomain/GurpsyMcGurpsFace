@@ -24,6 +24,8 @@ export class SettingsDialogComponent implements OnInit {
    * Handle a change of the selected theme
    */
   public onThemeChange(): void {
+    this.nightTheme = !this.nightTheme;
+
     const theme = this.nightTheme ? SettingsService.THEME_NIGHT : SettingsService.THEME_DAY;
     this.setTheme(theme);
 
@@ -31,6 +33,8 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   public onMetricsChange(): void {
+    this.siMetrics = !this.siMetrics;
+
     const metrics = this.siMetrics ? SettingsService.METRICS_SI : SettingsService.METRICS_DEFAULT;
     this.setMetrics(metrics)
 
