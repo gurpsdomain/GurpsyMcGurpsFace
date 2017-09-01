@@ -1,3 +1,4 @@
+import 'hammerjs';
 import {NgModule} from '@angular/core';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './components/sheet/sheet.component';

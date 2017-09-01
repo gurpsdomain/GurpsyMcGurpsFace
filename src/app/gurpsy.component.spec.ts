@@ -46,6 +46,7 @@ import {SheetTemplate} from './models/sheet-template/sheet-template.model';
 import {Sheet} from './models/sheet/sheet.model';
 import {Title} from '@angular/platform-browser';
 import {SheetService} from './services/front-end/sheet/sheet.service';
+import {GurpsyAngularModule} from './modules/angular.module';
 
 describe('GurpsyComponent', () => {
   let component: GurpsyComponent;
@@ -94,6 +95,7 @@ describe('GurpsyComponent', () => {
       imports: [
         FormsModule,
         HttpModule,
+        GurpsyAngularModule,
         GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],

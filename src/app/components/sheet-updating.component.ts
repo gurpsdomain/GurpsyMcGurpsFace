@@ -5,8 +5,8 @@ import {TemplateUpdaterDialogComponent} from './dialog/template-updaters/templat
 import {SheetService} from '../services/front-end/sheet/sheet.service';
 import {SheetViewingComponent} from './sheet-viewing.component';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {ComponentType} from '@angular/cdk';
 import {GurpsyConstants} from '../gurpsy.constants';
+import {ComponentType} from '@angular/cdk/portal';
 
 @Component({
   template: ''
