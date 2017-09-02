@@ -40,21 +40,14 @@
     <gurpsy-avatar fxShow="false" fxShow.xs class="flex-item"></gurpsy-avatar>
 
     <div class="headerSettings flex-container flex-item">
-      <button md-icon-button [md-menu-trigger-for]="settings">
+      <button md-icon-button [md-menu-trigger-for]="rootMenu">
         <md-icon>more_vert</md-icon>
       </button>
-      <md-menu x-position="before" y-position="below" #settings="mdMenu">
-        <button md-menu-item
-                *ngIf="sheet"
-                (click)="onNewSheet()">
+      <md-menu x-position="before" y-position="below" #rootMenu="mdMenu">
+        <button mat-menu-item
+                [mdMenuTriggerFor]="sheetMenu">
           <md-icon>portrait</md-icon>
-          <span>{{ 'MENU.NEW' | translate }}</span>
-        </button>
-        <button md-menu-item
-                *ngIf="sheet"
-                (click)="onOpenSheetDialog()">
-          <md-icon>account_box</md-icon>
-          <span>{{ 'MENU.OPEN' | translate }}</span>
+          <span>{{ 'MENU.SHEET.SHEET' | translate }}</span>
         </button>
         <button
           md-menu-item
@@ -86,6 +79,30 @@
           <md-icon svgIcon="gurpsy-face"></md-icon>
           <span>{{ 'MENU.ABOUT' | translate }}</span>
         </button>
+      </md-menu>
+
+      <md-menu #sheetMenu="mdMenu">
+        <button md-menu-item
+                (click)="onNewSheet()">
+          <md-icon>portrait</md-icon>
+          <span>{{ 'MENU.SHEET.NEW' | translate }}</span>
+        </button>
+        <button md-menu-item
+                (click)="onOpenSheetDialog()">
+          <md-icon>account_box</md-icon>
+          <span>{{ 'MENU.SHEET.OPEN' | translate }}</span>
+        </button>
+        <button md-menu-item
+                (click)="onDownloadSheet()">
+          <md-icon>save</md-icon>
+          <span>{{ 'MENU.SHEET.DOWNLOAD' | translate }}</span>
+        </button>
+        <button md-menu-item
+                (click)="onCloseSheet()">
+          <md-icon>highlight_off</md-icon>
+          <span>{{ 'MENU.SHEET.CLOSE' | translate }}</span>
+        </button>
+
       </md-menu>
     </div>
   </md-toolbar>
