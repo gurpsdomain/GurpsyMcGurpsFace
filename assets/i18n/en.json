@@ -8,12 +8,11 @@
     "OK": "Ok",
     "CANCEL": "Cancel",
     "CLOSE": "Close",
-
     "DICE": {
       "RETHROW": "Throw again"
     },
     "NEW_SHEET": {
-      "HEADER" : "Create a new Character Sheet"
+      "HEADER": "Create a new Character Sheet"
     },
     "OPEN_SHEET": {
       "HEADER": "Open Character Sheet",
@@ -31,9 +30,14 @@
     "ABOUT": "About",
     "EDIT": "Edit sheet",
     "LOCK": "Lock sheet",
-    "NEW": "New sheet",
-    "OPEN": "Open sheet",
     "SETTINGS": "Settings",
+    "SHEET": {
+      "CLOSE": "Close sheet",
+      "NEW": "New sheet",
+      "OPEN": "Open sheet",
+      "DOWNLOAD": "Download sheet",
+      "SHEET": "Sheet"
+    },
     "THROW_DICE": "Throw dice"
   },
   "MESSAGE": {
