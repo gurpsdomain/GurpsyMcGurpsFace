@@ -50,6 +50,13 @@ export class SheetService {
   }
 
   /**
+   * Close the currently opened template.
+   */
+  public closeTemplate(): void {
+    this.templateStorageService.deselectTemplate();
+  }
+
+  /**
    * Create a template from file.
    *
    * @param {File} A json representative of a template
@@ -167,6 +174,8 @@ export class SheetService {
 
   private initSheet(): void {
     this.loadSelectedTemplate();
+
+    this.templateStorageService.selectedTemplateChanged$.subscribe(template => this.loadSelectedTemplate());
 
     this.templateStorageService.templatesUpdated$.subscribe(templates => this.loadSelectedTemplate());
     this.templateStorageService.templatesUpdated$.subscribe(templates => this.templatesUpdatedSource.next(templates));

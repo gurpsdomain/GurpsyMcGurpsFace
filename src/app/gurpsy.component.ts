@@ -91,7 +91,7 @@ export class GurpsyComponent implements OnInit {
    * Close the current sheet, by removing the entry in SessionStorage
    */
   public onCloseSheet(): void {
-    console.log('Empty session storage.');
+    this.sheetService.closeTemplate();
   }
 
   /**

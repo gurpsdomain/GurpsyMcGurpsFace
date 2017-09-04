@@ -73,4 +73,13 @@ describe('SheetService', () => {
 
       expect(spy).toHaveBeenCalled();
     }));
+
+  it('[closeTemplate()] should call deselectTemplate() on TemplateStorageService when closeTemplate() is called',
+    inject([SheetService], (service: SheetService) => {
+      const spy = spyOn(templateStorageService, 'deselectTemplate');
+
+      service.closeTemplate();
+
+      expect(spy).toHaveBeenCalled();
+    }));
 });

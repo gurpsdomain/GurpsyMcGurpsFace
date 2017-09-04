@@ -53,9 +53,9 @@ export class TemplateStorageService {
   public clear(): void {
     localStorage.removeItem(this.getAllTemplatesStorageKey());
     this.templatesUpdated.next([]);
-    sessionStorage.removeItem(this.getSelectedTemplateStorageKey());
-    this.selectedTemplateChanged.next();
+    this.clearSelectedTemplate();
   }
+
 
   /**
    * Return the selected SheetTemplate
@@ -92,6 +92,13 @@ export class TemplateStorageService {
   }
 
   /**
+   * Deselect the current template. This means there is no selected Template in Session Storage
+   */
+  public deselectTemplate(): void {
+    this.clearSelectedTemplate();
+  }
+
+  /**
    * Update the given SheetTemplate. The previous version will be removed and the new one will be
    * added.
    *
@@ -103,6 +110,11 @@ export class TemplateStorageService {
     retrievedTemplates.updateTemplate(template);
 
     this.persist(retrievedTemplates);
+  }
+
+  private clearSelectedTemplate(): void {
+    sessionStorage.removeItem(this.getSelectedTemplateStorageKey());
+    this.selectedTemplateChanged.next();
   }
 
   private persist(templates: TemplateStore): void {

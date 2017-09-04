@@ -92,12 +92,14 @@
           <md-icon>account_box</md-icon>
           <span>{{ 'MENU.SHEET.OPEN' | translate }}</span>
         </button>
-        <button md-menu-item
+        <button *ngIf="sheet"
+                md-menu-item
                 (click)="onDownloadSheet()">
           <md-icon>save</md-icon>
           <span>{{ 'MENU.SHEET.DOWNLOAD' | translate }}</span>
         </button>
-        <button md-menu-item
+        <button *ngIf="sheet"
+                md-menu-item
                 (click)="onCloseSheet()">
           <md-icon>highlight_off</md-icon>
           <span>{{ 'MENU.SHEET.CLOSE' | translate }}</span>

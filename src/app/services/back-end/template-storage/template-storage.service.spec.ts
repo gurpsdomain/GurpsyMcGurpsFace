@@ -123,6 +123,20 @@ describe('TemplateStorageService', () => {
       expect(found).toBeTruthy();
     }));
 
+  it('[deselectTemplate()] should remove the currently stored id from Session Storage when ' +
+    'deselectTemplate() is called',
+    inject([TemplateStorageService], (service: TemplateStorageService) => {
+      const template = new SheetTemplate();
+
+      service.selectTemplate(template);
+
+      service.deselectTemplate();
+
+      const retrievedTemplateId = sessionStorage.getItem(SESSION_STORAGE_TEMPLATES_KEY);
+
+      expect(retrievedTemplateId).toBeNull();
+    }));
+
   it('[getSelectedTemplate()] should return a rejected Promise when getSelectedTemplate() ' +
     'is called, but none was selected',
     inject([TemplateStorageService], (service: TemplateStorageService) => {
