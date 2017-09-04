@@ -92,12 +92,13 @@
           <md-icon>account_box</md-icon>
           <span>{{ 'MENU.SHEET.OPEN' | translate }}</span>
         </button>
-        <button *ngIf="sheet"
-                md-menu-item
-                (click)="onDownloadSheet()">
+        <a md-menu-item
+           *ngIf="sheet"
+           [href]="templateJsonHref"
+           [download]="templateDownloadName">
           <md-icon>save</md-icon>
           <span>{{ 'MENU.SHEET.DOWNLOAD' | translate }}</span>
-        </button>
+        </a>
         <button *ngIf="sheet"
                 md-menu-item
                 (click)="onCloseSheet()">

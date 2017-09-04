@@ -129,4 +129,26 @@ export class SheetTemplate {
     this.equipments = [];
     this.notes = [];
   }
+
+  /**
+   * Return a valid filename for this template.
+   *
+   * This filename will be of the form
+   *
+   *      characterName - lastModifiedDate
+   *
+   * @return {string}
+   */
+  public getFileName(): string {
+    let fileName = this.name;
+
+    fileName = fileName.concat('-');
+
+    if (this.lastModified) {
+      fileName = fileName.concat(this.lastModified.toDateString());
+    } else {
+      fileName = fileName.concat(this.createdOn.toDateString());
+    }
+    return fileName;
+  }
 }

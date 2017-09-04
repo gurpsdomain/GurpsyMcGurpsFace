@@ -15,6 +15,8 @@ import {SheetTemplate} from './models/sheet-template/sheet-template.model';
 import {SheetService} from './services/front-end/sheet/sheet.service';
 import {GurpsyConstants} from './gurpsy.constants';
 
+import {JsonConvert} from 'json2typescript';
+
 @Component({
   selector: 'gurpsy-root',
   templateUrl: './gurpsy.component.html',
@@ -38,6 +40,9 @@ export class GurpsyComponent implements OnInit {
 
   public sheet: Sheet;
   public template: SheetTemplate;
+
+  public templateDownloadName: string;
+  public templateJsonHref: any;
   public editMode: boolean;
   public showLibrary: boolean;
   public theme: string;
@@ -244,6 +249,17 @@ export class GurpsyComponent implements OnInit {
 
   private setTemplate(template: SheetTemplate): void {
     this.template = template;
+
+    this.setDownloadLink(template);
+  }
+
+  private setDownloadLink(template: SheetTemplate): void {
+    if (template) {
+      const jsonConvert = new JsonConvert();
+      const jsonTemplate = JSON.stringify(jsonConvert.serialize(template));
+      this.templateDownloadName = template.getFileName() + '.json';
+      this.templateJsonHref = this.sanitizer.bypassSecurityTrustUrl('data:text/json;charset=UTF-8,' + encodeURIComponent(jsonTemplate));
+    }
   }
 
   private setTitle(sheet: Sheet): void {

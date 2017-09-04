@@ -132,6 +132,7 @@ describe('GurpsyComponent', () => {
     titleService = TestBed.get(Title);
 
     template = new SheetTemplate();
+    template.lastModified = new Date();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;
 
