@@ -1,39 +1,36 @@
 <div class="selectSheet">
-
   <md-card>
-    <button md-button
-            (click)="onCreateTemplate()">
-      <div class="flex-container"
-           fxLayout="row">
-        <div class="flex-item icon"
-             fxFlexAlign="center">
-          <md-icon>portrait</md-icon>
+    <md-card-content>
+      <button md-button
+              (click)="onCreateTemplate()">
+        <div class="flex-container"
+             fxLayoutGap="8px"
+             fxLayout="row">
+          <md-icon class="flex-item" fxFlexAlign="center">portrait</md-icon>
+          <div class="flex-item"
+               fxFlex="100%">
+            {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
+          </div>
         </div>
-        <div class="flex-item"
-             fxFlexAlign="center"
-             fxFlex="100%">
-          {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
-        </div>
-      </div>
-    </button>
+      </button>
+    </md-card-content>
   </md-card>
-
   <md-card>
-    <button md-button
-            (click)="onLoadTemplateFromFile()">
-      <div class="flex-container"
-           fxLayout="row">
-        <div class="flex-item icon"
-             fxFlexAlign="center">
-          <md-icon>account_box</md-icon>
+    <md-card-content>
+      <button md-button
+              (click)="onLoadTemplateFromFile()">
+        <div class="flex-container"
+             fxLayoutGap="8px"
+             fxLayout="row">
+          <md-icon class="flex-item" fxFlexAlign="center">account_box</md-icon>
+          <div class="flex-item"
+               fxFlexAlign="center"
+               fxFlex="100%">
+            {{ 'SELECT_SHEET.LOAD_FROM_FILE' | translate }}
+          </div>
         </div>
-        <div class="flex-item"
-             fxFlexAlign="center"
-             fxFlex="100%">
-          {{ 'SELECT_SHEET.LOAD_FROM_FILE' | translate }}
-        </div>
-      </div>
-    </button>
+      </button>
+    </md-card-content>
   </md-card>
 
   <md-card *ngIf="templates.length > 0">

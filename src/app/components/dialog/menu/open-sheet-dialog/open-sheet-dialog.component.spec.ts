@@ -11,6 +11,7 @@ import {TemplateStorageService} from '../../../../services/back-end/template-sto
 import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
 import {NgModule} from '@angular/core';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
+import {SelectSheetButtonComponent} from '../../../generic/select-sheet-button/select-sheet-button.component';
 
 @NgModule({
   entryComponents: [
@@ -28,6 +29,7 @@ describe('OpenSheetDialogComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         OpenSheetDialogComponent,
+        SelectSheetButtonComponent,
         FileInputComponent
       ],
       imports: [

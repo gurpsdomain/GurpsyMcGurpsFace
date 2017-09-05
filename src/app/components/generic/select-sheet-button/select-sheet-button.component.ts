@@ -11,6 +11,9 @@ export class SelectSheetButtonComponent {
   @Input()
   public template: SheetTemplate;
 
+  @Input()
+  public disabled: false;
+
   @Output() public click: EventEmitter<any> = new EventEmitter();
 
   constructor() {

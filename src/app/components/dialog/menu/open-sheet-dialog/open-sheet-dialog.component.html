@@ -1,5 +1,5 @@
 <h1 md-dialog-title>
-    {{'DIALOG.OPEN_SHEET.HEADER'| translate}}
+  {{'DIALOG.OPEN_SHEET.HEADER'| translate}}
 </h1>
 
 <md-dialog-content>
@@ -23,6 +23,10 @@
                          [accept]="'application/json'">
       </gurpsy-file-input>
     </div>
+    <gurpsy-select-sheet-button *ngIf="selectedSheet"
+                                [template]="selectedSheet"
+                                [disabled]="true">
+    </gurpsy-select-sheet-button>
   </md-card>
 </md-dialog-content>
 
