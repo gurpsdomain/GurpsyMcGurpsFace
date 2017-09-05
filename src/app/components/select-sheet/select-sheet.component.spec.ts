@@ -7,6 +7,7 @@ import {SheetService} from '../../services/front-end/sheet/sheet.service';
 import {TemplateStorageService} from '../../services/back-end/template-storage/template-storage.service';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
 import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
+import {SelectSheetButtonComponent} from '../generic/select-sheet-button/select-sheet-button.component';
 
 describe('SelectSheetComponent', () => {
   let component: SelectSheetComponent;
@@ -21,7 +22,10 @@ describe('SelectSheetComponent', () => {
         TranslateModule.forRoot(),
         GurpsyMaterialModule
       ],
-      declarations: [SelectSheetComponent],
+      declarations: [
+        SelectSheetComponent,
+        SelectSheetButtonComponent
+      ],
       providers: [
         LoggingService,
         SheetService,

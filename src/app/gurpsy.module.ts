@@ -58,6 +58,7 @@ import {SheetService} from './services/front-end/sheet/sheet.service';
 import {SheetUpdatingComponent} from './components/sheet-updating.component';
 import {SelectSheetComponent} from './components/select-sheet/select-sheet.component';
 import {HttpClient} from '@angular/common/http';
+import { SelectSheetButtonComponent } from './components/generic/select-sheet-button/select-sheet-button.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -106,7 +107,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TemplateUpdaterDialogComponent,
     AvatarComponent,
     NewSheetComponent,
-    SelectSheetComponent],
+    SelectSheetComponent,
+    SelectSheetButtonComponent],
   imports: [
     ImageCropperModule,
     GurpsyAngularModule,

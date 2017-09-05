@@ -15,7 +15,6 @@ export class OpenSheetDialogComponent {
   public showOk = false;
   public selectedFileName = '';
   public selectedSheet: SheetTemplate;
-  public previouslyOpenedSheets: SheetTemplate[] = [];
 
   constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
               private modelService: SheetService) {

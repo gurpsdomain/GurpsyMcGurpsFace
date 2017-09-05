@@ -1,0 +1,13 @@
+@mixin gurpsy-select-sheet-button-theme($theme) {
+  $foregroundMap: map-get($theme, foreground);
+  $hintText: map_get($foregroundMap, hint-text);
+
+  button {
+    .player, .dateLabel {
+      color: $hintText;
+    }
+  }
+}
+
+
+
