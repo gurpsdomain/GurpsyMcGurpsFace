@@ -3,31 +3,59 @@
 </h1>
 
 <md-dialog-content>
-  <md-card>
-    <div class="flex-container"
-         fxLayout="row"
-         fxLayoutAlign="start stretch">
-      <md-input-container
-        class="flex-item"
-        fxFlex="100%"
-        (click)="fileInput.selectFile()">
-        <input mdInput
-               tabindex="-1"
-               readonly
-               [(ngModel)]="selectedFileName"
-               placeholder="{{'DIALOG.OPEN_SHEET.SELECT_FROM_FILE'| translate}}">
-      </md-input-container>
-      <gurpsy-file-input #fileInput
-                         class="flex-item"
-                         (onFileSelect)="onFileSelect($event)"
-                         [accept]="'application/json'">
-      </gurpsy-file-input>
+  <div class="flex-container"
+       fxLayout="row"
+       fxLayoutAlign="start stretch">
+    <md-input-container
+      class="flex-item"
+      fxFlex="100%"
+      (click)="fileInput.selectFile()">
+      <input mdInput
+             tabindex="-1"
+             readonly
+             [(ngModel)]="selectedFileName"
+             placeholder="{{'DIALOG.OPEN_SHEET.SELECT_FROM_FILE'| translate}}">
+    </md-input-container>
+    <gurpsy-file-input #fileInput
+                       class="flex-item"
+                       (onFileSelect)="onFileSelect($event)"
+                       [accept]="'application/json'">
+    </gurpsy-file-input>
+  </div>
+
+  <div *ngIf="selectedSheet"
+       class="selectedSheet flex-container flex-item"
+       fxLayout="column"
+       fxLayoutAlign="start stretch"
+       [ngClass]="{'warning': state==stateEnum.WARNING, 'info': state==stateEnum.INFO}">
+    <div class="flex-container flex-item">
+      <div *ngIf="state ==stateEnum.WARNING"
+           class="flex-item flex-container"
+           fxLayout="row"
+           fxLayoutGap="8px"
+           fxLayoutAlign="start stretch">
+        <md-icon class="flex-item" color="warn">error</md-icon>
+        <span class="message flex-item">{{'DIALOG.OPEN_SHEET.ALREADY_LOADED_NEWER_VERSION'| translate}}</span>
+      </div>
+      <div *ngIf="state ==stateEnum.INFO"
+           class="flex-item flex-container"
+           fxLayout="row"
+           fxLayoutGap="8px"
+           fxLayoutAlign="start stretch">
+        <md-icon class="flex-item"
+                 color="accent">
+          info
+        </md-icon>
+        <span class="message flex-item">{{'DIALOG.OPEN_SHEET.ALREADY_LOADED_OLDER_VERSION'| translate}}</span>
+      </div>
     </div>
-    <gurpsy-select-sheet-button *ngIf="selectedSheet"
-                                [template]="selectedSheet"
-                                [disabled]="true">
+    <gurpsy-select-sheet-button
+      class="flex-item"
+      [template]="selectedSheet"
+      [disabled]="true">
     </gurpsy-select-sheet-button>
-  </md-card>
+  </div>
+
 </md-dialog-content>
 
 <md-dialog-actions align="end">

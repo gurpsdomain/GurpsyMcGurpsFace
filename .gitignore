@@ -12,6 +12,7 @@ out/
 /dist
 
 # OSX
+.iml
 .DS_Store
 /npm-debug.log
 

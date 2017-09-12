@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
-import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 
 @Component({
   templateUrl: './open-sheet-dialog.component.html',
@@ -15,6 +14,9 @@ export class OpenSheetDialogComponent {
   public showOk = false;
   public selectedFileName = '';
   public selectedSheet: SheetTemplate;
+  public stateEnum = State;
+
+  public state = State.NONE;
 
   constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
               private modelService: SheetService) {
@@ -36,4 +38,8 @@ export class OpenSheetDialogComponent {
     this.selectedFileName = fileName;
     this.showOk = true;
   }
+}
+
+export enum State {
+  NONE, WARNING, INFO
 }

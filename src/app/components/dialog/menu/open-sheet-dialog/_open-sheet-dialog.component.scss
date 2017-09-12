@@ -1,11 +1,20 @@
-@import '../../../../../../node_modules/@angular/material/theming';
-
 @mixin gurpsy-open-sheet-dialog-theme($theme) {
   $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
 
-  md-dialog-content button {
-    .sheetInfo .sheetPoints {
-      color: mat-color($accent);
+  .selectedSheet {
+
+    border: solid 1px mat-color($primary);
+
+    .info {
+      border: solid 1px mat-color($accent);
+      padding: 4px 10px;
+    }
+
+    .warning {
+      border: solid 1px mat-color($warn);
+      padding: 4px 10px;
     }
   }
 }
