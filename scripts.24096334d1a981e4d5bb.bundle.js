@@ -1,0 +1,1 @@
+function getTheme(){var e=localStorage.getItem("gurpsy-mc-gurps-face.config");if(e){var o=JSON.parse(e);if(o&&o.theme)return o.theme}}function setColor(){var e="#FFFFFF",o="#000000";"night"===getTheme()&&(e="#101822",o="#FFFFFF"),document.body.style.backgroundColor=e,document.body.style.color=o}setColor();

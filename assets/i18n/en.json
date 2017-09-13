@@ -15,9 +15,7 @@
       "HEADER": "Create a new Character Sheet"
     },
     "OPEN_SHEET": {
-      "HEADER": "Open Character Sheet",
-      "INVALID_SHEET": "Invalid sheet",
-      "SELECT_FROM_FILE": "Select a sheet",
+      "SELECT_FROM_FILE": "Open sheet",
       "ALREADY_LOADED_NEWER_VERSION": "A newer version of this sheet has already been loaded. The newer version will be overwritten.",
       "ALREADY_LOADED_OLDER_VERSION": "An older version of this sheet has already been loaded. The old version will be overwritten."
     },
