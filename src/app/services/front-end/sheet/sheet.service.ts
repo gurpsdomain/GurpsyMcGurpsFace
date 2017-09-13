@@ -124,6 +124,31 @@ export class SheetService {
   }
 
   /**
+   * Return the template for a given id. If that template does not exist, the Promise is rejected
+   *
+   * @param {string} id
+   * @return {Promise<SheetTemplate>}
+   */
+  public async getTemplateForId(id: string): Promise<SheetTemplate> {
+
+    const templates = await this.templateStorageService.getTemplates();
+    let foundTemplate: SheetTemplate = undefined;
+
+    for (const storedTemplate of templates) {
+      if (storedTemplate.id === id) {
+        foundTemplate = storedTemplate;
+        break;
+      }
+    }
+
+    if (foundTemplate) {
+      return Promise.resolve(foundTemplate);
+    } else {
+      return Promise.reject('No template available for the given id');
+    }
+  }
+
+  /**
    * Return the templates.
    *
    * @returns {Promise<SheetTemplate[]>}

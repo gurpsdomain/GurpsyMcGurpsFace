@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {SheetTemplate, TemplateComparison} from '../../../../models/sheet-template/sheet-template.model';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 @Component({
@@ -19,24 +19,46 @@ export class OpenSheetDialogComponent {
   public state = State.NONE;
 
   constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
-              private modelService: SheetService) {
+              private sheetService: SheetService) {
   }
 
   public onOk(): void {
-    this.modelService.loadNewTemplate(this.selectedSheet);
+    this.sheetService.loadNewTemplate(this.selectedSheet);
     this.dialogRef.close();
   }
 
   public onFileSelect(fileInput: Array<File>) {
     const file = fileInput[0];
-    this.modelService.createTemplateFromFile(file)
+    this.sheetService.createTemplateFromFile(file)
       .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 
-  private setSelectedSheet(sheet: SheetTemplate, fileName: string): void {
-    this.selectedSheet = sheet;
+  private setSelectedSheet(template: SheetTemplate, fileName: string): void {
+    this.selectedSheet = template;
     this.selectedFileName = fileName;
     this.showOk = true;
+
+    this.sheetService.getTemplateForId(template.id)
+      .then(sameTemplate => this.compareNewTemplateToAlreadyLoadedTemplate(sameTemplate))
+      .catch(any => this.setState(TemplateComparison.DIFFERENT));
+  }
+
+  private compareNewTemplateToAlreadyLoadedTemplate(template: SheetTemplate): void {
+    const comparison = this.selectedSheet.equals(template);
+    this.setState(comparison)
+  }
+
+  private setState(comparison: TemplateComparison): void {
+    switch (comparison) {
+      case TemplateComparison.DIFFERENT:
+        this.state = State.NONE;
+        break;
+      case TemplateComparison.OLDER:
+        this.state = State.WARNING;
+        break
+      default:
+        this.state = State.INFO;
+    }
   }
 }
 

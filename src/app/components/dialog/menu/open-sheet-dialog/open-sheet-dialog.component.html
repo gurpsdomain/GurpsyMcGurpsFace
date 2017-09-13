@@ -1,7 +1,3 @@
-<h1 md-dialog-title>
-  {{'DIALOG.OPEN_SHEET.HEADER'| translate}}
-</h1>
-
 <md-dialog-content>
   <div class="flex-container"
        fxLayout="row"
@@ -24,11 +20,16 @@
   </div>
 
   <div *ngIf="selectedSheet"
-       class="selectedSheet flex-container flex-item"
+       class="flex-container flex-item"
        fxLayout="column"
        fxLayoutAlign="start stretch"
        [ngClass]="{'warning': state==stateEnum.WARNING, 'info': state==stateEnum.INFO}">
-    <div class="flex-container flex-item">
+    <gurpsy-select-sheet-button
+      class="flex-item"
+      [template]="selectedSheet"
+      [disabled]="true">
+    </gurpsy-select-sheet-button>
+    <div class="messageWrapper flex-container flex-item">
       <div *ngIf="state ==stateEnum.WARNING"
            class="flex-item flex-container"
            fxLayout="row"
@@ -49,16 +50,12 @@
         <span class="message flex-item">{{'DIALOG.OPEN_SHEET.ALREADY_LOADED_OLDER_VERSION'| translate}}</span>
       </div>
     </div>
-    <gurpsy-select-sheet-button
-      class="flex-item"
-      [template]="selectedSheet"
-      [disabled]="true">
-    </gurpsy-select-sheet-button>
+
   </div>
 
 </md-dialog-content>
 
 <md-dialog-actions align="end">
-  <button md-button color="primary" [disabled]="!showOk" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
-  <button md-button color="primary" md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
+  <button md-button [disabled]="!showOk" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
+  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
 </md-dialog-actions>
