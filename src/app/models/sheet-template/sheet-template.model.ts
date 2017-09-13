@@ -1,10 +1,10 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {Note} from './note.model';
-import {Equipment} from './equipment.model';
-import {Spell} from './spell.model';
-import {Skill} from './skill.model';
-import {Disadvantage} from './disadvantage.model';
-import {Advantage} from './advantage.model';
+import {Note} from './note/note.model';
+import {Equipment} from './equipment/equipment.model';
+import {Spell} from './spell/spell.model';
+import {Skill} from './skill/skill.model';
+import {Disadvantage} from './disadvantage/disadvantage.model';
+import {Advantage} from './advantages/advantage.model';
 import {DateConverter} from '../../converters/date.converter';
 import {UUID} from 'angular2-uuid';
 
@@ -104,7 +104,7 @@ export class SheetTemplate {
     this.player = '';
     this.campaign = '';
     this.createdOn = new Date();
-    this.lastModified = undefined;
+    this.lastModified = new Date();
     this.name = '';
     this.title = '';
     this.religion = '';
@@ -151,4 +151,30 @@ export class SheetTemplate {
     }
     return fileName;
   }
+
+  /**
+   * Compare this SheetTemplate.
+   *
+   * Comparison is based on both the id and the lastModified date.
+   *
+   * @param {SheetTemplate} other
+   * @return {TemplateComparison}
+   */
+  public equals(other: SheetTemplate): TemplateComparison {
+    if (this.id !== other.id) {
+      return TemplateComparison.DIFFERENT;
+    }
+
+    if (this.lastModified > other.lastModified) {
+      return TemplateComparison.NEWER
+    } else if (this.lastModified < other.lastModified) {
+      return TemplateComparison.OLDER
+    } else {
+      return TemplateComparison.SAME;
+    }
+  }
+}
+
+export enum TemplateComparison {
+  OLDER, NEWER, SAME, DIFFERENT
 }

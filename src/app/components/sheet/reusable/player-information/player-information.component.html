@@ -13,12 +13,8 @@
         <td>{{ 'SHEET.PLAYER_INFORMATION.CAMPAIGN' | translate }}</td>
         <td class="campaign">{{sheet.metaData.playerInformation.campaign}}</td>
       </tr>
-      <tr *ngIf="!sheet.metaData.playerInformation.lastModified">
-        <td>{{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}</td>
-        <td class="createdOn">{{sheet.metaData.playerInformation.createdOn | date}}</td>
-      </tr>
-      <tr *ngIf="sheet.metaData.playerInformation.lastModified"
-          md-tooltip="{{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}: {{sheet.metaData.playerInformation.createdOn | date}}">
+      <tr
+        md-tooltip="{{ 'SHEET.PLAYER_INFORMATION.CREATED_ON' | translate }}: {{sheet.metaData.playerInformation.createdOn | date}}">
         <td>{{ 'SHEET.PLAYER_INFORMATION.LAST_MODIFIED' | translate }}</td>
         <td class="lastModified">{{sheet.metaData.playerInformation.lastModified | date}}
         </td>

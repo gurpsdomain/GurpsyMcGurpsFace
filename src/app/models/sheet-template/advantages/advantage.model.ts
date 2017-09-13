@@ -1,5 +1,5 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {Modifier} from './modifier.model';
+import {Modifier} from '../modifier/modifier.model';
 
 @JsonObject
 export class Advantage {

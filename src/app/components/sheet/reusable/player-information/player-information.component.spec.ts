@@ -103,19 +103,6 @@ describe('PlayerInformationComponent', function () {
     expect(el.textContent.trim()).toBe(CAMPAIGN);
   });
 
-  it('should show the correct createdOn from the sheet', () => {
-    fixture.detectChanges();
-
-    const de = fixture.debugElement.query(By.css(CREATED_ON_SELECTOR));
-    const el = de.nativeElement;
-
-    component.sheet = initialSheet;
-
-    fixture.detectChanges();
-
-    expect(new Date(el.textContent.trim()).getDate()).toBe(CREATED_ON.getDate());
-  });
-
   it('should show the correct lastModified from the sheet', () => {
     component.sheet = modifiedSheet;
     fixture.detectChanges();
