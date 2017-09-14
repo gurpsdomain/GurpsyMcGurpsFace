@@ -3,7 +3,7 @@ import {TemplateUpdaterDialogComponent} from '../template-updater-dialog.compone
 
 @Component({
   templateUrl: './player-information-updater.component.html',
-  styleUrls: []
+  styleUrls: ['./player-information-updater.component.scss']
 })
 export class PlayerInformationUpdaterComponent extends TemplateUpdaterDialogComponent {
 }

@@ -1,7 +1,6 @@
 <md-dialog-content *ngIf="template"
-                   class="flex-container"
-                   fxLayout="column"
-                   fxLayoutAlign="space-between stretch">
+                   class="playerInformationUpdater flex-container"
+                   fxLayout="column">
   <md-input-container class="flex-item">
     <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.PLAYER'| translate}}" [(ngModel)]="template.player"
            required>

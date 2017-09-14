@@ -3,7 +3,7 @@ import {TemplateUpdaterDialogComponent} from '../template-updater-dialog.compone
 
 @Component({
   templateUrl: './new-sheet.component.html',
-  styleUrls: []
+  styleUrls: ['./new-sheet.component.scss']
 })
 export class NewSheetComponent extends TemplateUpdaterDialogComponent {
 }

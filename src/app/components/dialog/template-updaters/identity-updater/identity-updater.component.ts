@@ -3,7 +3,7 @@ import {TemplateUpdaterDialogComponent} from '../template-updater-dialog.compone
 
 @Component({
   templateUrl: './identity-updater.component.html',
-  styleUrls: []
+  styleUrls: ['./identity-updater.component.scss']
 })
 export class IdentityUpdaterComponent extends TemplateUpdaterDialogComponent {
 }
