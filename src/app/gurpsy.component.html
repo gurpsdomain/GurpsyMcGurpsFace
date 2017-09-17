@@ -15,7 +15,8 @@
 
     <span class="flex-item"
           fxFlex>
-      {{'APPLICATION'| translate}}
+      <span *ngIf="!sheet">{{'APPLICATION'| translate}}</span>
+      <span *ngIf="sheet">{{sheet.metaData.identity.name}}</span>
     </span>
 
     <button md-icon-button
