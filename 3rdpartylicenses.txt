@@ -95,7 +95,7 @@ json2typescript@1.0.2
 MIT
 MIT
 
-@angular/core@4.3.6
+@angular/core@4.4.1
 MIT
 MIT
 
@@ -170,7 +170,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-ng2-pdf-viewer@1.2.5
+ng2-pdf-viewer@1.2.6
 MIT
 MIT License
 
@@ -334,11 +334,11 @@ isarray@1.0.0
 MIT
 MIT
 
-@angular/http@4.3.6
+@angular/http@4.4.1
 MIT
 MIT
 
-@ngx-translate/core@7.2.0
+@ngx-translate/core@8.0.0
 MIT
 Copyright (c) 2016 Olivier Combe
 
@@ -377,7 +377,7 @@ browserify-zlib@0.1.4
 MIT
 MIT
 
-@angular/animations@4.3.6
+@angular/animations@4.4.1
 MIT
 MIT
 
@@ -460,7 +460,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 
-@angular/common@4.3.6
+@angular/common@4.4.1
 MIT
 MIT
 
@@ -516,11 +516,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/forms@4.3.6
+@angular/forms@4.4.1
 MIT
 MIT
 
-@angular/platform-browser@4.3.6
+@angular/platform-browser@4.4.1
 MIT
 MIT
 
