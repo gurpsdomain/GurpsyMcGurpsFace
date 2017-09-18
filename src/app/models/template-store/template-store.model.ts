@@ -12,17 +12,26 @@ export class TemplateStore {
   }
 
   /**
-   * Add a SheetTemplate. If the SheetTemplate has already been added, return false.
+   * Add a SheetTemplate. If the SheetTemplate has already been added, return false. If the
+   * optional boolean overwrite is set to true, the stored sheet with the same id will be
+   * overwritten.
    *
    * @param {SheetTemplate} template
+   * @param {boolean} overwrite, defaults to false. If true an already stored sheet with the
+   *    same id will be overwritten.
    * @return {boolean} True if the SheetTemplate was added, false it was added previously
    */
-  public addTemplate(template: SheetTemplate): boolean {
+  public addTemplate(template: SheetTemplate, overwrite?: boolean): boolean {
     let added = false;
+
     if (!this.isPresent(template)) {
       this.templates.push(template);
       added = true;
+    } else if (overwrite) {
+      this.updateTemplate(template)
+      added = true;
     }
+
     return added;
   }
 

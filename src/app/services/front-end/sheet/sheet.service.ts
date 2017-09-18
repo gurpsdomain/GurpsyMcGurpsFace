@@ -87,7 +87,6 @@ export class SheetService {
    * @param {SheetTemplate} The new template.
    */
   public loadNewTemplate(template: SheetTemplate): void {
-    this.loadTemplate(template);
     this.templateStorageService.addTemplate(template);
     this.templateStorageService.selectTemplate(template);
   }
@@ -98,7 +97,6 @@ export class SheetService {
    * @param {SheetTemplate} The template.
    */
   public loadExistingTemplate(template: SheetTemplate): void {
-    this.loadTemplate(template);
     this.templateStorageService.selectTemplate(template);
   }
 
@@ -110,7 +108,6 @@ export class SheetService {
    */
   public updateTemplate(template: SheetTemplate): void {
     template.lastModified = new Date();
-    this.loadTemplate(template);
     this.templateStorageService.updateTemplate(template);
   }
 

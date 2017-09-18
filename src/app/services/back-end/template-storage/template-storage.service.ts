@@ -42,7 +42,7 @@ export class TemplateStorageService {
    */
   public addTemplate(template: SheetTemplate): void {
     const templates: TemplateStore = this.getTemplatesDM();
-    templates.addTemplate(template);
+    templates.addTemplate(template, true);
     this.persist(templates);
   }
 
@@ -51,11 +51,9 @@ export class TemplateStorageService {
    * entries should be removed.
    */
   public clear(): void {
-    localStorage.removeItem(this.getAllTemplatesStorageKey());
-    this.templatesUpdated.next([]);
+    this.clearTemplates();
     this.clearSelectedTemplate();
   }
-
 
   /**
    * Return the selected SheetTemplate
@@ -89,6 +87,7 @@ export class TemplateStorageService {
   public selectTemplate(template: SheetTemplate): void {
     this.addTemplate(template);
     sessionStorage.setItem(this.getSelectedTemplateStorageKey(), template.id);
+    this.selectedTemplateChanged.next();
   }
 
   /**
@@ -117,11 +116,17 @@ export class TemplateStorageService {
     this.selectedTemplateChanged.next();
   }
 
+  private clearTemplates(): void {
+    localStorage.removeItem(this.getAllTemplatesStorageKey());
+    this.templatesUpdated.next([]);
+  }
+
   private persist(templates: TemplateStore): void {
     const jsonConvert = new JsonConvert();
     const jsonSheets = JSON.stringify(jsonConvert.serialize(templates));
 
     localStorage.setItem(this.getAllTemplatesStorageKey(), jsonSheets);
+    this.templatesUpdated.next();
   }
 
   private getTemplatesDM(): TemplateStore {
