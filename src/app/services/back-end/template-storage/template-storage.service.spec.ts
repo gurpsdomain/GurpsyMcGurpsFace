@@ -100,29 +100,6 @@ describe('TemplateStorageService', () => {
       expect(retrievedTemplateId).toBe(template.id);
     }));
 
-  it('[selectTemplate()] should add the template to Local Storage, if it is not yet added, ' +
-    'when selectTemplate() is called',
-    inject([TemplateStorageService], (service: TemplateStorageService) => {
-      const template = new SheetTemplate();
-
-      service.selectTemplate(template);
-
-      const json = localStorage.getItem(LOCAL_STORAGE_TEMPLATES_KEY);
-      const jsonConvert = new JsonConvert();
-      const jsonObject = JSON.parse(json);
-      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplateStore);
-
-      let found = false;
-      for (const storedTemplate of retrievedTemplates.templates) {
-        if (storedTemplate.id === template.id) {
-          found = true;
-          break;
-        }
-      }
-
-      expect(found).toBeTruthy();
-    }));
-
   it('[deselectTemplate()] should remove the currently stored id from Session Storage when ' +
     'deselectTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {

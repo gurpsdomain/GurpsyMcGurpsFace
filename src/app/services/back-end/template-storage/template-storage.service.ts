@@ -81,11 +81,11 @@ export class TemplateStorageService {
   }
 
   /**
+   * Set the given template as the selected template.
    *
    * @param {TemplateStore} templates
    */
   public selectTemplate(template: SheetTemplate): void {
-    this.addTemplate(template);
     sessionStorage.setItem(this.getSelectedTemplateStorageKey(), template.id);
     this.selectedTemplateChanged.next();
   }

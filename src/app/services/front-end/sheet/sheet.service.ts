@@ -187,26 +187,37 @@ export class SheetService {
     return Promise.resolve(this._editMode);
   }
 
-  private loadTemplate(template: SheetTemplate): void {
+  private loadTemplate(template: SheetTemplate, isNew?: boolean): void {
     this.setTemplate(template);
     const sheet = this.createSheet(template);
     this.setSheet(sheet)
-    this.newSheetLoadedSource.next(this.sheet);
+
+    if (isNew) {
+      this.newSheetLoadedSource.next(this.sheet);
+    }
   }
 
   private initSheet(): void {
-    this.loadSelectedTemplate();
+    this.loadSelectedTemplate(false);
 
-    this.templateStorageService.selectedTemplateChanged$.subscribe(template => this.loadSelectedTemplate());
-
-    this.templateStorageService.templatesUpdated$.subscribe(templates => this.loadSelectedTemplate());
-    this.templateStorageService.templatesUpdated$.subscribe(templates => this.templatesUpdatedSource.next(templates));
+    this.templateStorageService.selectedTemplateChanged$.subscribe(template => this.loadSelectedTemplate(true));
+    this.templateStorageService.templatesUpdated$.subscribe(templates => this.handleUpdatedTemplates(templates));
   }
 
-  private loadSelectedTemplate(): void {
+  private handleUpdatedTemplates(templates: SheetTemplate[]): void {
+    this.loadSelectedTemplate(false);
+    this.templatesUpdatedSource.next(templates);
+  }
+
+  private loadSelectedTemplate(isNew: boolean): void {
     this.templateStorageService.getSelectedTemplate()
-      .then(template => this.loadTemplate(template))
-      .catch(any => this.setSheet(undefined));
+      .then(template => this.loadTemplate(template, isNew))
+      .catch(any => this.clearSheetAndTemplate());
+  }
+
+  private clearSheetAndTemplate(): void {
+    this.setTemplate(undefined);
+    this.setSheet(undefined)
   }
 
   private setTemplate(template: SheetTemplate): void {

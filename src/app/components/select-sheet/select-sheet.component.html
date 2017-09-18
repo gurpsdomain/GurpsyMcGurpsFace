@@ -33,7 +33,7 @@
     </md-card-content>
   </md-card>
 
-  <md-card *ngIf="templates.length > 0">
+  <md-card *ngIf="templates && templates.length > 0">
     <gurpsy-select-sheet-button
       *ngFor="let template of templates"
       [template]="template"

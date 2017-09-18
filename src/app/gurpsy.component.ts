@@ -65,7 +65,8 @@ export class GurpsyComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.initSheetAndTemplate();
+    this.initSheet();
+    this.initDownloadLink();
     this.initNewSheetLoadedListener();
     this.initLibrary();
     this.initTheme();
@@ -182,9 +183,16 @@ export class GurpsyComponent implements OnInit {
     this.showLibrary = show;
   }
 
-  private initSheetAndTemplate(): void {
-    this.fetchSheetAndTemplate();
-    this.sheetService.sheetUpdated$.subscribe(any => this.fetchSheetAndTemplate());
+  private initDownloadLink(): void {
+    this.sheetService.getTemplate().then(template => this.setTemplate(template));
+    this.sheetService.sheetUpdated$.subscribe(sheet => this.sheetService.getTemplate()
+      .then(template => this.setTemplate(template)));
+  }
+
+  private initSheet(): void {
+    this.sheetService.getSheet().then(sheet => this.setSheet(sheet));
+    this.sheetService.sheetUpdated$.subscribe(sheet => this.sheetService.getSheet()
+      .then(updatedSheet => this.setSheet(updatedSheet)));
   }
 
   private initLibrary(): void {
@@ -235,21 +243,13 @@ export class GurpsyComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_LIBRARY_URL));
   }
 
-
-  private fetchSheetAndTemplate(): void {
-    this.sheetService.getSheet().then(sheet => this.setSheet(sheet));
-    this.sheetService.getTemplate().then(template => this.setTemplate(template));
-  }
-
   private setSheet(sheet: Sheet): void {
     this.sheet = sheet;
-
     this.setTitle(sheet);
   }
 
   private setTemplate(template: SheetTemplate): void {
     this.template = template;
-
     this.setDownloadLink(template);
   }
 
