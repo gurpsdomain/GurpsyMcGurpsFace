@@ -218,7 +218,9 @@ export class GurpsyComponent implements OnInit {
     }
 
     this.theme = theme;
-    this.overlayContainer.themeClass = theme;
+    this.overlayContainer.getContainerElement().classList.add(theme);
+
+
   }
 
   private showNewSheetLoadedMessage(sheet: Sheet): void {
