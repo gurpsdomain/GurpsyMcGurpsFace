@@ -63,9 +63,9 @@ describe('SheetService', () => {
       expect(args[0]).toBe(template);
     }));
 
-  it('[loadNewTemplate()] should call selectTemplate() on TemplateStorageService when loadNewTemplate() is called',
+  it('[loadNewTemplate()] should call addAndSelectTemplate() on TemplateStorageService when loadNewTemplate() is called',
     inject([SheetService], (service: SheetService) => {
-      const spy = spyOn(templateStorageService, 'selectTemplate');
+      const spy = spyOn(templateStorageService, 'addAndSelectTemplate');
 
       const template = new SheetTemplate();
 
