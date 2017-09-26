@@ -34,6 +34,7 @@
       "CLOSE": "Close sheet",
       "NEW": "New sheet",
       "OPEN": "Open sheet",
+      "DELETE": "Delete sheet",
       "DOWNLOAD": "Download sheet",
       "SHEET": "Sheet"
     },
