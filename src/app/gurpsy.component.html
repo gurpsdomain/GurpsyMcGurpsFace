@@ -106,7 +106,12 @@
           <md-icon>highlight_off</md-icon>
           <span>{{ 'MENU.SHEET.CLOSE' | translate }}</span>
         </button>
-
+        <button *ngIf="sheet"
+                md-menu-item
+                (click)="onDelete()">
+          <md-icon>delete</md-icon>
+          <span>{{ 'MENU.SHEET.DELETE' | translate }}</span>
+        </button>
       </md-menu>
     </div>
   </md-toolbar>

@@ -94,24 +94,23 @@ export class GurpsyComponent implements OnInit {
   }
 
   /**
-   * Close the current sheet, by removing the entry in SessionStorage
+   * Close the current sheet, by removing the entry in SessionStorage.
    */
   public onCloseSheet(): void {
     this.sheetService.closeTemplate();
   }
 
   /**
-   * Download the sheet. Note that at this point the user will reveice
-   * the template, not the sheet.
+   * Delete the current sheet.
    */
-  public onDownloadSheet(): void {
-    console.log('Provide a downloadable json file.');
+  public onDelete(): void {
+    this.sheetService.deleteTemplate(this.template);
   }
 
   /**
    * Switch edit mode.
    *
-   * @param {boolean} If true, the sheet is editable, if false it is in read only mode
+   * @param {boolean} If true, the sheet is editable, if false it is in read only mode.
    */
   public onEdit(edit: boolean): void {
     this.editMode = edit;
