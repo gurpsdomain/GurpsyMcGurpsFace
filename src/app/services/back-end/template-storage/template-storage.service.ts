@@ -61,7 +61,7 @@ export class TemplateStorageService {
    * @return {Promise<SheetTemplate>}
    */
   public getSelectedTemplate(): Promise<SheetTemplate> {
-    const selectedTemplateId: string = sessionStorage.getItem(this.getSelectedTemplateStorageKey());
+    const selectedTemplateId: string = this.getSelectedTemplateId();
 
     if (selectedTemplateId) {
       const retrievedTemplates = this.getTemplatesDM();
@@ -70,6 +70,7 @@ export class TemplateStorageService {
       return Promise.reject('No SheetTemplate selected');
     }
   }
+
 
   /**
    * return the stored TemplateStore.
@@ -95,6 +96,24 @@ export class TemplateStorageService {
    */
   public deselectTemplate(): void {
     this.clearSelectedTemplate();
+  }
+
+  /**
+   * Delete the given SheetTemplate from local storage.
+   *
+   * @param {SheetTemplate} template
+   */
+  public deleteTemplate(template: SheetTemplate): void {
+
+    const retrievedTemplates = this.getTemplatesDM();
+
+    retrievedTemplates.deleteTemplate(template);
+
+    if (this.getSelectedTemplateId() === template.id) {
+      this.deselectTemplate();
+    }
+
+    this.persist(retrievedTemplates);
   }
 
   /**
@@ -126,13 +145,19 @@ export class TemplateStorageService {
     const jsonSheets = JSON.stringify(jsonConvert.serialize(templates));
 
     localStorage.setItem(this.getAllTemplatesStorageKey(), jsonSheets);
-    this.templatesUpdated.next();
+    this.templatesUpdated.next(templates.templates);
   }
 
   private getTemplatesDM(): TemplateStore {
     const json: string = localStorage.getItem(this.getAllTemplatesStorageKey());
 
     return this.deserialize(json);
+  }
+
+  private getSelectedTemplateId(): string {
+    const selectedTemplateId: string = sessionStorage.getItem(this.getSelectedTemplateStorageKey());
+
+    return selectedTemplateId;
   }
 
   private deserialize(json: string): TemplateStore {

@@ -36,6 +36,26 @@ export class TemplateStore {
   }
 
   /**
+   * Delete the given SheetTemplate.
+   *
+   * @param {SheetTemplate} template
+   */
+  public deleteTemplate(template: SheetTemplate): void {
+
+    let index = 0;
+    for (const storedTemplate of this.templates) {
+      if (storedTemplate.id === template.id) {
+        break;
+      }
+      index++;
+    }
+
+    if (index > -1) {
+      this.templates.splice(index, 1);
+    }
+  }
+
+  /**
    * Get the SheetTemplate with the given id. If none are present, return undefined.
    *
    * @param {string} id of the requested SheetTemplate

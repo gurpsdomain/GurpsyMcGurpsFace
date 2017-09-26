@@ -82,4 +82,13 @@ describe('SheetService', () => {
 
       expect(spy).toHaveBeenCalled();
     }));
+
+  it('[deleteTemplate()] should call deleteTemplate() on TemplateStorageService when deleteTemplate() is called',
+    inject([SheetService], (service: SheetService) => {
+      const spy = spyOn(templateStorageService, 'deleteTemplate');
+
+      service.deleteTemplate(new SheetTemplate());
+
+      expect(spy).toHaveBeenCalled();
+    }));
 });

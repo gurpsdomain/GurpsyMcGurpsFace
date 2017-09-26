@@ -150,4 +150,42 @@ describe('TemplateStorageService', () => {
       service.getSelectedTemplate().then(template =>
         expect(template.name).toBe(updatedTemplate.name));
     }));
+
+
+  it('[deleteTemplate()] should delete the SheetTemplate when deleteTemplate() is called',
+    inject([TemplateStorageService], (service: TemplateStorageService) => {
+
+      const firstTemplate = new SheetTemplate();
+      service.addTemplate(firstTemplate);
+
+      const secondTemplate = new SheetTemplate();
+      service.addTemplate(secondTemplate);
+
+      service.deleteTemplate(firstTemplate);
+
+      const json = localStorage.getItem(LOCAL_STORAGE_TEMPLATES_KEY);
+      const jsonConvert = new JsonConvert();
+      const jsonObject = JSON.parse(json);
+      const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplateStore);
+
+      expect(retrievedTemplates.templates.length).toBe(1);
+    }));
+
+  it('[deleteTemplate()] should clear the selected SheetTemplate if deleteTemplate() is called and ' +
+    'the selected SheetTemplate is the same as the deleted SheetTemplate',
+    inject([TemplateStorageService], (service: TemplateStorageService) => {
+
+      const firstTemplate = new SheetTemplate();
+      service.addTemplate(firstTemplate);
+      service.selectTemplate(firstTemplate)
+
+      const secondTemplate = new SheetTemplate();
+      service.addTemplate(secondTemplate);
+
+      service.deleteTemplate(firstTemplate);
+
+      const retrievedTemplateId = sessionStorage.getItem(SESSION_STORAGE_TEMPLATES_KEY);
+
+      expect(retrievedTemplateId).toBeNull();
+    }));
 });

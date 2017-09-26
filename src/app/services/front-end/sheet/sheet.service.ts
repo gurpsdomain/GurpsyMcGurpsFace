@@ -82,9 +82,9 @@ export class SheetService {
   }
 
   /**
-   * Load a new template.
+   * Load a new SheetTemplate.
    *
-   * @param {SheetTemplate} The new template.
+   * @param {SheetTemplate} The new SheetTemplate.
    */
   public loadNewTemplate(template: SheetTemplate): void {
     this.templateStorageService.addTemplate(template);
@@ -92,9 +92,18 @@ export class SheetService {
   }
 
   /**
-   * Load an existing template.
+   * Delete the given template.
    *
-   * @param {SheetTemplate} The template.
+   * @param {SheetTemplate} The SheetTemplate to delete
+   */
+  public deleteTemplate(template: SheetTemplate): void {
+    this.templateStorageService.deleteTemplate(template);
+  }
+
+  /**
+   * Load an existing SheetTemplate.
+   *
+   * @param {SheetTemplate} The SheetTemplate to load.
    */
   public loadExistingTemplate(template: SheetTemplate): void {
     this.templateStorageService.selectTemplate(template);
@@ -102,9 +111,9 @@ export class SheetService {
 
 
   /**
-   * Update the template.
+   * Update the SheetTemplate.
    *
-   * @param {SheetTemplate} The updated template.
+   * @param {SheetTemplate} The updated SheetTemplate.
    */
   public updateTemplate(template: SheetTemplate): void {
     template.lastModified = new Date();
@@ -112,7 +121,7 @@ export class SheetService {
   }
 
   /**
-   * Return the template.
+   * Return the SheetTemplate.
    *
    * @returns {Promise<SheetTemplate>}
    */
@@ -121,7 +130,7 @@ export class SheetService {
   }
 
   /**
-   * Return the template for a given id. If that template does not exist, the Promise is rejected
+   * Return the SheetTemplate for a given id. If that template does not exist, the Promise is rejected
    *
    * @param {string} id
    * @return {Promise<SheetTemplate>}
@@ -200,8 +209,10 @@ export class SheetService {
   private initSheet(): void {
     this.loadSelectedTemplate(false);
 
-    this.templateStorageService.selectedTemplateChanged$.subscribe(template => this.loadSelectedTemplate(true));
-    this.templateStorageService.templatesUpdated$.subscribe(templates => this.handleUpdatedTemplates(templates));
+    this.templateStorageService.selectedTemplateChanged$
+      .subscribe(template => this.loadSelectedTemplate(true));
+    this.templateStorageService.templatesUpdated$
+      .subscribe(templates => this.handleUpdatedTemplates(templates));
   }
 
   private handleUpdatedTemplates(templates: SheetTemplate[]): void {

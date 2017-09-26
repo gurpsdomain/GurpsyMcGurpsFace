@@ -129,4 +129,18 @@ describe('Model Object TemplateStore', () => {
 
     expect(retrievedTemplate.name).toBe(updatedTemplate.name);
   });
+
+  it('[deleteTemplate()] should delete the template when deleteTemplate() is called', () => {
+
+    const templateOne = new SheetTemplate();
+    templates.addTemplate(templateOne);
+
+
+    const templateTwo = new SheetTemplate();
+    templates.addTemplate(templateTwo);
+
+    templates.deleteTemplate(templateOne);
+
+    expect(templates.templates.length).toBe(1);
+  });
 })
