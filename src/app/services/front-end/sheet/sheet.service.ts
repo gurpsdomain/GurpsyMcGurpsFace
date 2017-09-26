@@ -87,8 +87,7 @@ export class SheetService {
    * @param {SheetTemplate} The new SheetTemplate.
    */
   public loadNewTemplate(template: SheetTemplate): void {
-    this.templateStorageService.addTemplate(template);
-    this.templateStorageService.selectTemplate(template);
+    this.templateStorageService.addAndSelectTemplate(template);
   }
 
   /**

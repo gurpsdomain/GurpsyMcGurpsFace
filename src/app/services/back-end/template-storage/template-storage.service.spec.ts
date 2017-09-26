@@ -87,7 +87,6 @@ describe('TemplateStorageService', () => {
       expect(retrievedTemplates.templates.length).toBe(1);
     }));
 
-
   it('[selectTemplate()] should set the id of the given SheetTemplate in Session Storage when ' +
     'selectTemplate() is called',
     inject([TemplateStorageService], (service: TemplateStorageService) => {

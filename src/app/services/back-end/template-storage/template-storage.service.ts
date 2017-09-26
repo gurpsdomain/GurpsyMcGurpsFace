@@ -47,6 +47,16 @@ export class TemplateStorageService {
   }
 
   /**
+   * Add a new SheetTemplate and set it as the selected.
+   *
+   * @param {SheetTemplate} template
+   */
+  public addAndSelectTemplate(template: SheetTemplate): void {
+    this.persistSelectedTemplate(template);
+    this.addTemplate(template);
+  }
+
+  /**
    * Clear all entries from Local Storage. After this method has finished all GurpsyMcGurpsFace related
    * entries should be removed.
    */
@@ -71,7 +81,6 @@ export class TemplateStorageService {
     }
   }
 
-
   /**
    * return the stored TemplateStore.
    *
@@ -87,9 +96,10 @@ export class TemplateStorageService {
    * @param {TemplateStore} templates
    */
   public selectTemplate(template: SheetTemplate): void {
-    sessionStorage.setItem(this.getSelectedTemplateStorageKey(), template.id);
+    this.persistSelectedTemplate(template);
     this.selectedTemplateChanged.next();
   }
+
 
   /**
    * Deselect the current template. This means there is no selected Template in Session Storage
@@ -191,5 +201,9 @@ export class TemplateStorageService {
 
   private getSelectedTemplateStorageKey(): string {
     return GurpsyConstants.GURPSY_STORAGE_KEY + TemplateStorageService.STORAGE_KEY_SELECTED;
+  }
+
+  private persistSelectedTemplate(template: SheetTemplate): void {
+    sessionStorage.setItem(this.getSelectedTemplateStorageKey(), template.id);
   }
 }
