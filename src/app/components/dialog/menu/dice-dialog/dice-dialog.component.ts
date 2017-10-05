@@ -53,7 +53,7 @@ export class DiceDialogComponent implements AfterViewInit {
   public setupScenery() {
     // this.addSphere();
     // this.AddDie();
-    // this.addPlane();
+    this.addPlane();
     // this.addPointLight();
     this.addLight();
 
@@ -99,22 +99,22 @@ export class DiceDialogComponent implements AfterViewInit {
     box.addTo(this.app);
   }
 
-  // private addPlane(): void {
-  //   new WHS.Plane({
-  //     geometry: {
-  //       width: 100,
-  //       height: 100
-  //     },
-  //
-  //     // material: new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(DiceDialogComponent.TEXTURE_TABLE)}),
-  //
-  //     material: new THREE.MeshPhongMaterial({color: 0x447F8B}),
-  //
-  //     rotation: {
-  //       x: -Math.PI / 2
-  //     }
-  //   }).addTo(this.app);
-  // }
+  private addPlane(): void {
+    new WHS.Plane({
+      geometry: {
+        width: 100,
+        height: 100
+      },
+
+      material: new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(DiceDialogComponent.TEXTURE_TABLE)}),
+
+      // material: new THREE.MeshPhongMaterial({color: 0x447F8B}),
+
+      rotation: {
+        x: -Math.PI / 2
+      }
+    }).addTo(this.app);
+  }
 
   private addPointLight(): void {
     new WHS.PointLight({
