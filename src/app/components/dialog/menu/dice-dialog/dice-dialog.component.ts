@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import * as WHS from 'whs/build/whs';
-import * as THREE from 'whs/node_modules/three';
+import * as THREE from 'three';
 
 @Component({
   templateUrl: 'dice-dialog.component.html',
@@ -21,8 +21,6 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   public onRethrow(): void {
-    console.log('Rethrowing');
-
     this.app.start();
   }
 
@@ -51,10 +49,9 @@ export class DiceDialogComponent implements AfterViewInit {
   }
 
   public setupScenery() {
-    // this.addSphere();
-    // this.AddDie();
+    this.addSphere();
     this.addPlane();
-    // this.addPointLight();
+    this.addPointLight();
     this.addLight();
 
     this.app.start();
@@ -77,28 +74,6 @@ export class DiceDialogComponent implements AfterViewInit {
     sphere.addTo(this.app);
   }
 
-  private AddDie(): void {
-    const box = new WHS.Box({
-      geometry: [10, 10, 10],
-
-      // material: new THREE.MeshPhongMaterial({
-      //   color: UTILS.$colors.mesh
-      // }),
-
-      // shadow,
-
-      // modules: [
-      //   new WHS.TextureModule({
-      //     url: `${process.assetsPath}/textures/box.jpg`
-      //   })
-      // ],
-
-      position: [-15, 0, 0]
-    });
-
-    box.addTo(this.app);
-  }
-
   private addPlane(): void {
     new WHS.Plane({
       geometry: {
@@ -107,8 +82,6 @@ export class DiceDialogComponent implements AfterViewInit {
       },
 
       material: new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(DiceDialogComponent.TEXTURE_TABLE)}),
-
-      // material: new THREE.MeshPhongMaterial({color: 0x447F8B}),
 
       rotation: {
         x: -Math.PI / 2
