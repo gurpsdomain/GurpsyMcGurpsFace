@@ -1,4 +1,5 @@
 import {SheetTemplate} from '../sheet-template/sheet-template.model';
+
 export class Points {
 
   total: number;
@@ -12,8 +13,14 @@ export class Points {
     this.total = undefined;
     this.advantages = undefined;
     this.disadvantages = undefined;
-    this.skills = undefined;
+    this.calculateSkillsPoints(template);
     this.spells = undefined;
     this.unspent = undefined;
+  }
+
+  private calculateSkillsPoints(template: SheetTemplate) {
+    this.skills = 0;
+
+    template.skills.forEach(skill => this.skills += skill.points);
   }
 }
