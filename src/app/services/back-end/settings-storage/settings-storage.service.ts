@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {SheetBodyContent} from '../../front-end/sheet-body/sheet-body.service';
 import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../../models/settings/settings.model';
 import {LoggingService} from '../logging/logging.service';
@@ -36,18 +35,6 @@ export class SettingsStorageService {
   }
 
   /**
-   * Store the given BodyContent.
-   *
-   * @param {SheetBodyContent} An enumeration that represents the template body content
-   */
-  public storeBodyContent(bodyContent: SheetBodyContent) {
-    const settings: Settings = this.retrieve();
-    settings.bodyContent = bodyContent;
-
-    this.store(settings);
-  }
-
-  /**
    * Store the given metrics.
    *
    * @param {string} metrics
@@ -69,21 +56,6 @@ export class SettingsStorageService {
     settings.theme = theme;
 
     this.store(settings);
-  }
-
-  /**
-   * Retrieve the currently stored theme.
-   *
-   * @returns {Promise<string>} the current theme.
-   */
-  public retrieveBodyContent(): Promise<SheetBodyContent> {
-    const settings: Settings = this.retrieve();
-
-    if (!settings.bodyContent) {
-      return Promise.reject('No BodyContent stored, use default.');
-    } else {
-      return Promise.resolve(settings.bodyContent);
-    }
   }
 
   /**

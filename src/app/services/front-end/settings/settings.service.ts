@@ -33,15 +33,6 @@ export class SettingsService {
   }
 
   /**
-   * Set bodyContent.
-   *
-   * @param bodyContent : SheetBodyContent
-   */
-  public setBodyContent(bodyContent: SheetBodyContent) {
-    this.settingsStorageService.storeBodyContent(bodyContent);
-  }
-
-  /**
    * Set metrics.
    *
    * @param metrics : string
@@ -57,15 +48,6 @@ export class SettingsService {
    */
   public setTheme(theme: string) {
     this.settingsStorageService.storeTheme(theme);
-  }
-
-  /**
-   * Get bodyContent.
-   *
-   * @return Promise<SheetBodyContent>  A promise that resolves to the current BodyContent
-   */
-  public getBodyContent(): Promise<SheetBodyContent> {
-    return this.settingsStorageService.retrieveBodyContent();
   }
 
   /**
