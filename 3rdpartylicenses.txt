@@ -99,7 +99,7 @@ MIT
 MIT
 MIT
 
-@angular/material@2.0.0-beta.11
+@angular/material@2.0.0-beta.12
 MIT
 The MIT License
 
@@ -198,7 +198,7 @@ punycode@1.4.1
 MIT
 MIT
 
-@angular/cdk@2.0.0-beta.11
+@angular/cdk@2.0.0-beta.12
 MIT
 The MIT License
 
