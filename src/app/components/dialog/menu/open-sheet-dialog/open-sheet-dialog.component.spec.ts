@@ -2,7 +2,7 @@
 import {async, TestBed} from '@angular/core/testing';
 import {OpenSheetDialogComponent} from './open-sheet-dialog.component';
 import {FileInputComponent} from '../../../generic/file-input/file-input.component';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
@@ -23,7 +23,7 @@ export class TestModule {
 
 describe('OpenSheetDialogComponent', () => {
   let component: OpenSheetDialogComponent;
-  let dialog: MdDialog;
+  let dialog: MatDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -49,7 +49,7 @@ describe('OpenSheetDialogComponent', () => {
   }));
 
   beforeEach(() => {
-    dialog = TestBed.get(MdDialog);
+    dialog = TestBed.get(MatDialog);
     const dialogRef = dialog.open(OpenSheetDialogComponent);
     component = dialogRef.componentInstance;
   });

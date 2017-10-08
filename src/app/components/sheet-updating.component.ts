@@ -4,7 +4,7 @@ import {SheetTemplate} from '../models/sheet-template/sheet-template.model';
 import {TemplateUpdaterDialogComponent} from './dialog/template-updaters/template-updater-dialog.component';
 import {SheetService} from '../services/front-end/sheet/sheet.service';
 import {SheetViewingComponent} from './sheet-viewing.component';
-import {MdDialog, MdDialogRef} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {GurpsyConstants} from '../gurpsy.constants';
 import {ComponentType} from '@angular/cdk/portal';
 
@@ -13,7 +13,7 @@ import {ComponentType} from '@angular/cdk/portal';
 })
 export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> extends SheetViewingComponent implements OnInit {
 
-  protected dialogRef: MdDialogRef<T>;
+  protected dialogRef: MatDialogRef<T>;
   protected dialogType: ComponentType<T>;
 
   editMode: boolean;
@@ -23,11 +23,11 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
   /**
    * Create a new SheetUpdatingComponent that will open a Dialog of type T.
    *
-   * @param {MdDialog} dialog
+   * @param {MatDialog} dialog
    * @param {SheetService} sheetService
    * @param {ComponentType<T extends TemplateUpdaterDialogComponent>} dialogType
    */
-  constructor(private dialog: MdDialog,
+  constructor(private dialog: MatDialog,
               sheetService: SheetService) {
 
     super(sheetService);

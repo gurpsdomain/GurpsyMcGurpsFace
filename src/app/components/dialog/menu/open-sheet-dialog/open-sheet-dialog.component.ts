@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MdDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material';
 import {SheetTemplate, TemplateComparison} from '../../../../models/sheet-template/sheet-template.model';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
@@ -18,7 +18,13 @@ export class OpenSheetDialogComponent {
 
   public state = State.NONE;
 
-  constructor(private dialogRef: MdDialogRef<OpenSheetDialogComponent>,
+  /**
+   * Create a new Dialog
+   *
+   * @param {<OpenSheetDialogComponent>} dialogRef
+   * @param {SheetService} sheetService
+   */
+  constructor(private dialogRef: MatDialogRef<OpenSheetDialogComponent>,
               private sheetService: SheetService) {
   }
 

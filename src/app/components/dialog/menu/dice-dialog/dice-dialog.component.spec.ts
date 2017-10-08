@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import {async, TestBed} from '@angular/core/testing';
 import {DiceDialogComponent} from './dice-dialog.component';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {TranslateModule} from '@ngx-translate/core';
@@ -17,7 +17,7 @@ export class TestModule {
 
 describe('DiceDialogComponent', () => {
   let component: DiceDialogComponent;
-  let dialog: MdDialog;
+  let dialog: MatDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -33,7 +33,7 @@ describe('DiceDialogComponent', () => {
   }));
 
   beforeEach(() => {
-    dialog = TestBed.get(MdDialog);
+    dialog = TestBed.get(MatDialog);
     const dialogRef = dialog.open(DiceDialogComponent);
     component = dialogRef.componentInstance;
   });

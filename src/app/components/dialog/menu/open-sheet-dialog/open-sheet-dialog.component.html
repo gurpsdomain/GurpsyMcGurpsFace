@@ -1,17 +1,17 @@
-<md-dialog-content>
+<mat-dialog-content>
   <div class="flex-container"
        fxLayout="row"
        fxLayoutAlign="start stretch">
-    <md-input-container
+    <mat-form-field
       class="flex-item"
       fxFlex="100%"
       (click)="fileInput.selectFile()">
-      <input mdInput
+      <input matInput
              tabindex="-1"
              readonly
              [(ngModel)]="selectedFileName"
              placeholder="{{'DIALOG.OPEN_SHEET.SELECT_FROM_FILE'| translate}}">
-    </md-input-container>
+    </mat-form-field>
     <gurpsy-file-input #fileInput
                        class="flex-item"
                        (onFileSelect)="onFileSelect($event)"
@@ -35,7 +35,7 @@
            fxLayout="row"
            fxLayoutGap="8px"
            fxLayoutAlign="start stretch">
-        <md-icon class="flex-item" color="warn">error</md-icon>
+        <mat-icon class="flex-item" color="warn">error</mat-icon>
         <span class="message flex-item">{{'DIALOG.OPEN_SHEET.ALREADY_LOADED_NEWER_VERSION'| translate}}</span>
       </div>
       <div *ngIf="state ==stateEnum.INFO"
@@ -43,19 +43,19 @@
            fxLayout="row"
            fxLayoutGap="8px"
            fxLayoutAlign="start stretch">
-        <md-icon class="flex-item"
+        <mat-icon class="flex-item"
                  color="accent">
           info
-        </md-icon>
+        </mat-icon>
         <span class="message flex-item">{{'DIALOG.OPEN_SHEET.ALREADY_LOADED_OLDER_VERSION'| translate}}</span>
       </div>
     </div>
 
   </div>
 
-</md-dialog-content>
+</mat-dialog-content>
 
-<md-dialog-actions align="end">
-  <button md-button [disabled]="!showOk" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
-  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
-</md-dialog-actions>
+<mat-dialog-actions align="end">
+  <button mat-button [disabled]="!showOk" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
+  <button mat-button matDialogClose> {{'DIALOG.CANCEL'| translate}}</button>
+</mat-dialog-actions>

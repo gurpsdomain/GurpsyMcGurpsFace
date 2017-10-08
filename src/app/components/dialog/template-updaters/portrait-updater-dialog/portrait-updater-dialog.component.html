@@ -1,4 +1,4 @@
-<md-dialog-content *ngIf="template">
+<mat-dialog-content *ngIf="template">
   <img-cropper #cropper
                [image]="data"
                [settings]="cropperSettings">
@@ -6,9 +6,9 @@
   <div class="result" *ngIf="data.image">
     <img [src]="data.image">
   </div>
-</md-dialog-content>
+</mat-dialog-content>
 
-<md-dialog-actions *ngIf="template" align="end">
-  <button md-button color="primary" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
-  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
-</md-dialog-actions>
+<mat-dialog-actions *ngIf="template" align="end">
+  <button mat-button color="primary" (click)="onOk()"> {{'DIALOG.OK'| translate}}</button>
+  <button mat-button matDialogClose> {{'DIALOG.CANCEL'| translate}}</button>
+</mat-dialog-actions>

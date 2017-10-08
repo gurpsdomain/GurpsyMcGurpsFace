@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MdDialog, MdDialogRef, MdIconRegistry, MdSnackBar, OverlayContainer} from '@angular/material';
+import {MatDialog, MatDialogRef, MatIconRegistry, MatSnackBar} from '@angular/material';
 import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {AboutDialogComponent} from './components/dialog/menu/about-dialog/about-dialog.component';
@@ -16,6 +16,7 @@ import {SheetService} from './services/front-end/sheet/sheet.service';
 import {GurpsyConstants} from './gurpsy.constants';
 
 import {JsonConvert} from 'json2typescript';
+import {OverlayContainer} from '@angular/cdk/overlay';
 
 @Component({
   selector: 'gurpsy-root',
@@ -32,11 +33,11 @@ export class GurpsyComponent implements OnInit {
   private static ICON_LIBRARY_NAME = 'books';
   private static ICON_LIBRARY_URL = 'assets/icons/book-open-page-variant.svg';
 
-  private aboutDialogRef: MdDialogRef<AboutDialogComponent>;
-  private diceDialogRef: MdDialogRef<DiceDialogComponent>;
-  private openSheetDialogRef: MdDialogRef<OpenSheetDialogComponent>;
-  private settingsDialogRef: MdDialogRef<SettingsDialogComponent>;
-  private newSheetDialogRef: MdDialogRef<NewSheetComponent>;
+  private aboutDialogRef: MatDialogRef<AboutDialogComponent>;
+  private diceDialogRef: MatDialogRef<DiceDialogComponent>;
+  private openSheetDialogRef: MatDialogRef<OpenSheetDialogComponent>;
+  private settingsDialogRef: MatDialogRef<SettingsDialogComponent>;
+  private newSheetDialogRef: MatDialogRef<NewSheetComponent>;
 
   public sheet: Sheet;
   public template: SheetTemplate;
@@ -48,13 +49,13 @@ export class GurpsyComponent implements OnInit {
   public theme: string;
 
   constructor(protected sheetService: SheetService,
-              public dialog: MdDialog,
+              public dialog: MatDialog,
               private settingsService: SettingsService,
               public loggingService: LoggingService,
               private pageReferenceService: PageReferenceService,
-              private snackBar: MdSnackBar,
+              private snackBar: MatSnackBar,
               private translate: TranslateService,
-              private iconRegistry: MdIconRegistry,
+              private iconRegistry: MatIconRegistry,
               private sanitizer: DomSanitizer,
               private overlayContainer: OverlayContainer,
               private titleService: Title) {
@@ -232,7 +233,7 @@ export class GurpsyComponent implements OnInit {
     }
   }
 
-  private registerCustomIcons(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer): void {
+  private registerCustomIcons(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {
     iconRegistry.addSvgIcon(
       GurpsyComponent.ICON_D6_NAME,
       sanitizer.bypassSecurityTrustResourceUrl(GurpsyComponent.ICON_D6_URL));

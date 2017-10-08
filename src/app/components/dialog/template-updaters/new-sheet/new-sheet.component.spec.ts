@@ -3,7 +3,7 @@ import {NewSheetComponent} from './new-sheet.component';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {NgModule} from '@angular/core';
 
@@ -17,7 +17,7 @@ export class TestModule {
 
 describe('NewSheetComponent', () => {
   let component: NewSheetComponent;
-  let dialog: MdDialog;
+  let dialog: MatDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -34,7 +34,7 @@ describe('NewSheetComponent', () => {
   }));
 
   beforeEach(() => {
-    dialog = TestBed.get(MdDialog);
+    dialog = TestBed.get(MatDialog);
     const dialogRef = dialog.open(NewSheetComponent);
     component = dialogRef.componentInstance;
   });

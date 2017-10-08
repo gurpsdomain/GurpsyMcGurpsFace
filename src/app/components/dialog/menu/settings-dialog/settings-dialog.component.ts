@@ -11,6 +11,10 @@ export class SettingsDialogComponent implements OnInit {
   public nightTheme = false;
   public siMetrics = false;
 
+  /**
+   * Create a new Dialog
+   * @param {SettingsService} settingsService
+   */
   constructor(private settingsService: SettingsService) {
   }
 

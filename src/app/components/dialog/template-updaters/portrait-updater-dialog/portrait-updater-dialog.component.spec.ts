@@ -3,7 +3,7 @@ import {PortraitUpdaterDialogComponent} from './portrait-updater-dialog.componen
 import {ImageCropperComponent} from 'ng2-img-cropper';
 import {TranslateModule} from '@ngx-translate/core';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {NgModule} from '@angular/core';
 
@@ -17,7 +17,7 @@ export class TestModule {
 
 describe('PortraitUpdaterDialogComponent', () => {
   let component: PortraitUpdaterDialogComponent;
-  let dialog: MdDialog;
+  let dialog: MatDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -35,7 +35,7 @@ describe('PortraitUpdaterDialogComponent', () => {
   }));
 
   beforeEach(() => {
-    dialog = TestBed.get(MdDialog);
+    dialog = TestBed.get(MatDialog);
     const dialogRef = dialog.open(PortraitUpdaterDialogComponent);
     component = dialogRef.componentInstance;
   });

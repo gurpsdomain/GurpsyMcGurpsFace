@@ -6,7 +6,7 @@ import {SettingsStorageService} from '../../../../services/back-end/settings-sto
 import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
-import {MdDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
@@ -21,7 +21,7 @@ export class TestModule {
 
 describe('SettingsDialogComponent', () => {
   let component: SettingsDialogComponent;
-  let dialog: MdDialog;
+  let dialog: MatDialog;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -48,7 +48,7 @@ describe('SettingsDialogComponent', () => {
   }));
 
   beforeEach(() => {
-    dialog = TestBed.get(MdDialog);
+    dialog = TestBed.get(MatDialog);
     const dialogRef = dialog.open(SettingsDialogComponent);
     component = dialogRef.componentInstance;
   });

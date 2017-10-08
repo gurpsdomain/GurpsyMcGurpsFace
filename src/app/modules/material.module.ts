@@ -1,51 +1,51 @@
 import 'hammerjs';
 import {NgModule} from '@angular/core';
 import {
-  MdButtonModule,
-  MdCardModule,
-  MdCheckboxModule,
-  MdDialogModule,
-  MdIconModule,
-  MdInputModule,
-  MdMenuModule,
-  MdSelectModule,
-  MdSidenavModule,
-  MdSlideToggleModule,
-  MdSnackBarModule,
-  MdToolbarModule,
-  MdTooltipModule
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
-    MdButtonModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdDialogModule,
-    MdIconModule,
-    MdInputModule,
-    MdSlideToggleModule,
-    MdMenuModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSnackBarModule,
-    MdToolbarModule,
-    MdTooltipModule
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatIconModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatTooltipModule
   ],
   exports: [
-    MdButtonModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdDialogModule,
-    MdIconModule,
-    MdInputModule,
-    MdSlideToggleModule,
-    MdMenuModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSnackBarModule,
-    MdToolbarModule,
-    MdTooltipModule
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatIconModule,
+    MatInputModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatTooltipModule
   ]
 })
 export class GurpsyMaterialModule {

@@ -1,33 +1,57 @@
-import {MetaData} from './metadata.model';
 import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {Points} from './points.model';
+import {Skill} from '../../sheet-template/skill/skill.model';
+import {Advantage} from '../../sheet-template/advantages/advantage.model';
 
 
-describe('Model Object MetaData', () => {
+describe('Model Object Points', () => {
   let template: SheetTemplate;
 
   beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
-    const metadata = new MetaData(template)
+    const points = new Points(template)
 
-    expect(metadata).toBeTruthy();
+    expect(points).toBeTruthy();
   });
 
-  it('should create a Description Model Object', () => {
-    const metadata = new MetaData(template)
+  it('should have by default 0 Skill Points', () => {
+    const points = new Points(template)
 
-    expect(metadata.description).toBeTruthy();
+    expect(points.skills).toBe(0);
   });
 
-  it('should create a Identity Model Object', () => {
-    const metadata = new MetaData(template)
+  it('should add the point value of the Skills from the Template', () => {
+    const skillOne = new Skill();
+    skillOne.points = 1;
 
-    expect(metadata.identity).toBeTruthy();
+    const skillTwo = new Skill();
+    skillTwo.points = 2;
+
+    template.skills.push(skillOne);
+    template.skills.push(skillTwo);
+
+    const points = new Points(template)
+
+    expect(points.skills).toBe(3  );
   });
 
-  it('should create a PlayerInformation Model Object', () => {
-    const metadata = new MetaData(template)
+  it('should have by default 0 Advantages Points', () => {
+    const points = new Points(template)
 
-    expect(metadata.playerInformation).toBeTruthy();
+    expect(points.advantages).toBe(0);
+  });
+
+
+  it('should have by default 0 Disadvantages Points', () => {
+    const points = new Points(template)
+
+    expect(points.disadvantages).toBe(0);
+  });
+
+  it('should have by default 0 Spells Points', () => {
+    const points = new Points(template)
+
+    expect(points.spells).toBe(0);
   });
 })

@@ -1,16 +1,16 @@
-<md-sidenav-container class="{{theme}}">
-  <md-sidenav #sidenav>
+<mat-sidenav-container class="{{theme}}">
+  <mat-sidenav #sidenav>
     <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"
                             (onShowLibrary)="onShowLibrary($event)">
     </gurpsy-side-navigation>
-  </md-sidenav>
+  </mat-sidenav>
 
-  <md-toolbar class="flex-container">
-    <button md-icon-button
+  <mat-toolbar class="flex-container">
+    <button mat-icon-button
             [disabled]="!sheet"
             class="flex-item"
             (click)="sidenav.toggle()">
-      <md-icon>menu</md-icon>
+      <mat-icon>menu</mat-icon>
     </button>
 
     <span class="flex-item"
@@ -19,102 +19,102 @@
       <span *ngIf="sheet">{{sheet.metaData.identity.name}}</span>
     </span>
 
-    <button md-icon-button
+    <button mat-icon-button
             class="flex-item"
             [disabled]="!sheet"
             fxShow="true"
             fxShow.xs="false"
             *ngIf="sheet && !editMode"
             (click)="onEdit(true)">
-      <md-icon>lock</md-icon>
+      <mat-icon>lock</mat-icon>
     </button>
-    <button md-icon-button
+    <button mat-icon-button
             class="flex-item editable"
             [disabled]="!sheet"
             fxShow="true"
             fxShow.xs="false"
             *ngIf="sheet && editMode"
             (click)="onEdit(false)">
-      <md-icon>lock_open</md-icon>
+      <mat-icon>lock_open</mat-icon>
     </button>
 
     <gurpsy-avatar fxShow="false" fxShow.xs class="flex-item"></gurpsy-avatar>
 
     <div class="headerSettings flex-container flex-item">
-      <button md-icon-button [md-menu-trigger-for]="rootMenu">
-        <md-icon>more_vert</md-icon>
+      <button mat-icon-button [mat-menu-trigger-for]="rootMenu">
+        <mat-icon>more_vert</mat-icon>
       </button>
-      <md-menu x-position="before" y-position="below" #rootMenu="mdMenu">
+      <mat-menu x-position="before" y-position="below" #rootMenu="matMenu">
         <button mat-menu-item
-                [mdMenuTriggerFor]="sheetMenu">
-          <md-icon>portrait</md-icon>
+                [matMenuTriggerFor]="sheetMenu">
+          <mat-icon>portrait</mat-icon>
           <span>{{ 'MENU.SHEET.SHEET' | translate }}</span>
         </button>
         <button
-          md-menu-item
+          mat-menu-item
           fxShow="false"
           fxShow.xs
           *ngIf="sheet && !editMode"
           (click)="onEdit(true)">
-          <md-icon>lock</md-icon>
+          <mat-icon>lock</mat-icon>
           <span>{{ 'MENU.EDIT' | translate }}</span>
         </button>
         <button
-          md-menu-item
+          mat-menu-item
           fxShow="false"
           fxShow.xs
           *ngIf="sheet && editMode"
           (click)="onEdit(false)">
-          <md-icon>lock_open</md-icon>
+          <mat-icon>lock_open</mat-icon>
           <span>{{ 'MENU.LOCK' | translate }}</span>
         </button>
-        <button md-menu-item (click)="onOpenThrowDiceDialog()">
-          <md-icon svgIcon="d6"></md-icon>
+        <button mat-menu-item (click)="onOpenThrowDiceDialog()">
+          <mat-icon svgIcon="d6"></mat-icon>
           <span>{{ 'MENU.THROW_DICE' | translate }}</span>
         </button>
-        <button md-menu-item (click)="onOpenSettingsDialog()">
-          <md-icon>settings</md-icon>
+        <button mat-menu-item (click)="onOpenSettingsDialog()">
+          <mat-icon>settings</mat-icon>
           <span>{{ 'MENU.SETTINGS' | translate }}</span>
         </button>
-        <button md-menu-item (click)="onOpenAboutDialog()">
-          <md-icon svgIcon="gurpsy-face"></md-icon>
+        <button mat-menu-item (click)="onOpenAboutDialog()">
+          <mat-icon svgIcon="gurpsy-face"></mat-icon>
           <span>{{ 'MENU.ABOUT' | translate }}</span>
         </button>
-      </md-menu>
+      </mat-menu>
 
-      <md-menu #sheetMenu="mdMenu">
-        <button md-menu-item
+      <mat-menu #sheetMenu="matMenu">
+        <button mat-menu-item
                 (click)="onNewSheet()">
-          <md-icon>portrait</md-icon>
+          <mat-icon>portrait</mat-icon>
           <span>{{ 'MENU.SHEET.NEW' | translate }}</span>
         </button>
-        <button md-menu-item
+        <button mat-menu-item
                 (click)="onOpenSheetDialog()">
-          <md-icon>account_box</md-icon>
+          <mat-icon>account_box</mat-icon>
           <span>{{ 'MENU.SHEET.OPEN' | translate }}</span>
         </button>
-        <a md-menu-item
+        <a mat-menu-item
            *ngIf="sheet"
            [href]="templateJsonHref"
            [download]="templateDownloadName">
-          <md-icon>save</md-icon>
+          <mat-icon>save</mat-icon>
           <span>{{ 'MENU.SHEET.DOWNLOAD' | translate }}</span>
         </a>
         <button *ngIf="sheet"
-                md-menu-item
+                mat-menu-item
                 (click)="onCloseSheet()">
-          <md-icon>highlight_off</md-icon>
+          <mat-icon>highlight_off</mat-icon>
           <span>{{ 'MENU.SHEET.CLOSE' | translate }}</span>
         </button>
         <button *ngIf="sheet"
-                md-menu-item
+                mat-menu-item
                 (click)="onDelete()">
-          <md-icon>delete</md-icon>
+          <mat-icon>delete</mat-icon>
           <span>{{ 'MENU.SHEET.DELETE' | translate }}</span>
         </button>
-      </md-menu>
+      </mat-menu>
     </div>
-  </md-toolbar>
+  </mat-toolbar>
 
   <div class="gurpsyBody flex-container"
        fxLayout="row"
@@ -136,7 +136,7 @@
                          (createTemplate)=onNewSheet()>
     </gurpsy-select-sheet>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>
 
 
 

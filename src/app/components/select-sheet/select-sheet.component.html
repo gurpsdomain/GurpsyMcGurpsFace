@@ -1,28 +1,28 @@
 <div class="selectSheet">
-  <md-card>
-    <md-card-content>
-      <button md-button
+  <mat-card>
+    <mat-card-content>
+      <button mat-button
               (click)="onCreateTemplate()">
         <div class="flex-container"
              fxLayoutGap="8px"
              fxLayout="row">
-          <md-icon class="flex-item" fxFlexAlign="center">portrait</md-icon>
+          <mat-icon class="flex-item" fxFlexAlign="center">portrait</mat-icon>
           <div class="flex-item"
                fxFlex="100%">
             {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
           </div>
         </div>
       </button>
-    </md-card-content>
-  </md-card>
-  <md-card>
-    <md-card-content>
-      <button md-button
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content>
+      <button mat-button
               (click)="onLoadTemplateFromFile()">
         <div class="flex-container"
              fxLayoutGap="8px"
              fxLayout="row">
-          <md-icon class="flex-item" fxFlexAlign="center">account_box</md-icon>
+          <mat-icon class="flex-item" fxFlexAlign="center">account_box</mat-icon>
           <div class="flex-item"
                fxFlexAlign="center"
                fxFlex="100%">
@@ -30,14 +30,14 @@
           </div>
         </div>
       </button>
-    </md-card-content>
-  </md-card>
+    </mat-card-content>
+  </mat-card>
 
-  <md-card *ngIf="templates && templates.length > 0">
+  <mat-card *ngIf="templates && templates.length > 0">
     <gurpsy-select-sheet-button
       *ngFor="let template of templates"
       [template]="template"
       (click)="onTemplateSelected(template)">
     </gurpsy-select-sheet-button>
-  </md-card>
+  </mat-card>
 </div>

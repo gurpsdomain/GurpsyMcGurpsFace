@@ -5,8 +5,8 @@
        fxLayout="column"
        fxLayoutAlign="start stretch">
     <div class="close flex-item">
-      <button md-icon-button (click)="onCloseSideNav()">
-        <md-icon>keyboard_arrow_left</md-icon>
+      <button mat-icon-button (click)="onCloseSideNav()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
     </div>
     <div class="flex-item avatar-item">
@@ -21,55 +21,55 @@
   </div>
   <div class="sideNavigationContent flex-item"
        fxFlex="100%">
-    <button md-button
+    <button mat-button
             (click)="onSheetBodyClick(sheetBodyComponents.GENERAL)"
             [class.selected]="sheetBodyContent === sheetBodyComponents.GENERAL"
             class="sideNavigationButton">
-      <md-icon>accessibility</md-icon>
+      <mat-icon>accessibility</mat-icon>
       <span fxFlex="100%">{{'SIDE_NAVIGATION.GENERAL'| translate}}</span>
     </button>
-    <button md-button
+    <button mat-button
             (click)="onSheetBodyClick(sheetBodyComponents.ADVANTAGES)"
             [class.selected]="sheetBodyContent == sheetBodyComponents.ADVANTAGES"
             class="sideNavigationButton">
-      <md-icon>hearing</md-icon>
+      <mat-icon>hearing</mat-icon>
       <span fxFlex="100%">{{'SIDE_NAVIGATION.DIS_ADVANTAGES'| translate}}</span>
     </button>
-    <button md-button
+    <button mat-button
             (click)="onSheetBodyClick(sheetBodyComponents.SKILLS)"
             [class.selected]="sheetBodyContent == sheetBodyComponents.SKILLS"
             class="sideNavigationButton">
-      <md-icon>school</md-icon>
+      <mat-icon>school</mat-icon>
       <span fxFlex="100%">{{'SIDE_NAVIGATION.SKILLS'| translate}}</span>
     </button>
-    <button md-button
+    <button mat-button
             (click)="onSheetBodyClick(sheetBodyComponents.MAGIC)"
             [class.selected]="sheetBodyContent == sheetBodyComponents.MAGIC"
             class="sideNavigationButton">
-      <md-icon>flash_on</md-icon>
+      <mat-icon>flash_on</mat-icon>
       <span fxFlex="100%">{{'SIDE_NAVIGATION.MAGIC'| translate}}</span>
     </button>
-    <button md-button
+    <button mat-button
             (click)="onSheetBodyClick(sheetBodyComponents.EQUIPMENT)"
             [class.selected]="sheetBodyContent == sheetBodyComponents.EQUIPMENT"
             class="sideNavigationButton">
-      <md-icon>card_travel</md-icon>
+      <mat-icon>card_travel</mat-icon>
       <span fxFlex="100%">{{'SIDE_NAVIGATION.EQUIPMENT'| translate}}</span>
     </button>
-    <button md-button
+    <button mat-button
             (click)="onSheetBodyClick(sheetBodyComponents.NOTES)"
             [class.selected]="sheetBodyContent == sheetBodyComponents.NOTES"
             class="sideNavigationButton">
-      <md-icon>mode_edit</md-icon>
+      <mat-icon>mode_edit</mat-icon>
       <span fxFlex="100%">{{'SIDE_NAVIGATION.NOTES'| translate}}</span>
     </button>
 
     <div class="separator"></div>
-    <button md-button
+    <button mat-button
             (click)="onLibraryClick()"
             [class.selected]="showLibrary"
             class="sideNavigationButton">
-      <md-icon svgIcon="books"></md-icon>
+      <mat-icon svgIcon="books"></mat-icon>
       <span fxFlex="100%">{{'SIDE_NAVIGATION.LIBRARY'| translate}}</span>
     </button>
   </div>

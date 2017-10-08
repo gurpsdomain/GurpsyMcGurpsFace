@@ -8,7 +8,7 @@ body {
   font-family: Roboto;
 }
 
-md-sidenav-container {
+mat-sidenav-container {
   height: 100%;
 
   .sideNavigationHeader {
@@ -23,7 +23,7 @@ md-sidenav-container {
   }
 }
 
-md-sidenav-container.night {
+mat-sidenav-container.night {
   .sideNavigationHeader {
     background: url(assets/images/night.png);
   }
@@ -31,7 +31,7 @@ md-sidenav-container.night {
 
 .mat-menu-panel .mat-menu-content {
   button {
-    md-icon {
+    mat-icon {
       margin-right: 16px;
       svg {
         vertical-align: top;

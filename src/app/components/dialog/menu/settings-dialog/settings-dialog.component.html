@@ -1,37 +1,37 @@
-<h1 md-dialog-title>
+<h1 matDialogTitle>
   {{'DIALOG.SETTINGS.HEADER'| translate}}
 </h1>
 
-<md-dialog-content>
+<mat-dialog-content>
   <div class="flex-container"
        fxLayout="row"
        fxLayoutAlign="space-between stretch"
        fxLayoutWrap="nowrap">
     <div class="flex-item">
-      <md-slide-toggle
+      <mat-slide-toggle
         (change)="onThemeChange()"
         [(ngModel)]="nightTheme">
         {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
-      </md-slide-toggle>
+      </mat-slide-toggle>
       <br>
-      <md-slide-toggle
+      <mat-slide-toggle
         (change)="onMetricsChange()"
         [(ngModel)]="siMetrics">
         {{'DIALOG.SETTINGS.SI_METRICS'| translate}}
-      </md-slide-toggle>
+      </mat-slide-toggle>
     </div>
     <div class="flex-item">
-      <button md-mini-fab color="warn" (click)="onDeleteSettings()">
-        <md-icon>delete</md-icon>
+      <button mat-mini-fab color="warn" (click)="onDeleteSettings()">
+        <mat-icon>delete</mat-icon>
       </button>
     </div>
   </div>
 
-</md-dialog-content>
+</mat-dialog-content>
 
-<md-dialog-actions align="end">
+<mat-dialog-actions align="end">
 
-  <button md-button color="primary" md-dialog-close>
+  <button mat-button color="primary" matDialogClose>
     {{'DIALOG.CLOSE'| translate}}
   </button>
-</md-dialog-actions>
+</mat-dialog-actions>

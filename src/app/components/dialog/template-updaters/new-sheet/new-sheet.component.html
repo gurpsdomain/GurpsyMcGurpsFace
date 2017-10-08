@@ -1,26 +1,26 @@
-<h1 md-dialog-title>
+<h1 matDialogTitle>
   {{'DIALOG.NEW_SHEET.HEADER'| translate}}
 </h1>
 
-<md-dialog-content *ngIf="template"
+<mat-dialog-content *ngIf="template"
                    class="newSheet flex-container"
                    fxLayout="column">
-  <md-input-container class="flex-item">
-    <input mdInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="template.name" required>
-    <md-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</md-error>
-  </md-input-container>
-  <md-input-container class="flex-item">
-    <input mdInput placeholder="{{'SHEET.PLAYER_INFORMATION.PLAYER'| translate}}" [(ngModel)]="template.player"
+  <mat-form-field class="flex-item">
+    <input matInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="template.name" required>
+    <mat-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="flex-item">
+    <input matInput placeholder="{{'SHEET.PLAYER_INFORMATION.PLAYER'| translate}}" [(ngModel)]="template.player"
            required>
-    <md-error>{{'MESSAGE.ERROR.REQUIRED_PLAYER'| translate}}</md-error>
-  </md-input-container>
-</md-dialog-content>
+    <mat-error>{{'MESSAGE.ERROR.REQUIRED_PLAYER'| translate}}</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
 
-<md-dialog-actions *ngIf="template" align="end">
-  <button md-button color="primary"
+<mat-dialog-actions *ngIf="template" align="end">
+  <button mat-button color="primary"
           [disabled]="!template.player || template.player.trim() === '' || !template.name || template.name.trim() === ''"
           (click)="onOk()">
     {{'DIALOG.OK'| translate}}
   </button>
-  <button md-button md-dialog-close> {{'DIALOG.CANCEL'| translate}}</button>
-</md-dialog-actions>
+  <button mat-button matDialogClose> {{'DIALOG.CANCEL'| translate}}</button>
+</mat-dialog-actions>
