@@ -7,6 +7,7 @@ import {Disadvantage} from './disadvantage/disadvantage.model';
 import {Advantage} from './advantages/advantage.model';
 import {DateConverter} from '../../converters/date.converter';
 import {UUID} from 'angular2-uuid';
+import {Reward} from './reward/reward.model';
 
 @JsonObject
 export class SheetTemplate {
@@ -77,8 +78,8 @@ export class SheetTemplate {
   @JsonProperty('basepoints', Number, true)
   basepoints: number;
 
-  @JsonProperty('rewards', [Number])
-  rewards: number[];
+  @JsonProperty('rewards', [Reward])
+  rewards: Reward[];
 
   @JsonProperty('advantages', [Advantage])
   advantages: Advantage[];
@@ -131,6 +132,21 @@ export class SheetTemplate {
   }
 
   /**
+   * Add a new Reward with the given points and date
+   *
+   * @param {number} points
+   * @param {Date} date
+   */
+  public addReward(points: number, date: Date): void {
+
+    const reward = new Reward();
+    reward.points = points;
+    reward.date = date;
+
+    this.rewards.push(reward);
+  }
+
+  /**
    * Return a valid filename for this template.
    *
    * This filename will be of the form
@@ -150,6 +166,20 @@ export class SheetTemplate {
       fileName = fileName.concat(this.createdOn.toDateString());
     }
     return fileName;
+  }
+
+  /**
+   * Return the Total Points of this Template. This will mean the Base Points
+   * added to the point total of all Rewards.
+   *
+   * @return {number}
+   */
+  public getTotalPoints(): number {
+    let totalPoints = this.basepoints;
+
+    this.rewards.forEach(reward => totalPoints += reward.points);
+
+    return totalPoints;
   }
 
   /**
