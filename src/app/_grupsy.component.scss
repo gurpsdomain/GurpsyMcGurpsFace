@@ -5,7 +5,7 @@
   $backgroundMap: map-get($theme, background);
   $background: map-get($backgroundMap, background);
 
-  .editable md-icon{
+  .editable mat-icon{
     color: mat-color($accent);
   }
 
