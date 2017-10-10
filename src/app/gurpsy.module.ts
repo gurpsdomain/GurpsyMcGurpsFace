@@ -45,7 +45,7 @@ import {GurpsyMaterialModule} from './modules/material.module';
 import {GurpsyAngularModule} from './modules/angular.module';
 import {WeightPipe} from './pipes/weight.pipe';
 // tslint:disable-next-line max-line-length
-import {PortraitUpdaterDialogComponent} from './components/dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
+import {PortraitUpdaterDialogComponent} from './components/dialog/template-updaters/portrait-updater/portrait-updater-dialog.component';
 import {SheetViewingComponent} from './components/sheet-viewing.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './components/generic/avatar/avatar.component';

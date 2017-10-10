@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {PortraitUpdaterDialogComponent} from '../../../dialog/template-updaters/portrait-updater-dialog/portrait-updater-dialog.component';
+import {PortraitUpdaterDialogComponent} from '../../../dialog/template-updaters/portrait-updater/portrait-updater-dialog.component';
 import {SheetUpdatingComponent} from '../../../sheet-updating.component';
 import {CustomDialogInitiatingComponent} from '../../../custom-dialog-initiating.component';
 
