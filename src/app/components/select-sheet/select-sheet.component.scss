@@ -2,5 +2,13 @@
   mat-card {
     width: 300px;
     padding: 4px;
+
+    button {
+      width: 100%;
+
+      .buttonText {
+        text-align: left;
+      }
+    }
   }
 }
