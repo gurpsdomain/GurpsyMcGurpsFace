@@ -2,7 +2,6 @@
 import {PlayerInformationComponent} from './player-information.component';
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {TranslateModule} from '@ngx-translate/core';
-// tslint:disable-next-line max-line-length
 import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
 import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
@@ -13,7 +12,6 @@ import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.mo
 import {By} from '@angular/platform-browser';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
-////////  SPECS  /////////////
 describe('PlayerInformationComponent', function () {
   let component: PlayerInformationComponent;
   let fixture: ComponentFixture<PlayerInformationComponent>;
@@ -29,7 +27,6 @@ describe('PlayerInformationComponent', function () {
   const CAMPAIGN = 'Paul\'s total party kill';
   const CAMPAIGN_SELECTOR = '.campaign';
   const CREATED_ON = new Date();
-  const CREATED_ON_SELECTOR = '.createdOn';
   const LAST_MODIFIED = new Date();
   const LAST_MODIFIED_SELECTOR = '.lastModified';
 

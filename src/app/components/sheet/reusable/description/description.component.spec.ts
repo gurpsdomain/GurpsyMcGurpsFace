@@ -2,7 +2,6 @@
 import {DescriptionComponent} from './description.component';
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {TranslateModule} from '@ngx-translate/core';
-// tslint:disable-next-line max-line-length
 import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
 import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
