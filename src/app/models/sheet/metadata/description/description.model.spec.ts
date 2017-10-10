@@ -74,11 +74,11 @@ describe('Model Object Description', () => {
   });
 
   it('should contain the tech level from the template', () => {
-    template.TL = DESCRIPTION_TL;
+    template.tl = DESCRIPTION_TL;
 
     const description = new Description(template);
 
-    expect(description.TL).toEqual(DESCRIPTION_TL);
+    expect(description.tl).toEqual(DESCRIPTION_TL);
   });
 
   it('should contain the hair from the template', () => {

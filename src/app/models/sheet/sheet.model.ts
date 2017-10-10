@@ -7,7 +7,7 @@ import {Note} from './note.model';
 import {MetaData} from './metadata/metadata.model';
 import {Points} from './points/points.model';
 import {Attributes} from './attributes.model';
-import {SecondaryCharacteristics} from './secondary-characteristics.model';
+import {SecondaryCharacteristics} from './secondary-characteristics/secondary-characteristics.model';
 import {DamageResistance} from './damage-resistance.model';
 import {SheetTemplate} from '../sheet-template/sheet-template.model';
 

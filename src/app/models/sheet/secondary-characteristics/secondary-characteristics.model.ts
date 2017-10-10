@@ -1,8 +1,8 @@
-import {BasicLift} from './basic-lift.model';
-import {Dodge} from './dodge.model';
-import {Move} from './move.model';
-import {MaxLoad} from './max-load.model';
-import {SheetTemplate} from '../sheet-template/sheet-template.model';
+import {BasicLift} from '../basic-lift.model';
+import {Dodge} from '../dodge.model';
+import {Move} from '../move.model';
+import {MaxLoad} from '../max-load.model';
+import {SheetTemplate} from '../../sheet-template/sheet-template.model';
 
 export class SecondaryCharacteristics {
 
@@ -26,7 +26,7 @@ export class SecondaryCharacteristics {
   frightCheck: number;
 
   constructor(template: SheetTemplate) {
-    this.sizeModifier = undefined;
+    this.sizeModifier = template.size;
     this.will = undefined;
     this.perception = undefined;
     this.vision = undefined;

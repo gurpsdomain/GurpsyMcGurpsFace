@@ -1,33 +1,23 @@
-import {MetaData} from './metadata.model';
 import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {SecondaryCharacteristics} from './secondary-characteristics.model';
 
 
-describe('Model Object MetaData', () => {
+describe('Model Object SecondaryCharacteristics', () => {
   let template: SheetTemplate;
 
   beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
-    const metadata = new MetaData(template)
+    const secondaryCharacteristics = new SecondaryCharacteristics(template)
 
-    expect(metadata).toBeTruthy();
+    expect(secondaryCharacteristics).toBeTruthy();
   });
 
-  it('should create a Description Model Object', () => {
-    const metadata = new MetaData(template)
+  it('should use the SizeModifier from the template', () => {
+    template.size = 37;
 
-    expect(metadata.description).toBeTruthy();
-  });
+    const secondaryCharacteristics = new SecondaryCharacteristics(template)
 
-  it('should create a Identity Model Object', () => {
-    const metadata = new MetaData(template)
-
-    expect(metadata.identity).toBeTruthy();
-  });
-
-  it('should create a PlayerInformation Model Object', () => {
-    const metadata = new MetaData(template)
-
-    expect(metadata.playerInformation).toBeTruthy();
+    expect(secondaryCharacteristics.sizeModifier).toBe(37);
   });
 })

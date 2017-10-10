@@ -7,7 +7,7 @@ export class Description {
   birthday: string;
   height: number;
   weight: number;
-  TL: number;
+  tl: number;
   hair: string;
   eyes: string;
   skin: string;
@@ -20,7 +20,7 @@ export class Description {
     this.birthday = template.birthday;
     this.height = template.height;
     this.weight = template.weight;
-    this.TL = template.TL;
+    this.tl = template.tl;
     this.hair = template.hair;
     this.eyes = template.eyes;
     this.skin = template.skin;

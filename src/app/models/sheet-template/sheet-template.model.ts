@@ -57,11 +57,11 @@ export class SheetTemplate {
   @JsonProperty('weight', Number, true)
   weight: number;
 
-  @JsonProperty('size', String, true)
-  size: string;
+  @JsonProperty('size', Number, true)
+  size: number;
 
-  @JsonProperty('TL', Number, true)
-  TL: number;
+  @JsonProperty('tl', Number, true)
+  tl: number;
 
   @JsonProperty('hair', String, true)
   hair: string;
@@ -116,7 +116,7 @@ export class SheetTemplate {
     this.height = undefined;
     this.weight = undefined;
     this.size = undefined;
-    this.TL = undefined;
+    this.tl = undefined;
     this.hair = '';
     this.eyes = '';
     this.skin = '';

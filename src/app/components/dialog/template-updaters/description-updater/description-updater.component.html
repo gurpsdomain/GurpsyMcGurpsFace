@@ -11,7 +11,7 @@
       <input matInput placeholder="{{'SHEET.DESCRIPTION.GENDER'| translate}}" [(ngModel)]="template.gender">
     </mat-form-field>
     <mat-form-field class="flex-item">
-      <input matInput placeholder="{{'SHEET.DESCRIPTION.AGE'| translate}}" [(ngModel)]="template.age">
+      <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.AGE'| translate}}" [(ngModel)]="template.age">
     </mat-form-field>
     <mat-form-field class="flex-item">
       <input matInput placeholder="{{'SHEET.DESCRIPTION.BIRTHDAY'| translate}}" [(ngModel)]="template.birthday">
@@ -26,10 +26,11 @@
   <div class="flex-container"
        fxLayout="column">
     <mat-form-field class="flex-item">
-      <input matInput placeholder="{{'SHEET.DESCRIPTION.SIZE'| translate}}" [(ngModel)]="template.size">
+      <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.SIZE'| translate}}"
+             [(ngModel)]="template.size">
     </mat-form-field>
     <mat-form-field class="flex-item">
-      <input matInput placeholder="{{'SHEET.DESCRIPTION.TL'| translate}}" [(ngModel)]="template.tl">
+      <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.TL'| translate}}" [(ngModel)]="template.tl">
     </mat-form-field>
     <mat-form-field class="flex-item">
       <input matInput placeholder="{{'SHEET.DESCRIPTION.HAIR'| translate}}" [(ngModel)]="template.hair">
