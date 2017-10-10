@@ -1,0 +1,54 @@
+<mat-dialog-content *ngIf="template"
+                    class="descriptionUpdater flex-container"
+                    fxLayoutGap="8px"
+                    fxLayout="row">
+  <div class="flex-container"
+       fxLayout="column">
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.RACE'| translate}}" [(ngModel)]="template.race">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.GENDER'| translate}}" [(ngModel)]="template.gender">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.AGE'| translate}}" [(ngModel)]="template.age">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.BIRTHDAY'| translate}}" [(ngModel)]="template.birthday">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.WEIGHT'| translate}}" [(ngModel)]="template.weight">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.HEIGHT'| translate}}" [(ngModel)]="template.height">
+    </mat-form-field>
+  </div>
+  <div class="flex-container"
+       fxLayout="column">
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.SIZE'| translate}}" [(ngModel)]="template.size">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.TL'| translate}}" [(ngModel)]="template.tl">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.HAIR'| translate}}" [(ngModel)]="template.hair">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.EYES'| translate}}" [(ngModel)]="template.eyes">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.SKIN'| translate}}" [(ngModel)]="template.skin">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <input matInput placeholder="{{'SHEET.DESCRIPTION.HAND'| translate}}" [(ngModel)]="template.hand">
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions *ngIf="template" align="end">
+  <button mat-button color="primary" (click)="onOk()">
+    {{'DIALOG.OK'| translate}}
+  </button>
+  <button mat-button matDialogClose> {{'DIALOG.CANCEL'| translate}}</button>
+</mat-dialog-actions>

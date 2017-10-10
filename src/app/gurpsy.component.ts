@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MatIconRegistry, MatSnackBar} from '@angular/material';
-import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
+import {OpenSheetDialogComponent} from './components/dialog/generic/open-sheet-dialog/open-sheet-dialog.component';
 import {SettingsService} from './services/front-end/settings/settings.service';
-import {AboutDialogComponent} from './components/dialog/menu/about-dialog/about-dialog.component';
-import {DiceDialogComponent} from './components/dialog/menu/dice-dialog/dice-dialog.component';
+import {AboutDialogComponent} from './components/dialog/generic/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './components/dialog/generic/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/back-end/logging/logging.service';
 import {DomSanitizer, Title} from '@angular/platform-browser';
-import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/settings-dialog.component';
+import {SettingsDialogComponent} from './components/dialog/generic/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/sheet.model';

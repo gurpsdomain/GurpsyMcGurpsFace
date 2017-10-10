@@ -1,8 +1,11 @@
-<div class="sheetComponent flex-item" fxFlex>
+<div class="sheetComponent flex-item"
+     [ngClass]="{'editable': editMode}"
+     fxFlex>
   <div class="sheetComponentHeader">
     {{ 'SHEET.DESCRIPTION.DESCRIPTION' | translate }}
   </div>
   <div class="sheetComponentBody flex-container"
+       (click)="onRequestUpdate()"
        fxLayout="row"
        fxLayoutAlign="space-between stretch">
     <div class="flex-item" fxFlex="100%">

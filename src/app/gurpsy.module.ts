@@ -9,7 +9,7 @@ import {DescriptionComponent} from './components/sheet/reusable/description/desc
 import {PointsComponent} from './components/sheet/reusable/points/points.component';
 import {IdentityComponent} from './components/sheet/reusable/identity/identity.component';
 import {SideNavigationComponent} from './components/side-navigation/side-navigation.component';
-import {OpenSheetDialogComponent} from './components/dialog/menu/open-sheet-dialog/open-sheet-dialog.component';
+import {OpenSheetDialogComponent} from './components/dialog/generic/open-sheet-dialog/open-sheet-dialog.component';
 import {SettingsService} from './services/front-end/settings/settings.service';
 import {SettingsStorageService} from './services/back-end/settings-storage/settings-storage.service';
 import {TemplateStorageService} from './services/back-end/template-storage/template-storage.service';
@@ -30,10 +30,10 @@ import {DisadvantagesComponent} from './components/sheet/reusable/disadvantages/
 import {FatigueHitComponent} from './components/sheet/reusable/fatigue-hit/fatigue-hit.component';
 import {LiftingMovingComponent} from './components/sheet/reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from './components/sheet/reusable/encumbrance/encumbrance.component';
-import {AboutDialogComponent} from './components/dialog/menu/about-dialog/about-dialog.component';
-import {DiceDialogComponent} from './components/dialog/menu/dice-dialog/dice-dialog.component';
+import {AboutDialogComponent} from './components/dialog/generic/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './components/dialog/generic/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/back-end/logging/logging.service';
-import {SettingsDialogComponent} from './components/dialog/menu/settings-dialog/settings-dialog.component';
+import {SettingsDialogComponent} from './components/dialog/generic/settings-dialog/settings-dialog.component';
 import {PageReferenceComponent} from './components/generic/page-reference/page-reference.component';
 import {BookViewerComponent} from './components/book-viewer/book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
@@ -58,7 +58,8 @@ import {SheetService} from './services/front-end/sheet/sheet.service';
 import {SheetUpdatingComponent} from './components/sheet-updating.component';
 import {SelectSheetComponent} from './components/select-sheet/select-sheet.component';
 import {HttpClient} from '@angular/common/http';
-import { SelectSheetButtonComponent } from './components/generic/select-sheet-button/select-sheet-button.component';
+import {SelectSheetButtonComponent} from './components/generic/select-sheet-button/select-sheet-button.component';
+import {DescriptionUpdaterComponent} from './components/dialog/template-updaters/description-updater/description-updater.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -72,6 +73,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AttributesComponent,
     BookViewerComponent,
     DescriptionComponent,
+    DescriptionUpdaterComponent,
     DiceDialogComponent,
     DisadvantagesComponent,
     EncumbranceComponent,
@@ -132,6 +134,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   entryComponents: [
     AboutDialogComponent,
+    DescriptionUpdaterComponent,
     DiceDialogComponent,
     IdentityUpdaterComponent,
     NewSheetComponent,

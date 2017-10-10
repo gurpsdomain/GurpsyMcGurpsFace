@@ -5,13 +5,13 @@ import {TranslateModule} from '@ngx-translate/core';
 // tslint:disable-next-line max-line-length
 import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
 import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
-import {HttpModule} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {WeightPipe} from '../../../../pipes/weight.pipe';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 import {Sheet} from '../../../../models/sheet/sheet.model';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
 describe('DescriptionComponent', function () {
   let component: DescriptionComponent;
@@ -28,7 +28,7 @@ describe('DescriptionComponent', function () {
         WeightPipe
       ],
       imports: [
-        HttpModule,
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [

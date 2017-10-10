@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
-import {SheetViewingComponent} from '../../../sheet-viewing.component';
+import {SheetUpdatingComponent} from '../../../sheet-updating.component';
+import {DescriptionUpdaterComponent} from '../../../dialog/template-updaters/description-updater/description-updater.component';
+import {CustomDialogInitiatingComponent} from '../../../custom-dialog-initiating.component';
 
 @Component({
   selector: 'gurpsy-description',
@@ -7,5 +9,10 @@ import {SheetViewingComponent} from '../../../sheet-viewing.component';
   styleUrls: ['../../sheet.component.scss',
     'description.component.scss']
 })
-export class DescriptionComponent extends SheetViewingComponent {
+export class DescriptionComponent extends SheetUpdatingComponent<DescriptionUpdaterComponent> implements CustomDialogInitiatingComponent {
+
+  public setComponentType(): void {
+    this.dialogType = DescriptionUpdaterComponent;
+  }
 }
+
