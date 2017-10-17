@@ -1,10 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {SheetBodyContent} from '../sheet-body/sheet-body.service';
 import {Settings} from '../../../models/settings/settings.model';
 import {TranslateService} from '@ngx-translate/core';
 import {SettingsStorageService} from '../../back-end/settings-storage/settings-storage.service';
-import {TemplateStorageService} from '../../back-end/template-storage/template-storage.service';
 
 
 @Injectable()
@@ -25,7 +23,6 @@ export class SettingsService {
   public settingsChange$ = this.settingsSource.asObservable();
 
   constructor(private settingsStorageService: SettingsStorageService,
-              private templateStorageService: TemplateStorageService,
               private translateService: TranslateService) {
 
     this.initObservable();
@@ -74,7 +71,6 @@ export class SettingsService {
    */
   public clearStorage(): void {
     this.settingsStorageService.clear();
-    this.templateStorageService.clear();
   }
 
   private initTranslateService(): void {

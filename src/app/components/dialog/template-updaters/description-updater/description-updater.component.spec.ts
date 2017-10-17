@@ -6,6 +6,9 @@ import {MatDialog} from '@angular/material';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {NgModule} from '@angular/core';
 import {DescriptionUpdaterComponent} from './description-updater.component';
+import {WeightFormComponent} from '../../../generic/form-components/weight/weight.form.component';
+import {SettingsService} from '../../../../services/front-end/settings/settings.service';
+import {SettingsStorageService} from '../../../../services/back-end/settings-storage/settings-storage.service';
 
 @NgModule({
   entryComponents: [
@@ -21,7 +24,10 @@ describe('DescriptionUpdaterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DescriptionUpdaterComponent],
+      declarations: [
+        DescriptionUpdaterComponent,
+        WeightFormComponent
+      ],
       imports: [
         GurpsyMaterialModule,
         GurpsyAngularModule,

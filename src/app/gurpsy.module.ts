@@ -60,6 +60,7 @@ import {SelectSheetComponent} from './components/select-sheet/select-sheet.compo
 import {HttpClient} from '@angular/common/http';
 import {SelectSheetButtonComponent} from './components/generic/select-sheet-button/select-sheet-button.component';
 import {DescriptionUpdaterComponent} from './components/dialog/template-updaters/description-updater/description-updater.component';
+import { WeightFormComponent } from './components/generic/form-components/weight/weight.form.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -110,7 +111,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AvatarComponent,
     NewSheetComponent,
     SelectSheetComponent,
-    SelectSheetButtonComponent],
+    SelectSheetButtonComponent,
+    WeightFormComponent],
   imports: [
     ImageCropperModule,
     GurpsyAngularModule,
