@@ -1,13 +1,13 @@
 @import '~@angular/material/theming';
 @import 'gurpsy-palette';
 @import 'app/grupsy.component';
-@import "app/components/dialog/dialog.component";
-@import "app/components/dialog/generic/about-dialog/about-dialog.component";
-@import "app/components/generic/page-reference/page-reference.component";
-@import "app/components/sheet/sheet.component";
-@import "app/components/side-navigation/side-navigation.component";
-@import "app/components/dialog/template-updaters/portrait-updater/portrait-updater-dialog.component";
-@import "app/components/generic/select-sheet-button/select-sheet-button.component";
+@import "app/presentation/dialoges/dialog.component";
+@import "app/presentation/dialoges/generic/about-dialog/about-dialog.component";
+@import "app/presentation/components/generic/page-reference/page-reference.component";
+@import "app/presentation/components/sheet/sheet.component";
+@import "app/presentation/components/side-navigation/side-navigation.component";
+@import "app/presentation/dialoges/template-updaters/portrait-updater/portrait-updater-dialog.component";
+@import "app/presentation/components/generic/select-sheet-button/select-sheet-button.component";
 
 @include mat-core();
 

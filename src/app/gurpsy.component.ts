@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef, MatIconRegistry, MatSnackBar} from '@angular/material';
-import {OpenSheetDialogComponent} from './components/dialog/generic/open-sheet-dialog/open-sheet-dialog.component';
-import {SettingsService} from './services/front-end/settings/settings.service';
-import {AboutDialogComponent} from './components/dialog/generic/about-dialog/about-dialog.component';
-import {DiceDialogComponent} from './components/dialog/generic/dice-dialog/dice-dialog.component';
-import {LoggingService} from './services/back-end/logging/logging.service';
+import {OpenSheetDialogComponent} from './presentation/dialoges/generic/open-sheet-dialog/open-sheet-dialog.component';
+import {SettingsService} from './services/settings/settings.service';
+import {AboutDialogComponent} from './presentation/dialoges/generic/about-dialog/about-dialog.component';
+import {DiceDialogComponent} from './presentation/dialoges/generic/dice-dialog/dice-dialog.component';
+import {LoggingService} from './services/logging/logging.service';
 import {DomSanitizer, Title} from '@angular/platform-browser';
-import {SettingsDialogComponent} from './components/dialog/generic/settings-dialog/settings-dialog.component';
+import {SettingsDialogComponent} from './presentation/dialoges/generic/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
-import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
+import {PageReferenceService} from './services/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/sheet.model';
-import {NewSheetComponent} from './components/dialog/template-updaters/new-sheet/new-sheet.component';
+import {NewSheetComponent} from './presentation/dialoges/template-updaters/new-sheet/new-sheet.component';
 import {SheetTemplate} from './models/sheet-template/sheet-template.model';
-import {SheetService} from './services/front-end/sheet/sheet.service';
+import {SheetService} from './services/sheet/sheet.service';
 import {GurpsyConstants} from './gurpsy.constants';
 
 import {JsonConvert} from 'json2typescript';

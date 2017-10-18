@@ -1,5 +1,5 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {DateConverter} from '../../../converters/date/date.converter';
+import {DateConverter} from '../../../repositories/template/converters/date/date.converter';
 
 @JsonObject
 export class Reward {
