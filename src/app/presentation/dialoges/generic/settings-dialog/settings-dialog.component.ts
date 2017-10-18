@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SettingsService} from '../../../../services/settings/settings.service';
 import {Settings} from '../../../../models/settings/settings.model';
+import {Unit} from '../../../../models/settings/enums/unit.enum';
 
 @Component({
   templateUrl: './settings-dialog.component.html',
@@ -9,7 +10,7 @@ import {Settings} from '../../../../models/settings/settings.model';
 export class SettingsDialogComponent implements OnInit {
 
   public nightTheme = false;
-  public siMetrics = false;
+  public imperialUnits = false;
 
   /**
    * Create a new Dialog
@@ -19,7 +20,7 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.initMetrics();
+    this.initUnit();
     this.initTheme();
     this.initSettingsListener();
   }
@@ -37,10 +38,10 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   public onMetricsChange(): void {
-    this.siMetrics = !this.siMetrics;
+    this.imperialUnits = !this.imperialUnits;
 
-    const metrics = this.siMetrics ? SettingsService.METRICS_SI : SettingsService.METRICS_DEFAULT;
-    this.setMetrics(metrics)
+    const metrics = this.imperialUnits ? SettingsService.METRICS_SI : SettingsService.METRICS_DEFAULT;
+    this.setUnit(metrics)
 
     this.settingsService.setMetrics(metrics);
   }
@@ -52,10 +53,10 @@ export class SettingsDialogComponent implements OnInit {
     this.settingsService.clearStorage();
   }
 
-  private initMetrics(): void {
-    this.settingsService.getMetrics()
-      .then(metrics => this.setMetrics(metrics))
-      .catch(err => this.setMetrics(SettingsService.METRICS_DEFAULT));
+  private initUnit(): void {
+    this.settingsService.getUnit()
+      .then(unit => this.setUnit(unit))
+      .catch(err => this.setUnit(SettingsService.METRICS_DEFAULT));
   }
 
   private initTheme(): void {
@@ -69,7 +70,7 @@ export class SettingsDialogComponent implements OnInit {
   }
 
   private updateSettings(settings: Settings): void {
-    this.setMetrics(settings.metrics);
+    this.setUnit(settings.unit);
     this.setTheme(settings.theme);
   }
 
@@ -77,7 +78,7 @@ export class SettingsDialogComponent implements OnInit {
     this.nightTheme = theme === SettingsService.THEME_NIGHT;
   }
 
-  private setMetrics(metrics: string) {
-    this.siMetrics = metrics === SettingsService.METRICS_SI;
+  private setUnit(unit: Unit) {
+    this.imperialUnits = unit === SettingsService.METRICS_SI;
   }
 }

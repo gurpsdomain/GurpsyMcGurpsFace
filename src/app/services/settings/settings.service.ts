@@ -3,6 +3,7 @@ import {Subject} from 'rxjs';
 import {Settings} from '../../models/settings/settings.model';
 import {TranslateService} from '@ngx-translate/core';
 import {SettingsRepository} from '../../repositories/settings/settings.repository';
+import {Unit} from '../../models/settings/enums/unit.enum';
 
 
 @Injectable()
@@ -16,8 +17,8 @@ export class SettingsService {
   public static THEME_NIGHT = 'night';
   public static THEME_DEFAULT = SettingsService.THEME_NIGHT;
 
-  public static METRICS_SI = 'si';
-  public static METRICS_DEFAULT = 'default';
+  public static METRICS_SI = Unit.METRIC;
+  public static METRICS_DEFAULT = Unit.IMPERIAL;
 
   private settingsSource = new Subject<Settings>();
   public settingsChange$ = this.settingsSource.asObservable();
@@ -30,12 +31,12 @@ export class SettingsService {
   }
 
   /**
-   * Set metrics.
+   * Set unit.
    *
-   * @param metrics : string
+   * @param {Unit}
    */
-  public setMetrics(metrics: string) {
-    this.settingsStorageService.storeMetrics(metrics);
+  public setMetrics(unit: Unit) {
+    this.settingsStorageService.storeUnit(unit);
   }
 
   /**
@@ -48,12 +49,12 @@ export class SettingsService {
   }
 
   /**
-   * Get metrics.
+   * Get unit.
    *
-   * @return Promise<string>  A promise that resolves to the current metrics
+   * @return Promise<Unit>  A promise that resolves to the current unit
    */
-  public getMetrics(): Promise<string> {
-    return this.settingsStorageService.retrieveMetrics();
+  public getUnit(): Promise<Unit> {
+    return this.settingsStorageService.retrieveUnit();
   }
 
   /**

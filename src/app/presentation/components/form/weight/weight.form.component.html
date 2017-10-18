@@ -3,6 +3,6 @@
          type="number"
          placeholder="{{'SHEET.DESCRIPTION.WEIGHT'| translate}}"
          [(ngModel)]="template.weight">
-  <span *ngIf="metrics === 'kg' " matSuffix>kg</span>
-  <span *ngIf="metrics === 'lb' " matSuffix>lb</span>
+  <span *ngIf="unit === unitEnum.METRIC " matSuffix>kg</span>
+  <span *ngIf="unit === unitEnum.IMPERIAL " matSuffix>lb</span>
 </mat-form-field>

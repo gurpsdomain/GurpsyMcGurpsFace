@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SettingsService} from '../../../../services/settings/settings.service';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Unit} from '../../../../models/settings/enums/unit.enum';
+import {GurpsyConstants} from '../../../../gurpsy.constants';
 
 @Component({
   selector: 'gurpsy-weight',
@@ -8,12 +10,10 @@ import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.mo
 })
 export class WeightFormComponent implements OnInit {
 
-  public static LB = 'lb';
-  public static KG = 'kg';
-
   @Input()
   public template: SheetTemplate;
-  public metrics: string;
+  public unit: Unit;
+  public unitEnum = Unit;
 
   constructor(private settingsService: SettingsService) {
   }
@@ -23,10 +23,10 @@ export class WeightFormComponent implements OnInit {
   }
 
   private initUnit(): void {
-    this.settingsService.getMetrics()
-      .then(metrics => this.metrics = metrics)
-      .catch(err => this.metrics = SettingsService.METRICS_DEFAULT);
+    this.settingsService.getUnit()
+      .then(unit => this.unit = unit)
+      .catch(err => this.unit = GurpsyConstants.UNIT_DEFAULT_ENUM);
     this.settingsService.settingsChange$
-      .subscribe(settings => this.metrics = settings.metrics);
+      .subscribe(settings => this.unit = settings.unit);
   }
 }

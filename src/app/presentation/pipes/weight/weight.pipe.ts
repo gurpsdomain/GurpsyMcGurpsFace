@@ -1,5 +1,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {SettingsService} from '../../../services/settings/settings.service';
+import {Unit} from '../../../models/settings/enums/unit.enum';
+import {GurpsyConstants} from '../../../gurpsy.constants';
 
 @Pipe({
   name: 'weight',
@@ -8,10 +10,8 @@ import {SettingsService} from '../../../services/settings/settings.service';
 export class WeightPipe implements PipeTransform {
 
   private static WEIGHT_CONVERSION_FACTOR = 2.20462262185;
-  private static LB = 'lb';
-  private static KG = 'kg';
 
-  private metrics: string;
+  private unit: Unit;
 
   constructor(private settingsService: SettingsService) {
     this.initUnit();
@@ -26,8 +26,8 @@ export class WeightPipe implements PipeTransform {
   }
 
   private transformValue(value: number): number {
-    switch (this.metrics) {
-      case SettingsService.METRICS_SI:
+    switch (this.unit) {
+      case Unit.METRIC:
         return Math.round(value / WeightPipe.WEIGHT_CONVERSION_FACTOR);
       default :
         return value;
@@ -35,19 +35,19 @@ export class WeightPipe implements PipeTransform {
   }
 
   private getUnit(): string {
-    switch (this.metrics) {
-      case SettingsService.METRICS_SI:
-        return WeightPipe.KG;
+    switch (this.unit) {
+      case Unit.IMPERIAL:
+        return GurpsyConstants.UNIT_LB;
       default :
-        return WeightPipe.LB;
+        return GurpsyConstants.UNIT_KG;
     }
   }
 
   private initUnit(): void {
-    this.settingsService.getMetrics()
-      .then(metrics => this.metrics = metrics)
-      .catch(err => this.metrics = SettingsService.METRICS_DEFAULT);
+    this.settingsService.getUnit()
+      .then(unit => this.unit = unit)
+      .catch(err => this.unit = GurpsyConstants.UNIT_DEFAULT_ENUM);
     this.settingsService.settingsChange$
-      .subscribe(settings => this.metrics = settings.metrics);
+      .subscribe(settings => this.unit = settings.unit);
   }
 }
