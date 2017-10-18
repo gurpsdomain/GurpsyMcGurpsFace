@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {SettingsService} from '../services/front-end/settings/settings.service';
+import {SettingsService} from '../../services/front-end/settings/settings.service';
 
 @Pipe({
   name: 'weight',

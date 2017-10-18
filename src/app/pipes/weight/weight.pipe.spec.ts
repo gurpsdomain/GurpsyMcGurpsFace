@@ -1,10 +1,10 @@
 import {inject, TestBed} from '@angular/core/testing';
 import {WeightPipe} from './weight.pipe';
-import {SettingsService} from '../services/front-end/settings/settings.service';
-import {SettingsStorageService} from '../services/back-end/settings-storage/settings-storage.service';
-import {TemplateStorageService} from '../services/back-end/template-storage/template-storage.service';
+import {SettingsService} from '../../services/front-end/settings/settings.service';
+import {SettingsStorageService} from '../../services/back-end/settings-storage/settings-storage.service';
+import {TemplateStorageService} from '../../services/back-end/template-storage/template-storage.service';
 import {TranslateModule} from '@ngx-translate/core';
-import {LoggingService} from '../services/back-end/logging/logging.service';
+import {LoggingService} from '../../services/back-end/logging/logging.service';
 
 describe('WeightPipe', () => {
   let pipe;

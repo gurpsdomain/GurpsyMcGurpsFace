@@ -6,7 +6,7 @@ import {SettingsStorageService} from '../../../../services/back-end/settings-sto
 import {TemplateStorageService} from '../../../../services/back-end/template-storage/template-storage.service';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
-import {WeightPipe} from '../../../../pipes/weight.pipe';
+import {WeightPipe} from '../../../../pipes/weight/weight.pipe';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 import {Sheet} from '../../../../models/sheet/sheet.model';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';

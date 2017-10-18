@@ -16,7 +16,7 @@ import {HttpModule} from '@angular/http';
 import {SettingsService} from '../../../../services/front-end/settings/settings.service';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
-import {WeightPipe} from '../../../../pipes/weight.pipe';
+import {WeightPipe} from '../../../../pipes/weight/weight.pipe';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 
 ////////  SPECS  /////////////

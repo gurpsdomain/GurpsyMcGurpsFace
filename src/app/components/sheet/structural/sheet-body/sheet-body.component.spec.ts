@@ -25,7 +25,7 @@ import {EncumbranceComponent} from '../../reusable/encumbrance/encumbrance.compo
 import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
 import {LoggingService} from '../../../../services/back-end/logging/logging.service';
-import {WeightPipe} from '../../../../pipes/weight.pipe';
+import {WeightPipe} from '../../../../pipes/weight/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {SheetService} from '../../../../services/front-end/sheet/sheet.service';
 

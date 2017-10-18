@@ -32,7 +32,7 @@ import {EncumbranceComponent} from './reusable/encumbrance/encumbrance.component
 import {PageReferenceComponent} from '../generic/page-reference/page-reference.component';
 import {HttpModule} from '@angular/http';
 import {LoggingService} from '../../services/back-end/logging/logging.service';
-import {WeightPipe} from '../../pipes/weight.pipe';
+import {WeightPipe} from '../../pipes/weight/weight.pipe';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {SheetService} from '../../services/front-end/sheet/sheet.service';
 

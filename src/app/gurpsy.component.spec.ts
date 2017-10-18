@@ -40,7 +40,7 @@ import {GurpsyMaterialModule} from './modules/material.module';
 import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {PageReferenceService} from './services/front-end/page-reference/page-reference.service';
-import {WeightPipe} from './pipes/weight.pipe';
+import {WeightPipe} from './pipes/weight/weight.pipe';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {SheetTemplate} from './models/sheet-template/sheet-template.model';
 import {Sheet} from './models/sheet/sheet.model';

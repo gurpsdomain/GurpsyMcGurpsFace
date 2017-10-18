@@ -43,7 +43,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './modules/material.module';
 import {GurpsyAngularModule} from './modules/angular.module';
-import {WeightPipe} from './pipes/weight.pipe';
+import {WeightPipe} from './pipes/weight/weight.pipe';
 // tslint:disable-next-line max-line-length
 import {PortraitUpdaterDialogComponent} from './components/dialog/template-updaters/portrait-updater/portrait-updater-dialog.component';
 import {SheetViewingComponent} from './components/sheet-viewing.component';
