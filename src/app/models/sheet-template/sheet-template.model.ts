@@ -5,7 +5,7 @@ import {Spell} from './spell/spell.model';
 import {Skill} from './skill/skill.model';
 import {Disadvantage} from './disadvantage/disadvantage.model';
 import {Advantage} from './advantages/advantage.model';
-import {DateConverter} from '../../converters/date.converter';
+import {DateConverter} from '../../converters/date/date.converter';
 import {UUID} from 'angular2-uuid';
 import {Reward} from './reward/reward.model';
 
