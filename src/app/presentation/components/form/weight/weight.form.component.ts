@@ -2,7 +2,6 @@ import {AfterContentInit, Component, Input, OnInit} from '@angular/core';
 import {SettingsService} from '../../../../services/settings/settings.service';
 import {Unit} from '../../../../models/settings/enums/unit.enum';
 import {GurpsyConstants} from '../../../../gurpsy.constants';
-import {WeightPipe} from '../../../pipes/weight/weight.pipe';
 
 @Component({
   selector: 'gurpsy-weight',
@@ -10,19 +9,6 @@ import {WeightPipe} from '../../../pipes/weight/weight.pipe';
 })
 export class WeightFormComponent implements OnInit, AfterContentInit {
 
-  ngAfterContentInit(): void {
-    console.log('Iniitiiasdasdasd: ', this.weight);
-
-    switch (this.unit) {
-      case Unit.METRIC:
-        this.weightViewValue = Math.round(this.weight / GurpsyConstants.UNIT_WEIGHT_CONVERSION_FACTOR);
-      default :
-        this.weightViewValue = this.weight;
-    }
-
-    console.log('Iniitiiasdasdassdfsdfd: ', this.weightViewValue);
-
-  }
 
   @Input()
   public weight: number;
@@ -37,6 +23,21 @@ export class WeightFormComponent implements OnInit, AfterContentInit {
 
   ngOnInit(): void {
     this.initUnit();
+  }
+
+  ngAfterContentInit(): void {
+    console.log('Iniitiiasdasdasd: ', this.weight);
+
+    switch (this.unit) {
+      case Unit.METRIC:
+        this.weightViewValue = Math.round(this.weight / GurpsyConstants.UNIT_WEIGHT_CONVERSION_FACTOR);
+        break;
+      default :
+        this.weightViewValue = this.weight;
+    }
+
+    console.log('Iniitiiasdasdassdfsdfd: ', this.weightViewValue);
+
   }
 
   private initUnit(): void {
