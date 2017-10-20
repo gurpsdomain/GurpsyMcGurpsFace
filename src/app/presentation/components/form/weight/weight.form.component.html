@@ -2,7 +2,7 @@
   <input matInput
          type="number"
          placeholder="{{'SHEET.DESCRIPTION.WEIGHT'| translate}}"
-         [(ngModel)]="template.weight">
+         [(ngModel)]="weightViewValue">
   <span *ngIf="unit === unitEnum.METRIC " matSuffix>kg</span>
   <span *ngIf="unit === unitEnum.IMPERIAL " matSuffix>lb</span>
 </mat-form-field>

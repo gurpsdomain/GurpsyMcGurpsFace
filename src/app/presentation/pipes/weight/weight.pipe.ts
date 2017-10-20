@@ -9,8 +9,6 @@ import {GurpsyConstants} from '../../../gurpsy.constants';
 })
 export class WeightPipe implements PipeTransform {
 
-  private static WEIGHT_CONVERSION_FACTOR = 2.20462262185;
-
   private unit: Unit;
 
   constructor(private settingsService: SettingsService) {
@@ -25,10 +23,10 @@ export class WeightPipe implements PipeTransform {
     return this.transformValue(value) + ' ' + this.getUnit();
   }
 
-  private transformValue(value: number): number {
+  public transformValue(value: number): number {
     switch (this.unit) {
       case Unit.METRIC:
-        return Math.round(value / WeightPipe.WEIGHT_CONVERSION_FACTOR);
+        return Math.round(value / GurpsyConstants.UNIT_WEIGHT_CONVERSION_FACTOR);
       default :
         return value;
     }
