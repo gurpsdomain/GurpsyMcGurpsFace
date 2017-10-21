@@ -5,15 +5,11 @@ import {Spell} from './spell/spell.model';
 import {Skill} from './skill/skill.model';
 import {Disadvantage} from './disadvantage/disadvantage.model';
 import {Advantage} from './advantages/advantage.model';
-import {DateConverter} from '../../repositories/template/converters/date/date.converter';
-import {UUID} from 'angular2-uuid';
 import {Reward} from './reward/reward.model';
+import {MetaData} from './metadata/metadata.model';
 
 @JsonObject
 export class SheetTemplate {
-
-  @JsonProperty('id', String, true)
-  id: string;
 
   @JsonProperty('portrait', String, true)
   portrait: string;
@@ -23,12 +19,6 @@ export class SheetTemplate {
 
   @JsonProperty('campaign', String, true)
   campaign: string;
-
-  @JsonProperty('createdOn', DateConverter, true)
-  createdOn: Date;
-
-  @JsonProperty('lastModified', DateConverter, true)
-  lastModified: Date;
 
   @JsonProperty('name', String, true)
   name: string;
@@ -99,13 +89,13 @@ export class SheetTemplate {
   @JsonProperty('notes', [Note])
   notes: Note[];
 
+  @JsonProperty('metadate', MetaData, false)
+  private metaDate: MetaData;
+
   constructor() {
-    this.id = UUID.UUID();
     this.portrait = 'assets/images/empty-portrait.png';
     this.player = '';
     this.campaign = '';
-    this.createdOn = new Date();
-    this.lastModified = new Date();
     this.name = '';
     this.title = '';
     this.religion = '';
@@ -129,6 +119,7 @@ export class SheetTemplate {
     this.spells = [];
     this.equipments = [];
     this.notes = [];
+    this.metaDate = new MetaData();
   }
 
   /**
@@ -160,10 +151,10 @@ export class SheetTemplate {
 
     fileName = fileName.concat('-');
 
-    if (this.lastModified) {
-      fileName = fileName.concat(this.lastModified.toDateString());
+    if (this.metaDate.lastModified) {
+      fileName = fileName.concat(this.metaDate.lastModified.toDateString());
     } else {
-      fileName = fileName.concat(this.createdOn.toDateString());
+      fileName = fileName.concat(this.metaDate.createdOn.toDateString());
     }
     return fileName;
   }
@@ -191,17 +182,67 @@ export class SheetTemplate {
    * @return {TemplateComparison}
    */
   public equals(other: SheetTemplate): TemplateComparison {
-    if (this.id !== other.id) {
+    if (this.metaDate.id !== other.metaDate.id) {
       return TemplateComparison.DIFFERENT;
     }
 
-    if (this.lastModified > other.lastModified) {
+    if (this.metaDate.lastModified > other.metaDate.lastModified) {
       return TemplateComparison.NEWER
-    } else if (this.lastModified < other.lastModified) {
+    } else if (this.metaDate.lastModified < other.metaDate.lastModified) {
       return TemplateComparison.OLDER
     } else {
       return TemplateComparison.SAME;
     }
+  }
+
+  /**
+   * Return the createdOn date of the SheetTemplate.
+   * @return {Date}
+   */
+  public get createdOn(): Date {
+    return this.metaDate.createdOn;
+  }
+
+  /**
+   * Set the createdOn date of this SheetTemplate.
+   * @param {Date} createdOn
+   */
+  public set createdOn(createdOn: Date) {
+    this.metaDate.createdOn = createdOn;
+  }
+
+  /**
+   * Return the id of this SheetTemplate.
+   *
+   * @return {string}
+   */
+  public get id(): string {
+    return this.metaDate.id;
+  }
+
+  /**
+   * Set the id of the SheetTemplate.
+   * @param {string} id
+   * @return {string}
+   */
+  public set id(id: string) {
+    this.metaDate.id = id;
+  }
+
+  /**
+   * Return the lastModified date of this SheetTemplate.
+   * @return {Date}
+   */
+  public get lastModified(): Date {
+    return this.metaDate.lastModified;
+  }
+
+  /**
+   * Set the lastModified date of this SheetTemplate.
+   * @param {Date} lastModified
+   */
+  public set lastModified(lastModified: Date) {
+    this.metaDate.lastModified = lastModified;
   }
 }
 

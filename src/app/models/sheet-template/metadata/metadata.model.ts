@@ -1,17 +1,22 @@
-import {PlayerInformation} from './player-information/player-information.model';
-import {Identity} from './identity/identity.model';
-import {Description} from './description/description.model';
-import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {JsonObject, JsonProperty} from 'json2typescript';
+import {DateConverter} from '../../../repositories/template/converters/date/date.converter';
+import {UUID} from 'angular2-uuid';
 
+@JsonObject
 export class MetaData {
 
-  playerInformation: PlayerInformation;
-  identity: Identity;
-  description: Description;
+  @JsonProperty('id', String, false)
+  id: string;
 
-  constructor(template: SheetTemplate) {
-    this.playerInformation = new PlayerInformation(template);
-    this.identity = new Identity(template);
-    this.description = new Description(template);
+  @JsonProperty('createdOn', DateConverter, false)
+  createdOn: Date;
+
+  @JsonProperty('lastModified', DateConverter, false)
+  lastModified: Date;
+
+  constructor() {
+    this.id = UUID.UUID();
+    this.createdOn = new Date();
+    this.lastModified = new Date();
   }
 }

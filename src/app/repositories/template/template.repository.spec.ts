@@ -58,10 +58,11 @@ describe('TemplateRepository', () => {
       const jsonObject = JSON.parse(json);
       const retrievedTemplates = jsonConvert.deserializeObject(jsonObject, TemplateStore);
 
-
       let found = false;
       for (const storedTemplate of retrievedTemplates.templates) {
-        if (storedTemplate.id === template.id) {
+        console.log('Iterating over: ', storedTemplate);
+        console.log('Using reference: ', template);
+        if (storedTemplate && storedTemplate.id === template.id) {
           found = true;
           break;
         }

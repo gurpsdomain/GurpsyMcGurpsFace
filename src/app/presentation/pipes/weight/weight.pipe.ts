@@ -34,10 +34,10 @@ export class WeightPipe implements PipeTransform {
 
   private getUnit(): string {
     switch (this.unit) {
-      case Unit.IMPERIAL:
-        return GurpsyConstants.UNIT_LB;
-      default :
+      case Unit.METRIC:
         return GurpsyConstants.UNIT_KG;
+      default :
+        return GurpsyConstants.UNIT_LB;
     }
   }
 
