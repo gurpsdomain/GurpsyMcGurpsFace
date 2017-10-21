@@ -92,11 +92,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-json2typescript@1.0.4
+json2typescript@1.0.5
 MIT
 MIT
 
-@angular/core@4.4.5
+@angular/core@4.4.6
 MIT
 MIT
 
@@ -381,7 +381,7 @@ isarray@1.0.0
 MIT
 MIT
 
-@angular/http@4.4.5
+@angular/http@4.4.6
 MIT
 MIT
 
@@ -414,7 +414,7 @@ browserify-zlib@0.1.4
 MIT
 MIT
 
-@angular/animations@4.4.5
+@angular/animations@4.4.6
 MIT
 MIT
 
@@ -485,7 +485,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.
 
-@angular/common@4.4.5
+@angular/common@4.4.6
 MIT
 MIT
 
@@ -541,11 +541,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-@angular/forms@4.4.5
+@angular/forms@4.4.6
 MIT
 MIT
 
-@angular/platform-browser@4.4.5
+@angular/platform-browser@4.4.6
 MIT
 MIT
 
