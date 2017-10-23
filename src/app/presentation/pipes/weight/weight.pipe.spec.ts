@@ -14,7 +14,6 @@ describe('WeightPipe', () => {
       LoggingService,
       SettingsService,
       SettingsRepository,
-      TemplateRepository,
       WeightPipe
     ],
     imports: [

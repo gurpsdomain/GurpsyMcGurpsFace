@@ -37,7 +37,6 @@ describe('SettingsDialogComponent', () => {
       providers: [
         SettingsService,
         SettingsRepository,
-        TemplateRepository,
         LoggingService
       ],
       schemas: [
