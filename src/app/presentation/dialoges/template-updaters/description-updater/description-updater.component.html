@@ -19,7 +19,8 @@
     <gurpsy-weight [weight]="template.weight" class="flex-item">
     </gurpsy-weight>
     <mat-form-field class="flex-item">
-      <input matInput placeholder="{{'SHEET.DESCRIPTION.HEIGHT'| translate}}" [(ngModel)]="template.height">
+      <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.HEIGHT'| translate}}"
+             [(ngModel)]="template.height">
     </mat-form-field>
   </div>
   <div class="flex-container"
