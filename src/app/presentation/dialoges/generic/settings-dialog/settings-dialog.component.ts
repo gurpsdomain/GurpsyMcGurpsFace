@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SettingsService} from '../../../../services/settings/settings.service';
 import {Settings} from '../../../../models/settings/settings.model';
 import {Unit} from '../../../../models/settings/enums/unit.enum';
+import {TemplateRepository} from '../../../../repositories/template/template.repository';
 
 @Component({
   templateUrl: './settings-dialog.component.html',
@@ -13,10 +14,12 @@ export class SettingsDialogComponent implements OnInit {
   public imperialUnits = false;
 
   /**
-   * Create a new Dialog
+   * Create a new SettingsDialog
    * @param {SettingsService} settingsService
+   * @param {TemplateRepository} templateRepository
    */
-  constructor(private settingsService: SettingsService) {
+  constructor(private settingsService: SettingsService,
+              private templateRepository: TemplateRepository) {
   }
 
   public ngOnInit(): void {
@@ -51,6 +54,7 @@ export class SettingsDialogComponent implements OnInit {
    */
   public onDeleteSettings(): void {
     this.settingsService.clearStorage();
+    this.templateRepository.clear();
   }
 
   private initUnit(): void {
