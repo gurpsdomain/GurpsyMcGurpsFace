@@ -89,8 +89,8 @@ export class SheetTemplate {
   @JsonProperty('notes', [Note])
   notes: Note[];
 
-  @JsonProperty('metadate', MetaData, false)
-  private metaDate: MetaData;
+  @JsonProperty('metadata', MetaData, false)
+  metaData: MetaData;
 
   constructor() {
     this.portrait = 'assets/images/empty-portrait.png';
@@ -119,7 +119,7 @@ export class SheetTemplate {
     this.spells = [];
     this.equipments = [];
     this.notes = [];
-    this.metaDate = new MetaData();
+    this.metaData = new MetaData();
   }
 
   /**
@@ -151,10 +151,10 @@ export class SheetTemplate {
 
     fileName = fileName.concat('-');
 
-    if (this.metaDate.lastModified) {
-      fileName = fileName.concat(this.metaDate.lastModified.toDateString());
+    if (this.metaData.lastModified) {
+      fileName = fileName.concat(this.metaData.lastModified.toDateString());
     } else {
-      fileName = fileName.concat(this.metaDate.createdOn.toDateString());
+      fileName = fileName.concat(this.metaData.createdOn.toDateString());
     }
     return fileName;
   }
@@ -182,13 +182,13 @@ export class SheetTemplate {
    * @return {TemplateComparison}
    */
   public equals(other: SheetTemplate): TemplateComparison {
-    if (this.metaDate.id !== other.metaDate.id) {
+    if (this.metaData.id !== other.metaData.id) {
       return TemplateComparison.DIFFERENT;
     }
 
-    if (this.metaDate.lastModified > other.metaDate.lastModified) {
+    if (this.metaData.lastModified > other.metaData.lastModified) {
       return TemplateComparison.NEWER
-    } else if (this.metaDate.lastModified < other.metaDate.lastModified) {
+    } else if (this.metaData.lastModified < other.metaData.lastModified) {
       return TemplateComparison.OLDER
     } else {
       return TemplateComparison.SAME;
@@ -200,7 +200,7 @@ export class SheetTemplate {
    * @return {Date}
    */
   public get createdOn(): Date {
-    return this.metaDate.createdOn;
+    return this.metaData.createdOn;
   }
 
   /**
@@ -208,7 +208,7 @@ export class SheetTemplate {
    * @param {Date} createdOn
    */
   public set createdOn(createdOn: Date) {
-    this.metaDate.createdOn = createdOn;
+    this.metaData.createdOn = createdOn;
   }
 
   /**
@@ -217,7 +217,7 @@ export class SheetTemplate {
    * @return {string}
    */
   public get id(): string {
-    return this.metaDate.id;
+    return this.metaData.id;
   }
 
   /**
@@ -226,7 +226,7 @@ export class SheetTemplate {
    * @return {string}
    */
   public set id(id: string) {
-    this.metaDate.id = id;
+    this.metaData.id = id;
   }
 
   /**
@@ -234,7 +234,7 @@ export class SheetTemplate {
    * @return {Date}
    */
   public get lastModified(): Date {
-    return this.metaDate.lastModified;
+    return this.metaData.lastModified;
   }
 
   /**
@@ -242,7 +242,7 @@ export class SheetTemplate {
    * @param {Date} lastModified
    */
   public set lastModified(lastModified: Date) {
-    this.metaDate.lastModified = lastModified;
+    this.metaData.lastModified = lastModified;
   }
 }
 

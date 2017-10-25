@@ -3,8 +3,8 @@
 </h1>
 
 <mat-dialog-content *ngIf="template"
-                   class="newSheet flex-container"
-                   fxLayout="column">
+                    class="newSheet flex-container"
+                    fxLayout="column">
   <mat-form-field class="flex-item">
     <input matInput placeholder="{{'SHEET.IDENTITY.NAME'| translate}}" [(ngModel)]="template.name" required>
     <mat-error>{{'MESSAGE.ERROR.REQUIRED_NAME'| translate}}</mat-error>
@@ -14,6 +14,20 @@
            required>
     <mat-error>{{'MESSAGE.ERROR.REQUIRED_PLAYER'| translate}}</mat-error>
   </mat-form-field>
+  <div class="flex-container"
+       fxLayoutGap="8px"
+       fxLayout="row">
+    <mat-form-field class="flex-item">
+      <input matInput type="number" placeholder="{{'SHEET.POINTS.POINTS'| translate}}"
+             [(ngModel)]="template.basepoints">
+    </mat-form-field>
+    <mat-form-field class="flex-item">
+      <mat-select placeholder="{{'DIALOG.NEW_SHEET.UNIT'| translate}}" [(value)]="template.metaData.unit">
+        <mat-option [value]="unit.IMPERIAL">{{unit.IMPERIAL}}</mat-option>
+        <mat-option [value]="unit.METRIC">{{unit.METRIC}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </mat-dialog-content>
 
 <mat-dialog-actions *ngIf="template" align="end">

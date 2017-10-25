@@ -48,7 +48,7 @@ describe('SheetService', () => {
       service.updateTemplate(yesterdaysTemplate);
 
       const args = spy.calls.mostRecent().args;
-      expect(args[0].metaDate.lastModified.toDateString()).toBe(today.toDateString());
+      expect(args[0].metaData.lastModified.toDateString()).toBe(today.toDateString());
     }));
 
   it('[loadNewTemplate()] should store the template when loadNewTemplate() is called',

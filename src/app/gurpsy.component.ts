@@ -83,6 +83,7 @@ export class GurpsyComponent implements OnInit {
     });
 
     this.newSheetDialogRef.componentInstance.template = new SheetTemplate();
+    console.log('Just created this sheetTemplate: ', this.newSheetDialogRef.componentInstance.template);
 
     this.newSheetDialogRef.afterClosed().subscribe(template => {
         if (template) {

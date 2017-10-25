@@ -12,7 +12,8 @@
       "RETHROW": "Throw again"
     },
     "NEW_SHEET": {
-      "HEADER": "Create a new Character Sheet"
+      "HEADER": "Create a new Character Sheet",
+      "UNIT": "Unit"
     },
     "OPEN_SHEET": {
       "SELECT_FROM_FILE": "Open sheet",

@@ -7,7 +7,7 @@ import {SheetTemplate} from '../../../models/sheet-template/sheet-template.model
 })
 export class TemplateUpdaterDialogComponent {
 
-  template: SheetTemplate;
+  template: SheetTemplate = new SheetTemplate();
   data: any;
 
   constructor(private dialogRef: MatDialogRef<TemplateUpdaterDialogComponent>) {
