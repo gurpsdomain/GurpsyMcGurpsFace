@@ -4,7 +4,6 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 import {TranslateModule} from '@ngx-translate/core';
 import {SheetService} from '../../../../../services/sheet/sheet.service';
 import {Sheet} from '../../../../../models/sheet/sheet.model';
-import {WeightPipe} from '../../../../pipes/weight/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../../modules/material.module';
 import {SettingsService} from '../../../../../services/settings/settings.service';
 import {SettingsRepository} from '../../../../../repositories/settings/settings.repository';
@@ -23,8 +22,7 @@ describe('DescriptionComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DescriptionComponent,
-        WeightPipe
+        DescriptionComponent
       ],
       imports: [
         GurpsyMaterialModule,

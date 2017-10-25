@@ -16,8 +16,10 @@
     <mat-form-field class="flex-item">
       <input matInput placeholder="{{'SHEET.DESCRIPTION.BIRTHDAY'| translate}}" [(ngModel)]="template.birthday">
     </mat-form-field>
-    <gurpsy-weight [weight]="template.weight" class="flex-item">
-    </gurpsy-weight>
+    <mat-form-field class="flex-item">
+      <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.WEIGHT'| translate}}"
+             [(ngModel)]="template.weight">
+    </mat-form-field>
     <mat-form-field class="flex-item">
       <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.HEIGHT'| translate}}"
              [(ngModel)]="template.height">

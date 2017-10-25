@@ -30,7 +30,6 @@ import {HttpModule} from '@angular/http';
 import {SettingsRepository} from '../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../repositories/template/template.repository';
 import {SheetBodyService} from '../../../services/sheet-body/sheet-body.service';
-import {WeightPipe} from '../../pipes/weight/weight.pipe';
 import {GurpsyMaterialModule} from '../../../modules/material.module';
 import {LoggingService} from '../../../services/logging/logging.service';
 import {SettingsService} from '../../../services/settings/settings.service';
@@ -66,8 +65,7 @@ describe('SheetComponent', function () {
         PointsComponent,
         NotesComponent,
         AttributesComponent,
-        HitLocationComponent,
-        WeightPipe
+        HitLocationComponent
       ],
       imports: [
         GurpsyMaterialModule,

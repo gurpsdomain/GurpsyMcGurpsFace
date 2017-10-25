@@ -13,12 +13,6 @@
         [(ngModel)]="nightTheme">
         {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
       </mat-slide-toggle>
-      <br>
-      <mat-slide-toggle
-        (change)="onMetricsChange()"
-        [(ngModel)]="imperialUnits">
-        {{'DIALOG.SETTINGS.SI_METRICS'| translate}}
-      </mat-slide-toggle>
     </div>
     <div class="flex-item">
       <button mat-mini-fab color="warn" (click)="onDeleteSettings()">

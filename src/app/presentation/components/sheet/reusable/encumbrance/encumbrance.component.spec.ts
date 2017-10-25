@@ -2,7 +2,6 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 import {EncumbranceComponent} from './encumbrance.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpModule} from '@angular/http';
-import {WeightPipe} from '../../../../pipes/weight/weight.pipe';
 import {SheetService} from '../../../../../services/sheet/sheet.service';
 import {Sheet} from '../../../../../models/sheet/sheet.model';
 import {SettingsService} from '../../../../../services/settings/settings.service';
@@ -22,8 +21,7 @@ describe('EncumbranceComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        EncumbranceComponent,
-        WeightPipe
+        EncumbranceComponent
       ],
       imports: [
         HttpModule,

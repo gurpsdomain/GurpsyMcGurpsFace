@@ -40,7 +40,6 @@ import {GurpsyMaterialModule} from './modules/material.module';
 import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
-import {WeightPipe} from './presentation/pipes/weight/weight.pipe';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {SheetTemplate} from './models/sheet-template/sheet-template.model';
 import {Sheet} from './models/sheet/sheet.model';
@@ -89,8 +88,7 @@ describe('GurpsyComponent', () => {
         SpellsComponent,
         SkillsComponent,
         PdfViewerComponent,
-        FileFormComponent,
-        WeightPipe
+        FileFormComponent
       ],
       imports: [
         FormsModule,

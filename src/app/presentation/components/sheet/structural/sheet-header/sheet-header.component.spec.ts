@@ -11,7 +11,6 @@ import {DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 // tslint:disable-next-line max-line-length
 import {HttpModule} from '@angular/http';
-import {WeightPipe} from '../../../../pipes/weight/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../../modules/material.module';
 import {SettingsService} from '../../../../../services/settings/settings.service';
 import {LoggingService} from '../../../../../services/logging/logging.service';
@@ -33,8 +32,7 @@ describe('SheetHeaderComponent', function () {
         IdentityComponent,
         PlayerInformationComponent,
         DescriptionComponent,
-        PointsComponent,
-        WeightPipe
+        PointsComponent
       ],
       imports: [
         GurpsyMaterialModule,

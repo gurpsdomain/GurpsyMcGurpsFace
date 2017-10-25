@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {NgModule} from '@angular/core';
 import {DescriptionUpdaterComponent} from './description-updater.component';
-import {WeightFormComponent} from '../../../components/form/weight/weight.form.component';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 
@@ -23,8 +22,7 @@ describe('DescriptionUpdaterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DescriptionUpdaterComponent,
-        WeightFormComponent
+        DescriptionUpdaterComponent
       ],
       imports: [
         GurpsyMaterialModule,

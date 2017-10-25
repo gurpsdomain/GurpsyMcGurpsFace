@@ -19,7 +19,6 @@ import {FatigueHitComponent} from '../../reusable/fatigue-hit/fatigue-hit.compon
 import {EncumbranceComponent} from '../../reusable/encumbrance/encumbrance.component';
 import {LiftingMovingComponent} from '../../reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from '../../../generic/page-reference/page-reference.component';
-import {WeightPipe} from '../../../../pipes/weight/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../../modules/material.module';
 import {SettingsService} from '../../../../../services/settings/settings.service';
 import {SettingsRepository} from '../../../../../repositories/settings/settings.repository';
@@ -52,8 +51,7 @@ describe('SheetBodyComponent', () => {
         PortraitComponent,
         DescriptionComponent,
         AttributesComponent,
-        HitLocationComponent,
-        WeightPipe
+        HitLocationComponent
       ],
       imports: [
         GurpsyMaterialModule,

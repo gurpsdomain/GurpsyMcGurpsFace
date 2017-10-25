@@ -4,7 +4,6 @@ import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../models/settings/settings.model';
 import {LoggingService} from '../../services/logging/logging.service';
 import {GurpsyConstants} from '../../gurpsy.constants';
-import {Unit} from '../../models/settings/enums/unit.enum';
 
 @Injectable()
 export class SettingsRepository {
@@ -35,17 +34,6 @@ export class SettingsRepository {
     this.settingsChanged.next(null);
   }
 
-  /**
-   * Store the given unit.
-   *
-   * @param {Unit} unit
-   */
-  public storeUnit(unit: Unit) {
-    const settings: Settings = this.retrieve();
-    settings.unit = unit;
-
-    this.store(settings);
-  }
 
   /**
    * Store the given theme.
@@ -57,21 +45,6 @@ export class SettingsRepository {
     settings.theme = theme;
 
     this.store(settings);
-  }
-
-  /**
-   * Retrieve the currently stored unit.
-   *
-   * @returns {Promise<Unit>} the current unit.
-   */
-  public retrieveUnit(): Promise<Unit> {
-    const settings: Settings = this.retrieve();
-
-    if (!settings.unit) {
-      return Promise.reject('No metrics stored, use default.');
-    } else {
-      return Promise.resolve(settings.unit);
-    }
   }
 
   /**

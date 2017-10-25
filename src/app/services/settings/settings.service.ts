@@ -3,8 +3,6 @@ import {Subject} from 'rxjs';
 import {Settings} from '../../models/settings/settings.model';
 import {TranslateService} from '@ngx-translate/core';
 import {SettingsRepository} from '../../repositories/settings/settings.repository';
-import {Unit} from '../../models/settings/enums/unit.enum';
-
 
 @Injectable()
 export class SettingsService {
@@ -17,9 +15,6 @@ export class SettingsService {
   public static THEME_NIGHT = 'night';
   public static THEME_DEFAULT = SettingsService.THEME_NIGHT;
 
-  public static METRICS_SI = Unit.METRIC;
-  public static METRICS_DEFAULT = Unit.IMPERIAL;
-
   private settingsSource = new Subject<Settings>();
   public settingsChange$ = this.settingsSource.asObservable();
 
@@ -31,30 +26,12 @@ export class SettingsService {
   }
 
   /**
-   * Set unit.
-   *
-   * @param {Unit}
-   */
-  public setMetrics(unit: Unit) {
-    this.settingsStorageService.storeUnit(unit);
-  }
-
-  /**
    * Set theme.
    *
    * @param theme : string
    */
   public setTheme(theme: string) {
     this.settingsStorageService.storeTheme(theme);
-  }
-
-  /**
-   * Get unit.
-   *
-   * @return Promise<Unit>  A promise that resolves to the current unit
-   */
-  public getUnit(): Promise<Unit> {
-    return this.settingsStorageService.retrieveUnit();
   }
 
   /**

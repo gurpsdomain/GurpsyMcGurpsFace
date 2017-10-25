@@ -10,7 +10,6 @@ import {HitLocationComponent} from '../../../reusable/hit-location/hit-location.
 import {FatigueHitComponent} from '../../../reusable/fatigue-hit/fatigue-hit.component';
 import {LiftingMovingComponent} from '../../../reusable/lifting-moving/lifting-moving.component';
 import {EncumbranceComponent} from '../../../reusable/encumbrance/encumbrance.component';
-import {WeightPipe} from '../../../../../pipes/weight/weight.pipe';
 import {GurpsyMaterialModule} from '../../../../../../modules/material.module';
 import {SheetService} from '../../../../../../services/sheet/sheet.service';
 import {SettingsService} from '../../../../../../services/settings/settings.service';
@@ -33,8 +32,7 @@ describe('GeneralComponent', () => {
         HitLocationComponent,
         LiftingMovingComponent,
         PortraitComponent,
-        PointsComponent,
-        WeightPipe
+        PointsComponent
       ],
       imports: [
         GurpsyMaterialModule,

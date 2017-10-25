@@ -43,7 +43,6 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {GurpsyMaterialModule} from './modules/material.module';
 import {GurpsyAngularModule} from './modules/angular.module';
-import {WeightPipe} from './presentation/pipes/weight/weight.pipe';
 // tslint:disable-next-line max-line-length
 import {PortraitUpdaterDialogComponent} from './presentation/dialoges/template-updaters/portrait-updater/portrait-updater-dialog.component';
 import {SheetViewingComponent} from './presentation/components/sheet-viewing.component';
@@ -61,7 +60,6 @@ import {HttpClient} from '@angular/common/http';
 import {SelectSheetButtonComponent} from './presentation/components/generic/select-sheet-button/select-sheet-button.component';
 // tslint:disable-next-line max-line-length
 import {DescriptionUpdaterComponent} from './presentation/dialoges/template-updaters/description-updater/description-updater.component';
-import {WeightFormComponent} from './presentation/components/form/weight/weight.form.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -104,7 +102,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     SideNavigationComponent,
     SkillsComponent,
     SpellsComponent,
-    WeightPipe,
     PortraitUpdaterDialogComponent,
     SheetViewingComponent,
     SheetUpdatingComponent,
@@ -112,8 +109,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AvatarComponent,
     NewSheetComponent,
     SelectSheetComponent,
-    SelectSheetButtonComponent,
-    WeightFormComponent],
+    SelectSheetButtonComponent
+  ],
   imports: [
     ImageCropperModule,
     GurpsyAngularModule,
