@@ -32,7 +32,9 @@
       <table>
         <tr>
           <td>{{ 'SHEET.DESCRIPTION.WEIGHT' | translate }}</td>
-          <td>{{sheet.metaData.description.weight}}</td>
+          <td>
+            <gurpsy-weight-display [weight]="sheet.metaData.description.weight"></gurpsy-weight-display>
+          </td>
         </tr>
         <tr>
           <td>{{ 'SHEET.DESCRIPTION.HEIGHT' | translate }}</td>

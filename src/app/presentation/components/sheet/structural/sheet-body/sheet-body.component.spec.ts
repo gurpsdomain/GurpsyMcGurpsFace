@@ -26,6 +26,7 @@ import {LoggingService} from '../../../../../services/logging/logging.service';
 import {SheetService} from '../../../../../services/sheet/sheet.service';
 import {SheetBodyService} from '../../../../../services/sheet-body/sheet-body.service';
 import {TemplateRepository} from '../../../../../repositories/template/template.repository';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('SheetBodyComponent', () => {
   let component: SheetBodyComponent;
@@ -64,7 +65,8 @@ describe('SheetBodyComponent', () => {
         SheetService,
         SheetBodyService,
         TemplateRepository
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   }));

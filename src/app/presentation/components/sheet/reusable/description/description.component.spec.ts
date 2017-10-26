@@ -10,6 +10,8 @@ import {SettingsRepository} from '../../../../../repositories/settings/settings.
 import {LoggingService} from '../../../../../services/logging/logging.service';
 import {TemplateRepository} from '../../../../../repositories/template/template.repository';
 import {SheetTemplate} from '../../../../../models/sheet-template/sheet-template.model';
+import {WeightDisplayComponent} from '../../../generic/weight-display/weight-display.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('DescriptionComponent', function () {
   let component: DescriptionComponent;
@@ -22,7 +24,8 @@ describe('DescriptionComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DescriptionComponent
+        DescriptionComponent,
+        WeightDisplayComponent
       ],
       imports: [
         GurpsyMaterialModule,
@@ -34,7 +37,8 @@ describe('DescriptionComponent', function () {
         LoggingService,
         SheetService,
         TemplateRepository
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   }));
@@ -50,6 +54,8 @@ describe('DescriptionComponent', function () {
 
     spyOn(modelService, 'getSheet')
       .and.returnValue(Promise.resolve(sheet));
+    spyOn(modelService, 'getTemplate')
+      .and.returnValue(Promise.resolve(template));
   });
 
   it('should be created', () => {

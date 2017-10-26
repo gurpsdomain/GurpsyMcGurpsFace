@@ -17,6 +17,7 @@ import {LoggingService} from '../../../../../services/logging/logging.service';
 import {SheetService} from '../../../../../services/sheet/sheet.service';
 import {SettingsRepository} from '../../../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../../../repositories/template/template.repository';
+import {WeightDisplayComponent} from '../../../generic/weight-display/weight-display.component';
 
 ////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
@@ -27,12 +28,13 @@ describe('SheetHeaderComponent', function () {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        SheetHeaderComponent,
-        PortraitComponent,
+        DescriptionComponent,
         IdentityComponent,
         PlayerInformationComponent,
-        DescriptionComponent,
-        PointsComponent
+        PortraitComponent,
+        PointsComponent,
+        SheetHeaderComponent,
+        WeightDisplayComponent
       ],
       imports: [
         GurpsyMaterialModule,

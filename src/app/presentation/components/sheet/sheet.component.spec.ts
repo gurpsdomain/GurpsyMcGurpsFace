@@ -7,7 +7,7 @@ import {DescriptionComponent} from './reusable/description/description.component
 import {PointsComponent} from './reusable/points/points.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 // tslint:disable-next-line max-line-length
 import {SheetBodyComponent} from './structural/sheet-body/sheet-body.component';
@@ -34,6 +34,7 @@ import {GurpsyMaterialModule} from '../../../modules/material.module';
 import {LoggingService} from '../../../services/logging/logging.service';
 import {SettingsService} from '../../../services/settings/settings.service';
 import {SheetService} from '../../../services/sheet/sheet.service';
+import {WeightDisplayComponent} from '../generic/weight-display/weight-display.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -65,7 +66,8 @@ describe('SheetComponent', function () {
         PointsComponent,
         NotesComponent,
         AttributesComponent,
-        HitLocationComponent
+        HitLocationComponent,
+        WeightDisplayComponent
       ],
       imports: [
         GurpsyMaterialModule,
@@ -79,7 +81,8 @@ describe('SheetComponent', function () {
         SheetBodyService,
         SettingsService,
         SheetService
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   }));

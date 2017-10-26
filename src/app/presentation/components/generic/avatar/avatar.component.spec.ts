@@ -20,10 +20,8 @@ describe('AvatarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AvatarComponent],
       providers: [
-        SettingsRepository,
         LoggingService,
         SheetService,
-        SettingsService,
         TemplateRepository
       ]
     })

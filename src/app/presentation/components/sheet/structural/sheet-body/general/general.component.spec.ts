@@ -16,6 +16,7 @@ import {SettingsService} from '../../../../../../services/settings/settings.serv
 import {LoggingService} from '../../../../../../services/logging/logging.service';
 import {SettingsRepository} from '../../../../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../../../../repositories/template/template.repository';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('GeneralComponent', () => {
   let component: GeneralComponent;
@@ -44,7 +45,8 @@ describe('GeneralComponent', () => {
         LoggingService,
         SettingsRepository,
         TemplateRepository
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   }));
