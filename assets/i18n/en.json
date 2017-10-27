@@ -13,7 +13,7 @@
     },
     "NEW_SHEET": {
       "HEADER": "Create a new Character Sheet",
-      "UNIT": "Unit"
+      "UNIT": "Unit System"
     },
     "OPEN_SHEET": {
       "SELECT_FROM_FILE": "Open sheet",
@@ -22,7 +22,6 @@
     },
     "SETTINGS": {
       "HEADER": "Settings",
-      "SI_METRICS": "Use SI Metrics",
       "NIGHT_THEME": "Night mode"
     }
   },
@@ -208,5 +207,18 @@
     "MAGIC": "Magic",
     "NOTES": "Notes",
     "SKILLS": "Skills"
+  },
+  "UNIT": {
+    "metric": "Metric system (e.g. kg, m)",
+    "METRIC": {
+      "HEIGHT": "m",
+      "WEIGHT": "kg"
+    },
+    "imperial": "Imperial system (e.g. lb, \")",
+    "IMPERIAL" : {
+      "HEIGHT": "\"",
+      "WEIGHT": "lb"
+
+    }
   }
 }
