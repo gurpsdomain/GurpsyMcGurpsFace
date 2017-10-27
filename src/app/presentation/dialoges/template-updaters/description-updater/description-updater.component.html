@@ -19,10 +19,14 @@
     <mat-form-field class="flex-item">
       <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.WEIGHT'| translate}}"
              [(ngModel)]="template.weight">
+      <span matSuffix *ngIf="template.metaData.unit === unit.METRIC">{{'UNIT.METRIC.WEIGHT' | translate}}</span>
+      <span matSuffix *ngIf="template.metaData.unit === unit.IMPERIAL">{{'UNIT.IMPERIAL.WEIGHT' | translate}}</span>
     </mat-form-field>
     <mat-form-field class="flex-item">
       <input matInput type="number" placeholder="{{'SHEET.DESCRIPTION.HEIGHT'| translate}}"
              [(ngModel)]="template.height">
+      <span matSuffix *ngIf="template.metaData.unit === unit.METRIC">{{'UNIT.METRIC.HEIGHT' | translate}}</span>
+      <span matSuffix *ngIf="template.metaData.unit === unit.IMPERIAL">{{'UNIT.IMPERIAL.HEIGHT' | translate}}</span>
     </mat-form-field>
   </div>
   <div class="flex-container"
