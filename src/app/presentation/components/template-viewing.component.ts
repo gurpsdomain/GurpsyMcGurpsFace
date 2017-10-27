@@ -34,18 +34,6 @@ export class TemplateViewingComponent extends SheetViewingComponent implements O
     this.initSheetAndTemplate();
   }
 
-  /**
-   * Update the template with the new template.
-   *
-   * @param {SheetTemplate} The new template
-   */
-  protected updateTemplate(template: SheetTemplate): void {
-    if (template) {
-      this.setTemplate(template)
-      this.sheetService.updateTemplate(this.template);
-    }
-  }
-
   private initSheetAndTemplate(): void {
     this.fetchTemplate();
     this.sheetService.sheetUpdated$.subscribe(any => this.fetchTemplate());
@@ -57,5 +45,13 @@ export class TemplateViewingComponent extends SheetViewingComponent implements O
 
   private setTemplate(template: SheetTemplate): void {
     this.template = template;
+    this.sheetOrTemplateUpdated();
+  }
+
+  /**
+   * Overwrite this method to be notified when the Sheet and/or Template where updated.
+   */
+  protected sheetOrTemplateUpdated(): void {
+
   }
 }

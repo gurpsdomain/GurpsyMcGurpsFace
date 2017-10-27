@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../../models/sheet/sheet.model';
 import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
 import {SheetService} from '../../services/sheet/sheet.service';
@@ -20,6 +20,18 @@ export class SheetViewingComponent implements OnInit {
   }
 
   private fetchSheet() {
-    this.sheetService.getSheet().then(sheet => this.sheet = sheet);
+    this.sheetService.getSheet().then(sheet => this.setSheet(sheet));
+  }
+
+  private setSheet(sheet: Sheet): void {
+    this.sheet = sheet
+    this.sheetUpdated();
+  }
+
+  /**
+   * Override this method to be notified when the sheet has been updated.
+   */
+  protected sheetUpdated(): void {
+
   }
 }

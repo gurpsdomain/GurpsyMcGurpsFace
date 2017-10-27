@@ -7,6 +7,7 @@ import {TemplateRepository} from '../../../../repositories/template/template.rep
 import {SheetService} from '../../../../services/sheet/sheet.service';
 import {Sheet} from '../../../../models/sheet/sheet.model';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {GurpsyMaterialModule} from '../../../../modules/material.module';
 
 describe('WeightDisplayComponent', () => {
   let component: WeightDisplayComponent;
@@ -22,6 +23,7 @@ describe('WeightDisplayComponent', () => {
         WeightDisplayComponent
       ],
       imports: [
+        GurpsyMaterialModule,
         TranslateModule.forRoot()
       ],
       providers: [
