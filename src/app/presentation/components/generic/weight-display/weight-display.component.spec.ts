@@ -8,6 +8,7 @@ import {SheetService} from '../../../../services/sheet/sheet.service';
 import {Sheet} from '../../../../models/sheet/sheet.model';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
+import {Unit} from '../../../../models/sheet-template/metadata/enums/unit';
 
 describe('WeightDisplayComponent', () => {
   let component: WeightDisplayComponent;
@@ -42,6 +43,8 @@ describe('WeightDisplayComponent', () => {
     sheetService = TestBed.get(SheetService);
 
     template = new SheetTemplate();
+    template.metaData.unit = Unit.METRIC;
+    template.weight = 10;
     sheet = new Sheet(template);
 
     spyOn(sheetService, 'getSheet')
@@ -66,5 +69,12 @@ describe('WeightDisplayComponent', () => {
     tick();
     fixture.detectChanges();
     expect(component.template).toBe(template);
+  }));
+
+  it('should convert metric to imperial units correctly', fakeAsync(() => {
+    fixture.detectChanges();
+    tick();
+    fixture.detectChanges();
+    expect(component.alternativeUnitValue).toBe('22 UNIT.IMPERIAL.WEIGHT');
   }));
 });
