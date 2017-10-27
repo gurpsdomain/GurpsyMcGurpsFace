@@ -17,14 +17,18 @@
   <div class="flex-container"
        fxLayoutGap="8px"
        fxLayout="row">
-    <mat-form-field class="flex-item">
+    <mat-form-field
+      class="flex-item"
+      fxFlex="30%">
       <input matInput type="number" placeholder="{{'SHEET.POINTS.POINTS'| translate}}"
              [(ngModel)]="template.basepoints">
     </mat-form-field>
-    <mat-form-field class="flex-item">
+    <mat-form-field
+      class="flex-item"
+      fxFlex="70%">
       <mat-select placeholder="{{'DIALOG.NEW_SHEET.UNIT'| translate}}" [(value)]="template.metaData.unit">
-        <mat-option [value]="unit.IMPERIAL">{{unit.IMPERIAL}}</mat-option>
-        <mat-option [value]="unit.METRIC">{{unit.METRIC}}</mat-option>
+        <mat-option [value]="unit.IMPERIAL">{{'UNIT.' + unit.IMPERIAL | translate}}</mat-option>
+        <mat-option [value]="unit.METRIC">{{'UNIT.'+ unit.METRIC | translate}}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
