@@ -63,6 +63,7 @@ import {DescriptionUpdaterComponent} from './presentation/dialoges/template-upda
 import {
   WeightDisplayComponent
 } from './presentation/components/generic/weight-display/weight-display.component';
+import {TemplateViewingComponent} from './presentation/components/template-viewing.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -109,6 +110,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SheetViewingComponent,
     SheetUpdatingComponent,
     TemplateUpdaterDialogComponent,
+    TemplateViewingComponent,
     AvatarComponent,
     NewSheetComponent,
     SelectSheetComponent,
