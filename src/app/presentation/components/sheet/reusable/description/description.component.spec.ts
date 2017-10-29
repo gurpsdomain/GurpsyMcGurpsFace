@@ -12,6 +12,7 @@ import {TemplateRepository} from '../../../../../repositories/template/template.
 import {SheetTemplate} from '../../../../../models/sheet-template/sheet-template.model';
 import {WeightDisplayComponent} from '../../../generic/weight-display/weight-display.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {HeightDisplayComponent} from '../../../generic/height-display/height-display.component';
 
 describe('DescriptionComponent', function () {
   let component: DescriptionComponent;
@@ -25,6 +26,7 @@ describe('DescriptionComponent', function () {
     TestBed.configureTestingModule({
       declarations: [
         DescriptionComponent,
+        HeightDisplayComponent,
         WeightDisplayComponent
       ],
       imports: [

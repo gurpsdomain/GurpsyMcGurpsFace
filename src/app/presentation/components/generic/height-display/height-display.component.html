@@ -1,0 +1,7 @@
+<span
+  *ngIf="height"
+  matTooltip="{{alternativeUnitValue}}">
+    {{height}}
+  <span *ngIf="template.metaData.unit === unit.METRIC">{{'UNIT.METRIC.HEIGHT' | translate}}</span>
+  <span *ngIf="template.metaData.unit === unit.IMPERIAL">{{'UNIT.IMPERIAL.HEIGHT' | translate}}</span>
+</span>

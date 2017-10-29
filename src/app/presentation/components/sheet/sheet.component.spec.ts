@@ -35,6 +35,7 @@ import {LoggingService} from '../../../services/logging/logging.service';
 import {SettingsService} from '../../../services/settings/settings.service';
 import {SheetService} from '../../../services/sheet/sheet.service';
 import {WeightDisplayComponent} from '../generic/weight-display/weight-display.component';
+import {HeightDisplayComponent} from '../generic/height-display/height-display.component';
 
 ////////  SPECS  /////////////
 describe('SheetComponent', function () {
@@ -51,6 +52,7 @@ describe('SheetComponent', function () {
         EncumbranceComponent,
         EquipmentComponent,
         FatigueHitComponent,
+        HeightDisplayComponent,
         LiftingMovingComponent,
         PageReferenceComponent,
         SpellsComponent,

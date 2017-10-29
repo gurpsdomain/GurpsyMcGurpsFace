@@ -64,6 +64,7 @@ import {
   WeightDisplayComponent
 } from './presentation/components/generic/weight-display/weight-display.component';
 import {TemplateViewingComponent} from './presentation/components/template-viewing.component';
+import {HeightDisplayComponent} from './presentation/components/generic/height-display/height-display.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -86,6 +87,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FileFormComponent,
     GeneralComponent,
     GurpsyComponent,
+    HeightDisplayComponent,
     HitLocationComponent,
     IdentityComponent,
     IdentityUpdaterComponent,

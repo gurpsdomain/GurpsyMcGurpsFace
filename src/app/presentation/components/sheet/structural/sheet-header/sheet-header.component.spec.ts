@@ -7,7 +7,7 @@ import {DescriptionComponent} from '../../reusable/description/description.compo
 import {PointsComponent} from '../../reusable/points/points.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 // tslint:disable-next-line max-line-length
 import {HttpModule} from '@angular/http';
@@ -18,8 +18,8 @@ import {SheetService} from '../../../../../services/sheet/sheet.service';
 import {SettingsRepository} from '../../../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../../../repositories/template/template.repository';
 import {WeightDisplayComponent} from '../../../generic/weight-display/weight-display.component';
+import {HeightDisplayComponent} from '../../../generic/height-display/height-display.component';
 
-////////  SPECS  /////////////
 describe('SheetHeaderComponent', function () {
   let de: DebugElement;
   let comp: SheetHeaderComponent;
@@ -29,6 +29,7 @@ describe('SheetHeaderComponent', function () {
     TestBed.configureTestingModule({
       declarations: [
         DescriptionComponent,
+        HeightDisplayComponent,
         IdentityComponent,
         PlayerInformationComponent,
         PortraitComponent,
@@ -47,7 +48,8 @@ describe('SheetHeaderComponent', function () {
         SheetService,
         SettingsRepository,
         TemplateRepository,
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
       .compileComponents();
   }));

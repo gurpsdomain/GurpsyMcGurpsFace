@@ -6,13 +6,13 @@ import {TranslateService} from '@ngx-translate/core';
 import {SheetService} from '../../../../services/sheet/sheet.service';
 
 @Component({
-  selector: 'gurpsy-weight-display',
-  templateUrl: './weight-display.component.html'
+  selector: 'gurpsy-height-display',
+  templateUrl: './height-display.component.html'
 })
-export class WeightDisplayComponent extends TemplateViewingComponent {
+export class HeightDisplayComponent extends TemplateViewingComponent {
 
   @Input()
-  public weight: number;
+  public height: number;
   public unit = Unit;
   public alternativeUnitValue: string;
 
@@ -36,38 +36,38 @@ export class WeightDisplayComponent extends TemplateViewingComponent {
   }
 
   private setConvertedWeight() {
-    const currentWeight = this.sheet.metaData.description.weight;
+    const currentHeight = this.sheet.metaData.description.height;
 
-    let weightInAlternativeUnit = currentWeight;
+    let heightInAlternativeUnit = currentHeight;
 
     switch (this.template.metaData.unit) {
       case Unit.IMPERIAL:
-        weightInAlternativeUnit = currentWeight / GurpsyConstants.UNIT_WEIGHT_KG_TO_POUNDS_CONVERSION_FACTOR;
+        heightInAlternativeUnit = currentHeight * GurpsyConstants.UNIT_HEIGHT_INCHES_TO_METER_CONVERSION_FACTOR;
         break;
       case Unit.METRIC:
-        weightInAlternativeUnit = currentWeight * GurpsyConstants.UNIT_WEIGHT_KG_TO_POUNDS_CONVERSION_FACTOR;
+        heightInAlternativeUnit = currentHeight / GurpsyConstants.UNIT_HEIGHT_INCHES_TO_METER_CONVERSION_FACTOR;
         break;
     }
 
-    this.alternativeUnitValue = weightInAlternativeUnit.toFixed(0);
+    this.alternativeUnitValue = heightInAlternativeUnit.toFixed(2);
   }
 
   private addUnit(): void {
     switch (this.template.metaData.unit) {
       case Unit.IMPERIAL:
-        this.translate.get('UNIT.METRIC.WEIGHT').subscribe((res: string) => {
-          this.addUnitToWeight(res)
+        this.translate.get('UNIT.METRIC.HEIGHT').subscribe((res: string) => {
+          this.addUnitToHeight(res)
         });
         break;
       case Unit.METRIC:
-        this.translate.get('UNIT.IMPERIAL.WEIGHT').subscribe((res: string) => {
-          this.addUnitToWeight(res)
+        this.translate.get('UNIT.IMPERIAL.HEIGHT').subscribe((res: string) => {
+          this.addUnitToHeight(res)
         });
         break;
     }
   }
 
-  private addUnitToWeight(unit: String): void {
+  private addUnitToHeight(unit: String): void {
     this.alternativeUnitValue = this.alternativeUnitValue + ' ' + unit;
   }
 }
