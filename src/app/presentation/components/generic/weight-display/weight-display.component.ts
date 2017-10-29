@@ -42,10 +42,10 @@ export class WeightDisplayComponent extends TemplateViewingComponent {
 
     switch (this.template.metaData.unit) {
       case Unit.IMPERIAL:
-        weightInAlternativeUnit = currentWeight / GurpsyConstants.UNIT_WEIGHT_KG_TO_POUNDS_CONVERSION_FACTOR;
+        weightInAlternativeUnit = currentWeight * GurpsyConstants.UNIT_WEIGHT_POUNDS_TO_KG_CONVERSION_FACTOR;
         break;
       case Unit.METRIC:
-        weightInAlternativeUnit = currentWeight * GurpsyConstants.UNIT_WEIGHT_KG_TO_POUNDS_CONVERSION_FACTOR;
+        weightInAlternativeUnit = currentWeight / GurpsyConstants.UNIT_WEIGHT_POUNDS_TO_KG_CONVERSION_FACTOR;
         break;
     }
 

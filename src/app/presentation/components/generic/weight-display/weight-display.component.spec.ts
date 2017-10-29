@@ -14,10 +14,6 @@ describe('WeightDisplayComponent', () => {
   let component: WeightDisplayComponent;
   let fixture: ComponentFixture<WeightDisplayComponent>;
 
-  let sheetService: SheetService;
-  let sheet: Sheet;
-  let template: SheetTemplate;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -39,42 +35,118 @@ describe('WeightDisplayComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(WeightDisplayComponent);
     component = fixture.componentInstance;
-
-    sheetService = TestBed.get(SheetService);
-
-    template = new SheetTemplate();
-    template.metaData.unit = Unit.METRIC;
-    template.weight = 10;
-    sheet = new Sheet(template);
-
-    spyOn(sheetService, 'getSheet')
-      .and.returnValue(Promise.resolve(sheet));
-    spyOn(sheetService, 'getTemplate')
-      .and.returnValue(Promise.resolve(template));
   });
 
   it('should be created', () => {
     expect(component).toBeTruthy();
   })
 
-  it('should have a sheet set after component is initialized', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    expect(component.sheet).toBe(sheet);
-  }));
+  describe('should have a', () => {
 
-  it('should have a template set after component is initialized', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    expect(component.template).toBe(template);
-  }));
+    let sheetService: SheetService;
+    let sheet: Sheet;
+    let template: SheetTemplate;
 
-  it('should convert metric to imperial units correctly', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    expect(component.alternativeUnitValue).toBe('22 UNIT.IMPERIAL.WEIGHT');
-  }));
+    beforeEach(() => {
+      sheetService = TestBed.get(SheetService);
+
+      template = new SheetTemplate();
+      sheet = new Sheet(template);
+
+      spyOn(sheetService, 'getSheet')
+        .and.returnValue(Promise.resolve(sheet));
+      spyOn(sheetService, 'getTemplate')
+        .and.returnValue(Promise.resolve(template));
+    });
+
+    it('sheet set after component is initialized', fakeAsync(() => {
+      fixture.detectChanges();
+      tick();
+      fixture.detectChanges();
+      expect(component.sheet).toBe(sheet);
+    }));
+
+    it('template set after component is initialized', fakeAsync(() => {
+      fixture.detectChanges();
+      tick();
+      fixture.detectChanges();
+      expect(component.template).toBe(template);
+    }));
+  });
+
+  describe('should convert', () => {
+    let sheetService: SheetService;
+
+    beforeEach(() => {
+      sheetService = TestBed.get(SheetService);
+    });
+
+    it('imperial to metric units when weight is 0', fakeAsync(() => {
+      const template = new SheetTemplate();
+      template.metaData.unit = Unit.IMPERIAL;
+      template.weight = 0;
+      const sheet = new Sheet(template);
+
+      spyOn(sheetService, 'getSheet')
+        .and.returnValue(Promise.resolve(sheet));
+      spyOn(sheetService, 'getTemplate')
+        .and.returnValue(Promise.resolve(template));
+
+      fixture.detectChanges();
+      tick();
+      fixture.detectChanges();
+      expect(component.alternativeUnitValue).toBe('0 UNIT.METRIC.WEIGHT');
+    }));
+
+    it('imperial to metric units with a trivial case', fakeAsync(() => {
+      const template = new SheetTemplate();
+      template.metaData.unit = Unit.IMPERIAL;
+      template.weight = 10;
+      const sheet = new Sheet(template);
+
+      spyOn(sheetService, 'getSheet')
+        .and.returnValue(Promise.resolve(sheet));
+      spyOn(sheetService, 'getTemplate')
+        .and.returnValue(Promise.resolve(template));
+
+      fixture.detectChanges();
+      tick();
+      fixture.detectChanges();
+      expect(component.alternativeUnitValue).toBe('5 UNIT.METRIC.WEIGHT');
+    }));
+
+    it('metric to imperial units when weight is 0', fakeAsync(() => {
+      const template = new SheetTemplate();
+      template.metaData.unit = Unit.METRIC;
+      template.weight = 0;
+      const sheet = new Sheet(template);
+
+      spyOn(sheetService, 'getSheet')
+        .and.returnValue(Promise.resolve(sheet));
+      spyOn(sheetService, 'getTemplate')
+        .and.returnValue(Promise.resolve(template));
+
+      fixture.detectChanges();
+      tick();
+      fixture.detectChanges();
+      expect(component.alternativeUnitValue).toBe('0 UNIT.IMPERIAL.WEIGHT');
+    }));
+
+    it('metric to imperial units with a trivial case', fakeAsync(() => {
+      const template = new SheetTemplate();
+      template.metaData.unit = Unit.METRIC;
+      template.weight = 10;
+      const sheet = new Sheet(template);
+
+      spyOn(sheetService, 'getSheet')
+        .and.returnValue(Promise.resolve(sheet));
+      spyOn(sheetService, 'getTemplate')
+        .and.returnValue(Promise.resolve(template));
+
+      fixture.detectChanges();
+      tick();
+      fixture.detectChanges();
+      expect(component.alternativeUnitValue).toBe('22 UNIT.IMPERIAL.WEIGHT');
+    }));
+  });
 });
