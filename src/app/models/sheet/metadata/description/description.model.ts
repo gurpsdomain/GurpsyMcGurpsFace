@@ -1,4 +1,6 @@
 import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Weight} from '../../units/weight/weight.model';
+
 export class Description {
 
   race: string;
@@ -6,7 +8,7 @@ export class Description {
   age: number;
   birthday: string;
   height: number;
-  weight: number;
+  weight: Weight;
   tl: number;
   hair: string;
   eyes: string;
@@ -19,7 +21,7 @@ export class Description {
     this.age = template.age;
     this.birthday = template.birthday;
     this.height = template.height;
-    this.weight = template.weight;
+    this.weight = new Weight(template);
     this.tl = template.tl;
     this.hair = template.hair;
     this.eyes = template.eyes;

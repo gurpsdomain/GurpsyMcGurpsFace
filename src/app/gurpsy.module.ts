@@ -60,9 +60,6 @@ import {HttpClient} from '@angular/common/http';
 import {SelectSheetButtonComponent} from './presentation/components/generic/select-sheet-button/select-sheet-button.component';
 // tslint:disable-next-line max-line-length
 import {DescriptionUpdaterComponent} from './presentation/dialoges/template-updaters/description-updater/description-updater.component';
-import {
-  WeightDisplayComponent
-} from './presentation/components/generic/weight-display/weight-display.component';
 import {TemplateViewingComponent} from './presentation/components/template-viewing.component';
 import {HeightDisplayComponent} from './presentation/components/generic/height-display/height-display.component';
 
@@ -116,8 +113,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AvatarComponent,
     NewSheetComponent,
     SelectSheetComponent,
-    SelectSheetButtonComponent,
-    WeightDisplayComponent
+    SelectSheetButtonComponent
   ],
   imports: [
     ImageCropperModule,

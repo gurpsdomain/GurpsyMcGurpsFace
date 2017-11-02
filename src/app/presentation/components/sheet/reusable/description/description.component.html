@@ -32,8 +32,8 @@
       <table>
         <tr>
           <td>{{ 'SHEET.DESCRIPTION.WEIGHT' | translate }}</td>
-          <td>
-            <gurpsy-weight-display [weight]="sheet.metaData.description.weight"></gurpsy-weight-display>
+          <td matTooltip="{{sheet.metaData.description.weight.alternative | number:'.0-0'}}">
+            {{sheet.metaData.description.weight.preferred | number:'.0-0'}}
           </td>
         </tr>
         <tr>

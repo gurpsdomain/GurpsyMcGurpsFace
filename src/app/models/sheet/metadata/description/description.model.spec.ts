@@ -65,14 +65,6 @@ describe('Model Object Description', () => {
     expect(description.height).toEqual(DESCRIPTION_HEIGHT);
   });
 
-  it('should contain the weight from the template', () => {
-    template.weight = DESCRIPTION_WEIGHT;
-
-    const description = new Description(template);
-
-    expect(description.weight).toEqual(DESCRIPTION_WEIGHT);
-  });
-
   it('should contain the tech level from the template', () => {
     template.tl = DESCRIPTION_TL;
 

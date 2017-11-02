@@ -17,7 +17,6 @@ import {LoggingService} from '../../../../../services/logging/logging.service';
 import {SheetService} from '../../../../../services/sheet/sheet.service';
 import {SettingsRepository} from '../../../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../../../repositories/template/template.repository';
-import {WeightDisplayComponent} from '../../../generic/weight-display/weight-display.component';
 import {HeightDisplayComponent} from '../../../generic/height-display/height-display.component';
 
 describe('SheetHeaderComponent', function () {
@@ -34,8 +33,7 @@ describe('SheetHeaderComponent', function () {
         PlayerInformationComponent,
         PortraitComponent,
         PointsComponent,
-        SheetHeaderComponent,
-        WeightDisplayComponent
+        SheetHeaderComponent
       ],
       imports: [
         GurpsyMaterialModule,
