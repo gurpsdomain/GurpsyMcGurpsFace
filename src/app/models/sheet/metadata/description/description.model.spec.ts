@@ -25,83 +25,93 @@ describe('Model Object Description', () => {
     expect(description).toBeTruthy();
   });
 
-  it('should contain the race from the template', () => {
-    template.race = DESCRIPTION_RACE;
+  describe('should contain the', ()=> {
+    it('race from the template', () => {
+      template.race = DESCRIPTION_RACE;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.race).toEqual(DESCRIPTION_RACE);
-  });
+      expect(description.race).toEqual(DESCRIPTION_RACE);
+    });
 
-  it('should contain the gender from the template', () => {
-    template.gender = DESCRIPTION_GENDER;
+    it('gender from the template', () => {
+      template.gender = DESCRIPTION_GENDER;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.gender).toEqual(DESCRIPTION_GENDER);
-  });
+      expect(description.gender).toEqual(DESCRIPTION_GENDER);
+    });
 
-  it('should contain the age from the template', () => {
-    template.age = DESCRIPTION_AGE;
+    it('age from the template', () => {
+      template.age = DESCRIPTION_AGE;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.age).toEqual(DESCRIPTION_AGE);
-  });
+      expect(description.age).toEqual(DESCRIPTION_AGE);
+    });
 
-  it('should contain the birthday from the template', () => {
-    template.birthday = DESCRIPTION_BIRTHDAY;
+    it('birthday from the template', () => {
+      template.birthday = DESCRIPTION_BIRTHDAY;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.birthday).toEqual(DESCRIPTION_BIRTHDAY);
-  });
+      expect(description.birthday).toEqual(DESCRIPTION_BIRTHDAY);
+    });
 
-  it('should contain the height from the template', () => {
-    template.height = DESCRIPTION_HEIGHT;
+    it('weight from the template', () => {
+      template.weight = DESCRIPTION_WEIGHT;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.height).toEqual(DESCRIPTION_HEIGHT);
-  });
+      expect(description.weight.preferred).toEqual(DESCRIPTION_WEIGHT);
+    });
 
-  it('should contain the tech level from the template', () => {
-    template.tl = DESCRIPTION_TL;
+    it('height from the template', () => {
+      template.height = DESCRIPTION_HEIGHT;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.tl).toEqual(DESCRIPTION_TL);
-  });
+      expect(description.height).toEqual(DESCRIPTION_HEIGHT);
+    });
 
-  it('should contain the hair from the template', () => {
-    template.hair = DESCRIPTION_HAIR;
+    it('tech level from the template', () => {
+      template.tl = DESCRIPTION_TL;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.hair).toEqual(DESCRIPTION_HAIR);
-  });
+      expect(description.tl).toEqual(DESCRIPTION_TL);
+    });
 
-  it('should contain the eyes from the template', () => {
-    template.eyes = DESCRIPTION_EYES;
+    it('hair from the template', () => {
+      template.hair = DESCRIPTION_HAIR;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.eyes).toEqual(DESCRIPTION_EYES);
-  });
+      expect(description.hair).toEqual(DESCRIPTION_HAIR);
+    });
 
-  it('should contain the skin from the template', () => {
-    template.skin = DESCRIPTION_SKIN;
+    it('eyes from the template', () => {
+      template.eyes = DESCRIPTION_EYES;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.skin).toEqual(DESCRIPTION_SKIN);
-  });
+      expect(description.eyes).toEqual(DESCRIPTION_EYES);
+    });
 
-  it('should contain the hand from the template', () => {
-    template.hand = DESCRIPTION_HAND;
+    it('skin from the template', () => {
+      template.skin = DESCRIPTION_SKIN;
 
-    const description = new Description(template);
+      const description = new Description(template);
 
-    expect(description.hand).toEqual(DESCRIPTION_HAND);
-  });
-})
+      expect(description.skin).toEqual(DESCRIPTION_SKIN);
+    });
+
+    it('hand from the template', () => {
+      template.hand = DESCRIPTION_HAND;
+
+      const description = new Description(template);
+
+      expect(description.hand).toEqual(DESCRIPTION_HAND);
+    });
+  })
+});
