@@ -4,7 +4,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -14,8 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
-    HttpClientModule,
-    HttpModule
+    HttpClientModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -23,8 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
     CommonModule,
     FlexLayoutModule,
     FormsModule,
-    HttpClientModule,
-    HttpModule
+    HttpClientModule
   ]
 })
 export class GurpsyAngularModule {

@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {SheetUpdatingComponent} from '../../../components/sheet-updating.component';
 import {DescriptionUpdaterComponent} from '../../../dialoges/template-updaters/description-updater/description-updater.component';
 import {CustomDialogInitiatingComponent} from '../../../components/custom-dialog-initiating.component';
-import {WeightUnit} from '../../../../models/sheet/units/weight/weight.enum';
 
 @Component({
   selector: 'gurpsy-description',
@@ -11,8 +10,6 @@ import {WeightUnit} from '../../../../models/sheet/units/weight/weight.enum';
     'description.component.scss']
 })
 export class DescriptionComponent extends SheetUpdatingComponent<DescriptionUpdaterComponent> implements CustomDialogInitiatingComponent {
-
-  weightUnit = WeightUnit;
 
   public setComponentType(): void {
     this.dialogType = DescriptionUpdaterComponent;

@@ -32,16 +32,8 @@
       <table>
         <tr>
           <td>{{ 'SHEET.DESCRIPTION.WEIGHT' | translate }}</td>
-          <td matTooltip="{{sheet.metaData.description.weight.alternative | number:'.0-0'}}">
-            {{sheet.metaData.description.weight.preferred | number:'.0-0'}}
-            <span
-              *ngIf="sheet.metaData.description.weight.preferred && sheet.metaData.description.weight.unit === weightUnit.KG">
-              {{'UNIT.METRIC.WEIGHT' | translate}}
-            </span>
-            <span
-              *ngIf="sheet.metaData.description.weight.preferred && sheet.metaData.description.weight.unit === weightUnit.LB">
-                {{'UNIT.IMPERIAL.WEIGHT' | translate}}
-            </span>
+          <td>
+            <gurpsy-weight [weight]="sheet.metaData.description.weight"></gurpsy-weight>
           </td>
         </tr>
         <tr>

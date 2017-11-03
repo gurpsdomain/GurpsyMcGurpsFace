@@ -62,6 +62,7 @@ import {SelectSheetButtonComponent} from './presentation/components/generic/sele
 import {DescriptionUpdaterComponent} from './presentation/dialoges/template-updaters/description-updater/description-updater.component';
 import {TemplateViewingComponent} from './presentation/components/template-viewing.component';
 import {HeightDisplayComponent} from './presentation/components/generic/height-display/height-display.component';
+import { WeightComponent } from './presentation/sheet/reusable/weight/weight.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -113,7 +114,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AvatarComponent,
     NewSheetComponent,
     SelectSheetComponent,
-    SelectSheetButtonComponent
+    SelectSheetButtonComponent,
+    WeightComponent
   ],
   imports: [
     ImageCropperModule,

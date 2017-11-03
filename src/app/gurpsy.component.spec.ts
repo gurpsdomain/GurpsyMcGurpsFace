@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {FormsModule} from '@angular/forms';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './presentation/sheet/sheet.component';
 import {SheetHeaderComponent} from './presentation/sheet/structural/sheet-header/sheet-header.component';
@@ -37,7 +36,7 @@ import {BookViewerComponent} from './presentation/components/book-viewer/book-vi
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileFormComponent} from './presentation/components/form/file/file.form.component';
 import {GurpsyMaterialModule} from './modules/material.module';
-import {BaseRequestOptions, Http, HttpModule} from '@angular/http';
+import {BaseRequestOptions, Http} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
@@ -91,8 +90,6 @@ describe('GurpsyComponent', () => {
         FileFormComponent
       ],
       imports: [
-        FormsModule,
-        HttpModule,
         GurpsyAngularModule,
         GurpsyMaterialModule,
         TranslateModule.forRoot()
