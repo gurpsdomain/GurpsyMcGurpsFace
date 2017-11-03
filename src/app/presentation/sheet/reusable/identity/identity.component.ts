@@ -1,0 +1,18 @@
+import {Component} from '@angular/core';
+import {IdentityUpdaterComponent} from '../../../dialoges/template-updaters/identity-updater/identity-updater.component';
+import {SheetUpdatingComponent} from '../../../components/sheet-updating.component';
+import {CustomDialogInitiatingComponent} from '../../../components/custom-dialog-initiating.component';
+
+@Component({
+  selector: 'gurpsy-identity',
+  templateUrl: './identity.component.html',
+  styleUrls: [
+    '../../sheet.component.scss'
+  ]
+})
+export class IdentityComponent extends SheetUpdatingComponent<IdentityUpdaterComponent> implements CustomDialogInitiatingComponent {
+
+  public setComponentType(): void {
+    this.dialogType = IdentityUpdaterComponent;
+  }
+}
