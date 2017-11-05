@@ -64,7 +64,7 @@
     "karma-jasmine-html-reporter": "0.2.2",
     "node-sass": "4.5.3",
     "pre-push": "0.1.1",
-    "protractor": "5.1.2",
+    "protractor": "5.2.0",
     "sass-loader": "6.0.6",
     "travis-encrypt": "2.1.1",
     "ts-node": "3.3.0",
