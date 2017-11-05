@@ -17,7 +17,7 @@ import {LoggingService} from '../../../../services/logging/logging.service';
 import {SheetService} from '../../../../services/sheet/sheet.service';
 import {SettingsRepository} from '../../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../../repositories/template/template.repository';
-import {HeightDisplayComponent} from '../../../components/generic/height-display/height-display.component';
+import {HeightComponent} from '../../reusable/height/height.component';
 
 describe('SheetHeaderComponent', function () {
   let de: DebugElement;
@@ -28,7 +28,7 @@ describe('SheetHeaderComponent', function () {
     TestBed.configureTestingModule({
       declarations: [
         DescriptionComponent,
-        HeightDisplayComponent,
+        HeightComponent,
         IdentityComponent,
         PlayerInformationComponent,
         PortraitComponent,

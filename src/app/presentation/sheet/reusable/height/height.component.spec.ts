@@ -1,22 +1,22 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
-import {WeightComponent} from './weight.component';
+import {HeightComponent} from './height.component';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {Weight} from '../../../../models/sheet/units/weight/weight.model';
+import {Height} from '../../../../models/sheet/units/height/height.model';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
 import {Unit} from '../../../../models/sheet-template/metadata/enums/unit';
-import {WeightUnit} from '../../../../models/sheet/units/weight/weight.enum';
+import {HeightUnit} from '../../../../models/sheet/units/height/height.enum';
 
-describe('WeightComponent', () => {
-  let component: WeightComponent;
-  let fixture: ComponentFixture<WeightComponent>;
+describe('HeightComponent', () => {
+  let component: HeightComponent;
+  let fixture: ComponentFixture<HeightComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        WeightComponent
+        HeightComponent
       ],
       imports: [
         GurpsyMaterialModule,
@@ -28,7 +28,7 @@ describe('WeightComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WeightComponent);
+    fixture = TestBed.createComponent(HeightComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -41,31 +41,31 @@ describe('WeightComponent', () => {
 
     beforeEach(() => {
       const template = new SheetTemplate();
-      template.weight = 100;
+      template.height = 100;
       template.metaData.unit = Unit.METRIC;
 
-      component.weight = new Weight(template)
+      component.height = new Height(template)
     });
 
-    it('should have the correct preferred weight', fakeAsync(() => {
+    it('should have the correct preferred height', fakeAsync(() => {
       fixture.detectChanges();
       tick();
       fixture.detectChanges();
-      expect(component.weightInPreferredUnit).toBe(100);
+      expect(component.heightInPreferredUnit).toBe(100);
     }));
 
     it('should have the correct preferred unit', fakeAsync(() => {
       fixture.detectChanges();
       tick();
       fixture.detectChanges();
-      expect(component.preferredUnit).toBe(WeightUnit.KG);
+      expect(component.preferredUnit).toBe(HeightUnit.M);
     }));
 
     it('should have the correct Localized Alternative Unit String', fakeAsync(() => {
       fixture.detectChanges();
       tick();
       fixture.detectChanges();
-      expect(component.localizedAlternativeUnitString).toBe('UNIT.IMPERIAL.WEIGHT');
+      expect(component.localizedAlternativeUnitString).toBe('UNIT.IMPERIAL.HEIGHT');
     }));
   })
 });

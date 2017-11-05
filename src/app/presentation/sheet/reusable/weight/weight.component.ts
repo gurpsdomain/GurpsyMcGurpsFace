@@ -1,38 +1,75 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Weight} from '../../../../models/sheet/units/weight/weight.model';
 import {WeightUnit} from '../../../../models/sheet/units/weight/weight.enum';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'gurpsy-weight',
-  templateUrl: './weight.component.html',
-  styleUrls: ['./weight.component.scss']
+  templateUrl: './weight.component.html'
 })
-export class WeightComponent implements OnInit {
+export class WeightComponent {
 
-  @Input() weight: Weight;
+  weightInPreferredUnit: number;
+  preferredUnit: WeightUnit;
+  weightInAlternativeUnit: number;
+  localizedAlternativeUnitString: string;
 
   weightUnit = WeightUnit;
-  alternativeUnit: string;
 
   constructor(private translate: TranslateService) {
   }
 
-  ngOnInit() {
-    this.initUnit();
-  }
+  @Input()
+  public set weight(weight: Weight) {
 
-  private initUnit() {
-    let localeKey: string;
-
-    if (this.weight && this.weight.unit === WeightUnit.KG) {
-      localeKey = 'UNIT.IMPERIAL.WEIGHT';
-    } else {
-      localeKey = 'UNIT.WEIGHT.WEIGHT';
+    if (!weight) {
+      return;
     }
 
-    this.translate.get(localeKey).subscribe((unit: string) => {
-      this.alternativeUnit = unit;
-    });
+    this.setWeightInPreferredUnit(weight);
+    this.setPreferredUnit(weight);
+    this.setWeightInAlternativeUnit(weight);
+    this.setAlternativeUnit(weight);
+  }
+
+  private setWeightInPreferredUnit(weight: Weight): void {
+    this.weightInPreferredUnit = weight.preferred;
+  }
+
+  private setWeightInAlternativeUnit(weight: Weight): void {
+    this.weightInAlternativeUnit = weight.alternative;
+  }
+
+  private setPreferredUnit(weight): void {
+    this.preferredUnit = weight.unit;
+  }
+
+  private setAlternativeUnit(weight): void {
+    const localeKey = this.acquireLocaleKey(weight);
+
+    this.localizedAlternativeUnitString = localeKey;
+
+    if (localeKey) {
+      this.translate.get(localeKey).subscribe((unit: string) => {
+        this.localizedAlternativeUnitString = unit;
+      });
+    }
+  }
+
+  private acquireLocaleKey(weight: Weight): string {
+    let localeKey: string;
+
+    switch (weight.unit) {
+      case WeightUnit.KG:
+        localeKey = 'UNIT.IMPERIAL.WEIGHT';
+        break;
+      case WeightUnit.LB:
+        localeKey = 'UNIT.METRIC.WEIGHT';
+        break;
+      default:
+        localeKey = undefined;
+    }
+
+    return localeKey;
   }
 }

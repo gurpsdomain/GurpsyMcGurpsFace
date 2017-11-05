@@ -11,8 +11,8 @@ import {LoggingService} from '../../../../services/logging/logging.service';
 import {TemplateRepository} from '../../../../repositories/template/template.repository';
 import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {HeightDisplayComponent} from '../../../components/generic/height-display/height-display.component';
 import {WeightComponent} from '../weight/weight.component';
+import {HeightComponent} from '../height/height.component';
 
 describe('DescriptionComponent', function () {
   let component: DescriptionComponent;
@@ -26,7 +26,7 @@ describe('DescriptionComponent', function () {
     TestBed.configureTestingModule({
       declarations: [
         DescriptionComponent,
-        HeightDisplayComponent,
+        HeightComponent,
         WeightComponent
       ],
       imports: [

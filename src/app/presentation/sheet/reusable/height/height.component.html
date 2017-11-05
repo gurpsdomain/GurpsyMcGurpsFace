@@ -1,0 +1,10 @@
+<div *ngIf="heightInPreferredUnit"
+     matTooltip="{{heightInAlternativeUnit | number:'.0-2'}} {{localizedAlternativeUnitString}}">
+  {{heightInPreferredUnit | number:'.0-2'}}
+  <span *ngIf="preferredUnit === heightUnit.M">
+    {{'UNIT.METRIC.HEIGHT' | translate}}
+  </span>
+  <span *ngIf="preferredUnit === heightUnit.INCH">
+    {{'UNIT.IMPERIAL.HEIGHT' | translate}}
+  </span>
+</div>

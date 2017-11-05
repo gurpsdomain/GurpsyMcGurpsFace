@@ -71,7 +71,7 @@ describe('Model Object Description', () => {
 
       const description = new Description(template);
 
-      expect(description.height).toEqual(DESCRIPTION_HEIGHT);
+      expect(description.height.preferred).toEqual(DESCRIPTION_HEIGHT);
     });
 
     it('tech level from the template', () => {

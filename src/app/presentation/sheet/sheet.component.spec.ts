@@ -34,9 +34,8 @@ import {GurpsyMaterialModule} from '../../modules/material.module';
 import {LoggingService} from '../../services/logging/logging.service';
 import {SettingsService} from '../../services/settings/settings.service';
 import {SheetService} from '../../services/sheet/sheet.service';
-import {HeightDisplayComponent} from '../components/generic/height-display/height-display.component';
+import {HeightComponent} from './reusable/height/height.component';
 
-////////  SPECS  /////////////
 describe('SheetComponent', function () {
   let de: DebugElement;
   let comp: SheetComponent;
@@ -51,7 +50,7 @@ describe('SheetComponent', function () {
         EncumbranceComponent,
         EquipmentComponent,
         FatigueHitComponent,
-        HeightDisplayComponent,
+        HeightComponent,
         LiftingMovingComponent,
         PageReferenceComponent,
         SpellsComponent,

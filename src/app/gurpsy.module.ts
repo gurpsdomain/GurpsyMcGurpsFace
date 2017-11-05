@@ -60,9 +60,8 @@ import {HttpClient} from '@angular/common/http';
 import {SelectSheetButtonComponent} from './presentation/components/generic/select-sheet-button/select-sheet-button.component';
 // tslint:disable-next-line max-line-length
 import {DescriptionUpdaterComponent} from './presentation/dialoges/template-updaters/description-updater/description-updater.component';
-import {TemplateViewingComponent} from './presentation/components/template-viewing.component';
-import {HeightDisplayComponent} from './presentation/components/generic/height-display/height-display.component';
 import { WeightComponent } from './presentation/sheet/reusable/weight/weight.component';
+import {HeightComponent} from './presentation/sheet/reusable/height/height.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -85,7 +84,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FileFormComponent,
     GeneralComponent,
     GurpsyComponent,
-    HeightDisplayComponent,
+    HeightComponent,
     HitLocationComponent,
     IdentityComponent,
     IdentityUpdaterComponent,
@@ -110,7 +109,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     SheetViewingComponent,
     SheetUpdatingComponent,
     TemplateUpdaterDialogComponent,
-    TemplateViewingComponent,
     AvatarComponent,
     NewSheetComponent,
     SelectSheetComponent,

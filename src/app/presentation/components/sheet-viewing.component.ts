@@ -15,7 +15,7 @@ export class SheetViewingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchSheet()
+    this.fetchSheet();
     this.sheetService.sheetUpdated$.subscribe(readModel => this.fetchSheet());
   }
 
@@ -24,7 +24,7 @@ export class SheetViewingComponent implements OnInit {
   }
 
   private setSheet(sheet: Sheet): void {
-    this.sheet = sheet
+    this.sheet = sheet;
     this.sheetUpdated();
   }
 

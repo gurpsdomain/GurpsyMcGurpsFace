@@ -1,9 +1,10 @@
-<div *ngIf="weight" matTooltip="{{weight.alternative | number:'.0-0'}} {{alternativeUnit}}">
-  {{weight.preferred | number:'.0-0'}}
-  <span *ngIf="weight.preferred && weight.unit === weightUnit.KG">
+<div *ngIf="weightInPreferredUnit"
+     matTooltip="{{weightInAlternativeUnit | number:'.0-0'}} {{localizedAlternativeUnitString}}">
+  {{weightInPreferredUnit | number:'.0-0'}}
+  <span *ngIf="preferredUnit === weightUnit.KG">
     {{'UNIT.METRIC.WEIGHT' | translate}}
   </span>
-  <span *ngIf="weight.preferred && weight.unit === weightUnit.LB">
+  <span *ngIf="preferredUnit === weightUnit.LB">
     {{'UNIT.IMPERIAL.WEIGHT' | translate}}
   </span>
 </div>

@@ -209,14 +209,14 @@
     "SKILLS": "Skills"
   },
   "UNIT": {
-    "metric": "Metric system (e.g. kg, m)",
+    "metric": "Metric (kg, m)",
     "METRIC": {
       "HEIGHT": "m",
       "WEIGHT": "kg"
     },
-    "imperial": "Imperial system (e.g. lb, \")",
+    "imperial": "Imperial (lb, inch)",
     "IMPERIAL" : {
-      "HEIGHT": "\"",
+      "HEIGHT": "inch",
       "WEIGHT": "lb"
 
     }
