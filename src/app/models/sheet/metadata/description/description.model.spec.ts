@@ -25,7 +25,7 @@ describe('Model Object Description', () => {
     expect(description).toBeTruthy();
   });
 
-  describe('should contain the', ()=> {
+  describe('should contain the', () => {
     it('race from the template', () => {
       template.race = DESCRIPTION_RACE;
 
