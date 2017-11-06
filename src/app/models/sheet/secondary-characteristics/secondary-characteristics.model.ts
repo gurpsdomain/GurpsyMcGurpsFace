@@ -3,6 +3,7 @@ import {Dodge} from '../dodge.model';
 import {Move} from '../move.model';
 import {MaxLoad} from '../max-load.model';
 import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {DamageRol} from './damage-rol.enum';
 
 export class SecondaryCharacteristics {
 
@@ -21,8 +22,8 @@ export class SecondaryCharacteristics {
   maxLoad: MaxLoad;
   move: Move;
   dodge: Dodge;
-  damageSwinging: number;
-  damageThrusting: number;
+  damageSwinging: DamageRol;
+  damageThrusting: DamageRol;
   frightCheck: number;
 
   constructor(template: SheetTemplate) {
@@ -41,8 +42,8 @@ export class SecondaryCharacteristics {
     this.maxLoad = new MaxLoad();
     this.move = new Move();
     this.dodge = new Dodge();
-    this.damageSwinging = undefined;
-    this.damageThrusting = undefined;
+    this.damageSwinging = DamageRol.DIE;
+    this.damageThrusting = DamageRol.DIE_MINUS_THREE;
     this.frightCheck = undefined;
   }
 }
