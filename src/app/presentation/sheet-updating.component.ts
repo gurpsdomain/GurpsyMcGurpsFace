@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Sheet} from '../../models/sheet/sheet.model';
-import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
-import {TemplateUpdaterDialogComponent} from '../dialoges/template-updaters/template-updater-dialog.component';
-import {SheetService} from '../../services/sheet/sheet.service';
+import {Sheet} from '../models/sheet/sheet.model';
+import {SheetTemplate} from '../models/sheet-template/sheet-template.model';
+import {TemplateUpdaterDialogComponent} from './dialoges/template-updaters/template-updater-dialog.component';
+import {SheetService} from '../services/sheet/sheet.service';
 import {SheetViewingComponent} from './sheet-viewing.component';
 import {MatDialog, MatDialogRef} from '@angular/material';
-import {GurpsyConstants} from '../../gurpsy.constants';
+import {GurpsyConstants} from '../gurpsy.constants';
 import {ComponentType} from '@angular/cdk/portal';
 
 @Component({

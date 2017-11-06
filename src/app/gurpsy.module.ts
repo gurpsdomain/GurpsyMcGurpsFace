@@ -45,7 +45,7 @@ import {GurpsyMaterialModule} from './modules/material.module';
 import {GurpsyAngularModule} from './modules/angular.module';
 // tslint:disable-next-line max-line-length
 import {PortraitUpdaterDialogComponent} from './presentation/dialoges/template-updaters/portrait-updater/portrait-updater-dialog.component';
-import {SheetViewingComponent} from './presentation/components/sheet-viewing.component';
+import {SheetViewingComponent} from './presentation/sheet-viewing.component';
 import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './presentation/components/generic/avatar/avatar.component';
 import {NewSheetComponent} from './presentation/dialoges/template-updaters/new-sheet/new-sheet.component';
@@ -54,7 +54,7 @@ import {TemplateUpdaterDialogComponent} from './presentation/dialoges/template-u
 // tslint:disable-next-line max-line-length
 import {PlayerInformationUpdaterComponent} from './presentation/dialoges/template-updaters/player-information-updater/player-information-updater.component';
 import {SheetService} from './services/sheet/sheet.service';
-import {SheetUpdatingComponent} from './presentation/components/sheet-updating.component';
+import {SheetUpdatingComponent} from './presentation/sheet-updating.component';
 import {SelectSheetComponent} from './presentation/components/select-sheet/select-sheet.component';
 import {HttpClient} from '@angular/common/http';
 import {SelectSheetButtonComponent} from './presentation/components/generic/select-sheet-button/select-sheet-button.component';

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {SheetViewingComponent} from '../../sheet-viewing.component';
+import {SheetViewingComponent} from '../../../sheet-viewing.component';
 
 @Component({
   selector: 'gurpsy-avatar',

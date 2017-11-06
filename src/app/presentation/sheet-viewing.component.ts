@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Sheet} from '../../models/sheet/sheet.model';
-import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
-import {SheetService} from '../../services/sheet/sheet.service';
+import {Sheet} from '../models/sheet/sheet.model';
+import {SheetTemplate} from '../models/sheet-template/sheet-template.model';
+import {SheetService} from '../services/sheet/sheet.service';
 
 @Component({
   template: ''

@@ -1,7 +1,7 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {PortraitUpdaterDialogComponent} from '../../../dialoges/template-updaters/portrait-updater/portrait-updater-dialog.component';
-import {SheetUpdatingComponent} from '../../../components/sheet-updating.component';
-import {CustomDialogInitiatingComponent} from '../../../components/custom-dialog-initiating.component';
+import {SheetUpdatingComponent} from '../../../sheet-updating.component';
+import {CustomDialogInitiatingComponent} from '../../../custom-dialog-initiating.component';
 
 @Component({
   selector: 'gurpsy-portrait',

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {IdentityUpdaterComponent} from '../../../dialoges/template-updaters/identity-updater/identity-updater.component';
-import {SheetUpdatingComponent} from '../../../components/sheet-updating.component';
-import {CustomDialogInitiatingComponent} from '../../../components/custom-dialog-initiating.component';
+import {SheetUpdatingComponent} from '../../../sheet-updating.component';
+import {CustomDialogInitiatingComponent} from '../../../custom-dialog-initiating.component';
 
 @Component({
   selector: 'gurpsy-identity',

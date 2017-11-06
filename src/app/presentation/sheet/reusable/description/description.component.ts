@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {SheetUpdatingComponent} from '../../../components/sheet-updating.component';
+import {SheetUpdatingComponent} from '../../../sheet-updating.component';
 import {DescriptionUpdaterComponent} from '../../../dialoges/template-updaters/description-updater/description-updater.component';
-import {CustomDialogInitiatingComponent} from '../../../components/custom-dialog-initiating.component';
+import {CustomDialogInitiatingComponent} from '../../../custom-dialog-initiating.component';
 
 @Component({
   selector: 'gurpsy-description',

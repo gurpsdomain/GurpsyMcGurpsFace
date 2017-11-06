@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {SheetViewingComponent} from '../../../components/sheet-viewing.component';
+import {SheetViewingComponent} from '../../../sheet-viewing.component';
 
 @Component({
   selector: 'gurpsy-equipment',

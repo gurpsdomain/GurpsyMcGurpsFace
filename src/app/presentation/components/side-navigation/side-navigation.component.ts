@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SheetBodyContent, SheetBodyService} from '../../../services/sheet-body/sheet-body.service';
-import {SheetViewingComponent} from '../sheet-viewing.component';
+import {SheetViewingComponent} from '../../sheet-viewing.component';
 import {SheetService} from '../../../services/sheet/sheet.service';
 
 @Component({
