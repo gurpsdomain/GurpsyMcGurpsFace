@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {GurpsyComponent} from './gurpsy.component';
 import {SheetComponent} from './presentation/sheet/sheet.component';
@@ -36,8 +36,6 @@ import {BookViewerComponent} from './presentation/components/book-viewer/book-vi
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {FileFormComponent} from './presentation/components/form/file/file.form.component';
 import {GurpsyMaterialModule} from './modules/material.module';
-import {BaseRequestOptions, Http} from '@angular/http';
-import {MockBackend} from '@angular/http/testing';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {SheetTemplate} from './models/sheet-template/sheet-template.model';
@@ -95,14 +93,6 @@ describe('GurpsyComponent', () => {
         TranslateModule.forRoot()
       ],
       providers: [
-        {
-          provide: Http, useFactory: (backend, options) => {
-          return new Http(backend, options);
-        },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        MockBackend,
-        BaseRequestOptions,
         SettingsService,
         SettingsRepository,
         TranslateService,
@@ -141,25 +131,4 @@ describe('GurpsyComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should have a template set after component is initialized', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    expect(component.template).toBe(template);
-  }));
-
-  it('should have a sheet set after component is initialised', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    expect(component.sheet).toBe(sheet);
-  }));
-
-  it('should have called setTitle() on the TitleService after the Sheet has been set on ngOnInit', fakeAsync(() => {
-    fixture.detectChanges();
-    tick();
-    fixture.detectChanges();
-    expect(titleService.setTitle).toHaveBeenCalledWith(CHARACTER_NAME);
-  }));
 });
