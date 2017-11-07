@@ -62,7 +62,7 @@ describe('DescriptionComponent', function () {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
-  })
+  });
 
   it('should have a sheet set after component is initialized', fakeAsync(() => {
     fixture.detectChanges();

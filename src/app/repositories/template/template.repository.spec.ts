@@ -122,7 +122,7 @@ describe('TemplateRepository', () => {
       service.getSelectedTemplate().catch(() => {
         rejected = true;
         expect(rejected).toBe(true);
-      })
+      });
     }));
 
   it('[getSelectedTemplate()] should return the selected SheetTemplate when getSelectedTemplate() is called',
@@ -177,7 +177,7 @@ describe('TemplateRepository', () => {
 
       const firstTemplate = new SheetTemplate();
       service.addTemplate(firstTemplate);
-      service.selectTemplate(firstTemplate)
+      service.selectTemplate(firstTemplate);
 
       const secondTemplate = new SheetTemplate();
       service.addTemplate(secondTemplate);

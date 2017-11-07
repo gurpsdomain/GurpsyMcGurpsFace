@@ -1,9 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class PageReferenceService {
-
 
   private referenceRequest = new Subject<number>();
   public referenceRequested$ = this.referenceRequest.asObservable();

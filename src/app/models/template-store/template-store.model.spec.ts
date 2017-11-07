@@ -125,7 +125,7 @@ describe('Model Object TemplateStore', () => {
 
     templates.updateTemplate(updatedTemplate);
 
-    const retrievedTemplate = templates.getTemplate(updatedTemplate.id)
+    const retrievedTemplate = templates.getTemplate(updatedTemplate.id);
 
     expect(retrievedTemplate.name).toBe(updatedTemplate.name);
   });
@@ -143,4 +143,4 @@ describe('Model Object TemplateStore', () => {
 
     expect(templates.templates.length).toBe(1);
   });
-})
+});

@@ -8,4 +8,4 @@ describe('Model Object Settings', () => {
   it('should be created', () => {
     expect(settings).toBeTruthy();
   });
-})
+});

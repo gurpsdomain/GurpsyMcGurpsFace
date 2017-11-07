@@ -8,6 +8,10 @@ import {Advantage} from './advantages/advantage.model';
 import {Reward} from './reward/reward.model';
 import {MetaData} from './metadata/metadata.model';
 
+export enum TemplateComparison {
+  OLDER, NEWER, SAME, DIFFERENT
+}
+
 @JsonObject
 export class SheetTemplate {
 
@@ -187,9 +191,9 @@ export class SheetTemplate {
     }
 
     if (this.metaData.lastModified > other.metaData.lastModified) {
-      return TemplateComparison.NEWER
+      return TemplateComparison.NEWER;
     } else if (this.metaData.lastModified < other.metaData.lastModified) {
-      return TemplateComparison.OLDER
+      return TemplateComparison.OLDER;
     } else {
       return TemplateComparison.SAME;
     }
@@ -246,6 +250,3 @@ export class SheetTemplate {
   }
 }
 
-export enum TemplateComparison {
-  OLDER, NEWER, SAME, DIFFERENT
-}

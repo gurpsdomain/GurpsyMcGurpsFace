@@ -17,7 +17,7 @@ export class Height {
   }
 
   private setPreferred(height: number): void {
-    this.preferred = height
+    this.preferred = height;
   }
 
   private setUnit(unit: Unit): void {

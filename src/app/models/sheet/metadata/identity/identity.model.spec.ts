@@ -13,7 +13,7 @@ describe('Model Object Identity', () => {
   beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
-    const identity = new Identity(template)
+    const identity = new Identity(template);
 
     expect(identity).toBeTruthy();
   });
@@ -49,4 +49,4 @@ describe('Model Object Identity', () => {
 
     expect(identity.portrait).toEqual(IDENTITY_PORTRAIT);
   });
-})
+});

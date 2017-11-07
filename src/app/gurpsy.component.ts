@@ -89,7 +89,7 @@ export class GurpsyComponent implements OnInit {
           this.template = template;
           this.sheetService.loadNewTemplate(this.template);
         }
-        this.newSheetDialogRef = null
+        this.newSheetDialogRef = null;
       }
     );
   }
@@ -214,7 +214,7 @@ export class GurpsyComponent implements OnInit {
   private setTheme(theme: string) {
     if (theme !== SettingsService.THEME_NIGHT && theme !== SettingsService.THEME_DAY) {
       this.loggingService.warn('Invalid or no theme stored in Local Storage, using default.');
-      theme = SettingsService.THEME_DEFAULT
+      theme = SettingsService.THEME_DEFAULT;
     }
 
     this.theme = theme;

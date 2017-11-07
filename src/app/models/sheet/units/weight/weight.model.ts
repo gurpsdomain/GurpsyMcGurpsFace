@@ -17,7 +17,7 @@ export class Weight {
   }
 
   private setPreferred(weight: number): void {
-    this.preferred = weight
+    this.preferred = weight;
   }
 
   private setUnit(unit: Unit): void {

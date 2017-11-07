@@ -3,6 +3,10 @@ import {MatDialogRef} from '@angular/material';
 import {SheetTemplate, TemplateComparison} from '../../../../models/sheet-template/sheet-template.model';
 import {SheetService} from '../../../../services/sheet/sheet.service';
 
+export enum State {
+  NONE, WARNING, INFO
+}
+
 @Component({
   templateUrl: './open-sheet-dialog.component.html',
   styleUrls: ['../../dialog.component.scss',
@@ -51,7 +55,7 @@ export class OpenSheetDialogComponent {
 
   private compareNewTemplateToAlreadyLoadedTemplate(template: SheetTemplate): void {
     const comparison = this.selectedSheet.equals(template);
-    this.setState(comparison)
+    this.setState(comparison);
   }
 
   private setState(comparison: TemplateComparison): void {
@@ -61,13 +65,11 @@ export class OpenSheetDialogComponent {
         break;
       case TemplateComparison.OLDER:
         this.state = State.WARNING;
-        break
+        break;
       default:
         this.state = State.INFO;
     }
   }
 }
 
-export enum State {
-  NONE, WARNING, INFO
-}
+

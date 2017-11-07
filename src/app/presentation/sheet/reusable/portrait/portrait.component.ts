@@ -38,13 +38,12 @@ export class PortraitComponent extends SheetUpdatingComponent<PortraitUpdaterDia
   }
 
   private isValid(file: File): boolean {
-    return file && this.isValidExtension(file)
+    return file && this.isValidExtension(file);
   }
 
   private isValidExtension(file: File): boolean {
     const matchArray: RegExpMatchArray = file.name.match(this.ALLOWED_FILE_EXTENSIONS);
-    const isMatch = matchArray.index !== -1;
 
-    return isMatch
+    return matchArray.index !== -1;
   }
 }

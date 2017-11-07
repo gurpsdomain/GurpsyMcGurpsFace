@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
 import {Settings} from '../../models/settings/settings.model';
 import {TranslateService} from '@ngx-translate/core';
 import {SettingsRepository} from '../../repositories/settings/settings.repository';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class SettingsService {

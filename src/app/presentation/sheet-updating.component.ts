@@ -32,7 +32,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
 
     super(sheetService);
     this.sheet = new Sheet(new SheetTemplate());
-    this.setComponentType()
+    this.setComponentType();
   }
 
   /**
@@ -70,7 +70,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
   /**
    * Override this method to open a custom dialog.
    *
-   * @param {any} Data that should be passed to the dialog
+   * @param {any} data that should be passed to the dialog
    */
   protected openDialog(data?: any): void {
     this.setupDialog();
@@ -81,7 +81,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
   /**
    * To add more data to the dialog, override this method in a subclass and call super.
    *
-   * @param {any} The data to pass to this dialog
+   * @param {any} data to pass to this dialog
    */
   protected addDataToDialog(data?: any) {
     if (data) {
@@ -93,11 +93,11 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
   /**
    * Update the template with the new template.
    *
-   * @param {SheetTemplate} The new template
+   * @param {SheetTemplate} template The new template
    */
   protected updateTemplate(template: SheetTemplate): void {
     if (template) {
-      this.setTemplate(template)
+      this.setTemplate(template);
       this.sheetService.updateTemplate(this.template);
     }
   }
@@ -112,7 +112,7 @@ export class SheetUpdatingComponent<T extends TemplateUpdaterDialogComponent> ex
   private setDialogClosingBehaviour() {
     this.dialogRef.afterClosed().subscribe(template => {
         this.updateTemplate(template);
-        this.dialogRef = null
+        this.dialogRef = null;
       }
     );
   }

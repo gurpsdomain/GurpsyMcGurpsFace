@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
 import {JsonConvert} from 'json2typescript';
 import {Settings} from '../../models/settings/settings.model';
 import {LoggingService} from '../../services/logging/logging.service';
 import {GurpsyConstants} from '../../gurpsy.constants';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class SettingsRepository {
-
 
   private static STORAGE_KEY = '.settings';
 
@@ -101,7 +100,7 @@ export class SettingsRepository {
       const jsonConvert = new JsonConvert();
       settings = jsonConvert.deserialize(JSON.parse(json), Settings);
     } catch (ex) {
-      this.loggingService.error('Unable to retrieve Settings from Local Storage. Using default.', ex)
+      this.loggingService.error('Unable to retrieve Settings from Local Storage. Using default.', ex);
     }
 
     return settings;

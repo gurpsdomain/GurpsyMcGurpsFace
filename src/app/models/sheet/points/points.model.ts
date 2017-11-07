@@ -58,7 +58,7 @@ export class Points {
   private enrichUnspent(template: SheetTemplate) {
     let available = template.basepoints;
 
-    template.rewards.forEach(reward => available += reward.points)
+    template.rewards.forEach(reward => available += reward.points);
 
     this.unspent = available - this.getTotalUsed(template);
   }

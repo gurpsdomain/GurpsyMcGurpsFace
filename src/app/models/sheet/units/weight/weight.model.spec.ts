@@ -7,7 +7,7 @@ describe('Model Object Weight', () => {
   let template: SheetTemplate;
 
   beforeEach(() => {
-    template = new SheetTemplate()
+    template = new SheetTemplate();
   });
 
   it('should be created', () => {
@@ -99,7 +99,7 @@ describe('Model Object Weight', () => {
       });
 
       it('should display the correct alternative', () => {
-        const weight = new Weight(imperialTemplate)
+        const weight = new Weight(imperialTemplate);
 
         expect(weight.alternative).toBe(0);
       });
@@ -119,7 +119,7 @@ describe('Model Object Weight', () => {
       });
 
       it('should display the correct alternative', () => {
-        const weight = new Weight(imperialTemplate)
+        const weight = new Weight(imperialTemplate);
 
         expect(weight.alternative.toFixed()).toBe('5');
       });

@@ -11,6 +11,6 @@ export class Disadvantage {
     this.name = undefined;
     this.points = undefined;
     this.pageReference = undefined;
-    this.modifiers = []
+    this.modifiers = [];
   }
 }

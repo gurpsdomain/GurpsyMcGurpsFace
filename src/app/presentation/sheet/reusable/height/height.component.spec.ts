@@ -44,7 +44,7 @@ describe('HeightComponent', () => {
       template.height = 100;
       template.metaData.unit = Unit.METRIC;
 
-      component.height = new Height(template)
+      component.height = new Height(template);
     });
 
     it('should have the correct preferred height', fakeAsync(() => {
@@ -67,5 +67,5 @@ describe('HeightComponent', () => {
       fixture.detectChanges();
       expect(component.localizedAlternativeUnitString).toBe('UNIT.IMPERIAL.HEIGHT');
     }));
-  })
+  });
 });

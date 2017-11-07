@@ -7,7 +7,7 @@ describe('Model Object Height', () => {
   let template: SheetTemplate;
 
   beforeEach(() => {
-    template = new SheetTemplate()
+    template = new SheetTemplate();
   });
 
   it('should be created', () => {
@@ -99,7 +99,7 @@ describe('Model Object Height', () => {
       });
 
       it('should display the correct alternative', () => {
-        const height = new Height(imperialTemplate)
+        const height = new Height(imperialTemplate);
 
         expect(height.alternative).toBe(0);
       });
@@ -119,7 +119,7 @@ describe('Model Object Height', () => {
       });
 
       it('should display the correct alternative', () => {
-        const height = new Height(imperialTemplate)
+        const height = new Height(imperialTemplate);
 
         expect(height.alternative.toFixed(2)).toBe('0.25');
       });

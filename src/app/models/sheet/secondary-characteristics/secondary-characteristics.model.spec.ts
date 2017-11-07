@@ -8,7 +8,7 @@ describe('Model Object SecondaryCharacteristics', () => {
   beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
-    const secondaryCharacteristics = new SecondaryCharacteristics(template)
+    const secondaryCharacteristics = new SecondaryCharacteristics(template);
 
     expect(secondaryCharacteristics).toBeTruthy();
   });
@@ -16,8 +16,8 @@ describe('Model Object SecondaryCharacteristics', () => {
   it('should use the SizeModifier from the template', () => {
     template.size = 37;
 
-    const secondaryCharacteristics = new SecondaryCharacteristics(template)
+    const secondaryCharacteristics = new SecondaryCharacteristics(template);
 
     expect(secondaryCharacteristics.sizeModifier).toBe(37);
   });
-})
+});

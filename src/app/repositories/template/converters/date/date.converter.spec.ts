@@ -12,7 +12,7 @@ describe('Custom converter (Date Converter) for json2typescript ', () => {
   it('should serialize a date to the form yyyy-MM-dd', () => {
     const today = new Date();
 
-    const serializedToday = dateConverter.serialize(today)
+    const serializedToday = dateConverter.serialize(today);
     const expectedDate = today.getFullYear() + '-' + (today.getMonth() + 1)
       + '-' + today.getDate();
 
@@ -24,8 +24,8 @@ describe('Custom converter (Date Converter) for json2typescript ', () => {
     const toDeserializeDate = today.getFullYear() + '-' + (today.getMonth() + 1)
       + '-' + today.getDate();
 
-    const deserializeddate = dateConverter.deserialize(toDeserializeDate)
+    const deserializeddate = dateConverter.deserialize(toDeserializeDate);
 
     expect(deserializeddate.toDateString()).toBe(today.toDateString());
   });
-})
+});

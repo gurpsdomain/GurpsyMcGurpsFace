@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
 import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
 import {JsonConvert} from 'json2typescript';
 import {Sheet} from '../../models/sheet/sheet.model';
 import {TemplateRepository} from '../../repositories/template/template.repository';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class SheetService {
@@ -137,7 +137,7 @@ export class SheetService {
   public async getTemplateForId(id: string): Promise<SheetTemplate> {
 
     const templates = await this.templateStorageService.getTemplates();
-    let foundTemplate: SheetTemplate = undefined;
+    let foundTemplate: SheetTemplate;
 
     for (const storedTemplate of templates) {
       if (storedTemplate.id === id) {
@@ -198,7 +198,7 @@ export class SheetService {
   private loadTemplate(template: SheetTemplate, isNew?: boolean): void {
     this.setTemplate(template);
     const sheet = this.createSheet(template);
-    this.setSheet(sheet)
+    this.setSheet(sheet);
 
     if (isNew) {
       this.newSheetLoadedSource.next(this.sheet);
@@ -227,7 +227,7 @@ export class SheetService {
 
   private clearSheetAndTemplate(): void {
     this.setTemplate(undefined);
-    this.setSheet(undefined)
+    this.setSheet(undefined);
   }
 
   private setTemplate(template: SheetTemplate): void {

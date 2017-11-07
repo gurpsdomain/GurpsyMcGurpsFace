@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
 import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
 import {TemplateStore} from '../../models/template-store/template-store.model';
 import {LoggingService} from '../../services/logging/logging.service';
 import {JsonConvert} from 'json2typescript';
 import {GurpsyConstants} from '../../gurpsy.constants';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class TemplateRepository {
@@ -179,7 +179,7 @@ export class TemplateRepository {
         const jsonObject = JSON.parse(json);
         templates = jsonConvert.deserializeObject(jsonObject, TemplateStore);
       } catch (ex) {
-        this.loggingService.error('Unable to deserialize TemplateStore from Local Storage.', ex)
+        this.loggingService.error('Unable to deserialize TemplateStore from Local Storage.', ex);
       }
     }
 
@@ -189,9 +189,9 @@ export class TemplateRepository {
   private handleStorageChange(event: StorageEvent): void {
     if (event.key === this.getAllTemplatesStorageKey()) {
       const templates = this.deserialize(event.newValue);
-      this.templatesUpdated.next(templates.templates)
+      this.templatesUpdated.next(templates.templates);
     } else if (event.key === this.getSelectedTemplateStorageKey()) {
-      this.selectedTemplateChanged.next()
+      this.selectedTemplateChanged.next();
     }
   }
 

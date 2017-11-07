@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
-import {Settings} from '../../models/settings/settings.model';
+import {Subject} from 'rxjs/Subject';
 
 export enum SheetBodyContent {
   GENERAL,
@@ -14,7 +13,7 @@ export enum SheetBodyContent {
 @Injectable()
 export class SheetBodyService {
 
-  private static DEFAULT_BODY_CONTENT = SheetBodyContent.GENERAL
+  private static DEFAULT_BODY_CONTENT = SheetBodyContent.GENERAL;
 
   private sheetBodyContentSource = new Subject<SheetBodyContent>();
   private bodyContent: SheetBodyContent = SheetBodyService.DEFAULT_BODY_CONTENT;

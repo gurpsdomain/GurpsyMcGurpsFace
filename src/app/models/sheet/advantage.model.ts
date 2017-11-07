@@ -12,7 +12,7 @@ export class Advantage {
     this.name = undefined;
     this.points = undefined;
     this.pageReference = undefined;
-    this.modifiers = []
+    this.modifiers = [];
     this.level = undefined;
   }
 }

@@ -44,7 +44,7 @@ describe('WeightComponent', () => {
       template.weight = 100;
       template.metaData.unit = Unit.METRIC;
 
-      component.weight = new Weight(template)
+      component.weight = new Weight(template);
     });
 
     it('should have the correct preferred weight', fakeAsync(() => {
@@ -67,5 +67,5 @@ describe('WeightComponent', () => {
       fixture.detectChanges();
       expect(component.localizedAlternativeUnitString).toBe('UNIT.IMPERIAL.WEIGHT');
     }));
-  })
+  });
 });

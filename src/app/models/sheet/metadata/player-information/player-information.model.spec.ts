@@ -13,7 +13,7 @@ describe('Model Object PlayerInformation', () => {
   beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
-    const playerInformation = new PlayerInformation(template)
+    const playerInformation = new PlayerInformation(template);
 
     expect(playerInformation).toBeTruthy();
   });
@@ -49,5 +49,4 @@ describe('Model Object PlayerInformation', () => {
 
     expect(playerInformation.lastModified).toEqual(PLAYER_INFORMATION_LAST_MODIFED);
   });
-
-})
+});

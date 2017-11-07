@@ -8,26 +8,26 @@ describe('Model Object MetaData', () => {
   beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
-    const metadata = new MetaData(template)
+    const metadata = new MetaData(template);
 
     expect(metadata).toBeTruthy();
   });
 
   it('should create a Description Model Object', () => {
-    const metadata = new MetaData(template)
+    const metadata = new MetaData(template);
 
     expect(metadata.description).toBeTruthy();
   });
 
   it('should create a Identity Model Object', () => {
-    const metadata = new MetaData(template)
+    const metadata = new MetaData(template);
 
     expect(metadata.identity).toBeTruthy();
   });
 
   it('should create a PlayerInformation Model Object', () => {
-    const metadata = new MetaData(template)
+    const metadata = new MetaData(template);
 
     expect(metadata.playerInformation).toBeTruthy();
   });
-})
+});

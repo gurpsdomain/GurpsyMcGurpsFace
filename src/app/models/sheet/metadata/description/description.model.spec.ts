@@ -20,7 +20,7 @@ describe('Model Object Description', () => {
   beforeEach(() => template = new SheetTemplate());
 
   it('should be created', () => {
-    const description = new Description(template)
+    const description = new Description(template);
 
     expect(description).toBeTruthy();
   });
@@ -113,5 +113,5 @@ describe('Model Object Description', () => {
 
       expect(description.hand).toEqual(DESCRIPTION_HAND);
     });
-  })
+  });
 });

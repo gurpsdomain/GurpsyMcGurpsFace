@@ -28,7 +28,7 @@ export class TemplateStore {
       this.templates.push(template);
       added = true;
     } else if (overwrite) {
-      this.updateTemplate(template)
+      this.updateTemplate(template);
       added = true;
     }
 
@@ -62,7 +62,7 @@ export class TemplateStore {
    * @return {SheetTemplate} The requested SheetTemplate or null if not present
    */
   public getTemplate(id: string): SheetTemplate {
-    let template: SheetTemplate = undefined;
+    let template: SheetTemplate;
 
     for (const storedTemplate of this.templates) {
       if (storedTemplate.id === id) {
