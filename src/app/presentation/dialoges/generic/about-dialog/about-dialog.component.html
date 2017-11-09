@@ -10,6 +10,11 @@
        fxLayout="column">
     <div class="flex-item title"> {{'APPLICATION'| translate}}</div>
     <div class="flex-item version"> {{'VERSION'| translate}}</div>
+    <div class="flex-item delete">
+      <button mat-mini-fab color="warn" (click)="onDeleteSettings()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </div>
 </div>
 
