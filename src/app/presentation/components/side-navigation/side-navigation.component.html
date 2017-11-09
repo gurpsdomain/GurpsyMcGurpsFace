@@ -21,56 +21,65 @@
   </div>
   <div class="sideNavigationContent flex-item"
        fxFlex="100%">
-    <button mat-button
-            (click)="onSheetBodyClick(sheetBodyComponents.GENERAL)"
-            [class.selected]="sheetBodyContent === sheetBodyComponents.GENERAL"
-            class="sideNavigationButton">
-      <mat-icon>accessibility</mat-icon>
-      <span fxFlex="100%">{{'SIDE_NAVIGATION.GENERAL'| translate}}</span>
-    </button>
-    <button mat-button
-            (click)="onSheetBodyClick(sheetBodyComponents.ADVANTAGES)"
-            [class.selected]="sheetBodyContent == sheetBodyComponents.ADVANTAGES"
-            class="sideNavigationButton">
-      <mat-icon>hearing</mat-icon>
-      <span fxFlex="100%">{{'SIDE_NAVIGATION.DIS_ADVANTAGES'| translate}}</span>
-    </button>
-    <button mat-button
-            (click)="onSheetBodyClick(sheetBodyComponents.SKILLS)"
-            [class.selected]="sheetBodyContent == sheetBodyComponents.SKILLS"
-            class="sideNavigationButton">
-      <mat-icon>school</mat-icon>
-      <span fxFlex="100%">{{'SIDE_NAVIGATION.SKILLS'| translate}}</span>
-    </button>
-    <button mat-button
-            (click)="onSheetBodyClick(sheetBodyComponents.MAGIC)"
-            [class.selected]="sheetBodyContent == sheetBodyComponents.MAGIC"
-            class="sideNavigationButton">
-      <mat-icon>flash_on</mat-icon>
-      <span fxFlex="100%">{{'SIDE_NAVIGATION.MAGIC'| translate}}</span>
-    </button>
-    <button mat-button
-            (click)="onSheetBodyClick(sheetBodyComponents.EQUIPMENT)"
-            [class.selected]="sheetBodyContent == sheetBodyComponents.EQUIPMENT"
-            class="sideNavigationButton">
-      <mat-icon>card_travel</mat-icon>
-      <span fxFlex="100%">{{'SIDE_NAVIGATION.EQUIPMENT'| translate}}</span>
-    </button>
-    <button mat-button
-            (click)="onSheetBodyClick(sheetBodyComponents.NOTES)"
-            [class.selected]="sheetBodyContent == sheetBodyComponents.NOTES"
-            class="sideNavigationButton">
-      <mat-icon>mode_edit</mat-icon>
-      <span fxFlex="100%">{{'SIDE_NAVIGATION.NOTES'| translate}}</span>
-    </button>
-
-    <div class="separator"></div>
-    <button mat-button
-            (click)="onLibraryClick()"
-            [class.selected]="showLibrary"
-            class="sideNavigationButton">
-      <mat-icon svgIcon="books"></mat-icon>
-      <span fxFlex="100%">{{'SIDE_NAVIGATION.LIBRARY'| translate}}</span>
-    </button>
+    <div class="sheet">
+      <button mat-button
+              (click)="onSheetBodyClick(sheetBodyComponents.GENERAL)"
+              [class.selected]="sheetBodyContent === sheetBodyComponents.GENERAL"
+              class="sideNavigationButton">
+        <mat-icon>accessibility</mat-icon>
+        <span fxFlex="100%">{{'SIDE_NAVIGATION.GENERAL'| translate}}</span>
+      </button>
+      <button mat-button
+              (click)="onSheetBodyClick(sheetBodyComponents.ADVANTAGES)"
+              [class.selected]="sheetBodyContent == sheetBodyComponents.ADVANTAGES"
+              class="sideNavigationButton">
+        <mat-icon>hearing</mat-icon>
+        <span fxFlex="100%">{{'SIDE_NAVIGATION.DIS_ADVANTAGES'| translate}}</span>
+      </button>
+      <button mat-button
+              (click)="onSheetBodyClick(sheetBodyComponents.SKILLS)"
+              [class.selected]="sheetBodyContent == sheetBodyComponents.SKILLS"
+              class="sideNavigationButton">
+        <mat-icon>school</mat-icon>
+        <span fxFlex="100%">{{'SIDE_NAVIGATION.SKILLS'| translate}}</span>
+      </button>
+      <button mat-button
+              (click)="onSheetBodyClick(sheetBodyComponents.MAGIC)"
+              [class.selected]="sheetBodyContent == sheetBodyComponents.MAGIC"
+              class="sideNavigationButton">
+        <mat-icon>flash_on</mat-icon>
+        <span fxFlex="100%">{{'SIDE_NAVIGATION.MAGIC'| translate}}</span>
+      </button>
+      <button mat-button
+              (click)="onSheetBodyClick(sheetBodyComponents.EQUIPMENT)"
+              [class.selected]="sheetBodyContent == sheetBodyComponents.EQUIPMENT"
+              class="sideNavigationButton">
+        <mat-icon>card_travel</mat-icon>
+        <span fxFlex="100%">{{'SIDE_NAVIGATION.EQUIPMENT'| translate}}</span>
+      </button>
+      <button mat-button
+              (click)="onSheetBodyClick(sheetBodyComponents.NOTES)"
+              [class.selected]="sheetBodyContent == sheetBodyComponents.NOTES"
+              class="sideNavigationButton">
+        <mat-icon>mode_edit</mat-icon>
+        <span fxFlex="100%">{{'SIDE_NAVIGATION.NOTES'| translate}}</span>
+      </button>
+    </div>
+    <div class="library">
+      <button mat-button
+              (click)="onLibraryClick()"
+              [class.selected]="showLibrary"
+              class="sideNavigationButton">
+        <mat-icon svgIcon="books"></mat-icon>
+        <span fxFlex="100%">{{'SIDE_NAVIGATION.LIBRARY.GURPS_LITE'| translate}}</span>
+      </button>
+    </div>
+    <div class="settings">
+      <mat-slide-toggle
+        (change)="onThemeChange()"
+        [(ngModel)]="nightTheme">
+        {{'DIALOG.SETTINGS.NIGHT_THEME'| translate}}
+      </mat-slide-toggle>
+    </div>
   </div>
 </div>

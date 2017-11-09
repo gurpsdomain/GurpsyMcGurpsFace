@@ -27,7 +27,6 @@ describe('SideNavigationComponent', () => {
         GurpsyMaterialModule
       ],
       providers: [
-        SettingsRepository,
         LoggingService,
         SheetService,
         SettingsService,

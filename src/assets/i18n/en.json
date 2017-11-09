@@ -203,7 +203,10 @@
     "DIS_ADVANTAGES": "(Dis)Advantages",
     "EQUIPMENT": "Equipment",
     "GENERAL": "General",
-    "LIBRARY": "Library",
+    "LIBRARY": {
+      "LIBRARY": "Library",
+      "GURPS_LITE": "Gurps lite"
+    },
     "MAGIC": "Magic",
     "NOTES": "Notes",
     "SKILLS": "Skills"
