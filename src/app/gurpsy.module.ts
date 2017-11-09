@@ -20,7 +20,6 @@ import {SpellsComponent} from './presentation/sheet/reusable/spells/spells.compo
 import {EquipmentComponent} from './presentation/sheet/reusable/equipment/equipment.component';
 import {AdvantagesComponent} from './presentation/sheet/reusable/advantages/advantages.component';
 import {SheetBodyService} from './services/sheet-body/sheet-body.service';
-// tslint:disable-next-line max-line-length
 import {GeneralComponent} from './presentation/sheet/structural/sheet-body/general/general.component';
 import {AttributesComponent} from './presentation/sheet/reusable/attributes/attributes.component';
 import {HitLocationComponent} from './presentation/sheet/reusable/hit-location/hit-location.component';
@@ -33,7 +32,6 @@ import {EncumbranceComponent} from './presentation/sheet/reusable/encumbrance/en
 import {AboutDialogComponent} from './presentation/dialoges/generic/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './presentation/dialoges/generic/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging/logging.service';
-import {SettingsDialogComponent} from './presentation/dialoges/generic/settings-dialog/settings-dialog.component';
 import {PageReferenceComponent} from './presentation/components/generic/page-reference/page-reference.component';
 import {BookViewerComponent} from './presentation/components/book-viewer/book-viewer.component';
 import {PdfViewerComponent} from 'ng2-pdf-viewer';
@@ -60,7 +58,7 @@ import {HttpClient} from '@angular/common/http';
 import {SelectSheetButtonComponent} from './presentation/components/generic/select-sheet-button/select-sheet-button.component';
 // tslint:disable-next-line max-line-length
 import {DescriptionUpdaterComponent} from './presentation/dialoges/template-updaters/description-updater/description-updater.component';
-import { WeightComponent } from './presentation/sheet/reusable/weight/weight.component';
+import {WeightComponent} from './presentation/sheet/reusable/weight/weight.component';
 import {HeightComponent} from './presentation/sheet/reusable/height/height.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -101,7 +99,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     SheetBodyComponent,
     SheetComponent,
     SheetHeaderComponent,
-    SettingsDialogComponent,
     SideNavigationComponent,
     SkillsComponent,
     SpellsComponent,
@@ -143,7 +140,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     IdentityUpdaterComponent,
     NewSheetComponent,
     OpenSheetDialogComponent,
-    SettingsDialogComponent,
     PlayerInformationUpdaterComponent,
     PortraitUpdaterDialogComponent
   ],

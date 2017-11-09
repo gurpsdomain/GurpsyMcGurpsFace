@@ -6,7 +6,6 @@ import {AboutDialogComponent} from './presentation/dialoges/generic/about-dialog
 import {DiceDialogComponent} from './presentation/dialoges/generic/dice-dialog/dice-dialog.component';
 import {LoggingService} from './services/logging/logging.service';
 import {DomSanitizer, Title} from '@angular/platform-browser';
-import {SettingsDialogComponent} from './presentation/dialoges/generic/settings-dialog/settings-dialog.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/sheet.model';
@@ -36,7 +35,6 @@ export class GurpsyComponent implements OnInit {
   private aboutDialogRef: MatDialogRef<AboutDialogComponent>;
   private diceDialogRef: MatDialogRef<DiceDialogComponent>;
   private openSheetDialogRef: MatDialogRef<OpenSheetDialogComponent>;
-  private settingsDialogRef: MatDialogRef<SettingsDialogComponent>;
   private newSheetDialogRef: MatDialogRef<NewSheetComponent>;
 
   public sheet: Sheet;
@@ -157,20 +155,6 @@ export class GurpsyComponent implements OnInit {
 
     this.openSheetDialogRef.afterClosed().subscribe(
       this.openSheetDialogRef = null
-    );
-  }
-
-  /**
-   * Open the Settings dialog.
-   */
-  public onOpenSettingsDialog(): void {
-    this.settingsDialogRef = this.dialog.open(SettingsDialogComponent, {
-      width: GurpsyConstants.DIALOG_WIDTH,
-      disableClose: false
-    });
-
-    this.settingsDialogRef.afterClosed().subscribe(
-      this.settingsDialogRef = null
     );
   }
 
