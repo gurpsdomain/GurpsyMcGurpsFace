@@ -19,10 +19,6 @@
       "SELECT_FROM_FILE": "Open sheet",
       "ALREADY_LOADED_NEWER_VERSION": "A newer version of this sheet has already been loaded. The newer version will be overwritten.",
       "ALREADY_LOADED_OLDER_VERSION": "An older version of this sheet has already been loaded. The old version will be overwritten."
-    },
-    "SETTINGS": {
-      "HEADER": "Settings",
-      "NIGHT_THEME": "Night mode"
     }
   },
   "MENU": {
@@ -209,7 +205,11 @@
     },
     "MAGIC": "Magic",
     "NOTES": "Notes",
-    "SKILLS": "Skills"
+    "SKILLS": "Skills",
+    "SETTINGS" : {
+      "SETTINGS": "Settings",
+      "NIGHT_THEME": "Night mode"
+    }
   },
   "UNIT": {
     "metric": "Metric (kg, m)",
@@ -221,7 +221,6 @@
     "IMPERIAL" : {
       "HEIGHT": "inch",
       "WEIGHT": "lb"
-
     }
   }
 }
