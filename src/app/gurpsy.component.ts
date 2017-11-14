@@ -4,7 +4,6 @@ import {OpenSheetDialogComponent} from './presentation/dialoges/generic/open-she
 import {SettingsService} from './services/settings/settings.service';
 import {AboutDialogComponent} from './presentation/dialoges/generic/about-dialog/about-dialog.component';
 import {DiceDialogComponent} from './presentation/dialoges/generic/dice-dialog/dice-dialog.component';
-import {LoggingService} from './services/logging/logging.service';
 import {DomSanitizer, Title} from '@angular/platform-browser';
 import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
@@ -16,6 +15,7 @@ import {GurpsyConstants} from './gurpsy.constants';
 
 import {JsonConvert} from 'json2typescript';
 import {OverlayContainer} from '@angular/cdk/overlay';
+import {Theme} from './models/settings/enums/theme.enum';
 
 @Component({
   selector: 'gurpsy-root',
@@ -44,12 +44,11 @@ export class GurpsyComponent implements OnInit {
   public templateJsonHref: any;
   public editMode: boolean;
   public showLibrary: boolean;
-  public theme: string;
+  public theme: Theme;
 
   constructor(protected sheetService: SheetService,
               public dialog: MatDialog,
               private settingsService: SettingsService,
-              public loggingService: LoggingService,
               private pageReferenceService: PageReferenceService,
               private snackBar: MatSnackBar,
               private translate: TranslateService,
@@ -187,7 +186,7 @@ export class GurpsyComponent implements OnInit {
   private initTheme(): void {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
-      .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
+      .catch(err => this.setTheme(Theme.NIGHT));
     this.settingsService.settingsChange$.subscribe(config => this.setTheme(config.theme));
   }
 
@@ -195,16 +194,9 @@ export class GurpsyComponent implements OnInit {
     this.sheetService.newSheetLoaded$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
-  private setTheme(theme: string) {
-    if (theme !== SettingsService.THEME_NIGHT && theme !== SettingsService.THEME_DAY) {
-      this.loggingService.warn('Invalid or no theme stored in Local Storage, using default.');
-      theme = SettingsService.THEME_DEFAULT;
-    }
-
+  private setTheme(theme: Theme) {
     this.theme = theme;
     this.overlayContainer.getContainerElement().classList.add(theme);
-
-
   }
 
   private showNewSheetLoadedMessage(sheet: Sheet): void {

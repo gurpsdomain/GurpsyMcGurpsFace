@@ -1,13 +1,14 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
+import {Theme} from './enums/theme.enum';
 
 @JsonObject
 export class Settings {
 
-  @JsonProperty('theme', String)
-  theme: string;
+  @JsonProperty('theme', String, false)
+  theme: Theme;
 
   constructor() {
-    this.theme = '';
+    this.theme = Theme.NIGHT;
   }
 }
 

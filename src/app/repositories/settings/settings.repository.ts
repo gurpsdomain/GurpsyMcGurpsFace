@@ -4,6 +4,7 @@ import {Settings} from '../../models/settings/settings.model';
 import {LoggingService} from '../../services/logging/logging.service';
 import {GurpsyConstants} from '../../gurpsy.constants';
 import {Subject} from 'rxjs/Subject';
+import {Theme} from '../../models/settings/enums/theme.enum';
 
 @Injectable()
 export class SettingsRepository {
@@ -21,7 +22,8 @@ export class SettingsRepository {
   public settingsChanged$ = this.settingsChanged.asObservable();
 
   constructor(private loggingService: LoggingService) {
-    window.addEventListener(GurpsyConstants.STORAGE_EVENT_LISTENER_KEY, (event: StorageEvent) => this.handleStorageChange(event));
+    window.addEventListener(GurpsyConstants.STORAGE_EVENT_LISTENER_KEY,
+      (event: StorageEvent) => this.handleStorageChange(event));
   }
 
   /**
@@ -37,9 +39,9 @@ export class SettingsRepository {
   /**
    * Store the given theme.
    *
-   * @param {string} theme
+   * @param {Theme} theme
    */
-  public storeTheme(theme: string) {
+  public storeTheme(theme: Theme) {
     const settings: Settings = this.retrieve();
     settings.theme = theme;
 
@@ -49,16 +51,12 @@ export class SettingsRepository {
   /**
    * Retrieve the currently stored theme.
    *
-   * @returns {Promise<string>} the current theme.
+   * @returns {Promise<Theme>} the current theme.
    */
-  public retrieveTheme(): Promise<string> {
+  public retrieveTheme(): Promise<Theme> {
     const settings: Settings = this.retrieve();
 
-    if (settings.theme === '') {
-      return Promise.reject('No theme stored, use default.');
-    } else {
-      return Promise.resolve(settings.theme);
-    }
+    return Promise.resolve(settings.theme);
   }
 
   private store(settings: Settings) {

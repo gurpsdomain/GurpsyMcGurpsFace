@@ -3,6 +3,7 @@ import {Settings} from '../../models/settings/settings.model';
 import {TranslateService} from '@ngx-translate/core';
 import {SettingsRepository} from '../../repositories/settings/settings.repository';
 import {Subject} from 'rxjs/Subject';
+import {Theme} from '../../models/settings/enums/theme.enum';
 
 @Injectable()
 export class SettingsService {
@@ -10,10 +11,6 @@ export class SettingsService {
   private static ENGLISH = 'en';
   private static DEFAULT: string = SettingsService.ENGLISH;
   private static AVAILABLE_LANGUAGES: string[] = [SettingsService.ENGLISH];
-
-  public static THEME_DAY = 'day';
-  public static THEME_NIGHT = 'night';
-  public static THEME_DEFAULT = SettingsService.THEME_NIGHT;
 
   private settingsSource = new Subject<Settings>();
   public settingsChange$ = this.settingsSource.asObservable();
@@ -30,16 +27,16 @@ export class SettingsService {
    *
    * @param theme : string
    */
-  public setTheme(theme: string) {
+  public setTheme(theme: Theme) {
     this.settingsStorageService.storeTheme(theme);
   }
 
   /**
    * Get theme.
    *
-   * @return Promise<string>  A promise that resolves to the current theme
+   * @return Promise<Theme>  A promise that resolves to the current theme
    */
-  public getTheme(): Promise<string> {
+  public getTheme(): Promise<Theme> {
     return this.settingsStorageService.retrieveTheme();
   }
 

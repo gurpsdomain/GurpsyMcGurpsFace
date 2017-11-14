@@ -4,6 +4,7 @@ import {SheetViewingComponent} from '../../sheet-viewing.component';
 import {SheetService} from '../../../services/sheet/sheet.service';
 import {SettingsService} from '../../../services/settings/settings.service';
 import {Settings} from '../../../models/settings/settings.model';
+import {Theme} from '../../../models/settings/enums/theme.enum';
 
 @Component({
   selector: 'gurpsy-side-navigation',
@@ -49,7 +50,7 @@ export class SideNavigationComponent extends SheetViewingComponent implements On
   public onThemeChange(): void {
     this.nightTheme = !this.nightTheme;
 
-    const theme = this.nightTheme ? SettingsService.THEME_NIGHT : SettingsService.THEME_DAY;
+    const theme = this.nightTheme ? Theme.NIGHT : Theme.DAY;
     this.setTheme(theme);
 
     this.settingsService.setTheme(theme);
@@ -69,7 +70,7 @@ export class SideNavigationComponent extends SheetViewingComponent implements On
   private initTheme(): void {
     this.settingsService.getTheme()
       .then(theme => this.setTheme(theme))
-      .catch(err => this.setTheme(SettingsService.THEME_DEFAULT));
+      .catch(err => this.setTheme(Theme.NIGHT));
   }
 
   private initSettingsListener(): void {
@@ -80,16 +81,14 @@ export class SideNavigationComponent extends SheetViewingComponent implements On
     this.setTheme(settings.theme);
   }
 
-  private setTheme(theme: string) {
-    this.nightTheme = theme === SettingsService.THEME_NIGHT;
+  private setTheme(theme: Theme) {
+    this.nightTheme = theme === Theme.NIGHT;
   }
 
   private toggleShowLibrary(): boolean {
     this.showLibrary = !this.showLibrary;
     return this.showLibrary;
   }
-
-
 }
 
 
