@@ -23,16 +23,27 @@
     width: 100%;
     margin: 0px 0px 4px 0px;
 
+    .content {
+      padding: 0px 10px 0px 10px;
+
+    }
+    .header {
+      text-align: end;
+      font-size: x-small;
+      cursor: pointer;
+    }
+
     .sideNavigationButton {
-      padding: 6px 8px 6px 8px;
+      padding: 2px 8px 2px 8px;
       width: 100%;
       font-weight: inherit;
 
       span {
         text-align: left;
       }
+
       mat-icon {
-        padding: 6px 0px 6px 0px;
+        padding: 6px 0px 6px 6px;
         margin-right: 24px;
       }
     }

@@ -18,6 +18,12 @@
     }
 
     .sideNavigationContent {
+      .header {
+        span {
+          color: $hintText;
+        }
+      }
+
       button {
         md-icon {
           color: $hintText;

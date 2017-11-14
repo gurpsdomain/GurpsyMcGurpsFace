@@ -21,6 +21,9 @@ export class SideNavigationComponent extends SheetViewingComponent implements On
   public showLibrary = false;
   public nightTheme = false;
 
+  public showSettingsMenu = false;
+  public showLibraryMenu = false;
+
   constructor(private sheetBodyService: SheetBodyService,
               private settingsService: SettingsService,
               modelService: SheetService) {
