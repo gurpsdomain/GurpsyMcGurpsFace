@@ -19,6 +19,8 @@
 
     .sideNavigationContent {
       .header {
+        border-top: 1px solid $statusBar;
+
         span {
           color: $hintText;
         }

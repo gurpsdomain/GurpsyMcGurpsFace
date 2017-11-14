@@ -23,9 +23,19 @@
     width: 100%;
     margin: 0px 0px 4px 0px;
 
-    .content {
-      padding: 0px 10px 0px 10px;
+    .settings {
+      .content {
+        padding: 0px 10px 0px 10px;
 
+      }
+    }
+
+    .library {
+      .content {
+        button {
+          padding: 2px 14px 2px 14px;
+        }
+      }
     }
     .header {
       text-align: end;
