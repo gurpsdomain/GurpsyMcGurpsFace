@@ -3,7 +3,6 @@ import {SheetBodyService} from '../../../services/sheet-body/sheet-body.service'
 import {SheetViewingComponent} from '../../sheet-viewing.component';
 import {SheetService} from '../../../services/sheet/sheet.service';
 import {SettingsService} from '../../../services/settings/settings.service';
-import {Settings} from '../../../models/settings/settings.model';
 import {Theme} from '../../../models/settings/enums/theme.enum';
 import {SheetBodyContent} from '../../../services/sheet-body/enums/sheet-body-content.enum';
 
@@ -21,7 +20,8 @@ export class SideNavigationComponent extends SheetViewingComponent implements On
   public sheetBodyComponents = SheetBodyContent;
   public sheetBodyContent: SheetBodyContent = SheetBodyContent.GENERAL;
   public showLibrary = false;
-  public nightTheme = false;
+  public theme: Theme;
+  public themeEnum = Theme;
 
   public showSettingsMenu = false;
   public showLibraryMenu = false;
@@ -49,12 +49,17 @@ export class SideNavigationComponent extends SheetViewingComponent implements On
    * Handle a change of the selected theme
    */
   public onThemeChange(): void {
-    this.nightTheme = !this.nightTheme;
 
-    const theme = this.nightTheme ? Theme.NIGHT : Theme.DAY;
-    this.setTheme(theme);
+    switch (this.theme) {
+      case Theme.NIGHT:
+        this.setTheme(Theme.DAY);
+        break;
+      case Theme.DAY:
+        this.setTheme(Theme.NIGHT);
+        break;
+    }
 
-    this.settingsService.setTheme(theme);
+    this.settingsService.setTheme(this.theme);
   }
 
 
@@ -75,15 +80,11 @@ export class SideNavigationComponent extends SheetViewingComponent implements On
   }
 
   private initSettingsListener(): void {
-    this.settingsService.settingsChange$.subscribe(settings => this.updateSettings(settings));
-  }
-
-  private updateSettings(settings: Settings): void {
-    this.setTheme(settings.theme);
+    this.settingsService.settingsChange$.subscribe(settings => this.setTheme(settings.theme));
   }
 
   private setTheme(theme: Theme) {
-    this.nightTheme = theme === Theme.NIGHT;
+    this.theme = theme;
   }
 
   private toggleShowLibrary(): boolean {

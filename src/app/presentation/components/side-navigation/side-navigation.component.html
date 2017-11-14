@@ -94,7 +94,7 @@
       <div class="content" *ngIf="showSettingsMenu">
         <mat-slide-toggle
           (change)="onThemeChange()"
-          [(ngModel)]="nightTheme">
+          [checked]="theme == themeEnum.NIGHT">
           {{'SIDE_NAVIGATION.SETTINGS.NIGHT_THEME'| translate}}
         </mat-slide-toggle>
       </div>
