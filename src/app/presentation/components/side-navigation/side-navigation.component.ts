@@ -1,10 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {SheetBodyContent, SheetBodyService} from '../../../services/sheet-body/sheet-body.service';
+import {SheetBodyService} from '../../../services/sheet-body/sheet-body.service';
 import {SheetViewingComponent} from '../../sheet-viewing.component';
 import {SheetService} from '../../../services/sheet/sheet.service';
 import {SettingsService} from '../../../services/settings/settings.service';
 import {Settings} from '../../../models/settings/settings.model';
 import {Theme} from '../../../models/settings/enums/theme.enum';
+import {SheetBodyContent} from '../../../services/sheet-body/enums/sheet-body-content.enum';
 
 @Component({
   selector: 'gurpsy-side-navigation',

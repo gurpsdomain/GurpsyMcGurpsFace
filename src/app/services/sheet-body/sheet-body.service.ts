@@ -1,14 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
-
-export enum SheetBodyContent {
-  GENERAL,
-  ADVANTAGES,
-  SKILLS,
-  MAGIC,
-  EQUIPMENT,
-  NOTES
-}
+import {SheetBodyContent} from './enums/sheet-body-content.enum';
 
 @Injectable()
 export class SheetBodyService {

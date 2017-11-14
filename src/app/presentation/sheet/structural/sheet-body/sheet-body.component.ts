@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SheetBodyService, SheetBodyContent} from '../../../../services/sheet-body/sheet-body.service';
+import {SheetBodyService} from '../../../../services/sheet-body/sheet-body.service';
+import {SheetBodyContent} from '../../../../services/sheet-body/enums/sheet-body-content.enum';
 
 @Component({
   selector: 'gurpsy-sheet-body',
