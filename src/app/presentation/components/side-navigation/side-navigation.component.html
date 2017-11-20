@@ -21,7 +21,7 @@
   </div>
   <div class="sideNavigationContent flex-item"
        fxFlex="100%">
-    <div class="sheet">
+    <div class="sheet" *ngIf="sheet">
       <button mat-button
               (click)="onSheetBodyClick(sheetBodyComponents.GENERAL)"
               [class.selected]="sheetBodyContent === sheetBodyComponents.GENERAL"
