@@ -1,9 +1,14 @@
 <mat-sidenav-container class="{{theme}}">
-  <mat-sidenav #sidenav>
+  <mat-sidenav position="start" #sidenav>
     <gurpsy-side-navigation (onCloseSideNavigation)="sidenav.close()"
                             (onShowLibrary)="onShowLibrary($event)">
     </gurpsy-side-navigation>
   </mat-sidenav>
+
+  <mat-sidenav #left position="end">
+    End Sidenav.
+  </mat-sidenav>
+
 
   <mat-toolbar class="flex-container">
     <button mat-icon-button
@@ -109,6 +114,12 @@
         </button>
       </mat-menu>
     </div>
+
+    <button mat-icon-button
+            class="flex-item"
+            (click)="left.open()">
+      <mat-icon>chrome_reader_mode</mat-icon>
+    </button>
   </mat-toolbar>
 
   <div class="gurpsyBody flex-container"
