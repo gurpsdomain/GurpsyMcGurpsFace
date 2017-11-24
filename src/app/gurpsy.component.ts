@@ -66,6 +66,7 @@ export class GurpsyComponent implements OnInit {
     this.initSheet();
     this.initDownloadLink();
     this.initNewSheetLoadedListener();
+    this.initErrorListener();
     this.initLibrary();
     this.initTheme();
   }
@@ -194,6 +195,10 @@ export class GurpsyComponent implements OnInit {
     this.sheetService.newSheetLoaded$.subscribe(sheet => this.showNewSheetLoadedMessage(sheet));
   }
 
+  private initErrorListener(): void {
+    this.sheetService.templateStoreError$.subscribe(any => this.showTemplateStoreError());
+  }
+
   private setTheme(theme: Theme) {
     this.theme = theme;
     this.overlayContainer.getContainerElement().classList.add(theme);
@@ -203,10 +208,18 @@ export class GurpsyComponent implements OnInit {
     if (sheet) {
       this.translate.get('MESSAGE.SHEET_LOADED', {value: sheet.metaData.identity.name}).subscribe((res: string) => {
         this.snackBar.open(res, '', {
-          duration: GurpsyConstants.SNACKBAR_DURATION_TIME,
+          duration: GurpsyConstants.SNACKBAR_DURATION_TIME
         });
       });
     }
+  }
+
+  private showTemplateStoreError(): void {
+    this.translate.get('MESSAGE.UNABLE_TO_STORE_SHEET').subscribe((res: string) => {
+      this.snackBar.open(res, '', {
+        duration: GurpsyConstants.SNACKBAR_DURATION_TIME
+      });
+    });
   }
 
   private registerCustomIcons(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer): void {

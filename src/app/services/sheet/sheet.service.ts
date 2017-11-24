@@ -15,35 +15,43 @@ export class SheetService {
   private newSheetLoadedSource = new Subject<Sheet>();
   private sheetUpdatedSource = new Subject<Sheet>();
   private templatesUpdatedSource = new Subject<SheetTemplate[]>();
+  private templateStoreError = new Subject<void>();
 
   /**
    * Register to this observable to be notified when the sheet has been updated. This is most
    * likely due to a change of the template, and consequently update of the sheet.
    *
-   * @type Observable
+   * @type {Observable<Sheet>}
    */
   public sheetUpdated$ = this.sheetUpdatedSource.asObservable();
 
   /**
    * Register to this observable to be notified when a new sheet has been loaded.
    *
-   * @type Observable
+   * @type {Observable<Sheet>}
    */
   public newSheetLoaded$ = this.newSheetLoadedSource.asObservable();
 
   /**
    * Register to this observable to be notified when the edit mode has changed.
    *
-   * @type Observable
+   * @type {Observable<boolean>}
    */
   public editModeChange$ = this.editModeChangeSource.asObservable();
 
   /**
    * Register to this observable to be notified when the templates are updated.
    *
-   * @type Observable
+   * @type {Observable<SheetTemplate[]>}
    */
   public templatesUpdated$ = this.templatesUpdatedSource.asObservable();
+
+  /**
+   * Register to this observable to be notified if storing the template has errored.
+   *
+   * @type {Observable<void>}
+   */
+  public templateStoreError$ = this.templateStoreError.asObservable();
 
   constructor(private templateStorageService: TemplateRepository) {
     this.initSheet();
@@ -87,7 +95,11 @@ export class SheetService {
    * @param {SheetTemplate} The new SheetTemplate.
    */
   public loadNewTemplate(template: SheetTemplate): void {
-    this.templateStorageService.addAndSelectTemplate(template);
+    try {
+      this.templateStorageService.addAndSelectTemplate(template);
+    } catch (error) {
+      this.templateStoreError.next();
+    }
   }
 
   /**
@@ -116,7 +128,12 @@ export class SheetService {
    */
   public updateTemplate(template: SheetTemplate): void {
     template.lastModified = new Date();
-    this.templateStorageService.updateTemplate(template);
+
+    try {
+      this.templateStorageService.updateTemplate(template);
+    } catch (error) {
+      this.templateStoreError.next();
+    }
   }
 
   /**

@@ -43,7 +43,11 @@ export class TemplateRepository {
   public addTemplate(template: SheetTemplate): void {
     const templates: TemplateStore = this.getTemplatesDM();
     templates.addTemplate(template, true);
-    this.persist(templates);
+    try {
+      this.persist(templates);
+    } catch (error) {
+      throw error;
+    }
   }
 
   /**
@@ -53,7 +57,13 @@ export class TemplateRepository {
    */
   public addAndSelectTemplate(template: SheetTemplate): void {
     this.persistSelectedTemplate(template);
-    this.addTemplate(template);
+
+    try {
+      this.addTemplate(template);
+    } catch (error) {
+      throw error;
+    }
+
   }
 
   /**
@@ -96,7 +106,12 @@ export class TemplateRepository {
    * @param {TemplateStore} templates
    */
   public selectTemplate(template: SheetTemplate): void {
-    this.persistSelectedTemplate(template);
+    try {
+      this.persistSelectedTemplate(template);
+    } catch (error) {
+      throw error;
+    }
+
     this.selectedTemplateChanged.next();
   }
 
@@ -123,7 +138,11 @@ export class TemplateRepository {
       this.deselectTemplate();
     }
 
-    this.persist(retrievedTemplates);
+    try {
+      this.persist(retrievedTemplates);
+    } catch (error) {
+      throw error;
+    }
   }
 
   /**
@@ -137,7 +156,11 @@ export class TemplateRepository {
 
     retrievedTemplates.updateTemplate(template);
 
-    this.persist(retrievedTemplates);
+    try {
+      this.persist(retrievedTemplates);
+    } catch (error) {
+      throw error;
+    }
   }
 
   private clearSelectedTemplate(): void {
@@ -154,7 +177,13 @@ export class TemplateRepository {
     const jsonConvert = new JsonConvert();
     const jsonSheets = JSON.stringify(jsonConvert.serialize(templates));
 
-    localStorage.setItem(this.getAllTemplatesStorageKey(), jsonSheets);
+    try {
+      localStorage.setItem(this.getAllTemplatesStorageKey(), jsonSheets);
+    } catch (error) {
+      this.loggingService.error('Unable to persist new template. ', error);
+      throw new Error('Unable to persist new template');
+    }
+
     this.templatesUpdated.next(templates.templates);
   }
 
@@ -204,6 +233,11 @@ export class TemplateRepository {
   }
 
   private persistSelectedTemplate(template: SheetTemplate): void {
-    sessionStorage.setItem(this.getSelectedTemplateStorageKey(), template.id);
+    try {
+      sessionStorage.setItem(this.getSelectedTemplateStorageKey(), template.id);
+    } catch (error) {
+      this.loggingService.error('Unable to persist selected template. ', error);
+      throw new Error('Unable to persist selected template');
+    }
   }
 }
