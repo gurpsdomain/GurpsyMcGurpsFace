@@ -38,6 +38,7 @@
   },
   "MESSAGE": {
     "SHEET_LOADED": "Loaded Character Sheet: {{value}}",
+    "UNABLE_TO_STORE_SHEET": "Unable to store sheet. Possibly you Local Storage is full. Please delete any unused sheet.",
     "ERROR": {
       "REQUIRED_NAME": "Please provide a name for this character",
       "REQUIRED_PLAYER": "Please provide a player for this character"
@@ -206,7 +207,7 @@
     "MAGIC": "Magic",
     "NOTES": "Notes",
     "SKILLS": "Skills",
-    "SETTINGS" : {
+    "SETTINGS": {
       "SETTINGS": "Settings",
       "NIGHT_THEME": "Night mode"
     }
@@ -218,7 +219,7 @@
       "WEIGHT": "kg"
     },
     "imperial": "Imperial (lb, inch)",
-    "IMPERIAL" : {
+    "IMPERIAL": {
       "HEIGHT": "inch",
       "WEIGHT": "lb"
     }
