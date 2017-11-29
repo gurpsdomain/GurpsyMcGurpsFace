@@ -1,4 +1,57 @@
-<mat-card>
-  <gurpsy-sheet-header></gurpsy-sheet-header>
-  <gurpsy-sheet-body></gurpsy-sheet-body>
-</mat-card>
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      General
+    </ng-template>
+    <mat-card>
+      <gurpsy-sheet-header></gurpsy-sheet-header>
+      <gurpsy-sheet-body></gurpsy-sheet-body>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      (Dis)Advantages
+    </ng-template>
+    <mat-card>
+      <gurpsy-sheet-header></gurpsy-sheet-header>
+      <gurpsy-struct-advantages-disadvantages></gurpsy-struct-advantages-disadvantages>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Skills
+    </ng-template>
+    <mat-card>
+      <gurpsy-sheet-header></gurpsy-sheet-header>
+      <gurpsy-skills></gurpsy-skills>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Magic
+    </ng-template>
+    <mat-card>
+      <gurpsy-sheet-header></gurpsy-sheet-header>
+      <gurpsy-spells></gurpsy-spells>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Equipment
+    </ng-template>
+    <mat-card>
+      <gurpsy-sheet-header></gurpsy-sheet-header>
+      <gurpsy-equipment></gurpsy-equipment>
+    </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Notes
+    </ng-template>
+    <mat-card>
+      <gurpsy-sheet-header></gurpsy-sheet-header>
+      <gurpsy-notes></gurpsy-notes>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
