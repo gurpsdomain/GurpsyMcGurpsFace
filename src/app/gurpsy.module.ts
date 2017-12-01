@@ -14,12 +14,10 @@ import {SettingsService} from './services/settings/settings.service';
 import {SettingsRepository} from './repositories/settings/settings.repository';
 import {TemplateRepository} from './repositories/template/template.repository';
 import {NotesComponent} from './presentation/sheet/reusable/notes/notes.component';
-import {SheetBodyComponent} from './presentation/sheet/structural/sheet-body/sheet-body.component';
 import {SkillsComponent} from './presentation/sheet/reusable/skills/skills.component';
 import {SpellsComponent} from './presentation/sheet/reusable/spells/spells.component';
 import {EquipmentComponent} from './presentation/sheet/reusable/equipment/equipment.component';
 import {AdvantagesComponent} from './presentation/sheet/reusable/advantages/advantages.component';
-import {SheetBodyService} from './services/sheet-body/sheet-body.service';
 import {GeneralComponent} from './presentation/sheet/structural/sheet-body/general/general.component';
 import {AttributesComponent} from './presentation/sheet/reusable/attributes/attributes.component';
 import {HitLocationComponent} from './presentation/sheet/reusable/hit-location/hit-location.component';
@@ -96,7 +94,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     PlayerInformationComponent,
     PlayerInformationUpdaterComponent,
     PointsComponent,
-    SheetBodyComponent,
     SheetComponent,
     SheetHeaderComponent,
     SideNavigationComponent,
@@ -128,7 +125,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoggingService,
     TemplateRepository,
     SheetService,
-    SheetBodyService,
     SettingsService,
     SettingsRepository,
     PageReferenceService

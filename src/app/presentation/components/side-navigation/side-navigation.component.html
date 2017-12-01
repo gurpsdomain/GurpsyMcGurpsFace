@@ -21,50 +21,6 @@
   </div>
   <div class="sideNavigationContent flex-item"
        fxFlex="100%">
-    <div class="sheet" *ngIf="sheet">
-      <button mat-button
-              (click)="onSheetBodyClick(sheetBodyComponents.GENERAL)"
-              [class.selected]="sheetBodyContent === sheetBodyComponents.GENERAL"
-              class="sideNavigationButton">
-        <mat-icon>accessibility</mat-icon>
-        <span fxFlex="100%">{{'SIDE_NAVIGATION.GENERAL'| translate}}</span>
-      </button>
-      <button mat-button
-              (click)="onSheetBodyClick(sheetBodyComponents.ADVANTAGES)"
-              [class.selected]="sheetBodyContent == sheetBodyComponents.ADVANTAGES"
-              class="sideNavigationButton">
-        <mat-icon>hearing</mat-icon>
-        <span fxFlex="100%">{{'SIDE_NAVIGATION.DIS_ADVANTAGES'| translate}}</span>
-      </button>
-      <button mat-button
-              (click)="onSheetBodyClick(sheetBodyComponents.SKILLS)"
-              [class.selected]="sheetBodyContent == sheetBodyComponents.SKILLS"
-              class="sideNavigationButton">
-        <mat-icon>school</mat-icon>
-        <span fxFlex="100%">{{'SIDE_NAVIGATION.SKILLS'| translate}}</span>
-      </button>
-      <button mat-button
-              (click)="onSheetBodyClick(sheetBodyComponents.MAGIC)"
-              [class.selected]="sheetBodyContent == sheetBodyComponents.MAGIC"
-              class="sideNavigationButton">
-        <mat-icon>flash_on</mat-icon>
-        <span fxFlex="100%">{{'SIDE_NAVIGATION.MAGIC'| translate}}</span>
-      </button>
-      <button mat-button
-              (click)="onSheetBodyClick(sheetBodyComponents.EQUIPMENT)"
-              [class.selected]="sheetBodyContent == sheetBodyComponents.EQUIPMENT"
-              class="sideNavigationButton">
-        <mat-icon>card_travel</mat-icon>
-        <span fxFlex="100%">{{'SIDE_NAVIGATION.EQUIPMENT'| translate}}</span>
-      </button>
-      <button mat-button
-              (click)="onSheetBodyClick(sheetBodyComponents.NOTES)"
-              [class.selected]="sheetBodyContent == sheetBodyComponents.NOTES"
-              class="sideNavigationButton">
-        <mat-icon>mode_edit</mat-icon>
-        <span fxFlex="100%">{{'SIDE_NAVIGATION.NOTES'| translate}}</span>
-      </button>
-    </div>
     <div class="library">
       <div class="header" (click)="showLibraryMenu = !showLibraryMenu">
         <span>{{'SIDE_NAVIGATION.LIBRARY.LIBRARY'| translate}}</span>

@@ -14,13 +14,11 @@ import {SideNavigationComponent} from './presentation/components/side-navigation
 import {SettingsService} from './services/settings/settings.service';
 import {SettingsRepository} from './repositories/settings/settings.repository';
 import {TemplateRepository} from './repositories/template/template.repository';
-import {SheetBodyComponent} from './presentation/sheet/structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './presentation/sheet/reusable/notes/notes.component';
 import {AdvantagesComponent} from './presentation/sheet/reusable/advantages/advantages.component';
 import {EquipmentComponent} from './presentation/sheet/reusable/equipment/equipment.component';
 import {SpellsComponent} from './presentation/sheet/reusable/spells/spells.component';
 import {SkillsComponent} from './presentation/sheet/reusable/skills/skills.component';
-import {SheetBodyService} from './services/sheet-body/sheet-body.service';
 import {GeneralComponent} from './presentation/sheet/structural/sheet-body/general/general.component';
 import {AttributesComponent} from './presentation/sheet/reusable/attributes/attributes.component';
 import {HitLocationComponent} from './presentation/sheet/reusable/hit-location/hit-location.component';
@@ -81,7 +79,6 @@ describe('GurpsyComponent', () => {
         SideNavigationComponent,
         SheetComponent,
         SheetHeaderComponent,
-        SheetBodyComponent,
         SpellsComponent,
         SkillsComponent,
         PdfViewerComponent,
@@ -99,8 +96,7 @@ describe('GurpsyComponent', () => {
         LoggingService,
         PageReferenceService,
         TemplateRepository,
-        SheetService,
-        SheetBodyService
+        SheetService
       ],
       schemas: [
         NO_ERRORS_SCHEMA

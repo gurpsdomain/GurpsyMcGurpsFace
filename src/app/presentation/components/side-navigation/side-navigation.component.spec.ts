@@ -10,7 +10,6 @@ import {SettingsRepository} from '../../../repositories/settings/settings.reposi
 import {TemplateRepository} from '../../../repositories/template/template.repository';
 import {LoggingService} from '../../../services/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../modules/material.module';
-import {SheetBodyService} from '../../../services/sheet-body/sheet-body.service';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -31,7 +30,6 @@ describe('SideNavigationComponent', () => {
         SheetService,
         SettingsService,
         SettingsRepository,
-        SheetBodyService,
         TemplateRepository
       ],
       schemas: [

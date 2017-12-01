@@ -10,7 +10,6 @@ import {By} from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, DebugElement} from '@angular/core';
 import {TranslateModule} from '@ngx-translate/core';
 // tslint:disable-next-line max-line-length
-import {SheetBodyComponent} from './structural/sheet-body/sheet-body.component';
 import {NotesComponent} from './reusable/notes/notes.component';
 import {AdvantagesComponent} from './reusable/advantages/advantages.component';
 import {EquipmentComponent} from './reusable/equipment/equipment.component';
@@ -29,7 +28,6 @@ import {PageReferenceComponent} from '../components/generic/page-reference/page-
 import {HttpModule} from '@angular/http';
 import {SettingsRepository} from '../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../repositories/template/template.repository';
-import {SheetBodyService} from '../../services/sheet-body/sheet-body.service';
 import {GurpsyMaterialModule} from '../../modules/material.module';
 import {LoggingService} from '../../services/logging/logging.service';
 import {SettingsService} from '../../services/settings/settings.service';
@@ -57,7 +55,6 @@ describe('SheetComponent', function () {
         SkillsComponent,
         SheetComponent,
         SheetHeaderComponent,
-        SheetBodyComponent,
         GeneralComponent,
         PortraitComponent,
         IdentityComponent,
@@ -77,7 +74,6 @@ describe('SheetComponent', function () {
         LoggingService,
         SettingsRepository,
         TemplateRepository,
-        SheetBodyService,
         SettingsService,
         SheetService
       ],
