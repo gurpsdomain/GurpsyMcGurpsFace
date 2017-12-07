@@ -25,6 +25,7 @@
     "ABOUT": "About",
     "EDIT": "Edit sheet",
     "LOCK": "Lock sheet",
+    "NIGHT_THEME": "Night mode",
     "SETTINGS": "Settings",
     "SHEET": {
       "CLOSE": "Close sheet",
@@ -196,20 +197,17 @@
       "REF": "Ref"
     }
   },
-  "SIDE_NAVIGATION": {
+  "NAVIGATION": {
     "DIS_ADVANTAGES": "(Dis)Advantages",
     "EQUIPMENT": "Equipment",
     "GENERAL": "General",
+    "MAGIC": "Magic",
+    "SKILLS": "Skills"
+  },
+  "SIDE_NAVIGATION": {
     "LIBRARY": {
       "LIBRARY": "Library",
       "GURPS_LITE": "Gurps lite"
-    },
-    "MAGIC": "Magic",
-    "NOTES": "Notes",
-    "SKILLS": "Skills",
-    "SETTINGS": {
-      "SETTINGS": "Settings",
-      "NIGHT_THEME": "Night mode"
     }
   },
   "UNIT": {

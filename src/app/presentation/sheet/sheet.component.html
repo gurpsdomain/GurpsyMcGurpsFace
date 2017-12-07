@@ -1,7 +1,7 @@
 <mat-tab-group>
   <mat-tab>
     <ng-template mat-tab-label>
-      General
+      {{ 'NAVIGATION.GENERAL' | translate }}
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
@@ -9,7 +9,7 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      (Dis)Advantages
+      {{ 'NAVIGATION.DIS_ADVANTAGES' | translate }}
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
@@ -18,7 +18,7 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      Skills
+      {{ 'NAVIGATION.SKILLS' | translate }}
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
@@ -27,7 +27,7 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      Magic
+      {{ 'NAVIGATION.MAGIC' | translate }}
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
@@ -36,19 +36,11 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      Equipment
+      {{ 'NAVIGATION.EQUIPMENT' | translate }}
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
       <gurpsy-equipment></gurpsy-equipment>
-    </mat-card>
-  </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      Notes
-    </ng-template>
-    <mat-card>
-      <gurpsy-sheet-header></gurpsy-sheet-header>
       <gurpsy-notes></gurpsy-notes>
     </mat-card>
   </mat-tab>
