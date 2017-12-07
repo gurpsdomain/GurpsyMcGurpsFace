@@ -5,8 +5,6 @@ import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {SheetService} from '../../../services/sheet/sheet.service';
-import {SettingsService} from '../../../services/settings/settings.service';
-import {SettingsRepository} from '../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../repositories/template/template.repository';
 import {LoggingService} from '../../../services/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../modules/material.module';
@@ -28,8 +26,6 @@ describe('SideNavigationComponent', () => {
       providers: [
         LoggingService,
         SheetService,
-        SettingsService,
-        SettingsRepository,
         TemplateRepository
       ],
       schemas: [

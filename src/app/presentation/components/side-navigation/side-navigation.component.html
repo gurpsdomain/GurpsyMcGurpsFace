@@ -38,21 +38,5 @@
         </button>
       </div>
     </div>
-    <div class="settings">
-      <div class="header" (click)="showSettingsMenu = !showSettingsMenu">
-        <span>{{'SIDE_NAVIGATION.SETTINGS.SETTINGS'| translate}}</span>
-        <button mat-icon-button>
-          <mat-icon *ngIf="!showSettingsMenu">keyboard_arrow_left</mat-icon>
-          <mat-icon *ngIf="showSettingsMenu">keyboard_arrow_down</mat-icon>
-        </button>
-      </div>
-      <div class="content" *ngIf="showSettingsMenu">
-        <mat-slide-toggle
-          (change)="onThemeChange()"
-          [checked]="theme == themeEnum.NIGHT">
-          {{'SIDE_NAVIGATION.SETTINGS.NIGHT_THEME'| translate}}
-        </mat-slide-toggle>
-      </div>
-    </div>
   </div>
 </div>

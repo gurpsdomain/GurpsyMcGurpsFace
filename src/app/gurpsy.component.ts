@@ -45,6 +45,7 @@ export class GurpsyComponent implements OnInit {
   public editMode: boolean;
   public showLibrary: boolean;
   public theme: Theme;
+  public themeEnum = Theme;
 
   constructor(protected sheetService: SheetService,
               public dialog: MatDialog,
@@ -167,6 +168,25 @@ export class GurpsyComponent implements OnInit {
     this.showLibrary = show;
   }
 
+  /**
+   * Handle a change of the selected theme
+   */
+  public onThemeChange(): void {
+
+    switch (this.theme) {
+      case Theme.NIGHT:
+        this.overlayContainer.getContainerElement().classList.remove(Theme.NIGHT);
+        this.setTheme(Theme.DAY);
+        break;
+      case Theme.DAY:
+        this.overlayContainer.getContainerElement().classList.remove(Theme.DAY);
+        this.setTheme(Theme.NIGHT);
+        break;
+    }
+
+    this.settingsService.setTheme(this.theme);
+  }
+
   private initDownloadLink(): void {
     this.sheetService.getTemplate().then(template => this.setTemplate(template));
     this.sheetService.sheetUpdated$.subscribe(sheet => this.sheetService.getTemplate()
@@ -200,6 +220,7 @@ export class GurpsyComponent implements OnInit {
   }
 
   private setTheme(theme: Theme) {
+    console.log('Setting new theme: ', theme);
     this.theme = theme;
     this.overlayContainer.getContainerElement().classList.add(theme);
   }

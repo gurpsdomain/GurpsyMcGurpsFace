@@ -71,6 +71,13 @@
           <mat-icon svgIcon="d6"></mat-icon>
           <span>{{ 'MENU.THROW_DICE' | translate }}</span>
         </button>
+        <button mat-menu-item
+                (click)="onThemeChange()">
+          <mat-slide-toggle
+            [checked]="theme == themeEnum.NIGHT">
+          </mat-slide-toggle>
+          {{'SIDE_NAVIGATION.SETTINGS.NIGHT_THEME'| translate}}
+        </button>
         <button mat-menu-item (click)="onOpenAboutDialog()">
           <mat-icon svgIcon="gurpsy-face"></mat-icon>
           <span>{{ 'MENU.ABOUT' | translate }}</span>
