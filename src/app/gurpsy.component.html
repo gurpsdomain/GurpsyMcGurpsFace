@@ -74,7 +74,8 @@
         <button mat-menu-item
                 (click)="onThemeChange()">
           <mat-slide-toggle
-            [checked]="theme == themeEnum.NIGHT">
+            [checked]="theme == themeEnum.NIGHT"
+            (change)="onThemeChange()">
           </mat-slide-toggle>
           {{'MENU.NIGHT_THEME'| translate}}
         </button>
