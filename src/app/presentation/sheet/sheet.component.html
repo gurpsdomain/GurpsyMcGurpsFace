@@ -1,15 +1,20 @@
 <mat-tab-group>
   <mat-tab>
     <ng-template mat-tab-label>
-      {{ 'NAVIGATION.GENERAL' | translate }}
+      <mat-icon fxShow="false" fxShow.xs>accessibility</mat-icon>
+      <span fxHide="false"
+            fxHide.xs>{{ 'NAVIGATION.GENERAL' | translate }}</span>
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
+      <gurpsy-struct-general></gurpsy-struct-general>
     </mat-card>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      {{ 'NAVIGATION.DIS_ADVANTAGES' | translate }}
+      <mat-icon fxShow="false" fxShow.xs>accessible</mat-icon>
+      <span fxHide="false"
+            fxHide.xs>{{ 'NAVIGATION.DIS_ADVANTAGES' | translate }}</span>
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
@@ -18,7 +23,9 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      {{ 'NAVIGATION.SKILLS' | translate }}
+      <mat-icon fxShow="false" fxShow.xs>school</mat-icon>
+      <span fxHide="false"
+            fxHide.xs>{{ 'NAVIGATION.SKILLS' | translate }}</span>
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
@@ -27,7 +34,9 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      {{ 'NAVIGATION.MAGIC' | translate }}
+      <mat-icon fxShow="false" fxShow.xs>flash_on</mat-icon>
+      <span fxHide="false"
+            fxHide.xs>{{ 'NAVIGATION.MAGIC' | translate }}</span>
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
@@ -36,7 +45,9 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      {{ 'NAVIGATION.EQUIPMENT' | translate }}
+      <mat-icon fxShow="false" fxShow.xs>work</mat-icon>
+      <span fxHide="false"
+            fxHide.xs>{{ 'NAVIGATION.EQUIPMENT' | translate }}</span>
     </ng-template>
     <mat-card>
       <gurpsy-sheet-header></gurpsy-sheet-header>
