@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PageReferenceService} from '../../../services/page-reference/page-reference.service';
 
 @Component({
@@ -7,6 +7,8 @@ import {PageReferenceService} from '../../../services/page-reference/page-refere
   styleUrls: ['./book-viewer.component.scss']
 })
 export class BookViewerComponent implements OnInit {
+
+  @Output() onCloseBookViewer: EventEmitter<void> = new EventEmitter<void>();
 
   pdfSrc = 'assets/library/gurpslite.pdf';
   page = 1;
@@ -19,7 +21,16 @@ export class BookViewerComponent implements OnInit {
 
   public ngOnInit(): void {
     this.loadReference();
+    this.pageReferenceService.referenceRequested$.subscribe(data => this.page = data, err => this.page = 1);
   }
+
+  /**
+   * Called when the user clicks the close button.
+   */
+  public onCloseBookViewerClicked(): void {
+    this.onCloseBookViewer.next();
+  }
+
 
   /**
    * Call when the pdf has been loaded.

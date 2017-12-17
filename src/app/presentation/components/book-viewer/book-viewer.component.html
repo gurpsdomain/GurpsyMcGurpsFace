@@ -1,20 +1,36 @@
 <div class="bookViewer">
-  <div>
-    <pdf-viewer [src]="pdfSrc"
-                [page]="page"
-                [zoom]="zoom"
-                [original-size]="false"
-                (after-load-complete)="onPDFLoaded($event)"
-                class="pdfViewer">
-    </pdf-viewer>
+  <div class="closeButton">
+    <button mat-fab>
+      <mat-icon (click)="onCloseBookViewerClicked()">close</mat-icon>
+    </button>
   </div>
 
-  <div class="button-row pdfControls">
-    <button mat-raised-button (click)="onFirst()"><mat-icon>first_page</mat-icon></button>
-    <button mat-raised-button (click)="onDecrement()"><mat-icon>chevron_left</mat-icon></button>
-    <button mat-raised-button (click)="onZoomOut()"><mat-icon>zoom_out</mat-icon></button>
-    <button mat-raised-button (click)="onZoomIn()"><mat-icon>zoom_in</mat-icon></button>
-    <button mat-raised-button (click)="onIncrement()"><mat-icon>chevron_right</mat-icon></button>
-    <button mat-raised-button (click)="onLast()"><mat-icon>last_page</mat-icon></button>
+  <pdf-viewer [src]="pdfSrc"
+              [page]="page"
+              [zoom]="zoom"
+              [original-size]="false"
+              (after-load-complete)="onPDFLoaded($event)"
+              class="pdfViewer">
+  </pdf-viewer>
+
+  <div class="pdfControls">
+    <button mat-raised-button (click)="onFirst()">
+      <mat-icon>first_page</mat-icon>
+    </button>
+    <button mat-raised-button (click)="onDecrement()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button mat-raised-button (click)="onZoomOut()">
+      <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button mat-raised-button (click)="onZoomIn()">
+      <mat-icon>zoom_in</mat-icon>
+    </button>
+    <button mat-raised-button (click)="onIncrement()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+    <button mat-raised-button (click)="onLast()">
+      <mat-icon>last_page</mat-icon>
+    </button>
   </div>
 </div>

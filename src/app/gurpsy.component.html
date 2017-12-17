@@ -125,6 +125,7 @@
     <gurpsy-book-viewer
       class="flex-item"
       fxFlexAlign="start"
+      (onCloseBookViewer)="onShowLibrary($event)"
       *ngIf="showLibrary">
     </gurpsy-book-viewer>
     <gurpsy-sheet
