@@ -125,7 +125,7 @@
     <gurpsy-book-viewer
       class="flex-item"
       fxFlexAlign="start"
-      (onCloseBookViewer)="onShowLibrary($event)"
+      (onCloseBookViewer)="onShowLibrary(false)"
       *ngIf="showLibrary">
     </gurpsy-book-viewer>
     <gurpsy-sheet
@@ -140,11 +140,9 @@
                          (createTemplate)=onNewSheet()>
     </gurpsy-select-sheet>
   </div>
+  <button mat-fab
+          class="openBookViewerButton"
+          *ngIf="sheet && !showLibrary">
+    <mat-icon (click)="onShowLibrary(true)">chrome_reader_mode</mat-icon>
+  </button>
 </mat-sidenav-container>
-
-
-
-
-
-
-

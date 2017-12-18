@@ -17,3 +17,9 @@ mat-sidenav {
   flex: 1 1 auto;
 }
 
+.openBookViewerButton {
+  position: fixed;
+  z-index: 100;
+  right: 8px;
+  bottom: 8px;
+}
