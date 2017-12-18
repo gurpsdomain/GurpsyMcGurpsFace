@@ -26,14 +26,6 @@
         }
       }
 
-      button {
-        md-icon {
-          color: $hintText;
-        }
-      }
-      button.selected mat-icon {
-        color: $secondaryText;
-      }
       .separator {
         border-top: solid $statusBar 1px;
       }

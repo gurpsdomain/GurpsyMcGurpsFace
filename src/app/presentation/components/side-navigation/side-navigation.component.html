@@ -21,22 +21,5 @@
   </div>
   <div class="sideNavigationContent flex-item"
        fxFlex="100%">
-    <div class="library">
-      <div class="header" (click)="showLibraryMenu = !showLibraryMenu">
-        <span>{{'SIDE_NAVIGATION.LIBRARY.LIBRARY'| translate}}</span>
-        <button mat-icon-button>
-          <mat-icon *ngIf="!showLibraryMenu">keyboard_arrow_left</mat-icon>
-          <mat-icon *ngIf="showLibraryMenu">keyboard_arrow_down</mat-icon>
-        </button>
-      </div>
-      <div class="content" *ngIf="showLibraryMenu">
-        <button mat-button
-                (click)="onLibraryClick()"
-                [class.selected]="showLibrary"
-                class="sideNavigationButton">
-          <span fxFlex="100%">{{'SIDE_NAVIGATION.LIBRARY.GURPS_LITE'| translate}}</span>
-        </button>
-      </div>
-    </div>
   </div>
 </div>
