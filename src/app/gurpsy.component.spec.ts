@@ -31,7 +31,7 @@ import {EncumbranceComponent} from './presentation/sheet/reusable/encumbrance/en
 import {LiftingMovingComponent} from './presentation/sheet/reusable/lifting-moving/lifting-moving.component';
 import {PageReferenceComponent} from './presentation/components/generic/page-reference/page-reference.component';
 import {BookViewerComponent} from './presentation/components/book-viewer/book-viewer.component';
-import {PdfViewerComponent} from 'ng2-pdf-viewer';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
 import {FileFormComponent} from './presentation/components/form/file/file.form.component';
 import {GurpsyMaterialModule} from './modules/material.module';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
@@ -81,12 +81,12 @@ describe('GurpsyComponent', () => {
         SheetHeaderComponent,
         SpellsComponent,
         SkillsComponent,
-        PdfViewerComponent,
         FileFormComponent
       ],
       imports: [
         GurpsyAngularModule,
         GurpsyMaterialModule,
+        PdfViewerModule,
         TranslateModule.forRoot()
       ],
       providers: [

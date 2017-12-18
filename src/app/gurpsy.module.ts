@@ -32,7 +32,6 @@ import {DiceDialogComponent} from './presentation/dialoges/generic/dice-dialog/d
 import {LoggingService} from './services/logging/logging.service';
 import {PageReferenceComponent} from './presentation/components/generic/page-reference/page-reference.component';
 import {BookViewerComponent} from './presentation/components/book-viewer/book-viewer.component';
-import {PdfViewerComponent} from 'ng2-pdf-viewer';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
 import {FileFormComponent} from './presentation/components/form/file/file.form.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -58,6 +57,7 @@ import {SelectSheetButtonComponent} from './presentation/components/generic/sele
 import {DescriptionUpdaterComponent} from './presentation/dialoges/template-updaters/description-updater/description-updater.component';
 import {WeightComponent} from './presentation/sheet/reusable/weight/weight.component';
 import {HeightComponent} from './presentation/sheet/reusable/height/height.component';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -89,7 +89,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotesComponent,
     OpenSheetDialogComponent,
     PageReferenceComponent,
-    PdfViewerComponent,
     PortraitComponent,
     PlayerInformationComponent,
     PlayerInformationUpdaterComponent,
@@ -113,6 +112,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ImageCropperModule,
     GurpsyAngularModule,
     GurpsyMaterialModule,
+    PdfViewerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
