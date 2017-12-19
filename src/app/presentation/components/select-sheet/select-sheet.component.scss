@@ -1,13 +1,17 @@
-.selectSheet {
-  mat-card {
-    width: 300px;
-    padding: 4px;
+.selectSheetWrapper {
+  height: calc(100% - 68px);
+  
+  .selectSheet {
+    mat-card {
+      width: 300px;
+      padding: 4px;
 
-    button {
-      width: 100%;
+      button {
+        width: 100%;
 
-      .buttonText {
-        text-align: left;
+        .buttonText {
+          text-align: left;
+        }
       }
     }
   }

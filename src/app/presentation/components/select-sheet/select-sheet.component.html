@@ -1,48 +1,52 @@
-<div class="selectSheet">
-  <mat-card>
-    <mat-card-content>
-      <button mat-button
-              (click)="onCreateTemplate()">
-        <div class="flex-container"
-             fxLayoutGap="8px"
-             fxLayout="row">
-          <mat-icon class="flex-item"
-                    fxFlexAlign="center">
-            portrait
-          </mat-icon>
-          <div class="flex-item buttonText"
-               fxFlex="100%">
-            {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
+<div class="selectSheetWrapper flex-container"
+     fxLayout="column"
+     fxLayoutAlign="center stretch">
+  <div class="selectSheet flex-item">
+    <mat-card>
+      <mat-card-content>
+        <button mat-button
+                (click)="onCreateTemplate()">
+          <div class="flex-container"
+               fxLayoutGap="8px"
+               fxLayout="row">
+            <mat-icon class="flex-item"
+                      fxFlexAlign="center">
+              portrait
+            </mat-icon>
+            <div class="flex-item buttonText"
+                 fxFlex="100%">
+              {{ 'SELECT_SHEET.CREATE_NEW' | translate }}
+            </div>
           </div>
-        </div>
-      </button>
-    </mat-card-content>
-  </mat-card>
-  <mat-card>
-    <mat-card-content>
-      <button mat-button
-              (click)="onLoadTemplateFromFile()">
-        <div class="flex-container"
-             fxLayoutGap="8px"
-             fxLayout="row">
-          <mat-icon class="flex-item"
-                    fxFlexAlign="center">
-            account_box
-          </mat-icon>
-          <div class="flex-item buttonText"
-               fxFlex="100%">
-            {{ 'SELECT_SHEET.LOAD_FROM_FILE' | translate }}
+        </button>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-content>
+        <button mat-button
+                (click)="onLoadTemplateFromFile()">
+          <div class="flex-container"
+               fxLayoutGap="8px"
+               fxLayout="row">
+            <mat-icon class="flex-item"
+                      fxFlexAlign="center">
+              account_box
+            </mat-icon>
+            <div class="flex-item buttonText"
+                 fxFlex="100%">
+              {{ 'SELECT_SHEET.LOAD_FROM_FILE' | translate }}
+            </div>
           </div>
-        </div>
-      </button>
-    </mat-card-content>
-  </mat-card>
+        </button>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card *ngIf="templates && templates.length > 0">
-    <gurpsy-select-sheet-button
-      *ngFor="let template of templates"
-      [template]="template"
-      (click)="onTemplateSelected(template)">
-    </gurpsy-select-sheet-button>
-  </mat-card>
+    <mat-card *ngIf="templates && templates.length > 0">
+      <gurpsy-select-sheet-button
+        *ngFor="let template of templates"
+        [template]="template"
+        (click)="onTemplateSelected(template)">
+      </gurpsy-select-sheet-button>
+    </mat-card>
+  </div>
 </div>
