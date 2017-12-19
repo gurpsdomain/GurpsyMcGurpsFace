@@ -119,30 +119,26 @@
     </div>
   </mat-toolbar>
 
-  <div class="gurpsyBody flex-container"
-       fxLayout="row"
-       fxLayoutAlign="center">
+  <div class="gurpsyBody">
+    <button mat-fab
+            class="closeBookViewerButton"
+            *ngIf="showLibrary">
+      <mat-icon (click)="onShowLibrary(false)">close</mat-icon>
+    </button>
     <gurpsy-book-viewer
-      class="flex-item"
-      fxFlexAlign="start"
-      (onCloseBookViewer)="onShowLibrary(false)"
       *ngIf="showLibrary">
     </gurpsy-book-viewer>
     <gurpsy-sheet
-      class="flex-item"
-      fxFlexAlign="start"
       *ngIf="sheet && !showLibrary">
     </gurpsy-sheet>
-    <gurpsy-select-sheet *ngIf="!sheet"
-                         class="flex-item"
-                         fxFlexAlign="center"
+    <gurpsy-select-sheet *ngIf="!sheet && !showLibrary"
                          (loadTemplateFromFile)="onOpenSheetDialog()"
                          (createTemplate)=onNewSheet()>
     </gurpsy-select-sheet>
+    <button mat-fab
+            class="openBookViewerButton"
+            *ngIf="!showLibrary">
+      <mat-icon (click)="onShowLibrary(true)">chrome_reader_mode</mat-icon>
+    </button>
   </div>
-  <button mat-fab
-          class="openBookViewerButton"
-          *ngIf="sheet && !showLibrary">
-    <mat-icon (click)="onShowLibrary(true)">chrome_reader_mode</mat-icon>
-  </button>
 </mat-sidenav-container>

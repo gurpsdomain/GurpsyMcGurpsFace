@@ -1,17 +1,10 @@
 .bookViewer {
+
+  height: 100%;
+
   .pdfViewer {
     display: block;
-    position: relative;
-    top: -58px;
-  }
-
-  .closeButton {
-    position: sticky;
-    position: -webkit-sticky;
-    padding-right: 4px;
-    text-align: end;
-    z-index: 100;
-    top: 40px;
+    height: 100%;
   }
 
   .pdfControls {

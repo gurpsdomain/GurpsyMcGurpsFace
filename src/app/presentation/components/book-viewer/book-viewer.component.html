@@ -1,10 +1,4 @@
 <div class="bookViewer">
-  <div class="closeButton">
-    <button mat-fab>
-      <mat-icon (click)="onCloseBookViewerClicked()">close</mat-icon>
-    </button>
-  </div>
-
   <pdf-viewer [src]="pdfSrc"
               [page]="page"
               [zoom]="zoom"

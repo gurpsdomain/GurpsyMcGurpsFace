@@ -1,25 +1,32 @@
 mat-toolbar {
   margin-bottom: 12px;
   flex: none;
-}
 
-mat-toolbar {
   gurpsy-avatar {
     margin-top: 12px;
   }
 }
 
-mat-sidenav {
+.mat-drawer {
   width: 240px;
 }
 
 .gurpsyBody {
-  flex: 1 1 auto;
+  height: 100%;
+  text-align: center;
+  text-align: -webkit-center;
+}
+
+.closeBookViewerButton {
+  position: fixed;
+  z-index: 100;
+  right: 5%;
+  top: 72px;
 }
 
 .openBookViewerButton {
   position: fixed;
   z-index: 100;
-  right: 8px;
-  bottom: 8px;
+  right: 5%;
+  bottom: 6%;
 }
