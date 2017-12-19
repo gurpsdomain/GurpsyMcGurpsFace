@@ -1,17 +1,12 @@
-.bookViewer {
-
+.pdfViewer {
+  display: block;
   height: 100%;
+}
 
-  .pdfViewer {
-    display: block;
-    height: 100%;
-  }
-
-  .pdfControls {
-    position: sticky;
-    position: -webkit-sticky;
-    text-align: center;
-    z-index: 100;
-    bottom: 2px;
-  }
+.pdfControls {
+  width: 100%;
+  position: fixed;
+  text-align: center;
+  z-index: 100;
+  bottom: 2px;
 }

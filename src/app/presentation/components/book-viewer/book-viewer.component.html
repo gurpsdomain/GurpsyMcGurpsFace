@@ -1,18 +1,16 @@
-<div class="bookViewer">
-  <pdf-viewer [src]="pdfSrc"
-              [page]="page"
-              [zoom]="zoom"
-              [original-size]="false"
-              [fit-to-page]="true"
-              class="pdfViewer">
-  </pdf-viewer>
+<pdf-viewer [src]="pdfSrc"
+            [page]="page"
+            [zoom]="zoom"
+            [original-size]="false"
+            class="pdfViewer">
+</pdf-viewer>
 
-  <div class="pdfControls">
-    <button mat-raised-button (click)="onZoomOut()">
-      <mat-icon>zoom_out</mat-icon>
-    </button>
-    <button mat-raised-button (click)="onZoomIn()">
-      <mat-icon>zoom_in</mat-icon>
-    </button>
-  </div>
+<div class="pdfControls">
+  <button mat-raised-button (click)="onZoomOut()">
+    <mat-icon>zoom_out</mat-icon>
+  </button>
+  <button mat-raised-button (click)="onZoomIn()">
+    <mat-icon>zoom_in</mat-icon>
+  </button>
 </div>
+
