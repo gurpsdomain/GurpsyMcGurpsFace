@@ -15,5 +15,5 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelectAdvantage(row)"></mat-row>
+  <mat-row class="selectableRow" *matRowDef="let row; columns: displayedColumns;" (click)="onSelectAdvantage(row)"></mat-row>
 </mat-table>
