@@ -1,25 +1,20 @@
-<div class="sideNavigation flex-container"
-     fxLayout="column"
-     fxLayoutAlign="start stretch">
-  <div class="sideNavigationHeader flex-item flex-container"
-       fxLayout="column"
-       fxLayoutAlign="start stretch">
-    <div class="close flex-item">
-      <button mat-icon-button (click)="onCloseSideNav()">
-        <mat-icon>keyboard_arrow_left</mat-icon>
-      </button>
-    </div>
-    <div class="flex-item avatar-item">
-      <gurpsy-avatar [width]="'48px'" [height]="'48px'"></gurpsy-avatar>
-    </div>
-    <div *ngIf="sheet" class="flex-item player">
-      {{sheet.metaData.playerInformation.player}}
-    </div>
-    <div *ngIf="sheet" class="flex-item name">
-      {{sheet.metaData.identity.name}}
-    </div>
-  </div>
-  <div class="sideNavigationContent flex-item"
-       fxFlex="100%">
-  </div>
-</div>
+<mat-tab-group>
+  <mat-tab label="Information">
+    Some tab content
+  </mat-tab>
+  <mat-tab label="Advantages">
+    <gurpsy-update-advantages></gurpsy-update-advantages>
+  </mat-tab>
+  <mat-tab label="Skills">
+    Some tab content
+  </mat-tab>
+  <mat-tab label="Quirks">
+    Some tab content
+  </mat-tab>
+  <mat-tab label="Equipment">
+    Some tab content
+  </mat-tab>
+  <mat-tab label="Notes">
+    Some more tab content
+  </mat-tab>
+</mat-tab-group>

@@ -5,7 +5,6 @@
 @import "app/presentation/dialoges/generic/about-dialog/about-dialog.component";
 @import "app/presentation/components/generic/page-reference/page-reference.component";
 @import "app/presentation/sheet/sheet.component";
-@import "app/presentation/components/side-navigation/side-navigation.component";
 @import "app/presentation/dialoges/template-updaters/portrait-updater/portrait-updater-dialog.component";
 @import "app/presentation/components/generic/select-sheet-button/select-sheet-button.component";
 
@@ -53,7 +52,6 @@ $dark-theme: gurpsy-dark-theme($dark-primary, $dark-accent, $dark-warn);
   @include gurpsy-portrait-updater-dialog-theme($theme);
   @include gurpsy-select-sheet-button-theme($theme);
   @include gurpsy-sheet-theme($theme);
-  @include gurpsy-side-navigation-theme($theme);
 }
 
 .day {

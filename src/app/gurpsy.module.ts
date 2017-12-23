@@ -58,6 +58,8 @@ import {DescriptionUpdaterComponent} from './presentation/dialoges/template-upda
 import {WeightComponent} from './presentation/sheet/reusable/weight/weight.component';
 import {HeightComponent} from './presentation/sheet/reusable/height/height.component';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
+import {LibraryService} from './services/library/library.service';
+import {UpdateAdvantagesComponent} from './presentation/template/advantages/advantages.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -106,7 +108,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     NewSheetComponent,
     SelectSheetComponent,
     SelectSheetButtonComponent,
-    WeightComponent
+    WeightComponent,
+    UpdateAdvantagesComponent
   ],
   imports: [
     ImageCropperModule,
@@ -122,6 +125,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    LibraryService,
     LoggingService,
     TemplateRepository,
     SheetService,

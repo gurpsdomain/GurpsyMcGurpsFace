@@ -11,7 +11,7 @@ import {SettingsRepository} from '../../../../../repositories/settings/settings.
 import {TemplateRepository} from '../../../../../repositories/template/template.repository';
 import {PageReferenceComponent} from '../../../../components/generic/page-reference/page-reference.component';
 
-describe('AdvantagesComponent', () => {
+describe('UpdateAdvantagesComponent', () => {
   let component: AdvantagesDisadvantagesComponent;
   let fixture: ComponentFixture<AdvantagesDisadvantagesComponent>;
 

@@ -8,7 +8,7 @@ import {PageReferenceService} from '../../../services/page-reference/page-refere
 })
 export class BookViewerComponent implements OnInit {
 
-  pdfSrc = 'assets/library/gurpslite.pdf';
+  pdfSrc = 'assets/books/gurpslite.pdf';
   page = 1;
   zoom = 1;
 

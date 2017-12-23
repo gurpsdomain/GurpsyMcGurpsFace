@@ -220,7 +220,6 @@ export class GurpsyComponent implements OnInit {
   }
 
   private setTheme(theme: Theme) {
-    console.log('Setting new theme: ', theme);
     this.theme = theme;
     this.overlayContainer.getContainerElement().classList.add(theme);
   }

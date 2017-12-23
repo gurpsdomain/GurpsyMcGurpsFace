@@ -4,10 +4,8 @@ import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {SideNavigationComponent} from './side-navigation.component';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {SheetService} from '../../../services/sheet/sheet.service';
-import {TemplateRepository} from '../../../repositories/template/template.repository';
-import {LoggingService} from '../../../services/logging/logging.service';
 import {GurpsyMaterialModule} from '../../../modules/material.module';
+import {GurpsyAngularModule} from '../../../modules/angular.module';
 
 describe('SideNavigationComponent', () => {
   let component: SideNavigationComponent;
@@ -21,12 +19,8 @@ describe('SideNavigationComponent', () => {
       imports: [
         FormsModule,
         TranslateModule.forRoot(),
+        GurpsyAngularModule,
         GurpsyMaterialModule
-      ],
-      providers: [
-        LoggingService,
-        SheetService,
-        TemplateRepository
       ],
       schemas: [
         NO_ERRORS_SCHEMA

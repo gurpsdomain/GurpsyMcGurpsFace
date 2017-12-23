@@ -1,0 +1,21 @@
+{
+  "book": "Gurps Lite",
+  "edition": 4,
+  "version": "0.1",
+  "advantages": [
+    {
+      "name": "Increased Dexterity",
+      "type": [
+        "physical"
+      ],
+      "reference": "L3"
+    },
+    {
+      "name": "Increased Intelligence",
+      "type": [
+        "mental"
+      ],
+      "reference": "L3"
+    }
+  ]
+}

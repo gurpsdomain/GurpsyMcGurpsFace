@@ -41,6 +41,7 @@ import {Sheet} from './models/sheet/sheet.model';
 import {Title} from '@angular/platform-browser';
 import {SheetService} from './services/sheet/sheet.service';
 import {GurpsyAngularModule} from './modules/angular.module';
+import {LibraryService} from './services/library/library.service';
 
 describe('GurpsyComponent', () => {
   let component: GurpsyComponent;
@@ -93,6 +94,7 @@ describe('GurpsyComponent', () => {
         SettingsService,
         SettingsRepository,
         TranslateService,
+        LibraryService,
         LoggingService,
         PageReferenceService,
         TemplateRepository,
