@@ -1,4 +1,4 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Template} from '../../../template/template.model';
 
 export class PlayerInformation {
 
@@ -7,7 +7,7 @@ export class PlayerInformation {
   createdOn: Date;
   lastModified: Date;
 
-  constructor(updateSheet: SheetTemplate) {
+  constructor(updateSheet: Template) {
     this.player = updateSheet.player;
     this.campaign = updateSheet.campaign;
     this.createdOn = updateSheet.createdOn;

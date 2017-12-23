@@ -1,7 +1,7 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
 
 @JsonObject
-export class Skill {
+export class SpellTemplate {
 
   @JsonProperty('name', String)
   name: string;

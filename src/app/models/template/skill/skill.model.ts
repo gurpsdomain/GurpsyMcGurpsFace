@@ -1,12 +1,16 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
 
 @JsonObject
-export class Disadvantage {
+export class SkillTemplate {
 
   @JsonProperty('name', String)
   name: string;
 
+  @JsonProperty('points', String)
+  points: number;
+
   constructor() {
     this.name = undefined;
+    this.points = undefined;
   }
 }

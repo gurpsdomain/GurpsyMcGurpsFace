@@ -1,4 +1,4 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Template} from '../../../template/template.model';
 import {Weight} from '../../units/weight/weight.model';
 import {Height} from '../../units/height/height.model';
 
@@ -16,7 +16,7 @@ export class Description {
   skin: string;
   hand: string;
 
-  constructor(template: SheetTemplate) {
+  constructor(template: Template) {
     this.race = template.race;
     this.gender = template.gender;
     this.age = template.age;

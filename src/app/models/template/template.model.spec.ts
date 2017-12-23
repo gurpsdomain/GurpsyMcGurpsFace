@@ -1,11 +1,11 @@
-import {SheetTemplate, TemplateComparison} from './sheet-template.model';
+import {Template, TemplateComparison} from './template.model';
 
-describe('Model Object SheetTemplate', () => {
-  let template: SheetTemplate;
+describe('Model Object Template', () => {
+  let template: Template;
 
   const DEFAULT_POINTS_TOTAL = 100;
 
-  beforeEach(() => template = new SheetTemplate());
+  beforeEach(() => template = new Template());
 
   it('should be created', () => {
     expect(template).toBeTruthy();
@@ -18,7 +18,7 @@ describe('Model Object SheetTemplate', () => {
   });
 
   it('[equals()] should return DIFFERENT when equals() is called on a different sheet.', () => {
-    const different = new SheetTemplate();
+    const different = new Template();
     const equals = template.equals(different);
 
     expect(equals).toBe(TemplateComparison.DIFFERENT);
@@ -29,7 +29,7 @@ describe('Model Object SheetTemplate', () => {
     const yesterday = new Date();
     yesterday.setDate(today.getDate() - 1);
 
-    const olderTemplate = new SheetTemplate();
+    const olderTemplate = new Template();
     olderTemplate.id = template.id;
     olderTemplate.lastModified = yesterday;
 
@@ -45,7 +45,7 @@ describe('Model Object SheetTemplate', () => {
     const yesterday = new Date();
     yesterday.setDate(today.getDate() - 1);
 
-    const newerTemplate = new SheetTemplate();
+    const newerTemplate = new Template();
     newerTemplate.id = template.id;
     newerTemplate.lastModified = today;
 

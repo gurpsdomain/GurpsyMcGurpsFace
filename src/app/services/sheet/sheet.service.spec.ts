@@ -4,7 +4,7 @@ import {SettingsService} from '../settings/settings.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {LoggingService} from '../logging/logging.service';
 import {SheetService} from './sheet.service';
-import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
+import {Template} from '../../models/template/template.model';
 
 describe('SheetService', () => {
 
@@ -39,10 +39,10 @@ describe('SheetService', () => {
       const yesterday = new Date();
       yesterday.setDate(today.getDate() - 1);
 
-      const yesterdaysTemplate = new SheetTemplate();
+      const yesterdaysTemplate = new Template();
       yesterdaysTemplate.lastModified = yesterday;
 
-      const todaysTemplate = new SheetTemplate();
+      const todaysTemplate = new Template();
       todaysTemplate.lastModified = today;
 
       service.updateTemplate(yesterdaysTemplate);
@@ -55,7 +55,7 @@ describe('SheetService', () => {
     inject([SheetService], (service: SheetService) => {
       const spy = spyOn(templateStorageService, 'addTemplate');
 
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.loadNewTemplate(template);
 
@@ -67,7 +67,7 @@ describe('SheetService', () => {
     inject([SheetService], (service: SheetService) => {
       const spy = spyOn(templateStorageService, 'addAndSelectTemplate');
 
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.loadNewTemplate(template);
 
@@ -87,7 +87,7 @@ describe('SheetService', () => {
     inject([SheetService], (service: SheetService) => {
       const spy = spyOn(templateStorageService, 'deleteTemplate');
 
-      service.deleteTemplate(new SheetTemplate());
+      service.deleteTemplate(new Template());
 
       expect(spy).toHaveBeenCalled();
     }));

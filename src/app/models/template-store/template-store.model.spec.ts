@@ -1,5 +1,5 @@
 import {TemplateStore} from './template-store.model';
-import {SheetTemplate} from '../sheet-template/sheet-template.model';
+import {Template} from '../template/template.model';
 
 describe('Model Object TemplateStore', () => {
   let templates: TemplateStore;
@@ -14,7 +14,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate()] should add a template when addTemplate() is called', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     templates.addTemplate(template);
 
@@ -23,7 +23,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate()] should return true when addTemplate() is called', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     const added = templates.addTemplate(template);
 
@@ -32,7 +32,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate()] should not add a template when addTemplate() is called, but the template was already added', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     templates.addTemplate(template);
     templates.addTemplate(template);
@@ -42,7 +42,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate(false)] should not add a template when addTemplate(false) is called, and the template was already added', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     templates.addTemplate(template);
     templates.addTemplate(template, false);
@@ -52,8 +52,8 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate(true)] should add a template when addTemplate(true) is called, but the template was already added', () => {
 
-    const template = new SheetTemplate();
-    const templateCopy = new SheetTemplate();
+    const template = new Template();
+    const templateCopy = new Template();
 
     templateCopy.id = template.id;
     templateCopy.name = CHARACTER_NAME;
@@ -67,7 +67,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate() ]should return false when addTemplate() is called, but the template was already added', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     templates.addTemplate(template);
     const added = templates.addTemplate(template);
@@ -77,7 +77,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate(false) ]should return false when addTemplate(false) is called, and the template was already added', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     templates.addTemplate(template);
     const added = templates.addTemplate(template, false);
@@ -87,7 +87,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[addTemplate(true) ]should return false when addTemplate(true) is called, and the template was already added', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     templates.addTemplate(template);
     const added = templates.addTemplate(template, true);
@@ -97,7 +97,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[getTemplate()] should return the template with the given id  when getTemplate() is called', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
 
     templates.addTemplate(template);
 
@@ -108,7 +108,7 @@ describe('Model Object TemplateStore', () => {
 
   it('[getTemplate()] should return undefined when getTemplate() is called, but none is present with the given id', () => {
 
-    const template = new SheetTemplate();
+    const template = new Template();
     const retrievedTemplate = templates.getTemplate(template.id);
 
     expect(retrievedTemplate).toBeUndefined();
@@ -116,10 +116,10 @@ describe('Model Object TemplateStore', () => {
 
   it('[updateTemplate()] should update the template when updateTemplate() is called', () => {
 
-    const originalTemplate = new SheetTemplate();
+    const originalTemplate = new Template();
     templates.addTemplate(originalTemplate);
 
-    const updatedTemplate = new SheetTemplate();
+    const updatedTemplate = new Template();
     updatedTemplate.id = originalTemplate.id;
     updatedTemplate.name = CHARACTER_NAME;
 
@@ -132,11 +132,11 @@ describe('Model Object TemplateStore', () => {
 
   it('[deleteTemplate()] should delete the template when deleteTemplate() is called', () => {
 
-    const templateOne = new SheetTemplate();
+    const templateOne = new Template();
     templates.addTemplate(templateOne);
 
 
-    const templateTwo = new SheetTemplate();
+    const templateTwo = new Template();
     templates.addTemplate(templateTwo);
 
     templates.deleteTemplate(templateOne);

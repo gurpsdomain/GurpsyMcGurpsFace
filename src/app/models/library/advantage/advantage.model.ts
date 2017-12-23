@@ -2,7 +2,7 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 import {AdvantageType} from './advantage-type.enum';
 
 @JsonObject
-export class Advantage {
+export class AdvantageLibrary {
 
   @JsonProperty('name', String)
   name: string;

@@ -2,7 +2,7 @@ import {BasicLift} from '../basic-lift.model';
 import {Dodge} from '../dodge.model';
 import {Move} from '../move.model';
 import {MaxLoad} from '../max-load.model';
-import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {Template} from '../../template/template.model';
 import {DamageRol} from './damage-rol.enum';
 
 export class SecondaryCharacteristics {
@@ -26,7 +26,7 @@ export class SecondaryCharacteristics {
   damageThrusting: DamageRol;
   frightCheck: number;
 
-  constructor(template: SheetTemplate) {
+  constructor(template: Template) {
     this.sizeModifier = template.size;
     this.will = undefined;
     this.perception = undefined;

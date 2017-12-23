@@ -1,4 +1,4 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Template} from '../../../template/template.model';
 
 export class Identity {
 
@@ -7,7 +7,7 @@ export class Identity {
   title: string;
   religion: string;
 
-  constructor(template: SheetTemplate) {
+  constructor(template: Template) {
     this.portrait = template.portrait;
     this.name = template.name;
     this.title = template.title;

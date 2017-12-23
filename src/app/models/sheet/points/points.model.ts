@@ -1,4 +1,4 @@
-import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {Template} from '../../template/template.model';
 
 export class Points {
 
@@ -12,7 +12,7 @@ export class Points {
   spells: number;
   unspent: number;
 
-  constructor(template: SheetTemplate) {
+  constructor(template: Template) {
     this.enrichAttributes(template);
     this.enrichAdvantages(template);
     this.enrichDisadvantages(template);
@@ -25,37 +25,37 @@ export class Points {
     this.enrichUnspent(template);
   }
 
-  private enrichAttributes(template: SheetTemplate) {
+  private enrichAttributes(template: Template) {
     this.attributes = 0;
   }
 
-  private enrichAdvantages(template: SheetTemplate) {
+  private enrichAdvantages(template: Template) {
     this.advantages = 0;
   }
 
-  private enrichDisadvantages(template: SheetTemplate) {
+  private enrichDisadvantages(template: Template) {
     this.disadvantages = 0;
   }
 
-  private enrichRace(template: SheetTemplate) {
+  private enrichRace(template: Template) {
     this.race = 0;
   }
 
-  private enrichQuirks(template: SheetTemplate) {
+  private enrichQuirks(template: Template) {
     this.quirks = 0;
   }
 
-  private enrichSkills(template: SheetTemplate) {
+  private enrichSkills(template: Template) {
     this.skills = 0;
 
     template.skills.forEach(skill => this.skills += skill.points);
   }
 
-  private enrichSpells(template: SheetTemplate) {
+  private enrichSpells(template: Template) {
     this.spells = 0;
   }
 
-  private enrichUnspent(template: SheetTemplate) {
+  private enrichUnspent(template: Template) {
     let available = template.basepoints;
 
     template.rewards.forEach(reward => available += reward.points);
@@ -63,11 +63,11 @@ export class Points {
     this.unspent = available - this.getTotalUsed(template);
   }
 
-  private enrichTotal(template: SheetTemplate) {
+  private enrichTotal(template: Template) {
     this.total = this.getTotalUsed(template);
   }
 
-  private getTotalUsed(template: SheetTemplate): number {
+  private getTotalUsed(template: Template): number {
     let used = 0;
 
     if (!this.attributes) {

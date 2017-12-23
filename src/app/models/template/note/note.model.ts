@@ -1,7 +1,7 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
 
 @JsonObject
-export class Note {
+export class NoteTemplate {
 
   @JsonProperty('name', String)
   name: string;

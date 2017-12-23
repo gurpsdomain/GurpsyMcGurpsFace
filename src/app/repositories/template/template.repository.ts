@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
+import {Template} from '../../models/template/template.model';
 import {TemplateStore} from '../../models/template-store/template-store.model';
 import {LoggingService} from '../../services/logging/logging.service';
 import {JsonConvert} from 'json2typescript';
@@ -12,8 +12,8 @@ export class TemplateRepository {
   private static STORAGE_KEY = '.templates';
   private static STORAGE_KEY_SELECTED = '.template';
 
-  private templatesUpdated = new Subject<SheetTemplate[]>();
-  private selectedTemplateChanged = new Subject<SheetTemplate>();
+  private templatesUpdated = new Subject<Template[]>();
+  private selectedTemplateChanged = new Subject<Template>();
 
   /**
    * Register to this observable to be notified when one of the stored templates has been changed
@@ -38,9 +38,9 @@ export class TemplateRepository {
   /**
    * Add the template to LocalStorage.
    *
-   * @param {SheetTemplate} template
+   * @param {Template} template
    */
-  public addTemplate(template: SheetTemplate): void {
+  public addTemplate(template: Template): void {
     const templates: TemplateStore = this.getTemplatesDM();
     templates.addTemplate(template, true);
     try {
@@ -51,11 +51,11 @@ export class TemplateRepository {
   }
 
   /**
-   * Add a new SheetTemplate and set it as the selected.
+   * Add a new Template and set it as the selected.
    *
-   * @param {SheetTemplate} template
+   * @param {Template} template
    */
-  public addAndSelectTemplate(template: SheetTemplate): void {
+  public addAndSelectTemplate(template: Template): void {
     this.persistSelectedTemplate(template);
 
     try {
@@ -76,27 +76,27 @@ export class TemplateRepository {
   }
 
   /**
-   * Return the selected SheetTemplate
+   * Return the selected Template
    *
-   * @return {Promise<SheetTemplate>}
+   * @return {Promise<Template>}
    */
-  public getSelectedTemplate(): Promise<SheetTemplate> {
+  public getSelectedTemplate(): Promise<Template> {
     const selectedTemplateId: string = this.getSelectedTemplateId();
 
     if (selectedTemplateId) {
       const retrievedTemplates = this.getTemplatesDM();
       return Promise.resolve(retrievedTemplates.getTemplate(selectedTemplateId));
     } else {
-      return Promise.reject('No SheetTemplate selected');
+      return Promise.reject('No Template selected');
     }
   }
 
   /**
    * return the stored TemplateStore.
    *
-   * @return {Promise<SheetTemplate[]>}
+   * @return {Promise<Template[]>}
    */
-  public getTemplates(): Promise<SheetTemplate[]> {
+  public getTemplates(): Promise<Template[]> {
     return Promise.resolve(this.getTemplatesDM().templates);
   }
 
@@ -105,7 +105,7 @@ export class TemplateRepository {
    *
    * @param {TemplateStore} templates
    */
-  public selectTemplate(template: SheetTemplate): void {
+  public selectTemplate(template: Template): void {
     try {
       this.persistSelectedTemplate(template);
     } catch (error) {
@@ -124,11 +124,11 @@ export class TemplateRepository {
   }
 
   /**
-   * Delete the given SheetTemplate from local storage.
+   * Delete the given Template from local storage.
    *
-   * @param {SheetTemplate} template
+   * @param {Template} template
    */
-  public deleteTemplate(template: SheetTemplate): void {
+  public deleteTemplate(template: Template): void {
 
     const retrievedTemplates = this.getTemplatesDM();
 
@@ -146,12 +146,12 @@ export class TemplateRepository {
   }
 
   /**
-   * Update the given SheetTemplate. The previous version will be removed and the new one will be
+   * Update the given Template. The previous version will be removed and the new one will be
    * added.
    *
-   * @param {SheetTemplate} The SheetTemplate to update
+   * @param {Template} The Template to update
    */
-  public updateTemplate(template: SheetTemplate): void {
+  public updateTemplate(template: Template): void {
     const retrievedTemplates = this.getTemplatesDM();
 
     retrievedTemplates.updateTemplate(template);
@@ -232,7 +232,7 @@ export class TemplateRepository {
     return GurpsyConstants.GURPSY_STORAGE_KEY + TemplateRepository.STORAGE_KEY_SELECTED;
   }
 
-  private persistSelectedTemplate(template: SheetTemplate): void {
+  private persistSelectedTemplate(template: Template): void {
     try {
       sessionStorage.setItem(this.getSelectedTemplateStorageKey(), template.id);
     } catch (error) {

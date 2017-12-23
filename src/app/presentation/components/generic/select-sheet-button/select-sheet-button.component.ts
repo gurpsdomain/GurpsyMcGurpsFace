@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../../models/template/template.model';
 
 @Component({
   selector: 'gurpsy-select-sheet-button',
@@ -9,7 +9,7 @@ import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.mo
 export class SelectSheetButtonComponent {
 
   @Input()
-  public template: SheetTemplate;
+  public template: Template;
 
   @Input()
   public disabled: false;
@@ -17,7 +17,7 @@ export class SelectSheetButtonComponent {
   @Output() public click: EventEmitter<any> = new EventEmitter();
 
   constructor() {
-    this.template = new SheetTemplate();
+    this.template = new Template();
   }
 
   onClick(): void {

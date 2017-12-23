@@ -2,7 +2,7 @@
 import {inject, TestBed} from '@angular/core/testing';
 import {TemplateRepository} from './template.repository';
 import {LoggingService} from '../../services/logging/logging.service';
-import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
+import {Template} from '../../models/template/template.model';
 import {TemplateStore} from '../../models/template-store/template-store.model';
 import {JsonConvert} from 'json2typescript';
 
@@ -27,7 +27,7 @@ describe('TemplateRepository', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('[getTemplates()] should return an empty SheetTemplate[] when getTemplates() is called, but ' +
+  it('[getTemplates()] should return an empty Template[] when getTemplates() is called, but ' +
     'Local Storage is empty',
     inject([TemplateRepository], (service: TemplateRepository) => {
       service.getTemplates().then(templates => expect(templates.length).toBe(0));
@@ -36,7 +36,7 @@ describe('TemplateRepository', () => {
 
   it('[addTemplate()] should create a new entry in LocalStorage, when addTemplate() is called',
     inject([TemplateRepository], (service: TemplateRepository) => {
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.addTemplate(template);
 
@@ -45,11 +45,11 @@ describe('TemplateRepository', () => {
       expect(retrievedTemplates).toBeTruthy();
     }));
 
-  it('[addTemplate()] should store a TemplateStore Object with the given SheetTemplate in LocalStorage, ' +
+  it('[addTemplate()] should store a TemplateStore Object with the given Template in LocalStorage, ' +
     'when addTemplate() is called',
     inject([TemplateRepository], (service: TemplateRepository) => {
 
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.addTemplate(template);
 
@@ -71,11 +71,11 @@ describe('TemplateRepository', () => {
       expect(found).toBeTruthy();
     }));
 
-  it('[addTemplate()] should not store a TemplateStore Object with the given SheetTemplate in ' +
-    'LocalStorage, when addTemplate() is called and a SheetTemplate with the same id has already been stored',
+  it('[addTemplate()] should not store a TemplateStore Object with the given Template in ' +
+    'LocalStorage, when addTemplate() is called and a Template with the same id has already been stored',
     inject([TemplateRepository], (service: TemplateRepository) => {
 
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.addTemplate(template);
       service.addTemplate(template);
@@ -88,10 +88,10 @@ describe('TemplateRepository', () => {
       expect(retrievedTemplates.templates.length).toBe(1);
     }));
 
-  it('[selectTemplate()] should set the id of the given SheetTemplate in Session Storage when ' +
+  it('[selectTemplate()] should set the id of the given Template in Session Storage when ' +
     'selectTemplate() is called',
     inject([TemplateRepository], (service: TemplateRepository) => {
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.selectTemplate(template);
 
@@ -103,7 +103,7 @@ describe('TemplateRepository', () => {
   it('[deselectTemplate()] should remove the currently stored id from Session Storage when ' +
     'deselectTemplate() is called',
     inject([TemplateRepository], (service: TemplateRepository) => {
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.selectTemplate(template);
 
@@ -125,23 +125,23 @@ describe('TemplateRepository', () => {
       });
     }));
 
-  it('[getSelectedTemplate()] should return the selected SheetTemplate when getSelectedTemplate() is called',
+  it('[getSelectedTemplate()] should return the selected Template when getSelectedTemplate() is called',
     inject([TemplateRepository], (service: TemplateRepository) => {
 
-      const template = new SheetTemplate();
+      const template = new Template();
 
       service.selectTemplate(template);
       service.getSelectedTemplate().then(selectedTemplate => expect(selectedTemplate.id).toBe(template.id));
     }));
 
-  it('[updateTemplate()] should update the SheetTemplate when updateTemplate() is called',
+  it('[updateTemplate()] should update the Template when updateTemplate() is called',
     inject([TemplateRepository], (service: TemplateRepository) => {
 
-      const originalTemplate = new SheetTemplate();
+      const originalTemplate = new Template();
       service.addTemplate(originalTemplate);
       service.selectTemplate(originalTemplate);
 
-      const updatedTemplate = new SheetTemplate();
+      const updatedTemplate = new Template();
       updatedTemplate.id = originalTemplate.id;
       updatedTemplate.name = 'Dai Blackthorn';
 
@@ -152,13 +152,13 @@ describe('TemplateRepository', () => {
     }));
 
 
-  it('[deleteTemplate()] should delete the SheetTemplate when deleteTemplate() is called',
+  it('[deleteTemplate()] should delete the Template when deleteTemplate() is called',
     inject([TemplateRepository], (service: TemplateRepository) => {
 
-      const firstTemplate = new SheetTemplate();
+      const firstTemplate = new Template();
       service.addTemplate(firstTemplate);
 
-      const secondTemplate = new SheetTemplate();
+      const secondTemplate = new Template();
       service.addTemplate(secondTemplate);
 
       service.deleteTemplate(firstTemplate);
@@ -171,15 +171,15 @@ describe('TemplateRepository', () => {
       expect(retrievedTemplates.templates.length).toBe(1);
     }));
 
-  it('[deleteTemplate()] should clear the selected SheetTemplate if deleteTemplate() is called and ' +
-    'the selected SheetTemplate is the same as the deleted SheetTemplate',
+  it('[deleteTemplate()] should clear the selected Template if deleteTemplate() is called and ' +
+    'the selected Template is the same as the deleted Template',
     inject([TemplateRepository], (service: TemplateRepository) => {
 
-      const firstTemplate = new SheetTemplate();
+      const firstTemplate = new Template();
       service.addTemplate(firstTemplate);
       service.selectTemplate(firstTemplate);
 
-      const secondTemplate = new SheetTemplate();
+      const secondTemplate = new Template();
       service.addTemplate(secondTemplate);
 
       service.deleteTemplate(firstTemplate);

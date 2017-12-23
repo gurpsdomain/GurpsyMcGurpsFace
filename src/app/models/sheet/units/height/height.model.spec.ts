@@ -1,13 +1,13 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Template} from '../../../template/template.model';
 import {Height} from './height.model';
-import {Unit} from '../../../sheet-template/metadata/enums/unit';
+import {Unit} from '../../../template/metadata/enums/unit';
 import {HeightUnit} from './height.enum';
 
 describe('Model Object Height', () => {
-  let template: SheetTemplate;
+  let template: Template;
 
   beforeEach(() => {
-    template = new SheetTemplate();
+    template = new Template();
   });
 
   it('should be created', () => {
@@ -18,10 +18,10 @@ describe('Model Object Height', () => {
 
   describe('with metric units', () => {
 
-    let metricTemplate: SheetTemplate;
+    let metricTemplate: Template;
 
     beforeEach(() => {
-      metricTemplate = new SheetTemplate();
+      metricTemplate = new Template();
       metricTemplate.metaData.unit = Unit.METRIC;
     });
 
@@ -72,10 +72,10 @@ describe('Model Object Height', () => {
 
   describe('with imperial units', () => {
 
-    let imperialTemplate: SheetTemplate;
+    let imperialTemplate: Template;
 
     beforeEach(() => {
-      imperialTemplate = new SheetTemplate();
+      imperialTemplate = new Template();
       imperialTemplate.metaData.unit = Unit.IMPERIAL;
     });
 

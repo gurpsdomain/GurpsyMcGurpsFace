@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Sheet} from '../models/sheet/sheet.model';
-import {SheetTemplate} from '../models/sheet-template/sheet-template.model';
+import {Template} from '../models/template/template.model';
 import {SheetService} from '../services/sheet/sheet.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class SheetViewingComponent implements OnInit {
   public sheet: Sheet;
 
   constructor(protected sheetService: SheetService) {
-    this.sheet = new Sheet(new SheetTemplate());
+    this.sheet = new Sheet(new Template());
   }
 
   ngOnInit(): void {

@@ -4,7 +4,7 @@ import {UUID} from 'angular2-uuid';
 import {Unit} from './enums/unit';
 
 @JsonObject
-export class MetaData {
+export class MetaDataTemplate {
 
   @JsonProperty('id', String, false)
   id: string;

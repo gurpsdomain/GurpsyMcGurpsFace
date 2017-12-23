@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {SheetTemplate} from '../../models/sheet-template/sheet-template.model';
+import {Template} from '../../models/template/template.model';
 import {JsonConvert} from 'json2typescript';
 import {Sheet} from '../../models/sheet/sheet.model';
 import {TemplateRepository} from '../../repositories/template/template.repository';
@@ -7,14 +7,14 @@ import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class SheetService {
-  private template: SheetTemplate;
+  private template: Template;
   private sheet: Sheet;
 
   private _editMode = false;
   private editModeChangeSource = new Subject<boolean>();
   private newSheetLoadedSource = new Subject<Sheet>();
   private sheetUpdatedSource = new Subject<Sheet>();
-  private templatesUpdatedSource = new Subject<SheetTemplate[]>();
+  private templatesUpdatedSource = new Subject<Template[]>();
   private templateStoreError = new Subject<void>();
 
   /**
@@ -42,7 +42,7 @@ export class SheetService {
   /**
    * Register to this observable to be notified when the templates are updated.
    *
-   * @type {Observable<SheetTemplate[]>}
+   * @type {Observable<Template[]>}
    */
   public templatesUpdated$ = this.templatesUpdatedSource.asObservable();
 
@@ -69,13 +69,13 @@ export class SheetService {
    *
    * @param {File} A json representative of a template
    */
-  public createTemplateFromFile(file: File): Promise<SheetTemplate> {
+  public createTemplateFromFile(file: File): Promise<Template> {
     return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.onload = readFile => {
           if (readFile) {
             const jsonConvert = new JsonConvert();
-            const template: SheetTemplate = jsonConvert.deserialize(JSON.parse(fileReader.result), SheetTemplate);
+            const template: Template = jsonConvert.deserialize(JSON.parse(fileReader.result), Template);
             resolve(template);
           } else {
             reject('Could not read file');
@@ -90,11 +90,11 @@ export class SheetService {
   }
 
   /**
-   * Load a new SheetTemplate.
+   * Load a new Template.
    *
-   * @param {SheetTemplate} The new SheetTemplate.
+   * @param {Template} The new Template.
    */
-  public loadNewTemplate(template: SheetTemplate): void {
+  public loadNewTemplate(template: Template): void {
     try {
       this.templateStorageService.addAndSelectTemplate(template);
     } catch (error) {
@@ -105,28 +105,28 @@ export class SheetService {
   /**
    * Delete the given template.
    *
-   * @param {SheetTemplate} The SheetTemplate to delete
+   * @param {Template} The Template to delete
    */
-  public deleteTemplate(template: SheetTemplate): void {
+  public deleteTemplate(template: Template): void {
     this.templateStorageService.deleteTemplate(template);
   }
 
   /**
-   * Load an existing SheetTemplate.
+   * Load an existing Template.
    *
-   * @param {SheetTemplate} The SheetTemplate to load.
+   * @param {Template} The Template to load.
    */
-  public loadExistingTemplate(template: SheetTemplate): void {
+  public loadExistingTemplate(template: Template): void {
     this.templateStorageService.selectTemplate(template);
   }
 
 
   /**
-   * Update the SheetTemplate.
+   * Update the Template.
    *
-   * @param {SheetTemplate} The updated SheetTemplate.
+   * @param {Template} The updated Template.
    */
-  public updateTemplate(template: SheetTemplate): void {
+  public updateTemplate(template: Template): void {
     template.lastModified = new Date();
 
     try {
@@ -137,24 +137,24 @@ export class SheetService {
   }
 
   /**
-   * Return the SheetTemplate.
+   * Return the Template.
    *
-   * @returns {Promise<SheetTemplate>}
+   * @returns {Promise<Template>}
    */
-  public getTemplate(): Promise<SheetTemplate> {
+  public getTemplate(): Promise<Template> {
     return Promise.resolve(this.template);
   }
 
   /**
-   * Return the SheetTemplate for a given id. If that template does not exist, the Promise is rejected
+   * Return the Template for a given id. If that template does not exist, the Promise is rejected
    *
    * @param {string} id
-   * @return {Promise<SheetTemplate>}
+   * @return {Promise<Template>}
    */
-  public async getTemplateForId(id: string): Promise<SheetTemplate> {
+  public async getTemplateForId(id: string): Promise<Template> {
 
     const templates = await this.templateStorageService.getTemplates();
-    let foundTemplate: SheetTemplate;
+    let foundTemplate: Template;
 
     for (const storedTemplate of templates) {
       if (storedTemplate.id === id) {
@@ -173,9 +173,9 @@ export class SheetService {
   /**
    * Return the templates.
    *
-   * @returns {Promise<SheetTemplate[]>}
+   * @returns {Promise<Template[]>}
    */
-  public getTemplates(): Promise<SheetTemplate[]> {
+  public getTemplates(): Promise<Template[]> {
     return this.templateStorageService.getTemplates();
   }
 
@@ -190,7 +190,7 @@ export class SheetService {
 
   /**
    * If the application is currently in edit mode. If so, it is possible
-   * to edit the SheetTemplate. Consequently, this will lead to a new
+   * to edit the Template. Consequently, this will lead to a new
    * Sheet.
    *
    * @param {boolean}
@@ -202,7 +202,7 @@ export class SheetService {
 
   /**
    * If the template is currently in edit mode. If so, it is possible
-   * to edit the SheetTemplate. Consequently, this will lead to a new
+   * to edit the Template. Consequently, this will lead to a new
    * template.
    *
    * @return {Promise<boolean>} A Promise that resolves to a boolean. True
@@ -212,7 +212,7 @@ export class SheetService {
     return Promise.resolve(this._editMode);
   }
 
-  private loadTemplate(template: SheetTemplate, isNew?: boolean): void {
+  private loadTemplate(template: Template, isNew?: boolean): void {
     this.setTemplate(template);
     const sheet = this.createSheet(template);
     this.setSheet(sheet);
@@ -231,7 +231,7 @@ export class SheetService {
       .subscribe(templates => this.handleUpdatedTemplates(templates));
   }
 
-  private handleUpdatedTemplates(templates: SheetTemplate[]): void {
+  private handleUpdatedTemplates(templates: Template[]): void {
     this.loadSelectedTemplate(false);
     this.templatesUpdatedSource.next(templates);
   }
@@ -247,7 +247,7 @@ export class SheetService {
     this.setSheet(undefined);
   }
 
-  private setTemplate(template: SheetTemplate): void {
+  private setTemplate(template: Template): void {
     this.template = template;
   }
 
@@ -256,7 +256,7 @@ export class SheetService {
     this.sheetUpdatedSource.next(this.sheet);
   }
 
-  private createSheet(template: SheetTemplate): Sheet {
+  private createSheet(template: Template): Sheet {
     return new Sheet(template);
   }
 }

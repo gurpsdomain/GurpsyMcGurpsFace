@@ -1,8 +1,8 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {Modifier} from '../modifier/modifier.model';
+import {ModifierTemplate} from '../modifier/modifier.model';
 
 @JsonObject
-export class Advantage {
+export class AdvantageTemplate {
 
   @JsonProperty('name', String)
   name: string;
@@ -10,8 +10,8 @@ export class Advantage {
   @JsonProperty('levels', Number)
   levels?: number;
 
-  @JsonProperty('modifiers', [Modifier])
-  modifiers: Modifier[];
+  @JsonProperty('modifiers', [ModifierTemplate])
+  modifiers: ModifierTemplate[];
 
   constructor() {
     this.name = undefined;

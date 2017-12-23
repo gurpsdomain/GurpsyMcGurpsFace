@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {SheetTemplate, TemplateComparison} from '../../../../models/sheet-template/sheet-template.model';
+import {Template, TemplateComparison} from '../../../../models/template/template.model';
 import {SheetService} from '../../../../services/sheet/sheet.service';
 
 export enum State {
@@ -17,7 +17,7 @@ export class OpenSheetDialogComponent {
 
   public showOk = false;
   public selectedFileName = '';
-  public selectedSheet: SheetTemplate;
+  public selectedSheet: Template;
   public stateEnum = State;
 
   public state = State.NONE;
@@ -43,7 +43,7 @@ export class OpenSheetDialogComponent {
       .then(sheet => this.setSelectedSheet(sheet, file.name));
   }
 
-  private setSelectedSheet(template: SheetTemplate, fileName: string): void {
+  private setSelectedSheet(template: Template, fileName: string): void {
     this.selectedSheet = template;
     this.selectedFileName = fileName;
     this.showOk = true;
@@ -53,7 +53,7 @@ export class OpenSheetDialogComponent {
       .catch(any => this.setState(TemplateComparison.DIFFERENT));
   }
 
-  private compareNewTemplateToAlreadyLoadedTemplate(template: SheetTemplate): void {
+  private compareNewTemplateToAlreadyLoadedTemplate(template: Template): void {
     const comparison = this.selectedSheet.equals(template);
     this.setState(comparison);
   }

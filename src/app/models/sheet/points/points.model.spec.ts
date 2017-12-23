@@ -1,12 +1,12 @@
-import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {Template} from '../../template/template.model';
 import {Points} from './points.model';
-import {Skill} from '../../sheet-template/skill/skill.model';
+import {SkillTemplate} from '../../template/skill/skill.model';
 
 
 describe('Model Object Points', () => {
-  let template: SheetTemplate;
+  let template: Template;
 
-  beforeEach(() => template = new SheetTemplate());
+  beforeEach(() => template = new Template());
 
   it('should be created', () => {
     const points = new Points(template);
@@ -14,7 +14,7 @@ describe('Model Object Points', () => {
     expect(points).toBeTruthy();
   });
 
-  it('should have by default 0 Advantages Points', () => {
+  it('should have by default 0 AdvantagesLibrary Points', () => {
     const points = new Points(template);
 
     expect(points.advantages).toBe(0);
@@ -51,17 +51,17 @@ describe('Model Object Points', () => {
     expect(points.spells).toBe(0);
   });
 
-  it('should have by default 0 Skill Points', () => {
+  it('should have by default 0 SkillTemplate Points', () => {
     const points = new Points(template);
 
     expect(points.skills).toBe(0);
   });
 
   it('should add the point value of the Skills from the Template', () => {
-    const skillOne = new Skill();
+    const skillOne = new SkillTemplate();
     skillOne.points = 1;
 
-    const skillTwo = new Skill();
+    const skillTwo = new SkillTemplate();
     skillTwo.points = 2;
 
     template.skills.push(skillOne);

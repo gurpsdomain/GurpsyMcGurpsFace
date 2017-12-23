@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {UpdateAdvantagesComponent} from './advantages.component';
+import {UpdateAdvantagesComponent} from './update-advantages.component';
 import {GurpsyMaterialModule} from '../../../modules/material.module';
 import {LibraryService} from '../../../services/library/library.service';
 import {GurpsyAngularModule} from '../../../modules/angular.module';

@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
 import {MatDialogRef} from '@angular/material';
-import {SheetTemplate} from '../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../models/template/template.model';
 
 @Component({
   template: ''
 })
 export class TemplateUpdaterDialogComponent {
 
-  template: SheetTemplate = new SheetTemplate();
+  template: Template = new Template();
   data: any;
 
   constructor(private dialogRef: MatDialogRef<TemplateUpdaterDialogComponent>) {

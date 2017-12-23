@@ -1,11 +1,11 @@
-import {SheetTemplate} from '../../sheet-template/sheet-template.model';
+import {Template} from '../../template/template.model';
 import {SecondaryCharacteristics} from './secondary-characteristics.model';
 
 
 describe('Model Object SecondaryCharacteristics', () => {
-  let template: SheetTemplate;
+  let template: Template;
 
-  beforeEach(() => template = new SheetTemplate());
+  beforeEach(() => template = new Template());
 
   it('should be created', () => {
     const secondaryCharacteristics = new SecondaryCharacteristics(template);

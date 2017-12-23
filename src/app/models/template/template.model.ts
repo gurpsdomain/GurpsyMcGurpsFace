@@ -1,19 +1,19 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {Note} from './note/note.model';
-import {Equipment} from './equipment/equipment.model';
-import {Spell} from './spell/spell.model';
-import {Skill} from './skill/skill.model';
-import {Disadvantage} from './disadvantage/disadvantage.model';
-import {Advantage} from './advantages/advantage.model';
-import {Reward} from './reward/reward.model';
-import {MetaData} from './metadata/metadata.model';
+import {NoteTemplate} from './note/note.model';
+import {EquipmentTemplate} from './equipment/equipment.model';
+import {SpellTemplate} from './spell/spell.model';
+import {SkillTemplate} from './skill/skill.model';
+import {DisadvantageTemplate} from './disadvantage/disadvantage.model';
+import {AdvantageTemplate} from './advantages/advantage.model';
+import {RewardTemplate} from './reward/reward.model';
+import {MetaDataTemplate} from './metadata/metadata.model';
 
 export enum TemplateComparison {
   OLDER, NEWER, SAME, DIFFERENT
 }
 
 @JsonObject
-export class SheetTemplate {
+export class Template {
 
   @JsonProperty('portrait', String, true)
   portrait: string;
@@ -72,29 +72,29 @@ export class SheetTemplate {
   @JsonProperty('basepoints', Number, true)
   basepoints: number;
 
-  @JsonProperty('rewards', [Reward])
-  rewards: Reward[];
+  @JsonProperty('rewards', [RewardTemplate])
+  rewards: RewardTemplate[];
 
-  @JsonProperty('advantages', [Advantage])
-  advantages: Advantage[];
+  @JsonProperty('advantages', [AdvantageTemplate])
+  advantages: AdvantageTemplate[];
 
-  @JsonProperty('disadvantages', [Disadvantage])
-  disadvantages: Disadvantage[];
+  @JsonProperty('disadvantages', [DisadvantageTemplate])
+  disadvantages: DisadvantageTemplate[];
 
-  @JsonProperty('skills', [Skill])
-  skills: Skill[];
+  @JsonProperty('skills', [SkillTemplate])
+  skills: SkillTemplate[];
 
-  @JsonProperty('spells', [Spell])
-  spells: Spell[];
+  @JsonProperty('spells', [SpellTemplate])
+  spells: SpellTemplate[];
 
-  @JsonProperty('equipments', [Equipment])
-  equipments: Equipment[];
+  @JsonProperty('equipments', [EquipmentTemplate])
+  equipments: EquipmentTemplate[];
 
-  @JsonProperty('notes', [Note])
-  notes: Note[];
+  @JsonProperty('notes', [NoteTemplate])
+  notes: NoteTemplate[];
 
-  @JsonProperty('metadata', MetaData, false)
-  metaData: MetaData;
+  @JsonProperty('metadata', MetaDataTemplate, false)
+  metaData: MetaDataTemplate;
 
   constructor() {
     this.portrait = 'assets/images/empty-portrait.png';
@@ -123,18 +123,18 @@ export class SheetTemplate {
     this.spells = [];
     this.equipments = [];
     this.notes = [];
-    this.metaData = new MetaData();
+    this.metaData = new MetaDataTemplate();
   }
 
   /**
-   * Add a new Reward with the given points and date
+   * Add a new RewardTemplate with the given points and date
    *
    * @param {number} points
    * @param {Date} date
    */
   public addReward(points: number, date: Date): void {
 
-    const reward = new Reward();
+    const reward = new RewardTemplate();
     reward.points = points;
     reward.date = date;
 
@@ -178,14 +178,14 @@ export class SheetTemplate {
   }
 
   /**
-   * Compare this SheetTemplate.
+   * Compare this Template.
    *
    * Comparison is based on both the id and the lastModified date.
    *
-   * @param {SheetTemplate} other
+   * @param {Template} other
    * @return {TemplateComparison}
    */
-  public equals(other: SheetTemplate): TemplateComparison {
+  public equals(other: Template): TemplateComparison {
     if (this.metaData.id !== other.metaData.id) {
       return TemplateComparison.DIFFERENT;
     }
@@ -200,7 +200,7 @@ export class SheetTemplate {
   }
 
   /**
-   * Return the createdOn date of the SheetTemplate.
+   * Return the createdOn date of the Template.
    * @return {Date}
    */
   public get createdOn(): Date {
@@ -208,7 +208,7 @@ export class SheetTemplate {
   }
 
   /**
-   * Set the createdOn date of this SheetTemplate.
+   * Set the createdOn date of this Template.
    * @param {Date} createdOn
    */
   public set createdOn(createdOn: Date) {
@@ -216,7 +216,7 @@ export class SheetTemplate {
   }
 
   /**
-   * Return the id of this SheetTemplate.
+   * Return the id of this Template.
    *
    * @return {string}
    */
@@ -225,7 +225,7 @@ export class SheetTemplate {
   }
 
   /**
-   * Set the id of the SheetTemplate.
+   * Set the id of the Template.
    * @param {string} id
    * @return {string}
    */
@@ -234,7 +234,7 @@ export class SheetTemplate {
   }
 
   /**
-   * Return the lastModified date of this SheetTemplate.
+   * Return the lastModified date of this Template.
    * @return {Date}
    */
   public get lastModified(): Date {
@@ -242,7 +242,7 @@ export class SheetTemplate {
   }
 
   /**
-   * Set the lastModified date of this SheetTemplate.
+   * Set the lastModified date of this Template.
    * @param {Date} lastModified
    */
   public set lastModified(lastModified: Date) {

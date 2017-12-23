@@ -1,5 +1,5 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
-import {Unit} from '../../../sheet-template/metadata/enums/unit';
+import {Template} from '../../../template/template.model';
+import {Unit} from '../../../template/metadata/enums/unit';
 import {HeightUnit} from './height.enum';
 
 export class Height {
@@ -10,7 +10,7 @@ export class Height {
 
   private UNIT_HEIGHT_INCHES_TO_METER_CONVERSION_FACTOR = 0.0254;
 
-  constructor(template: SheetTemplate) {
+  constructor(template: Template) {
     this.setPreferred(template.height);
     this.setUnit(template.metaData.unit);
     this.setAlternative(template.height, template.metaData.unit);

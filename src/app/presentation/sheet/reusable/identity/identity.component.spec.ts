@@ -5,7 +5,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {By} from '@angular/platform-browser';
 import {SheetService} from '../../../../services/sheet/sheet.service';
 import {Sheet} from '../../../../models/sheet/sheet.model';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../../models/template/template.model';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {SettingsService} from '../../../../services/settings/settings.service';
 import {LoggingService} from '../../../../services/logging/logging.service';
@@ -19,7 +19,7 @@ describe('IdentityComponent', function () {
   let modelService: SheetService;
 
   let sheet: Sheet;
-  let template: SheetTemplate;
+  let template: Template;
 
   const CHARACTER_NAME = 'Dai Blackthorn';
   const CHARACTER_NAME_SELECTOR = '.name';
@@ -54,7 +54,7 @@ describe('IdentityComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    template = new SheetTemplate();
+    template = new Template();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;
     sheet.metaData.identity.title = CHARACTER_TITLE;

@@ -2,7 +2,7 @@ import {JsonObject, JsonProperty} from 'json2typescript';
 import {DateConverter} from '../../../repositories/template/converters/date/date.converter';
 
 @JsonObject
-export class Reward {
+export class RewardTemplate {
 
   @JsonProperty('date', DateConverter, true)
   date: Date;

@@ -6,7 +6,7 @@ import {SettingsRepository} from '../../../../repositories/settings/settings.rep
 import {LoggingService} from '../../../../services/logging/logging.service';
 import {SettingsService} from '../../../../services/settings/settings.service';
 import {TemplateRepository} from '../../../../repositories/template/template.repository';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../../models/template/template.model';
 
 describe('AvatarComponent', () => {
   let component: AvatarComponent;
@@ -34,7 +34,7 @@ describe('AvatarComponent', () => {
 
     modelService = TestBed.get(SheetService);
 
-    const template = new SheetTemplate();
+    const template = new Template();
     sheet = new Sheet(template);
 
     spyOn(modelService, 'getSheet')

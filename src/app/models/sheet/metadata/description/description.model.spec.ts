@@ -1,4 +1,4 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Template} from '../../../template/template.model';
 import {Description} from './description.model';
 
 describe('Model Object Description', () => {
@@ -15,9 +15,9 @@ describe('Model Object Description', () => {
   const DESCRIPTION_SKIN = 'White';
   const DESCRIPTION_HAND = 'Right';
 
-  let template: SheetTemplate;
+  let template: Template;
 
-  beforeEach(() => template = new SheetTemplate());
+  beforeEach(() => template = new Template());
 
   it('should be created', () => {
     const description = new Description(template);

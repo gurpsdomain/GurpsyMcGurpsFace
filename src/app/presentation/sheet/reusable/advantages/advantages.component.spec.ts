@@ -9,7 +9,7 @@ import {SettingsRepository} from '../../../../repositories/settings/settings.rep
 import {LoggingService} from '../../../../services/logging/logging.service';
 import {SettingsService} from '../../../../services/settings/settings.service';
 import {TemplateRepository} from '../../../../repositories/template/template.repository';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../../models/template/template.model';
 import {PageReferenceComponent} from '../../../components/generic/page-reference/page-reference.component';
 
 describe('UpdateAdvantagesComponent', () => {
@@ -47,7 +47,7 @@ describe('UpdateAdvantagesComponent', () => {
 
     sheetService = TestBed.get(SheetService);
 
-    const template = new SheetTemplate();
+    const template = new Template();
     sheet = new Sheet(template);
 
     spyOn(sheetService, 'getSheet')

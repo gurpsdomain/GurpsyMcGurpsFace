@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SheetService} from '../../../services/sheet/sheet.service';
-import {SheetTemplate} from '../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../models/template/template.model';
 
 @Component({
   selector: 'gurpsy-select-sheet',
@@ -9,7 +9,7 @@ import {SheetTemplate} from '../../../models/sheet-template/sheet-template.model
 })
 export class SelectSheetComponent implements OnInit {
 
-  public templates: SheetTemplate[] = [];
+  public templates: Template[] = [];
 
   @Output() public loadTemplateFromFile: EventEmitter<any> = new EventEmitter();
   @Output() public createTemplate: EventEmitter<any> = new EventEmitter();
@@ -39,13 +39,13 @@ export class SelectSheetComponent implements OnInit {
   /**
    * Select the given template
    *
-   * @param {SheetTemplate} template
+   * @param {Template} template
    */
-  public onTemplateSelected(template: SheetTemplate): void {
+  public onTemplateSelected(template: Template): void {
     this.sheetService.loadExistingTemplate(template);
   }
 
-  private setTemplates(templates: SheetTemplate[]): void {
+  private setTemplates(templates: Template[]): void {
     this.templates = templates;
   }
 }

@@ -5,8 +5,8 @@ import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {Weight} from '../../../../models/sheet/units/weight/weight.model';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
-import {Unit} from '../../../../models/sheet-template/metadata/enums/unit';
+import {Template} from '../../../../models/template/template.model';
+import {Unit} from '../../../../models/template/metadata/enums/unit';
 import {WeightUnit} from '../../../../models/sheet/units/weight/weight.enum';
 
 describe('WeightComponent', () => {
@@ -40,7 +40,7 @@ describe('WeightComponent', () => {
   describe('for a Metric template', () => {
 
     beforeEach(() => {
-      const template = new SheetTemplate();
+      const template = new Template();
       template.weight = 100;
       template.metaData.unit = Unit.METRIC;
 

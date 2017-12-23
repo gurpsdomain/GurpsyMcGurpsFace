@@ -36,7 +36,7 @@ import {FileFormComponent} from './presentation/components/form/file/file.form.c
 import {GurpsyMaterialModule} from './modules/material.module';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {SheetTemplate} from './models/sheet-template/sheet-template.model';
+import {Template} from './models/template/template.model';
 import {Sheet} from './models/sheet/sheet.model';
 import {Title} from '@angular/platform-browser';
 import {SheetService} from './services/sheet/sheet.service';
@@ -52,7 +52,7 @@ describe('GurpsyComponent', () => {
 
   const CHARACTER_NAME = 'Dai Blackthorn';
 
-  let template: SheetTemplate;
+  let template: Template;
   let sheet: Sheet;
 
   beforeEach(async(() => {
@@ -114,7 +114,7 @@ describe('GurpsyComponent', () => {
     modelService = TestBed.get(SheetService);
     titleService = TestBed.get(Title);
 
-    template = new SheetTemplate();
+    template = new Template();
     template.lastModified = new Date();
     sheet = new Sheet(template);
     sheet.metaData.identity.name = CHARACTER_NAME;

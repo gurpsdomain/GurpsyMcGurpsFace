@@ -9,7 +9,7 @@ import {SettingsService} from '../../../../services/settings/settings.service';
 import {SettingsRepository} from '../../../../repositories/settings/settings.repository';
 import {LoggingService} from '../../../../services/logging/logging.service';
 import {TemplateRepository} from '../../../../repositories/template/template.repository';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../../models/template/template.model';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {WeightComponent} from '../weight/weight.component';
 import {HeightComponent} from '../height/height.component';
@@ -51,7 +51,7 @@ describe('DescriptionComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    const template = new SheetTemplate();
+    const template = new Template();
     sheet = new Sheet(template);
 
     spyOn(modelService, 'getSheet')

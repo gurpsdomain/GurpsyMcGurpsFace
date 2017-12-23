@@ -9,7 +9,7 @@ import {Points} from './points/points.model';
 import {Attributes} from './attributes.model';
 import {SecondaryCharacteristics} from './secondary-characteristics/secondary-characteristics.model';
 import {DamageResistance} from './damage-resistance.model';
-import {SheetTemplate} from '../sheet-template/sheet-template.model';
+import {Template} from '../template/template.model';
 
 export class Sheet {
 
@@ -25,7 +25,7 @@ export class Sheet {
   equipments: Equipment[];
   notes: Note[];
 
-  constructor(template: SheetTemplate) {
+  constructor(template: Template) {
     this.metaData = new MetaData(template);
     this.points = new Points(template);
     this.attributes = new Attributes(template);
@@ -38,23 +38,23 @@ export class Sheet {
     this.notes = this.enrichNotes(template);
   }
 
-  private enrichAdvantages(template: SheetTemplate): Advantage[] {
+  private enrichAdvantages(template: Template): Advantage[] {
     return [];
   }
 
-  private enrichSkills(template: SheetTemplate): Skill[] {
+  private enrichSkills(template: Template): Skill[] {
     return [];
   }
 
-  private enrichSpells(template: SheetTemplate): Spell[] {
+  private enrichSpells(template: Template): Spell[] {
     return [];
   }
 
-  private enrichEquipment(template: SheetTemplate): Equipment[] {
+  private enrichEquipment(template: Template): Equipment[] {
     return [];
   }
 
-  private enrichNotes(template: SheetTemplate): Note[] {
+  private enrichNotes(template: Template): Note[] {
     const notes: Note[] = [];
 
     for (const note of template.notes) {

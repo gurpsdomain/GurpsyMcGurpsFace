@@ -1,4 +1,4 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Template} from '../../../template/template.model';
 import {PlayerInformation} from './player-information.model';
 
 describe('Model Object PlayerInformation', () => {
@@ -8,9 +8,9 @@ describe('Model Object PlayerInformation', () => {
   const PLAYER_INFORMATION_CREATED_ON = new Date();
   const PLAYER_INFORMATION_LAST_MODIFED = new Date();
 
-  let template: SheetTemplate;
+  let template: Template;
 
-  beforeEach(() => template = new SheetTemplate());
+  beforeEach(() => template = new Template());
 
   it('should be created', () => {
     const playerInformation = new PlayerInformation(template);

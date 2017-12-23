@@ -9,7 +9,7 @@ import {SettingsService} from '../../../../services/settings/settings.service';
 import {LoggingService} from '../../../../services/logging/logging.service';
 import {SettingsRepository} from '../../../../repositories/settings/settings.repository';
 import {TemplateRepository} from '../../../../repositories/template/template.repository';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../../models/template/template.model';
 
 describe('NotesComponent', () => {
   let component: NotesComponent;
@@ -45,7 +45,7 @@ describe('NotesComponent', () => {
 
     modelService = TestBed.get(SheetService);
 
-    const template = new SheetTemplate();
+    const template = new Template();
     sheet = new Sheet(template);
 
     spyOn(modelService, 'getSheet')

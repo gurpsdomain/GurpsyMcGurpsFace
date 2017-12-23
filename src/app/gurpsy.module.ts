@@ -59,7 +59,7 @@ import {WeightComponent} from './presentation/sheet/reusable/weight/weight.compo
 import {HeightComponent} from './presentation/sheet/reusable/height/height.component';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import {LibraryService} from './services/library/library.service';
-import {UpdateAdvantagesComponent} from './presentation/template/advantages/advantages.component';
+import {UpdateAdvantagesComponent} from './presentation/template/update-advantages/update-advantages.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

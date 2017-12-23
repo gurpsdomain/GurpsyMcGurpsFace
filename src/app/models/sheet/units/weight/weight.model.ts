@@ -1,5 +1,5 @@
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
-import {Unit} from '../../../sheet-template/metadata/enums/unit';
+import {Template} from '../../../template/template.model';
+import {Unit} from '../../../template/metadata/enums/unit';
 import {WeightUnit} from './weight.enum';
 
 export class Weight {
@@ -10,7 +10,7 @@ export class Weight {
 
   private UNIT_WEIGHT_POUNDS_TO_KG_CONVERSION_FACTOR = 0.45359237;
 
-  constructor(template: SheetTemplate) {
+  constructor(template: Template) {
     this.setPreferred(template.weight);
     this.setUnit(template.metaData.unit);
     this.setAlternative(template.weight, template.metaData.unit);

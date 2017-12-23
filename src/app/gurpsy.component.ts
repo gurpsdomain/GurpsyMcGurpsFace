@@ -9,7 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {PageReferenceService} from './services/page-reference/page-reference.service';
 import {Sheet} from './models/sheet/sheet.model';
 import {NewSheetComponent} from './presentation/dialoges/template-updaters/new-sheet/new-sheet.component';
-import {SheetTemplate} from './models/sheet-template/sheet-template.model';
+import {Template} from './models/template/template.model';
 import {SheetService} from './services/sheet/sheet.service';
 import {GurpsyConstants} from './gurpsy.constants';
 
@@ -38,7 +38,7 @@ export class GurpsyComponent implements OnInit {
   private newSheetDialogRef: MatDialogRef<NewSheetComponent>;
 
   public sheet: Sheet;
-  public template: SheetTemplate;
+  public template: Template;
 
   public templateDownloadName: string;
   public templateJsonHref: any;
@@ -58,7 +58,7 @@ export class GurpsyComponent implements OnInit {
               private overlayContainer: OverlayContainer,
               private titleService: Title) {
 
-    this.sheet = new Sheet(new SheetTemplate());
+    this.sheet = new Sheet(new Template());
 
     this.registerCustomIcons(iconRegistry, sanitizer);
   }
@@ -81,7 +81,7 @@ export class GurpsyComponent implements OnInit {
       disableClose: false
     });
 
-    this.newSheetDialogRef.componentInstance.template = new SheetTemplate();
+    this.newSheetDialogRef.componentInstance.template = new Template();
 
     this.newSheetDialogRef.afterClosed().subscribe(template => {
         if (template) {
@@ -259,12 +259,12 @@ export class GurpsyComponent implements OnInit {
     this.setTitle(sheet);
   }
 
-  private setTemplate(template: SheetTemplate): void {
+  private setTemplate(template: Template): void {
     this.template = template;
     this.setDownloadLink(template);
   }
 
-  private setDownloadLink(template: SheetTemplate): void {
+  private setDownloadLink(template: Template): void {
     if (template) {
       const jsonConvert = new JsonConvert();
       const jsonTemplate = JSON.stringify(jsonConvert.serialize(template));

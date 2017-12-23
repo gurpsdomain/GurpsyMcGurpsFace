@@ -1,5 +1,5 @@
 import {Identity} from './identity.model';
-import {SheetTemplate} from '../../../sheet-template/sheet-template.model';
+import {Template} from '../../../template/template.model';
 
 describe('Model Object Identity', () => {
 
@@ -8,9 +8,9 @@ describe('Model Object Identity', () => {
   const IDENTITY_RELIGION = 'Atheist';
   const IDENTITY_PORTRAIT = 'Base64EncodedImageString';
 
-  let template: SheetTemplate;
+  let template: Template;
 
-  beforeEach(() => template = new SheetTemplate());
+  beforeEach(() => template = new Template());
 
   it('should be created', () => {
     const identity = new Identity(template);

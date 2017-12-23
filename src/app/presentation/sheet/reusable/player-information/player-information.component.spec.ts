@@ -4,7 +4,7 @@ import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/t
 import {TranslateModule} from '@ngx-translate/core';
 import {By} from '@angular/platform-browser';
 import {SheetService} from '../../../../services/sheet/sheet.service';
-import {SheetTemplate} from '../../../../models/sheet-template/sheet-template.model';
+import {Template} from '../../../../models/template/template.model';
 import {Sheet} from '../../../../models/sheet/sheet.model';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
 import {SettingsService} from '../../../../services/settings/settings.service';
@@ -18,7 +18,7 @@ describe('PlayerInformationComponent', function () {
 
   let modelService: SheetService;
 
-  let template: SheetTemplate;
+  let template: Template;
   let initialSheet: Sheet;
   let modifiedSheet: Sheet;
 
@@ -56,14 +56,14 @@ describe('PlayerInformationComponent', function () {
 
     modelService = TestBed.get(SheetService);
 
-    template = new SheetTemplate();
+    template = new Template();
     initialSheet = new Sheet(template);
     initialSheet.metaData.playerInformation.player = PLAYER;
     initialSheet.metaData.playerInformation.campaign = CAMPAIGN;
     initialSheet.metaData.playerInformation.createdOn = CREATED_ON;
     initialSheet.metaData.playerInformation.lastModified = undefined;
 
-    template = new SheetTemplate();
+    template = new Template();
     modifiedSheet = new Sheet(template);
     modifiedSheet.metaData.playerInformation.player = PLAYER;
     modifiedSheet.metaData.playerInformation.campaign = CAMPAIGN;

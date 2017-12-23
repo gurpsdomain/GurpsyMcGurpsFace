@@ -1,27 +1,27 @@
 import {JsonObject, JsonProperty} from 'json2typescript';
-import {SheetTemplate} from '../sheet-template/sheet-template.model';
+import {Template} from '../template/template.model';
 
 @JsonObject
 export class TemplateStore {
 
-  @JsonProperty('templates', [SheetTemplate])
-  templates: SheetTemplate[];
+  @JsonProperty('templates', [Template])
+  templates: Template[];
 
   constructor() {
     this.templates = [];
   }
 
   /**
-   * Add a SheetTemplate. If the SheetTemplate has already been added, return false. If the
+   * Add a Template. If the Template has already been added, return false. If the
    * optional boolean overwrite is set to true, the stored sheet with the same id will be
    * overwritten.
    *
-   * @param {SheetTemplate} template
+   * @param {Template} template
    * @param {boolean} overwrite, defaults to false. If true an already stored sheet with the
    *    same id will be overwritten.
-   * @return {boolean} True if the SheetTemplate was added, false it was added previously
+   * @return {boolean} True if the Template was added, false it was added previously
    */
-  public addTemplate(template: SheetTemplate, overwrite?: boolean): boolean {
+  public addTemplate(template: Template, overwrite?: boolean): boolean {
     let added = false;
 
     if (!this.isPresent(template)) {
@@ -36,11 +36,11 @@ export class TemplateStore {
   }
 
   /**
-   * Delete the given SheetTemplate.
+   * Delete the given Template.
    *
-   * @param {SheetTemplate} template
+   * @param {Template} template
    */
-  public deleteTemplate(template: SheetTemplate): void {
+  public deleteTemplate(template: Template): void {
 
     let index = 0;
     for (const storedTemplate of this.templates) {
@@ -56,13 +56,13 @@ export class TemplateStore {
   }
 
   /**
-   * Get the SheetTemplate with the given id. If none are present, return undefined.
+   * Get the Template with the given id. If none are present, return undefined.
    *
-   * @param {string} id of the requested SheetTemplate
-   * @return {SheetTemplate} The requested SheetTemplate or null if not present
+   * @param {string} id of the requested Template
+   * @return {Template} The requested Template or null if not present
    */
-  public getTemplate(id: string): SheetTemplate {
-    let template: SheetTemplate;
+  public getTemplate(id: string): Template {
+    let template: Template;
 
     for (const storedTemplate of this.templates) {
       if (storedTemplate.id === id) {
@@ -75,16 +75,16 @@ export class TemplateStore {
   }
 
   /**
-   * Update the given SheetTemplate. The previous version will be removed and the new one will be
-   * added. If the given SheetTemplate was not yet in the list, it can not be updated and a false
+   * Update the given Template. The previous version will be removed and the new one will be
+   * added. If the given Template was not yet in the list, it can not be updated and a false
    * will be returned.
    *
-   * @param {SheetTemplate} The SheetTemplate to update
-   * @return {boolean} True if the SheetTemplate was updated, False if there was nothing to update
+   * @param {Template} The Template to update
+   * @return {boolean} True if the Template was updated, False if there was nothing to update
    */
-  public updateTemplate(template: SheetTemplate): boolean {
+  public updateTemplate(template: Template): boolean {
 
-    const newTemplates: SheetTemplate[] = [];
+    const newTemplates: Template[] = [];
 
     for (const storedTemplate of this.templates) {
       if (storedTemplate.id !== template.id) {
@@ -102,7 +102,7 @@ export class TemplateStore {
 
   }
 
-  private isPresent(template: SheetTemplate): boolean {
+  private isPresent(template: Template): boolean {
     let present = false;
 
     for (const storedTemplate of this.templates) {
