@@ -12,9 +12,7 @@ import {AdvantagesDatasource} from '../../datasources/advantages/advantages.data
 export class UpdateAdvantagesComponent implements OnInit {
 
   displayedColumns = ['name', 'type', 'reference'];
-  dataSource = undefined;
-
-  public advantages: AdvantagesLibrary = new AdvantagesLibrary();
+  dataSource = new AdvantagesDatasource(new AdvantagesLibrary());
 
   constructor(private libraryService: LibraryService) {
   }
@@ -25,7 +23,6 @@ export class UpdateAdvantagesComponent implements OnInit {
 
   private setAdvantages(advantages: AdvantagesLibrary): void {
     this.dataSource = new AdvantagesDatasource(advantages);
-    this.advantages = advantages;
   }
 
   public onSelectAdvantage(advantage: AdvantageLibrary): void {

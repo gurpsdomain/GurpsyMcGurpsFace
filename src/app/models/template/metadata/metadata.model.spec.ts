@@ -1,11 +1,11 @@
 import {MetaDataTemplate} from './metadata.model';
-import {SheetTemplate} from '..//sheet-template.model';
+import {Template} from '../template.model';
 
 
 describe('Model Object MetaDataTemplate', () => {
-  let template: SheetTemplate;
+  let template: Template;
 
-  beforeEach(() => template = new SheetTemplate());
+  beforeEach(() => template = new Template());
 
   it('should be created', () => {
     const metadata = new MetaDataTemplate();

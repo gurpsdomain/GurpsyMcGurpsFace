@@ -2,7 +2,42 @@
   "book": "Gurps Lite",
   "advantages": [
     {
+      "name": "Ambidexterity 1",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 2",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 3",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 4",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
       "name": "Increased Dexterity",
+      "type": [
+        "physical"
+      ],
+      "reference": "L3"
+    },
+    {
+      "name": "Increased Health",
       "type": [
         "physical"
       ],
@@ -14,6 +49,20 @@
         "mental"
       ],
       "reference": "L3"
+    },
+    {
+      "name": "Increased Strength",
+      "type": [
+        "physical"
+      ],
+      "reference": "L3"
+    },
+    {
+      "name": "Voice",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
     }
   ]
 }
