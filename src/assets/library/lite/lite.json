@@ -30,6 +30,34 @@
       "reference": "L5"
     },
     {
+      "name": "Ambidexterity 5",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 6",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 7",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 8",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
       "name": "Increased Dexterity",
       "type": [
         "physical"

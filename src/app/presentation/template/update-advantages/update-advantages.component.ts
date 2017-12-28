@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LibraryService} from '../../../services/library/library.service';
 import {AdvantagesLibrary} from '../../../models/library/advantages/advantages.model';
 import {AdvantageLibrary} from '../../../models/library/advantage/advantage.model';
 import {AdvantagesDatasource} from '../../datasources/advantages/advantages.datasource';
+import {MatPaginator, MatSort} from '@angular/material';
 
 @Component({
   selector: 'gurpsy-update-advantages',
@@ -10,9 +11,12 @@ import {AdvantagesDatasource} from '../../datasources/advantages/advantages.data
   styleUrls: ['./update-advantages.component.scss']
 })
 export class UpdateAdvantagesComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   displayedColumns = ['name', 'type', 'reference'];
-  dataSource = new AdvantagesDatasource(new AdvantagesLibrary());
+  dataSource = undefined;
+  dataSize = 0;
 
   constructor(private libraryService: LibraryService) {
   }
@@ -22,7 +26,8 @@ export class UpdateAdvantagesComponent implements OnInit {
   }
 
   private setAdvantages(advantages: AdvantagesLibrary): void {
-    this.dataSource = new AdvantagesDatasource(advantages);
+    this.dataSize = advantages.advantages.length;
+    this.dataSource = new AdvantagesDatasource(advantages, this.paginator, this.sort);
   }
 
   public onSelectAdvantage(advantage: AdvantageLibrary): void {
