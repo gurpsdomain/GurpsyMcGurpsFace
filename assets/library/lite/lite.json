@@ -1,0 +1,96 @@
+{
+  "book": "Gurps Lite",
+  "advantages": [
+    {
+      "name": "Ambidexterity 1",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 2",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 3",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 4",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 5",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 6",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 7",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Ambidexterity 8",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    },
+    {
+      "name": "Increased Dexterity",
+      "type": [
+        "physical"
+      ],
+      "reference": "L3"
+    },
+    {
+      "name": "Increased Health",
+      "type": [
+        "physical"
+      ],
+      "reference": "L3"
+    },
+    {
+      "name": "Increased Intelligence",
+      "type": [
+        "mental"
+      ],
+      "reference": "L3"
+    },
+    {
+      "name": "Increased Strength",
+      "type": [
+        "physical"
+      ],
+      "reference": "L3"
+    },
+    {
+      "name": "Voice",
+      "type": [
+        "physical"
+      ],
+      "reference": "L5"
+    }
+  ]
+}
