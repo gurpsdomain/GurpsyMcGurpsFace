@@ -1,26 +1,35 @@
-<mat-table #table [dataSource]="dataSource" matSort>
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="40"> Name</mat-header-cell>
-    <mat-cell *matCellDef="let advantage" fxFlex="40"> {{advantage.name}}</mat-cell>
-  </ng-container>
+<div class="advantages-container">
 
-  <ng-container matColumnDef="type">
-    <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
-    <mat-cell *matCellDef="let advantage"> {{advantage.type}}</mat-cell>
-  </ng-container>
+  <div class="advantages-filter">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Filter Advantages">
+    </mat-form-field>
+  </div>
 
-  <ng-container matColumnDef="reference">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Reference</mat-header-cell>
-    <mat-cell *matCellDef="let advantage"> {{advantage.reference}}</mat-cell>
-  </ng-container>
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header fxFlex="40"> Name</mat-header-cell>
+      <mat-cell *matCellDef="let advantage" fxFlex="40"> {{advantage.name}}</mat-cell>
+    </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row class="selectableRow" *matRowDef="let row; columns: displayedColumns;"
-           (click)="onSelectAdvantage(row)"></mat-row>
-</mat-table>
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> Type</mat-header-cell>
+      <mat-cell *matCellDef="let advantage"> {{advantage.type}}</mat-cell>
+    </ng-container>
 
-<mat-paginator #paginator
-               [length]="dataSize"
-               [pageIndex]="0"
-               [pageSize]="10">
-</mat-paginator>
+    <ng-container matColumnDef="reference">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Reference</mat-header-cell>
+      <mat-cell *matCellDef="let advantage"> {{advantage.reference}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row class="selectableRow" *matRowDef="let row; columns: displayedColumns;"
+             (click)="onSelectAdvantage(row)"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [length]="dataSize"
+                 [pageIndex]="0"
+                 [pageSize]="10">
+  </mat-paginator>
+</div>

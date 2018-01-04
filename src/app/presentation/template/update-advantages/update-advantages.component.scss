@@ -1,3 +1,27 @@
-mat-row.selectableRow {
-  cursor: pointer;
+.advantages-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.advantages-filter {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+
+  .mat-form-field {
+    margin-left: 0;
+  }
+}
+
+.mat-form-field {
+  font-size: 14px;
+  flex-grow: 1;
+  margin-left: 32px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
 }
