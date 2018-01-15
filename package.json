@@ -41,11 +41,11 @@
     "json2typescript": "1.0.5",
     "ng2-img-cropper": "0.9.0",
     "ng2-pdf-viewer": "3.0.2",
-    "rxjs": "5.5.2",
+    "rxjs": "5.5.6",
     "three": "0.87.1",
     "ts-helpers": "1.1.2",
     "whs": "2.1.8",
-    "zone.js": "0.8.18"
+    "zone.js": "0.8.20"
   },
   "devDependencies": {
     "@angular/cli": "1.6.4",
@@ -68,7 +68,7 @@
     "sass-loader": "6.0.6",
     "travis-encrypt": "2.1.1",
     "ts-node": "3.3.0",
-    "tslint": "5.8.0",
+    "tslint": "5.9.1",
     "typescript": "2.5.3",
     "webdriver-manager": "12.0.6",
     "webpack": "3.5.5"
