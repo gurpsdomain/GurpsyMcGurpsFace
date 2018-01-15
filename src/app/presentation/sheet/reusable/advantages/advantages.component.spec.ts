@@ -12,7 +12,7 @@ import {TemplateRepository} from '../../../../repositories/template/template.rep
 import {Template} from '../../../../models/template/template.model';
 import {PageReferenceComponent} from '../../../components/generic/page-reference/page-reference.component';
 
-describe('UpdateAdvantagesComponent', () => {
+describe('AdvantagesTableComponent', () => {
   let component: AdvantagesComponent;
   let fixture: ComponentFixture<AdvantagesComponent>;
 

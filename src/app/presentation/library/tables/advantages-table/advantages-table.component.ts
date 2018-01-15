@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {LibraryService} from '../../../services/library/library.service';
-import {AdvantagesLibrary} from '../../../models/library/advantages/advantages.model';
-import {AdvantageLibrary} from '../../../models/library/advantage/advantage.model';
+import {LibraryService} from '../../../../services/library/library.service';
+import {AdvantagesLibrary} from '../../../../models/library/advantages/advantages.model';
+import {AdvantageLibrary} from '../../../../models/library/advantage/advantage.model';
 import {AdvantagesDatasource} from '../../datasources/advantages/advantages.datasource';
 import {MatPaginator, MatSort} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
@@ -10,11 +10,11 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 @Component({
-  selector: 'gurpsy-update-advantages',
-  templateUrl: './update-advantages.component.html',
-  styleUrls: ['./update-advantages.component.scss']
+  selector: 'gurpsy-advantages-table',
+  templateUrl: './advantages-table.component.html',
+  styleUrls: ['./advantages-table.component.scss']
 })
-export class UpdateAdvantagesComponent implements OnInit {
+export class AdvantagesTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('filter') filter: ElementRef;
