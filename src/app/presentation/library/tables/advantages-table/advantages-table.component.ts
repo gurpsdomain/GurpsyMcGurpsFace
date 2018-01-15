@@ -3,7 +3,7 @@ import {LibraryService} from '../../../../services/library/library.service';
 import {AdvantagesLibrary} from '../../../../models/library/advantages/advantages.model';
 import {AdvantageLibrary} from '../../../../models/library/advantage/advantage.model';
 import {AdvantagesDatasource} from '../../datasources/advantages/advantages.datasource';
-import {MatPaginator, MatSort} from '@angular/material';
+import {MatSort} from '@angular/material';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/operator/debounceTime';
@@ -15,13 +15,11 @@ import 'rxjs/add/operator/distinctUntilChanged';
   styleUrls: ['./advantages-table.component.scss']
 })
 export class AdvantagesTableComponent implements OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('filter') filter: ElementRef;
 
   displayedColumns = ['name', 'type', 'reference'];
   dataSource = undefined;
-  dataSize = 0;
 
   constructor(private libraryService: LibraryService) {
   }
@@ -40,17 +38,11 @@ export class AdvantagesTableComponent implements OnInit {
   }
 
   private setAdvantages(advantages: AdvantagesLibrary): void {
-    this.dataSize = advantages.advantages.length;
-    this.dataSource = new AdvantagesDatasource(advantages, this.paginator, this.sort);
-    this.dataSource.dataSetSizeSource$.subscribe(size => this.setDataSetSize(size));
+    this.dataSource = new AdvantagesDatasource(advantages, this.sort);
   }
 
   public onSelectAdvantage(advantage: AdvantageLibrary): void {
     console.log('AdvantageTemplate selected: ', advantage);
-  }
-
-  private setDataSetSize(size: number): void {
-    this.dataSize = size;
   }
 }
 

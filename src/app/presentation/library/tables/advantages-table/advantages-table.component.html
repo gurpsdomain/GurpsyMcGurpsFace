@@ -26,10 +26,4 @@
     <mat-row class="selectableRow" *matRowDef="let row; columns: displayedColumns;"
              (click)="onSelectAdvantage(row)"></mat-row>
   </mat-table>
-
-  <mat-paginator #paginator
-                 [length]="dataSize"
-                 [pageIndex]="0"
-                 [pageSize]="10">
-  </mat-paginator>
 </div>

@@ -5,21 +5,15 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/merge';
 import {AdvantagesLibrary} from '../../../../models/library/advantages/advantages.model';
 import {AdvantageLibrary} from '../../../../models/library/advantage/advantage.model';
-import {MatPaginator, MatSort} from '@angular/material';
+import {MatSort} from '@angular/material';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Subject} from 'rxjs/Subject';
 
 
 export class AdvantagesDatasource extends DataSource<any> {
 
   _filterChange = new BehaviorSubject('');
 
-  private dataSetSizeSource = new Subject<number>();
-  public dataSetSizeSource$ = this.dataSetSizeSource.asObservable();
-
-
   constructor(private _advantages: AdvantagesLibrary,
-              private _paginator: MatPaginator,
               private _sort: MatSort) {
     super();
   }
@@ -27,7 +21,6 @@ export class AdvantagesDatasource extends DataSource<any> {
   /** Connect function called by the table to retrieve one stream containing the data to render. */
   connect(): Observable<AdvantageLibrary[]> {
     const displayDataChanges = [
-      this._paginator.page,
       this._sort.sortChange,
       this._filterChange
     ];
@@ -35,7 +28,7 @@ export class AdvantagesDatasource extends DataSource<any> {
     return Observable.merge(...displayDataChanges).map(() => {
       const data = this._advantages.advantages.slice();
 
-      return this.getSlicedData(this.getSortedData(this.getFilteredData(data)));
+      return this.getSortedData(this.getFilteredData(data));
     });
   }
 
@@ -58,11 +51,6 @@ export class AdvantagesDatasource extends DataSource<any> {
    */
   set filter(filter: string) {
     this._filterChange.next(filter);
-  }
-
-  private getSlicedData(data: AdvantageLibrary[]): AdvantageLibrary[] {
-    const startIndex = this._paginator.pageIndex * this._paginator.pageSize;
-    return data.splice(startIndex, this._paginator.pageSize);
   }
 
   private getSortedData(data: AdvantageLibrary[]): AdvantageLibrary[] {
@@ -96,8 +84,6 @@ export class AdvantagesDatasource extends DataSource<any> {
       const searchStr = (advantage.name).toLowerCase();
       return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
     });
-
-    this.dataSetSizeSource.next(filteredDataSet.length);
 
     return filteredDataSet;
   }
