@@ -12,9 +12,9 @@ mat-toolbar {
 }
 
 .gurpsyBody {
-  height: 100%;
-  text-align: center;
-  text-align: -webkit-center;
+  flex-grow: 1;
+  align-self: center;
+  display: flex;
 }
 
 .closeBookViewerButton {
