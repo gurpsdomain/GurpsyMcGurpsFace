@@ -2,3 +2,19 @@
   padding-top: 16px;
   text-align: right;
 }
+
+.mat-stepper-horizontal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/deep/ .mat-horizontal-content-container {
+  flex-grow: 1;
+}
+
+/deep/ .mat-horizontal-stepper-content {
+  display: flex;
+  flex-direction: column;
+}
