@@ -30,7 +30,6 @@
     "@angular/material": "5.1.0",
     "@angular/platform-browser": "5.2.2",
     "@angular/platform-browser-dynamic": "5.2.2",
-    "@angular/router": "5.2.2",
     "@ngx-translate/core": "9.0.2",
     "@ngx-translate/http-loader": "2.0.1",
     "@types/hammerjs": "2.0.35",
