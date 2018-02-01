@@ -60,7 +60,6 @@ import {HeightComponent} from './presentation/sheet/reusable/height/height.compo
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import {LibraryService} from './services/library/library.service';
 import {AdvantagesTableComponent} from './presentation/library/tables/advantages-table/advantages-table.component';
-import { AdvantagesStepperComponent } from './presentation/library/steppers/advantages-stepper/advantages-stepper.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -110,8 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SelectSheetComponent,
     SelectSheetButtonComponent,
     WeightComponent,
-    AdvantagesTableComponent,
-    AdvantagesStepperComponent
+    AdvantagesTableComponent
   ],
   imports: [
     ImageCropperModule,
