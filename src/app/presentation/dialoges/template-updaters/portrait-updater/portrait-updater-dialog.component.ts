@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {TemplateUpdaterDialogComponent} from '../template-updater-dialog.component';
-import {CropperSettings, ImageCropperComponent} from 'ngx-img-cropper';
+import {CropperSettings, ImageCropperComponent} from 'ng2-img-cropper';
 
 @Component({
   templateUrl: './portrait-updater-dialog.component.html',
