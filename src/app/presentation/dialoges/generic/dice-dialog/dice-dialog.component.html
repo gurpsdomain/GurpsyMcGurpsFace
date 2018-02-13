@@ -1,9 +1,8 @@
 <mat-dialog-content>
-  <div class="diceView" #canvas>
-  </div>
+  <canvas class="diceView" id="renderCanvas"></canvas>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
-  <button mat-button color="primary" (click)="onRethrow()"> {{'DIALOG.DICE.RETHROW'| translate}}</button>
-  <button mat-button color="primary" matDialogClose> {{'DIALOG.CLOSE'| translate}}</button>
+  <button mat-button color="primary" (click)="onRethrow()"> {{ 'DIALOG.DICE.RETHROW'| translate }}</button>
+  <button mat-button color="primary" matDialogClose> {{ 'DIALOG.CLOSE'| translate }}</button>
 </mat-dialog-actions>

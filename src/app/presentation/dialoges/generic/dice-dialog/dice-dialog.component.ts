@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import * as WHS from 'whs/build/whs';
-import * as THREE from 'three';
+import {Engine} from 'babylonjs';
+import {Physics} from './scenes/physics';
 
 @Component({
   templateUrl: './dice-dialog.component.html',
@@ -8,107 +8,19 @@ import * as THREE from 'three';
 })
 export class DiceDialogComponent implements AfterViewInit {
 
-  private static TEXTURE_TABLE = 'assets/textures/walnut-tabletop.jpg';
-
-  private app: WHS.App;
-
   @ViewChild('canvas')
   private canvasRef: ElementRef;
 
+  private game: Physics;
+
   public ngAfterViewInit() {
-    this.createWHSApp();
-    this.setupScenery();
+    this.game = new Physics('renderCanvas');
+    this.game.createScene();
+
+    this.game.animate();
   }
 
   public onRethrow(): void {
-    this.app.start();
-  }
-
-  private createWHSApp(): void {
-    this.app = new WHS.App([
-      new WHS.ElementModule(this.canvasRef.nativeElement),
-      new WHS.SceneModule(),
-      new WHS.CameraModule({
-        position: {
-          y: 10,
-          z: 50
-        }
-      }),
-      new WHS.RenderingModule({
-        bgColor: 0x162129,
-        renderer: {
-          antialias: true,
-          shadowmap: {
-            type: THREE.PCFSoftShadowMap,
-          },
-        }
-      }),
-      new WHS.ResizeModule(),
-      new WHS.OrbitControlsModule()
-    ]);
-  }
-
-  public setupScenery() {
-    this.addSphere();
-    this.addPlane();
-    this.addPointLight();
-    this.addLight();
-
-    this.app.start();
-  }
-
-  private addSphere(): void {
-    const sphere = new WHS.Sphere({
-      geometry: {
-        radius: 5,
-        widthSegments: 32,
-        heightSegments: 32
-      },
-
-      material: new THREE.MeshPhongMaterial({
-        color: 0xF2F2F2
-      }),
-
-      position: new THREE.Vector3(0, 5, 0)
-    });
-    sphere.addTo(this.app);
-  }
-
-  private addPlane(): void {
-    new WHS.Plane({
-      geometry: {
-        width: 100,
-        height: 100
-      },
-
-      material: new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load(DiceDialogComponent.TEXTURE_TABLE)}),
-
-      rotation: {
-        x: -Math.PI / 2
-      }
-    }).addTo(this.app);
-  }
-
-  private addPointLight(): void {
-    new WHS.PointLight({
-      light: {
-        intensity: 0.5,
-        distance: 100
-      },
-
-      shadow: {
-        fov: 90
-      },
-
-      position: new THREE.Vector3(0, 10, 10)
-    }).addTo(this.app);
-  }
-
-  private addLight(): void {
-    new WHS.AmbientLight({
-      light: {
-        intensity: 0.4
-      }
-    }).addTo(this.app);
+    this.game.animate();
   }
 }
