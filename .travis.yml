@@ -26,7 +26,7 @@ script:
   - ng -v
   - ng lint
   - npm run test-coverage
-  - ng build --target production --base-href "/GurpsyMcGurpsFace/"
+  - ng build --target production --build-optimizer=false --base-href "/GurpsyMcGurpsFace/"
 
 after_success:
   npm run coveralls
