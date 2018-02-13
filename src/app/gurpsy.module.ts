@@ -41,7 +41,6 @@ import {GurpsyAngularModule} from './modules/angular.module';
 // tslint:disable-next-line max-line-length
 import {PortraitUpdaterDialogComponent} from './presentation/dialoges/template-updaters/portrait-updater/portrait-updater-dialog.component';
 import {SheetViewingComponent} from './presentation/sheet-viewing.component';
-import {ImageCropperModule} from 'ng2-img-cropper';
 import {AvatarComponent} from './presentation/components/generic/avatar/avatar.component';
 import {NewSheetComponent} from './presentation/dialoges/template-updaters/new-sheet/new-sheet.component';
 import {IdentityUpdaterComponent} from './presentation/dialoges/template-updaters/identity-updater/identity-updater.component';
@@ -60,6 +59,7 @@ import {HeightComponent} from './presentation/sheet/reusable/height/height.compo
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import {LibraryService} from './services/library/library.service';
 import {AdvantagesTableComponent} from './presentation/library/tables/advantages-table/advantages-table.component';
+import {ImageCropperModule} from 'ngx-img-cropper';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');

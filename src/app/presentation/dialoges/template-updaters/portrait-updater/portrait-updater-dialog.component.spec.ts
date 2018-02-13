@@ -1,11 +1,11 @@
 import {async, TestBed} from '@angular/core/testing';
 import {PortraitUpdaterDialogComponent} from './portrait-updater-dialog.component';
-import {ImageCropperComponent} from 'ng2-img-cropper';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatDialog} from '@angular/material';
 import {NgModule} from '@angular/core';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
+import {ImageCropperComponent} from 'ngx-img-cropper';
 
 @NgModule({
   entryComponents: [
