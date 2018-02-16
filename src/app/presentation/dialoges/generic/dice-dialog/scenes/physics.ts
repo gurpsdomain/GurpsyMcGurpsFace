@@ -1,6 +1,4 @@
 import {Engine, HemisphericLight, Light, MeshBuilder, Scene, TargetCamera, Vector3} from 'babylonjs';
-import {OBJFileLoader} from 'babylonjs-loaders';
-
 
 export class Physics {
 
