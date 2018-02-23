@@ -1,12 +1,14 @@
 import {Engine, HemisphericLight, Light, MeshBuilder, Scene, TargetCamera, Vector3} from 'babylonjs';
-import {DieFactory} from './die.factory';
-import {DiceTrayFactory} from './dice-tray.factory';
+import {MaterialFactory} from './factories/material.factory';
+import {DiceTrayFactory} from './factories/dice-tray.factory';
+import {DieFactory} from './factories/die.factory';
 
-export class Physics {
+export class DiceThrower {
 
   private _canvas: HTMLCanvasElement;
   private _engine: Engine;
   private _scene: Scene;
+  private _dice: BABYLON.Mesh[] = [];
 
   constructor(canvasElement: string) {
     this._canvas = <HTMLCanvasElement>document.getElementById(canvasElement);
@@ -16,7 +18,7 @@ export class Physics {
   public createScene(): void {
     this._scene = new BABYLON.Scene(this._engine);
 
-    const camera = new BABYLON.FreeCamera('Camera', new BABYLON.Vector3(0, 4, -30), this._scene);
+    const camera = new BABYLON.FreeCamera('Camera', new BABYLON.Vector3(0, 20, -50), this._scene);
     camera.attachControl(this._canvas, true);
     camera.checkCollisions = true;
     camera.applyGravity = true;
@@ -32,9 +34,10 @@ export class Physics {
     this._scene.enablePhysics(null, new BABYLON.OimoJSPlugin());
 
     // Dice
-    DieFactory.createDie(shadowGenerator, this._scene);
-    DieFactory.createDie(shadowGenerator, this._scene);
-    DieFactory.createDie(shadowGenerator, this._scene);
+    const dieMaterial = MaterialFactory.createDieMaterial(this._scene);
+    this._dice.push(DieFactory.createDie(shadowGenerator, this._scene, dieMaterial));
+    this._dice.push(DieFactory.createDie(shadowGenerator, this._scene, dieMaterial));
+    this._dice.push(DieFactory.createDie(shadowGenerator, this._scene, dieMaterial));
 
     DiceTrayFactory.createDiceTray(this._scene);
 
@@ -47,7 +50,7 @@ export class Physics {
     const groundMat = new BABYLON.StandardMaterial('groundMat', this._scene);
     groundMat.diffuseColor = new BABYLON.Color3(0.5, 0.5, 0.5);
     groundMat.emissiveColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-    groundMat.diffuseTexture = new BABYLON.Texture('/assets/textures/walnut-tabletop.jpg', this._scene);
+    groundMat.diffuseTexture = new BABYLON.Texture('/assets/textures/walnut-tabletop.png', this._scene);
     groundMat.backFaceCulling = false;
     ground.material = groundMat;
 
@@ -62,14 +65,25 @@ export class Physics {
   }
 
   animate(): void {
-    // run the render loop
-    this._engine.runRenderLoop(() => {
-      this._scene.render();
-    });
+    this.runRenderLoop(this._engine, this._scene);
+    this.addResizeHandler(this._engine);
+  }
 
-    // the canvas/window resize event handler
+  retrow(): void {
+    for (const die of this._dice) {
+      DieFactory.reposition(die);
+    }
+  }
+
+  private runRenderLoop(engine: BABYLON.Engine, scene: BABYLON.Scene): void {
+    engine.runRenderLoop(() => {
+      scene.render();
+    });
+  }
+
+  private addResizeHandler(engine: BABYLON.Engine): void {
     window.addEventListener('resize', () => {
-      this._engine.resize();
+      engine.resize();
     });
   }
 }
