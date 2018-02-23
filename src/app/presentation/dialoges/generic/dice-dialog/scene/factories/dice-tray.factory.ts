@@ -5,7 +5,7 @@ export class DiceTrayFactory {
     const groundMat = new BABYLON.StandardMaterial('groundMat', scene);
     groundMat.diffuseColor = new BABYLON.Color3(0.5, 0.5, 0.5);
     groundMat.emissiveColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-    groundMat.diffuseTexture = new BABYLON.Texture('/assets/textures/walnut-tabletop.jpg', scene);
+    groundMat.diffuseTexture = new BABYLON.Texture('/assets/textures/walnut-tabletop.png', scene);
     groundMat.backFaceCulling = false;
 
     const border0 = BABYLON.Mesh.CreateBox('border0', 1, scene);
