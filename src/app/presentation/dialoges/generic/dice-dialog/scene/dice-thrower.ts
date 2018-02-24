@@ -1,7 +1,7 @@
 import {Engine, HemisphericLight, Light, MeshBuilder, Scene, TargetCamera, Vector3} from 'babylonjs';
-import {MaterialFactory} from './factories/material.factory';
-import {DiceTrayFactory} from './factories/dice-tray.factory';
-import {DieFactory} from './factories/die.factory';
+import {MaterialFactory} from './factories/material/material.factory';
+import {DieFactory} from './factories/die/die.factory';
+import {DiceTrayFactory} from './factories/dice-tray/dice-tray.factory';
 
 export class DiceThrower {
 
@@ -34,7 +34,7 @@ export class DiceThrower {
     this._scene.enablePhysics(null, new BABYLON.OimoJSPlugin());
 
     // Dice
-    const dieMaterial = MaterialFactory.createDieMaterial(this._scene);
+    const dieMaterial = MaterialFactory.getInstance().getDieMaterial(this._scene);
     this._dice.push(DieFactory.createDie(shadowGenerator, this._scene, dieMaterial));
     this._dice.push(DieFactory.createDie(shadowGenerator, this._scene, dieMaterial));
     this._dice.push(DieFactory.createDie(shadowGenerator, this._scene, dieMaterial));
@@ -42,18 +42,13 @@ export class DiceThrower {
     DiceTrayFactory.createDiceTray(this._scene);
 
     // Playground
+    const groundMat = MaterialFactory.getInstance().getWallnutMaterial(this._scene);
     const ground = BABYLON.Mesh.CreateBox('Ground', 1, this._scene);
     ground.scaling = new BABYLON.Vector3(100, 1, 100);
     ground.position.y = -5.0;
     ground.checkCollisions = true;
 
-    const groundMat = new BABYLON.StandardMaterial('groundMat', this._scene);
-    groundMat.diffuseColor = new BABYLON.Color3(0.5, 0.5, 0.5);
-    groundMat.emissiveColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-    groundMat.diffuseTexture = new BABYLON.Texture('/assets/textures/walnut-tabletop.png', this._scene);
-    groundMat.backFaceCulling = false;
     ground.material = groundMat;
-
     ground.receiveShadows = true;
 
     // Physics

@@ -1,12 +1,11 @@
+import {MaterialFactory} from '../material/material.factory';
+
 export class DiceTrayFactory {
+
 
   public static createDiceTray(scene: BABYLON.Scene): void {
 
-    const groundMat = new BABYLON.StandardMaterial('groundMat', scene);
-    groundMat.diffuseColor = new BABYLON.Color3(0.5, 0.5, 0.5);
-    groundMat.emissiveColor = new BABYLON.Color3(0.2, 0.2, 0.2);
-    groundMat.diffuseTexture = new BABYLON.Texture('/assets/textures/walnut-tabletop.png', scene);
-    groundMat.backFaceCulling = false;
+    const groundMat = MaterialFactory.getInstance().getWallnutMaterial(scene);
 
     const border0 = BABYLON.Mesh.CreateBox('border0', 1, scene);
     border0.scaling = new BABYLON.Vector3(1, 8, 30);

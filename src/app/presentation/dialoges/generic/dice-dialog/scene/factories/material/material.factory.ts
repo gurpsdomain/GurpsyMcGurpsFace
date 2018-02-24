@@ -1,6 +1,35 @@
 export class MaterialFactory {
 
-  static createDieMaterial(scene: BABYLON.Scene): BABYLON.Material {
+  private static _instance: MaterialFactory;
+  private _dieMaterial: BABYLON.Material;
+  private _wallnnutMaterial: BABYLON.Material;
+
+  private constructor() {
+
+  }
+
+  public static getInstance(): MaterialFactory {
+    if (!this._instance) {
+      this._instance = new MaterialFactory();
+    }
+    return this._instance;
+  }
+
+  public getDieMaterial(scene: BABYLON.Scene): BABYLON.Material {
+    if (!this._dieMaterial) {
+      this._dieMaterial = this.createDieMaterial(scene);
+    }
+    return this._dieMaterial;
+  }
+
+  public getWallnutMaterial(scene: BABYLON.Scene): BABYLON.Material {
+    if (!this._wallnnutMaterial) {
+      this._wallnnutMaterial = this.createWallnutMaterial(scene);
+    }
+    return this._wallnnutMaterial;
+  }
+
+  private createDieMaterial(scene: BABYLON.Scene): BABYLON.Material {
     const textureFaceOne = new BABYLON.Texture('/assets/textures/dice-1.png', scene);
     const materialFaceOne = new BABYLON.StandardMaterial('bone', scene);
     materialFaceOne.diffuseTexture = textureFaceOne;
@@ -34,5 +63,14 @@ export class MaterialFactory {
     multimat.subMaterials.push(materialFaceSix);
 
     return multimat;
+  }
+
+  private createWallnutMaterial(scene: BABYLON.Scene): BABYLON.Material {
+    const material = new BABYLON.StandardMaterial('wallnut', scene);
+    material.diffuseColor = new BABYLON.Color3(0.5, 0.5, 0.5);
+    material.emissiveColor = new BABYLON.Color3(0.2, 0.2, 0.2);
+    material.diffuseTexture = new BABYLON.Texture('/assets/textures/walnut-tabletop.png', scene);
+
+    return material;
   }
 }
