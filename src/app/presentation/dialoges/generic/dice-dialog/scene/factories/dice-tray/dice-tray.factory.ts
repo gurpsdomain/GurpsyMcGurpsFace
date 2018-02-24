@@ -2,7 +2,6 @@ import {MaterialFactory} from '../material/material.factory';
 
 export class DiceTrayFactory {
 
-
   public static createDiceTray(scene: BABYLON.Scene): void {
 
     const groundMat = MaterialFactory.getInstance().getWallnutMaterial(scene);
