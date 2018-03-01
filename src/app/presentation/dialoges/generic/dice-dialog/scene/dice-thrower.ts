@@ -19,7 +19,6 @@ export class DiceThrower {
     this._scene = new BABYLON.Scene(this._engine);
 
     const camera = new BABYLON.FreeCamera('Camera', new BABYLON.Vector3(0, 20, -50), this._scene);
-    camera.attachControl(this._canvas, true);
     camera.checkCollisions = true;
     camera.applyGravity = true;
     camera.setTarget(new BABYLON.Vector3(0, 0, 0));
@@ -59,12 +58,12 @@ export class DiceThrower {
     }, this._scene);
   }
 
-  animate(): void {
+  public animate(): void {
     this.runRenderLoop(this._engine, this._scene);
     this.addResizeHandler(this._engine);
   }
 
-  retrow(): void {
+  public retrow(): void {
     for (const die of this._dice) {
       DieFactory.reposition(die);
     }

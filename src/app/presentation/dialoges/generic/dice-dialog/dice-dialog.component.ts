@@ -8,9 +8,6 @@ import {DiceThrower} from './scene/dice-thrower';
 })
 export class DiceDialogComponent implements AfterViewInit {
 
-  @ViewChild('canvas')
-  private canvasRef: ElementRef;
-
   private game: DiceThrower;
 
   public ngAfterViewInit() {
