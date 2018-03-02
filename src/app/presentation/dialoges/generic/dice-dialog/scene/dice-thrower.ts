@@ -32,6 +32,17 @@ export class DiceThrower {
     // Physics
     this._scene.enablePhysics(null, new BABYLON.OimoJSPlugin());
 
+    // Skybox
+    const skybox = BABYLON.Mesh.CreateBox('skyBox', 100.0, this._scene);
+    const skyboxMaterial = new BABYLON.StandardMaterial('skyBox', this._scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('/assets/textures/skybox/skybox', this._scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.disableLighting = true;
+    skybox.material = skyboxMaterial;
+
     // Dice
     const dieMaterial = MaterialFactory.getInstance().getDieMaterial(this._scene);
     this._dice.push(DieFactory.createDie(shadowGenerator, this._scene, dieMaterial));
