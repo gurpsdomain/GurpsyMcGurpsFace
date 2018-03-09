@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {Engine} from 'babylonjs';
 import {DiceThrower} from './scene/dice-thrower';
 
