@@ -3,6 +3,7 @@ export class MaterialFactory {
   private static _instance: MaterialFactory;
   private _dieMaterial: BABYLON.Material;
   private _wallnnutMaterial: BABYLON.Material;
+  private _skyboxMaterial: BABYLON.Material;
 
   public static getInstance(): MaterialFactory {
     if (!this._instance) {
@@ -23,6 +24,13 @@ export class MaterialFactory {
       this._wallnnutMaterial = this.createWallnutMaterial(scene);
     }
     return this._wallnnutMaterial;
+  }
+
+  public getSkyBoxMaterial(scene: BABYLON.Scene): BABYLON.Material {
+    if (!this._skyboxMaterial) {
+      this._skyboxMaterial = this.createSkyBoxMaterial(scene);
+    }
+    return this._skyboxMaterial;
   }
 
   private createDieMaterial(scene: BABYLON.Scene): BABYLON.Material {
@@ -75,5 +83,18 @@ export class MaterialFactory {
     material.freeze();
 
     return material;
+  }
+
+  private createSkyBoxMaterial(scene: BABYLON.Scene): BABYLON.Material {
+    const skyboxMaterial = new BABYLON.StandardMaterial('skyBox', scene);
+    skyboxMaterial.backFaceCulling = false;
+    skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture('assets/textures/skybox/skybox', scene);
+    skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+    skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
+    skyboxMaterial.disableLighting = true;
+    skyboxMaterial.freeze();
+
+    return skyboxMaterial;
   }
 }

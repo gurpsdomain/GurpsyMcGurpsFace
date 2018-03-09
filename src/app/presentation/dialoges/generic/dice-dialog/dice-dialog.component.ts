@@ -13,7 +13,6 @@ export class DiceDialogComponent implements AfterViewInit {
   public ngAfterViewInit() {
     this.game = new DiceThrower('renderCanvas');
     this.game.createScene();
-    this.game.animate();
   }
 
   public onRethrow(): void {
