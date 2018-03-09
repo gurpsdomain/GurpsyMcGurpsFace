@@ -5,7 +5,7 @@ import {MatDialog} from '@angular/material';
 import {NgModule} from '@angular/core';
 import {GurpsyAngularModule} from '../../../../modules/angular.module';
 import {GurpsyMaterialModule} from '../../../../modules/material.module';
-import {ImageCropperComponent} from 'ng2-img-cropper';
+import {ImageCropperComponent} from 'ngx-img-cropper';
 
 @NgModule({
   entryComponents: [
