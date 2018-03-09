@@ -9,4 +9,10 @@ describe('Dice Thrower', () => {
   it('should be created', () => {
     expect(diceThrower).toBeTruthy();
   });
+
+  it('[createScene] should create a scene without problems', () => {
+    diceThrower.createScene();
+
+    expect(diceThrower).toBeTruthy();
+  });
 });
