@@ -5,7 +5,9 @@ import {DiceTrayFactory} from './factories/dice-tray/dice-tray.factory';
 
 export class DiceThrower {
 
+
   private _canvas: HTMLCanvasElement;
+  private _scene: Scene;
   private _engine: Engine;
   private _dice: BABYLON.Mesh[] = [];
 
@@ -15,17 +17,17 @@ export class DiceThrower {
   }
 
   public createScene(): void {
-    const scene = new BABYLON.Scene(this._engine);
+    this._scene = new BABYLON.Scene(this._engine);
 
-    this.createCamera(scene);
-    const light = this.createLight(scene);
+    this.createCamera(this._scene);
+    const light = this.createLight(this._scene);
     const shadowGenerator = new BABYLON.ShadowGenerator(2048, light);
-    this.enablePhysics(scene);
-    this.createSkybox(scene);
-    this.createDice(scene, shadowGenerator);
-    this.createDiceTray(scene);
-    this.createPlayground(scene);
-    this.runRenderLoop(this._engine, scene);
+    this.enablePhysics(this._scene);
+    this.createSkybox(this._scene);
+    this.createDice(this._scene, shadowGenerator);
+    this.createDiceTray(this._scene);
+    this.createPlayground(this._scene);
+    this.runRenderLoop(this._engine, this._scene);
     this.addResizeHandler(this._engine);
   }
 
@@ -33,6 +35,12 @@ export class DiceThrower {
     for (const die of this._dice) {
       DieFactory.reposition(die);
     }
+  }
+
+  public cleanup(): void {
+    this._engine.stopRenderLoop();
+    this._scene.dispose();
+    this._engine.dispose();
   }
 
   private runRenderLoop(engine: BABYLON.Engine, scene: BABYLON.Scene): void {
@@ -88,6 +96,7 @@ export class DiceThrower {
     const camera = new BABYLON.FreeCamera('Camera', new BABYLON.Vector3(0, 20, -50), scene);
     camera.checkCollisions = true;
     camera.applyGravity = true;
+    camera.attachControl(this._canvas, true);
     camera.setTarget(new BABYLON.Vector3(0, 0, 0));
   }
 
